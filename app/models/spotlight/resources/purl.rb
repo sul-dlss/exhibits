@@ -1,4 +1,4 @@
-class Spotlight::Resource
+module Spotlight::Resources
   class Purl < Spotlight::Resource
     self.weight = -1000
 

@@ -1,4 +1,4 @@
-class Spotlight::Resource
+module Spotlight::Resources
   class Harvestdor < Spotlight::Resource
   end
 end
