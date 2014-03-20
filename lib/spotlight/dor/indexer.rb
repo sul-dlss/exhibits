@@ -108,17 +108,21 @@ module Spotlight::Dor
     def content_metadata_indexing item, solr_doc
       Solrizer.insert_field(solr_doc, 'content_metadata_type', item.content_metadata.xpath('/contentMetadata/@type').text, :symbol, :displayable)
 
-      item.content_metadata.xpath('//resource[@type="image"]/file/@id').each do |node|
-        if node.text =~ /jp2$/ and !solr_doc[Solrizer.solr_name('content_metadata_first_image_file_name', :displayable)]
-          Solrizer.insert_field(solr_doc, 'content_metadata_first_image_file_name', node.text.gsub(".jp2", ''), :displayable)
+      item.content_metadata.xpath('//resource[@type="image"]/file').each do |node|
+        file_id = node.attr('id').gsub(".jp2", '')
+
+        if node.attr('id') =~ /jp2$/ and !solr_doc[Solrizer.solr_name('content_metadata_first_image_file_name', :displayable)]
+          Solrizer.insert_field(solr_doc, 'content_metadata_first_image_file_name', file_id, :displayable)
+          Solrizer.insert_field(solr_doc, 'content_metadata_first_image_width', node.xpath('./imageData/@width').text, :displayable)
+          Solrizer.insert_field(solr_doc, 'content_metadata_first_image_height', node.xpath('./imageData/@height').text, :displayable)
         end
 
-        Solrizer.insert_field(solr_doc, 'content_metadata_image_file_name', node.text.gsub(".jp2", ''), :displayable)
-
-        Solrizer.insert_field(solr_doc, 'thumbnail_square_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{node.text.gsub(".jp2", '')}_square", :displayable)
-        Solrizer.insert_field(solr_doc, 'thumbnail_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{node.text.gsub(".jp2", '')}_thumb", :displayable)
-        Solrizer.insert_field(solr_doc, 'large_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{node.text.gsub(".jp2", '')}_large", :displayable)
-        Solrizer.insert_field(solr_doc, 'full_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{node.text.gsub(".jp2", '')}_full", :displayable)
+        Solrizer.insert_field(solr_doc, 'content_metadata_image_file_name', file_id, :displayable)
+        Solrizer.insert_field(solr_doc, 'content_metadata_image_iiif_info', "https://stacks.stanford.edu/image/iiif/#{solr_doc[:id]}%2F#{file_id}/info.json", :displayable)
+        Solrizer.insert_field(solr_doc, 'thumbnail_square_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_square", :displayable)
+        Solrizer.insert_field(solr_doc, 'thumbnail_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_thumb", :displayable)
+        Solrizer.insert_field(solr_doc, 'large_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_large", :displayable)
+        Solrizer.insert_field(solr_doc, 'full_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_full", :displayable)
 
       end
     rescue Harvestdor::Errors::MissingContentMetadata
@@ -208,7 +212,32 @@ module Spotlight::Dor
 
     def mods_cartographics_indexing item, solr_doc
       insert_field(solr_doc, "coordinates", Array(item.mods.subject.cartographics.coordinates).map { |n| n.text }, :stored_searchable)
-
+      
+      Array(item.mods.subject.cartographics.coordinates).map do |n|
+        next unless n.text =~ /^\(/ and n.text =~ /\)$/
+        
+        bbox = n.text.gsub(/[\(\)]/, '')
+        
+        lng, lat = bbox.split('/')
+        
+        minX,maxX = lng.split('--').map { |x| coord_to_decimal(x) }
+        maxY,minY = lat.split('--').map { |x| coord_to_decimal(x) }
+        
+        solr_doc["point_bbox"] ||= []
+        solr_doc["point_bbox"] << "#{minX} #{minY} #{maxX} #{maxY}"
+      end
+    end
+    
+    def coord_to_decimal point
+      regex = /(?<dir>[NESW])\s*(?<deg>\d+)°(?:(?<sec>\d+)ʹ)?/
+      match = regex.match(point)
+      dec = 0
+      
+      dec += match['deg'].to_i
+      dec += match['sec'].to_f / 60
+      dec = -1 * dec if match['dir'] == "W" or match['dir'] == "S"
+    
+      dec
     end
 
     def raise_exception_on_error?
