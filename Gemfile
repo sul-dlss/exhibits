@@ -58,6 +58,8 @@ group :production do
   gem 'mysql2'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
+  gem 'squash_ruby', require: 'squash/ruby'
+  gem 'squash_rails', require: 'squash/rails'
 end
 
 gem "blacklight"
