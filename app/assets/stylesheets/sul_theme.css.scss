@@ -1,0 +1,21 @@
+$stanfordRed: #990000;
+$brand-primary: $stanfordRed;
+$navbar-inverse-bg: #101010;
+$navbar-inverse-border: #000;
+$navbar-default-border: #ddd;
+$panel-default-heading-bg: #f7f7f7;
+$navbar-default-link-hover-bg: #eee;
+$navbar-default-link-color: #000;
+$navbar-default-link-active-color: #555;
+$navbar-default-link-active-bg: #ebebeb;
+
+#exhibit-navbar .navbar-nav {
+    > li {
+      &:last {
+        border-right: 0;
+      }
+
+      border-right: 1px solid $navbar-default-link-active-bg;
+      }
+
+  }

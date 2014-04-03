@@ -1,0 +1,27 @@
+@import 'sul_theme';
+@import 'spotlight/variables_bootstrap';
+@import 'bootstrap';
+@import 'blacklight/blacklight';
+@import 'spotlight/spotlight';
+
+
+#header-navbar {
+  .navbar-brand {  /* The main logo image for the Blacklight instance */
+    width: 350px;
+    height: 50px;
+    background:transparent image-url("sul.png") no-repeat center left;
+  }
+} 
+
+.blacklight-catalog-show {
+  #content {
+    width: 100%;
+  }
+  #sidebar {
+    display: none;
+  }
+}
+
+.dl-horizontal dd:after {
+  clear: none !important;
+}
