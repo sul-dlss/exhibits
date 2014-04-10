@@ -1,0 +1,10 @@
+<div class="find-this-item dl-horizontal">
+  <%= link_to("#{Settings.purl.link.prefix}#{@document.id}", "#{Settings.purl.link.prefix}#{@document.id}") %>
+  <div data-find-this-item='<%= searchworks_item_path(@document.id) %>' style='display: none;'>
+    <h5>SearchWorks</h5>
+    <dl data-find-this-item-collection='true' class="dl-invert">
+      <dt>Item:</dt>
+      <dd><%= link_to(presenter(@document).document_heading, "#{Settings.searchworks.link.prefix}#{@document.id}") %></dd>
+    </dl>
+  </div>
+</div>

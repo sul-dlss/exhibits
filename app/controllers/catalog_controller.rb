@@ -9,6 +9,10 @@ class CatalogController < ApplicationController
     blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
   end
 
+  before_filter do
+    blacklight_config.show.partials.append(:find_this_item)
+  end
+
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
