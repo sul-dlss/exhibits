@@ -1,2 +1,1 @@
-//= require bootstrap/carousel
-
+//= require blacklight_gallery/slideshow
