@@ -75,3 +75,4 @@ gem "jettywrapper"
 gem "devise"
 gem "devise-guests", "~> 0.3"
 gem 'devise-remote-user'
+gem "spotlight-dor-resources", github: "sul-dlss/spotlight-dor-resources"
