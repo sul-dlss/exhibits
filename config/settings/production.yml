@@ -1,0 +1,9 @@
+searchworks:
+  api:
+    prefix: "http://searchworks.stanford.edu/view/"
+    suffix: ".mobile"
+  link:
+    prefix: "http://searchworks.stanford.edu/view/"
+purl:
+  link:
+    prefix: "http://purl.stanford.edu/"

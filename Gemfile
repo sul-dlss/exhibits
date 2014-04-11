@@ -63,6 +63,8 @@ end
 gem 'squash_ruby', require: 'squash/ruby'
 gem 'squash_rails', require: 'squash/rails'
 
+gem "rails_config"
+
 gem "blacklight"
 gem "blacklight-gallery", github: "projectblacklight/blacklight-gallery"
 gem "blacklight-maps", github: "sul-dlss/blacklight-maps"

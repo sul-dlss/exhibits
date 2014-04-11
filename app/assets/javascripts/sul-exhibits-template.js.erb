@@ -1,0 +1,16 @@
+Spotlight.onLoad(function(){
+  $("[data-find-this-item]").each(function(){
+    var container = $(this)
+    var url = container.data('find-this-item');
+    var collection_target = $("[data-find-this-item-collection]", container)
+    $.ajax({ accepts: "json", url: url }).success(function(data){
+      if ( !data.error ) {
+        var collection = data.collection;
+        if ( collection ) {
+          collection_target.append('<dt>Collection:</dt><dd><a href="<%= Settings.searchworks.link.prefix %>' + collection.id + '">' + collection.title + '</a></dd>') 
+        }
+        container.show();
+      }
+    });
+  });
+});
