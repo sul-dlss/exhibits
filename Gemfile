@@ -74,3 +74,4 @@ gem "sir-trevor-rails", github: "sul-dlss/sir-trevor-rails"
 gem "jettywrapper"
 gem "devise"
 gem "devise-guests", "~> 0.3"
+gem 'devise-remote-user'

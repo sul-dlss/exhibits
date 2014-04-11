@@ -147,6 +147,9 @@ GEM
       warden (~> 1.2.3)
     devise-guests (0.3.3)
       devise
+    devise-remote-user (0.3.0)
+      devise
+      rails (>= 3.2, < 5.0)
     erubis (2.7.0)
     execjs (2.0.2)
     faraday (0.8.9)
@@ -311,6 +314,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   devise-guests (~> 0.3)
+  devise-remote-user
   jbuilder (~> 1.2)
   jettywrapper
   jquery-rails
