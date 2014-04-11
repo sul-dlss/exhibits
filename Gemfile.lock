@@ -45,7 +45,7 @@ GIT
 
 GIT
   remote: git://github.com/sul-dlss/spotlight.git
-  revision: 0c20cb4ee925a928281f8bf1b001666ab81d10d5
+  revision: 344cf53df71dcb199f058a7dac717d6143152cf7
   specs:
     blacklight-spotlight (0.0.4)
       active_model_serializers (>= 0.9.0.alpha1)
@@ -279,11 +279,11 @@ GEM
       builder (>= 2.1.2)
     ruby-oembed (0.8.9)
     sass (3.2.19)
-    sass-rails (4.0.2)
+    sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
-      sprockets-rails (~> 2.0.0)
+      sprockets-rails (~> 2.0)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
