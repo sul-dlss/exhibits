@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403162937) do
+ActiveRecord::Schema.define(version: 20140411172802) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "user_id",     null: false
@@ -122,6 +122,17 @@ ActiveRecord::Schema.define(version: 20140403162937) do
   add_index "spotlight_exhibits", ["default"], name: "index_spotlight_exhibits_on_default", unique: true
   add_index "spotlight_exhibits", ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
 
+  create_table "spotlight_main_navigations", force: true do |t|
+    t.string   "label"
+    t.integer  "weight",     default: 20
+    t.string   "nav_type"
+    t.integer  "exhibit_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spotlight_main_navigations", ["exhibit_id"], name: "index_spotlight_main_navigations_on_exhibit_id"
+
   create_table "spotlight_pages", force: true do |t|
     t.string   "title"
     t.string   "type"
@@ -171,10 +182,10 @@ ActiveRecord::Schema.define(version: 20140403162937) do
     t.text     "query_params"
     t.integer  "weight"
     t.boolean  "on_landing_page"
-    t.string   "featured_image"
     t.integer  "exhibit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "featured_item_id"
   end
 
   add_index "spotlight_searches", ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
