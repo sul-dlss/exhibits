@@ -68,7 +68,7 @@ gem "rails_config"
 gem "blacklight"
 gem "blacklight-gallery", github: "projectblacklight/blacklight-gallery"
 gem "blacklight-maps", github: "sul-dlss/blacklight-maps"
-gem 'openseadragon', "~> 0.0.5"
+gem 'openseadragon', :github => 'sul-dlss/openseadragon-rails'
 gem "blacklight-spotlight", github: "sul-dlss/spotlight"
 gem "sir-trevor-rails", github: "sul-dlss/sir-trevor-rails"
 gem "jettywrapper"

@@ -20,6 +20,13 @@ GIT
       rails
 
 GIT
+  remote: git://github.com/sul-dlss/openseadragon-rails.git
+  revision: 67ee3305c2bf29acec88887b3e2aec081ebbb93d
+  specs:
+    openseadragon (0.0.5)
+      rails (> 3.2.0)
+
+GIT
   remote: git://github.com/sul-dlss/sir-trevor-rails.git
   revision: 5350ffe1536dcd28725b22cc97e86e3042a19145
   specs:
@@ -247,8 +254,6 @@ GEM
       builder (>= 2.0.0)
       faraday
       faraday_middleware
-    openseadragon (0.0.5)
-      rails (> 3.2.0)
     orm_adapter (0.5.0)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -367,7 +372,7 @@ DEPENDENCIES
   jquery-rails
   lyberteam-capistrano-devel (= 3.0.0.pre1)
   mysql2
-  openseadragon (~> 0.0.5)
+  openseadragon!
   rails (= 4.0.4)
   rails_config
   sass-rails (~> 4.0.2)
