@@ -190,7 +190,7 @@ GEM
       rsolr
       stanford-mods
     hike (1.2.3)
-    holepicker (0.3.2)
+    holepicker (0.3.3)
       json (~> 1.8)
       rainbow (~> 2.0)
     i18n (0.6.9)
