@@ -3,7 +3,13 @@ SulExhibitsTemplate::Application.routes.draw do
   mount Spotlight::Engine, at: 'spotlight'
 #  root :to => "catalog#index" # replaced by spotlight_root
   blacklight_for :catalog
-  devise_for :users
+
+  devise_for :users, skip: [:sessions]
+  devise_scope :user do
+    get "users/auth/webauth" => "login#login", as: :new_user_session
+    match 'users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session, :via => Devise.mappings[:user].sign_out_via
+  end
+
   resources :search_works_item, only: :show, as: :searchworks_item
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
