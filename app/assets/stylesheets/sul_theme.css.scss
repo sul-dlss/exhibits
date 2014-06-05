@@ -17,6 +17,8 @@ $navbar-default-link-color: #000;
 $navbar-default-link-active-color: #555;
 $navbar-default-link-active-bg: #ebebeb;
 
+$link-color: $black;
+
 
 #exhibit-masthead {
   background-color: $beige10;
@@ -93,3 +95,22 @@ $navbar-default-link-active-bg: #ebebeb;
   }
 }
 
+body {
+  background-color: $beige5;
+  font-family: 'Source Sans Pro',Arial,sans-serif;
+}
+
+a {
+  color: $link-color;
+  &:active, &:hover {
+    color: $link-color;
+  }
+}
+
+.sidenav a, p a, .content-block a {
+  color: $cardinalRed;
+  &:active, &:hover {
+    color: $cardinalRed;
+    text-decoration: dotted;
+  }
+}
