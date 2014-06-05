@@ -96,6 +96,18 @@ $link-color: $black;
   }
 }
 
+button#search {
+  background-color: $beige10;
+  border-color: #cccccc;
+  .glyphicon-search {
+    color: #777777;
+  }
+}
+
+.breadcrumb {
+  background-color: $beige10;
+}
+
 // Global //
 body {
   background-color: $beige5;
@@ -192,6 +204,10 @@ h2 {
 
 
 // Facets //
+.top-panel-heading {
+  padding-left: 0;
+}
+
 h5.panel-title > a {
   color: $link-color;
   &:active, &:hover {
@@ -239,4 +255,10 @@ h5.panel-title > a {
     background-color: $beige10;
     color: $cardinalRed;
   }
+}
+
+// Site Footer //
+footer {
+  background-color: #f2f1eb;
+  border-top: 1px solid #dddddd;
 }
