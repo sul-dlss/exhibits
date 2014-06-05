@@ -114,3 +114,39 @@ a {
     text-decoration: dotted;
   }
 }
+
+h5.panel-title > a {
+  color: $link-color;
+  &:active, &:hover {
+    color: $link-color;
+    text-decoration: none;
+  }
+}
+
+.panel-default > .panel-heading {
+  color: $link-color;
+  background-color: $beige10;
+  border-color: $beige40;
+}
+
+.panel-success > .panel-heading, .facet_limit-active > .panel-heading {
+  color: $link-color;
+  background-color: $beige10;
+  border-color: $beige40;
+}
+
+.panel-success, .facet_limit-active {
+  border-color: $beige40;
+}
+
+.facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
+  border-color: $beige40;
+}
+
+.facet-values li .selected {
+  color: $link-color;
+}
+
+.well, .constraints-container {
+  background-color: $beige5;
+}
