@@ -5,6 +5,7 @@ $black: #2e2d29;
 $beige10: #f2f1eb;
 $beige40: #d5d0c0;
 $beige5: #fbfbf9;
+$darkGray: #696969;
 
 $brand-primary: $cardinalRed;
 $brandbar-height: 35px;
@@ -19,7 +20,7 @@ $navbar-default-link-active-bg: #ebebeb;
 
 $link-color: $black;
 
-
+// Site Header //
 #exhibit-masthead {
   background-color: $beige10;
   padding: 12px 0;
@@ -95,6 +96,7 @@ $link-color: $black;
   }
 }
 
+// Global //
 body {
   background-color: $beige5;
   font-family: 'Source Sans Pro',Arial,sans-serif;
@@ -115,6 +117,81 @@ a {
   }
 }
 
+p {
+  color: $darkGray;
+  line-height: 1.6;
+  padding: 0 0 11px;
+}
+
+#main-container h1 {
+  font-size: 26px;
+  margin-left: 12px;
+  margin-top: 8px;
+  &.page-title {
+    margin-left: 0px;
+  }
+  &.media-heading {
+    margin-left: 0;
+  }
+}
+
+h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #eae9e6;
+  padding-bottom: 5px;
+}
+
+.media.row {
+  margin-left: 0;
+  > img {
+    margin-top: 10px;
+  }
+}
+
+.media-heading {
+  font-size: 18px;
+  a {
+    margin-right: 6px;
+  }
+}
+
+.media-body {
+  padding-left: 10px;
+  > .item-count {
+    color: #5f574f;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+}
+
+.thumbnail {
+  background-color: $beige5;
+  border: none;
+  img {
+    max-height: 200px;
+  }
+}
+
+.caption, .primary-caption, .secondary-caption {
+  line-height: 1.3;
+}
+
+.documentHeader {
+  margin-left: 0;
+}
+
+.document-thumbnail img {
+  max-height: 200px;
+}
+
+.caption .document-metadata {
+  margin-bottom: 0;
+}
+
+
+// Facets //
 h5.panel-title > a {
   color: $link-color;
   &:active, &:hover {
@@ -149,4 +226,17 @@ h5.panel-title > a {
 
 .well, .constraints-container {
   background-color: $beige5;
+}
+
+// Results Page //
+.dropdown-toggle.btn-default:hover, .dropdown-toggle.btn-default:active {
+  background-color: $beige10;
+}
+
+.dropdown-menu > li > a, .dropdown-menu > li > a {
+  color: $cardinalRed;
+  &:hover, &:focus {
+    background-color: $beige10;
+    color: $cardinalRed;
+  }
 }
