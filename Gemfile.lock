@@ -21,7 +21,7 @@ GIT
 
 GIT
   remote: git://github.com/sul-dlss/openseadragon-rails.git
-  revision: 67ee3305c2bf29acec88887b3e2aec081ebbb93d
+  revision: afe09fa081b0a4f854cbeb0c4f9cba7edda17ea9
   specs:
     openseadragon (0.0.5)
       rails (> 3.2.0)
@@ -52,14 +52,14 @@ GIT
 
 GIT
   remote: git://github.com/sul-dlss/spotlight.git
-  revision: 484956826ff46d10b4b7a5cd99ed6cd2d3ddfc26
+  revision: b7c7563ae8d0ee804ad616976028a6e8392efcfa
   specs:
     blacklight-spotlight (0.0.4)
       active_model_serializers (>= 0.9.0.alpha1)
       acts-as-taggable-on (= 3.1.0)
       blacklight (>= 5.4.0.rc1, < 6)
       blacklight-gallery
-      bootstrap_form (~> 2.0.1)
+      bootstrap_form (~> 2.1.0)
       breadcrumbs_on_rails (~> 2.3.0)
       cancancan
       carrierwave
@@ -71,7 +71,7 @@ GIT
       mini_magick
       nokogiri
       openseadragon (>= 0.0.5)
-      rails (~> 4.0.1)
+      rails (~> 4.0, >= 4.0.1)
       ruby-oembed
       sir-trevor-rails
       social-share-button (~> 0.1.5)
@@ -120,7 +120,7 @@ GEM
       rsolr (~> 1.0.6)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
-    bootstrap_form (2.0.1)
+    bootstrap_form (2.1.1)
     breadcrumbs_on_rails (2.3.0)
     builder (3.1.4)
     cancancan (1.8.1)
@@ -177,7 +177,7 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.3)
-    friendly_id (5.0.3)
+    friendly_id (5.0.4)
       activerecord (>= 4.0.0)
     harvestdor (0.0.12)
       confstruct
@@ -254,7 +254,7 @@ GEM
       faraday
       faraday_middleware
     orm_adapter (0.5.0)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
