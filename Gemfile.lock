@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/sul-dlss/blacklight-maps.git
-  revision: 61d7d47a0cf2a6ea814a65297f86c78cc10ea32c
+  revision: 86501001709732f15d89ec40e7c0604125e0c1e5
   specs:
     blacklight-maps (0.1.0)
       blacklight (>= 5.1.0)
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: git://github.com/sul-dlss/spotlight-dor-resources.git
-  revision: adc449cc08e515ddc77f0a817aa8b6ab77973531
+  revision: 4a7171848f694b0247f25fa64fd1c423103d061a
   specs:
     spotlight-dor-resources (0.0.1)
       blacklight-spotlight
@@ -124,7 +124,7 @@ GEM
     breadcrumbs_on_rails (2.3.0)
     builder (3.1.4)
     cancancan (1.8.1)
-    capistrano (3.1.0)
+    capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
@@ -146,7 +146,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    childprocess (0.5.2)
+    childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -155,6 +155,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    colorize (0.7.3)
     confstruct (0.2.7)
     daemons (1.1.9)
     deprecation (0.1.0)
@@ -167,7 +168,7 @@ GEM
       warden (~> 1.2.3)
     devise-guests (0.3.3)
       devise
-    devise-remote-user (0.3.0)
+    devise-remote-user (0.4.0)
       devise
       rails (>= 3.2, < 5.0)
     erubis (2.7.0)
@@ -212,8 +213,8 @@ GEM
       activesupport (>= 3.0.0)
     leaflet-markercluster-rails (0.7.0)
       railties (>= 3.1)
-    leaflet-rails (0.7.2)
-    leaflet-sidebar-rails (0.0.2)
+    leaflet-rails (0.7.3)
+    leaflet-sidebar-rails (0.0.3)
     libv8 (3.16.14.3)
     logger (1.2.8)
     lyberteam-capistrano-devel (3.0.0.pre1)
@@ -239,10 +240,10 @@ GEM
       nom-xml
     multi_json (1.10.1)
     multipart-post (2.0.0)
-    mysql2 (0.3.15)
-    net-scp (1.1.2)
+    mysql2 (0.3.16)
+    net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.8.0)
+    net-ssh (2.9.1)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     nom-xml (0.5.1)
@@ -266,7 +267,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.5)
       sprockets-rails (~> 2.0.0)
-    rails_config (0.3.3)
+    rails_config (0.4.2)
       activesupport (>= 3.0)
     railties (4.0.5)
       actionpack (= 4.0.5)
@@ -294,7 +295,7 @@ GEM
     social-share-button (0.1.6)
       coffee-rails
       sass-rails
-    solrizer (3.1.1)
+    solrizer (3.2.0)
       activesupport
       daemons
       mediashelf-loggable (~> 0.4.7)
@@ -315,27 +316,24 @@ GEM
       squash_ruby
     squash_ruby (1.4.0)
       json
-    sshkit (1.3.0)
+    sshkit (1.5.1)
+      colorize
       net-scp (>= 1.1.2)
-      net-ssh
-      term-ansicolor
-    stanford-mods (0.0.24)
+      net-ssh (>= 2.8.0)
+    stanford-mods (0.0.27)
       mods
     stomp (1.3.2)
     subexec (0.2.3)
-    term-ansicolor (1.3.0)
-      tins (~> 1.0)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    tins (1.0.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.1)
+    turbolinks (2.2.2)
       coffee-rails
     twitter-text (1.9.0)
       unf (~> 0.1.0)
