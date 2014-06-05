@@ -257,8 +257,37 @@ h5.panel-title > a {
   }
 }
 
+// Catalog Show Page //
+.blacklight-catalog-show {
+  #content {
+    width: 100%;
+  }
+  #sidebar {
+    display: none;
+  }
+}
+
+.dl-horizontal dd:after {
+  clear: none !important;
+}
+
+.find-this-item {
+  h4 {
+    color: $cardinalRed;
+    margin-left: 30px;
+  }
+  h5 {
+    margin-left: 50px;
+  }
+}
+
 // Site Footer //
 footer {
   background-color: #f2f1eb;
   border-top: 1px solid #dddddd;
+}
+
+// Admin/Curator Mode //
+.blacklight-home_pages-show .edit-button {
+  margin-bottom: 1em;
 }
