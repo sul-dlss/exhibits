@@ -2,9 +2,12 @@ $stanfordRed: #990000;
 $cardinalRed: #8C1515;
 $darkRed: #820000;
 $black: #2e2d29;
-$beige10: #f2f1eb;
-$beige40: #d5d0c0;
 $beige5: #fbfbf9;
+$beige10: #f2f1eb;
+$beige20: #e9e6df;
+$beige40: #d5d0c0;
+$beige85: #aca68d;
+$beige: #9d9573;
 $darkGray: #696969;
 
 $brand-primary: $cardinalRed;
@@ -41,15 +44,18 @@ $link-color: $black;
       text-align: right;
     }
     .navbar-nav {
-      > .active > a, > .open > a, > .open > a:hover, > .open > a:focus {
+      > .active > a {
         background-color: $beige10;
+      }
+      > .open > a, > .open > a:hover, > .open > a:focus {
+        background-color: $beige20;
       }
       > li {
         border-right: none;
         > a {
           font-size: 16px;
           &:hover {
-            background-color: $beige10;
+            background-color: $beige20;
           }
         }
       }
@@ -129,6 +135,10 @@ a {
   }
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: $beige10;
+}
+
 p {
   color: $darkGray;
   line-height: 1.6;
@@ -139,7 +149,7 @@ p {
   font-size: 26px;
   margin-left: 12px;
   margin-top: 8px;
-  &.page-title {
+  &.page-title, &.page-header {
     margin-left: 0px;
   }
   &.media-heading {
@@ -202,6 +212,15 @@ h2 {
   margin-bottom: 0;
 }
 
+.pagination > .active > a, .pagination > .active > a:hover {
+  background-color: #5f574f;
+  border-color: $black;
+}
+
+.btn-info {
+  background-color: $beige85;
+  border-color: $beige;
+}
 
 // Facets //
 .top-panel-heading {
@@ -218,8 +237,9 @@ h5.panel-title > a {
 
 .panel-default > .panel-heading {
   color: $link-color;
-  background-color: $beige10;
-  border-color: $beige40;
+//  background-color: $beige10;
+//  border-color: $beige40;
+  background-color: #f7f7f7;
 }
 
 .panel-success > .panel-heading, .facet_limit-active > .panel-heading {
@@ -281,6 +301,14 @@ h5.panel-title > a {
   }
 }
 
+#previousNextDocument {
+  padding-bottom: 0;
+}
+
+.osd-toolbar .controls .glyphicon {
+  color: #5f574f;
+}
+
 // Site Footer //
 footer {
   background-color: #f2f1eb;
@@ -290,4 +318,22 @@ footer {
 // Admin/Curator Mode //
 .blacklight-home_pages-show .edit-button {
   margin-bottom: 1em;
+}
+
+// Curator Mode - Widgets //
+.content-block {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  img {
+    max-height: 175px;
+  }
+  &.item-text {
+    margin-right: 10px;
+    > .image-block.pull-left {
+      margin-left: 15px;
+    }
+    p {
+      margin-left: 17px;
+    }
+  }
 }
