@@ -78,6 +78,8 @@ $link-color: $black;
     background-color: $cardinalRed;
     .navbar-nav > li > a {
       color: #ddd;
+      padding-top: 8px;
+      padding-bottom: 0;
     }
     .navbar-nav > .open > a,
     .navbar-inverse .navbar-nav > .open > a:hover,
@@ -226,7 +228,7 @@ h2 {
   // temporary // 
 .blacklight-home_pages-show {
   .col-md-9 {
-    margin-top: 25px;
+    margin-top: 15px;
   }
 }
 
