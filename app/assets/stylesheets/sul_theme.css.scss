@@ -247,23 +247,21 @@ h5.panel-title > a {
 
 .panel-default > .panel-heading {
   color: $link-color;
-//  background-color: $beige10;
-//  border-color: $beige40;
   background-color: #f7f7f7;
 }
 
 .panel-success > .panel-heading, .facet_limit-active > .panel-heading {
   color: $link-color;
-  background-color: $beige10;
-  border-color: $beige40;
+  background-color: #f7f7f7;
+  border-color: #dddddd;
 }
 
 .panel-success, .facet_limit-active {
-  border-color: $beige40;
+  border-color: #dddddd;
 }
 
 .facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
-  border-color: $beige40;
+  border-color: #dddddd;
 }
 
 .facet-values li .selected {
@@ -285,6 +283,10 @@ h5.panel-title > a {
     background-color: $beige10;
     color: $cardinalRed;
   }
+}
+
+form.bookmark_toggle {
+  display: none;
 }
 
 // Catalog Show Page //
