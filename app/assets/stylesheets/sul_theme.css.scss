@@ -423,6 +423,12 @@ footer {
       }
     }
   }
+  &.image-block {
+    text-align: center;
+    img {
+      max-width: 100%;
+    }
+  }
   .image-block.pull-left {
     margin-right: 10px;
   }
