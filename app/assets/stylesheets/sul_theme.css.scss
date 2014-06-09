@@ -392,6 +392,9 @@ footer {
 
 // Curator Mode - Widgets //
 .content-block {
+  &.row {
+    margin-left: 0;
+  }
   margin-bottom: 10px;
   margin-top: 10px;
   img {
