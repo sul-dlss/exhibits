@@ -410,6 +410,19 @@ footer {
     background-color: $beige10;
     border-color: $beige40;
   }
+  &.item-features {
+    .carousel .slideshow-indicators li {
+      border-color: $beige40;
+      border-radius: 0;
+      &:nth-child(odd) {
+        background-color: $beige5;
+      }
+      &.active {
+        background-color: $beige10;
+        color: #3F3C30;
+      }
+    }
+  }
   .image-block.pull-left {
     margin-right: 10px;
   }
