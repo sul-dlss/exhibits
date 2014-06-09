@@ -270,10 +270,6 @@ h5.panel-title > a {
   color: $link-color;
 }
 
-.well, .constraints-container {
-  background-color: $beige5;
-}
-
 // Results Page //
 .dropdown-toggle.btn-default:hover, .dropdown-toggle.btn-default:active {
   background-color: $beige10;
@@ -287,8 +283,46 @@ h5.panel-title > a {
   }
 }
 
+.well, .constraints-container {
+  background-color: $beige5;
+}
+
+.constraints-container {
+  border: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  .constraints-label {
+    margin-right: 10px;
+  }
+  .constraint-value {
+    border-radius: 10px;
+  }
+  a.btn.btn-default.btn-sm.remove.dropdown-toggle {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    &:hover, &:active {
+      background-color: $darkRed;
+    }
+  }
+  a.catalog_startOverLink {
+    display: none;
+  }
+}
+
+#sortAndPerPage strong {
+  color: #777;
+}
 form.bookmark_toggle {
   display: none;
+}
+
+h5.index_title {
+  font-size: 16px;
+  a {
+    border-bottom: 1px dotted $beige85;
+    text-decoration: none;
+  }
 }
 
 // Catalog Show Page //
