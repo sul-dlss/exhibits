@@ -53,7 +53,7 @@ $link-color: $black;
       > li {
         border-right: none;
         > a {
-          font-size: 16px;
+          font-size: 17px;
           &:hover {
             background-color: $beige20;
           }
@@ -137,7 +137,9 @@ a {
   }
 }
 
-.nav > li > a:hover, .nav > li > a:focus {
+.nav > li > a:hover, .nav > li > a:focus,
+#sidebar ol.sidenav li a:hover,
+#sidebar ol.sidenav li a:focus {
   background-color: $beige10;
 }
 
