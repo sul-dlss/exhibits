@@ -406,6 +406,10 @@ footer {
       margin-left: 15px;
     }
   }
+  &.slideshow-block {
+    background-color: $beige10;
+    border-color: $beige40;
+  }
   .image-block.pull-left {
     margin-right: 10px;
   }
