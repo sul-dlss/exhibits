@@ -140,7 +140,7 @@ a {
   }
 }
 
-.sidenav a, p a, .content-block a {
+.sidenav a, p a, .content-block p > a {
   color: $cardinalRed;
   &:active, &:hover {
     color: $cardinalRed;
@@ -435,4 +435,12 @@ footer {
   .image-block.pull-right {
     margin-left: 10px;
   }
+//  &.documents {
+//    .index_title a {
+//      color: $link-color;
+//      &:active, &:hover {
+//        color: $link-color;
+//      }
+//    }
+//  }
 }
