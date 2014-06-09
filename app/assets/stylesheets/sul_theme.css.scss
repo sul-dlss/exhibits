@@ -2,6 +2,7 @@ $stanfordRed: #990000;
 $cardinalRed: #8C1515;
 $darkRed: #820000;
 $black: #2e2d29;
+$black80: #585754;
 $beige5: #fbfbf9;
 $beige10: #f2f1eb;
 $beige20: #e9e6df;
@@ -367,6 +368,14 @@ h5.index_title {
 
 .osd-toolbar .controls .glyphicon {
   color: #5f574f;
+}
+
+// Feature Pages //
+#sidebar ol.sidenav li > h4 {
+  margin-top: 15px;
+  a {
+    color: $black80;
+  }
 }
 
 // Site Footer //
