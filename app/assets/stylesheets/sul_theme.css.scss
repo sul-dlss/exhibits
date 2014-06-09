@@ -9,6 +9,7 @@ $beige20: #e9e6df;
 $beige40: #d5d0c0;
 $beige85: #aca68d;
 $beige: #9d9573;
+$gray: #3F3C30;
 $gray90: #565347;
 $darkGray: #696969;
 
@@ -154,7 +155,7 @@ a {
 }
 
 p {
-  color: $darkGray;
+  color: $gray;
   line-height: 1.6;
   padding: 0 0 11px;
 }
@@ -401,8 +402,11 @@ footer {
     > .image-block.pull-left {
       margin-left: 15px;
     }
-    p {
-      margin-left: 17px;
-    }
+  }
+  .image-block.pull-left {
+    margin-right: 10px;
+  }
+  .image-block.pull-right {
+    margin-left: 10px;
   }
 }
