@@ -26,6 +26,15 @@ $navbar-default-link-active-bg: #ebebeb;
 
 $link-color: $black;
 
+@mixin tag-styling {
+  background-color: $beige20;
+  border: 1px solid $beige85;
+  font-weight: 500;
+  a {
+    color: $gray90;
+  }
+}
+
 // Site Header //
 #exhibit-masthead {
   background-color: $beige10;
@@ -371,6 +380,10 @@ h5.index_title {
   color: #5f574f;
 }
 
+#document ul.tags li {
+  @include tag-styling;
+}
+
 // Feature Pages //
 #sidebar ol.sidenav li > h4 {
   margin-top: 15px;
@@ -388,6 +401,11 @@ footer {
 // Admin/Curator Mode //
 .blacklight-home_pages-show .edit-button {
   margin-bottom: 1em;
+}
+
+.bootstrap-tagsinput .tag {
+  color: $gray90;
+  @include tag-styling;
 }
 
 // Curator Mode - Widgets //
@@ -435,12 +453,4 @@ footer {
   .image-block.pull-right {
     margin-left: 10px;
   }
-//  &.documents {
-//    .index_title a {
-//      color: $link-color;
-//      &:active, &:hover {
-//        color: $link-color;
-//      }
-//    }
-//  }
 }
