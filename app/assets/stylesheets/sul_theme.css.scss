@@ -8,6 +8,7 @@ $beige20: #e9e6df;
 $beige40: #d5d0c0;
 $beige85: #aca68d;
 $beige: #9d9573;
+$gray90: #565347;
 $darkGray: #696969;
 
 $brand-primary: $cardinalRed;
@@ -37,6 +38,9 @@ $link-color: $black;
 }
 
 #exhibit-navbar {
+  &.navbar {
+    margin-bottom: 10px;
+  }
   &.navbar-default {
     background-color: $beige5;
     .navbar-form {
@@ -113,7 +117,12 @@ button#search {
 }
 
 .breadcrumb {
-  background-color: $beige10;
+  background-color: transparent;
+  border-bottom: 1px solid $beige20;
+  border-radius: 0;
+  font-size: 13px;
+  margin-bottom: 6px;
+  padding-left: 0;
 }
 
 // Global //
@@ -230,7 +239,10 @@ h2 {
   // temporary // 
 .blacklight-home_pages-show {
   .col-md-9 {
-    margin-top: 15px;
+    margin-top: 30px;
+  }
+  #sidebar {
+    margin-top: 12px;
   }
 }
 
