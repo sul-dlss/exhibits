@@ -26,7 +26,7 @@ set :log_level, :info
 set :linked_files, %w{config/database.yml config/solr.yml config/harvestdor.yml config/initializers/secret_token.rb config/initializers/squash.rb public/.htaccess}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system config/environments}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/environments}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
