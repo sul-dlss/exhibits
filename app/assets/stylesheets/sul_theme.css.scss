@@ -6,6 +6,7 @@ $black80: #585754;
 $beige5: #fbfbf9;
 $beige10: #f2f1eb;
 $beige20: #e9e6df;
+$beige30: #e3dfd5;
 $beige40: #d5d0c0;
 $beige85: #aca68d;
 $beige: #9d9573;
@@ -26,6 +27,7 @@ $navbar-default-link-active-bg: #ebebeb;
 
 $link-color: $black;
 
+// Mixins //
 @mixin tag-styling {
   background-color: $beige20;
   border: 1px solid $beige85;
@@ -33,6 +35,13 @@ $link-color: $black;
   a {
     color: $gray90;
   }
+}
+
+@mixin caption-styling {
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.3;
+  margin: 6px;
 }
 
 // Site Header //
@@ -218,10 +227,6 @@ h2 {
   img {
     max-height: 200px;
   }
-}
-
-.caption, .primary-caption, .secondary-caption {
-  line-height: 1.3;
 }
 
 .documentHeader {
@@ -420,8 +425,31 @@ footer {
   }
   &.item-text {
     margin-right: 10px;
-    > .image-block.pull-left {
-      margin-left: 15px;
+    > .image-block {
+      background-color: $beige10;
+      border: 1px solid $beige30;
+      &.pull-left {
+        margin-left: 15px;
+        margin-right: 20px;
+        > .thumbnail {
+          margin-right: 0;
+        }
+      }
+      &.pull-right {
+        margin-left: 20px;
+        margin-right: 15px;
+        > .thumbnail {
+          margin-left: 0;
+        }
+      }
+      > .thumbnail {
+        border: 1px solid $beige30;
+        margin-bottom: 0;
+        padding: 0;
+      }
+    }
+    .primary-caption, .secondary-caption {
+      @include caption-styling;
     }
   }
   &.slideshow-block {
@@ -439,6 +467,11 @@ footer {
         background-color: $beige10;
         color: #3F3C30;
       }
+    }
+  }
+  &.spotlight-flexbox {
+    .box .caption {
+      @include caption-styling;
     }
   }
   &.image-block {
