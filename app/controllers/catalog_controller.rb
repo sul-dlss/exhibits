@@ -86,6 +86,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display 
+    config.add_index_field 'id', label: "DRUID", if: :current_user
     config.add_index_field 'identifier_tesim', label: "Identifier"
     config.add_index_field 'language_ssm', label: 'Language'
     config.add_index_field 'abstract_tesim', label: 'Abstract'
@@ -107,6 +108,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
+    config.add_show_field 'id', label: "DRUID", if: :current_user
     config.add_show_field 'note_phys_desc_tesim', label: 'Note'
     config.add_show_field 'note_source_tesim', label: 'Source'
     config.add_show_field 'note_desc_note_tesim', label: 'Note'
