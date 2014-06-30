@@ -1,0 +1,22 @@
+<footer>
+  <div class="sul-footer-container row">
+    <div class="sul-footer col-sm-10">
+      <div class="row">
+        <div class="sul-footer-img col-sm-2 col-sm-offset-1 hidden-xs">
+          <%= image_tag("SUL-Logo-Small-h25.png") %>
+        </div>
+        <div class="sul-footer-links col-md-8">
+          <ul>
+            <li><%= link_to "Stanford University Libraries", "http://library.stanford.edu" %></li>
+            <li><%= link_to "Hours &amp; locations".html_safe,
+              "http://library.stanford.edu/hours" %></li>
+            <li><%= link_to "My Account", "http://library.stanford.edu/myaccount" %></li>
+            <li><%= link_to "Ask us", "http://library.stanford.edu/ask" %></li>
+            <li><%= link_to "SearchWorks", "http://searchworks.stanford.edu" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%= render 'shared/share_follow' %>
+  </div>
+</footer>
