@@ -78,3 +78,4 @@ gem 'devise-remote-user'
 gem "spotlight-dor-resources", github: "sul-dlss/spotlight-dor-resources"
 gem "rack-dev-mark"
 gem "turnout"
+gem "whenever"
