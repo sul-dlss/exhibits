@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'http://sul-gems.stanford.edu'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.6'
@@ -45,7 +44,7 @@ group :deployment do
   gem 'capistrano', '~> 3.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'lyberteam-capistrano-devel', '3.0.0.pre1'
+  gem 'lyberteam-capistrano-devel', '3.0.0'
 end
 
 group :development, :test do

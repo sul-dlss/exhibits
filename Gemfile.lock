@@ -78,7 +78,6 @@ GIT
 
 GEM
   remote: https://rubygems.org/
-  remote: http://sul-gems.stanford.edu/
   specs:
     actionmailer (4.0.6)
       actionpack (= 4.0.6)
@@ -219,7 +218,7 @@ GEM
     leaflet-sidebar-rails (0.0.3)
     libv8 (3.16.14.3)
     logger (1.2.8)
-    lyberteam-capistrano-devel (3.0.0.pre1)
+    lyberteam-capistrano-devel (3.0.0)
       capistrano (~> 3.0)
       capistrano-holepicker
       capistrano-one_time_key
@@ -379,7 +378,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jettywrapper
   jquery-rails
-  lyberteam-capistrano-devel (= 3.0.0.pre1)
+  lyberteam-capistrano-devel (= 3.0.0)
   mysql2
   openseadragon!
   rack-dev-mark
