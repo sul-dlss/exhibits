@@ -1,7 +1,7 @@
 require 'devise_remote_user'
 
 DeviseRemoteUser.configure do |config|
-  config.env_key = lambda { |env| "#{env['REMOTE_USER']}@stanford.edu" }
+  config.env_key = lambda { |env| "#{env['REMOTE_USER']}@stanford.edu" if env['REMOTE_USER']}
   config.auto_create = true
   config.auto_update = true
   config.attribute_map = {webauth_groups: 'WEBAUTH_LDAPPRIVGROUP'}
