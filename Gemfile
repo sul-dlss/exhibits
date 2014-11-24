@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.6'
+gem 'rails', '4.1.5'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -78,3 +78,6 @@ gem "spotlight-dor-resources", github: "sul-dlss/spotlight-dor-resources"
 gem "rack-dev-mark"
 gem "turnout"
 gem "whenever"
+gem 'oai', github: 'code4lib/ruby-oai'
+
+# newrelic?
