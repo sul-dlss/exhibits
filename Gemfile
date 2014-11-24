@@ -67,16 +67,12 @@ gem "rails_config"
 gem "blacklight", github: "projectblacklight/blacklight"
 gem "blacklight-gallery", github: "projectblacklight/blacklight-gallery"
 gem "blacklight-maps", github: "sul-dlss/blacklight-maps"
-gem 'openseadragon', :github => 'sul-dlss/openseadragon-rails'
 gem "blacklight-spotlight", github: "sul-dlss/spotlight"
 gem "sir-trevor-rails", github: "sul-dlss/sir-trevor-rails"
 gem "devise"
 gem "devise-guests", "~> 0.3"
 gem 'devise-remote-user'
-gem "spotlight-dor-resources", github: "sul-dlss/spotlight-dor-resources"
 gem "rack-dev-mark"
 gem "turnout"
 gem "whenever"
-gem 'oai', github: 'code4lib/ruby-oai'
-
-# newrelic?
+gem "ruby-oembed"
