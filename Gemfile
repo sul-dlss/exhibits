@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.1.8'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -44,7 +44,7 @@ group :deployment do
   gem 'capistrano', '~> 3.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'lyberteam-capistrano-devel', '3.0.0'
+  gem 'lyberteam-capistrano-devel', '3.1.0'
 end
 
 group :development, :test do
@@ -64,13 +64,12 @@ gem 'squash_rails', require: 'squash/rails'
 
 gem "rails_config"
 
-gem "blacklight"
+gem "blacklight", github: "projectblacklight/blacklight"
 gem "blacklight-gallery", github: "projectblacklight/blacklight-gallery"
 gem "blacklight-maps", github: "sul-dlss/blacklight-maps"
 gem 'openseadragon', :github => 'sul-dlss/openseadragon-rails'
 gem "blacklight-spotlight", github: "sul-dlss/spotlight"
 gem "sir-trevor-rails", github: "sul-dlss/sir-trevor-rails"
-gem "jettywrapper"
 gem "devise"
 gem "devise-guests", "~> 0.3"
 gem 'devise-remote-user'
