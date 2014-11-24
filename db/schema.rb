@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411185614) do
+ActiveRecord::Schema.define(version: 20141124165841) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "user_id",       null: false
@@ -91,14 +91,12 @@ ActiveRecord::Schema.define(version: 20140411185614) do
   create_table "spotlight_contacts", force: true do |t|
     t.string   "slug"
     t.string   "name"
-    t.string   "email"
-    t.string   "title"
-    t.string   "location"
     t.boolean  "show_in_sidebar"
     t.integer  "weight",          default: 50
     t.integer  "exhibit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "contact_info"
   end
 
   add_index "spotlight_contacts", ["exhibit_id"], name: "index_spotlight_contacts_on_exhibit_id"
@@ -124,6 +122,17 @@ ActiveRecord::Schema.define(version: 20140411185614) do
 
   add_index "spotlight_exhibits", ["default"], name: "index_spotlight_exhibits_on_default", unique: true
   add_index "spotlight_exhibits", ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
+
+  create_table "spotlight_locks", force: true do |t|
+    t.integer  "on_id"
+    t.string   "on_type"
+    t.integer  "by_id"
+    t.string   "by_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spotlight_locks", ["on_id", "on_type"], name: "index_spotlight_locks_on_on_id_and_on_type", unique: true
 
   create_table "spotlight_main_navigations", force: true do |t|
     t.string   "label"
