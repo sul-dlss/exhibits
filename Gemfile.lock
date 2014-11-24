@@ -1,15 +1,5 @@
 GIT
-  remote: git://github.com/projectblacklight/blacklight-gallery.git
-  revision: 18b2d4ca60b81832e7f2281e23b6e734dd936d22
-  specs:
-    blacklight-gallery (0.1.0)
-      blacklight (~> 5.0)
-      bootstrap-sass (~> 3.0)
-      openseadragon
-      rails
-
-GIT
-  remote: git://github.com/projectblacklight/blacklight.git
+  remote: https://github.com/projectblacklight/blacklight
   revision: 77a6b92325149975df8286df29f640b21c060c5f
   specs:
     blacklight (5.7.2)
@@ -21,10 +11,20 @@ GIT
       rsolr (~> 1.0.6)
 
 GIT
-  remote: git://github.com/sul-dlss/blacklight-maps.git
-  revision: 86501001709732f15d89ec40e7c0604125e0c1e5
+  remote: https://github.com/projectblacklight/blacklight-gallery
+  revision: 18b2d4ca60b81832e7f2281e23b6e734dd936d22
   specs:
-    blacklight-maps (0.1.0)
+    blacklight-gallery (0.1.0)
+      blacklight (~> 5.0)
+      bootstrap-sass (~> 3.0)
+      openseadragon
+      rails
+
+GIT
+  remote: https://github.com/sul-dlss/blacklight-maps
+  revision: 3152dc50c8c40c38edff0bcccb80678dde024208
+  specs:
+    blacklight-maps (0.1.1)
       blacklight (>= 5.1.0)
       bootstrap-sass (~> 3.0)
       leaflet-markercluster-rails
@@ -33,7 +33,7 @@ GIT
       rails
 
 GIT
-  remote: git://github.com/sul-dlss/sir-trevor-rails.git
+  remote: https://github.com/sul-dlss/sir-trevor-rails
   revision: 40ba6976f26a2437cf60a8d894a877f8df0530e3
   specs:
     sir-trevor-rails (0.2.4)
@@ -45,7 +45,7 @@ GIT
       underscore-rails (~> 1.6.0)
 
 GIT
-  remote: git://github.com/sul-dlss/spotlight.git
+  remote: https://github.com/sul-dlss/spotlight
   revision: d1b98e99aa6bfd12f66bca89709783cf8d1a3a8b
   specs:
     blacklight-spotlight (0.1.0)
@@ -199,7 +199,7 @@ GEM
       activesupport (>= 3.0.0)
     leaflet-markercluster-rails (0.7.0)
       railties (>= 3.1)
-    leaflet-rails (0.7.3)
+    leaflet-rails (0.7.4)
     leaflet-sidebar-rails (0.0.3)
     libv8 (3.16.14.7)
     logger (1.2.8)

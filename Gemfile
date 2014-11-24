@@ -64,11 +64,11 @@ gem 'squash_rails', require: 'squash/rails'
 
 gem "rails_config"
 
-gem "blacklight", github: "projectblacklight/blacklight"
-gem "blacklight-gallery", github: "projectblacklight/blacklight-gallery"
-gem "blacklight-maps", github: "sul-dlss/blacklight-maps"
-gem "blacklight-spotlight", github: "sul-dlss/spotlight"
-gem "sir-trevor-rails", github: "sul-dlss/sir-trevor-rails"
+gem "blacklight", git: "https://github.com/projectblacklight/blacklight"
+gem "blacklight-gallery", git: "https://github.com/projectblacklight/blacklight-gallery"
+gem "blacklight-maps", git: "https://github.com/sul-dlss/blacklight-maps"
+gem "blacklight-spotlight", git: "https://github.com/sul-dlss/spotlight"
+gem "sir-trevor-rails", git: "https://github.com/sul-dlss/sir-trevor-rails"
 gem "devise"
 gem "devise-guests", "~> 0.3"
 gem 'devise-remote-user'
