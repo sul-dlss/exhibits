@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import 'sul_theme';
 @import 'spotlight/variables_bootstrap';
 @import 'bootstrap';
@@ -24,4 +25,9 @@
 
 .dl-horizontal dd:after {
   clear: none !important;
+}
+
+.oembed-widget {
+  @extend .col-md-6;
+  @extend .col-sm-12;
 }
