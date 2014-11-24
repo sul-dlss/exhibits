@@ -41,11 +41,12 @@ class CatalogController < ApplicationController
     #}
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'full_title_tesim'
-    config.index.display_type_field = 'content_metadata_type_ssm'
+    config.index.title_field = 'title_display'
+    config.index.display_type_field = 'display_type'
     config.index.thumbnail_field = :thumbnail_url_ssm
     
-    config.show.oembed_field = :oembed_url_ssm
+    config.show.title_field = 'title_full_display'
+    config.show.oembed_field = :url_fulltext
     config.show.partials.insert(1, :oembed)
 
     config.view.gallery.partials = [:index_header, :index]
@@ -76,13 +77,14 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bar
-    config.add_facet_field 'genre_ssim', label: 'Genre', limit: true 
-    config.add_facet_field 'personal_name_ssm', label: 'Personal Names', limit: true 
-    config.add_facet_field 'corporate_name_ssm', label: 'Corporate Names', limit: true
-    config.add_facet_field 'subject_geographic_ssim', label: 'Geographic' 
-    config.add_facet_field 'subject_temporal_ssim', label: 'Era'  
-    config.add_facet_field 'language_ssim', label: 'Language'  
-    config.add_facet_field 'type_of_resource_ssim', label: "Type of Resource"
+    config.add_facet_field 'format_main_ssim', label: 'Resource type'
+    config.add_facet_field 'pub_date', label: 'Date'  
+    config.add_facet_field 'language', label: 'Language'
+    config.add_facet_field 'author_person_facet', label: 'Author', limit: true
+    config.add_facet_field 'topic_facet', label: 'Topic', limit: true
+    config.add_facet_field 'geographic_facet', label: 'Region', limit: true
+    config.add_facet_field 'era_facet', label: 'Era'  
+    config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -90,49 +92,66 @@ class CatalogController < ApplicationController
     config.add_facet_fields_to_solr_request!
 
     # solr fields to be displayed in the index (search results) view
-    #   The ordering of the field names is the order of the display 
-    config.add_index_field 'id', label: "DRUID", if: :current_user
-    config.add_index_field 'identifier_tesim', label: "Identifier"
-    config.add_index_field 'language_ssm', label: 'Language'
-    config.add_index_field 'abstract_tesim', label: 'Abstract'
-    config.add_index_field 'note_mapuse_tesim', label: 'Type'
-    config.add_index_field 'note_source_tesim', label: 'Source'
-    config.add_index_field 'subject_geographic_tesim', label: 'Geographic Subject'
-    config.add_index_field 'subject_temporal_tesim', label: 'Temporal Subject'
-    config.add_index_field 'note_LOCAL_NOTES_tesim', label: "Local Notes"
-    config.add_index_field 'note_desc_note_tesim', label: "Desc Note"
-    config.add_index_field 'note_page_num_tesim', label: "Page Num"
-    config.add_index_field 'note_phys_desc_tesim', label: "Physical Description"
-    config.add_index_field 'note_provenance_tesim', label: "Provenance"
-    config.add_index_field 'note_references_tesim', label: "References"
-    config.add_index_field 'origin_date_created_ssm', label: "Date Created"
-    config.add_index_field 'origin_place_term_ssm', label: "Place Created"
-    config.add_index_field 'personal_name_ssm', label: "Personal Name"
-    config.add_index_field 'physical_description_note_color_ssm', label: "Note"
-    config.add_index_field 'subject_cartographics_tesim', label: "Cartographics"
+    #   The ordering of the field names is the order of the display
+    config.add_index_field "author_person_display", :label => "Author/Creator"
+    config.add_index_field "vern_author_person_display", :label => "Author/Creator"
+    config.add_index_field "author_corp_display", :label => "Corporate Author"
+    config.add_index_field "vern_author_corp_display", :label => "Corporate Author"
+    config.add_index_field "author_meeting_display", :label => "Meeting"
+    config.add_index_field "vern_author_meeting_display", :label => "Meeting"
+    config.add_index_field "pub_date", :label => "Date"
+    config.add_index_field "imprint_display", :label => "Imprint"
 
     # solr fields to be displayed in the show (single result) view
-    #   The ordering of the field names is the order of the display 
-    config.add_show_field 'id', label: "DRUID", if: :current_user
-    config.add_show_field 'note_phys_desc_tesim', label: 'Note'
-    config.add_show_field 'note_source_tesim', label: 'Source'
-    config.add_show_field 'note_desc_note_tesim', label: 'Note'
-    config.add_show_field 'note_references_tesim', label: 'References'
-    config.add_show_field 'note_provenance_tesim', label: 'Provenance'
-    config.add_show_field 'note_page_num_tesim', label: 'Page Number'
-    config.add_show_field 'subject_geographic_tesim', label: 'Geographic Subject'
-    config.add_show_field 'subject_temporal_tesim', label: 'Temporal Subject'
-    config.add_show_field 'personal_name_ssm', label: 'Personal Names'
-    config.add_show_field 'corporate_name_ssm', label: 'Corporate Names'
+    #   The ordering of the field names is the order of the display
+    config.add_show_field "title_full_display", :label => "Title"
+    config.add_show_field "vern_title_full_display", :label => "Title"
+    config.add_show_field "vern_title_uniform_display", :label => "Uniform Title"
+    config.add_show_field "title_variant_display", :label => "Alternate Title"
+    config.add_show_field "author_person_display", :label => "Author/Creator"
+    config.add_show_field "author_person_full_display", :label => "Author/Creator"
+    config.add_show_field "vern_author_person_full_display", :label => "Author/Creator"
+    config.add_show_field "author_corp_display", :label => "Corporate Author"
+    config.add_show_field "vern_author_corp_display", :label => "Corporate Author"
+    config.add_show_field "author_meeting_display", :label => "Meeting Author"
+    config.add_show_field "vern_author_meeting_display", :label => "Meeting Author"
+    config.add_show_field "medium", :label => "Medium"
+    config.add_show_field "summary_display", :label => "Description"
+    config.add_show_field "topic_display", :label => "Subject"
+    config.add_show_field "subject_other_display", :label => "Subject"
+    config.add_show_field "language", :label => "Language"
+    config.add_show_field "physical", :label => "Physical Description"
+    config.add_show_field "pub_display", :label => "Publication Info"
+    config.add_show_field "pub_date", :label => "Date"
 
-    config.add_sort_field 'score desc, sort_title_ssi asc', label: 'Relevance' 
-    config.add_sort_field 'sort_title_ssi asc', label: 'Title' 
-    config.add_sort_field 'sort_type_ssi asc', label: 'Type' 
-    config.add_sort_field 'sort_date_dtsi asc', label: 'Date' 
-    config.add_sort_field 'sort_source_ssi asc', label: 'Source' 
-    config.add_sort_field 'id asc', label: 'Identifier' 
+    # "fielded" search configuration. Used by pulldown among other places.
+    # For supported keys in hash, see rdoc for Blacklight::SearchFields
+    #
+    # Search fields will inherit the :qt solr request handler from
+    # config[:default_solr_parameters], OR can specify a different one
+    # with a :qt key/value. Below examples inherit, except for subject
+    # that specifies the same :qt as default for our own internal
+    # testing purposes.
+    #
+    # The :key is what will be used to identify this BL search field internally,
+    # as well as in URLs -- so changing it after deployment may break bookmarked
+    # urls.  A display label will be automatically calculated from the :key,
+    # or can be specified manually to be different.
+
+    # This one uses all the defaults set by the solr request handler. Which
+    # solr request handler? The one set in config[:default_solr_parameters][:qt],
+    # since we aren't specifying it otherwise.
+
+    # "sort results by" select (pulldown)
+    # label in pulldown is followed by the name of the SOLR field to sort by and
+    # whether the sort is ascending or descending (it must be asc or desc
+    # except in the relevancy case).
+    config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
+    config.add_sort_field 'pub_date_sort desc, title_sort asc', :label => 'year (new to old)'
+    config.add_sort_field 'pub_date_sort asc, title_sort asc', :label => 'year (old to new)'
+    config.add_sort_field 'author_sort asc, title_sort asc', :label => 'author'
+    config.add_sort_field 'title_sort asc, pub_date_sort desc', :label => 'title'
+
   end
-
-
 
 end 
