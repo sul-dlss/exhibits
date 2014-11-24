@@ -2,9 +2,11 @@
 class SolrDocument 
 
   include Blacklight::Solr::Document
+  include Blacklight::Gallery::OpenseadragonSolrDocument
+
   include Spotlight::SolrDocument
-include Spotlight::SolrDocument::AtomicUpdates
-include Spotlight::SolrDocument::Openseadragon
+
+  include Spotlight::SolrDocument::AtomicUpdates
 
 
   # self.unique_key = 'id'

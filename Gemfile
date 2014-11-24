@@ -76,3 +76,6 @@ gem "rack-dev-mark"
 gem "turnout"
 gem "whenever"
 gem "ruby-oembed"
+
+gem "friendly_id"
+gem "social-share-button"

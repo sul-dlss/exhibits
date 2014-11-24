@@ -1,4 +1,5 @@
 SulExhibitsTemplate::Application.routes.draw do
+  mount Blacklight::Oembed::Engine, at: 'oembed'
   spotlight_root
   mount Spotlight::Engine, at: 'spotlight'
 #  root :to => "catalog#index" # replaced by spotlight_root

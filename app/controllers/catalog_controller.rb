@@ -3,6 +3,8 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController  
 
+  helper Openseadragon::OpenseadragonHelper
+
   include Blacklight::Catalog
   
   before_filter only: :admin do
@@ -14,6 +16,7 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
+
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
       qt: 'search',
@@ -42,9 +45,11 @@ class CatalogController < ApplicationController
     config.index.display_type_field = 'content_metadata_type_ssm'
     config.index.thumbnail_field = :thumbnail_url_ssm
     
-    config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
-    config.show.partials.insert(1, :openseadragon)
-    
+    config.show.oembed_field = :oembed_url_ssm
+    config.show.partials.insert(1, :oembed)
+
+    config.view.gallery.partials = [:index_header, :index]
+    config.view.slideshow.partials = [:index]
     config.view.maps.type = "placename_coord"
     config.view.maps.placename_coord_field = 'placename_coords_ssim'
 

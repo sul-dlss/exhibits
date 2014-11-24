@@ -336,6 +336,7 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.3)
   devise-remote-user
+  friendly_id
   jbuilder (~> 1.2)
   jettywrapper
   jquery-rails
