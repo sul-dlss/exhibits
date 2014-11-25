@@ -91,38 +91,21 @@ class CatalogController < ApplicationController
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
 
-    # solr fields to be displayed in the index (search results) view
-    #   The ordering of the field names is the order of the display
-    config.add_index_field "author_person_display", :label => "Author/Creator"
-    config.add_index_field "vern_author_person_display", :label => "Author/Creator"
-    config.add_index_field "author_corp_display", :label => "Corporate Author"
-    config.add_index_field "vern_author_corp_display", :label => "Corporate Author"
-    config.add_index_field "author_meeting_display", :label => "Meeting"
-    config.add_index_field "vern_author_meeting_display", :label => "Meeting"
-    config.add_index_field "pub_date", :label => "Date"
-    config.add_index_field "imprint_display", :label => "Imprint"
-
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field "title_full_display", :label => "Title"
-    config.add_show_field "vern_title_full_display", :label => "Title"
-    config.add_show_field "vern_title_uniform_display", :label => "Uniform Title"
-    config.add_show_field "title_variant_display", :label => "Alternate Title"
-    config.add_show_field "author_person_display", :label => "Author/Creator"
-    config.add_show_field "author_person_full_display", :label => "Author/Creator"
-    config.add_show_field "vern_author_person_full_display", :label => "Author/Creator"
-    config.add_show_field "author_corp_display", :label => "Corporate Author"
-    config.add_show_field "vern_author_corp_display", :label => "Corporate Author"
-    config.add_show_field "author_meeting_display", :label => "Meeting Author"
-    config.add_show_field "vern_author_meeting_display", :label => "Meeting Author"
-    config.add_show_field "medium", :label => "Medium"
-    config.add_show_field "summary_display", :label => "Description"
-    config.add_show_field "topic_display", :label => "Subject"
-    config.add_show_field "subject_other_display", :label => "Subject"
-    config.add_show_field "language", :label => "Language"
-    config.add_show_field "physical", :label => "Physical Description"
-    config.add_show_field "pub_display", :label => "Publication Info"
-    config.add_show_field "pub_date", :label => "Date"
+    config.add_index_field "title_variant_display", :label => "Alternate Title"
+    config.add_index_field "author_person_full_display", :label => "Author/Creator"
+    config.add_index_field "author_corp_display", :label => "Corporate Author"
+    config.add_index_field "author_meeting_display", :label => "Meeting Author"
+    config.add_index_field "medium", :label => "Medium"
+    config.add_index_field "summary_display", :label => "Description"
+    config.add_index_field "topic_display", :label => "Topic"
+    config.add_index_field "subject_other_display", :label => "Subject"
+    config.add_index_field "language", :label => "Language"
+    config.add_index_field "physical", :label => "Physical Description"
+    config.add_index_field "pub_display", :label => "Publication Info"
+    config.add_index_field "pub_date", :label => "Date"
+    config.add_index_field "imprint_display", :label => "Imprint"
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
