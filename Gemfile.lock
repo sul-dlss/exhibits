@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 186a0b3ad3049c42a942eb9c7003da6ee72c6e62
+  revision: 21f3ae0a6a74f8dd25bbf2002abf20225989daa2
   specs:
     blacklight-spotlight (0.1.0)
       active_model_serializers (>= 0.9.0)
