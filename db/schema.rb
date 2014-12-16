@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124165841) do
+ActiveRecord::Schema.define(version: 20141216185043) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "user_id",       null: false
@@ -97,6 +97,11 @@ ActiveRecord::Schema.define(version: 20141124165841) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "contact_info"
+    t.string   "avatar"
+    t.integer  "avatar_crop_x"
+    t.integer  "avatar_crop_y"
+    t.integer  "avatar_crop_w"
+    t.integer  "avatar_crop_h"
   end
 
   add_index "spotlight_contacts", ["exhibit_id"], name: "index_spotlight_contacts_on_exhibit_id"
@@ -112,12 +117,14 @@ ActiveRecord::Schema.define(version: 20141124165841) do
 
   create_table "spotlight_exhibits", force: true do |t|
     t.boolean  "default"
-    t.string   "title",       null: false
+    t.string   "title",                      null: false
     t.string   "subtitle"
     t.string   "slug"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "searchable",  default: true
+    t.string   "layout"
   end
 
   add_index "spotlight_exhibits", ["default"], name: "index_spotlight_exhibits_on_default", unique: true
