@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 687defc1ef6d482b8b1932dd05367c83425df2e0
+  revision: 4eb7251d2743829c156d28e061389eda82be24e3
   specs:
     blacklight (5.8.1)
       bootstrap-sass (~> 3.2)
