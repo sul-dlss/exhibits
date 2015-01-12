@@ -11,7 +11,11 @@ module Spotlight::Resources
     end
 
     def to_solr
-      super.merge(Spotlight::Dor::Resources.indexer.solr_document(doc_id))
+      super.merge((Spotlight::Dor::Resources.indexer.solr_document(resource) rescue Hash.new))
+    end
+
+    def resource
+      @resource ||= Spotlight::Dor::Resources.indexer.resource doc_id
     end
   end
 end

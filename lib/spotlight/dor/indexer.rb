@@ -37,7 +37,7 @@ module Spotlight::Dor
     end
 
     def resource druid
-      Harvestdor::Indexer::Resource.new self, druid
+      Harvestdor::Indexer::Resource.new harvestdor, druid
     end
     
     private
