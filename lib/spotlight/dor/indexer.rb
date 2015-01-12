@@ -32,12 +32,6 @@ module Spotlight::Dor
       solr_doc[:author_sort] &&= solr_doc[:author_sort].gsub("\uFFFF", "\uFFFD")
     end
 
-    def initialize yml_path, solr_client
-      super yml_path
-      @solr_client = Harvestdor::Indexer::Solr.new Rails
-      @solr_client.client = solr_client
-    end
-
     def solr_client
       @solr_client
     end

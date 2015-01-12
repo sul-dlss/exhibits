@@ -9,7 +9,7 @@ module Spotlight
       require "spotlight/dor/resources/engine"
       
       def self.indexer
-        @indexer ||= Spotlight::Dor::Indexer.new File.join(Rails.root, "config", "gdor.yml"), Blacklight.solr
+        @indexer ||= Spotlight::Dor::Indexer.new File.join(Rails.root, "config", "gdor.yml"), solr: Blacklight.solr_config
       end
     end
   end
