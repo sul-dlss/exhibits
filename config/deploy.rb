@@ -23,7 +23,7 @@ set :log_level, :info
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/secrets.yml config/database.yml config/solr.yml config/harvestdor.yml config/exhibit.yml config/initializers/squash.rb public/.htaccess}
+set :linked_files, %w{config/secrets.yml config/database.yml config/solr.yml config/gdor.yml config/initializers/squash.rb public/.htaccess}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/environments}
