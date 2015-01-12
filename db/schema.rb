@@ -13,23 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20141216185043) do
 
-  create_table "bookmarks", force: true do |t|
-    t.integer  "user_id",       null: false
-    t.string   "user_type"
-    t.string   "document_id"
-    t.string   "title"
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id",                   null: false
+    t.string   "user_type",     limit: 255
+    t.string   "document_id",   limit: 255
+    t.string   "title",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "document_type"
+    t.string   "document_type", limit: 255
   end
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
-  create_table "friendly_id_slugs", force: true do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",               null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope"
+    t.string   "scope",          limit: 255
     t.datetime "created_at"
   end
 
@@ -38,26 +38,26 @@ ActiveRecord::Schema.define(version: 20141216185043) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "searches", force: true do |t|
+  create_table "searches", force: :cascade do |t|
     t.text     "query_params"
     t.integer  "user_id"
-    t.string   "user_type"
+    t.string   "user_type",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "searches", ["user_id"], name: "index_searches_on_user_id"
 
-  create_table "spotlight_attachments", force: true do |t|
-    t.string   "name"
-    t.string   "file"
-    t.string   "uid"
+  create_table "spotlight_attachments", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "file",       limit: 255
+    t.string   "uid",        limit: 255
     t.integer  "exhibit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "spotlight_blacklight_configurations", force: true do |t|
+  create_table "spotlight_blacklight_configurations", force: :cascade do |t|
     t.integer  "exhibit_id"
     t.text     "facet_fields"
     t.text     "index_fields"
@@ -69,18 +69,18 @@ ActiveRecord::Schema.define(version: 20141216185043) do
     t.integer  "default_per_page"
     t.text     "per_page"
     t.text     "document_index_view_types"
-    t.string   "thumbnail_size"
+    t.string   "thumbnail_size",            limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "spotlight_contact_emails", force: true do |t|
+  create_table "spotlight_contact_emails", force: :cascade do |t|
     t.integer  "exhibit_id"
-    t.string   "email",                default: "", null: false
-    t.string   "confirmation_token"
+    t.string   "email",                limit: 255, default: "", null: false
+    t.string   "confirmation_token",   limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
+    t.string   "unconfirmed_email",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,16 +88,16 @@ ActiveRecord::Schema.define(version: 20141216185043) do
   add_index "spotlight_contact_emails", ["confirmation_token"], name: "index_spotlight_contact_emails_on_confirmation_token", unique: true
   add_index "spotlight_contact_emails", ["email", "exhibit_id"], name: "index_spotlight_contact_emails_on_email_and_exhibit_id", unique: true
 
-  create_table "spotlight_contacts", force: true do |t|
-    t.string   "slug"
-    t.string   "name"
+  create_table "spotlight_contacts", force: :cascade do |t|
+    t.string   "slug",            limit: 255
+    t.string   "name",            limit: 255
     t.boolean  "show_in_sidebar"
-    t.integer  "weight",          default: 50
+    t.integer  "weight",                      default: 50
     t.integer  "exhibit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "contact_info"
-    t.string   "avatar"
+    t.string   "avatar",          limit: 255
     t.integer  "avatar_crop_x"
     t.integer  "avatar_crop_y"
     t.integer  "avatar_crop_w"
@@ -106,45 +106,45 @@ ActiveRecord::Schema.define(version: 20141216185043) do
 
   add_index "spotlight_contacts", ["exhibit_id"], name: "index_spotlight_contacts_on_exhibit_id"
 
-  create_table "spotlight_custom_fields", force: true do |t|
+  create_table "spotlight_custom_fields", force: :cascade do |t|
     t.integer  "exhibit_id"
-    t.string   "slug"
-    t.string   "field"
+    t.string   "slug",          limit: 255
+    t.string   "field",         limit: 255
     t.text     "configuration"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "spotlight_exhibits", force: true do |t|
+  create_table "spotlight_exhibits", force: :cascade do |t|
     t.boolean  "default"
-    t.string   "title",                      null: false
-    t.string   "subtitle"
-    t.string   "slug"
+    t.string   "title",       limit: 255,                null: false
+    t.string   "subtitle",    limit: 255
+    t.string   "slug",        limit: 255
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "searchable",  default: true
-    t.string   "layout"
+    t.boolean  "searchable",              default: true
+    t.string   "layout",      limit: 255
   end
 
   add_index "spotlight_exhibits", ["default"], name: "index_spotlight_exhibits_on_default", unique: true
   add_index "spotlight_exhibits", ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
 
-  create_table "spotlight_locks", force: true do |t|
+  create_table "spotlight_locks", force: :cascade do |t|
     t.integer  "on_id"
-    t.string   "on_type"
+    t.string   "on_type",    limit: 255
     t.integer  "by_id"
-    t.string   "by_type"
+    t.string   "by_type",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "spotlight_locks", ["on_id", "on_type"], name: "index_spotlight_locks_on_on_id_and_on_type", unique: true
 
-  create_table "spotlight_main_navigations", force: true do |t|
-    t.string   "label"
-    t.integer  "weight",     default: 20
-    t.string   "nav_type"
+  create_table "spotlight_main_navigations", force: :cascade do |t|
+    t.string   "label",      limit: 255
+    t.integer  "weight",                 default: 20
+    t.string   "nav_type",   limit: 255
     t.integer  "exhibit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -152,13 +152,13 @@ ActiveRecord::Schema.define(version: 20141216185043) do
 
   add_index "spotlight_main_navigations", ["exhibit_id"], name: "index_spotlight_main_navigations_on_exhibit_id"
 
-  create_table "spotlight_pages", force: true do |t|
-    t.string   "title"
-    t.string   "type"
-    t.string   "slug"
-    t.string   "scope"
+  create_table "spotlight_pages", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.string   "type",              limit: 255
+    t.string   "slug",              limit: 255
+    t.string   "scope",             limit: 255
     t.text     "content"
-    t.integer  "weight",            default: 50
+    t.integer  "weight",                        default: 50
     t.boolean  "published"
     t.integer  "exhibit_id"
     t.integer  "created_by_id"
@@ -174,28 +174,28 @@ ActiveRecord::Schema.define(version: 20141216185043) do
   add_index "spotlight_pages", ["parent_page_id"], name: "index_spotlight_pages_on_parent_page_id"
   add_index "spotlight_pages", ["slug", "scope"], name: "index_spotlight_pages_on_slug_and_scope", unique: true
 
-  create_table "spotlight_resources", force: true do |t|
+  create_table "spotlight_resources", force: :cascade do |t|
     t.integer  "exhibit_id"
-    t.string   "type"
-    t.string   "url"
+    t.string   "type",       limit: 255
+    t.string   "url",        limit: 255
     t.text     "data"
     t.datetime "indexed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "spotlight_roles", force: true do |t|
+  create_table "spotlight_roles", force: :cascade do |t|
     t.integer "exhibit_id"
     t.integer "user_id"
-    t.string  "role"
+    t.string  "role",       limit: 255
   end
 
   add_index "spotlight_roles", ["exhibit_id", "user_id"], name: "index_spotlight_roles_on_exhibit_id_and_user_id", unique: true
 
-  create_table "spotlight_searches", force: true do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.string   "scope"
+  create_table "spotlight_searches", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.string   "slug",              limit: 255
+    t.string   "scope",             limit: 255
     t.text     "short_description"
     t.text     "long_description"
     t.text     "query_params"
@@ -204,16 +204,16 @@ ActiveRecord::Schema.define(version: 20141216185043) do
     t.integer  "exhibit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "featured_item_id"
+    t.string   "featured_item_id",  limit: 255
   end
 
   add_index "spotlight_searches", ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
   add_index "spotlight_searches", ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
 
-  create_table "spotlight_solr_document_sidecars", force: true do |t|
+  create_table "spotlight_solr_document_sidecars", force: :cascade do |t|
     t.integer  "exhibit_id"
-    t.string   "solr_document_id"
-    t.boolean  "public",           default: true
+    t.string   "solr_document_id", limit: 255
+    t.boolean  "public",                       default: true
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -221,38 +221,38 @@ ActiveRecord::Schema.define(version: 20141216185043) do
 
   add_index "spotlight_solr_document_sidecars", ["exhibit_id"], name: "index_spotlight_solr_document_sidecars_on_exhibit_id"
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
-    t.string   "taggable_id"
-    t.string   "taggable_type"
+    t.string   "taggable_id",   limit: 255
+    t.string   "taggable_type", limit: 255
     t.integer  "tagger_id"
-    t.string   "tagger_type"
+    t.string   "tagger_type",   limit: 255
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
 
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
 
-  create_table "tags", force: true do |t|
-    t.string "name"
+  create_table "tags", force: :cascade do |t|
+    t.string "name", limit: 255
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",                      default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "guest",                  default: false
+    t.boolean  "guest",                              default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

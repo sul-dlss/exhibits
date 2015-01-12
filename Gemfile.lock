@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 4eb7251d2743829c156d28e061389eda82be24e3
+  revision: f0bd738114b763fec8555b8d9f39482d2b660371
   specs:
-    blacklight (5.8.1)
+    blacklight (5.8.2)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
@@ -12,12 +12,12 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/blacklight-gallery
-  revision: 18b2d4ca60b81832e7f2281e23b6e734dd936d22
+  revision: 8fccf992ad7521f9067903d4428d203fdb0240fc
   specs:
-    blacklight-gallery (0.1.0)
+    blacklight-gallery (0.1.1)
       blacklight (~> 5.0)
       bootstrap-sass (~> 3.0)
-      openseadragon
+      openseadragon (>= 0.0.9)
       rails
 
 GIT
@@ -33,6 +33,46 @@ GIT
       rails
 
 GIT
+  remote: https://github.com/sul-dlss/gdor-indexer
+  revision: 5121494b8f8c545c99693b118d83604676853436
+  branch: refactor
+  specs:
+    gdor-indexer (0.0.1)
+      activesupport
+      harvestdor-indexer
+      hooks
+      mail
+      nokogiri
+      rsolr
+      stanford-mods
+      trollop
+
+GIT
+  remote: https://github.com/sul-dlss/harvestdor
+  revision: 7b91cd64085baaacdeb9522295ecbb017dfdf2ac
+  branch: remove-oai
+  specs:
+    harvestdor (0.0.14)
+      confstruct
+      faraday (>= 0.9.0)
+      nokogiri
+
+GIT
+  remote: https://github.com/sul-dlss/harvestdor-indexer
+  revision: 61b45714e3c6763e3f57c4bae8a0a64ad1b38da0
+  branch: refactor
+  specs:
+    harvestdor-indexer (1.0.4)
+      activesupport
+      confstruct
+      dor-fetcher (= 1.0.5)
+      harvestdor (>= 0.0.14)
+      parallel
+      retries
+      rsolr
+      stanford-mods
+
+GIT
   remote: https://github.com/sul-dlss/sir-trevor-rails
   revision: 40ba6976f26a2437cf60a8d894a877f8df0530e3
   specs:
@@ -46,7 +86,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 06091fba359f49e56c071f5e16ed5f4fe71e61c9
+  revision: 1ad0b78f09a9d860ec924a7803658b1e3ebd930a
   specs:
     blacklight-spotlight (0.1.0)
       active_model_serializers (= 0.9.0)
@@ -62,7 +102,7 @@ GIT
       devise (~> 3.0)
       faraday
       faraday_middleware
-      friendly_id
+      friendly_id (= 5.1.0.beta.1)
       mail_form
       mini_magick
       nokogiri
@@ -71,45 +111,68 @@ GIT
       social-share-button (~> 0.1.5)
       underscore-rails (~> 1.6.0)
 
+GIT
+  remote: https://github.com/sul-dlss/spotlight-dor-resources
+  revision: 7b22f5a7fb66a9d3e5cfc76b7f2a0b7146a5e828
+  specs:
+    spotlight-dor-resources (0.0.1)
+      blacklight-spotlight
+      faraday
+      harvestdor
+      harvestdor-indexer
+      rails
+      solrizer
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.1.8)
-      actionpack (= 4.1.8)
-      actionview (= 4.1.8)
+    actionmailer (4.2.0)
+      actionpack (= 4.2.0)
+      actionview (= 4.2.0)
+      activejob (= 4.2.0)
       mail (~> 2.5, >= 2.5.4)
-    actionpack (4.1.8)
-      actionview (= 4.1.8)
-      activesupport (= 4.1.8)
-      rack (~> 1.5.2)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+    actionpack (4.2.0)
+      actionview (= 4.2.0)
+      activesupport (= 4.2.0)
+      rack (~> 1.6.0)
       rack-test (~> 0.6.2)
-    actionview (4.1.8)
-      activesupport (= 4.1.8)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.1)
+    actionview (4.2.0)
+      activesupport (= 4.2.0)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.1)
     active_model_serializers (0.9.0)
       activemodel (>= 3.2)
-    activemodel (4.1.8)
-      activesupport (= 4.1.8)
+    activejob (4.2.0)
+      activesupport (= 4.2.0)
+      globalid (>= 0.3.0)
+    activemodel (4.2.0)
+      activesupport (= 4.2.0)
       builder (~> 3.1)
-    activerecord (4.1.8)
-      activemodel (= 4.1.8)
-      activesupport (= 4.1.8)
-      arel (~> 5.0.0)
-    activesupport (4.1.8)
-      i18n (~> 0.6, >= 0.6.9)
+    activerecord (4.2.0)
+      activemodel (= 4.2.0)
+      activesupport (= 4.2.0)
+      arel (~> 6.0)
+    activesupport (4.2.0)
+      i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
-      thread_safe (~> 0.1)
+      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.1.0)
       actionpack (>= 3, < 5)
       activerecord (>= 3, < 5)
       activesupport (>= 3, < 5)
-    arel (5.0.1.20140414130214)
-    autoprefixer-rails (4.0.2.1)
+    arel (6.0.0)
+    autoprefixer-rails (4.0.2.2)
       execjs
     bcrypt (3.1.9)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     blacklight-oembed (0.0.4)
       blacklight (~> 5.0)
       bootstrap-sass (~> 3.0)
@@ -123,7 +186,11 @@ GEM
     bundler-audit (0.3.1)
       bundler (~> 1.2)
       thor (~> 0.18)
-    cancancan (1.9.2)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
+    cancancan (1.10.0)
     capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
@@ -153,7 +220,7 @@ GEM
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
-    coffee-rails (4.0.1)
+    coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
     coffee-script (2.3.0)
@@ -161,6 +228,11 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colorize (0.7.3)
+    columnize (0.9.0)
+    confstruct (0.2.7)
+    daemons (1.1.9)
+    debug_inspector (0.0.2)
+    debugger-linecache (1.2.0)
     deprecation (0.1.0)
       activesupport
     devise (3.4.1)
@@ -175,30 +247,37 @@ GEM
     devise-remote-user (0.4.0)
       devise
       rails (>= 3.2, < 5.0)
+    dor-fetcher (1.0.5)
     erubis (2.7.0)
     execjs (2.2.2)
-    faraday (0.9.0)
+    faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.3)
-    friendly_id (5.0.4)
+    friendly_id (5.1.0.beta.1)
       activerecord (>= 4.0.0)
+    globalid (0.3.0)
+      activesupport (>= 4.1.0)
     hike (1.2.3)
-    i18n (0.6.11)
-    jbuilder (1.5.3)
-      activesupport (>= 3.0.0)
-      multi_json (>= 1.2.0)
+    hooks (0.4.0)
+      uber (~> 0.0.4)
+    i18n (0.7.0)
+    iso-639 (0.2.5)
+    jbuilder (2.2.6)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
     jettywrapper (1.7.0)
       activesupport (>= 3.0.0)
       childprocess
       i18n
       logger
       mediashelf-loggable
-    jquery-rails (3.1.2)
-      railties (>= 3.0, < 5.0)
+    jquery-rails (4.0.3)
+      rails-dom-testing (~> 1.0)
+      railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    json (1.8.1)
+    json (1.8.2)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -208,6 +287,8 @@ GEM
     leaflet-sidebar-rails (0.0.3)
     libv8 (3.16.14.7)
     logger (1.2.8)
+    loofah (2.0.1)
+      nokogiri (>= 1.5.9)
     lyberteam-capistrano-devel (3.1.0)
       capistrano (~> 3.0)
       capistrano-bundle_audit (>= 0.0.3)
@@ -220,9 +301,13 @@ GEM
       activemodel (>= 3.2, < 5)
     mediashelf-loggable (0.4.9)
     mime-types (2.4.3)
-    mini_magick (4.0.1)
-    mini_portile (0.6.1)
-    minitest (5.5.0)
+    mini_magick (4.0.2)
+    mini_portile (0.6.2)
+    minitest (5.5.1)
+    mods (0.0.23)
+      iso-639
+      nokogiri
+      nom-xml
     multi_json (1.10.1)
     multipart-post (2.0.0)
     mysql2 (0.3.16)
@@ -231,31 +316,45 @@ GEM
     net-ssh (2.9.1)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
-    openseadragon (0.0.8)
+    nom-xml (0.5.1)
+      activesupport
+      i18n
+      nokogiri
+    openseadragon (0.0.9)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    rack (1.5.2)
+    parallel (1.3.3)
+    rack (1.6.0)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-dev-mark (0.4.5)
       rack (>= 1.1)
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.1.8)
-      actionmailer (= 4.1.8)
-      actionpack (= 4.1.8)
-      actionview (= 4.1.8)
-      activemodel (= 4.1.8)
-      activerecord (= 4.1.8)
-      activesupport (= 4.1.8)
+    rails (4.2.0)
+      actionmailer (= 4.2.0)
+      actionpack (= 4.2.0)
+      actionview (= 4.2.0)
+      activejob (= 4.2.0)
+      activemodel (= 4.2.0)
+      activerecord (= 4.2.0)
+      activesupport (= 4.2.0)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.8)
-      sprockets-rails (~> 2.0)
+      railties (= 4.2.0)
+      sprockets-rails
+    rails-deprecated_sanitizer (1.0.3)
+      activesupport (>= 4.2.0.alpha)
+    rails-dom-testing (1.0.5)
+      activesupport (>= 4.2.0.beta, < 5.0)
+      nokogiri (~> 1.6.0)
+      rails-deprecated_sanitizer (>= 1.0.1)
+    rails-html-sanitizer (1.0.1)
+      loofah (~> 2.0)
     rails_config (0.4.2)
       activesupport (>= 3.0)
-    railties (4.1.8)
-      actionpack (= 4.1.8)
-      activesupport (= 4.1.8)
+    railties (4.2.0)
+      actionpack (= 4.2.0)
+      activesupport (= 4.2.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
@@ -263,23 +362,32 @@ GEM
       json (~> 1.4)
     redcarpet (2.0.1)
     ref (1.0.5)
-    responders (1.1.2)
-      railties (>= 3.2, < 4.2)
+    responders (2.0.2)
+      railties (>= 4.2.0.alpha, < 5)
+    retries (0.0.5)
     rsolr (1.0.10)
       builder (>= 2.1.2)
-    ruby-oembed (0.8.11)
-    sass (3.2.19)
-    sass-rails (4.0.5)
+    ruby-oembed (0.8.12)
+    sass (3.4.9)
+    sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.2)
-      sprockets (~> 2.8, < 3.0)
-      sprockets-rails (~> 2.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (~> 1.1)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    slop (3.6.0)
     social-share-button (0.1.8)
       coffee-rails
       sass-rails
+    solrizer (3.3.0)
+      activesupport
+      daemons
+      nokogiri
+      stomp
+      xml-simple
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -298,13 +406,17 @@ GEM
       colorize
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    stanford-mods (1.0.3)
+      mods
+    stomp (1.3.4)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    turbolinks (2.2.2)
+    trollop (2.1.1)
+    turbolinks (2.5.3)
       coffee-rails
     turnout (1.0.0)
       rack
@@ -313,6 +425,7 @@ GEM
       unf (~> 0.1.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.12)
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -322,9 +435,15 @@ GEM
     unf_ext (0.0.6)
     warden (1.2.3)
       rack (>= 1.0)
+    web-console (2.0.0)
+      activemodel (~> 4.0)
+      binding_of_caller (>= 0.7.2)
+      railties (~> 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
     whenever (0.9.2)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
+    xml-simple (1.1.4)
 
 PLATFORMS
   ruby
@@ -334,27 +453,32 @@ DEPENDENCIES
   blacklight-gallery!
   blacklight-maps!
   blacklight-spotlight!
+  byebug
   capistrano (~> 3.0)
   capistrano-bundler
   capistrano-rails
-  coffee-rails (~> 4.0.0)
+  coffee-rails (~> 4.1.0)
   devise
   devise-guests (~> 0.3)
   devise-remote-user
   friendly_id
-  jbuilder (~> 1.2)
+  gdor-indexer!
+  harvestdor!
+  harvestdor-indexer!
+  jbuilder (~> 2.0)
   jettywrapper
   jquery-rails
   lyberteam-capistrano-devel (= 3.1.0)
   mysql2
   rack-dev-mark
-  rails (= 4.1.8)
+  rails (= 4.2.0)
   rails_config
   ruby-oembed
-  sass-rails (~> 4.0.2)
-  sdoc
+  sass-rails (~> 5.0)
+  sdoc (~> 0.4.0)
   sir-trevor-rails!
   social-share-button
+  spotlight-dor-resources!
   sqlite3
   squash_rails
   squash_ruby
@@ -362,4 +486,5 @@ DEPENDENCIES
   turbolinks
   turnout
   uglifier (>= 1.3.0)
+  web-console (~> 2.0)
   whenever
