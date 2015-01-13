@@ -11,7 +11,15 @@ module Spotlight::Resources
     end
 
     def to_solr
-      super.merge((Spotlight::Dor::Resources.indexer.solr_document(resource) rescue Hash.new))
+      base_doc = super
+
+      if resource.collection?
+        [resource, resource.items].flatten.map do |x|
+          base_doc.merge Spotlight::Dor::Resources.indexer.solr_document(x)
+        end
+      else
+        base_doc.merge Spotlight::Dor::Resources.indexer.solr_document(resource)
+      end
     end
 
     def resource
