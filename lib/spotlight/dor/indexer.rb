@@ -36,6 +36,12 @@ module Spotlight::Dor
       @solr_client
     end
 
+    def solr_document resource
+      doc_hash = super
+      run_hook :before_index, resource, doc_hash
+      doc_hash
+    end
+
     def resource druid
       Harvestdor::Indexer::Resource.new harvestdor, druid
     end
