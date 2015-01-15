@@ -1,10 +1,15 @@
-@import "bootstrap-sprockets";
+/*
+*= require sir-trevor
+*= require social-share-button
+*= require bootstrap-tagsinput
+*= require jquery.jcrop
+*/
 @import 'sul_theme';
 @import 'spotlight/variables_bootstrap';
+@import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'blacklight/blacklight';
 @import 'spotlight/spotlight';
-
 
 #header-navbar {
   .navbar-brand {  /* The main logo image for the Blacklight instance */
