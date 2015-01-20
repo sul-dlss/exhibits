@@ -74,20 +74,17 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/sir-trevor-rails
-  revision: 40ba6976f26a2437cf60a8d894a877f8df0530e3
-  branch: v0.3
+  revision: 1fdaf7ac19ed16e951b90ee620adc8e1fc2380b6
+  branch: master
   specs:
-    sir-trevor-rails (0.2.4)
-      activesupport (>= 3.0.7)
-      jquery-rails
-      rails (>= 3.0.7)
+    sir_trevor_rails (0.5.0.pre.beta1)
+      rails
       redcarpet (~> 2.0.1)
       twitter-text (~> 1.4)
-      underscore-rails (~> 1.6.0)
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 0c3683fdcc6c5cc44a6820463d186424111253f4
+  revision: 06754055e8cfc52133327c47245d05481ec16733
   specs:
     blacklight-spotlight (0.1.0)
       active_model_serializers (= 0.9.0)
@@ -104,11 +101,13 @@ GIT
       faraday
       faraday_middleware
       friendly_id (= 5.1.0.beta.1)
+      github-markup
+      lodash-rails
       mail_form
       mini_magick
       nokogiri
       rails (~> 4.0, >= 4.0.1)
-      sir-trevor-rails
+      sir_trevor_rails (>= 0.5.0.pre.beta1)
       social-share-button (~> 0.1.5)
       underscore-rails (~> 1.6.0)
 
@@ -258,6 +257,8 @@ GEM
     ffi (1.9.3)
     friendly_id (5.1.0.beta.1)
       activerecord (>= 4.0.0)
+    github-markup (1.3.1)
+      posix-spawn (~> 0.3.8)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -287,6 +288,8 @@ GEM
     leaflet-rails (0.7.4)
     leaflet-sidebar-rails (0.0.3)
     libv8 (3.16.14.7)
+    lodash-rails (2.4.1)
+      railties (>= 3.1)
     logger (1.2.8)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
@@ -325,6 +328,7 @@ GEM
       rails (> 3.2.0)
     orm_adapter (0.5.0)
     parallel (1.3.3)
+    posix-spawn (0.3.9)
     rack (1.6.0)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -477,7 +481,7 @@ DEPENDENCIES
   ruby-oembed
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  sir-trevor-rails!
+  sir_trevor_rails!
   social-share-button
   spotlight-dor-resources!
   sqlite3
