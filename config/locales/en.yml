@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  purl_resources:
+    form:
+      add_item: "Add items"
+  activemodel:
+    attributes:
+      purl_resource:
+        data: "Object IDs"
+  activerecord:
+    help:
+      purlresource:
+        data:
+          "Collection object PURLs, one per line (e.g. qb438pg7646)"

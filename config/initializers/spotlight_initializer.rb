@@ -1,0 +1,1 @@
+Spotlight::Engine.config.new_resource_partials += ['purl_resources/form']
