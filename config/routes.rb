@@ -12,6 +12,7 @@ SulExhibitsTemplate::Application.routes.draw do
   end
 
   resources :search_works_item, only: :show, as: :searchworks_item
+  resource :purl_resources
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
