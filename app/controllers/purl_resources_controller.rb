@@ -22,7 +22,7 @@ class PurlResourcesController < ApplicationController
   end
 
   def resource_params
-    params.require(:resource).permit(:data)
+    params.require(:purl_resource).permit(:data)
   end
   
 end
