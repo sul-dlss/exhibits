@@ -7,12 +7,11 @@ module Spotlight::Resources
     end
 
     def doc_id
-      url.match(/^https?:\/\/purl.stanford.edu\/([^\/\.]+)/)[1]
+      url.match(/^https?:\/\/purl.stanford.edu\/([^#\/\.]+)/)[1]
     end
 
     def to_solr
       base_doc = super
-
       if resource.collection?
         [resource, resource.items].flatten.map do |x|
           base_doc.merge Spotlight::Dor::Resources.indexer.solr_document(x)

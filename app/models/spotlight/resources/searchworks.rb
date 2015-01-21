@@ -8,7 +8,7 @@ module Spotlight::Resources
     end
 
     def doc_id
-      url.match(/^https?:\/\/searchworks[^\.]*.stanford.edu\/.*view\/([^\/]+)/)[1]
+      url.match(/^https?:\/\/searchworks[^\.]*.stanford.edu\/.*view\/([^\/\.#]+)/)[1]
     end
 
     def to_solr
