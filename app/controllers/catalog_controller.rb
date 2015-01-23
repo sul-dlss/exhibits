@@ -46,6 +46,7 @@ class CatalogController < ApplicationController
     config.index.title_field = 'title_display'
     config.index.display_type_field = 'display_type'
     config.index.thumbnail_field = :thumbnail_url_ssm
+    config.index.square_image_field = :thumbnail_square_url_ssm
     
     config.show.title_field = 'title_full_display'
     config.show.oembed_field = :url_fulltext
