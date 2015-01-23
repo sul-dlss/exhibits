@@ -1,7 +1,17 @@
 require 'spec_helper'
 
 describe Spotlight::Resources::Searchworks do
+  
+  let :exhibit do
+    double(solr_data: { }, solr_document_model: ::SolrDocument, blacklight_config: Blacklight::Configuration.new)
+  end
+
   subject { Spotlight::Resources::Searchworks.new url: "http://searchworks.stanford.edu/view/xf680rd3068" }
+
+  before do
+    allow(subject).to receive(:exhibit).and_return(exhibit)
+  end
+
   describe ".can_provide?" do
     subject { Spotlight::Resources::Searchworks }
     it "should be able to provide any searchworks URL" do
@@ -60,7 +70,7 @@ describe Spotlight::Resources::Searchworks do
         allow(subject.resource).to receive(:items).and_return([item])
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({collection: true})
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(item).and_return({item: true})
-        solr_doc = subject.to_solr
+        solr_doc = subject.to_solr.to_a
         expect(solr_doc.first).to include :collection
         expect(solr_doc.last).to include :item
       end
@@ -73,7 +83,7 @@ describe Spotlight::Resources::Searchworks do
       
       it "should provide a solr document for the resource" do
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({upstream: true})
-        expect(subject.to_solr).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_url_ssim
+        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_url_ssim
       end
     end
   end

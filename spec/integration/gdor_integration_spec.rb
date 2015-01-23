@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 describe "indexing integration test", :vcr do
+  let :exhibit do
+    double(solr_data: { }, solr_document_model: ::SolrDocument)
+  end
+
   subject do
-    Spotlight::Resources::Purl.new(url: "http://purl.stanford.edu/xf680rd3068").to_solr
+    r = Spotlight::Resources::Purl.new(url: "http://purl.stanford.edu/xf680rd3068")
+    allow(r).to receive(:exhibit).and_return(exhibit)
+    r.to_solr.first
   end
 
   it "should have a doc id" do

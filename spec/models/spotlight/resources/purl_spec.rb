@@ -1,7 +1,16 @@
 require 'spec_helper'
 
 describe Spotlight::Resources::Purl do
+  
+  let :exhibit do
+    double(solr_data: { }, solr_document_model: ::SolrDocument, blacklight_config: Blacklight::Configuration.new)
+  end
+
   subject { Spotlight::Resources::Purl.new url: "http://purl.stanford.edu/xf680rd3068" }
+
+  before do
+    allow(subject).to receive(:exhibit).and_return(exhibit)
+  end
 
   describe ".can_provide?" do
     subject { Spotlight::Resources::Purl }
@@ -42,6 +51,19 @@ describe Spotlight::Resources::Purl do
     end
   end
 
+  describe "#reindex" do
+    before do
+      allow(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_return({upstream: true})
+      allow(subject.resource).to receive(:collection?).and_return(false)
+    end
+
+    it "should add a document to solr" do
+      expect(subject).to receive(:update_index)
+      expect(subject).to receive(:update_index_time!)
+      subject.reindex
+    end
+  end
+
   describe "#to_solr" do
     before do
       allow(Spotlight::Dor::Resources.indexer).to receive(:solr_document)
@@ -62,7 +84,7 @@ describe Spotlight::Resources::Purl do
         allow(subject.resource).to receive(:items).and_return([item])
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({collection: true})
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(item).and_return({item: true})
-        solr_doc = subject.to_solr
+        solr_doc = subject.to_solr.to_a
         expect(solr_doc.first).to include :collection
         expect(solr_doc.last).to include :item
       end
@@ -75,7 +97,7 @@ describe Spotlight::Resources::Purl do
 
       it "should provide a solr document for the resource" do
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({upstream: true})
-        expect(subject.to_solr).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_url_ssim
+        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_url_ssim
       end
     end
   end
