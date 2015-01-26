@@ -113,7 +113,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight-dor-resources
-  revision: 395dc7c4c85c6476ff280aa9ec635b443584dcc7
+  revision: df398834f9b1460f84f162b00ca244b228ea595d
   specs:
     spotlight-dor-resources (0.0.1)
       blacklight-spotlight (~> 0.2)
@@ -412,7 +412,7 @@ GEM
       colorize
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stanford-mods (1.1.0)
+    stanford-mods (1.1.1)
       mods
     stomp (1.3.4)
     therubyracer (0.12.1)
