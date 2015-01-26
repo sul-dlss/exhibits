@@ -8,6 +8,7 @@ module Spotlight::Resources
     end
     
     def update_index data
+      data = [data] unless data.is_a? Array
       blacklight_solr.update params: { commitWithin: 500 }, data: data.to_json, headers: { 'Content-Type' => 'application/json'} unless data.empty?
     end
     
