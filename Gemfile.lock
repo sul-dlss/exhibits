@@ -309,7 +309,7 @@ GEM
     mini_magick (4.0.2)
     mini_portile (0.6.2)
     minitest (5.5.1)
-    mods (1.0.0)
+    mods (2.0.1)
       iso-639
       nokogiri
       nom-xml
