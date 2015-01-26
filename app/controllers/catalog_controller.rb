@@ -48,7 +48,7 @@ class CatalogController < ApplicationController
     config.index.thumbnail_field = :thumbnail_url_ssm
     config.index.square_image_field = :thumbnail_square_url_ssm
     
-    config.show.title_field = 'title_full_display'
+    config.show.title_field = 'title_display'
     config.show.oembed_field = :url_fulltext
     config.show.partials.insert(1, :oembed)
 
