@@ -77,6 +77,6 @@ gem "rack-dev-mark"
 gem "turnout"
 gem "whenever"
 gem "ruby-oembed"
-
+gem "is_it_working-cbeer"
 gem "friendly_id"
 gem "social-share-button"
