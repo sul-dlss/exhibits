@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "indexing integration test", :vcr do
   let :exhibit do
-    double(solr_data: { }, solr_document_model: ::SolrDocument)
+    double(solr_data: { }, blacklight_config: Blacklight::Configuration.new)
   end
 
   subject do

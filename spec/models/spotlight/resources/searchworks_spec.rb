@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Spotlight::Resources::Searchworks do
   
   let :exhibit do
-    double(solr_data: { }, solr_document_model: ::SolrDocument, blacklight_config: Blacklight::Configuration.new)
+    double(solr_data: { }, blacklight_config: Blacklight::Configuration.new)
   end
 
   subject { Spotlight::Resources::Searchworks.new url: "http://searchworks.stanford.edu/view/xf680rd3068" }

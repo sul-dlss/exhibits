@@ -35,7 +35,7 @@ module Spotlight::Resources
     end
     
     def existing_solr_doc_hash doc_hash
-      exhibit.solr_document_model.new(doc_hash).to_solr
+      exhibit.blacklight_config.solr_document_model.new(doc_hash).to_solr
     end
     
     def parallel_options
