@@ -26,7 +26,7 @@ set :log_level, :info
 set :linked_files, %w{config/secrets.yml config/database.yml config/solr.yml config/gdor.yml config/initializers/squash.rb public/.htaccess}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/environments}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/environments}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
