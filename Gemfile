@@ -81,3 +81,5 @@ gem "is_it_working-cbeer"
 gem "friendly_id"
 gem "social-share-button"
 gem "sitemap_generator"
+gem "delayed_job"
+gem 'delayed_job_active_record'
