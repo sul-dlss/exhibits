@@ -50,4 +50,13 @@ namespace :spotlight do
     
     Blacklight.solr.commit
   end 
+
+  task :upgrade => :environment do
+    Bundler.with_clean_env do
+      system "bundle update blacklight blacklight-spotlight"
+      Rake::Task["blacklight:install:migrations"].invoke
+      Rake::Task["spotlight:install:migrations"].invoke
+      Rake::Task["db:migrate"].invoke
+    end
+  end
 end
