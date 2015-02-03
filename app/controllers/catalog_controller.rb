@@ -50,7 +50,7 @@ class CatalogController < ApplicationController
     
     config.show.title_field = 'title_display'
     config.show.oembed_field = :url_fulltext
-    config.show.partials.insert(1, :oembed)
+    config.show.partials.insert(1, :osd_or_embed)
 
     config.view.gallery.partials = [:index_header, :index]
     config.view.slideshow.partials = [:index]
