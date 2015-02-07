@@ -4,5 +4,11 @@ class Ability
     super
 
     can :manage, PurlResource, exhibit_id: user.roles.pluck(:exhibit_id) if user
+
+    # disable exhibit import/export
+    cannot :import, Spotlight::Exhibit unless user.superadmin?
+
+    # disable exhibit multi-tenancy.
+    cannot :create, Spotlight::Exhibit
   end
 end
