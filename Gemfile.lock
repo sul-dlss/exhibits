@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: a9db4e472919f06f5c7cc6eb49deee86b40be373
+  revision: 0881274735ed005ba42eb862b7031fa782ba8056
   specs:
     blacklight (5.9.0)
       bootstrap-sass (~> 3.2)
@@ -84,7 +84,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 019e7638a265223a6b981c5af4889d6b0144a941
+  revision: a23ce28d1f639e5a5221ec3effcdf53b2ac0d7c0
   specs:
     blacklight-spotlight (0.2.0)
       active_model_serializers (= 0.9.0)
@@ -257,7 +257,7 @@ GEM
       rails (>= 3.2, < 5.0)
     dor-fetcher (1.0.5)
     erubis (2.7.0)
-    execjs (2.2.2)
+    execjs (2.3.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
@@ -267,7 +267,7 @@ GEM
       activerecord (>= 4.0.0)
     github-markup (1.3.1)
       posix-spawn (~> 0.3.8)
-    globalid (0.3.0)
+    globalid (0.3.2)
       activesupport (>= 4.1.0)
     hike (1.2.3)
     hooks (0.4.0)
