@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202234243) do
+ActiveRecord::Schema.define(version: 20150221012252) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",                   null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150202234243) do
     t.string   "document_type", limit: 255
   end
 
+  add_index "bookmarks", ["document_type", "document_id"], name: "index_bookmarks_on_document_type_and_document_id"
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id"
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -231,11 +232,12 @@ ActiveRecord::Schema.define(version: 20150202234243) do
 
   create_table "spotlight_solr_document_sidecars", force: :cascade do |t|
     t.integer  "exhibit_id"
-    t.string   "solr_document_id", limit: 255
-    t.boolean  "public",                       default: true
+    t.boolean  "public",        default: true
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "document_id"
+    t.string   "document_type"
   end
 
   add_index "spotlight_solr_document_sidecars", ["exhibit_id"], name: "index_spotlight_solr_document_sidecars_on_exhibit_id"
@@ -276,5 +278,16 @@ ActiveRecord::Schema.define(version: 20150202234243) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end

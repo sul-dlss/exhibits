@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 0881274735ed005ba42eb862b7031fa782ba8056
+  revision: 6c40a3b27c6d401616d84d46a04bd12e9f08051c
   specs:
-    blacklight (5.9.0)
+    blacklight (5.10.0)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/blacklight-gallery
-  revision: 4cd67980e026d34072dddef8cecff1b6edcbbd9f
+  revision: a28aeb847daa192ec7655d2d4c873d24855163e7
   specs:
     blacklight-gallery (0.1.2)
       blacklight (~> 5.0)
@@ -84,12 +84,11 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: ef48a1b4deebc35efebceaee93e1858cb3650f98
+  revision: c4be9eaa0dbc76339d7f7ee4a1bb1e5bc96b87dd
   specs:
     blacklight-spotlight (0.2.0)
-      active_model_serializers (= 0.9.0)
       acts-as-taggable-on (= 3.1.0)
-      autoprefixer-rails (< 5.0.0)
+      autoprefixer-rails
       blacklight (~> 5.8)
       blacklight-oembed (>= 0.0.3)
       bootstrap_form (~> 2.2.0)
@@ -102,12 +101,17 @@ GIT
       faraday_middleware
       friendly_id (= 5.1.0)
       github-markup
+      google-api-client
+      legato
       lodash-rails
       mail_form
       mini_magick
       nokogiri
+      oauth2
+      paper_trail (~> 4.0.0.beta)
       rails (~> 4.0, >= 4.2.0)
-      sir_trevor_rails (>= 0.5.0.pre.beta1)
+      roar-rails
+      sir_trevor_rails (>= 0.5.0a)
       social-share-button (~> 0.1.5)
       tophat
       underscore-rails (~> 1.6.0)
@@ -146,8 +150,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_model_serializers (0.9.0)
-      activemodel (>= 3.2)
     activejob (4.2.0)
       activesupport (= 4.2.0)
       globalid (>= 0.3.0)
@@ -174,8 +176,9 @@ GEM
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
-    autoprefixer-rails (4.0.2.2)
+    autoprefixer-rails (5.1.7)
       execjs
+      json
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -184,8 +187,9 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    bootstrap-sass (3.3.1.0)
-      sass (~> 3.2)
+    bootstrap-sass (3.3.3)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.2.19)
     bootstrap_form (2.2.0)
     breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
@@ -234,7 +238,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.0)
+    coffee-script-source (1.9.1)
     colorize (0.7.5)
     columnize (0.9.0)
     confstruct (0.2.7)
@@ -246,7 +250,7 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
-    deprecation (0.1.0)
+    deprecation (0.2.0)
       activesupport
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -260,6 +264,7 @@ GEM
     devise-remote-user (0.4.1)
       devise
       rails (>= 3.2, < 5.0)
+    diffy (3.0.7)
     dor-fetcher (1.0.5)
     erubis (2.7.0)
     execjs (2.3.0)
@@ -272,7 +277,7 @@ GEM
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     github-markup (1.3.3)
-    globalid (0.3.2)
+    globalid (0.3.3)
       activesupport (>= 4.1.0)
     google-api-client (0.8.2)
       activesupport (>= 3.2)
@@ -304,7 +309,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.2)
     jwt (1.2.1)
-    kaminari (0.16.2)
+    kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     launchy (2.4.3)
@@ -316,7 +321,7 @@ GEM
     legato (0.4.0)
       multi_json
     libv8 (3.16.14.7)
-    lodash-rails (3.1.0)
+    lodash-rails (3.3.0)
       railties (>= 3.1)
     logger (1.2.8)
     loofah (2.0.1)
@@ -361,6 +366,9 @@ GEM
     openseadragon (0.0.9)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
+    paper_trail (4.0.0.beta2)
+      activerecord (>= 3.0, < 6.0)
+      activesupport (>= 3.0, < 6.0)
     parallel (1.3.3)
     rack (1.6.0)
     rack-accept (0.4.5)
@@ -399,14 +407,27 @@ GEM
     rdoc (4.2.0)
     redcarpet (2.0.1)
     ref (1.0.5)
+    representable (2.1.5)
+      multi_json
+      nokogiri
+      uber (~> 0.0.7)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     retriable (1.4.1)
     retries (0.0.5)
+    roar (1.0.0)
+      representable (>= 2.0.1, <= 3.0.0)
+    roar-rails (1.0.1)
+      actionpack
+      railties (>= 3.0.0)
+      responders
+      roar (>= 1.0.0, <= 1.1.0)
+      test_xml (>= 0.1.6)
+      uber (>= 0.0.5)
     rsolr (1.0.10)
       builder (>= 2.1.2)
     ruby-oembed (0.8.12)
-    sass (3.4.11)
+    sass (3.4.12)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -455,6 +476,9 @@ GEM
     stanford-mods (1.1.2)
       mods
     stomp (1.3.4)
+    test_xml (0.1.7)
+      diffy (~> 3.0)
+      nokogiri (>= 1.3.2)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref

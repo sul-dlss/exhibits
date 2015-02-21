@@ -4,12 +4,12 @@
 *= require bootstrap-tagsinput
 *= require jquery.jcrop
 */
+@import 'variables';
 @import 'sul_theme';
-@import 'spotlight/variables_bootstrap';
-@import 'bootstrap-sprockets';
 @import 'sir-trevor';
 @import 'sir-trevor-icons';
 @import 'bootstrap';
+@import 'blacklight_gallery/default';
 @import 'blacklight/blacklight';
 @import 'spotlight/spotlight';
 

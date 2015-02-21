@@ -53,6 +53,7 @@ class CatalogController < ApplicationController
     config.show.partials.insert(1, :osd_or_embed)
 
     config.view.gallery.partials = [:index_header, :index]
+    config.view.masonry.partials = [:index]
     config.view.slideshow.partials = [:index]
     config.view.maps.type = "placename_coord"
     config.view.maps.placename_coord_field = 'placename_coords_ssim'
