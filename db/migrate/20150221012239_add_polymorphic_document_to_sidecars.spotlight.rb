@@ -3,9 +3,7 @@ class AddPolymorphicDocumentToSidecars < ActiveRecord::Migration
   def change
     add_column :spotlight_solr_document_sidecars, :document_id, :string
     add_column :spotlight_solr_document_sidecars, :document_type, :string
-    
-    remove_column :spotlight_solr_document_sidecars, :solr_document_id
-    
+
     reversible do |dir|
       dir.up do
         Spotlight::SolrDocumentSidecar.find_each do |e|
@@ -21,6 +19,8 @@ class AddPolymorphicDocumentToSidecars < ActiveRecord::Migration
         end
       end
     end
+
+    remove_column :spotlight_solr_document_sidecars, :solr_document_id
 
     add_index :bookmarks, [:document_type, :document_id]
   end
