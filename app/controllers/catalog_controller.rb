@@ -93,6 +93,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
+    config.add_index_field "title_full_display", label: "Title"
     config.add_index_field "title_variant_display", :label => "Alternate Title"
     config.add_index_field "author_person_full_display", :label => "Author/Creator"
     config.add_index_field "author_corp_display", :label => "Corporate Author"
