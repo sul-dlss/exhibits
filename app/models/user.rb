@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
   def to_s
     email
   end
-  
+
   def webauth_groups= groups
     g = groups.split("|")
     
     if g.include? "dlss:exhibits-admin" and !superadmin?
-      roles.create!(exhibit: nil, role: 'admin')
+      roles.build exhibit: nil, role: "admin"
     end
   end
 end
