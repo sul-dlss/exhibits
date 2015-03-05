@@ -8,8 +8,9 @@ task :default => [:ci]
 SulExhibitsTemplate::Application.load_tasks
 
 ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.3.zip"
-require 'jettywrapper'
 
+begin
+require 'jettywrapper'
 
 
 require 'rspec/core/rake_task'
@@ -25,6 +26,8 @@ task :ci => ['jetty:clean', 'spotlight:configure_jetty'] do
     # run the tests
     Rake::Task["spec"].invoke
   end
+end
+rescue
 end
 
 
