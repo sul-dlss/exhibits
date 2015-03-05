@@ -44,7 +44,7 @@ class CatalogController < ApplicationController
     config.index.thumbnail_field = :thumbnail_url_ssm
     config.index.square_image_field = :thumbnail_square_url_ssm
     
-    config.show.title_field = 'title_display'
+    config.show.title_field = 'title_full_display'
     config.show.oembed_field = :url_fulltext
     config.show.partials.insert(1, :osd_or_embed)
 
@@ -93,6 +93,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
+    config.add_index_field "title_full_display", label: "Title"
     config.add_index_field "title_variant_display", :label => "Alternate Title"
     config.add_index_field "author_person_full_display", :label => "Author/Creator"
     config.add_index_field "author_corp_display", :label => "Corporate Author"

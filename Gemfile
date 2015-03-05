@@ -48,6 +48,12 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :production do
@@ -61,9 +67,9 @@ gem 'squash_rails', require: 'squash/rails'
 
 gem "rails_config"
 
-gem "blacklight", git: "https://github.com/projectblacklight/blacklight"
-gem "blacklight-gallery", git: "https://github.com/projectblacklight/blacklight-gallery"
-gem "blacklight-maps", git: "https://github.com/sul-dlss/blacklight-maps"
+gem "blacklight", git: "https://github.com/projectblacklight/blacklight" # "~> 5.10"
+gem "blacklight-gallery", "~> 0.2"
+gem "blacklight-maps", "0.2.0"
 gem "blacklight-spotlight", git: "https://github.com/sul-dlss/spotlight"
 gem "sir_trevor_rails", git: "https://github.com/sul-dlss/sir-trevor-rails", branch: "master"
 gem "spotlight-dor-resources", git: "https://github.com/sul-dlss/spotlight-dor-resources"

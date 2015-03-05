@@ -17,3 +17,5 @@
 
 /config/gdor.yml
 /log/gdor_logs/
+/public/uploads
+/jetty
