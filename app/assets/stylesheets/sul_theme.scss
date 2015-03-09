@@ -26,6 +26,12 @@
   &.navbar {
     margin-bottom: 10px;
   }
+
+  &.search-masthead.navbar {
+    margin-bottom: 0;
+    background-color: #3F3C30;
+  }
+
   &.navbar-default {
     background-color: $beige5;
     .navbar-form {

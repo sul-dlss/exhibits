@@ -27,7 +27,7 @@ task :ci => ['jetty:clean', 'spotlight:configure_jetty'] do
     Rake::Task["spec"].invoke
   end
 end
-rescue
+rescue LoadError
 end
 
 

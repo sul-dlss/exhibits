@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303154816) do
+ActiveRecord::Schema.define(version: 20150309222823) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -148,10 +148,26 @@ ActiveRecord::Schema.define(version: 20150303154816) do
     t.boolean  "published",      default: true
     t.datetime "published_at"
     t.string   "featured_image"
+    t.integer  "masthead_id"
+    t.integer  "thumbnail_id"
   end
 
   add_index "spotlight_exhibits", ["default"], name: "index_spotlight_exhibits_on_default", unique: true
   add_index "spotlight_exhibits", ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
+
+  create_table "spotlight_featured_images", force: :cascade do |t|
+    t.string   "type"
+    t.boolean  "display"
+    t.string   "image"
+    t.string   "source"
+    t.string   "document_global_id"
+    t.integer  "image_crop_x"
+    t.integer  "image_crop_y"
+    t.integer  "image_crop_w"
+    t.integer  "image_crop_h"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "spotlight_locks", force: :cascade do |t|
     t.integer  "on_id"
@@ -171,6 +187,7 @@ ActiveRecord::Schema.define(version: 20150303154816) do
     t.integer  "exhibit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "display",    default: true
   end
 
   add_index "spotlight_main_navigations", ["exhibit_id"], name: "index_spotlight_main_navigations_on_exhibit_id"
@@ -208,6 +225,7 @@ ActiveRecord::Schema.define(version: 20150303154816) do
     t.integer  "parent_page_id"
     t.boolean  "display_sidebar"
     t.boolean  "display_title"
+    t.integer  "thumbnail_id"
   end
 
   add_index "spotlight_pages", ["exhibit_id"], name: "index_spotlight_pages_on_exhibit_id"
@@ -245,6 +263,8 @@ ActiveRecord::Schema.define(version: 20150303154816) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "featured_item_id"
+    t.integer  "masthead_id"
+    t.integer  "thumbnail_id"
   end
 
   add_index "spotlight_searches", ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"

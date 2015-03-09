@@ -1,14 +1,14 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: bf5033e9a86ffb34f56a3dfc9047012a38fe524b
+  revision: 881c06deadddc2742107ef88d9e3dd66b25af57d
   specs:
-    blacklight (5.10.0)
+    blacklight (5.10.2)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
-      rsolr (~> 1.0.6)
+      rsolr (~> 1.0.11)
 
 GIT
   remote: https://github.com/sul-dlss/gdor-indexer
@@ -62,12 +62,12 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 591e83451e083a7b023b21bb71679f24a56c367f
+  revision: a35cbb68578e9b1105ddff7b47544d40fccab5d3
   specs:
     blacklight-spotlight (0.3.1)
       acts-as-taggable-on (= 3.1.0)
       autoprefixer-rails
-      blacklight (~> 5.8)
+      blacklight (~> 5.10)
       blacklight-oembed (>= 0.0.3)
       bootstrap_form (~> 2.2.0)
       breadcrumbs_on_rails (~> 2.3.0)
@@ -246,7 +246,7 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
-    deprecation (0.2.1)
+    deprecation (0.2.2)
       activesupport
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -264,7 +264,7 @@ GEM
     diffy (3.0.7)
     dor-fetcher (1.0.5)
     erubis (2.7.0)
-    execjs (2.3.0)
+    execjs (2.4.0)
     extlib (0.9.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -321,7 +321,7 @@ GEM
     legato (0.4.0)
       multi_json
     libv8 (3.16.14.7)
-    lodash-rails (3.3.1.1)
+    lodash-rails (3.5.0)
       railties (>= 3.1)
     logger (1.2.8)
     loofah (2.0.1)
@@ -429,7 +429,7 @@ GEM
       roar (>= 1.0.0, <= 1.1.0)
       test_xml (>= 0.1.6)
       uber (>= 0.0.5)
-    rsolr (1.0.11)
+    rsolr (1.0.12)
       builder (>= 2.1.2)
     rspec-core (3.2.1)
       rspec-support (~> 3.2.0)
