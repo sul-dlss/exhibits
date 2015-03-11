@@ -37,3 +37,30 @@
   @extend .col-md-6;
   @extend .col-sm-12;
 }
+
+.documents-list {
+  .document {
+    position: relative;
+    padding-left: 140px;
+  }
+
+  .index_title {
+    font-size: $font-size-large;
+  }
+
+  .document-counter {
+    display: none;
+  }
+
+  .document-thumbnail {
+    position: absolute;
+    left: 0;
+    top: 1.4em;
+    padding-left: 0;
+    max-width: 100px;
+
+    img {
+      border: 1px solid $gray;
+    }
+  }
+}
