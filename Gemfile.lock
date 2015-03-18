@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 881c06deadddc2742107ef88d9e3dd66b25af57d
+  revision: 94d891df60e2c4f2daec3004404bf27ea6be60ff
   specs:
-    blacklight (5.10.2)
+    blacklight (5.11.0)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
@@ -62,12 +62,12 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 31cc0c047742a7d1465bb134f6575b78bda5a2f2
+  revision: 6829a871d32751b6b39b4693c93d9ff8f6ba0853
   specs:
     blacklight-spotlight (0.3.1)
       acts-as-taggable-on (= 3.1.0)
       autoprefixer-rails
-      blacklight (~> 5.10)
+      blacklight (~> 5.11)
       blacklight-oembed (>= 0.0.3)
       bootstrap_form (~> 2.2.0)
       breadcrumbs_on_rails (~> 2.3.0)
@@ -154,7 +154,7 @@ GEM
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
-    autoprefixer-rails (5.1.7)
+    autoprefixer-rails (5.1.7.1)
       execjs
       json
     bcrypt (3.1.10)
@@ -177,7 +177,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    bootstrap-sass (3.3.3)
+    bootstrap-sass (3.3.4)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     bootstrap_form (2.2.0)
@@ -308,7 +308,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
-    jwt (1.4.0)
+    jwt (1.4.1)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -395,7 +395,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.5)
+    rails-dom-testing (1.0.6)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)

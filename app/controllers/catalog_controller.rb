@@ -109,9 +109,6 @@ class CatalogController < ApplicationController
     config.add_index_field "pub_display", :label => "Publication Info"
     config.add_index_field "pub_date", :label => "Date"
     config.add_index_field "imprint_display", :label => "Imprint"
-    config.add_index_field Spotlight::Engine.config.uploaded_description_field, :label => 'Description'
-    config.add_index_field Spotlight::Engine.config.uploaded_attribution_field, :label => 'Attribution'
-    config.add_index_field Spotlight::Engine.config.uploaded_date_field, :label => 'Date'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
