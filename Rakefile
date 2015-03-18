@@ -42,6 +42,8 @@ task :server do
   jetty_params[:startup_wait]= 60
 
   Jettywrapper.wrap(jetty_params) do
+    system "bundle exec rake spotlight:seed"
+
     unless File.exists? 'tmp/.initialized'
       system "bundle exec rake spotlight:initialize"
       File.open('tmp/.initialized', "w") {}
@@ -56,5 +58,12 @@ namespace :spotlight do
     FileList['solr_conf/conf/*'].each do |f|  
       cp("#{f}", 'jetty/solr/blacklight-core/conf/', :verbose => true)
     end
+  end
+
+  task :seed => [:environment] do
+    docs = JSON.parse(File.read(File.join(Rails.root, "spec", "fixtures", "sample_solr_docs.json")))
+    conn = Blacklight.default_index.connection
+    conn.add docs
+    conn.commit
   end
 end
