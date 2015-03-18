@@ -177,7 +177,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    bootstrap-sass (3.3.4)
+    bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     bootstrap_form (2.2.0)
@@ -548,6 +548,7 @@ DEPENDENCIES
   blacklight-gallery (~> 0.2)
   blacklight-maps (= 0.2.0)
   blacklight-spotlight!
+  bootstrap-sass (= 3.3.3)
   byebug
   capistrano (~> 3.0)
   capistrano-bundler

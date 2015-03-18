@@ -67,6 +67,8 @@ gem 'squash_rails', require: 'squash/rails'
 
 gem "rails_config"
 
+gem "bootstrap-sass", "3.3.3" # pending twbs/bootstrap-sass#873
+
 gem "blacklight", git: "https://github.com/projectblacklight/blacklight" # "~> 5.10"
 gem "blacklight-gallery", "~> 0.2"
 gem "blacklight-maps", "0.2.0"
