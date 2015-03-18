@@ -30,7 +30,25 @@ end
 rescue LoadError
 end
 
+desc "Run jetty and launch the development Rails server"
+task :server do
 
+  unless File.exists? 'jetty'
+    Rake::Task['jetty:clean'].invoke
+    Rake::Task['spotlight:configure_jetty'].invoke
+  end
+
+  jetty_params = Jettywrapper.load_config
+  jetty_params[:startup_wait]= 60
+
+  Jettywrapper.wrap(jetty_params) do
+    unless File.exists? 'tmp/.initialized'
+      system "bundle exec rake spotlight:initialize"
+      File.open('tmp/.initialized', "w") {}
+    end
+    system "bundle exec rails s"
+  end
+end
 
 namespace :spotlight do
   desc "Copies the default SOLR config for the bundled Testing Server"

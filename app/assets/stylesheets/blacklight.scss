@@ -38,26 +38,26 @@
   @extend .col-sm-12;
 }
 
-.documents-list {
-  .document {
-    position: relative;
-    padding-left: 140px;
-  }
-
+#documents {
   .index_title {
+    margin-top: 0;
     font-size: $font-size-large;
+    margin-left: 120px;
   }
 
   .document-counter {
     display: none;
   }
 
+  .document-metadata {
+    margin-left: 120px;
+  }
+
   .document-thumbnail {
-    position: absolute;
-    left: 0;
-    top: 1.4em;
-    padding-left: 0;
-    max-width: 100px;
+    float: left;
+    padding: 0;
+    margin: 0;
+    height: 0;
 
     img {
       border: 1px solid $gray;

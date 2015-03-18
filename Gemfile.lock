@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 881c06deadddc2742107ef88d9e3dd66b25af57d
+  revision: 94d891df60e2c4f2daec3004404bf27ea6be60ff
   specs:
-    blacklight (5.10.2)
+    blacklight (5.11.0)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
@@ -62,12 +62,12 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 31cc0c047742a7d1465bb134f6575b78bda5a2f2
+  revision: 6829a871d32751b6b39b4693c93d9ff8f6ba0853
   specs:
     blacklight-spotlight (0.3.1)
       acts-as-taggable-on (= 3.1.0)
       autoprefixer-rails
-      blacklight (~> 5.10)
+      blacklight (~> 5.11)
       blacklight-oembed (>= 0.0.3)
       bootstrap_form (~> 2.2.0)
       breadcrumbs_on_rails (~> 2.3.0)
@@ -154,13 +154,13 @@ GEM
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
-    autoprefixer-rails (5.1.7)
+    autoprefixer-rails (5.1.7.1)
       execjs
       json
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight-gallery (0.2.0)
+    blacklight-gallery (0.2.1)
       blacklight (~> 5.0)
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.0.9)
@@ -177,7 +177,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    bootstrap-sass (3.3.3)
+    bootstrap-sass (3.3.4)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     bootstrap_form (2.2.0)
@@ -186,10 +186,8 @@ GEM
     bundler-audit (0.3.1)
       bundler (~> 1.2)
       thor (~> 0.18)
-    byebug (3.5.1)
-      columnize (~> 0.8)
-      debugger-linecache (~> 1.2)
-      slop (~> 3.6)
+    byebug (4.0.2)
+      columnize (= 0.9.0)
     cancancan (1.10.1)
     capistrano (3.4.0)
       i18n
@@ -237,10 +235,9 @@ GEM
     colorize (0.7.5)
     columnize (0.9.0)
     confstruct (0.2.7)
-    daemons (1.1.9)
-    database_cleaner (1.4.0)
+    daemons (1.2.1)
+    database_cleaner (1.4.1)
     debug_inspector (0.0.2)
-    debugger-linecache (1.2.0)
     delayed_job (4.0.6)
       activesupport (>= 3.0, < 5.0)
     delayed_job_active_record (4.0.3)
@@ -272,7 +269,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
-    ffi (1.9.6)
+    ffi (1.9.8)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     github-markup (1.3.3)
@@ -294,7 +291,7 @@ GEM
     i18n (0.7.0)
     is_it_working-cbeer (1.0.16)
     iso-639 (0.2.5)
-    jbuilder (2.2.9)
+    jbuilder (2.2.11)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jettywrapper (2.0.3)
@@ -308,7 +305,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
-    jwt (1.4.0)
+    jwt (1.4.1)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -395,7 +392,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.5)
+    rails-dom-testing (1.0.6)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -431,7 +428,7 @@ GEM
       uber (>= 0.0.5)
     rsolr (1.0.12)
       builder (>= 2.1.2)
-    rspec-core (3.2.1)
+    rspec-core (3.2.2)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -468,7 +465,6 @@ GEM
       multi_json (~> 1.10)
     sitemap_generator (5.0.5)
       builder
-    slop (3.6.0)
     social-share-button (0.1.8)
       coffee-rails
       sass-rails
@@ -510,7 +506,7 @@ GEM
     tilt (1.4.1)
     tophat (2.2.0)
       actionpack (>= 3.0.0)
-    trollop (2.1.1)
+    trollop (2.1.2)
     turbolinks (2.5.3)
       coffee-rails
     turnout (2.1.0)
@@ -530,12 +526,12 @@ GEM
     unf_ext (0.0.6)
     warden (1.2.3)
       rack (>= 1.0)
-    web-console (2.1.0)
+    web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    websocket-driver (0.5.2)
+    websocket-driver (0.5.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
     whenever (0.9.4)
