@@ -38,7 +38,7 @@
   @extend .col-sm-12;
 }
 
-#documents {
+#documents.list {
   .index_title {
     margin-top: 0;
     font-size: $font-size-large;
