@@ -70,7 +70,7 @@ gem "rails_config"
 gem "bootstrap-sass", "3.3.3" # pending twbs/bootstrap-sass#873
 
 gem "blacklight", git: "https://github.com/projectblacklight/blacklight" # "~> 5.10"
-gem "blacklight-gallery", "~> 0.2"
+gem "blacklight-gallery", "~> 0.3"
 gem "blacklight-maps", "0.2.0"
 gem "blacklight-spotlight", git: "https://github.com/sul-dlss/spotlight"
 gem "sir_trevor_rails", git: "https://github.com/sul-dlss/sir-trevor-rails", branch: "master"
