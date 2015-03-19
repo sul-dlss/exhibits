@@ -129,7 +129,7 @@ a {
   }
 }
 
-.sidenav a, p a, .content-block p > a {
+.sidenav a, p a, .content-block p > a, ol li > a {
   color: $cardinalRed;
   &:active, &:hover {
     color: $cardinalRed;
@@ -155,7 +155,7 @@ p {
 
 #main-container h1 {
   font-size: 26px;
-  margin-left: 12px;
+  // margin-left: 12px;
   margin-top: 8px;
   &.page-title, &.page-header {
     margin-left: 0px;
@@ -200,7 +200,7 @@ h2 {
   background-color: $beige5;
   border: none;
   img {
-    max-height: 200px;
+    // max-height: 200px;
   }
 }
 
@@ -511,5 +511,66 @@ footer {
   }
   .image-block.pull-right {
     margin-left: 10px;
+  }
+}
+
+// 2015-03-19 fixes
+#main-container > .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.browse-categories .category-caption {
+  .category-title {
+    font-size: 24px;
+  }
+  .item-count {
+    font-size: 16px;
+  }
+}
+
+.browse-categories .browse-category, .browse-landing .image-overlay {
+  border: 2px solid #999;
+  box-shadow: 1px 2px 1px rgba(0,0,0,0.2);
+}
+
+.browse-landing h2 {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 768px) {
+  .browse-landing .text-overlay .browse-category-title {
+    font-size: 24px;
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+}
+
+.content-block .thumbnail {
+  margin-bottom: 10px;
+}
+
+.content-block .text-col.pull-left {
+  padding-left: 0;
+}
+
+.content-block img,  {
+  max-height: none;
+}
+
+.page-header small {
+  font-size: 22px;
+}
+
+.spotlight-flexbox .box {
+  // padding: 6px;
+}
+
+.analytics {
+  margin-bottom: 30px;
+  td.value {
+    font-size: 24px;
   }
 }
