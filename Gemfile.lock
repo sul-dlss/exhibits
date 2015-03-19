@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 94d891df60e2c4f2daec3004404bf27ea6be60ff
+  revision: 4d3d9704c8f1eeb3b9d48f282848d642c9fc08f6
   specs:
-    blacklight (5.11.0)
+    blacklight (5.11.1)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
@@ -62,7 +62,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: cca55a03a5e1ad808c46e2674d6bf78c3c5f3db3
+  revision: 611505b3ce8f66794ee8aa35161e95f6b8d6fb03
   specs:
     blacklight-spotlight (0.3.1)
       acts-as-taggable-on (= 3.1.0)
