@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 4d3d9704c8f1eeb3b9d48f282848d642c9fc08f6
+  revision: 56aceffb1deaadd803ce298385cbdce0dcd9c98d
   specs:
     blacklight (5.11.1)
       bootstrap-sass (~> 3.2)
@@ -62,7 +62,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 611505b3ce8f66794ee8aa35161e95f6b8d6fb03
+  revision: 804b8894f38ced403307e3e832544895efdfe62d
   specs:
     blacklight-spotlight (0.3.1)
       acts-as-taggable-on (= 3.1.0)
@@ -334,7 +334,7 @@ GEM
       actionmailer (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
     mime-types (2.4.3)
-    mini_magick (4.1.0)
+    mini_magick (4.1.1)
     mini_portile (0.6.2)
     minitest (5.5.1)
     mods (2.0.2)
