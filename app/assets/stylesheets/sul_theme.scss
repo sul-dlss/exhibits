@@ -29,7 +29,12 @@
 
   &.page-masthead.navbar {
     margin-bottom: 0;
-    background-color: #3F3C30;
+    background-color: #565347;
+    .navbar-nav {
+      > li > a:hover {
+        color: $darkGray;
+      }
+    }
   }
 
   &.navbar-default {
@@ -71,6 +76,7 @@
 #header-navbar {
   &.navbar-inverse {
     background-color: $cardinalRed;
+    border-color: $darkRed;
     .navbar-nav > li > a {
       color: #ddd;
       padding-top: 8px;
@@ -225,9 +231,9 @@ h2 {
 // Homepage Fix //
   // temporary //
 .blacklight-home_pages-show {
-  .col-md-9 {
-    margin-top: 30px;
-  }
+  // .col-md-9 {
+  //   margin-top: 30px;
+  // }
   #sidebar {
     margin-top: 12px;
   }
@@ -496,6 +502,11 @@ footer {
     }
   }
   &.spotlight-flexbox {
+    .box {
+      padding: 5px;
+      &:first-child {padding-left: 0;}
+      &:last-child {padding-right: 0;}
+    }
     .box .caption {
       @include caption-styling;
     }
@@ -548,6 +559,22 @@ footer {
   margin-bottom: 20px;
 }
 
+.content-block {
+  margin-top: 0;
+  margin-bottom: 30px;
+  + .content-block {
+    margin-top: 30px;
+  }
+}
+
+.spotlight-flexbox + .content-block {
+  margin-top: 30px;
+}
+
+.page-title {
+  margin-bottom: 30px;
+}
+
 .content-block .thumbnail {
   margin-bottom: 10px;
 }
@@ -556,8 +583,17 @@ footer {
   padding-left: 0;
 }
 
+.item-grid-block .items-col .box .thumbnail a>img {
+  border-color: #cccccc;
+}
+
 .content-block img,  {
   max-height: none;
+}
+
+.item-features {
+  .carousel-indicators .active {
+  }
 }
 
 .page-header small {
@@ -565,7 +601,28 @@ footer {
 }
 
 .spotlight-flexbox .box {
-  // padding: 6px;
+  img {
+    border: 1px solid #ccc;
+  }
+}
+
+.documents-list #documents.documents-list .index_title {
+  width: 90%;
+  line-height: inherit;
+}
+
+h1 + small {
+  font-size: $font-size-base;
+}
+
+h2 > p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.content-block + h2 {
+  margin-top: 30px;
 }
 
 .analytics {
