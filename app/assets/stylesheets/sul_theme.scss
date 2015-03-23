@@ -611,7 +611,13 @@ footer {
 }
 
 .item-features {
-  .carousel-indicators .active {
+  .carousel-indicators .active, .carousel-indicators .active:hover,
+  .carousel-indicators .active:hover, .carousel-indicators .active:focus {
+    background-color: $beige20;
+    border-color: $beige20;
+  }
+  .carousel-indicators .active a, .carousel-indicators .active:hover a {
+    color: $black80;
   }
 }
 
