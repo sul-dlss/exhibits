@@ -72,6 +72,11 @@
   }
 }
 
+#exhibit-masthead.with-image + #exhibit-navbar.navbar-default {
+  background-color: $beige10;
+}
+
+
 .navbar {
   min-height: $brandbar-height !important;
 }
