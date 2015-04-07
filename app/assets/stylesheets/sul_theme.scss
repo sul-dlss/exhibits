@@ -20,24 +20,26 @@
 // Site Header //
 #exhibit-masthead {
   background-color: $beige10;
+  .site-title {
+    font-size: 32px;
+  }
 }
 
 #exhibit-navbar {
-  &.navbar {
-    margin-bottom: 10px;
-  }
-
   &.page-masthead.navbar {
-    margin-bottom: 0;
-    background-color: #565347;
-    .navbar-nav {
-      > li > a:hover, > li > a:active, > li > a:focus {
-        color: $darkGray;
+    background-color: rgba(0,0,0,0.5);
+
+    .navbar-brand {
+      font-size: 22px;
+    }
+    &.navbar-default .navbar-nav {
+      > .open > a, > .open > a:hover, > .open > a:focus {
+        background-color: rgba(255,255,255,0.15);
       }
     }
-    .open .dropdown-menu > li > a {
-      color: $darkGray;
-    }
+  }
+  &.page-masthead ul.nav.navbar-nav > li a {
+    letter-spacing: 0.7px;
   }
 
   &.navbar-default {
@@ -74,8 +76,11 @@
 
 #exhibit-masthead.with-image + #exhibit-navbar.navbar-default {
   background-color: rgba(0,0,0,0.2);
+  ul.nav.navbar-nav > li a {
+    letter-spacing: 0.7px;
+    font-size: 16px;
+  }
 }
-
 
 .navbar {
   min-height: $brandbar-height !important;
