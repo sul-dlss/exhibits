@@ -59,7 +59,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 3dfc962c0394129597c57254b3c3cd711da30c04
+  revision: bd5b9288ec8df28c1f75613176edc09aea794685
   specs:
     blacklight-spotlight (0.4.1)
       acts-as-taggable-on (= 3.1.0)
