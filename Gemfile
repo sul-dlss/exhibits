@@ -73,7 +73,7 @@ gem "blacklight", git: "https://github.com/projectblacklight/blacklight" # "~> 5
 gem "blacklight-gallery", "~> 0.3"
 gem "blacklight-maps", "0.2.0"
 gem "blacklight-spotlight", git: "https://github.com/sul-dlss/spotlight"
-gem "sir_trevor_rails", git: "https://github.com/sul-dlss/sir-trevor-rails"
+gem "sir_trevor_rails", git: "https://github.com/madebymany/sir-trevor-rails"
 gem "spotlight-dor-resources", git: "https://github.com/sul-dlss/spotlight-dor-resources"
 gem "gdor-indexer", git: "https://github.com/sul-dlss/gdor-indexer"
 gem "harvestdor-indexer", git: "https://github.com/sul-dlss/harvestdor-indexer"
