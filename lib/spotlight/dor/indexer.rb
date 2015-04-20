@@ -8,7 +8,7 @@ module Spotlight::Dor
     before_index do |sdb, solr_doc|
       Solrizer.insert_field(solr_doc, 'content_metadata_type', sdb.public_xml.xpath("/publicObject/contentMetadata/@type").text, :symbol, :displayable)
       
-      sdb.public_xml.xpath("/publicObject/contentMetadata").xpath('resource[@type="image"]/file').each do |node|
+      sdb.public_xml.xpath("/publicObject/contentMetadata").xpath('resource/file[@mimetype="image/jp2"]').each do |node|
         file_id = node.attr('id').gsub(".jp2", '')
         
         if node.attr('id') =~ /jp2$/ and !solr_doc[Solrizer.solr_name('content_metadata_first_image_file_name', :displayable)]
