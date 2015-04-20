@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: e6873764db0ea43a9ea6dabaf1ef895b381c0b7a
+  revision: b3eb108a8fe657bc42001d969f33cd603ab85b25
   specs:
-    blacklight (5.12.1)
+    blacklight (5.13.1)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (>= 0.15)
@@ -59,15 +59,15 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: bd5b9288ec8df28c1f75613176edc09aea794685
+  revision: 03534a874cb194a0e6d9f29c567cf7d7eb41ddaf
   specs:
     blacklight-spotlight (0.4.1)
-      acts-as-taggable-on (= 3.1.0)
+      acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
-      blacklight (~> 5.12)
+      blacklight (~> 5.13)
       blacklight-gallery
       blacklight-oembed (>= 0.0.3)
-      bootstrap_form (~> 2.2.0)
+      bootstrap_form (~> 2.2)
       breadcrumbs_on_rails (~> 2.3.0)
       cancancan
       carrierwave
@@ -75,12 +75,12 @@ GIT
       devise (~> 3.0)
       faraday
       faraday_middleware
-      friendly_id (= 5.1.0)
+      friendly_id (~> 5.1.0)
       github-markup
       google-api-client
       legato
       lodash-rails
-      mail_form
+      mail_form (~> 1.5, >= 1.5.1)
       mini_magick
       nokogiri
       oauth2
@@ -90,7 +90,7 @@ GIT
       sir_trevor_rails (>= 0.5.0a)
       social-share-button (~> 0.1.5)
       tophat
-      underscore-rails (~> 1.6.0)
+      underscore-rails (~> 1.6)
 
 GIT
   remote: https://github.com/sul-dlss/spotlight-dor-resources
@@ -142,24 +142,22 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (3.1.0)
-      actionpack (>= 3, < 5)
-      activerecord (>= 3, < 5)
-      activesupport (>= 3, < 5)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.8)
     arel (6.0.0)
     autoparse (0.3.3)
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
-    autoprefixer-rails (5.1.8)
+    autoprefixer-rails (5.1.11)
       execjs
       json
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight-gallery (0.3.0)
-      blacklight (~> 5.0)
+    blacklight-gallery (0.4.0)
+      blacklight (~> 5.12)
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.2.0)
       rails
@@ -178,7 +176,7 @@ GEM
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
-    bootstrap_form (2.2.0)
+    bootstrap_form (2.3.0)
     breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
     bundler-audit (0.3.1)
@@ -229,7 +227,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1)
+    coffee-script-source (1.9.1.1)
     colorize (0.7.5)
     columnize (0.9.0)
     confstruct (1.0.1)
@@ -260,7 +258,7 @@ GEM
     diffy (3.0.7)
     dor-fetcher (1.0.5)
     erubis (2.7.0)
-    execjs (2.5.0)
+    execjs (2.5.2)
     extlib (0.9.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -274,7 +272,7 @@ GEM
     github-markup (1.3.3)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    google-api-client (0.8.5)
+    google-api-client (0.8.6)
       activesupport (>= 3.2)
       addressable (~> 2.3)
       autoparse (~> 0.3)
@@ -326,7 +324,7 @@ GEM
       multi_json
     libv8 (3.16.14.7)
     little-plugger (1.1.3)
-    lodash-rails (3.6.0)
+    lodash-rails (3.7.0)
       railties (>= 3.1)
     logger (1.2.8)
     logging (1.8.2)
@@ -341,12 +339,12 @@ GEM
       capistrano-releaseboard
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mail_form (1.5.0)
+    mail_form (1.5.1)
       actionmailer (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
-    memoist (0.11.0)
+    memoist (0.12.0)
     mime-types (2.4.3)
-    mini_magick (4.2.1)
+    mini_magick (4.2.3)
     mini_portile (0.6.2)
     minitest (5.6.0)
     mods (2.0.3)
@@ -486,7 +484,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    sprockets (3.0.0)
+    sprockets (3.0.1)
       rack (~> 1.0)
     sprockets-rails (2.2.4)
       actionpack (>= 3.0)
@@ -529,10 +527,10 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    underscore-rails (1.6.0)
+    underscore-rails (1.8.2)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.6)
+    unf_ext (0.0.7.1)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.1.2)
