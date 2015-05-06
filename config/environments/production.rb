@@ -77,4 +77,8 @@ SulExhibitsTemplate::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Set the multipart limit to infinity to work around bad feature page
+  # serialization
+  Rack::Utils.multipart_part_limit = 0
 end
