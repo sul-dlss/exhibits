@@ -55,6 +55,7 @@ class CatalogController < ApplicationController
     config.view.slideshow.partials = [:index]
     config.view.maps.type = "placename_coord"
     config.view.maps.placename_coord_field = 'placename_coords_ssim'
+    config.view.embed.partials = [:osd_or_embed]
 
     # solr field configuration for document/show views
     #config.show.title_field = 'title_display'

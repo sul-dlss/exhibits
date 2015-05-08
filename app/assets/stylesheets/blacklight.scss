@@ -33,9 +33,11 @@
   clear: none !important;
 }
 
-.oembed-widget {
-  @extend .col-md-6;
-  @extend .col-sm-12;
+#document {
+  .oembed-widget {
+    @extend .col-md-6;
+    @extend .col-sm-12;
+  }
 }
 
 #documents.documents-list {
