@@ -465,9 +465,6 @@ footer {
 
 // Curator Mode - Widgets //
 .content-block {
-  &.row {
-    margin-left: 0;
-  }
   margin-bottom: 10px;
   margin-top: 10px;
   img {
@@ -643,6 +640,10 @@ footer {
 
 .spotlight-flexbox.browse-categories .box {
   padding: 1em 6px;
+  @media screen and (min-width: $screen-lg-min) {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
   &:first-child {padding-left: 0;}
   &:last-child {padding-right: 0;}
 }
