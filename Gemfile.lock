@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/blacklight
-  revision: 84770f7955ae692923758ffa68e9420bf659ae4e
+  revision: a9bc2461ee731103c30024e0dd6cfeee6705012d
   specs:
     blacklight (5.13.1)
       bootstrap-sass (~> 3.2)
@@ -59,7 +59,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: 4624e2aba9a4dfcae80d5878b2969314b13fad8a
+  revision: e5f5b6b1bdbf323a1897d74e5beb73be273b318d
   specs:
     blacklight-spotlight (0.4.1)
       acts-as-taggable-on (~> 3.5)
@@ -150,7 +150,7 @@ GEM
       addressable (>= 2.3.1)
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
-    autoprefixer-rails (5.1.11)
+    autoprefixer-rails (5.2.0)
       execjs
       json
     bcrypt (3.1.10)
@@ -182,7 +182,7 @@ GEM
     bundler-audit (0.3.1)
       bundler (~> 1.2)
       thor (~> 0.18)
-    byebug (4.0.5)
+    byebug (5.0.0)
       columnize (= 0.9.0)
     cancancan (1.10.1)
     capistrano (3.4.0)
@@ -242,7 +242,7 @@ GEM
       delayed_job (>= 3.0, < 4.1)
     deprecation (0.2.2)
       activesupport
-    devise (3.4.1)
+    devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -290,13 +290,13 @@ GEM
       memoist (~> 0.12)
       multi_json (= 1.11)
       signet (~> 0.6)
-    hashie (3.4.1)
+    hashie (3.4.2)
     hooks (0.4.0)
       uber (~> 0.0.4)
     i18n (0.7.0)
     is_it_working-cbeer (1.0.16)
     iso-639 (0.2.5)
-    jbuilder (2.2.13)
+    jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jettywrapper (2.0.3)
@@ -309,7 +309,7 @@ GEM
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    json (1.8.2)
+    json (1.8.3)
     jwt (1.5.0)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
@@ -320,11 +320,11 @@ GEM
       railties (>= 3.1)
     leaflet-rails (0.7.4)
     leaflet-sidebar-rails (0.0.3)
-    legato (0.4.0)
+    legato (0.5.0)
       multi_json
     libv8 (3.16.14.7)
     little-plugger (1.1.3)
-    lodash-rails (3.7.0)
+    lodash-rails (3.9.3)
       railties (>= 3.1)
     logger (1.2.8)
     logging (2.0.0)
@@ -343,10 +343,10 @@ GEM
       actionmailer (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
     memoist (0.12.0)
-    mime-types (2.5)
-    mini_magick (4.2.4)
+    mime-types (2.6.1)
+    mini_magick (4.2.7)
     mini_portile (0.6.2)
-    minitest (5.6.1)
+    minitest (5.7.0)
     mods (2.0.3)
       iso-639
       nokogiri
@@ -377,7 +377,7 @@ GEM
       activerecord (>= 3.0, < 6.0)
       activesupport (>= 3.0, < 6.0)
       request_store (~> 1.1.0)
-    parallel (1.4.1)
+    parallel (1.6.0)
     poltergeist (1.6.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -418,9 +418,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-    redcarpet (3.2.3)
+    redcarpet (3.3.1)
     ref (1.0.5)
-    representable (2.1.8)
+    representable (2.2.2)
       multi_json
       nokogiri
       uber (~> 0.0.7)
@@ -448,7 +448,7 @@ GEM
     rspec-mocks (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
-    rspec-rails (3.2.1)
+    rspec-rails (3.2.3)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -459,7 +459,7 @@ GEM
     rspec-support (3.2.2)
     ruby-oembed (0.8.14)
     rubyzip (1.1.7)
-    sass (3.4.13)
+    sass (3.4.14)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -469,11 +469,11 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    signet (0.6.0)
+    signet (0.6.1)
       addressable (~> 2.3)
       extlib (~> 0.9)
       faraday (~> 0.9)
-      jwt (~> 1.0)
+      jwt (~> 1.5)
       multi_json (~> 1.10)
     sitemap_generator (5.0.5)
       builder
@@ -486,7 +486,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    sprockets (3.1.0)
+    sprockets (3.2.0)
       rack (~> 1.0)
     sprockets-rails (2.3.1)
       actionpack (>= 3.0)
@@ -529,7 +529,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    underscore-rails (1.8.2)
+    underscore-rails (1.8.3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
