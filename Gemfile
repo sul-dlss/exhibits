@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -35,7 +35,8 @@ group :deployment do
   gem 'capistrano', '~> 3.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'lyberteam-capistrano-devel', '3.1.0'
+  gem 'capistrano-passenger'
+  gem 'dlss-capistrano'
 end
 
 group :development, :test do
@@ -57,7 +58,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '~> 0.3.20'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
 end
@@ -65,11 +66,11 @@ end
 gem 'squash_ruby', require: 'squash/ruby'
 gem 'squash_rails', require: 'squash/rails'
 
-gem "rails_config"
+gem "config"
 
-gem "bootstrap-sass", "3.3.3" # pending twbs/bootstrap-sass#873
+gem "bootstrap-sass", "~> 3.3.5"
 
-gem "blacklight", git: "https://github.com/projectblacklight/blacklight" # "~> 5.10"
+gem "blacklight", "~> 5.15"
 gem "blacklight-gallery", "~> 0.3"
 gem "blacklight-maps", "0.2.0"
 gem "blacklight-spotlight", git: "https://github.com/sul-dlss/spotlight"
