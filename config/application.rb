@@ -18,9 +18,5 @@ module SulExhibitsTemplate
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
-    if defined? Settings and Settings.action_mailer and Settings.action_mailer.default_url_options
-      config.action_mailer.default_url_options = Settings.action_mailer.default_url_options.try(:to_h) || {}
-    end
   end
 end
