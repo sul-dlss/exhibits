@@ -48,13 +48,13 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight
-  revision: ab285857ed2e21317dc9aa2bed8596cd3bb1c45d
+  revision: 8824073d4dec2fb6e6c16b0b36b272d9aea9f591
   specs:
     blacklight-spotlight (0.4.1)
       acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
       blacklight (~> 5.13)
-      blacklight-gallery
+      blacklight-gallery (>= 0.3.0)
       blacklight-oembed (>= 0.0.3)
       bootstrap_form (~> 2.2)
       breadcrumbs_on_rails (~> 2.3.0)
@@ -73,10 +73,11 @@ GIT
       mini_magick
       nokogiri
       oauth2
+      openseadragon
       paper_trail (~> 4.0.0.beta)
       rails (~> 4.0, >= 4.2.0)
       roar-rails
-      sir_trevor_rails (>= 0.5.0a)
+      sir_trevor_rails (~> 0.5.0b1)
       social-share-button (~> 0.1.5)
       tophat
       underscore-rails (~> 1.6)
@@ -96,36 +97,36 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.2.4)
-      actionpack (= 4.2.4)
-      actionview (= 4.2.4)
-      activejob (= 4.2.4)
+    actionmailer (4.2.2)
+      actionpack (= 4.2.2)
+      actionview (= 4.2.2)
+      activejob (= 4.2.2)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (4.2.4)
-      actionview (= 4.2.4)
-      activesupport (= 4.2.4)
+    actionpack (4.2.2)
+      actionview (= 4.2.2)
+      activesupport (= 4.2.2)
       rack (~> 1.6)
       rack-test (~> 0.6.2)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-      rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (4.2.4)
-      activesupport (= 4.2.4)
+      rails-html-sanitizer (~> 1.0, >= 1.0.1)
+    actionview (4.2.2)
+      activesupport (= 4.2.2)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-      rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    activejob (4.2.4)
-      activesupport (= 4.2.4)
+      rails-html-sanitizer (~> 1.0, >= 1.0.1)
+    activejob (4.2.2)
+      activesupport (= 4.2.2)
       globalid (>= 0.3.0)
-    activemodel (4.2.4)
-      activesupport (= 4.2.4)
+    activemodel (4.2.2)
+      activesupport (= 4.2.2)
       builder (~> 3.1)
-    activerecord (4.2.4)
-      activemodel (= 4.2.4)
-      activesupport (= 4.2.4)
+    activerecord (4.2.2)
+      activemodel (= 4.2.2)
+      activesupport (= 4.2.2)
       arel (~> 6.0)
-    activesupport (4.2.4)
+    activesupport (4.2.2)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -390,16 +391,16 @@ GEM
       rack (>= 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (4.2.4)
-      actionmailer (= 4.2.4)
-      actionpack (= 4.2.4)
-      actionview (= 4.2.4)
-      activejob (= 4.2.4)
-      activemodel (= 4.2.4)
-      activerecord (= 4.2.4)
-      activesupport (= 4.2.4)
+    rails (4.2.2)
+      actionmailer (= 4.2.2)
+      actionpack (= 4.2.2)
+      actionview (= 4.2.2)
+      activejob (= 4.2.2)
+      activemodel (= 4.2.2)
+      activerecord (= 4.2.2)
+      activesupport (= 4.2.2)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.2.4)
+      railties (= 4.2.2)
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -409,9 +410,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    railties (4.2.4)
-      actionpack (= 4.2.4)
-      activesupport (= 4.2.4)
+    railties (4.2.2)
+      actionpack (= 4.2.2)
+      activesupport (= 4.2.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
@@ -581,7 +582,7 @@ DEPENDENCIES
   mysql2 (~> 0.3.20)
   poltergeist
   rack-dev-mark
-  rails (= 4.2.4)
+  rails (= 4.2.2)
   rspec-rails
   ruby-oembed
   sass-rails (~> 5.0)
