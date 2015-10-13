@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sul-dlss/sul-exhibits-template.svg)](https://travis-ci.org/sul-dlss/sul-exhibits-template) [![Dependency Status](https://gemnasium.com/sul-dlss/sul-exhibits-template.svg)](https://gemnasium.com/sul-dlss/sul-exhibits-template)
+
 # SUL Spotlight Exhibit template project
 
 The project's `master` branch provides a template Spotlight application with SUL branding and functionality. 
