@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  include ActiveSupport::Callbacks
+
+  define_callbacks :groups_changed
+
+  set_callback :groups_changed, :after, :create_roles_from_workgroups
+
   include Spotlight::User
   
   # Connects this user object to Blacklights Bookmarks. 
@@ -16,11 +22,30 @@ class User < ActiveRecord::Base
     email
   end
 
-  def webauth_groups= groups
-    g = groups.split("|")
-    
-    if g.include? "dlss:exhibits-admin" and !superadmin?
-      roles.build exhibit: nil, role: "admin"
+  attr_reader :webauth_groups
+
+  def webauth_groups=(groups)
+    run_callbacks :groups_changed do
+      @webauth_groups ||= groups.split('|')
+    end
+  end
+
+  private
+
+  def create_roles_from_workgroups
+    return if superadmin?
+
+    role_attributes = {
+      exhibit: nil,
+      role: ('admin' if (webauth_groups & Settings.superadmin_workgroups).any?)
+    }
+
+    return unless role_attributes[:role].present?
+
+    if persisted?
+      roles.create role_attributes
+    else
+      roles.build role_attributes
     end
   end
 end
