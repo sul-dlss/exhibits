@@ -435,7 +435,7 @@ GEM
       roar (>= 1.0.0, <= 1.1.0)
       test_xml (>= 0.1.6)
       uber (>= 0.0.5)
-    rsolr (1.0.12)
+    rsolr (1.0.13)
       builder (>= 2.1.2)
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
