@@ -23,5 +23,8 @@ class SolrDocument
   # and Blacklight::Solr::Document#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension( Blacklight::Document::DublinCore )
+  use_extension( ModsDocument ) do |document|
+    document[:modsxml]
+  end
 
 end
