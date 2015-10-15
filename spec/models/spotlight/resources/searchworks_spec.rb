@@ -10,6 +10,7 @@ describe Spotlight::Resources::Searchworks do
 
   before do
     allow(subject).to receive(:exhibit).and_return(exhibit)
+    allow(subject).to receive(:to_global_id).and_return('x')
   end
 
   describe ".can_provide?" do
@@ -62,7 +63,7 @@ describe Spotlight::Resources::Searchworks do
       it "should provide a solr document for the collection" do
         allow(subject.resource).to receive(:items).and_return([])
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({upstream: true})
-        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_url_ssim
+        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
       end
       
       it "should provide a solr document for the items too" do
@@ -83,7 +84,7 @@ describe Spotlight::Resources::Searchworks do
       
       it "should provide a solr document for the resource" do
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({upstream: true})
-        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_url_ssim
+        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
       end
     end
   end
