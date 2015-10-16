@@ -130,6 +130,53 @@ class CatalogController < ApplicationController
     # solr request handler? The one set in config[:default_solr_parameters][:qt],
     # since we aren't specifying it otherwise.
 
+    config.add_search_field('search') do |field|
+      field.label = 'All fields'
+      field.solr_local_parameters = {
+        pf2: '$p2',
+        pf3: '$pf3'
+      }
+    end
+
+    config.add_search_field('search_title') do |field|
+      field.label = 'Title'
+      field.solr_local_parameters = {
+        qf: '$qf_title',
+        pf: '$pf_title',
+        pf3: '$pf3_title',
+        pf2: '$pf2_title'
+      }
+    end
+
+    config.add_search_field('search_author') do |field|
+      field.label = 'Author/Contributor'
+      field.solr_local_parameters = {
+        qf: '$qf_author',
+        pf: '$pf_author',
+        pf3: '$pf3_author',
+        pf2: '$pf2_author'
+      }
+    end
+
+    config.add_search_field('subject_terms') do |field|
+      field.label = 'Subject'
+      field.solr_local_parameters = {
+        qf: '$qf_subject',
+        pf: '$pf_subject',
+        pf3: '$pf3_subject',
+        pf2: '$pf2_subject'
+      }
+    end
+
+    config.add_search_field('call_number') do |field|
+      field.label = 'Call number'
+      field.include_in_advanced_search = false
+      field.solr_parameters = { defType: 'lucene' }
+      field.solr_local_parameters = {
+        df: 'callnum_search'
+      }
+    end
+
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
