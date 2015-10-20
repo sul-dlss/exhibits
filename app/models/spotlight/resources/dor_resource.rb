@@ -36,7 +36,12 @@ module Spotlight::Resources
     end
     
     def existing_solr_doc_hash doc_hash
-      exhibit.blacklight_config.solr_document_model.new(doc_hash).to_solr
+      # if not in the context of an exhibit, just continue without that data
+      if exhibit
+        exhibit.blacklight_config.solr_document_model.new(doc_hash).to_solr
+      else
+        {}
+      end
     end
     
     def parallel_options

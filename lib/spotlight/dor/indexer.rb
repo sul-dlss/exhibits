@@ -25,7 +25,10 @@ module Spotlight::Dor
         
       end
     end
-    
+
+    # add a new before_index :method_name and then define the method (example below) to make additions to the spotlight solr doc
+    # before_index :add_something_to_solr_doc
+
     before_index :mods_cartographics_indexing
     
     before_index do |sdb, solr_doc|
@@ -47,6 +50,10 @@ module Spotlight::Dor
     end
     
     private
+    # def add_something_to_solr_doc sdb, solr_doc
+    #   solr_doc['some_field_name_tsi'] = 'some value'
+    # end
+
     def mods_cartographics_indexing sdb, solr_doc
       insert_field(solr_doc, "coordinates", Array(sdb.smods_rec.subject.cartographics.coordinates).map { |n| n.text }, :stored_searchable)
       

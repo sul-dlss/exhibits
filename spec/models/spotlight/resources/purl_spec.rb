@@ -100,6 +100,12 @@ describe Spotlight::Resources::Purl do
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({upstream: true})
         expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
       end
+      
+      it "should index outside the context of an exhibit" do
+        allow(subject).to receive(:exhibit).and_return(nil)
+        expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return({upstream: true})
+        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
+      end    
     end
   end
 end
