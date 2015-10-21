@@ -79,7 +79,7 @@ gem "sir_trevor_rails", git: "https://github.com/madebymany/sir-trevor-rails"
 gem "spotlight-dor-resources", git: "https://github.com/sul-dlss/spotlight-dor-resources"
 gem "gdor-indexer", git: "https://github.com/sul-dlss/gdor-indexer"
 gem "harvestdor-indexer", git: "https://github.com/sul-dlss/harvestdor-indexer"
-gem "harvestdor", git: "https://github.com/sul-dlss/harvestdor", branch: "remove-oai"
+gem "harvestdor", git: "https://github.com/sul-dlss/harvestdor"
 gem "devise"
 gem "devise-guests", "~> 0.3"
 gem 'devise-remote-user'
