@@ -2,19 +2,19 @@
 
 # SUL Spotlight Exhibit template project
 
-The project's `master` branch provides a template Spotlight application with SUL branding and functionality. 
+The project's `master` branch provides a template Spotlight application with SUL branding and functionality.
 
 ## Configuration
 
 Exhibits need to provide the following configuration files:
 
 * `config/database.yml` - Standard Rails database configuration
-* `config/solr.yml` - Blacklight solr configuration
-* `config/harvestdor.yml` - Harvestdor indexer configuration
-* `config/exhibit.yml` - Exhibit indexing directives (in addition to the harvestdor configuration above.). It should contain environment-specific sets that should be synchronized using the `rake spotlight:reindex` task. E.g.:
+* `config/blacklight.yml` - Blacklight solr configuration
+* `config/gdor.yml` - gdor indexer configuration (i.e. url of dor-fetcher service and purl url basenames), use config/gdor.yml.example as a template
+* `config/exhibit.yml` - Exhibit indexing directives (in addition to the indexer configuration above). It can contain environment-specific sets that should be synchronized using the `rake spotlight:reindex` task. E.g.:
     ```
     production:
-      sets: 
+      sets:
         - is_member_of_oo000oo0000
         - is_member_of_oo000oo0001
     ```
@@ -43,7 +43,7 @@ A whenever-based cron task is configured to run nightly to keep the exhibit sync
 You can spin up the rails server, jetty, and populate the solr index using this command:
 
 ```console
-$ REMOTE_USER="archivist1@example.com" rake server 
+$ REMOTE_USER="archivist1@example.com" rake server
 ```
 
 `REMOTE_USER` should match the name of the user you create when prompted. This will allow you to bypass the webauth authentication.

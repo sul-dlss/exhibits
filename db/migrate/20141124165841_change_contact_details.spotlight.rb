@@ -19,7 +19,7 @@ class ChangeContactDetails < ActiveRecord::Migration
     end
   end
   def down
-    attributes.each do |attribute|
+    attributes.each do |_attribute|
       add_column :spotlight_contacts, col, :string
     end
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "an exhibit" do
-  it "should work" do
+  it "loads the home page" do
     visit "/"
   end
 end

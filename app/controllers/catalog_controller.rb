@@ -1,12 +1,12 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/catalog'
 
-class CatalogController < ApplicationController  
+class CatalogController < ApplicationController
 
   helper Openseadragon::OpenseadragonHelper
 
   include Blacklight::Catalog
-  
+
   before_filter only: :admin do
     blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
   end
@@ -14,20 +14,20 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
 
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
-    config.default_solr_params = { 
+    config.default_solr_params = {
       qt: 'search',
       fl: '*'
     }
 
     config.default_autocomplete_solr_params = {qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'}
-    
+
     # solr path which will be added to solr base url before the other solr params.
-    #config.solr_path = 'select' 
-    
+    #config.solr_path = 'select'
+
     # items to show per page, each number in the array represent another option to choose from.
     #config.per_page = [10,20,50,100]
 
-    ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
+    ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
     #
     #config.default_document_solr_params = {
@@ -35,7 +35,7 @@ class CatalogController < ApplicationController
     #  ## These are hard-coded in the blacklight 'document' requestHandler
     #  # fl: '*',
     #  # rows: 1
-    #  # q: '{!raw f=id v=$id}' 
+    #  # q: '{!raw f=id v=$id}'
     #}
 
     # solr field configuration for search results/index views
@@ -43,7 +43,7 @@ class CatalogController < ApplicationController
     config.index.display_type_field = 'display_type'
     config.index.thumbnail_field = :thumbnail_url_ssm
     config.index.square_image_field = :thumbnail_square_url_ssm
-    
+
     config.show.title_field = 'title_full_display'
     config.show.oembed_field = :url_fulltext
     config.show.partials.insert(1, :osd_or_embed)
@@ -69,26 +69,27 @@ class CatalogController < ApplicationController
     # * If left unset, then all facet values returned by solr will be displayed.
     # * If set to an integer, then "f.somefield.facet.limit" will be added to
     # solr request, with actual solr request being +1 your configured limit --
-    # you configure the number of items you actually want _displayed_ in a page.    
+    # you configure the number of items you actually want _displayed_ in a page.
     # * If set to 'true', then no additional parameters will be sent to solr,
     # but any 'sniffed' request limit parameters will be used for paging, with
-    # paging at requested limit -1. Can sniff from facet.limit or 
+    # paging at requested limit -1. Can sniff from facet.limit or
     # f.specific_field.facet.limit solr request params. This 'true' config
     # can be used if you set limits in :default_solr_params, or as defaults
     # on the solr side in the request handler itself. Request handler defaults
     # sniffing requires solr requests to be made with "echoParams=all", for
-    # app code to actually have it echo'd back to see it.  
+    # app code to actually have it echo'd back to see it.
     #
-    # :show may be set to false if you don't want the facet to be drawn in the 
+    # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
     config.add_facet_field 'format_main_ssim', label: 'Resource type'
-    config.add_facet_field 'pub_date', label: 'Date'  
+    config.add_facet_field 'pub_date', label: 'Date'
     config.add_facet_field 'language', label: 'Language'
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true
     config.add_facet_field 'topic_facet', label: 'Topic', limit: true
     config.add_facet_field 'geographic_facet', label: 'Region', limit: true
-    config.add_facet_field 'era_facet', label: 'Era'  
+    config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
+    config.add_facet_field 'donor_tags_sim', label: 'Donor tags', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -189,4 +190,4 @@ class CatalogController < ApplicationController
 
   end
 
-end 
+end
