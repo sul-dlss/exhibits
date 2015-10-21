@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "indexing integration test", :vcr do
+describe "gdor indexing integration test", :vcr do
   let :exhibit do
     double(solr_data: { }, blacklight_config: Blacklight::Configuration.new)
   end
