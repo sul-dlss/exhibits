@@ -56,6 +56,8 @@ group :development, :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :production do

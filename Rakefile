@@ -3,19 +3,18 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-task :default => [:ci]
+task :default => [:ci, :rubocop]
 
 SulExhibitsTemplate::Application.load_tasks
 
 ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.4.zip"
 
-begin
 require 'jettywrapper'
-
-
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec)
 
+require 'rubocop/rake_task'
+RuboCop::RakeTask.new(:rubocop)
 
 task :ci => ['jetty:clean', 'spotlight:configure_jetty'] do
   ENV['environment'] = "test"
@@ -27,13 +26,11 @@ task :ci => ['jetty:clean', 'spotlight:configure_jetty'] do
     Rake::Task["spec"].invoke
   end
 end
-rescue LoadError
-end
 
 desc "Run jetty and launch the development Rails server"
 task :server do
 
-  unless File.exists? 'jetty'
+  unless File.exist? 'jetty'
     Rake::Task['jetty:clean'].invoke
     Rake::Task['spotlight:configure_jetty'].invoke
   end
@@ -44,7 +41,7 @@ task :server do
   Jettywrapper.wrap(jetty_params) do
     system "bundle exec rake spotlight:seed"
 
-    unless File.exists? 'tmp/.initialized'
+    unless File.exist? 'tmp/.initialized'
       system "bundle exec rake spotlight:initialize"
       File.open('tmp/.initialized', "w") {}
     end
@@ -55,7 +52,7 @@ end
 namespace :spotlight do
   desc "Copies the default SOLR config for the bundled Testing Server"
   task :configure_jetty do
-    FileList['solr_conf/conf/*'].each do |f|  
+    FileList['solr_conf/conf/*'].each do |f|
       cp("#{f}", 'jetty/solr/blacklight-core/conf/', :verbose => true)
     end
   end
