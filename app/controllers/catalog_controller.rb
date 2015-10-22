@@ -89,6 +89,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'geographic_facet', label: 'Region', limit: true
     config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
+    # The Donor tags facet below was added in October 2015 as a specific need of the Feigenbaum exhibit.  Indexing
+    #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
+    #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
+    #   like this that are exhibit specific.    Peter Mangiafico
     config.add_facet_field 'donor_tags_sim', label: 'Donor tags', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default
