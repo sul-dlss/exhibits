@@ -9,22 +9,28 @@ SulExhibitsTemplate::Application.load_tasks
 
 ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.4.zip"
 
-require 'jettywrapper'
-require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:spec)
+begin
 
-require 'rubocop/rake_task'
-RuboCop::RakeTask.new(:rubocop)
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new(:rubocop)
 
-task :ci => ['jetty:clean', 'spotlight:configure_jetty'] do
-  ENV['environment'] = "test"
-  jetty_params = Jettywrapper.load_config
-  jetty_params[:startup_wait]= 60
+  require 'jettywrapper'
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
 
-  Jettywrapper.wrap(jetty_params) do
-    # run the tests
-    Rake::Task["spec"].invoke
+  task :ci => ['jetty:clean', 'spotlight:configure_jetty'] do
+    ENV['environment'] = "test"
+    jetty_params = Jettywrapper.load_config
+    jetty_params[:startup_wait]= 60
+
+    Jettywrapper.wrap(jetty_params) do
+      # run the tests
+      Rake::Task["spec"].invoke
+    end
   end
+rescue LoadError
+  # this rescue block is here for deployment to production, where the jettywrapper does not exist and requiring it will fail, and is ok
+  puts 'WARNING: JettyWrapper and/or Rubocop was not found and could not be required. This is probably ok in production.'
 end
 
 desc "Run jetty and launch the development Rails server"
