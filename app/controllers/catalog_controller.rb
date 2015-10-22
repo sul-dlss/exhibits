@@ -93,7 +93,7 @@ class CatalogController < ApplicationController
     #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
     #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
     #   like this that are exhibit specific.    Peter Mangiafico
-    config.add_facet_field 'donor_tags_sim', label: 'Donor tags', limit: true
+    config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -116,6 +116,7 @@ class CatalogController < ApplicationController
     config.add_index_field "pub_display", :label => "Publication Info"
     config.add_index_field "pub_date", :label => "Date"
     config.add_index_field "imprint_display", :label => "Imprint"
+    config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

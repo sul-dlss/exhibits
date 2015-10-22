@@ -83,7 +83,7 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/spotlight-dor-resources
-  revision: 5947d32081c70c39d7da5ba04e6e4202b71ef0e7
+  revision: a2fecf7d7812a482a9d37474fc4b6555e3d9075e
   specs:
     spotlight-dor-resources (0.0.1)
       blacklight-spotlight (~> 0.2)
