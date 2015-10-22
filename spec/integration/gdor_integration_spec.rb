@@ -6,7 +6,7 @@ describe "gdor indexing integration test", :vcr do
   end
 
   subject do
-    r = Spotlight::Resources::Purl.new(url: "http://purl.stanford.edu/xf680rd3068")
+    r = Spotlight::Resources::Purl.new(url: "https://purl.stanford.edu/xf680rd3068")
     allow(r).to receive(:to_global_id).and_return('x')
     allow(r).to receive(:exhibit).and_return(exhibit)
     r.to_solr.first
