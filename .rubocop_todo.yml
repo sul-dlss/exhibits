@@ -22,6 +22,9 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 19
 
+Metrics/ClassLength:
+  Max: 110
+
 # Offense count: 1
 RSpec/DescribeClass:
   Exclude:
