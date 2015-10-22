@@ -26,6 +26,8 @@ module Spotlight::Dor
 
     # add a new before_index :method_name and then define the method (example below) to make additions to the spotlight solr doc
     # before_index :add_something_to_solr_doc
+
+    # see comment below next to this method about Feigenbaum specific donor tags indexing
     before_index :add_donor_tags
 
     before_index :mods_cartographics_indexing
@@ -54,9 +56,12 @@ module Spotlight::Dor
     #   insert_field solr_doc,'some_multivalued_field_name_ssim',array_of_values
     # end
 
+    # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very likely
+    #  it will go ununsed by other projects, but should be benign (since this field will not be created if this specific MODs note is not found.)
+    #  Later refactoring could include project specific fields.   Peter Mangiafico
     def add_donor_tags sdb,solr_doc
       donor_tags = sdb.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
-      insert_field solr_doc, 'donor_tags', donor_tags, :facetable
+      insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
     end
 
     def mods_cartographics_indexing sdb, solr_doc
