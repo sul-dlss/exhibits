@@ -90,6 +90,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
     config.add_facet_field 'genre_ssim', label: 'Genre', limit: true
+    config.add_facet_field 'series_ssim', label: 'Series'
     # The Donor tags facet below was added in October 2015 as a specific need of the Feigenbaum exhibit.  Indexing
     #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
     #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
@@ -118,6 +119,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'pub_date', label: 'Date'
     config.add_index_field 'imprint_display', label: 'Imprint'
     config.add_index_field 'genre_ssim', label: 'Genre'
+    config.add_index_field 'series_ssim', label: 'Series'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
 
     # "fielded" search configuration. Used by pulldown among other places.
