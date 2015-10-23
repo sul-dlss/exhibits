@@ -72,7 +72,7 @@ describe Spotlight::Dor::Indexer do
     end
     boxes_with_letters = [
       'Call Number: SC0340, Accession 2005-101, Box: 42A, Folder: 24',
-      'Call Number: SC0340, Accession: 1986-052, Box: 42A, Folder: 59',
+      'Call Number: SC0340, Accession: 1986-052, Box: 42A, Folder: 59'
     ]
     boxes_with_letters.each do |example|
       it "parses box number from '#{example}'" do
@@ -98,5 +98,45 @@ describe Spotlight::Dor::Indexer do
         expect(solr_doc).not_to include 'box_ssim'
       end
     end
-  end
+  end # add_box
+
+  describe '#add_folder' do
+    let(:mods_start) { "<mods xmlns='#{Mods::MODS_NS}'><location><physicalLocation>" }
+    let(:mods_end) { '</physicalLocation></location></mods>' }
+
+    parsable_exemplars_based_on_actual_data = [
+      'Call Number: SC0340, Accession 2005-101, Box : 42, Folder: 42',
+      'Call Number: SC0340, Accession 2005-101, Box: 42, Folder: 42',
+      'Call Number: SC0340, Accession: 2005-101, Box : 42, Folder: 42',
+      'Call Number: SC0340, Accession: 1986-052, Box: 42, Folder: 42',
+      'Call Number: SC0340, Accession 2005-101, Box: 42A, Folder: 42',
+      'Call Number: SC0340, Accession: 1986-052, Box: 42A, Folder: 42'
+    ]
+    parsable_exemplars_based_on_actual_data.each do |example|
+      it "parses series number from '#{example}'" do
+        ng_mods = Nokogiri::XML("#{mods_start}#{example}#{mods_end}")
+        allow(r).to receive(:mods).and_return(ng_mods)
+        subject.send(:add_folder, sdb, solr_doc)
+        expect(solr_doc['folder_ssim']).to match_array ['42']
+      end
+    end
+
+    unparsable_exemplars_based_on_actual_data = [
+      'Call Number: SC0340, Accession 2005-101',
+      'Call Number: SC0340, Accession: 1986-052',
+      'SC0340',
+      'SC0340, 1986-052, Box 18',
+      'SC0340, Accession 2005-101',
+      'SC0340, Accession 2005-101, Box 18',
+      'Stanford University. Libraries. Department of Special Collections and University Archives'
+    ]
+    unparsable_exemplars_based_on_actual_data.each do |example|
+      it "does not parse series number from '#{example}'" do
+        ng_mods = Nokogiri::XML("#{mods_start}#{example}#{mods_end}")
+        allow(r).to receive(:mods).and_return(ng_mods)
+        subject.send(:add_folder, sdb, solr_doc)
+        expect(solr_doc).not_to include 'folder_ssim'
+      end
+    end
+  end # add_folder
 end

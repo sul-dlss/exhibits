@@ -35,6 +35,7 @@ module Spotlight::Dor
     before_index :add_box
     before_index :add_donor_tags
     before_index :add_genre
+    before_index :add_folder
     before_index :add_series
     before_index :mods_cartographics_indexing
 
@@ -78,6 +79,22 @@ module Spotlight::Dor
     def add_donor_tags sdb, solr_doc
       donor_tags = sdb.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
       insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
+    end
+
+    # add the folder number to solr_doc as folders_ssim
+    # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
+    def add_folder(sdb, solr_doc)
+      # for feigenbaum collection, raw data is like this in location/physicalLocation
+      # Call Number: SC0340, Accession 2005-101, Box : 42, Folder: 9
+      # Call Number: SC0340, Accession 2005-101, Box: 42, Folder: 9
+      # Call Number: SC0340, Accession: 2005-101, Box : 42, Folder: 20'
+      # Call Number: SC0340, Accession: 1986-052, Box: 42, Folder: 1'
+      folder_num = sdb.smods_rec.location.physicalLocation.map do |node|
+        val = node.text
+        res = val.match(/Folder:? ?([^,]+)/i)
+        res[1] unless res.nil?
+      end
+      insert_field solr_doc, 'folder', folder_num.uniq, :symbol # this is a _ssim field
     end
 
     # add plain MODS <genre> element data, not the SearchWorks genre values
