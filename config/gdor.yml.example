@@ -15,7 +15,7 @@ harvestdor:
   log_name: gdor.log
 
   # purl: url for the DOR purl server (used to get ContentMetadata, etc.)
-  purl: http://purl.stanford.edu
+  purl: https://purl.stanford.edu
 
   # Additional options to pass to Faraday http client (https://github.com/technoweenie/faraday)
   http_options:
