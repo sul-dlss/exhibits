@@ -4,6 +4,7 @@ require 'solrizer'
 # Base class to harvest from DOR via harvestdor gem
 module Spotlight::Dor
   class Indexer < GDor::Indexer
+    # add contentMetadata fields
     before_index do |sdb, solr_doc|
       Solrizer.insert_field(solr_doc, 'content_metadata_type', sdb.public_xml.xpath("/publicObject/contentMetadata/@type").text, :symbol, :displayable)
 
@@ -24,18 +25,18 @@ module Spotlight::Dor
       end
     end
 
-    # see comment below next to this method about Feigenbaum specific donor tags indexing
-    before_index :add_donor_tags
-
-    before_index :add_genre
-
-    before_index :add_series
-
-    before_index :mods_cartographics_indexing
-
+    # tweak author_sort field from stanford-mods
     before_index do |_sdb, solr_doc|
       solr_doc[:author_sort] &&= solr_doc[:author_sort].gsub("\uFFFF", "\uFFFD")
     end
+
+    # add fields from raw mods
+    # see comment with add_donor_tags about Feigenbaum specific donor tags data
+    before_index :add_box
+    before_index :add_donor_tags
+    before_index :add_genre
+    before_index :add_series
+    before_index :mods_cartographics_indexing
 
     def solr_client
       @solr_client
@@ -53,6 +54,24 @@ module Spotlight::Dor
 
     private
 
+    # add the box number to solr_doc as box_ssim
+    # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
+    def add_box(sdb, solr_doc)
+      # for feigenbaum collection, raw data is like this in location/physicalLocation
+      # Call Number: SC0340, Accession 2005-101, Box : 42, Folder: 9
+      # Call Number: SC0340, Accession 2005-101, Box: 42, Folder: 9
+      # Call Number: SC0340, Accession: 2005-101, Box : 42, Folder: 20'
+      # Call Number: SC0340, Accession: 1986-052, Box: 42, Folder: 1'
+      # SC0340, 1986-052, Box 42
+      # SC0340, Accession 1991-030, Box 2
+      box_num = sdb.smods_rec.location.physicalLocation.map do |node|
+        val = node.text
+        res = val.match(/Box ?:? ?([^,]+)/i)
+        res[1] unless res.nil?
+      end
+      insert_field solr_doc, 'box', box_num.uniq, :symbol # this is a _ssim field
+    end
+
     # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very likely
     #  it will go ununsed by other projects, but should be benign (since this field will not be created if this specific MODs note is not found.)
     #  Later refactoring could include project specific fields.   Peter Mangiafico
@@ -67,15 +86,14 @@ module Spotlight::Dor
     end
 
     # add the series/accession 'number' to solr_doc as series_ssim field
-    # for feigenbaum collection, the raw data is in location/physicalLocation
+    # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
     def add_series(sdb, solr_doc)
-      # for feigenbaum collection, the raw data is in location/physicalLocation and looks like this:
+      # for feigenbaum collection, raw data is like this in location/physicalLocation
       # Call Number: SC0340, Accession 2005-101
       # Call Number: SC0340, Accession 2005-101, Box : 39, Folder: 9
       # Call Number: SC0340, Accession: 1986-052
       # Call Number: SC0340, Accession: 1986-052, Box : 50, Folder: 31
       # SC0340, Accession 1991-030
-      # SC0340, Accession 1991-030, Box 2
       series_num = sdb.smods_rec.location.physicalLocation.map do |node|
         val = node.text
         res = val.match(/Accession:? ([^,]+)/i)
