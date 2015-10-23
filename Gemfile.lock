@@ -24,18 +24,18 @@ GIT
 
 GIT
   remote: https://github.com/sul-dlss/harvestdor
-  revision: 7b91cd64085baaacdeb9522295ecbb017dfdf2ac
+  revision: 00d05a3ff43442ecf21e94b3e30c20439492dd63
   specs:
-    harvestdor (0.0.14)
+    harvestdor (0.1.0)
       confstruct
       faraday (>= 0.9.0)
       nokogiri
 
 GIT
   remote: https://github.com/sul-dlss/harvestdor-indexer
-  revision: fcb12b90a477062a9faca01b371aa9075c2230ea
+  revision: d20ca37f2eddccc86a86f93b1f0a690970691a2b
   specs:
-    harvestdor-indexer (2.0.0)
+    harvestdor-indexer (2.1.0)
       activesupport
       confstruct
       dor-fetcher (= 1.0.5)
