@@ -24,13 +24,12 @@ module Spotlight::Dor
       end
     end
 
-    # add a new before_index :method_name and then define the method (example below) to make additions to the spotlight solr doc
-    # before_index :add_something_to_solr_doc
-
     # see comment below next to this method about Feigenbaum specific donor tags indexing
     before_index :add_donor_tags
 
     before_index :add_genre
+
+    before_index :add_series
 
     before_index :mods_cartographics_indexing
 
@@ -53,10 +52,6 @@ module Spotlight::Dor
     end
 
     private
-    # def add_something_to_solr_doc sdb, solr_doc
-    #   solr_doc['some_field_name_tsi'] = 'some value'   # OR
-    #   insert_field solr_doc,'some_multivalued_field_name_ssim',array_of_values
-    # end
 
     # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very likely
     #  it will go ununsed by other projects, but should be benign (since this field will not be created if this specific MODs note is not found.)
@@ -66,8 +61,27 @@ module Spotlight::Dor
       insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
     end
 
+    # add plain MODS <genre> element data, not the SearchWorks genre values
     def add_genre sdb, solr_doc
       insert_field solr_doc, 'genre', sdb.smods_rec.genre.content, :symbol # this is a _ssim field
+    end
+
+    # add the series/accession 'number' to solr_doc as series_ssim field
+    # for feigenbaum collection, the raw data is in location/physicalLocation
+    def add_series(sdb, solr_doc)
+      # for feigenbaum collection, the raw data is in location/physicalLocation and looks like this:
+      # Call Number: SC0340, Accession 2005-101
+      # Call Number: SC0340, Accession 2005-101, Box : 39, Folder: 9
+      # Call Number: SC0340, Accession: 1986-052
+      # Call Number: SC0340, Accession: 1986-052, Box : 50, Folder: 31
+      # SC0340, Accession 1991-030
+      # SC0340, Accession 1991-030, Box 2
+      series_num = sdb.smods_rec.location.physicalLocation.map do |node|
+        val = node.text
+        res = val.match(/Accession:? ([^,]+)/i)
+        res[1] unless res.nil?
+      end
+      insert_field solr_doc, 'series', series_num.uniq, :symbol # this is a _ssim field
     end
 
     def mods_cartographics_indexing sdb, solr_doc
