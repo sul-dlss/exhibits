@@ -89,10 +89,11 @@ class CatalogController < ApplicationController
     config.add_facet_field 'geographic_facet', label: 'Region', limit: true
     config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
+    config.add_facet_field 'genre_ssim', label: 'Genre', limit: true
     # The Donor tags facet below was added in October 2015 as a specific need of the Feigenbaum exhibit.  Indexing
     #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
     #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
-    #   like this that are exhibit specific.    Peter Mangiafico
+    #   like this that are exhibit specific.   It is also added the _index_field list below for display purposes.  Peter Mangiafico
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -102,20 +103,21 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field "title_full_display", label: "Title"
-    config.add_index_field "title_variant_display", :label => "Alternate Title"
-    config.add_index_field "author_person_full_display", :label => "Author/Creator"
-    config.add_index_field "author_corp_display", :label => "Corporate Author"
-    config.add_index_field "author_meeting_display", :label => "Meeting Author"
-    config.add_index_field "medium", :label => "Medium"
-    config.add_index_field "summary_display", :label => "Description"
-    config.add_index_field "topic_display", :label => "Topic"
-    config.add_index_field "subject_other_display", :label => "Subject"
-    config.add_index_field "language", :label => "Language"
-    config.add_index_field "physical", :label => "Physical Description"
-    config.add_index_field "pub_display", :label => "Publication Info"
-    config.add_index_field "pub_date", :label => "Date"
-    config.add_index_field "imprint_display", :label => "Imprint"
+    config.add_index_field 'title_full_display', label: 'Title'
+    config.add_index_field 'title_variant_display', label: 'Alternate Title'
+    config.add_index_field 'author_person_full_display', label: 'Author/Creator'
+    config.add_index_field 'author_corp_display', label: 'Corporate Author'
+    config.add_index_field 'author_meeting_display', label: 'Meeting Author'
+    config.add_index_field 'medium', label: 'Medium'
+    config.add_index_field 'summary_display', label: 'Description'
+    config.add_index_field 'topic_display', label: 'Topic'
+    config.add_index_field 'subject_other_display', label: 'Subject'
+    config.add_index_field 'language', label: 'Language'
+    config.add_index_field 'physical', label: 'Physical Description'
+    config.add_index_field 'pub_display', label: 'Publication Info'
+    config.add_index_field 'pub_date', label: 'Date'
+    config.add_index_field 'imprint_display', label: 'Imprint'
+    config.add_index_field 'genre_ssim', label: 'Genre'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
 
     # "fielded" search configuration. Used by pulldown among other places.
