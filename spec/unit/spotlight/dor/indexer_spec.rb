@@ -48,7 +48,7 @@ describe Spotlight::Dor::Indexer do
       'MSS Photo 451, Series 1, Box 32, Folder 11, Sleeve 32-11-2, Frame B32-F11-S2-6',
       'Series 1, Box 10, Folder 8',
       # fuller
-      'Collection: M1090 , Series: 1 , Box: 5 , Folder: 42',
+      'Collection: M1090 , Series: 1 , Box: 5 , Folder: 42'
     ]
     numeric_exemplars_based_on_actual_data.each do |example|
       it "parses series number from physLoc '#{example}'" do
