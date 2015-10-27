@@ -19,7 +19,7 @@ describe Spotlight::Dor::Indexer do
   end
 
   describe '#add_series' do
-    parsable_exemplars_based_on_actual_data = [
+    exemplars_based_on_feigenbaum = [
       # feigenbaum
       'Call Number: SC0340, Accession 2005-101',
       'Call Number: SC0340, Accession 2005-101, Box : 39, Folder: 9',
@@ -28,7 +28,7 @@ describe Spotlight::Dor::Indexer do
       'SC0340, Accession 2005-101',
       'SC0340, Accession 2005-101, Box 18'
     ]
-    parsable_exemplars_based_on_actual_data.each do |example|
+    exemplars_based_on_feigenbaum.each do |example|
       it "parses series number from physLoc '#{example}'" do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
@@ -41,6 +41,44 @@ describe Spotlight::Dor::Indexer do
         subject.send(:add_series, sdb, solr_doc)
         expect(solr_doc['series_ssim']).to match_array ['2005-101']
       end
+    end
+
+    numeric_exemplars_based_on_actual_data = [
+      # menuez
+      'MSS Photo 451, Series 1, Box 32, Folder 11, Sleeve 32-11-2, Frame B32-F11-S2-6',
+      'Series 1, Box 10, Folder 8',
+      # fuller
+      'Collection: M1090 , Series: 1 , Box: 5 , Folder: 42',
+    ]
+    numeric_exemplars_based_on_actual_data.each do |example|
+      it "parses series number from physLoc '#{example}'" do
+        ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
+        allow(r).to receive(:mods).and_return(ng_mods)
+        subject.send(:add_series, sdb, solr_doc)
+        expect(solr_doc['series_ssim']).to match_array ['1']
+      end
+      it "parses series number from relItem physLoc '#{example}'" do
+        ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
+        allow(r).to receive(:mods).and_return(ng_mods)
+        subject.send(:add_series, sdb, solr_doc)
+        expect(solr_doc['series_ssim']).to match_array ['1']
+      end
+    end
+
+    # shpc
+    shpc1 = 'Series Biographical Photographs | Box 1 | Folder Abbot, Nathan'
+    it "parses series name from '#{shpc1}'" do
+      ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc1}#{mods_rel_item_loc_phys_loc_end}")
+      allow(r).to receive(:mods).and_return(ng_mods)
+      subject.send(:add_series, sdb, solr_doc)
+      expect(solr_doc['series_ssim']).to match_array ['Biographical Photographs']
+    end
+    shpc2 = 'Series General Photographs | Box 1 | Folder Administration building--Outer Quad'
+    it "parses series name from '#{shpc2}'" do
+      ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc2}#{mods_rel_item_loc_phys_loc_end}")
+      allow(r).to receive(:mods).and_return(ng_mods)
+      subject.send(:add_series, sdb, solr_doc)
+      expect(solr_doc['series_ssim']).to match_array ['General Photographs']
     end
 
     unparsable_exemplars_based_on_actual_data = [

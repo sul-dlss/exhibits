@@ -55,7 +55,7 @@ module Spotlight::Dor
 
     private
 
-    # add the box number to solr_doc as box_ssim
+    # add the box number to solr_doc as box_ssim field
     #   data in location/physicalLocation or in relatedItem/location/physicalLocation
     # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
     def add_box(sdb, solr_doc)
@@ -86,7 +86,7 @@ module Spotlight::Dor
       insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
     end
 
-    # add the folder number to solr_doc as folder_ssim
+    # add the folder number to solr_doc as folder_ssim field
     #   data in location/physicalLocation or in relatedItem/location/physicalLocation
     # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
     def add_folder(sdb, solr_doc)
@@ -115,18 +115,16 @@ module Spotlight::Dor
     end
 
     # add the series/accession 'number' to solr_doc as series_ssim field
+    #   data in location/physicalLocation or in relatedItem/location/physicalLocation
     # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
     def add_series(sdb, solr_doc)
-      # for feigenbaum collection, raw data is like this in location/physicalLocation
-      # Call Number: SC0340, Accession 2005-101
-      # Call Number: SC0340, Accession 2005-101, Box : 39, Folder: 9
-      # Call Number: SC0340, Accession: 1986-052
-      # Call Number: SC0340, Accession: 1986-052, Box : 50, Folder: 31
-      # SC0340, Accession 1991-030
-      series_num = sdb.smods_rec.location.physicalLocation.map do |node|
+      # see spec for data from actual collections
+      #   _location.physicalLocation should find top level and relatedItem
+      series_num = sdb.smods_rec._location.physicalLocation.map do |node|
         val = node.text
-        res = val.match(/Accession:? ([^,]+)/i)
-        res[1] unless res.nil?
+        # feigenbaum uses 'Accession'
+        match_data = val.match(/(?:(?:Series)|(?:Accession)):? ([^,|]+)/i)
+        match_data[1].rstrip if match_data.present?
       end
       insert_field solr_doc, 'series', series_num.uniq, :symbol # this is a _ssim field
     end
