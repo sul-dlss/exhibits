@@ -130,20 +130,50 @@ describe Spotlight::Dor::Indexer do
   describe '#add_folder' do
     parsable_exemplars_based_on_actual_data = [
       # feigenbaum
-      'Call Number: SC0340, Accession 2005-101, Box : 42, Folder: 42',
-      'Call Number: SC0340, Accession 2005-101, Box: 42, Folder: 42',
-      'Call Number: SC0340, Accession: 2005-101, Box : 42, Folder: 42',
-      'Call Number: SC0340, Accession: 1986-052, Box: 42, Folder: 42',
-      'Call Number: SC0340, Accession 2005-101, Box: 42A, Folder: 42',
-      'Call Number: SC0340, Accession: 1986-052, Box: 42A, Folder: 42'
+      'Call Number: SC0340, Accession 2005-101, Box : 1, Folder: 42',
+      'Call Number: SC0340, Accession 2005-101, Box: 2, Folder: 42',
+      'Call Number: SC0340, Accession: 1986-052, Box 3 Folder 42',
+      'Call Number: SC0340, Accession: 2005-101, Box : 4, Folder: 42',
+      'Call Number: SC0340, Accession: 1986-052, Box: 5, Folder: 42',
+      'Call Number: SC0340, Accession 2005-101, Box: 4A, Folder: 42',
+      'Call Number: SC0340, Accession: 1986-052, Box: 5A, Folder: 42',
+      # menuez
+      'MSS Photo 451, Series 1, Box 32, Folder 42, Sleeve 32-11-2, Frame B32-F11-S2-6',
+      'Series 1, Box 10, Folder 42',
+      # fuller
+      'Collection: M1090 , Series: 4 , Box: 5 , Folder: 42',
+      # hummel
+      'Box 1 | Folder 42'
     ]
     parsable_exemplars_based_on_actual_data.each do |example|
-      it "parses folder number from '#{example}'" do
+      it "parses folder number from physLoc '#{example}'" do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_folder, sdb, solr_doc)
         expect(solr_doc['folder_ssim']).to match_array ['42']
       end
+      it "parses folder number from relItem physLoc '#{example}'" do
+        ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
+        allow(r).to receive(:mods).and_return(ng_mods)
+        subject.send(:add_folder, sdb, solr_doc)
+        expect(solr_doc['folder_ssim']).to match_array ['42']
+      end
+    end
+
+    # shpc
+    shpc1 = 'Series Biographical Photographs | Box 1 | Folder Abbot, Nathan'
+    it "parses folder name from '#{shpc1}'" do
+      ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc1}#{mods_rel_item_loc_phys_loc_end}")
+      allow(r).to receive(:mods).and_return(ng_mods)
+      subject.send(:add_folder, sdb, solr_doc)
+      expect(solr_doc['folder_ssim']).to match_array ['Abbot, Nathan']
+    end
+    shpc2 = 'Series General Photographs | Box 1 | Folder Administration building--Outer Quad'
+    it "parses folder name from '#{shpc2}'" do
+      ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc2}#{mods_rel_item_loc_phys_loc_end}")
+      allow(r).to receive(:mods).and_return(ng_mods)
+      subject.send(:add_folder, sdb, solr_doc)
+      expect(solr_doc['folder_ssim']).to match_array ['Administration building--Outer Quad']
     end
 
     unparsable_exemplars_based_on_actual_data = [
@@ -154,7 +184,9 @@ describe Spotlight::Dor::Indexer do
       'SC0340, 1986-052, Box 18',
       'SC0340, Accession 2005-101',
       'SC0340, Accession 2005-101, Box 18',
-      'Stanford University. Libraries. Department of Special Collections and University Archives'
+      'Stanford University. Libraries. Department of Special Collections and University Archives',
+      # hummel (actually in <relatedItem><location><physicalLocation>)
+      'Flat-box 228 | Volume 1'
     ]
     unparsable_exemplars_based_on_actual_data.each do |example|
       it "does not parse folder number from '#{example}'" do
