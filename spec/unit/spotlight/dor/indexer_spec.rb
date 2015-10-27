@@ -33,13 +33,13 @@ describe Spotlight::Dor::Indexer do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssim']).to match_array ['2005-101']
+        expect(solr_doc['series_ssi']).to eq '2005-101'
       end
       it "parses series number from relItem physLoc '#{example}'" do
         ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssim']).to match_array ['2005-101']
+        expect(solr_doc['series_ssi']).to eq '2005-101'
       end
     end
 
@@ -55,13 +55,13 @@ describe Spotlight::Dor::Indexer do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssim']).to match_array ['1']
+        expect(solr_doc['series_ssi']).to eq '1'
       end
       it "parses series number from relItem physLoc '#{example}'" do
         ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssim']).to match_array ['1']
+        expect(solr_doc['series_ssi']).to eq '1'
       end
     end
 
@@ -71,14 +71,14 @@ describe Spotlight::Dor::Indexer do
       ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc1}#{mods_rel_item_loc_phys_loc_end}")
       allow(r).to receive(:mods).and_return(ng_mods)
       subject.send(:add_series, sdb, solr_doc)
-      expect(solr_doc['series_ssim']).to match_array ['Biographical Photographs']
+      expect(solr_doc['series_ssi']).to eq 'Biographical Photographs'
     end
     shpc2 = 'Series General Photographs | Box 1 | Folder Administration building--Outer Quad'
     it "parses series name from '#{shpc2}'" do
       ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc2}#{mods_rel_item_loc_phys_loc_end}")
       allow(r).to receive(:mods).and_return(ng_mods)
       subject.send(:add_series, sdb, solr_doc)
-      expect(solr_doc['series_ssim']).to match_array ['General Photographs']
+      expect(solr_doc['series_ssi']).to eq 'General Photographs'
     end
 
     unparsable_exemplars_based_on_actual_data = [
@@ -92,7 +92,7 @@ describe Spotlight::Dor::Indexer do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc).not_to include 'series_ssim'
+        expect(solr_doc['series_ssi']).to be_falsey
       end
     end
   end # add_series
@@ -124,13 +124,13 @@ describe Spotlight::Dor::Indexer do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_box, sdb, solr_doc)
-        expect(solr_doc['box_ssim']).to match_array ['42']
+        expect(solr_doc['box_ssi']).to eq '42'
       end
       it "parses box number from relItem physLoc '#{example}'" do
         ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_box, sdb, solr_doc)
-        expect(solr_doc['box_ssim']).to match_array ['42']
+        expect(solr_doc['box_ssi']).to eq '42'
       end
     end
     boxes_with_letters = [
@@ -143,7 +143,7 @@ describe Spotlight::Dor::Indexer do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_box, sdb, solr_doc)
-        expect(solr_doc['box_ssim']).to match_array ['42A']
+        expect(solr_doc['box_ssi']).to eq '42A'
       end
     end
 
@@ -153,14 +153,14 @@ describe Spotlight::Dor::Indexer do
       'Call Number: SC0340, Accession: 1986-052',
       'SC0340',
       'SC0340, Accession 1986-052',
-      'Stanford University. Libraries. Department of Special Collections and University Archives',
+      'Stanford University. Libraries. Department of Special Collections and University Archives'
     ]
     unparsable_exemplars_based_on_actual_data.each do |example|
       it "does not parse box number from '#{example}'" do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_box, sdb, solr_doc)
-        expect(solr_doc).not_to include 'box_ssim'
+        expect(solr_doc['box_ssi']).to be_falsey
       end
     end
   end # add_box
@@ -188,13 +188,13 @@ describe Spotlight::Dor::Indexer do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_folder, sdb, solr_doc)
-        expect(solr_doc['folder_ssim']).to match_array ['42']
+        expect(solr_doc['folder_ssi']).to eq '42'
       end
       it "parses folder number from relItem physLoc '#{example}'" do
         ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_folder, sdb, solr_doc)
-        expect(solr_doc['folder_ssim']).to match_array ['42']
+        expect(solr_doc['folder_ssi']).to eq '42'
       end
     end
 
@@ -204,14 +204,14 @@ describe Spotlight::Dor::Indexer do
       ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc1}#{mods_rel_item_loc_phys_loc_end}")
       allow(r).to receive(:mods).and_return(ng_mods)
       subject.send(:add_folder, sdb, solr_doc)
-      expect(solr_doc['folder_ssim']).to match_array ['Abbot, Nathan']
+      expect(solr_doc['folder_ssi']).to eq 'Abbot, Nathan'
     end
     shpc2 = 'Series General Photographs | Box 1 | Folder Administration building--Outer Quad'
     it "parses folder name from '#{shpc2}'" do
       ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc2}#{mods_rel_item_loc_phys_loc_end}")
       allow(r).to receive(:mods).and_return(ng_mods)
       subject.send(:add_folder, sdb, solr_doc)
-      expect(solr_doc['folder_ssim']).to match_array ['Administration building--Outer Quad']
+      expect(solr_doc['folder_ssi']).to eq 'Administration building--Outer Quad'
     end
 
     unparsable_exemplars_based_on_actual_data = [
@@ -231,7 +231,7 @@ describe Spotlight::Dor::Indexer do
         ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
         allow(r).to receive(:mods).and_return(ng_mods)
         subject.send(:add_folder, sdb, solr_doc)
-        expect(solr_doc).not_to include 'folder_ssim'
+        expect(solr_doc['folder_ssi']).to be_falsey
       end
     end
   end # add_folder

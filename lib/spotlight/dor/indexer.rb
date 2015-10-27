@@ -55,7 +55,7 @@ module Spotlight::Dor
 
     private
 
-    # add the box number to solr_doc as box_ssim field
+    # add the box number to solr_doc as box_ssi field (note: single valued!)
     #   data in location/physicalLocation or in relatedItem/location/physicalLocation
     # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
     def add_box(sdb, solr_doc)
@@ -75,7 +75,7 @@ module Spotlight::Dor
           result
         end
       end
-      insert_field solr_doc, 'box', box_num.uniq, :symbol # this is a _ssim field
+      solr_doc['box_ssi'] = box_num.first if box_num.present?
     end
 
     # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very likely
@@ -86,7 +86,7 @@ module Spotlight::Dor
       insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
     end
 
-    # add the folder number to solr_doc as folder_ssim field
+    # add the folder number to solr_doc as folder_ssi field (note: single valued!)
     #   data in location/physicalLocation or in relatedItem/location/physicalLocation
     # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
     def add_folder(sdb, solr_doc)
@@ -106,7 +106,7 @@ module Spotlight::Dor
           result
         end
       end
-      insert_field solr_doc, 'folder', folder_num.uniq, :symbol # this is a _ssim field
+      solr_doc['folder_ssi'] = folder_num.first if folder_num.present?
     end
 
     # add plain MODS <genre> element data, not the SearchWorks genre values
@@ -114,7 +114,7 @@ module Spotlight::Dor
       insert_field solr_doc, 'genre', sdb.smods_rec.genre.content, :symbol # this is a _ssim field
     end
 
-    # add the series/accession 'number' to solr_doc as series_ssim field
+    # add the series/accession 'number' to solr_doc as series_ssi field (note: single valued!)
     #   data in location/physicalLocation or in relatedItem/location/physicalLocation
     # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
     def add_series(sdb, solr_doc)
@@ -126,7 +126,7 @@ module Spotlight::Dor
         match_data = val.match(/(?:(?:Series)|(?:Accession)):? ([^,|]+)/i)
         match_data[1].rstrip if match_data.present?
       end
-      insert_field solr_doc, 'series', series_num.uniq, :symbol # this is a _ssim field
+      solr_doc['series_ssi'] = series_num.first if series_num.present?
     end
 
     def mods_cartographics_indexing sdb, solr_doc
