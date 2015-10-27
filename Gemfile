@@ -76,12 +76,9 @@ gem "bootstrap-sass", "~> 3.3.5"
 gem "blacklight", "~> 5.15"
 gem "blacklight-gallery", "~> 0.3"
 gem "blacklight-maps", "0.2.0"
-gem "blacklight-spotlight", git: "https://github.com/sul-dlss/spotlight"
-gem "sir_trevor_rails", git: "https://github.com/madebymany/sir-trevor-rails"
-gem "spotlight-dor-resources", git: "https://github.com/sul-dlss/spotlight-dor-resources"
-gem "gdor-indexer", git: "https://github.com/sul-dlss/gdor-indexer"
-gem "harvestdor-indexer", git: "https://github.com/sul-dlss/harvestdor-indexer"
-gem "harvestdor", git: "https://github.com/sul-dlss/harvestdor"
+gem "blacklight-spotlight", '~> 0.5'
+
+gem "spotlight-dor-resources"
 gem "devise"
 gem "devise-guests", "~> 0.3"
 gem 'devise-remote-user'
