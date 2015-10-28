@@ -199,4 +199,64 @@ describe Spotlight::Dor::Indexer do
       end # for example
     end # each
   end # add_folder
+
+  let(:mods_note_plain) do
+    Nokogiri::XML <<-EOF
+      <mods xmlns="#{Mods::MODS_NS}">
+        <note>#{example}</note>
+      </mods>
+    EOF
+  end
+  let(:mods_note_preferred_citation) do
+    Nokogiri::XML <<-EOF
+      <mods xmlns="#{Mods::MODS_NS}">
+        <note type="preferred citation">#{example}</note>
+      </mods>
+    EOF
+  end
+  describe "#add_folder_name" do
+    # example string as key, expected folder name as value
+    # all from feigenbaum (or based on feigenbaum), as that is only coll
+    {
+      'Call Number: SC0340, Accession: 1986-052, Box: 20, Folder: 40, Title: S': 'S',
+      'Call Number: SC0340, Accession: 1986-052, Box: 54, Folder: 25, Title: Balzer': 'Balzer',
+      'Call Number: SC0340, Accession: 1986-052, Box : 30, Folder: 21, Title: Feigenbaum, Publications. 2 of 2.': 'Feigenbaum, Publications. 2 of 2.',
+      # colon in name
+      'Call Number: SC0340, Accession 2005-101, Box: 10, Folder: 26, Title: Gordon Bell Letter rdf:about blah (AI) 1987': 'Gordon Bell Letter rdf:about blah (AI) 1987',
+      'Call Number: SC0340, Accession 2005-101, Box: 11, Folder: 74, Title: Microcomputer Systems Proposal: blah blah': 'Microcomputer Systems Proposal: blah blah',
+      'Call Number: SC0340, Accession 2005-101, Box: 14, Folder: 20, Title: blah "bleah: blargW^"ugh" seriously?.': 'blah "bleah: blargW^"ugh" seriously?.',
+      # quotes in name
+      'Call Number: SC0340, Accession 2005-101, Box: 29, Folder: 18, Title: "bleah" blah': '"bleah" blah',
+      'Call Number: SC0340, Accession 2005-101, Box: 11, Folder: 58, Title: "M": blah': '"M": blah',
+      'Call Number: SC0340, Accession 2005-101, Box : 32A, Folder: 19, Title: blah "bleah" blue': 'blah "bleah" blue',
+      # not parseable
+      'Call Number: SC0340, Accession 2005-101': nil,
+      'Call Number: SC0340, Accession: 1986-052': nil,
+      'Call Number: SC0340, Accession: 1986-052, Box 36 Folder 38': nil,
+      'blah blah ... with the umbrella title Feigenbaum and Feldman, Computers and Thought II. blah blah': nil,
+      'blah blah ... Title ... blah blah': nil
+    }.each do |example, expected|
+      describe "for example '#{example}'" do
+        let(:example) { example }
+        context 'in preferred citation note' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_note_preferred_citation)
+            subject.send(:add_folder_name, sdb, solr_doc)
+          end
+          it "has the expected folder name '#{expected}'" do
+            expect(solr_doc['folder_name_ssi']).to eq expected
+          end
+        end
+        context 'in plain note' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_note_plain)
+            subject.send(:add_folder_name, sdb, solr_doc)
+          end
+          it 'does not have a folder name' do
+            expect(solr_doc['folder_name_ssi']).to be_falsey
+          end
+        end
+      end # for example
+    end # each
+  end # add_folder_name
 end

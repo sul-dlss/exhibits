@@ -36,6 +36,7 @@ module Spotlight::Dor
     before_index :add_donor_tags
     before_index :add_genre
     before_index :add_folder
+    before_index :add_folder_name
     before_index :add_series
     before_index :mods_cartographics_indexing
 
@@ -99,6 +100,15 @@ module Spotlight::Dor
       end
 
       solr_doc['folder_ssi'] = folder_num.first if folder_num.present?
+    end
+
+    # add the folder name to solr_doc as folder_name_ssi field (note: single valued!)
+    #   data is specific to Feigenbaum collection and is in <note type='preferred citation'>
+    def add_folder_name(sdb, solr_doc)
+      # see spec for data examples
+      preferred_citation = sdb.smods_rec.note.select { |n| n.type_at == 'preferred citation' }.map(&:content)
+      match_data = preferred_citation.first.match(/Title: +(.+)/i) if preferred_citation.present?
+      solr_doc['folder_name_ssi'] = match_data[1].rstrip if match_data.present?
     end
 
     # add plain MODS <genre> element data, not the SearchWorks genre values
