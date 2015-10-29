@@ -28,11 +28,6 @@ describe Spotlight::Dor::Indexer do
     EOF
   end
 
-  let(:mods_loc_phys_loc_start) { "<mods xmlns='#{Mods::MODS_NS}'><location><physicalLocation>" }
-  let(:mods_loc_phys_loc_end) { '</physicalLocation></location></mods>' }
-  let(:mods_rel_item_loc_phys_loc_start) { "<mods xmlns='#{Mods::MODS_NS}'><relatedItem><location><physicalLocation>" }
-  let(:mods_rel_item_loc_phys_loc_end) { '</physicalLocation></location></relatedItem></mods>' }
-
   before do
     allow(r).to receive(:harvestdor_client)
     i = Harvestdor::Indexer.new
@@ -41,82 +36,60 @@ describe Spotlight::Dor::Indexer do
   end
 
   describe '#add_series' do
-    exemplars_based_on_feigenbaum = [
+    # example string as key, expected series name as value
+    {
       # feigenbaum
-      'Call Number: SC0340, Accession 2005-101',
-      'Call Number: SC0340, Accession 2005-101, Box : 39, Folder: 9',
-      'Call Number: SC0340, Accession: 2005-101',
-      'Call Number: SC0340, Accession: 2005-101, Box : 50, Folder: 31',
-      'SC0340, Accession 2005-101',
-      'SC0340, Accession 2005-101, Box 18'
-    ]
-    exemplars_based_on_feigenbaum.each do |example|
-      it "parses series number from physLoc '#{example}'" do
-        ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
-        allow(r).to receive(:mods).and_return(ng_mods)
-        subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssi']).to eq '2005-101'
-      end
-      it "parses series number from relItem physLoc '#{example}'" do
-        ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
-        allow(r).to receive(:mods).and_return(ng_mods)
-        subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssi']).to eq '2005-101'
-      end
-    end
-
-    numeric_exemplars_based_on_actual_data = [
+      'Call Number: SC0340, Accession 2005-101': '2005-101',
+      'Call Number: SC0340, Accession 2005-101, Box : 39, Folder: 9': '2005-101',
+      'Call Number: SC0340, Accession 2005-101, Box: 2, Folder: 3': '2005-101',
+      'Call Number: SC0340, Accession: 1986-052': '1986-052',
+      'Call Number: SC0340, Accession: 1986-052, Box 3 Folder 38': '1986-052',
+      'Call Number: SC0340, Accession: 2005-101, Box : 50, Folder: 31': '2005-101',
+      'Call Number: SC0340, Accession: 1986-052, Box: 5, Folder: 1': '1986-052',
+      'SC0340, Accession 1986-052': '1986-052',
+      'SC0340, Accession 2005-101, Box 18': '2005-101',
+      'Call Number: SC0340, Accession 2005-101, Box: 42A, Folder: 24': '2005-101',
+      'Call Number: SC0340, Accession: 1986-052, Box: 42A, Folder: 59': '1986-052',
+      'SC0340': nil,
+      'SC0340, 1986-052, Box 18': nil,
+      'Stanford University. Libraries. Department of Special Collections and University Archives': nil,
+      # shpc (actually in <relatedItem><location><physicalLocation>)
+      'Series Biographical Photographs | Box 42 | Folder Abbot, Nathan': 'Biographical Photographs',
+      'Series General Photographs | Box 42 | Folder Administration building--Outer Quad': 'General Photographs',
       # menuez
-      'MSS Photo 451, Series 1, Box 32, Folder 11, Sleeve 32-11-2, Frame B32-F11-S2-6',
-      'Series 1, Box 10, Folder 8',
+      'MSS Photo 451, Series 1, Box 32, Folder 11, Sleeve 32-11-2, Frame B32-F11-S2-6': '1',
+      'Series 1, Box 10, Folder 8': '1',
       # fuller
-      'Collection: M1090 , Series: 1 , Box: 5 , Folder: 42'
-    ]
-    numeric_exemplars_based_on_actual_data.each do |example|
-      it "parses series number from physLoc '#{example}'" do
-        ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
-        allow(r).to receive(:mods).and_return(ng_mods)
-        subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssi']).to eq '1'
-      end
-      it "parses series number from relItem physLoc '#{example}'" do
-        ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{example}#{mods_rel_item_loc_phys_loc_end}")
-        allow(r).to receive(:mods).and_return(ng_mods)
-        subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssi']).to eq '1'
-      end
-    end
-
-    # shpc
-    shpc1 = 'Series Biographical Photographs | Box 1 | Folder Abbot, Nathan'
-    it "parses series name from '#{shpc1}'" do
-      ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc1}#{mods_rel_item_loc_phys_loc_end}")
-      allow(r).to receive(:mods).and_return(ng_mods)
-      subject.send(:add_series, sdb, solr_doc)
-      expect(solr_doc['series_ssi']).to eq 'Biographical Photographs'
-    end
-    shpc2 = 'Series General Photographs | Box 1 | Folder Administration building--Outer Quad'
-    it "parses series name from '#{shpc2}'" do
-      ng_mods = Nokogiri::XML("#{mods_rel_item_loc_phys_loc_start}#{shpc2}#{mods_rel_item_loc_phys_loc_end}")
-      allow(r).to receive(:mods).and_return(ng_mods)
-      subject.send(:add_series, sdb, solr_doc)
-      expect(solr_doc['series_ssi']).to eq 'General Photographs'
-    end
-
-    unparsable_exemplars_based_on_actual_data = [
-      # feigenbaum
-      'SC0340, 1986-052, Box 18',
-      'SC0340',
-      'Stanford University. Libraries. Department of Special Collections and University Archives'
-    ]
-    unparsable_exemplars_based_on_actual_data.each do |example|
-      it "does not parse series number from '#{example}'" do
-        ng_mods = Nokogiri::XML("#{mods_loc_phys_loc_start}#{example}#{mods_loc_phys_loc_end}")
-        allow(r).to receive(:mods).and_return(ng_mods)
-        subject.send(:add_series, sdb, solr_doc)
-        expect(solr_doc['series_ssi']).to be_falsey
-      end
-    end
+      'Collection: M1090 , Series: 4 , Box: 5 , Folder: 10': '4',
+      # hummel (actually in <relatedItem><location><physicalLocation>)
+      'Box 42 | Folder 3': nil,
+      'Flat-box 228 | Volume 1': nil
+    }.each do |example, expected|
+      describe "for example '#{example}'" do
+        let(:example) { example }
+        context 'in /location/physicalLocation' do
+          before do
+            i = Harvestdor::Indexer.new
+            i.logger.level = Logger::WARN
+            allow(r).to receive(:indexer).and_return(i)
+            allow(r).to receive(:mods).and_return(mods_loc_phys_loc)
+            subject.send(:add_series, sdb, solr_doc)
+          end
+          it "has the expected series name '#{expected}'" do
+            expect(solr_doc['series_ssi']).to eq expected
+          end
+        end
+        context 'in /relatedItem/location/physicalLocation' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_rel_item_loc_phys_loc)
+            subject.send(:add_series, sdb, solr_doc)
+          end
+          it "has the expected series name '#{expected}'" do
+            expect(solr_doc['series_ssi']).to eq expected
+          end
+        end
+      end # for example
+    end # each
   end # add_series
 
   describe "#add_box" do
