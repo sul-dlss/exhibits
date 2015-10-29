@@ -29,6 +29,7 @@ describe Spotlight::Dor::Indexer do
   end
 
   before do
+    # ignore noisy logs
     allow(r).to receive(:harvestdor_client)
     i = Harvestdor::Indexer.new
     i.logger.level = Logger::WARN
@@ -69,9 +70,6 @@ describe Spotlight::Dor::Indexer do
         let(:example) { example }
         context 'in /location/physicalLocation' do
           before do
-            i = Harvestdor::Indexer.new
-            i.logger.level = Logger::WARN
-            allow(r).to receive(:indexer).and_return(i)
             allow(r).to receive(:mods).and_return(mods_loc_phys_loc)
             subject.send(:add_series, sdb, solr_doc)
           end
@@ -126,9 +124,6 @@ describe Spotlight::Dor::Indexer do
         let(:example) { example }
         context 'in /location/physicalLocation' do
           before do
-            i = Harvestdor::Indexer.new
-            i.logger.level = Logger::WARN
-            allow(r).to receive(:indexer).and_return(i)
             allow(r).to receive(:mods).and_return(mods_loc_phys_loc)
             subject.send(:add_box, sdb, solr_doc)
           end
@@ -183,9 +178,6 @@ describe Spotlight::Dor::Indexer do
         let(:example) { example }
         context 'in /location/physicalLocation' do
           before do
-            i = Harvestdor::Indexer.new
-            i.logger.level = Logger::WARN
-            allow(r).to receive(:indexer).and_return(i)
             allow(r).to receive(:mods).and_return(mods_loc_phys_loc)
             subject.send(:add_folder, sdb, solr_doc)
           end

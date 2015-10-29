@@ -65,7 +65,7 @@ module Spotlight::Dor
         val = node.text
         # note that this will also find Flatbox or Flat-box
         match_data = val.match(/Box ?:? ?([^,|(Folder)]+)/i)
-        match_data[1].rstrip if match_data.present?
+        match_data[1].strip if match_data.present?
       end
       solr_doc['box_ssi'] = box_num.first if box_num.present?
     end
@@ -89,11 +89,11 @@ module Spotlight::Dor
         # folder may be text with commas
         match_data = val.match(/Folder:? ?(.+)/i)
         next if match_data.blank?
-        result = match_data[1].rstrip
+        result = match_data[1].strip
         # Menuez collection may have folder followed by Sleeve then Frame
         match2_data = result.match(/(.*),? ?Sleeve/i)
         if match2_data
-          match2_data[1].rstrip.sub(/,$/, '')
+          match2_data[1].strip.sub(/,$/, '')
         else
           result
         end
@@ -116,7 +116,7 @@ module Spotlight::Dor
         val = node.text
         # feigenbaum uses 'Accession'
         match_data = val.match(/(?:(?:Series)|(?:Accession)):? ([^,|]+)/i)
-        match_data[1].rstrip if match_data.present?
+        match_data[1].strip if match_data.present?
       end
       solr_doc['series_ssi'] = series_num.first if series_num.present?
     end
