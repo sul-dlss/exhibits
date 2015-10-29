@@ -121,6 +121,7 @@ module Spotlight::Dor
       solr_doc['series_ssi'] = series_num.first if series_num.present?
     end
 
+    # rubocop:disable Metrics/AbcSize
     def mods_cartographics_indexing sdb, solr_doc
       insert_field(solr_doc, "coordinates", Array(sdb.smods_rec.subject.cartographics.coordinates).map { |n| n.text }, :stored_searchable)
 
@@ -138,6 +139,7 @@ module Spotlight::Dor
         solr_doc["point_bbox"] << "#{minX} #{minY} #{maxX} #{maxY}"
       end
     end
+    # rubocop:enable Metrics/AbcSize
 
     def coord_to_decimal point
       regex = /(?<dir>[NESW])\s*(?<deg>\d+)°(?:(?<sec>\d+)ʹ)?/
