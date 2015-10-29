@@ -94,10 +94,15 @@ class CatalogController < ApplicationController
     config.add_facet_field 'series_ssi', label: 'Series'
     config.add_facet_field 'box_ssi', label: 'Box'
     config.add_facet_field 'folder_ssi', label: 'Folder'
-    # The Donor tags facet below was added in October 2015 as a specific need of the Feigenbaum exhibit.  Indexing
+    # The folder name facet below was added as a specific need of the Feigenbaum exhibit.  Indexing
     #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
     #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
-    #   like this that are exhibit specific.   It is also added the _index_field list below for display purposes.
+    #   like this that are exhibit specific.  It is also in the _index_field list below for display purposes.
+    config.add_facet_field 'folder_name_ssi', label: 'Folder Name'
+    # The Donor tags facet below was added as a specific need of the Feigenbaum exhibit.  Indexing
+    #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
+    #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
+    #   like this that are exhibit specific.  It is also in the _index_field list below for display purposes.
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -125,6 +130,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'series_ssi', label: 'Series'
     config.add_index_field 'box_ssi', label: 'Box'
     config.add_index_field 'folder_ssi', label: 'Folder'
+    config.add_index_field 'folder_name_ssi', label: 'Folder Name'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
 
     # "fielded" search configuration. Used by pulldown among other places.
