@@ -31,8 +31,8 @@ module Spotlight::Dor
     end
 
     # add fields from raw mods
-    # see comment with add_donor_tags about Feigenbaum specific donor tags data
     before_index :add_box
+    # see comment with add_donor_tags about Feigenbaum specific donor tags data
     before_index :add_donor_tags
     before_index :add_genre
     before_index :add_folder
@@ -73,7 +73,7 @@ module Spotlight::Dor
 
     # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very likely
     #  it will go ununsed by other projects, but should be benign (since this field will not be created if this specific MODs note is not found.)
-    #  Later refactoring could include project specific fields.   Peter Mangiafico
+    #  Later refactoring could include exhibit specific fields.   Peter Mangiafico
     def add_donor_tags sdb, solr_doc
       donor_tags = sdb.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
       insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
