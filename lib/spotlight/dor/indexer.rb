@@ -64,16 +64,8 @@ module Spotlight::Dor
       box_num = sdb.smods_rec._location.physicalLocation.map do |node|
         val = node.text
         # note that this will also find Flatbox or Flat-box
-        match_data = val.match(/Box ?:? ?([^,|]+)/i)
-        next if match_data.blank?
-        result = match_data[1].rstrip
-        # Folder may follow box
-        match2_data = result.match(/(.*)Folder/i)
-        if match2_data
-          match2_data[1].rstrip
-        else
-          result
-        end
+        match_data = val.match(/Box ?:? ?([^,|(Folder)]+)/i)
+        match_data[1].rstrip if match_data.present?
       end
       solr_doc['box_ssi'] = box_num.first if box_num.present?
     end
