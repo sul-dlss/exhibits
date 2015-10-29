@@ -6,7 +6,7 @@ class CatalogController < ApplicationController
 
   include Blacklight::Catalog
 
-  before_filter only: :admin do
+  before_action only: :admin do
     blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
   end
 
@@ -17,7 +17,9 @@ class CatalogController < ApplicationController
       fl: '*'
     }
 
-    config.default_autocomplete_solr_params = { qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search' }
+    config.default_autocomplete_solr_params = {
+      qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'
+    }
 
     # solr path which will be added to solr base url before the other solr params.
     # config.solr_path = 'select'
@@ -25,8 +27,9 @@ class CatalogController < ApplicationController
     # items to show per page, each number in the array represent another option to choose from.
     # config.per_page = [10,20,50,100]
 
-    ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
-    ## parameters included in the Blacklight-jetty document requestHandler.
+    ## Default parameters to send on single-document requests to Solr. These settings are
+    # the Blacklight defaults (see SolrHelper#solr_doc_params) or
+    # parameters included in the Blacklight-jetty document requestHandler.
     #
     # config.default_document_solr_params = {
     #  qt: 'document',
@@ -94,7 +97,7 @@ class CatalogController < ApplicationController
     # The Donor tags facet below was added in October 2015 as a specific need of the Feigenbaum exhibit.  Indexing
     #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
     #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
-    #   like this that are exhibit specific.   It is also added the _index_field list below for display purposes.  Peter Mangiafico
+    #   like this that are exhibit specific.   It is also added the _index_field list below for display purposes.
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default

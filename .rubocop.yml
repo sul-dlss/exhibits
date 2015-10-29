@@ -2,6 +2,28 @@ inherit_from: .rubocop_todo.yml
 
 require: rubocop-rspec
 
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/teaspoon_env.rb'
+    - 'vendor/**/*'
+  RunRailsCops: true
+
+Metrics/LineLength:
+  Max: 120
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/*'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
