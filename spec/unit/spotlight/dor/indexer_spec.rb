@@ -172,7 +172,9 @@ describe Spotlight::Dor::Indexer do
       'Flat-box 228 | Volume 1': nil,
       # shpc (actually in <relatedItem><location><physicalLocation>)
       'Series Biographical Photographs | Box 1 | Folder Abbot, Nathan': 'Abbot, Nathan',
-      'Series General Photographs | Box 1 | Folder Administration building--Outer Quad': 'Administration building--Outer Quad'
+      'Series General Photographs | Box 1 | Folder Administration building--Outer Quad': 'Administration building--Outer Quad',
+      # hypothetical
+      'Folder: 42, Sheet: 15': '42'
     }.each do |example, expected|
       describe "for example '#{example}'" do
         let(:example) { example }

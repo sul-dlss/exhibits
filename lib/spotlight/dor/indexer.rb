@@ -86,18 +86,18 @@ module Spotlight::Dor
       #   _location.physicalLocation should find top level and relatedItem
       folder_num = sdb.smods_rec._location.physicalLocation.map do |node|
         val = node.text
-        # folder may be text with commas
-        match_data = val.match(/Folder:? ?(.+)/i)
-        next if match_data.blank?
-        result = match_data[1].strip
-        # Menuez collection may have folder followed by Sleeve then Frame
-        match2_data = result.match(/(.*),? ?Sleeve/i)
-        if match2_data
-          match2_data[1].strip.sub(/,$/, '')
-        else
-          result
-        end
+
+        match_data = if val =~ /\|/
+                       # we assume the data is pipe-delimited, and may contain commas within values
+                       val.match(/Folder ?:? ?([^|]+)/)
+                     else
+                       # the data should be comma-delimited, and may not contain commas within values
+                       val.match(/Folder ?:? ?([^,]+)/)
+                     end
+
+        match_data[1].strip if match_data.present?
       end
+
       solr_doc['folder_ssi'] = folder_num.first if folder_num.present?
     end
 
