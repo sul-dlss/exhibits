@@ -110,7 +110,7 @@ describe Spotlight::Dor::Indexer do
     end # each
   end # add_series
 
-  describe "#add_box" do
+  describe '#add_box' do
     # example string as key, expected box name as value
     {
       # feigenbaum
@@ -254,7 +254,9 @@ describe Spotlight::Dor::Indexer do
       </mods>
     EOF
   end
-  describe "#add_folder_name" do
+
+  # rubocop:disable Metrics/LineLength
+  describe '#add_folder_name' do
     # example string as key, expected folder name as value
     # all from feigenbaum (or based on feigenbaum), as that is only coll
     {
@@ -299,4 +301,5 @@ describe Spotlight::Dor::Indexer do
       end # for example
     end # each
   end # add_folder_name
+  # rubocop:enable Metrics/LineLength
 end

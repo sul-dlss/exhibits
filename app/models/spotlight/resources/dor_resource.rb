@@ -1,4 +1,5 @@
 module Spotlight::Resources
+  # Base Resource indexer for objects in DOR
   class DorResource < Spotlight::Resource
     ##
     # Generate solr documents for the DOR resources identified by this object

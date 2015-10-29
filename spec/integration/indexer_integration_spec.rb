@@ -5,7 +5,11 @@ describe 'indexer integration tests', :vcr do
     it 'solr_doc has donor_tags_ssim field when <note displayLabel="Donor tags"> is in MODS' do
       r = Spotlight::Resources::Purl.new(url: 'https://purl.stanford.edu/vw282gv1740') # Feigenbaum PURL with donor tags
       solr_doc = r.to_solr.first
-      expect(solr_doc['donor_tags_ssim']).to eq ['Knowledge Systems Laboratory', 'medical applications', 'Publishing', 'Stanford', 'Stanford Computer Science Department']
+      expect(solr_doc['donor_tags_ssim']).to contain_exactly 'Knowledge Systems Laboratory',
+                                                             'medical applications',
+                                                             'Publishing',
+                                                             'Stanford',
+                                                             'Stanford Computer Science Department'
     end
     it 'no donor_tags_ssim field in solr doc when <note displayLabel="Donor tags"> not in MODS' do
       r = Spotlight::Resources::Purl.new(url: 'https://purl.stanford.edu/bd955gr0721') # Revs PURL without donor tags
