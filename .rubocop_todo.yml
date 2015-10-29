@@ -6,51 +6,9 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-Metrics/AbcSize:
-  Max: 19
-
-# Offense count: 1
-# Configuration parameters: CountComments.
-Metrics/ClassLength:
-  Max: 108
-
-# Offense count: 148
-# Configuration parameters: AllowURI, URISchemes.
-Metrics/LineLength:
-  Max: 188
-
-# Offense count: 15
-# Configuration parameters: CountComments.
-Metrics/MethodLength:
-  Max: 19
-
-# Offense count: 1
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/features/integration_spec.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/AndOr:
-  Exclude:
-    - 'config/initializers/action_mailer.rb'
 
 # Offense count: 19
 # Configuration parameters: Exclude.
 Style/Documentation:
   Enabled: false
 
-# Offense count: 1
-# Configuration parameters: MinBodyLength.
-Style/GuardClause:
-  Exclude:
-    - 'db/migrate/20150420182423_change_collation_for_tag_names.spotlight.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AllowInnerSlashes.
-Style/RegexpLiteral:
-  Exclude:
-    - 'app/models/purl_resource.rb'

@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
 
   private
 
+  # rubocop:disable Metrics/MethodLength
   def create_roles_from_workgroups
     return if superadmin?
 
@@ -48,4 +49,5 @@ class User < ActiveRecord::Base
       roles.build role_attributes
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end

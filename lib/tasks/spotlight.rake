@@ -26,7 +26,7 @@ namespace :spotlight do
     end
 
     @exhibit_config ||= begin
-      fail "The #{::Rails.env} environment settings were not found in the exhibit.yml config" unless @exhibit_yml[::Rails.env]
+      fail "The #{::Rails.env} environment settings were not found in exhibit.yml" unless @exhibit_yml[::Rails.env]
       @exhibit_yml[::Rails.env].symbolize_keys
     end
 

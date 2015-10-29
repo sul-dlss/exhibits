@@ -29,8 +29,9 @@ begin
     end
   end
 rescue LoadError
-  # this rescue block is here for deployment to production, where the jettywrapper does not exist and requiring it will fail, and is ok
-  puts 'WARNING: JettyWrapper and/or Rubocop was not found and could not be required. This is probably ok in production.'
+  # this rescue block is here for deployment to production, where the jettywrapper
+  # does not exist and requiring it will fail, and is ok
+  puts 'WARNING: JettyWrapper and/or Rubocop was not found and could not be required.'
 end
 
 desc 'Run jetty and launch the development Rails server'
