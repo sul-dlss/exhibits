@@ -16,6 +16,6 @@ class CreateSpotlightSearches < ActiveRecord::Migration
     end
 
     add_index :spotlight_searches, :exhibit_id
-    add_index :spotlight_searches, [:slug,:scope], unique: true
+    add_index :spotlight_searches, [:slug, :scope], unique: true
   end
 end

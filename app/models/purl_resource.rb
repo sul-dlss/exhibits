@@ -1,10 +1,10 @@
 class PurlResource
   include ActiveModel::Model
   extend ActiveModel::Translation
-  
+
   attr_accessor :data, :exhibit
 
-  def self.purls exhibit
+  def self.purls(exhibit)
     Spotlight::Resources::Purl.where(exhibit: exhibit).pluck(:url).map { |x| x.match(/^https?:\/\/purl.stanford.edu\/([^\/\.]+)/)[1] }.uniq
   end
 
@@ -20,5 +20,4 @@ class PurlResource
       end
     end
   end
-
 end

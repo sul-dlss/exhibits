@@ -14,7 +14,7 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/bundler
 #   https://github.com/capistrano/rails
 #
-#require 'capistrano/rvm'
+# require 'capistrano/rvm'
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 require 'capistrano/bundler'
@@ -22,7 +22,7 @@ require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'dlss/capistrano'
 require 'squash/rails/capistrano3'
-require "whenever/capistrano"
+require 'whenever/capistrano'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
