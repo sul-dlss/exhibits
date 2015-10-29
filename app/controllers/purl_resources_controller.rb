@@ -13,6 +13,7 @@ class PurlResourcesController < ApplicationController
   end
 
   private
+
   def build_resource
     @resource = begin
       r = PurlResource.new resource_params
@@ -24,5 +25,4 @@ class PurlResourcesController < ApplicationController
   def resource_params
     params.require(:purl_resource).permit(:data)
   end
-  
 end

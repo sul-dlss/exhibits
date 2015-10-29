@@ -1,5 +1,4 @@
 module ModsDocument
-
   def self.extended(document)
     ModsDocument.register_export_formats(document)
   end

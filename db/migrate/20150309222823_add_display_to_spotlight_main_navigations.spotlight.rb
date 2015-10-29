@@ -6,6 +6,7 @@ class AddDisplayToSpotlightMainNavigations < ActiveRecord::Migration
     Spotlight::MainNavigation.reset_column_information
     Spotlight::MainNavigation.update_all display: true
   end
+
   def down
     remove_column :spotlight_main_navigations, :display
   end

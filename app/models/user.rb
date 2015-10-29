@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   set_callback :groups_changed, :after, :create_roles_from_workgroups
 
   include Spotlight::User
-  
-  # Connects this user object to Blacklights Bookmarks. 
+
+  # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :remote_user_authenticatable, :database_authenticatable, :registerable,

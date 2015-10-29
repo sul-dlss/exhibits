@@ -18,6 +18,7 @@ class ChangeContactDetails < ActiveRecord::Migration
       remove_column :spotlight_contacts, col, :string if Spotlight::Contact .column_names.include? col
     end
   end
+
   def down
     attributes.each do |_attribute|
       add_column :spotlight_contacts, col, :string
@@ -34,7 +35,9 @@ class ChangeContactDetails < ActiveRecord::Migration
 
     remove_column :spotlight_contacts, :contact_info, :text
   end
+
   private
+
   def attributes
     [:email, :title, :location, :telephone]
   end

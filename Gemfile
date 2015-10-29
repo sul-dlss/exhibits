@@ -62,36 +62,33 @@ end
 
 group :production do
   gem 'mysql2', '~> 0.3.20'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
 end
 
 gem 'squash_ruby', require: 'squash/ruby'
 gem 'squash_rails', require: 'squash/rails'
 
-gem "config"
+gem 'config'
 
-gem "bootstrap-sass", "~> 3.3.5"
+gem 'bootstrap-sass', '~> 3.3.5'
 
-gem "blacklight", "~> 5.15"
-gem "blacklight-gallery", "~> 0.3"
-gem "blacklight-maps", "0.2.0"
-gem "blacklight-spotlight", git: "https://github.com/sul-dlss/spotlight"
-gem "sir_trevor_rails", git: "https://github.com/madebymany/sir-trevor-rails"
-gem "spotlight-dor-resources", git: "https://github.com/sul-dlss/spotlight-dor-resources"
-gem "gdor-indexer", git: "https://github.com/sul-dlss/gdor-indexer"
-gem "harvestdor-indexer", git: "https://github.com/sul-dlss/harvestdor-indexer"
-gem "harvestdor", git: "https://github.com/sul-dlss/harvestdor"
-gem "devise"
-gem "devise-guests", "~> 0.3"
+gem 'blacklight', '~> 5.15'
+gem 'blacklight-gallery', '~> 0.3'
+gem 'blacklight-maps', '0.2.0'
+gem 'blacklight-spotlight', '~> 0.5'
+
+gem 'spotlight-dor-resources'
+gem 'devise'
+gem 'devise-guests', '~> 0.3'
 gem 'devise-remote-user'
-gem "rack-dev-mark"
-gem "turnout"
-gem "whenever"
-gem "ruby-oembed"
-gem "is_it_working-cbeer"
-gem "friendly_id"
-gem "social-share-button"
-gem "sitemap_generator"
-gem "delayed_job"
+gem 'rack-dev-mark'
+gem 'turnout'
+gem 'whenever'
+gem 'ruby-oembed'
+gem 'is_it_working-cbeer'
+gem 'friendly_id'
+gem 'social-share-button'
+gem 'sitemap_generator'
+gem 'delayed_job'
 gem 'delayed_job_active_record'

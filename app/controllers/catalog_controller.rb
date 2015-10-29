@@ -2,7 +2,6 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
-
   helper Openseadragon::OpenseadragonHelper
 
   include Blacklight::Catalog
@@ -12,31 +11,30 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
-
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
       fl: '*'
     }
 
-    config.default_autocomplete_solr_params = {qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'}
+    config.default_autocomplete_solr_params = { qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search' }
 
     # solr path which will be added to solr base url before the other solr params.
-    #config.solr_path = 'select'
+    # config.solr_path = 'select'
 
     # items to show per page, each number in the array represent another option to choose from.
-    #config.per_page = [10,20,50,100]
+    # config.per_page = [10,20,50,100]
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
     #
-    #config.default_document_solr_params = {
+    # config.default_document_solr_params = {
     #  qt: 'document',
     #  ## These are hard-coded in the blacklight 'document' requestHandler
     #  # fl: '*',
     #  # rows: 1
     #  # q: '{!raw f=id v=$id}'
-    #}
+    # }
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
@@ -53,14 +51,14 @@ class CatalogController < ApplicationController
     config.view.gallery.partials = [:index_header, :index]
     config.view.masonry.partials = [:index]
     config.view.slideshow.partials = [:index]
-    config.view.maps.type = "placename_coord"
+    config.view.maps.type = 'placename_coord'
     config.view.maps.placename_coord_field = 'placename_coords_ssim'
     config.view.embed.partials = [:osd_or_embed]
     config.view.embed.if = false
 
     # solr field configuration for document/show views
-    #config.show.title_field = 'title_display'
-    #config.show.display_type_field = 'format'
+    # config.show.title_field = 'title_display'
+    # config.show.display_type_field = 'format'
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -195,12 +193,10 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
-    config.add_sort_field 'pub_date_sort desc, title_sort asc', :label => 'year (new to old)'
-    config.add_sort_field 'pub_date_sort asc, title_sort asc', :label => 'year (old to new)'
-    config.add_sort_field 'author_sort asc, title_sort asc', :label => 'author'
-    config.add_sort_field 'title_sort asc, pub_date_sort desc', :label => 'title'
-
+    config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', label: 'relevance'
+    config.add_sort_field 'pub_date_sort desc, title_sort asc', label: 'year (new to old)'
+    config.add_sort_field 'pub_date_sort asc, title_sort asc', label: 'year (old to new)'
+    config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
+    config.add_sort_field 'title_sort asc, pub_date_sort desc', label: 'title'
   end
-
 end
