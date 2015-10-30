@@ -47,6 +47,38 @@ describe Spotlight::Dor::Indexer do
     allow(r).to receive(:indexer).and_return i
   end
 
+  describe '#add_content_metadata_fields' do
+    before do
+      allow(r).to receive(:public_xml).and_return(public_xml)
+      subject.send(:add_content_metadata_fields, sdb, solr_doc)
+    end
+
+    context 'with a record without contentMetadata' do
+      let(:public_xml) do
+        Nokogiri::XML <<-EOF
+          <publicObject></publicObject>
+          EOF
+      end
+
+      it 'is blank' do
+        expect(solr_doc).to be_blank
+      end
+    end
+
+    context 'with a record with contentMetadata' do
+      let(:public_xml) do
+        Nokogiri::XML <<-EOF
+          <publicObject><contentMetadata type="book" /></publicObject>
+          EOF
+      end
+
+      it 'indexes the declared content metadata type' do
+        expect(solr_doc['content_metadata_type_ssim']).to contain_exactly 'book'
+      end
+    end
+
+  end
+
   describe '#add_donor_tags' do
     before do
       allow(r).to receive(:mods).and_return(mods)

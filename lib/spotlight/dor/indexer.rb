@@ -7,27 +7,7 @@ module Spotlight::Dor
   # Base class to harvest from DOR via harvestdor gem
   class Indexer < GDor::Indexer
     # add contentMetadata fields
-    # rubocop:disable Metrics/LineLength
-    before_index do |sdb, solr_doc|
-      Solrizer.insert_field(solr_doc, 'content_metadata_type', sdb.public_xml.xpath('/publicObject/contentMetadata/@type').text, :symbol, :displayable)
-
-      sdb.public_xml.xpath('/publicObject/contentMetadata').xpath('resource/file[@mimetype="image/jp2"]').each do |node|
-        file_id = node.attr('id').gsub('.jp2', '')
-
-        if node.attr('id') =~ /jp2$/ && !solr_doc[Solrizer.solr_name('content_metadata_first_image_file_name', :displayable)]
-          Solrizer.insert_field(solr_doc, 'content_metadata_first_image_file_name', file_id, :displayable)
-          Solrizer.insert_field(solr_doc, 'content_metadata_first_image_width', node.xpath('./imageData/@width').text, :displayable)
-          Solrizer.insert_field(solr_doc, 'content_metadata_first_image_height', node.xpath('./imageData/@height').text, :displayable)
-        end
-
-        Solrizer.insert_field(solr_doc, 'content_metadata_image_iiif_info', "https://stacks.stanford.edu/image/iiif/#{solr_doc[:id]}%2F#{file_id}/info.json", :displayable)
-        Solrizer.insert_field(solr_doc, 'thumbnail_square_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_square", :displayable)
-        Solrizer.insert_field(solr_doc, 'thumbnail_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_thumb", :displayable)
-        Solrizer.insert_field(solr_doc, 'large_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_large", :displayable)
-        Solrizer.insert_field(solr_doc, 'full_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_full", :displayable)
-      end
-    end
-    # rubocop:enable Metrics/LineLength
+    before_index :add_content_metadata_fields
 
     # tweak author_sort field from stanford-mods
     before_index do |_sdb, solr_doc|
@@ -72,6 +52,39 @@ module Spotlight::Dor
       end.compact
 
       solr_doc['box_ssi'] = box_num.first
+    end
+
+    def add_content_metadata_fields(sdb, solr_doc)
+      content_metadata = sdb.public_xml.at_xpath('/publicObject/contentMetadata')
+      return unless content_metadata.present?
+
+      Solrizer.insert_field(solr_doc, 'content_metadata_type', content_metadata['type'], :symbol, :displayable)
+
+      images = content_metadata.xpath('resource/file[@mimetype="image/jp2"]').select { |node| node.attr('id') =~ /jp2$/ }
+
+      add_thumbnail_fields(images.first, solr_doc)
+
+      images.each do |image|
+        add_image_fields(image, solr_doc)
+      end
+    end
+
+    def add_thumbnail_fields(node, solr_doc)
+      file_id = node.attr('id').gsub('.jp2', '')
+
+      Solrizer.insert_field(solr_doc, 'content_metadata_first_image_file_name', file_id, :displayable)
+      Solrizer.insert_field(solr_doc, 'content_metadata_first_image_width', node.xpath('./imageData/@width').text, :displayable)
+      Solrizer.insert_field(solr_doc, 'content_metadata_first_image_height', node.xpath('./imageData/@height').text, :displayable)
+    end
+
+    def add_image_fields(node, solr_doc)
+      file_id = node.attr('id').gsub('.jp2', '')
+
+      Solrizer.insert_field(solr_doc, 'content_metadata_image_iiif_info', "https://stacks.stanford.edu/image/iiif/#{solr_doc[:id]}%2F#{file_id}/info.json", :displayable)
+      Solrizer.insert_field(solr_doc, 'thumbnail_square_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_square", :displayable)
+      Solrizer.insert_field(solr_doc, 'thumbnail_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_thumb", :displayable)
+      Solrizer.insert_field(solr_doc, 'large_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_large", :displayable)
+      Solrizer.insert_field(solr_doc, 'full_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_full", :displayable)
     end
 
     # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very
