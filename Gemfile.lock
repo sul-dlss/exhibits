@@ -458,10 +458,11 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.0.2)
+    spotlight-dor-resources (0.0.3)
       blacklight-spotlight (~> 0.5)
       faraday
       gdor-indexer
+      harvestdor-indexer (>= 2.2.0)
       rails
       solrizer
     sprockets (3.4.0)
