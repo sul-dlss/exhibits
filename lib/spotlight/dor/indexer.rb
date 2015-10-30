@@ -35,6 +35,7 @@ module Spotlight::Dor
       included do
         before_index :add_box
         before_index :add_folder
+        before_index :add_location
         before_index :add_series
       end
 
@@ -75,6 +76,20 @@ module Spotlight::Dor
         end.compact
 
         solr_doc['folder_ssi'] = folder_num.first
+      end
+
+      # add the physicalLocation as location_ssi field (note: single valued!)
+      #   but only if it has series, box or folder data
+      #   data in location/physicalLocation or in relatedItem/location/physicalLocation
+      # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
+      def add_location(sdb, solr_doc)
+        # see spec for data from actual collections
+        #   _location.physicalLocation should find top level and relatedItem
+        loc = sdb.smods_rec._location.physicalLocation.map do |node|
+          node.text if node.text.match(/.*(Series)|(Accession)|(Folder)|(Box).*/i)
+        end.compact
+
+        solr_doc['location_ssi'] = loc.first
       end
 
       # add the series/accession 'number' to solr_doc as series_ssi field (note: single valued!)

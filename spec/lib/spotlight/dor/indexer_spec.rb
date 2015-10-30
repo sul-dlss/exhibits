@@ -40,7 +40,7 @@ describe Spotlight::Dor::Indexer do
   end
 
   before do
-    # ignore noisy logs
+    # reduce log noise
     allow(r).to receive(:harvestdor_client)
     i = Harvestdor::Indexer.new
     i.logger.level = Logger::WARN
@@ -285,7 +285,7 @@ describe Spotlight::Dor::Indexer do
             allow(r).to receive(:mods).and_return(mods_loc_phys_loc)
             subject.send(:add_box, sdb, solr_doc)
           end
-          it "has the expected box name '#{expected}'" do
+          it "has the expected box label '#{expected}'" do
             expect(solr_doc['box_ssi']).to eq expected
           end
         end
@@ -294,7 +294,7 @@ describe Spotlight::Dor::Indexer do
             allow(r).to receive(:mods).and_return(mods_rel_item_loc_phys_loc)
             subject.send(:add_box, sdb, solr_doc)
           end
-          it "has the expected box name '#{expected}'" do
+          it "has the expected box label '#{expected}'" do
             expect(solr_doc['box_ssi']).to eq expected
           end
         end
@@ -304,7 +304,7 @@ describe Spotlight::Dor::Indexer do
             allow(r).to receive(:mods).and_return(mods_loc_multiple_phys_loc)
             subject.send(:add_box, sdb, solr_doc)
           end
-          it "has the expected series name '#{expected}'" do
+          it "has the expected box label '#{expected}'" do
             expect(solr_doc['box_ssi']).to eq expected
           end
         end
@@ -351,7 +351,7 @@ describe Spotlight::Dor::Indexer do
             allow(r).to receive(:mods).and_return(mods_loc_phys_loc)
             subject.send(:add_folder, sdb, solr_doc)
           end
-          it "has the expected folder name '#{expected}'" do
+          it "has the expected folder label '#{expected}'" do
             expect(solr_doc['folder_ssi']).to eq expected
           end
         end
@@ -360,7 +360,7 @@ describe Spotlight::Dor::Indexer do
             allow(r).to receive(:mods).and_return(mods_rel_item_loc_phys_loc)
             subject.send(:add_folder, sdb, solr_doc)
           end
-          it "has the expected folder name '#{expected}'" do
+          it "has the expected folder label '#{expected}'" do
             expect(solr_doc['folder_ssi']).to eq expected
           end
         end
@@ -370,13 +370,71 @@ describe Spotlight::Dor::Indexer do
             allow(r).to receive(:mods).and_return(mods_loc_multiple_phys_loc)
             subject.send(:add_folder, sdb, solr_doc)
           end
-          it "has the expected series name '#{expected}'" do
+          it "has the expected folder label '#{expected}'" do
             expect(solr_doc['folder_ssi']).to eq expected
           end
         end
       end # for example
     end # each
   end # add_folder
+
+  # rubocop:disable Metrics/LineLength
+  describe '#add_location' do
+    # example string as key, expected box name as value
+    {
+      # feigenbaum
+      'Call Number: SC0340, Accession 2005-101, Box : 1, Folder: 1': 'Call Number: SC0340, Accession 2005-101, Box : 1, Folder: 1',
+      'Call Number: SC0340, Accession 2005-101': 'Call Number: SC0340, Accession 2005-101',
+      'SC0340, 1986-052, Box 18': 'SC0340, 1986-052, Box 18',
+      'SC0340, Accession 2005-101, Box 18': 'SC0340, Accession 2005-101, Box 18',
+      'SC0340': nil,
+      'SC0340, Accession 1986-052': 'SC0340, Accession 1986-052',
+      'Stanford University. Libraries. Department of Special Collections and University Archives': nil,
+      # shpc (actually in <relatedItem><location><physicalLocation>)
+      'Series Biographical Photographs | Box 42 | Folder Abbot, Nathan': 'Series Biographical Photographs | Box 42 | Folder Abbot, Nathan',
+      'Series General Photographs | Box 42 | Folder Administration building--Outer Quad': 'Series General Photographs | Box 42 | Folder Administration building--Outer Quad',
+      # menuez
+      'MSS Photo 451, Series 1, Box 32, Folder 11, Sleeve 32-11-2, Frame B32-F11-S2-6': 'MSS Photo 451, Series 1, Box 32, Folder 11, Sleeve 32-11-2, Frame B32-F11-S2-6',
+      'Series 1, Box 10, Folder 8': 'Series 1, Box 10, Folder 8',
+      # fuller
+      'Collection: M1090 , Series: 1 , Box: 5 , Folder: 42': 'Collection: M1090 , Series: 1 , Box: 5 , Folder: 42',
+      # hummel (actually in <relatedItem><location><physicalLocation>)
+      'Box 42 | Folder 3': 'Box 42 | Folder 3',
+      'Flat-box 228 | Volume 1': 'Flat-box 228 | Volume 1'
+    }.each do |example, expected|
+      describe "for example '#{example}'" do
+        let(:example) { example }
+        context 'in /location/physicalLocation' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_loc_phys_loc)
+            subject.send(:add_location, sdb, solr_doc)
+          end
+          it "has the expected location '#{expected}'" do
+            expect(solr_doc['location_ssi']).to eq expected
+          end
+        end
+        context 'in /relatedItem/location/physicalLocation' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_rel_item_loc_phys_loc)
+            subject.send(:add_location, sdb, solr_doc)
+          end
+          it "has the expected location '#{expected}'" do
+            expect(solr_doc['location_ssi']).to eq expected
+          end
+        end
+        context 'with multiple physicalLocation elements' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_loc_multiple_phys_loc)
+            subject.send(:add_location, sdb, solr_doc)
+          end
+          it "has the expected location '#{expected}'" do
+            expect(solr_doc['location_ssi']).to eq expected
+          end
+        end
+      end # for example
+    end # each
+  end # add_location
+  # rubocop:enable Metrics/LineLength
 
   let(:mods_note_plain) do
     Nokogiri::XML <<-EOF
@@ -396,7 +454,7 @@ describe Spotlight::Dor::Indexer do
   # rubocop:disable Metrics/LineLength
   describe '#add_folder_name' do
     # example string as key, expected folder name as value
-    # all from feigenbaum (or based on feigenbaum), as that is only coll
+    # all from feigenbaum (or based on feigenbaum), as that is only coll with this data
     {
       'Call Number: SC0340, Accession: 1986-052, Box: 20, Folder: 40, Title: S': 'S',
       'Call Number: SC0340, Accession: 1986-052, Box: 54, Folder: 25, Title: Balzer': 'Balzer',
