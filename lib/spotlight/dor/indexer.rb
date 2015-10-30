@@ -14,8 +14,6 @@ module Spotlight::Dor
     # add fields from raw mods
     before_index :add_genre
 
-    attr_reader :solr_client
-
     def solr_document(resource)
       doc_hash = super
       run_hook :before_index, resource, doc_hash
