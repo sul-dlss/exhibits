@@ -47,6 +47,85 @@ describe Spotlight::Dor::Indexer do
     allow(r).to receive(:indexer).and_return i
   end
 
+  describe '#add_donor_tags' do
+    before do
+      allow(r).to receive(:mods).and_return(mods)
+      subject.send(:add_donor_tags, sdb, solr_doc)
+    end
+
+    context 'with a record without donor tags' do
+      let(:mods) do
+        Nokogiri::XML <<-EOF
+          <mods xmlns="#{Mods::MODS_NS}">
+            <note displayLabel="preferred citation">(not a donor tag)</note>
+          </mods>
+          EOF
+      end
+
+      it 'is blank' do
+        expect(solr_doc['donor_tags_ssim']).to be_blank
+      end
+    end
+
+    context 'with a record with donor tags' do
+      let(:mods) do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        Nokogiri::XML <<-EOF
+          <mods xmlns="#{Mods::MODS_NS}">
+            <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
+            <note displayLabel="Donor tags">medical applications</note>
+            <note displayLabel="Donor tags">Publishing</note>
+            <note displayLabel="Donor tags">Stanford</note>
+            <note displayLabel="Donor tags">Stanford Computer Science Department</note>
+          </mods>
+          EOF
+      end
+
+      it 'extracts the donor tags' do
+        expect(solr_doc['donor_tags_ssim']).to contain_exactly 'Knowledge Systems Laboratory',
+                                                               'medical applications',
+                                                               'Publishing',
+                                                               'Stanford',
+                                                               'Stanford Computer Science Department'
+      end
+    end
+  end
+
+  describe '#add_genre' do
+    before do
+      allow(r).to receive(:mods).and_return(mods)
+      subject.send(:add_genre, sdb, solr_doc)
+    end
+
+    context 'with a record without a genre' do
+      let(:mods) do
+        Nokogiri::XML <<-EOF
+          <mods xmlns="#{Mods::MODS_NS}">
+          </mods>
+          EOF
+      end
+
+      it 'is blank' do
+        expect(solr_doc['genre_ssim']).to be_blank
+      end
+    end
+
+    context 'with a record with a genre' do
+      let(:mods) do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        Nokogiri::XML <<-EOF
+          <mods xmlns="#{Mods::MODS_NS}">
+            <genre authority="aat" valueURI="http://vocab.getty.edu/aat/300028579">manuscripts for publication</genre>
+          </mods>
+          EOF
+      end
+
+      it 'extracts the genre' do
+        expect(solr_doc['genre_ssim']).to contain_exactly 'manuscripts for publication'
+      end
+    end
+  end
+
   describe '#add_series' do
     # example string as key, expected series name as value
     {
