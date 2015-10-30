@@ -30,8 +30,8 @@ namespace :spotlight do
       @exhibit_yml[::Rails.env].symbolize_keys
     end
 
-    indexer = Spotlight::Dor::Indexer.new
-    indexer.instance_variable_set(:@solr_client, Blacklight.solr)
+    indexer = Spotlight::Dor::Indexer.new(solr_client: Blacklight.solr)
+
     indexer.harvest_and_index
 
     Spotlight::SolrDocumentSidecar.group(:solr_document_id).find_each do |s|
