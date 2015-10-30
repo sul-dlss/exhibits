@@ -38,6 +38,11 @@ module Spotlight::Dor
 
     private
 
+    # add plain MODS <genre> element data, not the SearchWorks genre values
+    def add_genre(sdb, solr_doc)
+      insert_field solr_doc, 'genre', sdb.smods_rec.genre.content, :symbol # this is a _ssim field
+    end
+
     concerning :PhysicalLocation do
       # add the box number to solr_doc as box_ssi field (note: single valued!)
       #   data in location/physicalLocation or in relatedItem/location/physicalLocation
@@ -138,26 +143,30 @@ module Spotlight::Dor
       end
     end
 
-    # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very
-    # likely it will go ununsed by other projects, but should be benign (since this field will not be created if
-    # this specific MODs note is not found.) Later refactoring could include exhibit specific fields.
-    def add_donor_tags(sdb, solr_doc)
-      donor_tags = sdb.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
-      insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
-    end
+    concerning :FeigenbaumSpecificFields do
+      # These fields were specifically for the Feigenbaum exhibit.  It is very
+      # likely it will go ununsed by other projects, but should be benign (since this field will not be created if
+      # this specific MODs note is not found.). Future work could refactor this to
+      # only create these fields on an as-needed basis.
 
-    # add the folder name to solr_doc as folder_name_ssi field (note: single valued!)
-    #   data is specific to Feigenbaum collection and is in <note type='preferred citation'>
-    def add_folder_name(sdb, solr_doc)
-      # see spec for data examples
-      preferred_citation = sdb.smods_rec.note.select { |n| n.type_at == 'preferred citation' }.map(&:content)
-      match_data = preferred_citation.first.match(/Title: +(.+)/i) if preferred_citation.present?
-      solr_doc['folder_name_ssi'] = match_data[1].rstrip if match_data.present?
-    end
+      included do
+        before_index :add_donor_tags
+        before_index :add_folder_name
+      end
 
-    # add plain MODS <genre> element data, not the SearchWorks genre values
-    def add_genre(sdb, solr_doc)
-      insert_field solr_doc, 'genre', sdb.smods_rec.genre.content, :symbol # this is a _ssim field
+      def add_donor_tags(sdb, solr_doc)
+        donor_tags = sdb.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
+        insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
+      end
+
+      # add the folder name to solr_doc as folder_name_ssi field (note: single valued!)
+      #   data is specific to Feigenbaum collection and is in <note type='preferred citation'>
+      def add_folder_name(sdb, solr_doc)
+        # see spec for data examples
+        preferred_citation = sdb.smods_rec.note.select { |n| n.type_at == 'preferred citation' }.map(&:content)
+        match_data = preferred_citation.first.match(/Title: +(.+)/i) if preferred_citation.present?
+        solr_doc['folder_name_ssi'] = match_data[1].strip if match_data.present?
+      end
     end
 
     concerning :CartographicIndexing do
