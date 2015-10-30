@@ -6,23 +6,13 @@ require 'solrizer'
 module Spotlight::Dor
   # Base class to harvest from DOR via harvestdor gem
   class Indexer < GDor::Indexer
-    # add contentMetadata fields
-    before_index :add_content_metadata_fields
-
     # tweak author_sort field from stanford-mods
     before_index do |_sdb, solr_doc|
       solr_doc[:author_sort] &&= solr_doc[:author_sort].tr("\uFFFF", "\uFFFD")
     end
 
     # add fields from raw mods
-    before_index :add_box
-    # see comment with add_donor_tags about Feigenbaum specific donor tags data
-    before_index :add_donor_tags
     before_index :add_genre
-    before_index :add_folder
-    before_index :add_folder_name
-    before_index :add_series
-    before_index :mods_cartographics_indexing
 
     attr_reader :solr_client
 
@@ -44,6 +34,12 @@ module Spotlight::Dor
     end
 
     concerning :PhysicalLocation do
+      included do
+        before_index :add_box
+        before_index :add_folder
+        before_index :add_series
+      end
+
       # add the box number to solr_doc as box_ssi field (note: single valued!)
       #   data in location/physicalLocation or in relatedItem/location/physicalLocation
       # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
@@ -101,6 +97,10 @@ module Spotlight::Dor
     end
 
     concerning :ContentMetadata do
+      included do
+        before_index :add_content_metadata_fields
+      end
+
       def add_content_metadata_fields(sdb, solr_doc)
         content_metadata = sdb.public_xml.at_xpath('/publicObject/contentMetadata')
         return unless content_metadata.present?
@@ -170,6 +170,10 @@ module Spotlight::Dor
     end
 
     concerning :CartographicIndexing do
+      included do
+        before_index :mods_cartographics_indexing
+      end
+
       def mods_cartographics_indexing(sdb, solr_doc)
         coordinates = Array(sdb.smods_rec.subject.cartographics.coordinates)
 
