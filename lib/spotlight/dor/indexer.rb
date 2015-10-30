@@ -62,7 +62,7 @@ module Spotlight::Dor
 
       images = content_metadata.xpath('resource/file[@mimetype="image/jp2"]').select { |node| node.attr('id') =~ /jp2$/ }
 
-      add_thumbnail_fields(images.first, solr_doc)
+      add_thumbnail_fields(images.first, solr_doc) if images.first
 
       images.each do |image|
         add_image_fields(image, solr_doc)
@@ -79,12 +79,17 @@ module Spotlight::Dor
 
     def add_image_fields(node, solr_doc)
       file_id = node.attr('id').gsub('.jp2', '')
+      base_url = stacks_iiif_url(solr_doc[:id], file_id)
 
-      Solrizer.insert_field(solr_doc, 'content_metadata_image_iiif_info', "https://stacks.stanford.edu/image/iiif/#{solr_doc[:id]}%2F#{file_id}/info.json", :displayable)
-      Solrizer.insert_field(solr_doc, 'thumbnail_square_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_square", :displayable)
-      Solrizer.insert_field(solr_doc, 'thumbnail_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_thumb", :displayable)
-      Solrizer.insert_field(solr_doc, 'large_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_large", :displayable)
-      Solrizer.insert_field(solr_doc, 'full_image_url', "https://stacks.stanford.edu/image/#{solr_doc[:id]}/#{file_id}_full", :displayable)
+      Solrizer.insert_field(solr_doc, 'content_metadata_image_iiif_info', "#{base_url}/info.json", :displayable)
+      Solrizer.insert_field(solr_doc, 'thumbnail_square_url', "#{base_url}/square/100,100/0/default.jpg", :displayable)
+      Solrizer.insert_field(solr_doc, 'thumbnail_url', "#{base_url}/full/!400,400/0/default.jpg", :displayable)
+      Solrizer.insert_field(solr_doc, 'large_image_url', "#{base_url}/full/pct:25/0/default.jpg", :displayable)
+      Solrizer.insert_field(solr_doc, 'full_image_url', "#{base_url}/full/full/0/default.jpg", :displayable)
+    end
+
+    def stacks_iiif_url(druid, file_name)
+      "#{Spotlight::Dor::Resources::Engine.config.stacks_iiif_url}/#{druid}%2F#{file_name}"
     end
 
     # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very

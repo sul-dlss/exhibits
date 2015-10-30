@@ -50,6 +50,10 @@ describe Spotlight::Dor::Indexer do
   describe '#add_content_metadata_fields' do
     before do
       allow(r).to receive(:public_xml).and_return(public_xml)
+
+      # stacks url calculations require the druid
+      solr_doc[:id] = fake_druid
+
       subject.send(:add_content_metadata_fields, sdb, solr_doc)
     end
 
@@ -60,23 +64,46 @@ describe Spotlight::Dor::Indexer do
           EOF
       end
 
-      it 'is blank' do
-        expect(solr_doc).to be_blank
+      it 'is blank, except for the document id' do
+        expect(solr_doc.except(:id)).to be_blank
       end
     end
 
     context 'with a record with contentMetadata' do
       let(:public_xml) do
         Nokogiri::XML <<-EOF
-          <publicObject><contentMetadata type="book" /></publicObject>
+          <publicObject>
+            <contentMetadata type="image">
+              <resource id="bj356mh7176_1" sequence="1" type="image">
+                <label>Image 1</label>
+                <file id="bj356mh7176_00_0001.jp2" mimetype="image/jp2" size="56108727">
+                  <imageData width="12967" height="22970"/>
+                </file>
+              </resource>
+            </contentMetadata>
+          </publicObject>
           EOF
       end
 
       it 'indexes the declared content metadata type' do
-        expect(solr_doc['content_metadata_type_ssim']).to contain_exactly 'book'
+        expect(solr_doc['content_metadata_type_ssim']).to contain_exactly 'image'
+      end
+
+      it 'indexes the thumbnail information' do
+        expect(solr_doc['content_metadata_first_image_file_name_ssm']).to contain_exactly 'bj356mh7176_00_0001'
+        expect(solr_doc['content_metadata_first_image_width_ssm']).to contain_exactly '12967'
+        expect(solr_doc['content_metadata_first_image_height_ssm']).to contain_exactly '22970'
+      end
+
+      it 'indexes the images' do
+        stacks_base_url = 'https://stacks.stanford.edu/image/iiif/oo000oo0000%2Fbj356mh7176_00_0001'
+        expect(solr_doc['content_metadata_image_iiif_info_ssm']).to include "#{stacks_base_url}/info.json"
+        expect(solr_doc['thumbnail_square_url_ssm']).to include "#{stacks_base_url}/square/100,100/0/default.jpg"
+        expect(solr_doc['thumbnail_url_ssm']).to include "#{stacks_base_url}/full/!400,400/0/default.jpg"
+        expect(solr_doc['large_image_url_ssm']).to include "#{stacks_base_url}/full/pct:25/0/default.jpg"
+        expect(solr_doc['full_image_url_ssm']).to include "#{stacks_base_url}/full/full/0/default.jpg"
       end
     end
-
   end
 
   describe '#add_donor_tags' do
