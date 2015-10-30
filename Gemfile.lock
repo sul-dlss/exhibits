@@ -246,7 +246,7 @@ GEM
     harvestdor (0.1.1)
       confstruct
       nokogiri
-    harvestdor-indexer (2.1.1)
+    harvestdor-indexer (2.2.0)
       activesupport
       confstruct
       dor-fetcher (= 1.0.5)
@@ -458,7 +458,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.0.1)
+    spotlight-dor-resources (0.0.2)
       blacklight-spotlight (~> 0.5)
       faraday
       gdor-indexer
