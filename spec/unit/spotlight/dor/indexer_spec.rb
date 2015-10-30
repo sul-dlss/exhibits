@@ -28,6 +28,17 @@ describe Spotlight::Dor::Indexer do
     EOF
   end
 
+  let(:mods_loc_multiple_phys_loc) do
+    Nokogiri::XML <<-EOF
+      <mods xmlns="#{Mods::MODS_NS}">
+        <location>
+          <physicalLocation>Irrelevant Data</physicalLocation>
+          <physicalLocation>#{example}</physicalLocation>
+        </location>
+      </mods>
+    EOF
+  end
+
   before do
     # ignore noisy logs
     allow(r).to receive(:harvestdor_client)
@@ -80,6 +91,15 @@ describe Spotlight::Dor::Indexer do
         context 'in /relatedItem/location/physicalLocation' do
           before do
             allow(r).to receive(:mods).and_return(mods_rel_item_loc_phys_loc)
+            subject.send(:add_series, sdb, solr_doc)
+          end
+          it "has the expected series name '#{expected}'" do
+            expect(solr_doc['series_ssi']).to eq expected
+          end
+        end
+        context 'with multiple physicalLocation elements' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_loc_multiple_phys_loc)
             subject.send(:add_series, sdb, solr_doc)
           end
           it "has the expected series name '#{expected}'" do
@@ -140,6 +160,16 @@ describe Spotlight::Dor::Indexer do
             expect(solr_doc['box_ssi']).to eq expected
           end
         end
+
+        context 'with multiple physicalLocation elements' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_loc_multiple_phys_loc)
+            subject.send(:add_box, sdb, solr_doc)
+          end
+          it "has the expected series name '#{expected}'" do
+            expect(solr_doc['box_ssi']).to eq expected
+          end
+        end
       end # for example
     end # each
   end # add_box
@@ -193,6 +223,16 @@ describe Spotlight::Dor::Indexer do
             subject.send(:add_folder, sdb, solr_doc)
           end
           it "has the expected folder name '#{expected}'" do
+            expect(solr_doc['folder_ssi']).to eq expected
+          end
+        end
+
+        context 'with multiple physicalLocation elements' do
+          before do
+            allow(r).to receive(:mods).and_return(mods_loc_multiple_phys_loc)
+            subject.send(:add_folder, sdb, solr_doc)
+          end
+          it "has the expected series name '#{expected}'" do
             expect(solr_doc['folder_ssi']).to eq expected
           end
         end

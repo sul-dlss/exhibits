@@ -67,8 +67,9 @@ module Spotlight::Dor
         # note that this will also find Flatbox or Flat-box
         match_data = val.match(/Box ?:? ?([^,|(Folder)]+)/i)
         match_data[1].strip if match_data.present?
-      end
-      solr_doc['box_ssi'] = box_num.first if box_num.present?
+      end.compact
+
+      solr_doc['box_ssi'] = box_num.first
     end
 
     # This new donor_tags_sim field was added in October 2015 specifically for the Feigenbaum exhibit.  It is very likely
@@ -97,9 +98,9 @@ module Spotlight::Dor
                      end
 
         match_data[1].strip if match_data.present?
-      end
+      end.compact
 
-      solr_doc['folder_ssi'] = folder_num.first if folder_num.present?
+      solr_doc['folder_ssi'] = folder_num.first
     end
 
     # add the folder name to solr_doc as folder_name_ssi field (note: single valued!)
@@ -127,8 +128,9 @@ module Spotlight::Dor
         # feigenbaum uses 'Accession'
         match_data = val.match(/(?:(?:Series)|(?:Accession)):? ([^,|]+)/i)
         match_data[1].strip if match_data.present?
-      end
-      solr_doc['series_ssi'] = series_num.first if series_num.present?
+      end.compact
+
+      solr_doc['series_ssi'] = series_num.first
     end
 
     # rubocop:disable Metrics/AbcSize
