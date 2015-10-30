@@ -17,11 +17,6 @@ harvestdor:
   # purl: url for the DOR purl server (used to get ContentMetadata, etc.)
   purl: https://purl.stanford.edu
 
-  # Additional options to pass to Faraday http client (https://github.com/technoweenie/faraday)
-  http_options:
-    ssl:
-      verify: false
-    # timeouts are in seconds;  timeout -> open/read, open_timeout -> connection open
-    request:
-      timeout: 180
-      open_timeout: 180
+# the severity level of messages to be logged.  Valid values are debug, info, warn, error, fatal
+# default: info (set in gdor-indexer)
+log_level: info

@@ -30,18 +30,9 @@ namespace :spotlight do
       @exhibit_yml[::Rails.env].symbolize_keys
     end
 
-    Array(@exhibit_config[:sets]).each do |set|
-      indexer = Spotlight::Dor::Indexer.new
-      indexer.instance_variable_set(:@solr_client, Blacklight.solr)
-      indexer.config[:default_set] = set
-      indexer.send(:harvestdor_client).config[:default_set] = set
-
-      # Fix for faraday 0.9+
-      indexer.send(:harvestdor_client).config[:http_options].delete(:open_timeout)
-      indexer.send(:harvestdor_client).config[:http_options].delete(:timeout)
-
-      indexer.harvest_and_index
-    end
+    indexer = Spotlight::Dor::Indexer.new
+    indexer.instance_variable_set(:@solr_client, Blacklight.solr)
+    indexer.harvest_and_index
 
     Spotlight::SolrDocumentSidecar.group(:solr_document_id).find_each do |s|
       doc = SolrDocument.new id: s.solr_document_id
