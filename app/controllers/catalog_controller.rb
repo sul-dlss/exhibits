@@ -131,6 +131,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'box_ssi', label: 'Box'
     config.add_index_field 'folder_ssi', label: 'Folder'
     config.add_index_field 'folder_name_ssi', label: 'Folder Name'
+    config.add_index_field 'location_ssi', label: 'Location'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
 
     # "fielded" search configuration. Used by pulldown among other places.
