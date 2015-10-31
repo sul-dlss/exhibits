@@ -92,13 +92,13 @@ class CatalogController < ApplicationController
     config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
     config.add_facet_field 'genre_ssim', label: 'Genre', limit: true
     config.add_facet_field 'series_ssi', label: 'Series'
-    config.add_facet_field 'box_ssi', label: 'Box'
-    config.add_facet_field 'folder_ssi', label: 'Folder'
+    config.add_facet_field 'box_ssi', label: 'Box', limit: true
+    config.add_facet_field 'folder_ssi', label: 'Folder', limit: true
     # The folder name facet below was added as a specific need of the Feigenbaum exhibit.  Indexing
     #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
     #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
     #   like this that are exhibit specific.  It is also in the _index_field list below for display purposes.
-    config.add_facet_field 'folder_name_ssi', label: 'Folder Name'
+    config.add_facet_field 'folder_name_ssi', label: 'Folder Name', limit: true
     # The Donor tags facet below was added as a specific need of the Feigenbaum exhibit.  Indexing
     #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
     #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
