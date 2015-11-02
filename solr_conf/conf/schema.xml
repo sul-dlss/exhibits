@@ -13,8 +13,8 @@
     <!-- entire marc bib record -->
     <field name="marcxml" type="string" indexed="false" stored="true" />
     <!-- all_search: catch-all field for searchable text; stored for hit highlighting />-->
-    <field name="all_search" type="text" indexed="true" stored="true" termVectors="true" termPositions="true" termOffsets="true"/>
-    <field name="all_unstem_search" type="textNoStem" indexed="true" stored="true" />
+    <field name="all_search" type="text" indexed="true" stored="true" termVectors="true" termPositions="true" termOffsets="true" multiValued="true" />
+    <field name="all_unstem_search" type="textNoStem" indexed="true" stored="true" multiValued="true"/>
     <field name="vern_all_search" type="text" indexed="true" stored="true" />
 
     <!-- Format Field: facet and display -->
@@ -503,7 +503,7 @@
 
     <!-- This point type indexes the coordinates as separate fields (subFields)
       If subFieldType is defined, it references a type, and a dynamic field
-      definition is created matching *___<typename>.  Alternately, if 
+      definition is created matching *___<typename>.  Alternately, if
       subFieldSuffix is defined, that is used to create the subFields.
       Example: if subFieldType="double", then the coordinates would be
         indexed in fields myloc_0___double,myloc_1___double.
@@ -513,10 +513,10 @@
       users normally should not need to know about them.
      -->
     <fieldType name="point" class="solr.PointType" dimension="2" subFieldSuffix="_d"/>
-    
+
     <!-- A specialized field for geospatial search. If indexed, this fieldType must not be multivalued. -->
     <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_coordinate"/>
-    
+
     <!-- An alternative geospatial field type new to Solr 4.  It supports multiValued and polygon shapes.
       For more information about this and other Spatial fields new to Solr 4, see:
       http://wiki.apache.org/solr/SolrAdaptersForLuceneSpatial4
