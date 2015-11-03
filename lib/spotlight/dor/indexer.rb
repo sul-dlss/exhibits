@@ -190,7 +190,9 @@ module Spotlight::Dor
       # search for configured full text files, and if found, add them to the full text (whole document) solr field
       def add_object_full_text(sdb, solr_doc)
         object_level_full_text_urls(sdb).each do |file_url|
-          # append content from each file to the field, creating field if it doesn't exist yet (.to_s on nil gives you "")
+          # append content from each file to the field, creating field if it doesn't exist yet
+          # ruby note: the construct below allows us to append a string to a variable that starts out as nil
+          # because .to_s of nil is empty string
           solr_doc['full_text_tesim'] = solr_doc['full_text_tesim'].to_s + get_file_content(file_url)
         end
       end

@@ -499,7 +499,6 @@ describe Spotlight::Dor::Indexer do
   end # add_folder_name
   # rubocop:enable Metrics/LineLength
 
-  # rubocop:disable Metrics/LineLength
   describe '#add_object_full_text' do
     let(:expected_text) do
       'SOME full text string that is returned from the server'
@@ -580,5 +579,4 @@ describe Spotlight::Dor::Indexer do
       expect(solr_doc['full_text_tesim']).to eq(expected_text + expected_text) # same file twice
     end
   end # add_object_full_text
-  # rubocop:enable Metrics/LineLength
 end
