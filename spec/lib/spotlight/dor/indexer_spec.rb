@@ -560,7 +560,7 @@ describe Spotlight::Dor::Indexer do
     end
     it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
       allow(sdb).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
-      allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text) # don't actually attempt a call to the stacks, just stub it out
+      allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text) # don't actually attempt a call to the stacks
       subject.send(:add_object_full_text, sdb, solr_doc)
       expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
       expect(solr_doc['full_text_tesim']).to eq expected_text
