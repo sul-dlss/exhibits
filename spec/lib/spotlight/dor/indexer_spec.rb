@@ -498,4 +498,86 @@ describe Spotlight::Dor::Indexer do
     end # each
   end # add_folder_name
   # rubocop:enable Metrics/LineLength
+
+  # rubocop:disable Metrics/LineLength
+  describe '#add_object_full_text' do
+    let(:expected_text) do
+      'SOME full text string that is returned from the server'
+    end
+    let(:full_file_path) do
+      'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt'
+    end
+    let(:public_xml_with_feigenbaum_full_text) do
+      Nokogiri::XML <<-EOF
+      <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
+        <contentMetadata objectId="oo000oo0000" type="book">
+          <resource id="oo000oo0000_4" sequence="4" type="object">
+            <label>Document</label>
+            <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
+            <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
+          </resource>
+          <resource id="oo000oo0000_5" sequence="5" type="page">
+            <label>Page 1</label>
+            <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
+          </resource>
+          </contentMetadata>
+        </publicObject>
+      EOF
+    end
+    let(:public_xml_with_no_recognized_full_text) do
+      Nokogiri::XML <<-EOF
+      <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
+        <contentMetadata objectId="oo000oo0000" type="book">
+          <resource id="oo000oo0000_4" sequence="4" type="object">
+            <label>Document</label>
+            <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
+          </resource>
+          <resource id="oo000oo0000_5" sequence="5" type="page">
+            <label>Page 1</label>
+            <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
+          </resource>
+          </contentMetadata>
+        </publicObject>
+      EOF
+    end
+    let(:public_xml_with_two_recognized_full_text_files) do
+      Nokogiri::XML <<-EOF
+      <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
+        <contentMetadata objectId="oo000oo0000" type="book">
+          <resource id="oo000oo0000_4" sequence="4" type="object">
+            <label>Document</label>
+            <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
+            <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
+          </resource>
+          <resource id="oo000oo0000_5" sequence="5" type="page">
+            <label>Page 1</label>
+            <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
+            <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
+          </resource>
+          </contentMetadata>
+        </publicObject>
+      EOF
+    end
+    it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
+      allow(sdb).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
+      allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text) # don't actually attempt a call to the stacks, just stub it out
+      subject.send(:add_object_full_text, sdb, solr_doc)
+      expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
+      expect(solr_doc['full_text_tesim']).to eq expected_text
+    end
+    it 'does not index the full text if no recognized pattern is found' do
+      allow(sdb).to receive(:public_xml).and_return(public_xml_with_no_recognized_full_text)
+      subject.send(:add_object_full_text, sdb, solr_doc)
+      expect(subject.object_level_full_text_urls(sdb)).to eq []
+      expect(solr_doc['full_text_tesim']).to be_nil
+    end
+    it 'indexes the full text from two files if two recognized patterns are found' do
+      allow(sdb).to receive(:public_xml).and_return(public_xml_with_two_recognized_full_text_files)
+      allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
+      subject.send(:add_object_full_text, sdb, solr_doc)
+      expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path, full_file_path]
+      expect(solr_doc['full_text_tesim']).to eq(expected_text + expected_text) # same file twice
+    end
+  end # add_object_full_text
+  # rubocop:enable Metrics/LineLength
 end

@@ -182,6 +182,50 @@ module Spotlight::Dor
       end
     end
 
+    concerning :FullTextIndexing do
+      included do
+        before_index :add_object_full_text
+      end
+
+      # search for configured full text files, and if found, add them to the full text (whole document) solr field
+      def add_object_full_text(sdb, solr_doc)
+        object_level_full_text_urls(sdb).each do |file_url|
+          # append content from each file to the field, creating field if it doesn't exist yet (.to_s on nil gives you "")
+          solr_doc['full_text_tesim'] = solr_doc['full_text_tesim'].to_s + get_file_content(file_url)
+        end
+      end
+
+      # go grab the supplied file url, grab the file, encode and return
+      # TODO: thse should also be able to also deal with .rtf and .xml files
+      def get_file_content(file_url)
+        response = Net::HTTP.get_response(URI.parse(file_url))
+        response.body.scrub.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?')
+      rescue
+        logger.warn("Error indexing full text - couldn't load file #{file_url}")
+        nil
+      end
+
+      # these are the file locations where full txt files can be found at the object level
+      # this method returns an array of fully qualified public URLs that can be accessed to find full text countent
+      def object_level_full_text_urls(sdb)
+        files = []
+        object_level_full_text_filenames(sdb).each do |xpath_location|
+          files += sdb.public_xml.xpath(xpath_location).map do |txt_file|
+            "#{Spotlight::Dor::Resources::Engine.config.stacks_file_url}/#{sdb.druid}/#{txt_file['id']}"
+          end
+        end
+        files
+      end
+
+      # xpaths to locations in the contentMetadata where full text object level files can be found,
+      #  add as many as you need, all will be searched
+      def object_level_full_text_filenames(sdb)
+        [
+          "//contentMetadata/resource/file[@id=\"#{sdb.druid}.txt\"]" # feigenbaum style - full text in .txt named for druid
+        ]
+      end
+    end
+
     concerning :CartographicIndexing do
       included do
         before_index :mods_cartographics_indexing
