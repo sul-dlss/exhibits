@@ -476,7 +476,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.0.4)
+    spotlight-dor-resources (0.0.5)
       blacklight-spotlight (~> 0.5)
       faraday
       gdor-indexer
@@ -603,6 +603,3 @@ DEPENDENCIES
   uglifier (>= 2.7.2)
   web-console (~> 2.0)
   whenever
-
-BUNDLED WITH
-   1.10.6
