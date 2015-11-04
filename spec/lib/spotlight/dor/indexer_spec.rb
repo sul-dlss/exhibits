@@ -50,6 +50,7 @@ describe Spotlight::Dor::Indexer do
   describe '#add_content_metadata_fields' do
     before do
       allow(r).to receive(:public_xml).and_return(public_xml)
+      allow(sdb).to receive(:bare_druid).and_return(fake_druid)
 
       # stacks url calculations require the druid
       solr_doc[:id] = fake_druid
@@ -500,6 +501,9 @@ describe Spotlight::Dor::Indexer do
   # rubocop:enable Metrics/LineLength
 
   describe '#add_object_full_text' do
+    before do
+      allow(sdb).to receive(:bare_druid).and_return(fake_druid)
+    end
     let!(:expected_text) { 'SOME full text string that is returned from the server' }
     let!(:full_file_path) { 'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt' }
     it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
@@ -523,7 +527,7 @@ describe Spotlight::Dor::Indexer do
       allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
       subject.send(:add_object_full_text, sdb, solr_doc)
       expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
-      expect(solr_doc['full_text_tesim']).to eq expected_text
+      expect(solr_doc['full_text_tesim']).to eq [expected_text]
     end
     it 'does not index the full text if no recognized pattern is found' do
       public_xml_with_no_recognized_full_text = Nokogiri::XML <<-EOF
@@ -566,7 +570,7 @@ describe Spotlight::Dor::Indexer do
       allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
       subject.send(:add_object_full_text, sdb, solr_doc)
       expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path, full_file_path]
-      expect(solr_doc['full_text_tesim']).to eq(expected_text + expected_text) # same file twice
+      expect(solr_doc['full_text_tesim']).to eq [expected_text, expected_text] # same file twice in a 2 element array
     end
   end # add_object_full_text
 end
