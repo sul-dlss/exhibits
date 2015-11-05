@@ -143,9 +143,9 @@ module Spotlight::Dor
         Solrizer.insert_field(solr_doc, 'content_metadata_first_image_height', image_data['height'], :displayable)
       end
 
-      def add_image_fields(node, solr_doc, druid)
+      def add_image_fields(node, solr_doc, bare_druid)
         file_id = node.attr('id').gsub('.jp2', '')
-        base_url = stacks_iiif_url(druid, file_id)
+        base_url = stacks_iiif_url(bare_druid, file_id)
 
         Solrizer.insert_field(solr_doc, 'content_metadata_image_iiif_info', "#{base_url}/info.json", :displayable)
         Solrizer.insert_field(solr_doc, 'thumbnail_square_url', "#{base_url}/square/100,100/0/default.jpg", :displayable)
@@ -154,8 +154,8 @@ module Spotlight::Dor
         Solrizer.insert_field(solr_doc, 'full_image_url', "#{base_url}/full/full/0/default.jpg", :displayable)
       end
 
-      def stacks_iiif_url(druid, file_name)
-        "#{Spotlight::Dor::Resources::Engine.config.stacks_iiif_url}/#{druid}%2F#{file_name}"
+      def stacks_iiif_url(bare_druid, file_name)
+        "#{Spotlight::Dor::Resources::Engine.config.stacks_iiif_url}/#{bare_druid}%2F#{file_name}"
       end
     end
 
