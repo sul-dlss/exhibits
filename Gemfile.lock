@@ -117,7 +117,7 @@ GEM
     bundler-audit (0.4.0)
       bundler (~> 1.2)
       thor (~> 0.18)
-    byebug (6.0.2)
+    byebug (8.0.0)
     cancancan (1.13.1)
     capistrano (3.4.0)
       i18n
@@ -467,7 +467,7 @@ GEM
       twitter-text (~> 1.4)
     sitemap_generator (5.1.0)
       builder
-    social-share-button (0.1.8)
+    social-share-button (0.1.10)
       coffee-rails
       sass-rails
     solrizer (3.3.0)
@@ -476,7 +476,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.0.5)
+    spotlight-dor-resources (0.0.6)
       blacklight-spotlight (~> 0.5)
       faraday
       gdor-indexer
