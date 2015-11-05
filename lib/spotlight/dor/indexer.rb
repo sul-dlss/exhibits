@@ -4,6 +4,7 @@
 # external gems
 require 'gdor/indexer'
 require 'solrizer'
+require 'faraday'
 
 module Spotlight::Dor
   # Base class to harvest from DOR via harvestdor gem
@@ -201,9 +202,9 @@ module Spotlight::Dor
       end
 
       # go grab the supplied file url, grab the file, encode and return
-      # TODO: thse should also be able to also deal with .rtf and .xml files
+      # TODO: this should also be able to also deal with .rtf and .xml files
       def get_file_content(file_url)
-        response = Net::HTTP.get_response(URI.parse(file_url))
+        response = Faraday.get(file_url)
         response.body.scrub.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?').gsub(/\s+/, ' ')
       rescue
         logger.warn("Error indexing full text - couldn't load file #{file_url}")
