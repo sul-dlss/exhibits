@@ -193,16 +193,12 @@ module Spotlight::Dor
       # search for configured full text files, and if found, add them to the full text (whole document) solr field
       def add_object_full_text(sdb, solr_doc)
         full_text_urls = object_level_full_text_urls(sdb)
-        full_text_field_name = 'full_text_tesim'
         return if full_text_urls.size == 0
-        solr_doc[full_text_field_name] = []
-        full_text_urls.each do |file_url|
-          solr_doc[full_text_field_name] << get_file_content(file_url)
-        end
+        solr_doc['full_text_tesim'] = full_text_urls.map { |file_url| get_file_content(file_url) }
       end
 
       # go grab the supplied file url, grab the file, encode and return
-      # TODO: this should also be able to also deal with .rtf and .xml files
+      # TODO: this should also be able to deal with .rtf and .xml files, scrubbing/converting as necessary to get plain text
       def get_file_content(file_url)
         response = Faraday.get(file_url)
         response.body.scrub.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?').gsub(/\s+/, ' ')
