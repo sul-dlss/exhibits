@@ -1,6 +1,8 @@
 module Spotlight::Resources
   # Base Resource indexer for objects in DOR
   class DorResource < Spotlight::Resource
+    include ActiveSupport::Benchmarkable
+
     ##
     # Generate solr documents for the DOR resources identified by this object
     #
@@ -8,10 +10,14 @@ module Spotlight::Resources
     def to_solr
       return to_enum :to_solr unless block_given?
 
-      base_doc = super
+      benchmark "Indexing resource #{inspect}" do
+        base_doc = super
 
-      indexable_resources.each do |res|
-        yield base_doc.merge(to_solr_document(res))
+        indexable_resources.each_with_index do |res, idx|
+          benchmark "Indexing item #{res.druid} in resource #{id} (#{idx})" do
+            yield base_doc.merge(to_solr_document(res))
+          end
+        end
       end
     end
 
@@ -43,6 +49,12 @@ module Spotlight::Resources
     # @return [Hash]
     def to_solr_document(resource)
       Spotlight::Dor::Resources.indexer.solr_document(resource)
+    end
+
+    ##
+    # Write any logs (or benchmarking information) from this class to the gdor logs
+    def logger
+      Spotlight::Dor::Resources.indexer.logger
     end
   end
 end

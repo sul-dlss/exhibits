@@ -70,7 +70,7 @@ describe Spotlight::Resources::Searchworks do
       end
 
       it 'provides a solr document for the items too' do
-        item = double
+        item = double(druid: 'xyz')
         allow(subject.resource).to receive(:items).and_return([item])
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return(collection: true)
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(item).and_return(item: true)
