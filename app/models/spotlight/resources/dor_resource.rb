@@ -7,9 +7,9 @@ module Spotlight::Resources
     # Generate solr documents for the DOR resources identified by this object.
     #
     # @return [Enumerator] an enumerator of solr document hashes for indexing
-    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def to_solr(&block)
-      return to_enum :to_solr unless block_given?
+      return to_enum(:to_solr) { indexable_resources.size } unless block_given?
 
       # We use the Parallel gem to support parallel processing of the collection,
       # but need to jump through some hoops to make it yield an enumerable in the end.
@@ -18,17 +18,19 @@ module Spotlight::Resources
       # this as a 'finish' hook, which Parallel will run on the main process.
       yield_to_enum = ->(_item, _i, result) { block.call(result) }
 
-      benchmark "Indexing resource #{inspect}" do
+      size = indexable_resources.size
+
+      benchmark "Indexing resource #{inspect} (est. #{size} items)" do
         base_doc = super
 
         Parallel.each_with_index(indexable_resources, parallel_options.merge(finish: yield_to_enum)) do |res, idx|
-          benchmark "Indexing item #{res.druid} in resource #{id} (#{idx})" do
+          benchmark "Indexing item #{res.druid} in resource #{id} (#{idx} / #{size})" do
             base_doc.merge(to_solr_document(res))
           end
         end
       end
     end
-    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
     def resource
       @resource ||= Spotlight::Dor::Resources.indexer.resource doc_id
@@ -42,7 +44,7 @@ module Spotlight::Resources
     #
     # @return [Enumerator] an enumerator of resources to index
     def indexable_resources
-      return to_enum(:indexable_resources) unless block_given?
+      return to_enum(:indexable_resources) { 1 + resource.items.size } unless block_given?
 
       yield resource
 
