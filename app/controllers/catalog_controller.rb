@@ -196,6 +196,14 @@ class CatalogController < ApplicationController
       }
     end
 
+    config.add_search_field('full_text') do |field|
+      field.label = 'Full text'
+      field.include_in_advanced_search = false
+      field.solr_parameters = { defType: 'lucene' }
+      field.solr_local_parameters = {
+        df: 'full_text_tesim'
+      }
+    end
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
