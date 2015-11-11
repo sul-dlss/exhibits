@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'spotlight'
-set :repo_url, 'https://github.com/sul-dlss/sul-exhibits-template.git'
+set :repo_url, 'https://github.com/sul-dlss/sul_exhibits_template.git'
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
