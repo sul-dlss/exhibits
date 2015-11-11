@@ -53,7 +53,7 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (5.15.0)
+    blacklight (5.16.3)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (>= 0.15)
@@ -77,10 +77,10 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.5.0)
+    blacklight-spotlight (0.7.0)
       acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
-      blacklight (~> 5.13)
+      blacklight (~> 5.16)
       blacklight-gallery (>= 0.3.0)
       blacklight-oembed (>= 0.0.3)
       bootstrap_form (~> 2.2)
@@ -263,7 +263,7 @@ GEM
     harvestdor (0.1.2)
       confstruct
       nokogiri
-    harvestdor-indexer (2.2.0)
+    harvestdor-indexer (2.3.0)
       activesupport
       confstruct
       dor-fetcher (= 1.0.5)
@@ -477,11 +477,12 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.0.6)
-      blacklight-spotlight (~> 0.5)
+    spotlight-dor-resources (0.1.0)
+      blacklight-spotlight (~> 0.6)
       faraday
       gdor-indexer
-      harvestdor-indexer (>= 2.2.0)
+      harvestdor-indexer (~> 2.3)
+      parallel
       rails
       solrizer
     sprockets (3.4.0)
@@ -556,10 +557,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight (~> 5.15)
+  blacklight (~> 5.16)
   blacklight-gallery (~> 0.3)
   blacklight-maps (= 0.2.0)
-  blacklight-spotlight (~> 0.5)
+  blacklight-spotlight (~> 0.7)
   bootstrap-sass (~> 3.3.5)
   byebug
   capistrano (~> 3.0)
@@ -594,7 +595,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sitemap_generator
   social-share-button
-  spotlight-dor-resources
+  spotlight-dor-resources (~> 0.1)
   sqlite3
   squash_rails
   squash_ruby

@@ -73,12 +73,12 @@ gem 'config'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
-gem 'blacklight', '~> 5.15'
+gem 'blacklight', '~> 5.16'
 gem 'blacklight-gallery', '~> 0.3'
 gem 'blacklight-maps', '0.2.0'
-gem 'blacklight-spotlight', '~> 0.5'
+gem 'blacklight-spotlight', '~> 0.7'
 
-gem 'spotlight-dor-resources'
+gem 'spotlight-dor-resources', '~> 0.1'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
 gem 'devise-remote-user'
