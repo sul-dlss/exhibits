@@ -18,6 +18,7 @@ begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 
+  desc 'Run tests in generated test Rails app with generated Solr instance running'
   task ci: ['jetty:clean', 'spotlight:configure_jetty'] do
     ENV['environment'] = 'test'
     jetty_params = Jettywrapper.load_config
