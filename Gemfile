@@ -55,7 +55,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl'
   gem 'capybara'
-  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false

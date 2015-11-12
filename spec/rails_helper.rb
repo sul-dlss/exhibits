@@ -3,17 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'capybara/rspec'
-require 'capybara/rails'
-require 'capybara/poltergeist'
-
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, timeout: 60)
-end
-Capybara.javascript_driver = :poltergeist
-
-Capybara.default_wait_time = 10
 
 require 'factory_girl'
 FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
