@@ -219,7 +219,7 @@ GEM
     dor-fetcher (1.0.5)
     erubis (2.7.0)
     execjs (2.6.0)
-    exhibits_solr_conf (0.0.2)
+    exhibits_solr_conf (0.0.4)
     extlib (0.9.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
