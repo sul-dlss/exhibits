@@ -14,12 +14,13 @@ begin
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new(:rubocop)
 
-  require 'jettywrapper'
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 
+  require 'jettywrapper'
+  require 'exhibits_solr_conf'
   desc 'Run tests in generated test Rails app with generated Solr instance running'
-  task ci: ['jetty:clean', 'spotlight:configure_jetty'] do
+  task ci: ['jetty:clean', 'exhibits:configure_solr'] do
     ENV['environment'] = 'test'
     jetty_params = Jettywrapper.load_config
     jetty_params[:startup_wait] = 60
@@ -39,7 +40,7 @@ desc 'Run jetty and launch the development Rails server'
 task :server do
   unless File.exist? 'jetty'
     Rake::Task['jetty:clean'].invoke
-    Rake::Task['spotlight:configure_jetty'].invoke
+    Rake::Task['exhibits:configure_solr'].invoke
   end
 
   jetty_params = Jettywrapper.load_config
@@ -57,13 +58,6 @@ task :server do
 end
 
 namespace :spotlight do
-  desc 'Copies the default SOLR config for the bundled Testing Server'
-  task :configure_jetty do
-    FileList['solr_conf/conf/*'].each do |f|
-      cp("#{f}", 'jetty/solr/blacklight-core/conf/', verbose: true)
-    end
-  end
-
   task seed: [:environment] do
     docs = JSON.parse(File.read(File.join(Rails.root, 'spec', 'fixtures', 'sample_solr_docs.json')))
     conn = Blacklight.default_index.connection

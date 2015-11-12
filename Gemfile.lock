@@ -220,6 +220,7 @@ GEM
     dor-fetcher (1.0.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    exhibits_solr_conf (0.0.2)
     extlib (0.9.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -577,6 +578,7 @@ DEPENDENCIES
   devise-guests (~> 0.3)
   devise-remote-user
   dlss-capistrano
+  exhibits_solr_conf
   factory_girl
   friendly_id
   is_it_working-cbeer
