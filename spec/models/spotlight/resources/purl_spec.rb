@@ -66,11 +66,13 @@ describe Spotlight::Resources::Purl do
     end
 
     it 'adds a document to solr' do
-      solr_data = [{ spotlight_resource_id_ssim: nil, spotlight_resource_type_ssim: 'spotlight/resources/purls', upstream: true }]
+      solr_data = [{ spotlight_resource_id_ssim: subject.to_global_id,
+                     spotlight_resource_type_ssim: 'spotlight/resources/purls',
+                     upstream: true }]
       expect(blacklight_solr).to receive(:update).with(params: { commitWithin: 500 },
                                                        data: solr_data.to_json,
                                                        headers: { 'Content-Type' => 'application/json' })
-      expect(subject).to receive(:update_index_time!)
+      expect(subject).to receive(:commit)
       subject.reindex
     end
   end
