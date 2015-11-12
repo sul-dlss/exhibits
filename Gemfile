@@ -42,6 +42,7 @@ end
 
 group :development, :test do
   gem 'jettywrapper'
+  gem 'exhibits_solr_conf'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
