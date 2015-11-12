@@ -27,11 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 group :deployment do
   gem 'capistrano', '~> 3.0'
   gem 'capistrano-bundler'
@@ -55,7 +50,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl'
   gem 'capybara'
-  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
