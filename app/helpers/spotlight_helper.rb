@@ -1,3 +1,4 @@
+# :nodoc:
 module SpotlightHelper
   include ::BlacklightHelper
   include Spotlight::MainAppHelpers

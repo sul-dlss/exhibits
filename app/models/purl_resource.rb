@@ -1,3 +1,6 @@
+##
+# Shim class for taking a list of druids and turning them into
+# exhibit resources.
 class PurlResource
   include ActiveModel::Model
   extend ActiveModel::Translation

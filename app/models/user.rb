@@ -1,3 +1,4 @@
+# :nodoc:
 class User < ActiveRecord::Base
   include ActiveSupport::Callbacks
 
