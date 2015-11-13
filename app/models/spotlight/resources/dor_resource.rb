@@ -8,13 +8,13 @@ module Spotlight::Resources
     #
     # @return [Enumerator] an enumerator of solr document hashes for indexing
     def to_solr
-      return to_enum(:to_solr) { indexable_resources.size } unless block_given?
+      return to_enum(:to_solr) { size } unless block_given?
 
-      benchmark "Indexing resource #{inspect}" do
+      benchmark "Indexing resource #{inspect} (est. #{size} items)" do
         base_doc = super
 
         indexable_resources.each_with_index do |res, idx|
-          benchmark "Indexing item #{res.druid} in resource #{id} (#{idx})" do
+          benchmark "Indexing item #{res.druid} in resource #{id} (#{idx} / #{size})" do
             yield base_doc.merge(to_solr_document(res))
           end
         end
@@ -40,6 +40,12 @@ module Spotlight::Resources
       resource.items.each do |r|
         yield r
       end
+    end
+
+    ##
+    # Estimate the number of documents this resource will create
+    def size
+      indexable_resources.size
     end
 
     ##
