@@ -1,2 +1,5 @@
 superadmin_workgroups:
   - dlss:exhibits-admin
+indexing:
+  parallel_options:
+    in_threads: 1
