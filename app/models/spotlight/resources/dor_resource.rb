@@ -4,33 +4,22 @@ module Spotlight::Resources
     include ActiveSupport::Benchmarkable
 
     ##
-    # Generate solr documents for the DOR resources identified by this object.
+    # Generate solr documents for the DOR resources identified by this object
     #
     # @return [Enumerator] an enumerator of solr document hashes for indexing
-    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
-    def to_solr(&block)
+    def to_solr
       return to_enum(:to_solr) { indexable_resources.size } unless block_given?
 
-      # We use the Parallel gem to support parallel processing of the collection,
-      # but need to jump through some hoops to make it yield an enumerable in the end.
-      #
-      # Here, we create a hook that simply yields the result to the enumerable. We configure
-      # this as a 'finish' hook, which Parallel will run on the main process.
-      yield_to_enum = ->(_item, _i, result) { block.call(result) }
-
-      size = indexable_resources.size
-
-      benchmark "Indexing resource #{inspect} (est. #{size} items)" do
+      benchmark "Indexing resource #{inspect}" do
         base_doc = super
 
-        Parallel.each_with_index(indexable_resources, parallel_options.merge(finish: yield_to_enum)) do |res, idx|
-          benchmark "Indexing item #{res.druid} in resource #{id} (#{idx} / #{size})" do
-            base_doc.merge(to_solr_document(res))
+        indexable_resources.each_with_index do |res, idx|
+          benchmark "Indexing item #{res.druid} in resource #{id} (#{idx})" do
+            yield base_doc.merge(to_solr_document(res))
           end
         end
       end
     end
-    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
     def resource
       @resource ||= Spotlight::Dor::Resources.indexer.resource doc_id
@@ -66,10 +55,6 @@ module Spotlight::Resources
     # Write any logs (or benchmarking information) from this class to the gdor logs
     def logger
       Spotlight::Dor::Resources.indexer.logger
-    end
-
-    def parallel_options
-      Spotlight::Dor::Resources::Engine.config.parallel_options
     end
   end
 end
