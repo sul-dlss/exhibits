@@ -201,9 +201,11 @@ class CatalogController < ApplicationController
     config.add_search_field('full_text') do |field|
       field.label = 'Full text'
       field.include_in_advanced_search = false
-      field.solr_parameters = { defType: 'lucene' }
       field.solr_local_parameters = {
-        df: 'full_text_tesim'
+        qf: '$qf_full_text',
+        pf: '$pf_full_text',
+        pf3: '$pf3_full_text',
+        pf2: '$pf2_full_text'
       }
     end
     # "sort results by" select (pulldown)

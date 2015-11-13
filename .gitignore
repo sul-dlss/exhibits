@@ -19,3 +19,4 @@
 /log/gdor_logs/
 /public/uploads
 /jetty
+.byebug_history
