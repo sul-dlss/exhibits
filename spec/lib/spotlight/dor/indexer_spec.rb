@@ -501,6 +501,7 @@ describe Spotlight::Dor::Indexer do
   # rubocop:enable Metrics/LineLength
 
   describe '#add_object_full_text' do
+    let(:full_text_solr_fname) { 'full_text_tesimv' }
     before do
       allow(sdb).to receive(:bare_druid).and_return(fake_druid)
     end
@@ -527,7 +528,7 @@ describe Spotlight::Dor::Indexer do
       allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
       subject.send(:add_object_full_text, sdb, solr_doc)
       expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
-      expect(solr_doc['full_text_tesim']).to eq [expected_text]
+      expect(solr_doc[full_text_solr_fname]).to eq [expected_text]
     end
     it 'does not index the full text if no recognized pattern is found' do
       public_xml_with_no_recognized_full_text = Nokogiri::XML <<-EOF
@@ -547,7 +548,7 @@ describe Spotlight::Dor::Indexer do
       allow(sdb).to receive(:public_xml).and_return(public_xml_with_no_recognized_full_text)
       subject.send(:add_object_full_text, sdb, solr_doc)
       expect(subject.object_level_full_text_urls(sdb)).to eq []
-      expect(solr_doc['full_text_tesim']).to be_nil
+      expect(solr_doc[full_text_solr_fname]).to be_nil
     end
     it 'indexes the full text from two files if two recognized patterns are found' do
       public_xml_with_two_recognized_full_text_files = Nokogiri::XML <<-EOF
@@ -570,7 +571,7 @@ describe Spotlight::Dor::Indexer do
       allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
       subject.send(:add_object_full_text, sdb, solr_doc)
       expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path, full_file_path]
-      expect(solr_doc['full_text_tesim']).to eq [expected_text, expected_text] # same file twice in a 2 element array
+      expect(solr_doc[full_text_solr_fname]).to eq [expected_text, expected_text] # same file twice in a 2 element array
     end
   end # add_object_full_text
 end

@@ -194,7 +194,7 @@ module Spotlight::Dor
       def add_object_full_text(sdb, solr_doc)
         full_text_urls = object_level_full_text_urls(sdb)
         return if full_text_urls.size == 0
-        solr_doc['full_text_tesim'] = full_text_urls.map { |file_url| get_file_content(file_url) }
+        solr_doc['full_text_tesimv'] = full_text_urls.map { |file_url| get_file_content(file_url) }
       end
 
       # go grab the supplied file url, grab the file, encode and return
