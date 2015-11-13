@@ -472,7 +472,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.1.0)
+    spotlight-dor-resources (0.2.0)
       blacklight-spotlight (~> 0.6)
       faraday
       gdor-indexer
@@ -587,7 +587,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sitemap_generator
   social-share-button
-  spotlight-dor-resources (~> 0.1)
+  spotlight-dor-resources (~> 0.2)
   sqlite3
   squash_rails
   squash_ruby
