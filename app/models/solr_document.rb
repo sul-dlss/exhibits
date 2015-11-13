@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# :nodoc:
 class SolrDocument
   include Blacklight::Solr::Document
   include Blacklight::Gallery::OpenseadragonSolrDocument

@@ -1,3 +1,6 @@
+##
+# Blacklight::Document model mixin for delivering MODS XML through
+# the Blacklight document extension framework.
 module ModsDocument
   def self.extended(document)
     ModsDocument.register_export_formats(document)

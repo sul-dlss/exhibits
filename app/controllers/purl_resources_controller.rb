@@ -1,3 +1,6 @@
+##
+# Resources controller allowing curators to create new
+# exhibit resources from a list of DRUIDs.
 class PurlResourcesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource :exhibit, class: Spotlight::Exhibit
