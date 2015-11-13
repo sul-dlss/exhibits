@@ -25,6 +25,10 @@ describe PurlResource do
   end
 
   describe '#save' do
+    before do
+      allow_any_instance_of(Spotlight::Resources::Purl).to receive(:reindex_later)
+    end
+
     it 'creates new PURL resources' do
       subject.data = 'oo000oo0000'
       expect { subject.save }.to change { Spotlight::Resources::Purl.count }.by(1)
@@ -36,6 +40,12 @@ describe PurlResource do
         oo000oo0000
       EOF
       expect { subject.save }.to change { Spotlight::Resources::Purl.count }.by(1)
+    end
+
+    it 'triggers a (re)index job for the resources' do
+      expect_any_instance_of(Spotlight::Resources::Purl).to receive(:reindex_later)
+      subject.data = 'oo000oo0000'
+      subject.save
     end
   end
 end

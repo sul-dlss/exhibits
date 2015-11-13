@@ -22,9 +22,11 @@ class PurlResource
   def save
     data.split("\n").map(&:strip).reject(&:blank?).each do |line|
       next unless line =~ /^\w{2}\d{3}\w{2}\d{4}$/
-      exhibit.resources.find_or_create_by(type: 'Spotlight::Resources::Purl',
-                                          exhibit: exhibit,
-                                          url: "https://purl.stanford.edu/#{line}")
+      r = exhibit.resources.find_or_create_by(type: 'Spotlight::Resources::Purl',
+                                              exhibit: exhibit,
+                                              url: "https://purl.stanford.edu/#{line}")
+
+      r.reindex_later
     end
   end
 end
