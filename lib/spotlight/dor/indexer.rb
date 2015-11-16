@@ -9,13 +9,9 @@ require 'faraday'
 module Spotlight::Dor
   # Base class to harvest from DOR via harvestdor gem
   class Indexer < GDor::Indexer
-    # tweak author_sort field from stanford-mods
-    before_index do |_sdb, solr_doc|
-      solr_doc[:author_sort] &&= solr_doc[:author_sort].tr("\uFFFF", "\uFFFD")
+    def resource(druid)
+      Harvestdor::Indexer::Resource.new harvestdor, druid
     end
-
-    # add fields from raw mods
-    before_index :add_genre
 
     def solr_document(resource)
       doc_hash = super
@@ -23,15 +19,22 @@ module Spotlight::Dor
       doc_hash
     end
 
-    def resource(druid)
-      Harvestdor::Indexer::Resource.new harvestdor, druid
+    # tweak author_sort field from stanford-mods
+    before_index do |_sdb, solr_doc|
+      solr_doc[:author_sort] &&= solr_doc[:author_sort].tr("\uFFFF", "\uFFFD")
     end
 
     private
 
-    # add plain MODS <genre> element data, not the SearchWorks genre values
-    def add_genre(sdb, solr_doc)
-      insert_field solr_doc, 'genre', sdb.smods_rec.genre.content, :symbol # this is a _ssim field
+    concerning :RawMods do
+      included do
+        before_index :add_genre
+      end
+
+      # add plain MODS <genre> element data, not the SearchWorks genre values
+      def add_genre(sdb, solr_doc)
+        insert_field solr_doc, 'genre', sdb.smods_rec.genre.content, :symbol # this is a _ssim field
+      end
     end
 
     concerning :PhysicalLocation do
