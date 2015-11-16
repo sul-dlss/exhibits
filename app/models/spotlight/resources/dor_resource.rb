@@ -15,7 +15,8 @@ module Spotlight::Resources
 
         indexable_resources.each_with_index do |res, idx|
           benchmark "Indexing item #{res.druid} in resource #{id} (#{idx} / #{size})" do
-            yield base_doc.merge(to_solr_document(res))
+            doc = to_solr_document(res)
+            yield base_doc.merge(doc) if doc
           end
         end
       end
@@ -55,6 +56,9 @@ module Spotlight::Resources
     # @return [Hash]
     def to_solr_document(resource)
       Spotlight::Dor::Resources.indexer.solr_document(resource)
+    rescue RuntimeError => e
+      logger.error("Error processing #{resource.druid}: #{e}")
+      nil
     end
 
     ##

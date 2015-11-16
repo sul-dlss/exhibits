@@ -101,6 +101,12 @@ describe Spotlight::Resources::Purl do
         expect(solr_doc.first).to include :collection
         expect(solr_doc.last).to include :item
       end
+
+      it 'traps indexing errors' do
+        allow(subject.resource).to receive(:items).and_return([])
+        expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_raise(RuntimeError.new)
+        expect { subject.to_solr.to_a }.not_to raise_error
+      end
     end
 
     context 'with a single item' do
