@@ -71,7 +71,7 @@ gem 'blacklight-gallery', '~> 0.3'
 gem 'blacklight-maps', '0.2.0'
 gem 'blacklight-spotlight', '~> 0.7'
 
-gem 'spotlight-dor-resources', '~> 0.2'
+gem 'spotlight-dor-resources', '~> 0.3'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
 gem 'devise-remote-user'
