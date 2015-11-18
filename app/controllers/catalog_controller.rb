@@ -84,7 +84,9 @@ class CatalogController < ApplicationController
     config.add_facet_field 'format_main_ssim', label: 'Resource type'
     config.add_facet_field 'pub_date', label: 'Date'
     config.add_facet_field 'language', label: 'Language'
-    config.add_facet_field 'author_person_facet', label: 'Author', limit: true
+    config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
+    config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
+    config.add_facet_field 'collector_ssim', label: 'Collector', limit: true
     config.add_facet_field 'topic_facet', label: 'Topic', limit: true
     config.add_facet_field 'geographic_facet', label: 'Region', limit: true
     config.add_facet_field 'era_facet', label: 'Era'
@@ -113,7 +115,9 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field 'title_full_display', label: 'Title'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
-    config.add_index_field 'author_person_full_display', label: 'Author/Creator'
+    config.add_index_field 'author_person_full_display', label: 'Author' # includes Collectors
+    config.add_index_field 'author_no_collector_ssim', label: 'Author (no Collectors)'
+    config.add_index_field 'collector_ssim', label: 'Collector'
     config.add_index_field 'author_corp_display', label: 'Corporate Author'
     config.add_index_field 'author_meeting_display', label: 'Meeting Author'
     config.add_index_field 'medium', label: 'Medium'
