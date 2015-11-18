@@ -26,11 +26,16 @@ module Spotlight::Dor
 
     private
 
+    # Functionality grouped when code was moved to the StanfordMods gem
     concerning :StanfordMods do
       included do
         before_index :add_author_no_collector
+        before_index :add_box
         before_index :add_collector
+        before_index :add_folder
         before_index :add_genre
+        before_index :add_location
+        before_index :add_series
       end
 
       # add author_no_collector_ssim solr field containing the person authors, excluding collectors
@@ -39,92 +44,30 @@ module Spotlight::Dor
         insert_field solr_doc, 'author_no_collector', sdb.smods_rec.non_collector_person_authors, :symbol # _ssim field
       end
 
+      def add_box(sdb, solr_doc)
+        solr_doc['box_ssi'] = sdb.smods_rec.box
+      end
+
       # add collector_ssim solr field containing the collector per MODS names (via stanford-mods gem)
       def add_collector(sdb, solr_doc)
         insert_field solr_doc, 'collector', sdb.smods_rec.collectors_w_dates, :symbol # _ssim field
+      end
+
+      def add_folder(sdb, solr_doc)
+        solr_doc['folder_ssi'] = sdb.smods_rec.folder
       end
 
       # add plain MODS <genre> element data, not the SearchWorks genre values
       def add_genre(sdb, solr_doc)
         insert_field solr_doc, 'genre', sdb.smods_rec.genre.content, :symbol # this is a _ssim field
       end
-    end
 
-    concerning :PhysicalLocation do
-      included do
-        before_index :add_box
-        before_index :add_folder
-        before_index :add_location
-        before_index :add_series
-      end
-
-      # add the box number to solr_doc as box_ssi field (note: single valued!)
-      #   data in location/physicalLocation or in relatedItem/location/physicalLocation
-      # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
-      def add_box(sdb, solr_doc)
-        # see spec for data from actual collections
-        #   _location.physicalLocation should find top level and relatedItem
-        box_num = sdb.smods_rec._location.physicalLocation.map do |node|
-          val = node.text
-          # note that this will also find Flatbox or Flat-box
-          match_data = val.match(/Box ?:? ?([^,|(Folder)]+)/i)
-          match_data[1].strip if match_data.present?
-        end.compact
-
-        solr_doc['box_ssi'] = box_num.first
-      end
-
-      # add the folder number to solr_doc as folder_ssi field (note: single valued!)
-      #   data in location/physicalLocation or in relatedItem/location/physicalLocation
-      # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
-      def add_folder(sdb, solr_doc)
-        # see spec for data from actual collections
-        #   _location.physicalLocation should find top level and relatedItem
-        folder_num = sdb.smods_rec._location.physicalLocation.map do |node|
-          val = node.text
-
-          match_data = if val =~ /\|/
-                         # we assume the data is pipe-delimited, and may contain commas within values
-                         val.match(/Folder ?:? ?([^|]+)/)
-                       else
-                         # the data should be comma-delimited, and may not contain commas within values
-                         val.match(/Folder ?:? ?([^,]+)/)
-                       end
-
-          match_data[1].strip if match_data.present?
-        end.compact
-
-        solr_doc['folder_ssi'] = folder_num.first
-      end
-
-      # add the physicalLocation as location_ssi field (note: single valued!)
-      #   but only if it has series, box or folder data
-      #   data in location/physicalLocation or in relatedItem/location/physicalLocation
-      # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
       def add_location(sdb, solr_doc)
-        # see spec for data from actual collections
-        #   _location.physicalLocation should find top level and relatedItem
-        loc = sdb.smods_rec._location.physicalLocation.map do |node|
-          node.text if node.text.match(/.*(Series)|(Accession)|(Folder)|(Box).*/i)
-        end.compact
-
-        solr_doc['location_ssi'] = loc.first
+        solr_doc['location_ssi'] = sdb.smods_rec.location
       end
 
-      # add the series/accession 'number' to solr_doc as series_ssi field (note: single valued!)
-      #   data in location/physicalLocation or in relatedItem/location/physicalLocation
-      # TODO:  push this up to stanford-mods gem?  or should it be hierarchical series/box/folder?
       def add_series(sdb, solr_doc)
-        # see spec for data from actual collections
-        #   _location.physicalLocation should find top level and relatedItem
-        series_num = sdb.smods_rec._location.physicalLocation.map do |node|
-          val = node.text
-          # feigenbaum uses 'Accession'
-          match_data = val.match(/(?:(?:Series)|(?:Accession)):? ([^,|]+)/i)
-          match_data[1].strip if match_data.present?
-        end.compact
-
-        solr_doc['series_ssi'] = series_num.first
+        solr_doc['series_ssi'] = sdb.smods_rec.series
       end
     end
 
