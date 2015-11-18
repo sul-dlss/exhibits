@@ -26,9 +26,22 @@ module Spotlight::Dor
 
     private
 
-    concerning :RawMods do
+    concerning :StanfordMods do
       included do
+        before_index :add_author_no_collector
+        before_index :add_collector
         before_index :add_genre
+      end
+
+      # add author_no_collector_ssim solr field containing the person authors, excluding collectors
+      #   (via stanford-mods gem)
+      def add_author_no_collector(sdb, solr_doc)
+        insert_field solr_doc, 'author_no_collector', sdb.smods_rec.non_collector_person_authors, :symbol # _ssim field
+      end
+
+      # add collector_ssim solr field containing the collector per MODS names (via stanford-mods gem)
+      def add_collector(sdb, solr_doc)
+        insert_field solr_doc, 'collector', sdb.smods_rec.collectors_w_dates, :symbol # _ssim field
       end
 
       # add plain MODS <genre> element data, not the SearchWorks genre values

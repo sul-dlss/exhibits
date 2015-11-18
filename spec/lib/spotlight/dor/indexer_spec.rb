@@ -151,37 +151,99 @@ describe Spotlight::Dor::Indexer do
     end
   end
 
-  describe '#add_genre' do
-    before do
-      allow(r).to receive(:mods).and_return(mods)
-      subject.send(:add_genre, sdb, solr_doc)
-    end
-
-    context 'with a record without a genre' do
+  context 'StanfordMods concern' do
+    describe '#add_author_no_collector' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_author_no_collector, sdb, solr_doc)
+      end
+      let(:name) { 'Macro Hamster' }
       let(:mods) do
         Nokogiri::XML <<-EOF
           <mods xmlns="#{Mods::MODS_NS}">
+            <name type="personal">
+              <namePart>#{name}</namePart>
+              <role>
+                <roleTerm type="code" authority="marcrelator">cre</roleTerm>
+              </role>
+            </name>
+            <name type="personal">
+              <namePart>Ignored</namePart>
+              <role>
+                <roleTerm type="code" authority="marcrelator">col</roleTerm>
+              </role>
+            </name>
           </mods>
           EOF
       end
-
-      it 'is blank' do
-        expect(solr_doc['genre_ssim']).to be_blank
+      it 'populates author_no_collector_ssim field in solr doc' do
+        expect(solr_doc['author_no_collector_ssim']).to eq [name]
+      end
+      it 'calls non_collector_person_authors on Stanford::Mods::Record object' do
+        expect(sdb.smods_rec).to receive(:non_collector_person_authors)
+        subject.send(:add_author_no_collector, sdb, solr_doc)
       end
     end
 
-    context 'with a record with a genre' do
+    describe '#add_collector' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_collector, sdb, solr_doc)
+      end
+      let(:name) { 'Macro Hamster' }
       let(:mods) do
-        # e.g. from https://purl.stanford.edu/vw282gv1740
         Nokogiri::XML <<-EOF
           <mods xmlns="#{Mods::MODS_NS}">
-            <genre authority="aat" valueURI="http://vocab.getty.edu/aat/300028579">manuscripts for publication</genre>
+            <name type="personal">
+              <namePart>#{name}</namePart>
+              <role>
+                <roleTerm type="code" authority="marcrelator">col</roleTerm>
+              </role>
+            </name>
           </mods>
           EOF
       end
+      it 'populates collector_ssim field in solr doc' do
+        expect(solr_doc['collector_ssim']).to eq [name]
+      end
+      it 'calls collectors_w_dates on Stanford::Mods::Record object' do
+        expect(sdb.smods_rec).to receive(:collectors_w_dates)
+        subject.send(:add_collector, sdb, solr_doc)
+      end
+    end
 
-      it 'extracts the genre' do
-        expect(solr_doc['genre_ssim']).to contain_exactly 'manuscripts for publication'
+    describe '#add_genre' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_genre, sdb, solr_doc)
+      end
+
+      context 'with a record without a genre' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+            </mods>
+            EOF
+        end
+
+        it 'is blank' do
+          expect(solr_doc['genre_ssim']).to be_blank
+        end
+      end
+
+      context 'with a record with a genre' do
+        let(:mods) do
+          # e.g. from https://purl.stanford.edu/vw282gv1740
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <genre authority="aat" valueURI="http://vocab.getty.edu/aat/300028579">manuscripts for publication</genre>
+            </mods>
+            EOF
+        end
+
+        it 'extracts the genre' do
+          expect(solr_doc['genre_ssim']).to contain_exactly 'manuscripts for publication'
+        end
       end
     end
   end
