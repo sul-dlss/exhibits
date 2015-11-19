@@ -66,3 +66,125 @@
     }
   }
 }
+
+.blacklight-exhibits-index {
+  #exhibit-navbar {
+    display: none;
+  }
+  $masthead-height: 120px;
+
+  #masthead {
+    background-color: $sul-masthead-bg-color;
+    border-bottom: 1px solid $beige-20-percent;
+    height: ($masthead-height - 1);
+    margin-bottom: 1em;
+    padding: 0;
+    position: static;
+    width: 100%;
+
+    .site-title {
+      color: $white;
+      font-size: 31px;
+      margin-top: 30px;
+      position: relative;
+      text-shadow: 0 1px 0 $black;
+
+      a,
+      a:focus,
+      a:hover,
+      a:visited {
+        border-bottom: 0;
+        color: inherit;
+      }
+    }
+
+    small {
+      color: $white;
+      display: block;
+      padding-top: 8px;
+    }
+
+    > .container {padding: 0;}
+  }
+
+  // This is to add a background image to the masthead, in a way that
+  // enables the site title and subtitle text to be visible above it.
+  #masthead:before {
+    // Include gradient to imporove text legibility,
+    // especially on light background images.
+    background-image:
+     linear-gradient(
+       rgba(0, 0, 0, .0),
+       rgba(0, 0, 0, .4),
+       rgba(0, 0, 0, .5)), image-url('masthead-walters.jpg');
+    background-repeat: no-repeat;
+    // Add right border to image to hide lighter blurred edge
+    border-right: 1px solid $black;
+    content: '';
+    display: block;
+    // Add small amount of blur to help text stand out
+    filter: asset-url('blur.svg#blur');
+    filter: blur(1px);
+    height: $masthead-height;
+    left: 0;
+    // Shift image slightly to hide blurred edge of image
+    margin-left: -1px;
+    margin-top: -1px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: auto;
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    #masthead {
+      height: 80px;
+
+      .site-title {
+        margin-left: 15px;
+        margin-top: 24px;
+      }
+    }
+
+    #masthead:before {
+      height: 80px;
+    }
+  }
+  
+  .sidebar h2 {
+    border-bottom: 1px solid $beige-40-percent;
+    color: $darker-red;
+    font-size: 18px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .nav > li {
+    line-height: 1.1em;
+
+    > a {
+      color: $dimgray;
+      padding: $padding-base-vertical 0;
+    }
+  }
+
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    background-color: transparent;
+    color: $cardinal-red;
+    text-decoration: underline;
+  }
+
+  .sidebar a {border-bottom: 0;}
+
+  aside .btn {
+    margin-top: ($padding-small-vertical * 5);
+  }
+
+  .sunet-notice {
+    color: $gray-46-percent;
+    display: block;
+    font-size: .85em;
+  }
+
+}

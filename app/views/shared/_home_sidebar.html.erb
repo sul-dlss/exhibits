@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <h2>See also</h2>
+  <ul class="nav list-unstyled">
+    <li>
+      <%= link_to "Digital collections in SearchWorks",
+      "http://searchworks.stanford.edu/catalog?f%5Bcollection_type%5D%5B%5D=Digital+Collection" %>
+    </li>
+    <li>
+      <%= link_to "Older collection exhibits",
+      "http://library.stanford.edu/collections" %>
+    </li>
+    <li>
+      <%= link_to "Special Collections & University Archives",
+      "http://library.stanford.edu/spc" %>
+    </li>
+    <li>
+      <%= link_to "Giving to SUL",
+      "http://library.stanford.edu/#middle-tab-24" %>
+    </li>
+  </ul>
+</div>
+
+<%= link_to spotlight.new_exhibit_path, class: "btn btn-default", role: "button" do %>
+  Request a new exhibit
+  <span class="sunet-notice">Requires SUNet login</span>
+<% end %>

@@ -10,6 +10,7 @@ SulExhibitsTemplate::Application.routes.draw do
   end
 
   resource :purl_resources
+  resources :delayed_jobs
 
   mount Spotlight::Engine, at: '/'
   blacklight_for :catalog

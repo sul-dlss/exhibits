@@ -12,7 +12,7 @@ describe 'an exhibit' do
   end
 
   it 'has working full text fielded search' do
-    visit '/'
+    visit spotlight.url_for(exhibit)
     fill_in 'q', with: 'cobbler'
     select 'Full text', from: 'search_field'
     click_button 'search'
