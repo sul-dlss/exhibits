@@ -138,6 +138,8 @@ GEM
       capistrano-bundler (~> 1.1)
     capistrano-releaseboard (0.0.1)
       faraday
+    capistrano3-delayed-job (1.4.1)
+      capistrano (>= 3.0.0)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -210,6 +212,7 @@ GEM
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     dor-fetcher (1.0.5)
+    dotenv (2.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
     exhibits_solr_conf (0.0.5.1)
@@ -567,6 +570,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-passenger
   capistrano-rails
+  capistrano3-delayed-job
   capybara
   coffee-rails (~> 4.1.0)
   config
@@ -578,6 +582,7 @@ DEPENDENCIES
   devise-guests (~> 0.3)
   devise-remote-user
   dlss-capistrano
+  dotenv
   exhibits_solr_conf
   factory_girl_rails
   friendly_id
