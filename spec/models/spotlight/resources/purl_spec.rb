@@ -107,6 +107,13 @@ describe Spotlight::Resources::Purl do
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_raise(RuntimeError.new)
         expect { subject.to_solr.to_a }.not_to raise_error
       end
+
+      it 'log and raises other types of errors errors' do
+        allow(subject.resource).to receive(:items).and_return([])
+        expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_raise(StandardError.new)
+        expect(subject.send(:logger)).to receive(:error).with(/Error processing xf680rd3068/)
+        expect { subject.to_solr.to_a }.to raise_error StandardError
+      end
     end
 
     context 'with a single item' do

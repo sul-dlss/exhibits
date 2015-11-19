@@ -59,6 +59,9 @@ module Spotlight::Resources
     rescue RuntimeError => e
       logger.error("Error processing #{resource.druid}: #{e}")
       nil
+    rescue => e
+      logger.error("Error processing #{resource.druid}: #{e}")
+      raise e
     end
 
     ##
