@@ -1,12 +1,10 @@
-@import 'variables';
-
 // Mixins //
 @mixin tag-styling {
-  background-color: $beige20;
-  border: 1px solid $beige85;
+  background-color: $color-beige-20;
+  border: 1px solid $color-beige-85;
   font-weight: 500;
   a {
-    color: $gray90;
+    color: $color-gray-90;
   }
 }
 
@@ -17,9 +15,186 @@
   margin: 6px;
 }
 
+#header-navbar {
+  .navbar-brand {  /* The main logo image for the Blacklight instance */
+    width: 350px;
+    height: 50px;
+    background:transparent image-url("sul.png") no-repeat center left;
+  }
+} 
+
+.blacklight-catalog-show {
+  #content {
+    width: 100%;
+  }
+  #sidebar {
+    display: none;
+  }
+}
+
+.dl-horizontal dd:after {
+  clear: none !important;
+}
+
+#document {
+  .oembed-widget {
+    @extend .col-md-6;
+    @extend .col-sm-12;
+  }
+}
+
+#documents.documents-list {
+  .index_title {
+    margin-top: 0;
+    font-size: $font-size-large;
+    margin-left: 120px;
+  }
+
+  .document-counter {
+    display: none;
+  }
+
+  .document-metadata {
+    margin-left: 120px;
+  }
+
+  .document-thumbnail {
+    float: left;
+    padding: 0;
+    margin: 0;
+    height: 0;
+
+    img {
+      border: 1px solid $gray;
+    }
+  }
+}
+
+.blacklight-exhibits-index {
+  #exhibit-navbar {
+    display: none;
+  }
+  $masthead-height: 120px;
+
+  #masthead {
+    background-color: $sul-masthead-bg-color;
+    border-bottom: 1px solid $sul-masthead-border-color;
+    height: ($masthead-height - 1);
+    margin-bottom: 1em;
+    padding: 0;
+    position: static;
+    width: 100%;
+
+    .site-title {
+      color: $white;
+      font-size: 31px;
+      margin-top: 30px;
+      position: relative;
+      text-shadow: 0 1px 0 $black;
+
+      a,
+      a:focus,
+      a:hover,
+      a:visited {
+        border-bottom: 0;
+        color: inherit;
+      }
+    }
+
+    small {
+      color: $white;
+      display: block;
+      padding-top: 8px;
+    }
+
+    > .container {padding: 0;}
+  }
+
+  // This is to add a background image to the masthead, in a way that
+  // enables the site title and subtitle text to be visible above it.
+  #masthead:before {
+    // Include gradient to imporove text legibility,
+    // especially on light background images.
+    background-image:
+     linear-gradient(
+       rgba(0, 0, 0, .0),
+       rgba(0, 0, 0, .4),
+       rgba(0, 0, 0, .5)), image-url('masthead-walters.jpg');
+    background-repeat: no-repeat;
+    // Add right border to image to hide lighter blurred edge
+    border-right: 1px solid $black;
+    content: '';
+    display: block;
+    // Add small amount of blur to help text stand out
+    filter: asset-url('blur.svg#blur');
+    filter: blur(1px);
+    height: $masthead-height;
+    left: 0;
+    // Shift image slightly to hide blurred edge of image
+    margin-left: -1px;
+    margin-top: -1px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: auto;
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    #masthead {
+      height: 80px;
+
+      .site-title {
+        margin-left: 15px;
+        margin-top: 24px;
+      }
+    }
+
+    #masthead:before {
+      height: 80px;
+    }
+  }
+  
+  .sidebar h2 {
+    border-bottom: 1px solid $color-beige-40;
+    color: $color-dark-red;
+    font-size: 18px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .nav > li {
+    line-height: 1.1em;
+
+    > a {
+      color: $color-blackish;
+      padding: $padding-base-vertical 0;
+    }
+  }
+
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    background-color: transparent;
+    color: $brand-primary;
+    text-decoration: underline;
+  }
+
+  .sidebar a {border-bottom: 0;}
+
+  aside .btn {
+    margin-top: ($padding-small-vertical * 5);
+  }
+
+  .sunet-notice {
+    color: $color-black-80;
+    display: block;
+    font-size: .85em;
+  }
+
+}
+
 // Site Header //
 #exhibit-masthead {
-  background-color: $beige10;
+  background-color: $color-beige-10;
   .site-title {
     font-size: 32px;
   }
@@ -43,31 +218,31 @@
   }
 
   &.navbar-default {
-    background-color: $beige5;
+    background-color: $color-beige-05;
     .navbar-form {
       padding-right: 0;
       text-align: right;
     }
     .navbar-nav {
       > .active > a {
-        background-color: $beige10;
+        background-color: $color-beige-10;
       }
       > .open > a, > .open > a:hover, > .open > a:focus {
-        background-color: $beige20;
+        background-color: $color-beige-20;
       }
       > li {
         border-right: none;
         > a {
           font-size: 17px;
           &:hover {
-            background-color: $beige20;
+            background-color: $color-beige-20;
           }
         }
       }
       .dropdown-menu > li > a, .dropdown-menu > li > a {
         &:hover, &:focus {
-          background-color: $beige10;
-          color: $cardinalRed;
+          background-color: $color-beige-10;
+          color: $brand-primary;
         }
       }
     }
@@ -89,8 +264,8 @@
 
 #header-navbar {
   &.navbar-inverse {
-    background-color: $cardinalRed;
-    border-color: $darkRed;
+    background-color: $brand-primary;
+    border-color: $color-dark-red;
     .navbar-nav > li > a {
       color: #ddd;
       padding-top: 8px;
@@ -99,7 +274,7 @@
     .navbar-nav > .open > a,
     .navbar-inverse .navbar-nav > .open > a:hover,
     .navbar-inverse .navbar-nav > .open > a:focus {
-      background-color: $cardinalRed;
+      background-color: $brand-primary;
     }
   }
   .navbar-brand {  /* The main logo image for the Blacklight instance */
@@ -120,7 +295,7 @@
 }
 
 button#search {
-  background-color: $beige10;
+  background-color: $color-beige-10;
   border-color: #cccccc;
   .glyphicon-search {
     color: #777777;
@@ -133,7 +308,7 @@ button#search {
 
 .breadcrumb {
   background-color: transparent;
-  border-bottom: 1px solid $beige20;
+  border-bottom: 1px solid $color-beige-20;
   border-radius: 0;
   font-size: 13px;
   margin-bottom: 6px;
@@ -142,7 +317,7 @@ button#search {
 
 // Global //
 body {
-  background-color: $beige5;
+  background-color: $color-beige-05;
   font-family: 'Source Sans Pro',Arial,sans-serif;
 }
 
@@ -154,9 +329,9 @@ a {
 }
 
 .sidenav a, p a, .content-block p > a, ol li > a {
-  color: $cardinalRed;
+  color: $brand-primary;
   &:active, &:hover {
-    color: $cardinalRed;
+    color: $brand-primary;
     text-decoration: dotted;
   }
 }
@@ -164,7 +339,7 @@ a {
 .nav > li > a:hover, .nav > li > a:focus,
 #sidebar ol.sidenav li a:hover,
 #sidebar ol.sidenav li a:focus {
-  background-color: $beige10;
+  background-color: $color-beige-10;
 }
 
 p {
@@ -221,7 +396,7 @@ h2 {
 }
 
 .thumbnail {
-  background-color: $beige5;
+  background-color: $color-beige-05;
   border: none;
   img {
     // max-height: 200px;
@@ -242,8 +417,8 @@ h2 {
 }
 
 .btn-info {
-  background-color: $beige85;
-  border-color: $beige;
+  background-color: $color-beige-85;
+  border-color: $color-beige;
 }
 
 // Homepage Fix //
@@ -295,19 +470,19 @@ h5.panel-title > a {
 
 // Results Page //
 .dropdown-toggle.btn-default:hover, .dropdown-toggle.btn-default:active {
-  background-color: $beige10;
+  background-color: $color-beige-10;
 }
 
 .dropdown-menu > li > a, .dropdown-menu > li > a {
-  color: $cardinalRed;
+  color: $brand-primary;
   &:hover, &:focus {
-    background-color: $beige10;
-    color: $cardinalRed;
+    background-color: $color-beige-10;
+    color: $brand-primary;
   }
 }
 
 .well, .constraints-container {
-  background-color: $beige5;
+  background-color: $color-beige-05;
 }
 
 .constraints-container {
@@ -325,7 +500,7 @@ h5.panel-title > a {
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
     &:hover, &:active {
-      background-color: $darkRed;
+      background-color: $color-dark-red;
     }
   }
   a.catalog_startOverLink {
@@ -343,7 +518,7 @@ form.bookmark_toggle {
 h5.index_title {
   font-size: 16px;
   a {
-    border-bottom: 1px dotted $beige85;
+    border-bottom: 1px dotted $color-beige-85;
     text-decoration: none;
   }
 }
@@ -363,8 +538,12 @@ h5.index_title {
 }
 
 .find-this-item {
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+
   h4 {
-    color: $cardinalRed;
+    color: $brand-primary;
     margin-left: 30px;
   }
   h5 {
@@ -388,7 +567,7 @@ h5.index_title {
 #sidebar ol.sidenav li > h4 {
   margin-top: 15px;
   a {
-    color: $black80;
+    color: $color-black-80;
   }
 }
 
@@ -459,7 +638,7 @@ footer {
 }
 
 .bootstrap-tagsinput .tag {
-  color: $gray90;
+  color: $color-gray-90;
   @include tag-styling;
 }
 
@@ -473,8 +652,8 @@ footer {
   &.item-text {
     margin-right: 10px;
     > .image-block {
-      background-color: $beige10;
-      border: 1px solid $beige30;
+      background-color: $color-beige-10;
+      border: 1px solid $color-beige-30;
       &.pull-left {
         margin-left: 15px;
         margin-right: 20px;
@@ -490,7 +669,7 @@ footer {
         }
       }
       > .thumbnail {
-        border: 1px solid $beige30;
+        border: 1px solid $color-beige-30;
         margin-bottom: 0;
         padding: 0;
       }
@@ -500,18 +679,18 @@ footer {
     }
   }
   &.slideshow-block {
-    background-color: $beige10;
-    border-color: $beige40;
+    background-color: $color-beige-10;
+    border-color: $color-beige-40;
   }
   &.item-features {
     .carousel .slideshow-indicators li {
-      border-color: $beige40;
+      border-color: $color-beige-40;
       border-radius: 0;
       &:nth-child(odd) {
-        background-color: $beige5;
+        background-color: $color-beige-05;
       }
       &.active {
-        background-color: $beige10;
+        background-color: $color-beige-10;
         color: #3F3C30;
       }
     }
@@ -620,11 +799,11 @@ footer {
 .item-features {
   .carousel-indicators .active, .carousel-indicators .active:hover,
   .carousel-indicators .active:hover, .carousel-indicators .active:focus {
-    background-color: $beige20;
-    border-color: $beige20;
+    background-color: $color-beige-20;
+    border-color: $color-beige-20;
   }
   .carousel-indicators .active a, .carousel-indicators .active:hover a {
-    color: $black80;
+    color: $color-black-80;
   }
 }
 
