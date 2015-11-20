@@ -45,9 +45,6 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-  gem 'rspec-rails'
-  gem 'factory_girl'
-  gem 'capybara'
   gem 'database_cleaner'
 
   gem 'rubocop', require: false
@@ -55,6 +52,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-rails', require: false
+  gem 'factory_girl', require: false
+  gem 'capybara', require: false
   gem 'coveralls', require: false
 end
 
