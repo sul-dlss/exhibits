@@ -20,3 +20,4 @@
 /public/uploads
 /jetty
 .byebug_history
+/coverage
