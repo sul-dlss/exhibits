@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sul-dlss/sul_exhibits_template.svg)](https://travis-ci.org/sul-dlss/sul_exhibits_template) [![Dependency Status](https://gemnasium.com/sul-dlss/sul_exhibits_template.svg)](https://gemnasium.com/sul-dlss/sul_exhibits_template)
+[![Build Status](https://travis-ci.org/sul-dlss/sul_exhibits_template.svg)](https://travis-ci.org/sul-dlss/sul_exhibits_template) [![Coverage Status](https://coveralls.io/repos/sul-dlss/sul_exhibits_template/badge.svg?branch=master&service=github)](https://coveralls.io/github/sul-dlss/sul_exhibits_template?branch=master) [![Dependency Status](https://gemnasium.com/sul-dlss/sul_exhibits_template.svg)](https://gemnasium.com/sul-dlss/sul_exhibits_template)
 
 # SUL Spotlight Exhibit template project
 

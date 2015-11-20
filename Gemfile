@@ -49,8 +49,13 @@ group :development, :test do
   gem 'factory_girl'
   gem 'capybara'
   gem 'database_cleaner'
+
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
+end
+
+group :test do
+  gem 'coveralls', require: false
 end
 
 group :production do
