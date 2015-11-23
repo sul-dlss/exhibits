@@ -32,9 +32,11 @@ module Spotlight::Dor
         before_index :add_author_no_collector
         before_index :add_box
         before_index :add_collector
+        before_index :add_coordinates
         before_index :add_folder
         before_index :add_genre
         before_index :add_location
+        before_index :add_point_bbox
         before_index :add_series
       end
 
@@ -46,6 +48,12 @@ module Spotlight::Dor
 
       def add_box(sdb, solr_doc)
         solr_doc['box_ssi'] = sdb.smods_rec.box
+      end
+
+      # add coordinates solr field containing the cartographic coordinates per
+      # MODS subject.cartographics.coordinates (via stanford-mods gem)
+      def add_coordinates(sdb, solr_doc)
+        solr_doc['coordinates'] = sdb.smods_rec.coordinates
       end
 
       # add collector_ssim solr field containing the collector per MODS names (via stanford-mods gem)
@@ -66,10 +74,16 @@ module Spotlight::Dor
         solr_doc['location_ssi'] = sdb.smods_rec.location
       end
 
+      # add point_bbox solr field containing the point bounding box per
+      # MODS subject.cartographics.coordinates (via stanford-mods gem)
+      def add_point_bbox(sdb, solr_doc)
+        solr_doc['point_bbox'] = sdb.smods_rec.point_bbox
+      end
+
       def add_series(sdb, solr_doc)
         solr_doc['series_ssi'] = sdb.smods_rec.series
       end
-    end
+    end # StanfordMods concern
 
     concerning :ContentMetadata do
       included do
@@ -184,51 +198,6 @@ module Spotlight::Dor
         [
           "//contentMetadata/resource/file[@id=\"#{sdb.bare_druid}.txt\"]" # feigenbaum style - full text in .txt named for druid
         ]
-      end
-    end
-
-    concerning :CartographicIndexing do
-      included do
-        before_index :mods_cartographics_indexing
-      end
-
-      def mods_cartographics_indexing(sdb, solr_doc)
-        coordinates = Array(sdb.smods_rec.subject.cartographics.coordinates)
-
-        insert_field(solr_doc, 'coordinates', coordinates.map(&:text), :stored_searchable)
-
-        solr_doc['point_bbox'] ||= []
-        solr_doc['point_bbox'] += coords_to_bboxes(coordinates)
-      end
-
-      private
-
-      def coords_to_bboxes(coordinates)
-        coordinates.select { |n| n.text =~ /^\(.*\)$/ }.map do |n|
-          coord_to_bbox(n.text)
-        end
-      end
-
-      def coord_to_bbox(coord)
-        bbox = coord.delete('(').delete(')')
-
-        lng, lat = bbox.split('/')
-
-        min_x, max_x = lng.split('--').map { |x| coord_to_decimal(x) }
-        max_y, min_y = lat.split('--').map { |y| coord_to_decimal(y) }
-        "#{min_x} #{min_y} #{max_x} #{max_y}"
-      end
-
-      def coord_to_decimal(point)
-        regex = /(?<dir>[NESW])\s*(?<deg>\d+)°(?:(?<sec>\d+)ʹ)?/
-        match = regex.match(point)
-        dec = 0
-
-        dec += match['deg'].to_i
-        dec += match['sec'].to_f / 60
-        dec = -1 * dec if match['dir'] == 'W' || match['dir'] == 'S'
-
-        dec
       end
     end
 

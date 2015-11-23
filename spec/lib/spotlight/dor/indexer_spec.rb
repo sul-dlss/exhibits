@@ -216,6 +216,44 @@ describe Spotlight::Dor::Indexer do
       end
     end
 
+    describe '#add_coordinates' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_coordinates, sdb, solr_doc)
+      end
+      context 'with a record without coordinates' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+            </mods>
+          EOF
+        end
+
+        it 'is blank' do
+          expect(solr_doc['coordinates']).to be_blank
+        end
+      end
+      context 'with a record with coordinates' do
+        let(:mods) do
+          # e.g. from https://purl.stanford.edu/vw282gv1740
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <subject>
+                <cartographics>
+                  <scale>Scale 1:500,000</scale>
+                  <coordinates>(W16°--E28°/N13°--S15°).</coordinates>
+                </cartographics>
+              </subject>
+            </mods>
+          EOF
+        end
+
+        it 'extracts the coordinates' do
+          expect(solr_doc['coordinates']).to eq(['(W16°--E28°/N13°--S15°).'])
+        end
+      end
+    end # add_coordinates
+
     describe '#add_folder' do
       before do
         allow(r).to receive(:mods).and_return(mods)
@@ -320,6 +358,44 @@ describe Spotlight::Dor::Indexer do
         end
       end
     end # add_location
+
+    describe '#add_point_bbox' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_point_bbox, sdb, solr_doc)
+      end
+      context 'with a record without coordinates' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+            </mods>
+          EOF
+        end
+
+        it 'is blank' do
+          expect(solr_doc['point_bbox']).to be_blank
+        end
+      end
+      context 'with a record with coordinates' do
+        let(:mods) do
+          # e.g. from https://purl.stanford.edu/vw282gv1740
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <subject>
+                <cartographics>
+                  <scale>Scale 1:500,000</scale>
+                  <coordinates>(W16°--E28°/N13°--S15°).</coordinates>
+                </cartographics>
+              </subject>
+            </mods>
+          EOF
+        end
+
+        it 'extracts the point_bbox' do
+          expect(solr_doc['point_bbox']).to eq(['-16.0 -15.0 28.0 13.0'])
+        end
+      end
+    end # add_point_bbox
 
     describe '#add_series' do
       before do
