@@ -1,7 +1,7 @@
 SulExhibitsTemplate::Application.routes.draw do
   mount Blacklight::Oembed::Engine, at: 'oembed'
-  spotlight_root
-  #  root :to => "catalog#index" # replaced by spotlight_root
+
+  root to: 'spotlight/exhibits#index'
 
   devise_for :users, skip: [:sessions]
   devise_scope :user do
