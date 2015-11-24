@@ -2,11 +2,11 @@ require 'rails_helper'
 
 describe PurlResource do
   before do
-    allow_any_instance_of(Spotlight::Search).to receive(:set_default_featured_image)
+    allow_any_instance_of(Spotlight::Search).to receive(:set_default_thumbnail)
     subject.exhibit = exhibit
   end
 
-  let(:exhibit) { Spotlight::Exhibit.default }
+  let(:exhibit) { FactoryGirl.create(:exhibit) }
 
   describe '.resources' do
     let!(:a) { exhibit.resources.new(url: 'https://purl.stanford.edu/a').becomes_provider.tap(&:save) }
