@@ -111,7 +111,7 @@ class CatalogController < ApplicationController
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
 
-    # solr fields to be displayed in the show (single result) view
+    # Solr fields to be displayed in the search results and the show (single result) views
     #   The ordering of the field names is the order of the display
     config.add_index_field 'title_full_display', label: 'Title'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
