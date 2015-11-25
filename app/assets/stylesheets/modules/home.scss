@@ -1,0 +1,35 @@
+.blacklight-exhibits-index {
+  #exhibit-navbar {
+    display: none;
+  }
+
+  #exhibit-masthead {
+    height: $home-masthead-height;
+    margin-bottom: 2em;
+  }
+
+  .site-title {
+    margin-top: 1.5em;
+  }
+
+  #main-container {
+    padding-left: 0;
+  }
+}
+
+.home-page-column {
+  h2 {
+    @include heading-with-border();
+  }
+
+  li {
+    padding: $padding-base-vertical 0;
+  }
+}
+
+.btn {
+  small {
+    color: $gray-light;
+    display: block;
+  }
+}

@@ -1,0 +1,13 @@
+.dd-list {
+  .panel-default {
+    > .panel-heading {
+      background-color: $gray-lighter;
+    }
+  }
+}
+
+.panel-default {
+  .page {
+    background-color: $gray-lighter;
+  }
+}

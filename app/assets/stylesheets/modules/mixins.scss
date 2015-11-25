@@ -1,0 +1,10 @@
+@mixin heading-with-border() {
+  font-weight: 300;
+  border-bottom: 1px solid $color-beige-30;
+  color: $brand-primary;
+}
+
+@mixin brandbar-vertical-align($element-height) {
+  margin-top: (($brandbar-height - $element-height) / 2);
+  margin-bottom: (($brandbar-height - $element-height) / 2);
+}

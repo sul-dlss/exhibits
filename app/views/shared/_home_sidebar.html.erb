@@ -1,6 +1,6 @@
-<div class="sidebar">
+<div class="sidebar nav home-page-column">
   <h2>See also</h2>
-  <ul class="nav list-unstyled">
+  <ul class="list-unstyled">
     <li>
       <%= link_to "Digital collections in SearchWorks",
       "http://searchworks.stanford.edu/catalog?f%5Bcollection_type%5D%5B%5D=Digital+Collection" %>
@@ -22,5 +22,5 @@
 
 <%= link_to spotlight.new_exhibit_path, class: "btn btn-default", role: "button" do %>
   Request a new exhibit
-  <span class="sunet-notice">Requires SUNet login</span>
+  <small class="sunet-notice">Requires SUNet login</small>
 <% end %>

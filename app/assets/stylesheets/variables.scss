@@ -1,9 +1,11 @@
-@import 'sul-styles';
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+@import "sul-styles";
+
+$gray-base: #000;
 
 $sul-masthead-bg-color: $color-beige-10;
 $sul-masthead-border-color: $color-beige-20;
 $brand-primary: $color-cardinal-red;
-$brandbar-height: 35px;
 $black: #2e2d29;
 $color-gray-80: #ccc;
 
@@ -13,8 +15,33 @@ $btn-default-bg: $color-beige-10;
 
 $well-bg: $color-beige-20;
 $exhibit-card-border: $color-gray-80;
-$link-color: $black;
 
-@import 'bootstrap/variables';
-@import 'spotlight/variables';
-@import 'spotlight/variables_bootstrap';
+$navbar-inverse-bg: $brand-primary;
+$navbar-inverse-border: $color-dark-red;
+$navbar-inverse-color: lighten($gray-base, 86%);
+$navbar-inverse-link-color: lighten($gray-base, 86%);
+
+$sul-footer-bg-color: $color-beige-10;
+$font-family-sans-serif: "Source Sans Pro", "Arial Unicode MS", Helvetica, sans-serif;
+$headings-font-family: "Source Sans Pro", "Arial Unicode MS", Helvetica, sans-serif;
+$sul-link-color-border: $color-pantone-401;
+$nav-link-color: $black;
+
+$panel-default-heading-bg: $color-beige-30;
+$panel-success-heading-bg: #c7d1c5;
+
+@import "bootstrap/variables";
+@import "spotlight/variables";
+@import "spotlight/variables_bootstrap";
+
+$brandbar-height: 35px;
+$brandbar-padding-vertical: (($brandbar-height - $line-height-computed) / 2);
+
+$home-masthead-height: 119px;
+
+$footer-height: 200px;
+$sul-footer-shadow-color: rgba(0, 0, 0, 0.2);
+$sul-footer-shadow: 0 4px 8px -8px $sul-footer-shadow-color inset;
+
+$breadcrumb-bg: transparent;
+$breadcrumb-padding-vertical: $padding-base-vertical;

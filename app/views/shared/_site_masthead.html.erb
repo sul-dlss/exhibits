@@ -1,10 +1,15 @@
-<div id="masthead" class="jumbotron">
+<div id="exhibit-masthead" class="jumbotron with-exhibit-masthead with-image">
+  <span class='background-container' style="background-image: url('<%= image_path('masthead-walters.jpg') %>')"></span>
+  <span class='background-container-gradient'></span>
+
   <div class="container">
-    <div class="site-title h1">
-      <%= link_to 'Online Exhibits', root_path %>
-      <small class="hidden-xs">
-        Notable collections showcased by Stanford librarians, archivists, and other curators
-      </small>
+    <div class="row">
+      <div class="site-title h1">
+        <%= link_to 'Online Exhibits', root_path %>
+        <small class="hidden-xs">
+          Notable collections showcased by Stanford librarians, archivists, and other curators
+        </small>
+      </div>
     </div>
   </div>
 </div>
