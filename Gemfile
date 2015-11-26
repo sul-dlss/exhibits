@@ -52,9 +52,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails', require: false
-  gem 'factory_girl', require: false
-  gem 'capybara', require: false
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
   gem 'coveralls', require: false
 end
 
