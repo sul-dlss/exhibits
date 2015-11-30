@@ -13,7 +13,13 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
-      fl: '*'
+      fl: '*',
+      hl: true,
+      'hl.fl' => 'full_text_tesimv',
+      'hl.snippets' => 5,
+      'hl.fragsize' => 240,
+      'hl.mergeContiguous' => true,
+      'hl.useFastVectorHighlighter' => true
     }
 
     config.default_autocomplete_solr_params = {
@@ -136,6 +142,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'folder_name_ssi', label: 'Folder Name'
     config.add_index_field 'location_ssi', label: 'Location'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
+    config.add_index_field 'full_text_tesimv', label: 'Preview matches in document text', highlight: true
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

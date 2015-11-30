@@ -30,6 +30,7 @@ $navbar-default-link-active-bg: #ebebeb;
 
 $link-color: $black;
 
-
 @import 'bootstrap/variables';
 @import 'spotlight/variables_bootstrap';
+
+$highlight-bg: saturate($state-warning-bg, 30%);

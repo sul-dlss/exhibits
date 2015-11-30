@@ -19,4 +19,5 @@
 //
 // Required by Blacklight
 //= require blacklight/blacklight
+//= require spotlight
 //= require_tree .

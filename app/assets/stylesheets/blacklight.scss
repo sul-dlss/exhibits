@@ -66,3 +66,38 @@
     }
   }
 }
+
+dt.blacklight-full_text_tesimv {
+  @extend .h4;
+  display: inline-block;
+  float: none;
+  text-align: initial;
+  width: auto;
+
+  // collapse carets shamelessly stolen from blacklight facets
+  &[data-toggle="collapse"]:after {
+    color: $gray90;
+    // symbol for "opening" panels
+    content: "\e114";
+    float: right;
+    font-family: "Glyphicons Halflings";
+    font-size: 0.8em;
+    line-height: normal;
+    padding-left: 2ch;
+  }
+
+  &.collapsed:after {
+    // symbol for "collapsed" panels
+    content: "\e080";
+  }
+}
+
+dd.blacklight-full_text_tesimv {
+  float: none;
+  margin-left: 0;
+
+  em {
+    background-color: $highlight-bg;
+    font-weight: bold;
+  }
+}
