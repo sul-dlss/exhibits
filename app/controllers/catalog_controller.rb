@@ -95,16 +95,13 @@ class CatalogController < ApplicationController
     config.add_facet_field 'series_ssi', label: 'Series'
     config.add_facet_field 'box_ssi', label: 'Box', limit: true
     config.add_facet_field 'folder_ssi', label: 'Folder', limit: true
-    # The folder name facet below was added as a specific need of the Feigenbaum exhibit.  Indexing
-    #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
-    #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
-    #   like this that are exhibit specific.  It is also in the _index_field list below for display purposes.
+    # The Donor tags, Folder Name and Document subtype facets below were added as a specific need of the Feigenbaum
+    #   exhibit.  Indexing of these fields were also added to spotlight-dor-resources.  The facets should be hidden
+    #   for all other exhibits that do no have any data in this field.  Possible later refactoring could separate
+    #   fields/facets that are exhibit specific.  It is also in the _index_field list below for display purposes.
     config.add_facet_field 'folder_name_ssi', label: 'Folder Name', limit: true
-    # The Donor tags facet below was added as a specific need of the Feigenbaum exhibit.  Indexing
-    #   of this field was also added to spotlight-dor-resources.  The facet should be hidden for all other
-    #   exhibits that do no have any data in this field.  Possible later refactoring could separate fields/facets
-    #   like this that are exhibit specific.  It is also in the _index_field list below for display purposes.
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
+    config.add_facet_field 'doc_subtype_ssi', label: 'Document Subtype', limit: true
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -136,6 +133,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'folder_name_ssi', label: 'Folder Name'
     config.add_index_field 'location_ssi', label: 'Location'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
+    config.add_index_field 'doc_subtype_ssi', label: 'Document Subtype'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
