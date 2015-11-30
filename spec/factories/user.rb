@@ -1,11 +1,5 @@
 # This will guess the User class
 FactoryGirl.define do
-  factory :user do
-    email 'user@example.com'
-    password 'password'
-    password_confirmation 'password'
-  end
-
   factory :curator, class: User do
     email 'curator@example.com'
     password 'password'
