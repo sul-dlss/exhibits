@@ -20,7 +20,7 @@ module Spotlight
         end
 
         def solr_config
-          Blacklight.solr_config
+          Blacklight.connection_config
         end
       end
     end

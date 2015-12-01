@@ -76,49 +76,150 @@ describe Spotlight::Dor::Indexer do
     end
   end
 
-  describe '#add_donor_tags' do
-    before do
-      allow(r).to receive(:mods).and_return(mods)
-      subject.send(:add_donor_tags, sdb, solr_doc)
-    end
+  context 'Feigbenbaum specific fields concern' do
+    describe '#add_document_subtype' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_document_subtype, sdb, solr_doc)
+      end
 
-    context 'with a record without donor tags' do
-      let(:mods) do
+      context 'with a record without document subtype' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <note displayLabel="preferred citation">(not a document subtype)</note>
+              <note>a generic note</note>
+            </mods>
+            EOF
+        end
+
+        it 'is blank' do
+          expect(solr_doc['doc_subtype_ssi']).to be_blank
+        end
+      end
+
+      context 'with a record with document subtype' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <note displayLabel="Document subtype">memorandums</note>
+              <note>a generic note</note>
+            </mods>
+            EOF
+        end
+
+        it 'extracts the doc subtypes' do
+          expect(solr_doc['doc_subtype_ssi']).to eq('memorandums')
+        end
+      end
+    end # doc subtype
+
+    describe '#add_donor_tags' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_donor_tags, sdb, solr_doc)
+      end
+
+      context 'with a record without donor tags' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <note displayLabel="preferred citation">(not a donor tag)</note>
+            </mods>
+            EOF
+        end
+
+        it 'is blank' do
+          expect(solr_doc['donor_tags_ssim']).to be_blank
+        end
+      end
+
+      context 'with a record with donor tags' do
+        let(:mods) do
+          # e.g. from https://purl.stanford.edu/vw282gv1740
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
+              <note displayLabel="Donor tags">medical applications</note>
+              <note displayLabel="Donor tags">Publishing</note>
+              <note displayLabel="Donor tags">Stanford</note>
+              <note displayLabel="Donor tags">Stanford Computer Science Department</note>
+            </mods>
+            EOF
+        end
+
+        it 'extracts the donor tags' do
+          expect(solr_doc['donor_tags_ssim']).to contain_exactly 'Knowledge Systems Laboratory',
+                                                                 'medical applications',
+                                                                 'Publishing',
+                                                                 'Stanford',
+                                                                 'Stanford Computer Science Department'
+        end
+      end
+    end # donor tags
+
+    # rubocop:disable Metrics/LineLength
+    describe '#add_folder_name' do
+      let(:mods_note_plain) do
         Nokogiri::XML <<-EOF
           <mods xmlns="#{Mods::MODS_NS}">
-            <note displayLabel="preferred citation">(not a donor tag)</note>
+            <note>#{example}</note>
           </mods>
-          EOF
+        EOF
       end
-
-      it 'is blank' do
-        expect(solr_doc['donor_tags_ssim']).to be_blank
-      end
-    end
-
-    context 'with a record with donor tags' do
-      let(:mods) do
-        # e.g. from https://purl.stanford.edu/vw282gv1740
+      let(:mods_note_preferred_citation) do
         Nokogiri::XML <<-EOF
           <mods xmlns="#{Mods::MODS_NS}">
-            <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
-            <note displayLabel="Donor tags">medical applications</note>
-            <note displayLabel="Donor tags">Publishing</note>
-            <note displayLabel="Donor tags">Stanford</note>
-            <note displayLabel="Donor tags">Stanford Computer Science Department</note>
+            <note type="preferred citation">#{example}</note>
           </mods>
-          EOF
+        EOF
       end
-
-      it 'extracts the donor tags' do
-        expect(solr_doc['donor_tags_ssim']).to contain_exactly 'Knowledge Systems Laboratory',
-                                                               'medical applications',
-                                                               'Publishing',
-                                                               'Stanford',
-                                                               'Stanford Computer Science Department'
-      end
-    end
-  end
+      # example string as key, expected folder name as value
+      # all from feigenbaum (or based on feigenbaum), as that is only coll with this data
+      {
+        'Call Number: SC0340, Accession: 1986-052, Box: 20, Folder: 40, Title: S': 'S',
+        'Call Number: SC0340, Accession: 1986-052, Box: 54, Folder: 25, Title: Balzer': 'Balzer',
+        'Call Number: SC0340, Accession: 1986-052, Box : 30, Folder: 21, Title: Feigenbaum, Publications. 2 of 2.': 'Feigenbaum, Publications. 2 of 2.',
+        # colon in name
+        'Call Number: SC0340, Accession 2005-101, Box: 10, Folder: 26, Title: Gordon Bell Letter rdf:about blah (AI) 1987': 'Gordon Bell Letter rdf:about blah (AI) 1987',
+        'Call Number: SC0340, Accession 2005-101, Box: 11, Folder: 74, Title: Microcomputer Systems Proposal: blah blah': 'Microcomputer Systems Proposal: blah blah',
+        'Call Number: SC0340, Accession 2005-101, Box: 14, Folder: 20, Title: blah "bleah: blargW^"ugh" seriously?.': 'blah "bleah: blargW^"ugh" seriously?.',
+        # quotes in name
+        'Call Number: SC0340, Accession 2005-101, Box: 29, Folder: 18, Title: "bleah" blah': '"bleah" blah',
+        'Call Number: SC0340, Accession 2005-101, Box: 11, Folder: 58, Title: "M": blah': '"M": blah',
+        'Call Number: SC0340, Accession 2005-101, Box : 32A, Folder: 19, Title: blah "bleah" blue': 'blah "bleah" blue',
+        # not parseable
+        'Call Number: SC0340, Accession 2005-101': nil,
+        'Call Number: SC0340, Accession: 1986-052': nil,
+        'Call Number: SC0340, Accession: 1986-052, Box 36 Folder 38': nil,
+        'blah blah ... with the umbrella title Feigenbaum and Feldman, Computers and Thought II. blah blah': nil,
+        'blah blah ... Title ... blah blah': nil
+      }.each do |example, expected|
+        describe "for example '#{example}'" do
+          let(:example) { example }
+          context 'in preferred citation note' do
+            before do
+              allow(r).to receive(:mods).and_return(mods_note_preferred_citation)
+              subject.send(:add_folder_name, sdb, solr_doc)
+            end
+            it "has the expected folder name '#{expected}'" do
+              expect(solr_doc['folder_name_ssi']).to eq expected
+            end
+          end
+          context 'in plain note' do
+            before do
+              allow(r).to receive(:mods).and_return(mods_note_plain)
+              subject.send(:add_folder_name, sdb, solr_doc)
+            end
+            it 'does not have a folder name' do
+              expect(solr_doc['folder_name_ssi']).to be_falsey
+            end
+          end
+        end # for example
+      end # each
+    end # add_folder_name
+    # rubocop:enable Metrics/LineLength
+  end # feigbenbaum specific fields concern
 
   context 'StanfordMods concern' do
     describe '#add_author_no_collector' do
@@ -434,139 +535,81 @@ describe Spotlight::Dor::Indexer do
   end # context StanfordMods concern
 
   # rubocop:disable Metrics/LineLength
-  describe '#add_folder_name' do
-    let(:mods_note_plain) do
-      Nokogiri::XML <<-EOF
-        <mods xmlns="#{Mods::MODS_NS}">
-          <note>#{example}</note>
-        </mods>
-      EOF
-    end
-    let(:mods_note_preferred_citation) do
-      Nokogiri::XML <<-EOF
-        <mods xmlns="#{Mods::MODS_NS}">
-          <note type="preferred citation">#{example}</note>
-        </mods>
-      EOF
-    end
-    # example string as key, expected folder name as value
-    # all from feigenbaum (or based on feigenbaum), as that is only coll with this data
-    {
-      'Call Number: SC0340, Accession: 1986-052, Box: 20, Folder: 40, Title: S': 'S',
-      'Call Number: SC0340, Accession: 1986-052, Box: 54, Folder: 25, Title: Balzer': 'Balzer',
-      'Call Number: SC0340, Accession: 1986-052, Box : 30, Folder: 21, Title: Feigenbaum, Publications. 2 of 2.': 'Feigenbaum, Publications. 2 of 2.',
-      # colon in name
-      'Call Number: SC0340, Accession 2005-101, Box: 10, Folder: 26, Title: Gordon Bell Letter rdf:about blah (AI) 1987': 'Gordon Bell Letter rdf:about blah (AI) 1987',
-      'Call Number: SC0340, Accession 2005-101, Box: 11, Folder: 74, Title: Microcomputer Systems Proposal: blah blah': 'Microcomputer Systems Proposal: blah blah',
-      'Call Number: SC0340, Accession 2005-101, Box: 14, Folder: 20, Title: blah "bleah: blargW^"ugh" seriously?.': 'blah "bleah: blargW^"ugh" seriously?.',
-      # quotes in name
-      'Call Number: SC0340, Accession 2005-101, Box: 29, Folder: 18, Title: "bleah" blah': '"bleah" blah',
-      'Call Number: SC0340, Accession 2005-101, Box: 11, Folder: 58, Title: "M": blah': '"M": blah',
-      'Call Number: SC0340, Accession 2005-101, Box : 32A, Folder: 19, Title: blah "bleah" blue': 'blah "bleah" blue',
-      # not parseable
-      'Call Number: SC0340, Accession 2005-101': nil,
-      'Call Number: SC0340, Accession: 1986-052': nil,
-      'Call Number: SC0340, Accession: 1986-052, Box 36 Folder 38': nil,
-      'blah blah ... with the umbrella title Feigenbaum and Feldman, Computers and Thought II. blah blah': nil,
-      'blah blah ... Title ... blah blah': nil
-    }.each do |example, expected|
-      describe "for example '#{example}'" do
-        let(:example) { example }
-        context 'in preferred citation note' do
-          before do
-            allow(r).to receive(:mods).and_return(mods_note_preferred_citation)
-            subject.send(:add_folder_name, sdb, solr_doc)
-          end
-          it "has the expected folder name '#{expected}'" do
-            expect(solr_doc['folder_name_ssi']).to eq expected
-          end
-        end
-        context 'in plain note' do
-          before do
-            allow(r).to receive(:mods).and_return(mods_note_plain)
-            subject.send(:add_folder_name, sdb, solr_doc)
-          end
-          it 'does not have a folder name' do
-            expect(solr_doc['folder_name_ssi']).to be_falsey
-          end
-        end
-      end # for example
-    end # each
-  end # add_folder_name
+  context 'Full Text Indexing concern' do
+    describe '#add_object_full_text' do
+      let(:full_text_solr_fname) { 'full_text_tesimv' }
+      before do
+        allow(sdb).to receive(:bare_druid).and_return(fake_druid)
+      end
+      let!(:expected_text) { 'SOME full text string that is returned from the server' }
+      let!(:full_file_path) { 'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt' }
+      it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
+        public_xml_with_feigenbaum_full_text = Nokogiri::XML <<-EOF
+          <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
+            <contentMetadata objectId="oo000oo0000" type="book">
+              <resource id="oo000oo0000_4" sequence="4" type="object">
+                <label>Document</label>
+                <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
+                <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
+              </resource>
+              <resource id="oo000oo0000_5" sequence="5" type="page">
+                <label>Page 1</label>
+                <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
+              </resource>
+              </contentMetadata>
+            </publicObject>
+          EOF
+        allow(sdb).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
+        # don't actually attempt a call to the stacks
+        allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
+        subject.send(:add_object_full_text, sdb, solr_doc)
+        expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
+        expect(solr_doc[full_text_solr_fname]).to eq [expected_text]
+      end
+      it 'does not index the full text if no recognized pattern is found' do
+        public_xml_with_no_recognized_full_text = Nokogiri::XML <<-EOF
+          <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
+            <contentMetadata objectId="oo000oo0000" type="book">
+              <resource id="oo000oo0000_4" sequence="4" type="object">
+                <label>Document</label>
+                <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
+              </resource>
+              <resource id="oo000oo0000_5" sequence="5" type="page">
+                <label>Page 1</label>
+                <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
+              </resource>
+              </contentMetadata>
+            </publicObject>
+          EOF
+        allow(sdb).to receive(:public_xml).and_return(public_xml_with_no_recognized_full_text)
+        subject.send(:add_object_full_text, sdb, solr_doc)
+        expect(subject.object_level_full_text_urls(sdb)).to eq []
+        expect(solr_doc[full_text_solr_fname]).to be_nil
+      end
+      it 'indexes the full text from two files if two recognized patterns are found' do
+        public_xml_with_two_recognized_full_text_files = Nokogiri::XML <<-EOF
+          <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
+            <contentMetadata objectId="oo000oo0000" type="book">
+              <resource id="oo000oo0000_4" sequence="4" type="object">
+                <label>Document</label>
+                <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
+                <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
+              </resource>
+              <resource id="oo000oo0000_5" sequence="5" type="page">
+                <label>Page 1</label>
+                <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
+                <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
+              </resource>
+              </contentMetadata>
+            </publicObject>
+          EOF
+        allow(sdb).to receive(:public_xml).and_return(public_xml_with_two_recognized_full_text_files)
+        allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
+        subject.send(:add_object_full_text, sdb, solr_doc)
+        expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path, full_file_path]
+        expect(solr_doc[full_text_solr_fname]).to eq [expected_text, expected_text] # same file twice in a 2 element array
+      end
+    end # add_object_full_text
+  end # full text indexing concern
   # rubocop:enable Metrics/LineLength
-
-  describe '#add_object_full_text' do
-    let(:full_text_solr_fname) { 'full_text_tesimv' }
-    before do
-      allow(sdb).to receive(:bare_druid).and_return(fake_druid)
-    end
-    let!(:expected_text) { 'SOME full text string that is returned from the server' }
-    let!(:full_file_path) { 'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt' }
-    it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
-      public_xml_with_feigenbaum_full_text = Nokogiri::XML <<-EOF
-        <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
-          <contentMetadata objectId="oo000oo0000" type="book">
-            <resource id="oo000oo0000_4" sequence="4" type="object">
-              <label>Document</label>
-              <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
-              <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
-            </resource>
-            <resource id="oo000oo0000_5" sequence="5" type="page">
-              <label>Page 1</label>
-              <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
-            </resource>
-            </contentMetadata>
-          </publicObject>
-        EOF
-      allow(sdb).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
-      # don't actually attempt a call to the stacks
-      allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
-      subject.send(:add_object_full_text, sdb, solr_doc)
-      expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
-      expect(solr_doc[full_text_solr_fname]).to eq [expected_text]
-    end
-    it 'does not index the full text if no recognized pattern is found' do
-      public_xml_with_no_recognized_full_text = Nokogiri::XML <<-EOF
-        <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
-          <contentMetadata objectId="oo000oo0000" type="book">
-            <resource id="oo000oo0000_4" sequence="4" type="object">
-              <label>Document</label>
-              <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
-            </resource>
-            <resource id="oo000oo0000_5" sequence="5" type="page">
-              <label>Page 1</label>
-              <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
-            </resource>
-            </contentMetadata>
-          </publicObject>
-        EOF
-      allow(sdb).to receive(:public_xml).and_return(public_xml_with_no_recognized_full_text)
-      subject.send(:add_object_full_text, sdb, solr_doc)
-      expect(subject.object_level_full_text_urls(sdb)).to eq []
-      expect(solr_doc[full_text_solr_fname]).to be_nil
-    end
-    it 'indexes the full text from two files if two recognized patterns are found' do
-      public_xml_with_two_recognized_full_text_files = Nokogiri::XML <<-EOF
-        <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
-          <contentMetadata objectId="oo000oo0000" type="book">
-            <resource id="oo000oo0000_4" sequence="4" type="object">
-              <label>Document</label>
-              <file id="oo000oo0000.pdf" mimetype="application/pdf" size="6801421"></file>
-              <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
-            </resource>
-            <resource id="oo000oo0000_5" sequence="5" type="page">
-              <label>Page 1</label>
-              <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
-              <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
-            </resource>
-            </contentMetadata>
-          </publicObject>
-        EOF
-      allow(sdb).to receive(:public_xml).and_return(public_xml_with_two_recognized_full_text_files)
-      allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
-      subject.send(:add_object_full_text, sdb, solr_doc)
-      expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path, full_file_path]
-      expect(solr_doc[full_text_solr_fname]).to eq [expected_text, expected_text] # same file twice in a 2 element array
-    end
-  end # add_object_full_text
 end

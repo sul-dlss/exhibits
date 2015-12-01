@@ -139,8 +139,14 @@ module Spotlight::Dor
       # only create these fields on an as-needed basis.
 
       included do
+        before_index :add_document_subtype
         before_index :add_donor_tags
         before_index :add_folder_name
+      end
+
+      def add_document_subtype(sdb, solr_doc)
+        subtype = sdb.smods_rec.note.select { |n| n.displayLabel == 'Document subtype' }.map(&:content)
+        solr_doc['doc_subtype_ssi'] = subtype.first if subtype.size > 0
       end
 
       def add_donor_tags(sdb, solr_doc)
