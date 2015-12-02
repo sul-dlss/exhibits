@@ -1,4 +1,4 @@
-# config valid only for Capistrano 3.1
+# config valid only for Capistrano 3.4
 lock '3.4.0'
 
 set :application, 'spotlight'
@@ -8,7 +8,7 @@ set :repo_url, 'https://github.com/sul-dlss/sul_exhibits_template.git'
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 fetch(:branch)
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, "/home/lyberadmin/exhibits/#{fetch(:branch)}"
+set :deploy_to, "/opt/app/exhibits/exhibits"
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -23,10 +23,10 @@ set :log_level, :info
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w(config/secrets.yml config/database.yml config/solr.yml config/gdor.yml config/initializers/squash.rb public/.htaccess)
+set :linked_files, %w(config/secrets.yml config/database.yml config/blacklight.yml config/gdor.yml config/initializers/squash.rb)
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/environments)
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/settings)
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -35,6 +35,7 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # set :keep_releases, 5
 
 before 'deploy:publishing', 'squash:write_revision'
+before 'deploy:publishing', 'deploy:sitemap:create'
 
 namespace :deploy do
   after :restart, :clear_cache do

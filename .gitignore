@@ -21,3 +21,4 @@
 /jetty
 .byebug_history
 /coverage
+.env

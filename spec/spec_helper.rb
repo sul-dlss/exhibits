@@ -4,6 +4,8 @@ Coveralls.wear!('rails')
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
+FIXTURES_PATH = File.expand_path('../fixtures', __FILE__)
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

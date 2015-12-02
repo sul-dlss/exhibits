@@ -20,6 +20,9 @@ class CatalogController < ApplicationController
       qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'
     }
 
+    config.index.document_actions[:bookmark].if = false
+    config.show.document_actions[:bookmark].if = false
+
     # solr path which will be added to solr base url before the other solr params.
     # config.solr_path = 'select'
 

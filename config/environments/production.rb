@@ -82,13 +82,5 @@ SulExhibitsTemplate::Application.configure do
   # serialization
   Rack::Utils.multipart_part_limit = 0
 
-  # Sucker Punch is a single-process Ruby asynchronous processing library.
-  # The benefit to this is there is no additional infrastructure requirement
-  # (ie. database, redis, etc.). The downside is that if the web processes is
-  # restarted and there are jobs that haven't yet been processed, they will be lost.
-  #
-  # Spotlight only uses this for data processing that ought to be user-restartable
-  # A different queue adapter would be preferable, but requires some significant
-  # thought about how to do that in our single-tenant/many-application environment
-  config.active_job.queue_adapter = :sucker_punch
+  config.active_job.queue_adapter = :delayed_job
 end
