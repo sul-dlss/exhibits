@@ -142,6 +142,7 @@ module Spotlight::Dor
         before_index :add_document_subtype
         before_index :add_donor_tags
         before_index :add_folder_name
+        before_index :add_general_notes
       end
 
       def add_document_subtype(sdb, solr_doc)
@@ -162,7 +163,12 @@ module Spotlight::Dor
         match_data = preferred_citation.first.match(/Title: +(.+)/i) if preferred_citation.present?
         solr_doc['folder_name_ssi'] = match_data[1].strip if match_data.present?
       end
-    end
+
+      def add_general_notes(sdb, solr_doc)
+        general_notes = sdb.smods_rec.note.select { |n| n.type_at.blank? && n.displayLabel.blank? }.map(&:content)
+        insert_field solr_doc, 'general_notes', general_notes, :symbol # this is a _ssim field
+      end
+    end # end feigbenbaum specific fields
 
     concerning :FullTextIndexing do
       included do

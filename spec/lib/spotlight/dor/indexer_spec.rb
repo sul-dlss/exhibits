@@ -219,6 +219,44 @@ describe Spotlight::Dor::Indexer do
       end # each
     end # add_folder_name
     # rubocop:enable Metrics/LineLength
+
+    describe '#add_general_notes' do
+      before do
+        allow(r).to receive(:mods).and_return(mods)
+        subject.send(:add_general_notes, sdb, solr_doc)
+      end
+
+      context 'no general notes, but other types of notes' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <note displayLabel="preferred citation">(not a document subtype)</note>
+              <note displayLabel="Document subtype">memorandums</note>
+              <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
+            </mods>
+            EOF
+        end
+
+        it 'is blank' do
+          expect(solr_doc['general_notes_ssim']).to be_blank
+        end
+      end
+
+      context 'ignore extra notes' do
+        let(:mods) do
+          Nokogiri::XML <<-EOF
+            <mods xmlns="#{Mods::MODS_NS}">
+              <note displayLabel="Document subtype">memorandums</note>
+              <note>a generic note</note>
+            </mods>
+            EOF
+        end
+
+        it 'extracts the doc subtypes' do
+          expect(solr_doc['general_notes_ssim']).to contain_exactly 'a generic note'
+        end
+      end
+    end # general notes
   end # feigbenbaum specific fields concern
 
   context 'StanfordMods concern' do
