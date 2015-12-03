@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126161817) do
+ActiveRecord::Schema.define(version: 20151202131816) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -137,7 +137,6 @@ ActiveRecord::Schema.define(version: 20151126161817) do
   end
 
   create_table "spotlight_exhibits", force: :cascade do |t|
-    t.boolean  "default"
     t.string   "title",                          null: false
     t.string   "subtitle"
     t.string   "slug"
@@ -152,7 +151,6 @@ ActiveRecord::Schema.define(version: 20151126161817) do
     t.integer  "thumbnail_id"
   end
 
-  add_index "spotlight_exhibits", ["default"], name: "index_spotlight_exhibits_on_default", unique: true
   add_index "spotlight_exhibits", ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
 
   create_table "spotlight_featured_images", force: :cascade do |t|
