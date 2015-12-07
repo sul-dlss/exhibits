@@ -38,7 +38,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
-    addressable (2.3.8)
+    addressable (2.4.0)
     arel (6.0.3)
     ast (2.1.0)
     astrolabe (1.3.1)
@@ -456,9 +456,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    signet (0.6.1)
+    signet (0.7.0)
       addressable (~> 2.3)
-      extlib (~> 0.9)
       faraday (~> 0.9)
       jwt (~> 1.5)
       multi_json (~> 1.10)
@@ -491,7 +490,7 @@ GEM
       rails
       solrizer
       stanford-mods (>= 1.3.0)
-    sprockets (3.5.0)
+    sprockets (3.5.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (2.3.3)
@@ -503,7 +502,7 @@ GEM
       squash_ruby
     squash_ruby (2.0.0)
       json
-    sshkit (1.8.0)
+    sshkit (1.8.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stanford-mods (1.3.1)
