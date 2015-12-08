@@ -369,7 +369,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'is blank' do
-          expect(solr_doc['coordinates']).to be_blank
+          expect(solr_doc['coordinates_tesim']).to be_blank
         end
       end
       context 'with a record with coordinates' do
@@ -388,7 +388,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the coordinates' do
-          expect(solr_doc['coordinates']).to eq(['(W16°--E28°/N13°--S15°).'])
+          expect(solr_doc['coordinates_tesim']).to eq(['(W16°--E28°/N13°--S15°).'])
         end
       end
     end # add_coordinates

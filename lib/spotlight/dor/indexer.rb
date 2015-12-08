@@ -53,7 +53,7 @@ module Spotlight::Dor
       # add coordinates solr field containing the cartographic coordinates per
       # MODS subject.cartographics.coordinates (via stanford-mods gem)
       def add_coordinates(sdb, solr_doc)
-        solr_doc['coordinates'] = sdb.smods_rec.coordinates
+        solr_doc['coordinates_tesim'] = sdb.smods_rec.coordinates
       end
 
       # add collector_ssim solr field containing the collector per MODS names (via stanford-mods gem)
