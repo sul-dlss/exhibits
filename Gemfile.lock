@@ -584,6 +584,7 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.3)
   devise-remote-user
+  devise_invitable
   dlss-capistrano
   dotenv
   exhibits_solr_conf
