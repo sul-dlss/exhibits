@@ -10,6 +10,7 @@
 
   .site-title {
     margin-top: 1.5em;
+    font-size: $font-size-h1;
   }
 
   #main-container {
@@ -20,6 +21,7 @@
 .home-page-column {
   h2 {
     @include heading-with-border();
+    font-size: $font-size-h3;
   }
 
   li {
