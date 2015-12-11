@@ -84,18 +84,18 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
-    config.add_facet_field 'format_main_ssim', label: 'Resource type'
-    config.add_facet_field 'pub_date', label: 'Date'
-    config.add_facet_field 'language', label: 'Language'
+    config.add_facet_field 'format_main_ssim', label: 'Resource type', limit: true
+    config.add_facet_field 'pub_date', label: 'Date', limit: true
+    config.add_facet_field 'language', label: 'Language', limit: true
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
     config.add_facet_field 'collector_ssim', label: 'Collector', limit: true
     config.add_facet_field 'topic_facet', label: 'Topic', limit: true
     config.add_facet_field 'geographic_facet', label: 'Region', limit: true
-    config.add_facet_field 'era_facet', label: 'Era'
+    config.add_facet_field 'era_facet', label: 'Era', limit: true
     config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
     config.add_facet_field 'genre_ssim', label: 'Genre', limit: true
-    config.add_facet_field 'series_ssi', label: 'Series'
+    config.add_facet_field 'series_ssi', label: 'Series', limit: true
     config.add_facet_field 'box_ssi', label: 'Box', limit: true
     config.add_facet_field 'folder_ssi', label: 'Folder', limit: true
     # The Donor tags, Folder Name and Document subtype facets below were added as a specific need of the Feigenbaum
