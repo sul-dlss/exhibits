@@ -19,6 +19,8 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+      invitation_instructions:
+        subject: 'SUL exhibit invitation instructions'
       reset_password_instructions:
         subject: "Reset password instructions"
       unlock_instructions:
