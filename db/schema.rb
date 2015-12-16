@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209182842) do
+ActiveRecord::Schema.define(version: 20151216223757) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -150,8 +150,10 @@ ActiveRecord::Schema.define(version: 20151209182842) do
     t.integer  "masthead_id"
     t.integer  "thumbnail_id"
     t.integer  "weight",         default: 50
+    t.integer  "site_id"
   end
 
+  add_index "spotlight_exhibits", ["site_id"], name: "index_spotlight_exhibits_on_site_id"
   add_index "spotlight_exhibits", ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
 
   create_table "spotlight_featured_images", force: :cascade do |t|
@@ -240,15 +242,19 @@ ActiveRecord::Schema.define(version: 20151209182842) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.binary   "metadata"
+    t.integer  "index_status"
   end
+
+  add_index "spotlight_resources", ["index_status"], name: "index_spotlight_resources_on_index_status"
 
   create_table "spotlight_roles", force: :cascade do |t|
-    t.integer "exhibit_id"
     t.integer "user_id"
     t.string  "role"
+    t.integer "resource_id"
+    t.string  "resource_type"
   end
 
-  add_index "spotlight_roles", ["exhibit_id", "user_id"], name: "index_spotlight_roles_on_exhibit_id_and_user_id", unique: true
+  add_index "spotlight_roles", ["resource_type", "resource_id", "user_id"], name: "index_spotlight_roles_on_resource_and_user_id", unique: true
 
   create_table "spotlight_searches", force: :cascade do |t|
     t.string   "title"
@@ -269,6 +275,12 @@ ActiveRecord::Schema.define(version: 20151209182842) do
 
   add_index "spotlight_searches", ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
   add_index "spotlight_searches", ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
+
+  create_table "spotlight_sites", force: :cascade do |t|
+    t.string  "title"
+    t.string  "subtitle"
+    t.integer "masthead_id"
+  end
 
   create_table "spotlight_solr_document_sidecars", force: :cascade do |t|
     t.integer  "exhibit_id"
