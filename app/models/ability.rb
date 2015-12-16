@@ -7,7 +7,7 @@ class Ability
 
     can :manage, Delayed::Job if user && user.superadmin?
 
-    can :manage, PurlResource, exhibit_id: user.roles.pluck(:exhibit_id) if user
+    can :manage, PurlResource, exhibit_id: user.exhibit_roles.pluck(:resource_id) if user
 
     # disable spotlight functionality we don't want to expose in spotlight:
 
