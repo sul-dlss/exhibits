@@ -46,20 +46,6 @@
   }
 }
 
-#exhibit-masthead {
-  background-color: $sul-masthead-bg-color;
-
-  a {
-    color: $white;
-
-    &:hover,
-    &:focus {
-      color: $white;
-      text-decoration: none;
-    }
-  }
-}
-
 .navbar-form {
   button {
     background-color: $color-beige-10;
