@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     return if superadmin?
 
     role_attributes = {
-      exhibit: nil,
+      resource: nil,
       role: ('admin' if (webauth_groups & Settings.superadmin_workgroups).any?)
     }
 
