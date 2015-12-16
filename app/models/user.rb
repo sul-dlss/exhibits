@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     return if superadmin?
 
     role_attributes = {
-      resource: nil,
+      resource: Spotlight::Site.instance,
       role: ('admin' if (webauth_groups & Settings.superadmin_workgroups).any?)
     }
 
