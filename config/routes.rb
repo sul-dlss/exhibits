@@ -1,4 +1,4 @@
-SulExhibitsTemplate::Application.routes.draw do
+Exhibits::Application.routes.draw do
   mount Blacklight::Oembed::Engine, at: 'oembed'
 
   root to: 'spotlight/exhibits#index'

@@ -5,7 +5,7 @@ require File.expand_path('../config/application', __FILE__)
 
 task default: [:ci, :rubocop]
 
-SulExhibitsTemplate::Application.load_tasks
+Exhibits::Application.load_tasks
 
 ZIP_URL = 'https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.4.zip'
 
