@@ -4,10 +4,16 @@
 
   .navbar-brand {
     @extend .text-hide;
+
     background: transparent image-url("sul.png") no-repeat center left;
     height: $brandbar-height;
     padding: $brandbar-padding-vertical $navbar-padding-horizontal;
     width: 350px;
+
+    @media (max-width: $screen-xs-max) {
+      background: transparent image-url("sul-logo-small-white-text.png") no-repeat center left;
+      width: 68px;
+    }
   }
 
   .navbar-nav {
