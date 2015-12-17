@@ -5,13 +5,15 @@
 }
 
 .home-page-column {
-  h2 {
+  h2,
+  h3 {
     @include heading-with-border();
     font-size: $font-size-h3;
+    padding-top: 0;
   }
 
-  li {
-    padding: $padding-base-vertical 0;
+  .btn + h3 {
+    margin-top: $padding-large-vertical * 2;
   }
 }
 
