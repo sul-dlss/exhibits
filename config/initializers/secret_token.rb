@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SulExhibitsTemplate::Application.config.secret_key_base = 'aa0fd5a2aaf66d0be794ba1792413d63eba64654dc6c943f165ae3e554eb374a9b7daa53a8aba9925900b350a0834a855c95d941575a1c4d02cbc8e4928b2d43'
+Exhibits::Application.config.secret_key_base = 'aa0fd5a2aaf66d0be794ba1792413d63eba64654dc6c943f165ae3e554eb374a9b7daa53a8aba9925900b350a0834a855c95d941575a1c4d02cbc8e4928b2d43'
