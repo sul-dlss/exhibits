@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216223757) do
+ActiveRecord::Schema.define(version: 20160104133324) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -169,6 +169,16 @@ ActiveRecord::Schema.define(version: 20151216223757) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "spotlight_filters", force: :cascade do |t|
+    t.string   "field"
+    t.string   "value"
+    t.integer  "exhibit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "spotlight_filters", ["exhibit_id"], name: "index_spotlight_filters_on_exhibit_id"
 
   create_table "spotlight_locks", force: :cascade do |t|
     t.integer  "on_id"
