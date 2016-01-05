@@ -3,15 +3,19 @@
 class Ability
   include Spotlight::Ability
   def initialize(user)
-    super
+    user ||= Spotlight::Engine.user_class.new
 
-    can :manage, Delayed::Job if user && user.superadmin?
+    super(user)
 
-    can :manage, PurlResource, exhibit_id: user.exhibit_roles.pluck(:resource_id) if user
+    can :manage, Delayed::Job if user.superadmin?
+
+    can :manage, PurlResource, exhibit_id: user.exhibit_roles.pluck(:resource_id)
 
     # disable spotlight functionality we don't want to expose in spotlight:
 
     # disable exhibit import/export
-    cannot :import, Spotlight::Exhibit unless user && user.superadmin?
+    cannot :import, Spotlight::Exhibit unless user.superadmin?
+
+    cannot :manage, Spotlight::Filter unless user.superadmin?
   end
 end
