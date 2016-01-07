@@ -27,4 +27,12 @@ describe 'gdor indexing integration test', :vcr do
   it 'has exhibit-specific indexing' do
     expect(subject).to include 'full_image_url_ssm'
   end
+
+  it 'can write doc to solr with latest exhibits_solr_conf', vcr: false do
+    # hd778hw9236 has B.C. date -- good for checking Solr field types
+    r = Spotlight::Resources::Purl.new(url: 'https://purl.stanford.edu/hd778hw9236')
+    allow(r).to receive(:to_global_id).and_return('x')
+    allow(r).to receive(:exhibit).and_return(exhibit)
+    r.reindex
+  end
 end
