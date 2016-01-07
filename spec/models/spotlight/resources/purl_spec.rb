@@ -117,17 +117,8 @@ describe Spotlight::Resources::Purl do
     end
 
     context 'with a single item' do
-      before do
-        allow(subject.resource).to receive(:collection?).and_return(false)
-      end
-
       it 'provides a solr document for the resource' do
-        expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return(upstream: true)
-        expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
-      end
-
-      it 'indexs outside the context of an exhibit' do
-        allow(subject).to receive(:exhibit).and_return(nil)
+        allow(subject.resource).to receive(:collection?).and_return(false)
         expect(Spotlight::Dor::Resources.indexer).to receive(:solr_document).with(subject.resource).and_return(upstream: true)
         expect(subject.to_solr.first).to include :upstream, :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
       end
