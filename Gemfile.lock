@@ -219,7 +219,7 @@ GEM
     dotenv (2.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
-    exhibits_solr_conf (0.0.5.1)
+    exhibits_solr_conf (0.0.6)
     extlib (0.9.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -233,14 +233,14 @@ GEM
     ffi (1.9.10)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
-    gdor-indexer (0.3.0)
+    gdor-indexer (0.4.1)
       activesupport
       harvestdor-indexer
       hooks
       mail
       nokogiri
       rsolr
-      stanford-mods
+      stanford-mods (>= 1.3.4)
       trollop
     github-markup (1.4.0)
     globalid (0.3.6)
@@ -486,15 +486,14 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.3.3)
+    spotlight-dor-resources (0.4.1)
       blacklight-spotlight (~> 0.6)
       faraday
-      gdor-indexer
+      gdor-indexer (>= 0.4.1)
       harvestdor-indexer (~> 2.3)
       parallel
       rails
       solrizer
-      stanford-mods (>= 1.3.0)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -510,7 +509,8 @@ GEM
     sshkit (1.8.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stanford-mods (1.3.3)
+    stanford-mods (1.3.4)
+      activesupport
       mods (~> 2.0.2)
     stomp (1.3.4)
     sul_styles (0.5.1)
@@ -606,7 +606,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sitemap_generator
   social-share-button
-  spotlight-dor-resources (~> 0.3)
+  spotlight-dor-resources (~> 0.4)
   sqlite3
   squash_rails
   squash_ruby

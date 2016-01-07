@@ -75,7 +75,7 @@ gem 'blacklight', '~> 5.16'
 gem 'blacklight-gallery', '~> 0.3'
 gem 'blacklight-maps', '0.2.0'
 gem 'blacklight-spotlight', '~> 0.14'
-gem 'spotlight-dor-resources', '~> 0.3'
+gem 'spotlight-dor-resources', '~> 0.4' # get new pub year fields
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
 gem 'devise-remote-user'
