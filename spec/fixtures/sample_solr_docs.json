@@ -48,9 +48,6 @@
             "file"
         ],
         "druid": "hj066rn6500",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -166,9 +163,6 @@
             "file"
         ],
         "druid": "wd297xz1362",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -283,9 +277,6 @@
             "file"
         ],
         "druid": "xy658qf4887",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -401,9 +392,6 @@
         "druid": "wk210cf6868",
         "era_facet": [
             "1906-1908"
-        ],
-        "format": [
-            "Map/Globe"
         ],
         "format_main_ssim": [
             "Map"
@@ -528,9 +516,6 @@
             "file"
         ],
         "druid": "hx676nr2846",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -644,9 +629,6 @@
             "file"
         ],
         "druid": "nz926xc1513",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -761,9 +743,6 @@
             "file"
         ],
         "druid": "gk885tn1705",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -880,9 +859,6 @@
             "file"
         ],
         "druid": "zm589dr6916",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1002,9 +978,6 @@
             "file"
         ],
         "druid": "by513wd0839",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1128,9 +1101,6 @@
             "file"
         ],
         "druid": "ht152fg3281",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1246,9 +1216,6 @@
             "file"
         ],
         "druid": "cx876zn3079",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1362,9 +1329,6 @@
             "file"
         ],
         "druid": "rn350bb9484",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1481,9 +1445,6 @@
             "file"
         ],
         "druid": "rg759wj0953",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1625,9 +1586,6 @@
             "nile",
             "nilex"
         ],
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1742,9 +1700,6 @@
             "file"
         ],
         "druid": "gm036df2527",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1863,9 +1818,6 @@
             "file"
         ],
         "druid": "wr055hy7401",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -1984,9 +1936,6 @@
             "file"
         ],
         "druid": "qy240vt8937",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -2102,9 +2051,6 @@
             "file"
         ],
         "druid": "fx703zs6529",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -2222,9 +2168,6 @@
             "file"
         ],
         "druid": "qy458yc1855",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
@@ -2344,9 +2287,6 @@
             "file"
         ],
         "druid": "ct493wg6431",
-        "format": [
-            "Map/Globe"
-        ],
         "format_main_ssim": [
             "Map"
         ],
