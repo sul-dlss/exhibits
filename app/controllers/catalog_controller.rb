@@ -85,6 +85,7 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
     config.add_facet_field 'format_main_ssim', label: 'Resource type', limit: true
+    config.add_facet_field 'pub_date', label: 'Date', limit: true
     config.add_facet_field 'pub_year_w_approx_isi', label: 'Date', limit: true
     config.add_facet_field 'pub_year_no_approx_isi', label: 'Date (no approx)', limit: true
     config.add_facet_field 'language', label: 'Language', limit: true
@@ -128,6 +129,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'language', label: 'Language'
     config.add_index_field 'physical', label: 'Physical Description'
     config.add_index_field 'pub_display', label: 'Publication Info'
+    config.add_index_field 'pub_date', label: 'Date'
     config.add_index_field 'pub_year_w_approx_isi', label: 'Date'
     config.add_index_field 'pub_year_no_approx_isi', label: 'Date (no approx)'
     config.add_index_field 'imprint_display', label: 'Imprint'
