@@ -572,7 +572,6 @@ describe Spotlight::Dor::Indexer do
     end # add_series
   end # context StanfordMods concern
 
-  # rubocop:disable Metrics/LineLength
   context 'Full Text Indexing concern' do
     describe '#add_object_full_text' do
       let(:full_text_solr_fname) { 'full_text_tesimv' }
@@ -649,5 +648,4 @@ describe Spotlight::Dor::Indexer do
       end
     end # add_object_full_text
   end # full text indexing concern
-  # rubocop:enable Metrics/LineLength
 end
