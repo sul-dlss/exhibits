@@ -1,7 +1,15 @@
 module Spotlight::Resources
   # Base Resource indexer for objects in DOR
-  class DorResource < Spotlight::Resource
+  class DorHarvester < Spotlight::Resource
     include ActiveSupport::Benchmarkable
+
+    store :data, accessors: [:druid_list]
+
+    class << self
+      def instance(current_exhibit)
+        find_or_initialize_by exhibit: current_exhibit
+      end
+    end
 
     ##
     # Generate solr documents for the DOR resources identified by this object
@@ -22,8 +30,14 @@ module Spotlight::Resources
       end
     end
 
-    def resource
-      @resource ||= Spotlight::Dor::Resources.indexer.resource doc_id
+    def resources
+      @resources ||= druids.map do |d|
+        Spotlight::Dor::Resources.indexer.resource d
+      end
+    end
+
+    def druids
+      @druids ||= druid_list.split("\n").map(&:strip)
     end
 
     private
@@ -34,12 +48,14 @@ module Spotlight::Resources
     #
     # @return [Enumerator] an enumerator of resources to index
     def indexable_resources
-      return to_enum(:indexable_resources) { 1 + resource.items.size } unless block_given?
+      return to_enum(:indexable_resources) { resources.size + resources.sum { |r| r.items.size } } unless block_given?
 
-      yield resource
+      resources.each do |resource|
+        yield resource
 
-      resource.items.each do |r|
-        yield r
+        resource.items.each do |r|
+          yield r
+        end
       end
     end
 

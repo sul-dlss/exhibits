@@ -6,7 +6,7 @@ describe 'gdor indexing integration test', :vcr do
   end
 
   subject do
-    r = Spotlight::Resources::Purl.new(url: 'https://purl.stanford.edu/xf680rd3068')
+    r = Spotlight::Resources::DorHarvester.new(druid_list: 'xf680rd3068')
     allow(r).to receive(:to_global_id).and_return('x')
     allow(r).to receive(:exhibit).and_return(exhibit)
     r.to_solr.first
@@ -30,7 +30,7 @@ describe 'gdor indexing integration test', :vcr do
 
   it 'can write doc to solr with latest exhibits_solr_conf', vcr: false do
     # hd778hw9236 has B.C. date -- good for checking Solr field types
-    r = Spotlight::Resources::Purl.new(url: 'https://purl.stanford.edu/hd778hw9236')
+    r = Spotlight::Resources::DorHarvester.new(druid_list: 'hd778hw9236')
     allow(r).to receive(:to_global_id).and_return('x')
     allow(r).to receive(:exhibit).and_return(exhibit)
     r.reindex
