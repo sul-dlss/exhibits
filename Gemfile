@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -93,3 +93,4 @@ gem 'delayed_job_active_record'
 gem 'capistrano3-delayed-job'
 gem 'sul_styles'
 gem 'dotenv'
+gem 'sir_trevor_rails', git: 'https://github.com/cbeer/sir-trevor-rails.git', branch: 'rails4251-compat'
