@@ -85,7 +85,6 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
     config.add_facet_field 'format_main_ssim', label: 'Resource type', limit: true
-    config.add_facet_field 'pub_date', label: 'Date', limit: true
     config.add_facet_field 'pub_year_w_approx_isi', label: 'Date', limit: true
     config.add_facet_field 'pub_year_no_approx_isi', label: 'Date (no approx)', limit: true
     config.add_facet_field 'language', label: 'Language', limit: true
@@ -129,7 +128,6 @@ class CatalogController < ApplicationController
     config.add_index_field 'language', label: 'Language'
     config.add_index_field 'physical', label: 'Physical Description'
     config.add_index_field 'pub_display', label: 'Publication Info'
-    config.add_index_field 'pub_date', label: 'Date'
     config.add_index_field 'pub_year_w_approx_isi', label: 'Date'
     config.add_index_field 'pub_year_no_approx_isi', label: 'Date (no approx)'
     config.add_index_field 'imprint_display', label: 'Imprint'
@@ -224,10 +222,10 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', label: 'relevance'
-    config.add_sort_field 'pub_date_sort desc, title_sort asc', label: 'year (new to old)'
-    config.add_sort_field 'pub_date_sort asc, title_sort asc', label: 'year (old to new)'
+    config.add_sort_field 'score desc, pub_year_isi desc, title_sort asc', label: 'relevance'
+    config.add_sort_field 'pub_year_isi desc, title_sort asc', label: 'year (new to old)'
+    config.add_sort_field 'pub_year_isi asc, title_sort asc', label: 'year (old to new)'
     config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
-    config.add_sort_field 'title_sort asc, pub_date_sort desc', label: 'title'
+    config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
   end
 end

@@ -13,5 +13,6 @@ Exhibits::Application.routes.draw do
   resources :delayed_jobs
 
   mount Spotlight::Engine, at: '/'
+  mount Spotlight::Dor::Resources::Engine, at: '/'
   blacklight_for :catalog
 end
