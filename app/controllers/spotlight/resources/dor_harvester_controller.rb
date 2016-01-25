@@ -11,7 +11,7 @@ module Spotlight::Resources
     def create
       @resource.update(resource_params)
 
-      if @resource.save
+      if @resource.save_and_index
         redirect_to spotlight.admin_exhibit_catalog_index_path(current_exhibit)
       else
         redirect_to spotlight.new_exhibit_resource_path(current_exhibit)
@@ -21,7 +21,7 @@ module Spotlight::Resources
     def update
       @resource.update(resource_params)
 
-      if @resource.save
+      if @resource.save_and_index
         redirect_to spotlight.admin_exhibit_catalog_index_path(current_exhibit)
       else
         redirect_to spotlight.new_exhibit_resource_path(current_exhibit)
