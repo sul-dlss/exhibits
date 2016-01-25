@@ -11,7 +11,9 @@ AllCops:
     - 'spec/spec_helper.rb'
     - 'spec/teaspoon_env.rb'
     - 'vendor/**/*'
-  RunRailsCops: true
+
+Rails:
+  Enabled: true
 
 Metrics/LineLength:
   Max: 120
@@ -27,3 +29,7 @@ RSpec/DescribeClass:
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
+
+# pending updated rubocop-rspec gem
+RSpec/FilePath:
+  Enabled: false

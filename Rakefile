@@ -7,7 +7,7 @@ task default: [:ci, :rubocop]
 
 Exhibits::Application.load_tasks
 
-ZIP_URL = 'https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.4.zip'
+ZIP_URL = 'https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.4.zip'.freeze
 
 begin
 
