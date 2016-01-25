@@ -488,7 +488,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (0.6.0)
+    spotlight-dor-resources (0.6.1)
       blacklight-spotlight (~> 0.16)
       faraday
       gdor-indexer (>= 0.5.0)
