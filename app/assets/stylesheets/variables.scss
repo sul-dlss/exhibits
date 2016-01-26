@@ -22,7 +22,6 @@ $navbar-inverse-color: lighten($gray-base, 86%);
 $navbar-inverse-link-color: lighten($gray-base, 86%);
 
 $sul-masthead-bg-color: $color-beige-10;
-$sul-footer-bg-color: $color-beige-10;
 
 $navbar-default-bg: $color-beige-05;
 $navbar-default-link-hover-bg: $color-beige-20;
@@ -44,10 +43,6 @@ $brandbar-height: 35px;
 $brandbar-padding-vertical: (($brandbar-height - $line-height-computed) / 2);
 
 $home-masthead-height: 119px;
-
-$footer-height: 200px;
-$sul-footer-shadow-color: rgba(0, 0, 0, 0.2);
-$sul-footer-shadow: 0 4px 8px -8px $sul-footer-shadow-color inset;
 
 $breadcrumb-bg: transparent;
 $breadcrumb-padding-vertical: $padding-base-vertical;
