@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/cbeer/sir-trevor-rails.git
-  revision: 5841319eb05d78b1291be0195bc1d5f078d1643e
-  branch: rails4251-compat
+  remote: https://github.com/madebymany/sir-trevor-rails.git
+  revision: 58de25c6ca37d61c4bbc77edaffd1259495d0b4a
+  ref: 58de25c6ca37d61c4bbc77edaffd1259495d0b4a
   specs:
     sir_trevor_rails (0.5.0b1)
       multi_json (~> 1.0)
