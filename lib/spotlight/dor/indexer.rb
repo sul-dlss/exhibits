@@ -77,7 +77,7 @@ module Spotlight::Dor
       # add point_bbox solr field containing the point bounding box per
       # MODS subject.cartographics.coordinates (via stanford-mods gem)
       def add_point_bbox(sdb, solr_doc)
-        solr_doc['point_bbox'] = sdb.smods_rec.point_bbox
+        solr_doc['point_bbox'] = sdb.smods_rec.coordinates_as_envelope
       end
 
       def add_series(sdb, solr_doc)
