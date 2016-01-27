@@ -33,6 +33,9 @@ group :deployment do
   gem 'dlss-capistrano'
 end
 
+# Access an IRB console on exception pages or by using <%= console %> in views
+gem 'web-console', group: :development
+
 group :development, :test do
   gem 'jettywrapper'
   gem 'exhibits_solr_conf'
@@ -41,9 +44,6 @@ group :development, :test do
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
   gem 'database_cleaner'
 
