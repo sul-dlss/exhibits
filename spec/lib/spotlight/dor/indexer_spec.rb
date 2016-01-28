@@ -531,7 +531,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the point_bbox' do
-          expect(solr_doc['point_bbox']).to eq(['ENVELOPE(-16.0, 28.0, -15.0, 13.0)'])
+          expect(solr_doc['point_bbox']).to eq(['ENVELOPE(-16.0, 28.0, 13.0, -15.0)'])
         end
       end
     end # add_point_bbox
