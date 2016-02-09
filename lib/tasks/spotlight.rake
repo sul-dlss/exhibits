@@ -6,7 +6,7 @@ namespace :spotlight do
 
     exhibit_file = File.join(Rails.root, 'config', 'exhibit.yml')
     unless File.exist?(exhibit_file)
-      fail "You are missing a exhibit configuration file: #{exhibit_file}"
+      raise "You are missing a exhibit configuration file: #{exhibit_file}"
     end
 
     begin
@@ -22,11 +22,11 @@ namespace :spotlight do
     end
 
     if @exhibit_yml.nil? || !@exhibit_yml.is_a?(Hash)
-      fail("exhibit.yml was found, but was blank or malformed.\n")
+      raise("exhibit.yml was found, but was blank or malformed.\n")
     end
 
     @exhibit_config ||= begin
-      fail "The #{::Rails.env} environment settings were not found in exhibit.yml" unless @exhibit_yml[::Rails.env]
+      raise "The #{::Rails.env} environment settings were not found in exhibit.yml" unless @exhibit_yml[::Rails.env]
       @exhibit_yml[::Rails.env].symbolize_keys
     end
 
