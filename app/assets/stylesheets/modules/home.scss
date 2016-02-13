@@ -9,6 +9,7 @@
   h3 {
     @include heading-with-border();
     font-size: $font-size-h3;
+    padding-bottom: $padding-base-vertical;
     padding-top: 0;
   }
 

@@ -8,3 +8,7 @@
     color: $nav-link-color;
   }
 }
+
+a:hover {
+  border-radius: $border-radius-base;
+}

@@ -11,3 +11,66 @@
     background-color: $gray-lighter;
   }
 }
+
+// Ajustments to sidebars to use SUL color palette, more compact vertical spacing
+#sidebar li {
+  margin-top: 0;
+}
+
+#sidebar h4 {
+  @include heading-with-border();
+  font-size: 20px;
+
+  &.nav-heading {
+    margin-bottom: $padding-base-vertical;
+    padding-left: 3px;
+    padding-top: 0;
+  }
+}
+
+#sidebar ul.nav > li a {
+  padding: 3px $padding-base-horizontal 3px 3px;
+
+  .blacklight-about_pages-show & { // accommodate likely occurrence of multi-line items
+    padding-bottom: 4px;
+    padding-top: 4px;
+  }
+}
+
+.sidenav .active > a {
+  @include sidebar-link-active();
+}
+
+// Sidebar adjustments for feature pages.
+// Links here are constructed using h4s and nested ol items so styling
+// needs to be different than other sidebar links.
+#sidebar ol.sidenav {
+  > li > h4 {
+    border-bottom: 0;
+    color: $color-black-80;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 3px;
+    margin-top: $padding-base-vertical * 4;
+
+    > a {
+      color: $color-dark-red;
+    }
+  }
+
+  li:first-child > h4 {
+    margin-top: $padding-large-vertical * 3;
+  }
+
+  ol.subsection li {
+    list-style-type: none;
+    margin-left: 0;
+    padding-bottom: 3px;
+    padding-top: 3px;
+
+    &.active {
+      @include sidebar-link-active();
+    }
+  }
+}
