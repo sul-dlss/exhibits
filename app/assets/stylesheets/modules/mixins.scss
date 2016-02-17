@@ -2,7 +2,9 @@
   font-weight: 300;
   border-bottom: 1px solid $heading-border-color;
   color: $color-dark-red;
+  margin-bottom: 6px;
   padding-bottom: 3px;
+  padding-left: 3px;
 }
 
 @mixin brandbar-vertical-align($element-height) {

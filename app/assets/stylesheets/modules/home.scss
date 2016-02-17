@@ -5,6 +5,8 @@
 }
 
 .home-page-column {
+  margin-left: 6px;
+
   h2,
   h3 {
     @include heading-with-border();
@@ -15,6 +17,10 @@
 
   .btn + h3 {
     margin-top: $padding-large-vertical * 2;
+  }
+
+  .nav > li > a {
+    padding-left: 3px;
   }
 }
 
