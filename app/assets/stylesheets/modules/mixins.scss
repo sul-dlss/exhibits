@@ -1,6 +1,6 @@
 @mixin heading-with-border() {
   font-weight: 300;
-  border-bottom: 1px solid $color-beige-30;
+  border-bottom: 1px solid $heading-border-color;
   color: $color-dark-red;
   padding-bottom: 3px;
 }
@@ -11,6 +11,6 @@
 }
 
 @mixin sidebar-link-active() {
-  color: $color-black-80;
+  color: $sidebar-link-color;
   font-weight: 600;
 }
