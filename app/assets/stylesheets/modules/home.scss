@@ -5,15 +5,22 @@
 }
 
 .home-page-column {
+  margin-left: 6px;
+
   h2,
   h3 {
     @include heading-with-border();
     font-size: $font-size-h3;
+    padding-bottom: $padding-base-vertical;
     padding-top: 0;
   }
 
   .btn + h3 {
     margin-top: $padding-large-vertical * 2;
+  }
+
+  .nav > li > a {
+    padding-left: 3px;
   }
 }
 
