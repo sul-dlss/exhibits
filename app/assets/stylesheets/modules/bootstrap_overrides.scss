@@ -14,6 +14,11 @@
   }
 }
 
+.nav-tabs > li.active > a {
+  color: $color-gray-90;
+  font-weight: 600;
+}
+
 a:hover {
   border-radius: $border-radius-base;
 }
