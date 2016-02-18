@@ -132,3 +132,7 @@
 .dropdown-menu > li > a:focus {
   background-color: $sidebar-link-background-color;
 }
+
+.blacklight-about_pages-show #sidebar {
+  margin-top: $padding-large-vertical * 2;
+}
