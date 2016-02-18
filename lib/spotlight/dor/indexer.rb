@@ -71,7 +71,7 @@ module Spotlight::Dor
       end
 
       def add_location(sdb, solr_doc)
-        solr_doc['location_ssi'] = sdb.smods_rec.location
+        solr_doc['location_ssi'] = sdb.smods_rec.physical_location_str
       end
 
       # add point_bbox solr field containing the point bounding box per
@@ -147,7 +147,7 @@ module Spotlight::Dor
 
       def add_document_subtype(sdb, solr_doc)
         subtype = sdb.smods_rec.note.select { |n| n.displayLabel == 'Document subtype' }.map(&:content)
-        solr_doc['doc_subtype_ssi'] = subtype.first if subtype.size > 0
+        solr_doc['doc_subtype_ssi'] = subtype.first unless subtype.empty?
       end
 
       def add_donor_tags(sdb, solr_doc)
@@ -178,7 +178,7 @@ module Spotlight::Dor
       # search for configured full text files, and if found, add them to the full text (whole document) solr field
       def add_object_full_text(sdb, solr_doc)
         full_text_urls = object_level_full_text_urls(sdb)
-        return if full_text_urls.size == 0
+        return if full_text_urls.empty?
         solr_doc['full_text_tesimv'] = full_text_urls.map { |file_url| get_file_content(file_url) }
       end
 
