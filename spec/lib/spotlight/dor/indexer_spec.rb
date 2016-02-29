@@ -141,6 +141,7 @@ describe Spotlight::Dor::Indexer do
             <mods xmlns="#{Mods::MODS_NS}">
               <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
               <note displayLabel="Donor tags">medical applications</note>
+              <note displayLabel="Donor tags">medical Applications (second word CAPPED)</note>
               <note displayLabel="Donor tags">Publishing</note>
               <note displayLabel="Donor tags">Stanford</note>
               <note displayLabel="Donor tags">Stanford Computer Science Department</note>
@@ -150,7 +151,8 @@ describe Spotlight::Dor::Indexer do
 
         it 'extracts the donor tags' do
           expect(solr_doc['donor_tags_ssim']).to contain_exactly 'Knowledge Systems Laboratory',
-                                                                 'medical applications',
+                                                                 'Medical applications',
+                                                                 'Medical Applications (second word CAPPED)',
                                                                  'Publishing',
                                                                  'Stanford',
                                                                  'Stanford Computer Science Department'

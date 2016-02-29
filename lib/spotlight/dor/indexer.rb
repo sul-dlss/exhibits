@@ -152,7 +152,7 @@ module Spotlight::Dor
 
       def add_donor_tags(sdb, solr_doc)
         donor_tags = sdb.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
-        insert_field solr_doc, 'donor_tags', donor_tags, :symbol # this is a _ssim field
+        insert_field solr_doc, 'donor_tags', upcase_first_character(donor_tags), :symbol # this is a _ssim field
       end
 
       # add the folder name to solr_doc as folder_name_ssi field (note: single valued!)
@@ -211,6 +211,12 @@ module Spotlight::Dor
           "//contentMetadata/resource/file[@id=\"#{sdb.bare_druid}.txt\"]" # feigenbaum style - full text in .txt named for druid
         ]
       end
+    end
+
+    # takes an array, upcases just the first character of each element in the array and returns the new array
+    #   not the same as .captialize which will lowercase the rest of the string
+    def upcase_first_character(values)
+      values.map { |value| value.sub(/^./, &:upcase) }
     end
 
     def insert_field(solr_doc, field, values, *args)
