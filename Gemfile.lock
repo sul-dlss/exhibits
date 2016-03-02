@@ -478,7 +478,7 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (1.0.0)
+    spotlight-dor-resources (1.0.1)
       blacklight-spotlight (~> 0.16)
       faraday
       gdor-indexer (>= 0.5.0)
@@ -494,7 +494,7 @@ GEM
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.0.3)
+    sprockets-rails (3.0.4)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
@@ -604,7 +604,7 @@ DEPENDENCIES
   sir_trevor_rails
   sitemap_generator
   social-share-button
-  spotlight-dor-resources (~> 1.0)
+  spotlight-dor-resources (~> 1.0, >= 1.0.1)
   spotlight-resources-iiif
   sqlite3
   squash_rails
