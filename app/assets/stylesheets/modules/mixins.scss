@@ -16,3 +16,7 @@
   color: $sidebar-link-color;
   font-weight: 600;
 }
+
+@mixin thumbnail-image-border() {
+  border: 1px solid $color-gray-80;
+}
