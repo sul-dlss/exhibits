@@ -168,3 +168,7 @@
     color: $color-blackish;
   }
 }
+
+.callout-danger .btn-default {
+  @extend .btn-danger;
+}
