@@ -53,7 +53,7 @@
 
   .thumbnail {
     img {
-      border: 1px solid $gray;
+      @include thumbnail-image-border;
     }
   }
 

@@ -19,6 +19,18 @@
   font-weight: 600;
 }
 
+.nav-pills > li > a {
+  background-color: $color-beige-10;
+  border: 1px solid $color-gray-80;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus {
+  background-color: $color-beige-30;
+}
+
 a:hover {
   border-radius: $border-radius-base;
 }

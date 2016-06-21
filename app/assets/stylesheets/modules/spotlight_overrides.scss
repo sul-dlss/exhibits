@@ -168,3 +168,19 @@
     color: $color-blackish;
   }
 }
+
+.callout-danger .btn-default {
+  @extend .btn-danger;
+}
+
+.st__content-block--image {
+  text-align: center;
+
+  img {
+    @include thumbnail-image-border;
+  }
+}
+
+.thumbnail > img {
+  @include thumbnail-image-border;
+}
