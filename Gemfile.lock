@@ -323,7 +323,7 @@ GEM
     memoist (0.14.0)
     mime-types (2.99.1)
     mini_magick (4.4.0)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.8.4)
     mods (2.0.3)
       iso-639
@@ -336,8 +336,9 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.0.2)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     nom-xml (0.5.4)
       activesupport (>= 3.2.18)
       i18n
@@ -359,6 +360,7 @@ GEM
     parallel (1.6.2)
     parser (2.3.0.6)
       ast (~> 2.2)
+    pkg-config (1.1.7)
     powerpack (0.1.1)
     rack (1.6.4)
     rack-accept (0.4.5)
