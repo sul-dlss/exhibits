@@ -771,7 +771,7 @@
             "31 x 42 cm"
         ],
         "point_bbox": [
-            "-18.0 -35.0 51.0 37.0"
+            "ENVELOPE(51.0, -18.0, 37.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1891,
         "pub_year_w_approx_isi": 1891,
@@ -889,7 +889,7 @@
             "34 x 41 cm"
         ],
         "point_bbox": [
-            "14.0 -35.0 34.0 -21.0"
+            "ENVELOPE(34.0, 14.0, -21.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1890,
         "pub_year_w_approx_isi": 1890,
@@ -1363,7 +1363,7 @@
             "52 x 82 cm"
         ],
         "point_bbox": [
-            "6.0 -37.0 41.0 -5.0"
+            "ENVELOPE(41.0, 6.0, -5.0, -37.0)"
         ],
         "pub_year_no_approx_isi": 1886,
         "pub_year_w_approx_isi": 1886,
@@ -1736,7 +1736,7 @@
             "27 x 34 cm"
         ],
         "point_bbox": [
-            "-18.0 -35.0 51.0 37.0"
+            "ENVELOPE(51.0, -18.0, 37.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1881,
         "pub_year_w_approx_isi": 1881,
@@ -1974,7 +1974,7 @@
             "24 x 32 cm"
         ],
         "point_bbox": [
-            "-18.0 -35.0 51.0 37.0"
+            "ENVELOPE(51.0, -18.0, 37.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1880,
         "pub_year_w_approx_isi": 1880,

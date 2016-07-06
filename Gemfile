@@ -37,8 +37,8 @@ end
 gem 'web-console', group: :development
 
 group :development, :test do
-  gem 'jettywrapper'
-  gem 'exhibits_solr_conf'
+  gem 'solr_wrapper'
+  gem 'exhibits_solr_conf', '~> 0.1'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 

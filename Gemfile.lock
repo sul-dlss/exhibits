@@ -1,3 +1,40 @@
+GIT
+  remote: git://github.com/projectblacklight/spotlight.git
+  revision: 330427ea5073370ee00a12f46a0eba07d1b96a22
+  specs:
+    blacklight-spotlight (0.17.1)
+      acts-as-taggable-on (~> 3.5)
+      autoprefixer-rails
+      blacklight (~> 6.3)
+      blacklight-gallery (>= 0.3.0)
+      blacklight-oembed (>= 0.0.3)
+      bootstrap_form (~> 2.2)
+      breadcrumbs_on_rails (~> 2.3.0)
+      cancancan
+      carrierwave
+      carrierwave-crop
+      devise (~> 3.0)
+      devise_invitable (~> 1.5)
+      faraday
+      faraday_middleware
+      friendly_id (~> 5.1.0)
+      github-markup
+      google-api-client (~> 0.8.0)
+      legato
+      lodash-rails
+      mail_form (~> 1.5, >= 1.5.1)
+      mini_magick
+      nokogiri
+      oauth2
+      openseadragon
+      paper_trail (~> 4.0)
+      rails (~> 4.0, >= 4.2.0)
+      roar-rails
+      sir_trevor_rails (~> 0.5.0b1)
+      social-share-button (~> 0.1.5)
+      tophat
+      underscore-rails (~> 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -211,8 +248,8 @@ GEM
     dor-fetcher (1.0.5)
     dotenv (2.1.0)
     erubis (2.7.0)
-    execjs (2.6.0)
-    exhibits_solr_conf (0.0.7)
+    execjs (2.7.0)
+    exhibits_solr_conf (0.1.0)
     extlib (0.9.16)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -475,6 +512,10 @@ GEM
       coffee-rails
       sass-rails
     solrizer (3.3.0)
+    solr_wrapper (0.13.2)
+      faraday
+      ruby-progressbar
+      rubyzip
       activesupport
       daemons
       nokogiri
@@ -586,12 +627,11 @@ DEPENDENCIES
   devise_invitable
   dlss-capistrano
   dotenv
-  exhibits_solr_conf
+  exhibits_solr_conf (~> 0.1)
   factory_girl_rails
   friendly_id
   is_it_working-cbeer
   jbuilder (~> 2.0)
-  jettywrapper
   jquery-rails
   mysql2 (~> 0.3.20)
   rack-dev-mark
@@ -605,6 +645,7 @@ DEPENDENCIES
   sir_trevor_rails
   sitemap_generator
   social-share-button
+  solr_wrapper
   spotlight-dor-resources (~> 1.0, >= 1.0.1)
   spotlight-resources-iiif
   sqlite3
