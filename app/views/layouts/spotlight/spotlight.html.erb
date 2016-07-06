@@ -13,7 +13,9 @@
     <![endif]-->
 
     <title><%= h(@page_title || application_name) %></title>
-    <link href="<%= current_exhibit ? spotlight.exhibit_opensearch_catalog_url(current_exhibit, format: 'xml') : main_app.opensearch_catalog_url(format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search"/>
+    <% if current_exhibit %>
+      <link href="<%= spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search"/>
+    <% end %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "https://www.stanford.edu/su-identity/css/su-identity.css" %>

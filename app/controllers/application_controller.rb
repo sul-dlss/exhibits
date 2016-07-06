@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   include Blacklight::Controller
   include Spotlight::Controller
 
+  before_action :set_paper_trail_whodunnit
+
   include Squash::Ruby::ControllerMethods
   enable_squash_client
 

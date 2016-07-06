@@ -13,7 +13,9 @@ Exhibits::Application.routes.draw do
   resource :purl_resources
   resources :delayed_jobs
 
+  mount Blacklight::Engine => '/'
+  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
+
   mount Spotlight::Engine, at: '/'
   mount Spotlight::Dor::Resources::Engine, at: '/'
-  blacklight_for :catalog
 end
