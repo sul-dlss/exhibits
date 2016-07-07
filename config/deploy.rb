@@ -1,5 +1,5 @@
-# config valid only for Capistrano 3.4
-lock '3.4.0'
+# config valid only for Capistrano 3.5
+lock '3.5.0'
 
 set :application, 'spotlight'
 set :repo_url, 'https://github.com/sul-dlss/exhibits.git'
