@@ -26,6 +26,7 @@ task ci: [:environment] do
   SolrWrapper.wrap(port: '8983') do |solr|
     solr.with_collection(name: 'blacklight-core', dir: ExhibitsSolrConf.path) do
       # run the tests
+      Rake::Task['spotlight:seed'].invoke
       Rake::Task['spec'].invoke
     end
   end
