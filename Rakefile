@@ -1,59 +1,50 @@
 # Add your own tasks in files placed in lib/tasks ending in .rake,
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
-
 require File.expand_path('../config/application', __FILE__)
 
 task default: [:ci, :rubocop]
 
 Exhibits::Application.load_tasks
 
-ZIP_URL = 'https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.4.zip'.freeze
-
 begin
-
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new(:rubocop)
 
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+  # this rescue block is here for deployment to production, where the jettywrapper
+  # does not exist and requiring it will fail, and is ok
+  STDERR.puts 'WARNING:  and/or Rubocop was not found and could not be required.'
+end
 
-  require 'jettywrapper'
+desc 'Run tests in generated test Rails app with generated Solr instance running'
+task ci: [:environment] do
+  require 'solr_wrapper'
   require 'exhibits_solr_conf'
-  desc 'Run tests in generated test Rails app with generated Solr instance running'
-  task ci: ['jetty:clean', 'exhibits:configure_solr'] do
-    ENV['environment'] = 'test'
-    jetty_params = Jettywrapper.load_config
-    jetty_params[:startup_wait] = 60
-
-    Jettywrapper.wrap(jetty_params) do
+  ENV['environment'] = 'test'
+  SolrWrapper.wrap(port: '8983') do |solr|
+    solr.with_collection(name: 'blacklight-core', dir: ExhibitsSolrConf.path) do
       # run the tests
       Rake::Task['spec'].invoke
     end
   end
-rescue LoadError
-  # this rescue block is here for deployment to production, where the jettywrapper
-  # does not exist and requiring it will fail, and is ok
-  STDERR.puts 'WARNING: JettyWrapper and/or Rubocop was not found and could not be required.'
 end
 
-desc 'Run jetty and launch the development Rails server'
-task :server do
-  unless File.exist? 'jetty'
-    Rake::Task['jetty:clean'].invoke
-    Rake::Task['exhibits:configure_solr'].invoke
-  end
+desc 'Run solr and launch the development Rails server'
+task server: [:environment] do
+  require 'solr_wrapper'
+  require 'exhibits_solr_conf'
+  SolrWrapper.wrap(port: '8983') do |solr|
+    solr.with_collection(name: 'blacklight-core', dir: ExhibitsSolrConf.path) do
+      system 'bundle exec rake spotlight:seed'
 
-  jetty_params = Jettywrapper.load_config
-  jetty_params[:startup_wait] = 60
-
-  Jettywrapper.wrap(jetty_params) do
-    system 'bundle exec rake spotlight:seed'
-
-    unless File.exist? 'tmp/.initialized'
-      system 'bundle exec rake spotlight:initialize'
-      File.open('tmp/.initialized', 'w') {}
+      unless File.exist? 'tmp/.initialized'
+        system 'bundle exec rake spotlight:initialize'
+        File.open('tmp/.initialized', 'w') {}
+      end
+      system 'bundle exec rails s'
     end
-    system 'bundle exec rails s'
   end
 end
 

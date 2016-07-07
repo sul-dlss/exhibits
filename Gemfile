@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,8 +37,8 @@ end
 gem 'web-console', group: :development
 
 group :development, :test do
-  gem 'jettywrapper'
-  gem 'exhibits_solr_conf'
+  gem 'solr_wrapper'
+  gem 'exhibits_solr_conf', '~> 0.1'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
@@ -71,10 +71,10 @@ gem 'config'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 
-gem 'blacklight', '~> 5.16'
+gem 'blacklight', '~> 6.3'
 gem 'blacklight-gallery', '~> 0.3'
 gem 'blacklight-maps', '0.2.0'
-gem 'blacklight-spotlight', '~> 0.16'
+gem 'blacklight-spotlight', '~> 0.18'
 gem 'spotlight-dor-resources', '~> 1.0', '>= 1.0.1'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
