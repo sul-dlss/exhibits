@@ -59,7 +59,7 @@ GEM
       rails (>= 4.2, < 6)
       rsolr (~> 1.0, >= 1.0.6)
       twitter-typeahead-rails (~> 0.11)
-    blacklight-gallery (0.6.0)
+    blacklight-gallery (0.6.1)
       blacklight (~> 6.3)
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.2.0)
