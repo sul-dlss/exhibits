@@ -35,7 +35,6 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # set :keep_releases, 5
 
 before 'deploy:publishing', 'squash:write_revision'
-before 'deploy:publishing', 'deploy:sitemap:create'
 
 namespace :deploy do
   after :restart, :clear_cache do
