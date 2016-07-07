@@ -18,4 +18,32 @@ describe 'an exhibit' do
     click_button 'search'
     expect(page.status_code).to eq 200
   end
+
+  describe 'search results' do
+    let(:exhibit) { FactoryGirl.create(:exhibit, slug: 'default-exhibit') }
+    before do
+      visit spotlight.url_for(exhibit)
+      click_button 'search'
+    end
+
+    it 'has the list search results view' do
+      click_on 'List'
+      expect(page.status_code).to eq 200
+    end
+
+    it 'has the gallery search results view' do
+      click_on 'Gallery'
+      expect(page.status_code).to eq 200
+    end
+
+    it 'has the masonry search results view' do
+      click_on 'Masonry'
+      expect(page.status_code).to eq 200
+    end
+
+    it 'has the slideshow search results view' do
+      click_on 'Slideshow'
+      expect(page.status_code).to eq 200
+    end
+  end
 end
