@@ -25,7 +25,7 @@ require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'dlss/capistrano'
 require 'squash/rails/capistrano3'
-require 'capistrano/delayed-job'
+require 'capistrano/delayed_job'
 require 'capistrano/sitemap_generator'
 require 'whenever/capistrano'
 
