@@ -484,8 +484,8 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (1.0.1)
-      blacklight-spotlight (~> 0.16)
+    spotlight-dor-resources (1.1.0)
+      blacklight-spotlight (~> 0.18)
       faraday
       gdor-indexer (>= 0.5.0)
       harvestdor-indexer (~> 2.3)
@@ -629,4 +629,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.12.3
+   1.12.5
