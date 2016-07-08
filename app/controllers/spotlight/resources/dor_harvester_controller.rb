@@ -12,21 +12,12 @@ module Spotlight::Resources
       @resource.update(resource_params)
 
       if @resource.save_and_index
-        redirect_to spotlight.admin_exhibit_catalog_index_path(current_exhibit)
+        redirect_to spotlight.admin_exhibit_catalog_path(current_exhibit)
       else
         redirect_to spotlight.new_exhibit_resource_path(current_exhibit)
       end
     end
-
-    def update
-      @resource.update(resource_params)
-
-      if @resource.save_and_index
-        redirect_to spotlight.admin_exhibit_catalog_index_path(current_exhibit)
-      else
-        redirect_to spotlight.new_exhibit_resource_path(current_exhibit)
-      end
-    end
+    alias update create
 
     private
 
