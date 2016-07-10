@@ -183,4 +183,5 @@
 
 .thumbnail > img {
   @include thumbnail-image-border;
+  max-width: 400px;
 }
