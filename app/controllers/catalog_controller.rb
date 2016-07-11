@@ -107,6 +107,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'folder_name_ssi', label: 'Folder Name', limit: true
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
     config.add_facet_field 'doc_subtype_ssi', label: 'Document Subtype', limit: true
+    config.add_facet_field 'collection_with_title', label: 'Collection', helper_method: :collection_title
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -143,6 +144,7 @@ class CatalogController < ApplicationController
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes'
+    config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
