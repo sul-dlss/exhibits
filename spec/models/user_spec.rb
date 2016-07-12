@@ -19,4 +19,9 @@ describe User do
       expect(subject).not_to be_a_superadmin
     end
   end
+  describe '#to_s' do
+    it 'returns #email' do
+      expect(subject.to_s).to eq subject.email
+    end
+  end
 end
