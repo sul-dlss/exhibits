@@ -424,7 +424,7 @@ GEM
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
-    rspec-rails (3.5.0)
+    rspec-rails (3.5.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -474,7 +474,7 @@ GEM
     social-share-button (0.3.1)
       coffee-rails
       sass-rails
-    solr_wrapper (0.14.1)
+    solr_wrapper (0.14.2)
       faraday
       ruby-progressbar
       rubyzip

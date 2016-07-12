@@ -31,10 +31,9 @@ group :deployment do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
   gem 'dlss-capistrano'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console'
 end
-
-# Access an IRB console on exception pages or by using <%= console %> in views
-gem 'web-console', group: :development
 
 group :development, :test do
   gem 'solr_wrapper'
