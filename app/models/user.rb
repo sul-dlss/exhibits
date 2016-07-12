@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Exhibits will populate its own roles from workgroups, and doesn't need
+  # this upstream feature.
+  def add_default_roles
+    # no-op
+  end
+
   private
 
   # rubocop:disable Metrics/MethodLength
