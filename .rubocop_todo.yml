@@ -1,2 +1,4 @@
+require: rubocop-rspec
+
 RSpec/AnyInstance:
   Enabled: false
