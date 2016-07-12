@@ -14,4 +14,9 @@ describe User do
       expect(subject).to be_a_superadmin
     end
   end
+  describe '#add_default_roles' do
+    it 'does not inject the administrative role' do
+      expect(subject).not_to be_a_superadmin
+    end
+  end
 end

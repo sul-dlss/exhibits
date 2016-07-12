@@ -19,9 +19,11 @@
     </li>
   </ul>
 
-  <%= link_to spotlight.new_exhibit_path, class: "btn btn-default", role: "button" do %>
-    Request a new exhibit
-    <small class="sunet-notice">Requires SUNet login</small>
+  <% if can?(:create, Spotlight::Exhibit) %>
+      <%= link_to spotlight.new_exhibit_path, class: "btn btn-default", role: "button" do %>
+          Request a new exhibit
+          <small class="sunet-notice">Requires SUNet login</small>
+      <% end %>
   <% end %>
 
   <% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
@@ -33,7 +35,7 @@
         <li><%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %></li>
       <% end %>
 
-      <% if can? :manange, Spotlight::Exhibit %>
+      <% if can? :manage, Spotlight::Exhibit %>
         <li><%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %></li>
         <li><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %></li>
       <% end %>
