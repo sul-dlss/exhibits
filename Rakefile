@@ -2,13 +2,15 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 require File.expand_path('../config/application', __FILE__)
 
-task default: [:ci, :rubocop]
+task default: :ci
 
 Exhibits::Application.load_tasks
 
 begin
   require 'rubocop/rake_task'
-  RuboCop::RakeTask.new(:rubocop)
+  RuboCop::RakeTask.new(:rubocop) do |task|
+    task.fail_on_error = true
+  end
 
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
@@ -19,7 +21,7 @@ rescue LoadError
 end
 
 desc 'Run tests in generated test Rails app with generated Solr instance running'
-task ci: [:environment] do
+task ci: [:rubocop, :environment] do
   require 'solr_wrapper'
   require 'exhibits_solr_conf'
   ENV['environment'] = 'test'
