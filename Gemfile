@@ -6,7 +6,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 2.7.2'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -31,10 +31,9 @@ group :deployment do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
   gem 'dlss-capistrano'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console'
 end
-
-# Access an IRB console on exception pages or by using <%= console %> in views
-gem 'web-console', group: :development
 
 group :development, :test do
   gem 'solr_wrapper'
@@ -59,7 +58,7 @@ group :test do
 end
 
 group :production do
-  gem 'mysql2', '~> 0.3.20'
+  gem 'mysql2', '~> 0.4.4'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
 end
@@ -74,7 +73,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'blacklight', '~> 6.3'
 gem 'blacklight-gallery', '~> 0.3'
 gem 'blacklight-maps', '0.2.0'
-gem 'blacklight-spotlight', '~> 0.18'
+gem 'blacklight-spotlight', '~> 0.19'
 gem 'spotlight-dor-resources', '~> 1.0', '>= 1.0.1'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'

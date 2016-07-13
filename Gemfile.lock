@@ -43,10 +43,6 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
     ast (2.3.0)
-    autoparse (0.3.3)
-      addressable (>= 2.3.1)
-      extlib (>= 0.9.15)
-      multi_json (>= 1.0.0)
     autoprefixer-rails (6.3.7)
       execjs
     bcrypt (3.1.11)
@@ -76,7 +72,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.18.0)
+    blacklight-spotlight (0.19.0)
       acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -87,16 +83,14 @@ GEM
       cancancan
       carrierwave
       carrierwave-crop
-      devise (~> 3.0)
+      devise (>= 3.0)
       devise_invitable (~> 1.5)
       faraday
       faraday_middleware
       friendly_id (~> 5.1.0)
       github-markup
-      google-api-client (~> 0.8.0)
       legato
       lodash-rails
-      mail_form (~> 1.5, >= 1.5.1)
       mini_magick
       nokogiri
       oauth2
@@ -104,6 +98,7 @@ GEM
       paper_trail (~> 5.0)
       rails (~> 4.0, >= 4.2.0)
       roar-rails
+      signet
       sir_trevor_rails (~> 0.5)
       social-share-button (~> 0.3)
       tophat
@@ -160,9 +155,9 @@ GEM
       jquery-rails
       rails (>= 3.2)
     chronic (0.10.2)
-    coffee-rails (4.1.1)
+    coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.1.x)
+      railties (>= 4.0.0, < 5.2.x)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -190,12 +185,11 @@ GEM
       delayed_job (>= 3.0, < 5)
     deprecation (1.0.0)
       activesupport
-    devise (3.5.10)
+    devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
+      railties (>= 4.1.0, < 5.1)
       responders
-      thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise-guests (0.5.0)
       devise
@@ -218,7 +212,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     exhibits_solr_conf (0.1.0)
-    extlib (0.9.16)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.7.0)
@@ -242,25 +235,6 @@ GEM
     github-markup (1.4.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    google-api-client (0.8.6)
-      activesupport (>= 3.2)
-      addressable (~> 2.3)
-      autoparse (~> 0.3)
-      extlib (~> 0.9)
-      faraday (~> 0.9)
-      googleauth (~> 0.3)
-      launchy (~> 2.4)
-      multi_json (~> 1.10)
-      retriable (~> 1.4)
-      signet (~> 0.6)
-    googleauth (0.5.1)
-      faraday (~> 0.9)
-      jwt (~> 1.4)
-      logging (~> 2.0)
-      memoist (~> 0.12)
-      multi_json (~> 1.11)
-      os (~> 0.9)
-      signet (~> 0.7)
     harvestdor (0.2.0)
       confstruct
       nokogiri
@@ -295,8 +269,6 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    launchy (2.4.3)
-      addressable (~> 2.3)
     leaflet-markercluster-rails (0.7.0)
       railties (>= 3.1)
     leaflet-rails (0.7.7)
@@ -304,20 +276,12 @@ GEM
     legato (0.7.0)
       multi_json
     libv8 (3.16.14.15)
-    little-plugger (1.1.4)
     lodash-rails (4.13.1)
       railties (>= 3.1)
-    logging (2.1.0)
-      little-plugger (~> 1.1)
-      multi_json (~> 1.10)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    mail_form (1.5.1)
-      actionmailer (>= 3.2, < 5)
-      activemodel (>= 3.2, < 5)
-    memoist (0.14.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -331,7 +295,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mysql2 (0.3.21)
+    mysql2 (0.4.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
@@ -351,7 +315,6 @@ GEM
     openseadragon (0.2.1)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    os (0.9.6)
     paper_trail (5.2.0)
       activerecord (>= 3.0, < 6.0)
       activesupport (>= 3.0, < 6.0)
@@ -403,7 +366,6 @@ GEM
     request_store (1.3.1)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
-    retriable (1.4.1)
     retries (0.0.5)
     roar (1.0.4)
       representable (>= 2.0.1, < 2.4.0)
@@ -424,7 +386,7 @@ GEM
     rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
-    rspec-rails (3.5.0)
+    rspec-rails (3.5.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -464,9 +426,9 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sir_trevor_rails (0.5.0)
+    sir_trevor_rails (0.5.1)
       multi_json (~> 1.0)
-      rails (>= 3, < 5)
+      rails (>= 3, < 6)
       redcarpet (>= 2.0.1, < 4)
       twitter-text (~> 1.4)
     sitemap_generator (5.1.0)
@@ -474,7 +436,7 @@ GEM
     social-share-button (0.3.1)
       coffee-rails
       sass-rails
-    solr_wrapper (0.14.1)
+    solr_wrapper (0.14.2)
       faraday
       ruby-progressbar
       rubyzip
@@ -540,7 +502,7 @@ GEM
       rack (~> 1.3)
       rack-accept (~> 0.4)
       tilt (>= 1.4, < 3)
-    twitter-text (1.13.4)
+    twitter-text (1.14.0)
       unf (~> 0.1.0)
     twitter-typeahead-rails (0.11.1)
       actionpack (>= 3.1)
@@ -575,7 +537,7 @@ DEPENDENCIES
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
   blacklight-maps (= 0.2.0)
-  blacklight-spotlight (~> 0.18)
+  blacklight-spotlight (~> 0.19)
   bootstrap-sass (~> 3.3.5)
   byebug
   capistrano (~> 3.0)
@@ -584,7 +546,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano3-delayed-job
   capybara
-  coffee-rails (~> 4.1.0)
+  coffee-rails (~> 4.2.1)
   config
   coveralls
   database_cleaner
@@ -602,7 +564,7 @@ DEPENDENCIES
   is_it_working-cbeer
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2 (~> 0.3.20)
+  mysql2 (~> 0.4.4)
   rack-dev-mark
   rails (= 4.2.6)
   rspec-rails
