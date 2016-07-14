@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Spotlight::Dor::Indexer do
   subject { described_class.new }
 

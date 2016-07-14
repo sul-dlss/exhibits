@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe Spotlight::Resources::DorHarvesterController, type: :controller do
   routes { Spotlight::Dor::Resources::Engine.routes }
   let(:resource) { double }
@@ -10,14 +8,11 @@ RSpec.describe Spotlight::Resources::DorHarvesterController, type: :controller d
   before do
     sign_in user
     allow(Spotlight::Resources::DorHarvester).to receive(:instance).and_return(resource)
+    expect(resource).to receive(:update).with(attributes)
+    allow(resource).to receive(:save_and_index).and_return(save_status)
   end
 
   describe '#create' do
-    before do
-      expect(resource).to receive(:update).with(attributes)
-      allow(resource).to receive(:save_and_index).and_return(save_status)
-    end
-
     context 'when save is successful' do
       let(:save_status) { true }
 
@@ -40,11 +35,6 @@ RSpec.describe Spotlight::Resources::DorHarvesterController, type: :controller d
   end
 
   describe '#update' do
-    before do
-      expect(resource).to receive(:update).with(attributes)
-      allow(resource).to receive(:save_and_index).and_return(save_status)
-    end
-
     context 'when save is successful' do
       let(:save_status) { true }
 
