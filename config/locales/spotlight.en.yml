@@ -4,6 +4,9 @@ en:
       invitation_instructions:
         someone_invited_you: 'The SUL Exhibits Administrator has invited you to help work on the "%{exhibit_name}" exhibit. You can accept this invitation by clicking the link below.'
         ignore_html: "If you don't want to accept the invitation, please ignore this email. You won't be added to the \"%{exhibit_name}\" exhibit team until you access the link above."
+        reference_links_text_html: "If you have questions about this invitation or SUL Exhibits, send an email to %{mailto}. To see examples of exhibits created by other SUL exhibit curators, visit the %{href} page."
+        mail_to_href: "exhibits-feedback@lists.stanford.edu"
+        reference_links_href: "SUL Online Exhibits"
     exhibits_admin_invitation_mailer:
       invitation_instructions:
         someone_invited_you: "The SUL Exhibits Administrator has invited you to join the administrative group that manages the SUL online exhibits. You can accept this invitation by clicking the link below."
