@@ -12,3 +12,5 @@
 <p><%= link_to t("spotlight.#{key}.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token, referrer: spotlight.exhibit_path(@resource.roles.first.resource)) %></p>
 
 <p><%= t("spotlight.#{key}.invitation_instructions.ignore_html", exhibit_name: @resource.roles.first.resource.title) %></p>
+
+<p><%= t("spotlight.#{key}.invitation_instructions.reference_links_text_html", :href => link_to(t("spotlight.#{key}.invitation_instructions.reference_links_href"), "http://exhibits.stanford.edu"), :mailto => mail_to(t("spotlight.#{key}.invitation_instructions.mail_to_href"))) %></p>
