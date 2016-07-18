@@ -3,7 +3,7 @@
 # 2. purl url
 
 dor_fetcher:
-  service_url: http://dorfetcher_url
+  service_url: https://dorfetcher_url
   # if skip_heartbeat set to true, this will skip a check that the dorfetcher service is alive before making API calls
   skip_heartbeat: true
 
