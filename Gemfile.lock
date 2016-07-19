@@ -367,6 +367,8 @@ GEM
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     retries (0.0.5)
+    riiif (0.4.0)
+      rails (> 3.2.0)
     roar (1.0.4)
       representable (>= 2.0.1, < 2.4.0)
     roar-rails (1.0.1)
@@ -567,6 +569,7 @@ DEPENDENCIES
   mysql2 (~> 0.4.4)
   rack-dev-mark
   rails (= 4.2.6)
+  riiif (~> 0.4.0)
   rspec-rails
   rubocop
   rubocop-rspec

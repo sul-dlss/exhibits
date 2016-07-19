@@ -1,5 +1,5 @@
 # Place any default configuration for solr_wrapper here
 # port: 8983
-collection:
-  dir: <%= require 'exhibits_solr_conf'; ExhibitsSolrConf.path %>
-  name: blacklight-core
+# collection:
+#   dir: <%= require 'exhibits_solr_conf'; ExhibitsSolrConf.path %>
+#   name: blacklight-core
