@@ -1,6 +1,7 @@
 Exhibits::Application.routes.draw do
   mount Spotlight::Resources::Iiif::Engine, at: 'spotlight_resources_iiif'
   mount Blacklight::Oembed::Engine, at: 'oembed'
+  mount Riiif::Engine => '/images', as: 'riiif'
 
   root to: 'spotlight/exhibits#index'
 
