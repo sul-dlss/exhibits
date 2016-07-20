@@ -72,7 +72,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.19.0)
+    blacklight-spotlight (0.19.1)
       acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -494,7 +494,7 @@ GEM
     thread_safe (0.3.5)
     tilt (2.0.5)
     tins (1.6.0)
-    tophat (2.2.1)
+    tophat (2.3.0)
       actionpack (>= 3.0.0)
     trollop (2.1.2)
     turbolinks (5.0.0)
