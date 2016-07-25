@@ -24,8 +24,28 @@ describe Spotlight::Resources::DorHarvester do
   end
 
   describe '#druids' do
-    it 'extracts an array of DRUIDs from the list of druids' do
-      expect(subject.druids).to match_array 'xf680rd3068'
+    context 'with a single item' do
+      subject { described_class.new druid_list: 'xf680rd3068' }
+
+      it 'extracts an array of DRUIDs from the list of druids' do
+        expect(subject.druids).to match_array 'xf680rd3068'
+      end
+    end
+
+    context 'with multiple items' do
+      subject { described_class.new druid_list: "xf680rd3068\nxf680rd3069" }
+
+      it 'extracts an array of DRUIDs from the list of druids' do
+        expect(subject.druids).to match_array %w(xf680rd3068 xf680rd3069)
+      end
+    end
+
+    context 'with crazy whitespace' do
+      subject { described_class.new druid_list: "\t xf680rd3068\t\r\nxf680rd3067\t\t" }
+
+      it 'extracts an array of DRUIDs from the list of druids' do
+        expect(subject.druids).to match_array %w(xf680rd3068 xf680rd3067)
+      end
     end
   end
 

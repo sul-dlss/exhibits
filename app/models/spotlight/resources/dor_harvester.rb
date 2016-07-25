@@ -37,7 +37,7 @@ module Spotlight::Resources
     end
 
     def druids
-      @druids ||= druid_list.split("\n").map(&:strip)
+      @druids ||= druid_list.split(/\s+/).reject(&:blank?)
     end
 
     private
