@@ -47,3 +47,11 @@ $ REMOTE_USER="archivist1@example.com" rake server
 ```
 
 `REMOTE_USER` should match the name of the user you create when prompted. This will allow you to bypass the webauth authentication.
+
+## Deploying
+
+You must be on VPN to deploy the worker machine.  Then deploy as usual using Capistrano:
+
+```console
+$ cap staging deploy
+```
