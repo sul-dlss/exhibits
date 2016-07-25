@@ -103,7 +103,7 @@ GEM
       social-share-button (~> 0.3)
       tophat
       underscore-rails (~> 1.6)
-    bootstrap-sass (3.3.6)
+    bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     bootstrap_form (2.4.0)
@@ -120,7 +120,7 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 1.9.0)
-    capistrano-bundle_audit (0.1.0)
+    capistrano-bundle_audit (0.2.0)
       bundler-audit (~> 0.5)
       capistrano (~> 3.0)
     capistrano-bundler (1.1.4)
@@ -238,7 +238,7 @@ GEM
     harvestdor (0.2.0)
       confstruct
       nokogiri
-    harvestdor-indexer (2.3.1)
+    harvestdor-indexer (2.3.2)
       activesupport
       confstruct
       dor-fetcher (= 1.0.5)
@@ -448,11 +448,11 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (1.1.0)
-      blacklight-spotlight (~> 0.18)
+    spotlight-dor-resources (2.0.0)
+      blacklight-spotlight (~> 0.19)
       faraday
       gdor-indexer (>= 0.5.0)
-      harvestdor-indexer (~> 2.3)
+      harvestdor-indexer (~> 2.3, >= 2.3.2)
       parallel
       rails
       solrizer
@@ -580,7 +580,7 @@ DEPENDENCIES
   sitemap_generator
   social-share-button
   solr_wrapper
-  spotlight-dor-resources (~> 1.0, >= 1.0.1)
+  spotlight-dor-resources (~> 2.0)
   spotlight-resources-iiif
   sqlite3
   squash_rails
