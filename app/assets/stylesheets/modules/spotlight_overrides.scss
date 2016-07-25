@@ -183,5 +183,10 @@
 
 .thumbnail > img {
   @include thumbnail-image-border;
-  max-width: 400px;
+}
+
+.items-block {
+  .thumbnail > img {
+    max-width: 400px;
+  }
 }
