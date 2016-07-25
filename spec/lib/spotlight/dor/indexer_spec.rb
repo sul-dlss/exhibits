@@ -5,6 +5,14 @@ describe Spotlight::Dor::Indexer do
   let(:r) { Harvestdor::Indexer::Resource.new(double, fake_druid) }
   let(:sdb) { GDor::Indexer::SolrDocBuilder.new(r, Logger.new(StringIO.new)) }
   let(:solr_doc) { {} }
+  let(:modsbody) { "" }
+  let(:mods) do
+    Nokogiri::XML <<-EOF
+      <mods xmlns="#{Mods::MODS_NS}">
+      #{modsbody}
+      </mods>
+    EOF
+  end
 
   before do
     # reduce log noise
@@ -12,32 +20,27 @@ describe Spotlight::Dor::Indexer do
     i = Harvestdor::Indexer.new
     i.logger.level = Logger::WARN
     allow(r).to receive(:indexer).and_return i
+    allow(r).to receive(:mods).and_return(mods)
   end
 
   describe '#add_content_metadata_fields' do
     before do
       allow(r).to receive(:public_xml).and_return(public_xml)
       allow(sdb).to receive(:bare_druid).and_return(fake_druid)
-
       # stacks url calculations require the druid
       solr_doc[:id] = fake_druid
-
       subject.send(:add_content_metadata_fields, sdb, solr_doc)
     end
 
-    context 'with a record without contentMetadata' do
-      let(:public_xml) do
-        Nokogiri::XML <<-EOF
-          <publicObject></publicObject>
-          EOF
-      end
+    context 'without contentMetadata' do
+      let(:public_xml) { Nokogiri::XML "\n<publicObject></publicObject>\n" }
 
       it 'is blank, except for the document id' do
         expect(solr_doc.except(:id)).to be_blank
       end
     end
 
-    context 'with a record with contentMetadata' do
+    context 'with contentMetadata' do
       let(:public_xml) do
         Nokogiri::XML <<-EOF
           <publicObject>
@@ -54,13 +57,13 @@ describe Spotlight::Dor::Indexer do
       end
 
       it 'indexes the declared content metadata type' do
-        expect(solr_doc['content_metadata_type_ssim']).to contain_exactly 'image'
+        expect(solr_doc['content_metadata_type_ssim']).to eq ['image']
       end
 
       it 'indexes the thumbnail information' do
-        expect(solr_doc['content_metadata_first_image_file_name_ssm']).to contain_exactly 'bj356mh7176_00_0001'
-        expect(solr_doc['content_metadata_first_image_width_ssm']).to contain_exactly '12967'
-        expect(solr_doc['content_metadata_first_image_height_ssm']).to contain_exactly '22970'
+        expect(solr_doc['content_metadata_first_image_file_name_ssm']).to eq ['bj356mh7176_00_0001']
+        expect(solr_doc['content_metadata_first_image_width_ssm']).to eq ['12967']
+        expect(solr_doc['content_metadata_first_image_height_ssm']).to eq ['22970']
       end
 
       it 'indexes the images' do
@@ -77,18 +80,15 @@ describe Spotlight::Dor::Indexer do
   context 'Feigbenbaum specific fields concern' do
     describe '#add_document_subtype' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_document_subtype, sdb, solr_doc)
       end
 
-      context 'with a record without document subtype' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <note displayLabel="preferred citation">(not a document subtype)</note>
-              <note>a generic note</note>
-            </mods>
-            EOF
+      context 'without document subtype' do
+        let(:modsbody) do
+          <<-EOF
+            <note displayLabel="preferred citation">(not a document subtype)</note>
+            <note>a generic note</note>
+          EOF
         end
 
         it 'is blank' do
@@ -96,14 +96,12 @@ describe Spotlight::Dor::Indexer do
         end
       end
 
-      context 'with a record with document subtype' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <note displayLabel="Document subtype">memorandums</note>
-              <note>a generic note</note>
-            </mods>
-            EOF
+      context 'with document subtype' do
+        let(:modsbody) do
+          <<-EOF
+            <note displayLabel="Document subtype">memorandums</note>
+            <note>a generic note</note>
+          EOF
         end
 
         it 'extracts the doc subtypes' do
@@ -114,37 +112,28 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_donor_tags' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_donor_tags, sdb, solr_doc)
       end
 
-      context 'with a record without donor tags' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <note displayLabel="preferred citation">(not a donor tag)</note>
-            </mods>
-            EOF
-        end
+      context 'without donor tags' do
+        let(:modsbody) { %q[<note displayLabel="preferred citation">(not a donor tag)</note>] }
 
         it 'is blank' do
           expect(solr_doc['donor_tags_ssim']).to be_blank
         end
       end
 
-      context 'with a record with donor tags' do
-        let(:mods) do
-          # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
-              <note displayLabel="Donor tags">medical applications</note>
-              <note displayLabel="Donor tags">medical Applications (second word CAPPED)</note>
-              <note displayLabel="Donor tags">Publishing</note>
-              <note displayLabel="Donor tags">Stanford</note>
-              <note displayLabel="Donor tags">Stanford Computer Science Department</note>
-            </mods>
-            EOF
+      context 'with donor tags' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) do
+          <<-EOF
+            <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
+            <note displayLabel="Donor tags">medical applications</note>
+            <note displayLabel="Donor tags">medical Applications (second word CAPPED)</note>
+            <note displayLabel="Donor tags">Publishing</note>
+            <note displayLabel="Donor tags">Stanford</note>
+            <note displayLabel="Donor tags">Stanford Computer Science Department</note>
+          EOF
         end
 
         it 'extracts the donor tags' do
@@ -158,15 +147,9 @@ describe Spotlight::Dor::Indexer do
       end
     end # donor tags
 
+    # TODO: avoid each loop around specs
     # rubocop:disable Metrics/LineLength
     describe '#add_folder_name' do
-      let(:mods_note_plain) do
-        Nokogiri::XML <<-EOF
-          <mods xmlns="#{Mods::MODS_NS}">
-            <note>#{example}</note>
-          </mods>
-        EOF
-      end
       let(:mods_note_preferred_citation) do
         Nokogiri::XML <<-EOF
           <mods xmlns="#{Mods::MODS_NS}">
@@ -196,8 +179,9 @@ describe Spotlight::Dor::Indexer do
         'blah blah ... Title ... blah blah': nil
       }.each do |example, expected|
         describe "for example '#{example}'" do
-          let(:example) { example }
           context 'in preferred citation note' do
+            let(:example) { example }
+            let(:modsbody) { %q[<note type="preferred citation">#{example}</note>] }
             before do
               allow(r).to receive(:mods).and_return(mods_note_preferred_citation)
               subject.send(:add_folder_name, sdb, solr_doc)
@@ -207,12 +191,12 @@ describe Spotlight::Dor::Indexer do
             end
           end
           context 'in plain note' do
+            let(:modsbody) { "<note>#{example}</note>" }
             before do
-              allow(r).to receive(:mods).and_return(mods_note_plain)
               subject.send(:add_folder_name, sdb, solr_doc)
             end
             it 'does not have a folder name' do
-              expect(solr_doc['folder_name_ssi']).to be_falsey
+              expect(solr_doc).not_to include 'folder_name_ssi'
             end
           end
         end # for example
@@ -222,38 +206,33 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_general_notes' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_general_notes, sdb, solr_doc)
       end
 
       context 'no general notes, but other types of notes' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <note displayLabel="preferred citation">(not a document subtype)</note>
-              <note displayLabel="Document subtype">memorandums</note>
-              <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
-            </mods>
-            EOF
+        let(:modsbody) do
+          <<-EOF
+            <note displayLabel="preferred citation">(not a document subtype)</note>
+            <note displayLabel="Document subtype">memorandums</note>
+            <note displayLabel="Donor tags">Knowledge Systems Laboratory</note>
+          EOF
         end
 
         it 'is blank' do
-          expect(solr_doc['general_notes_ssim']).to be_blank
+          expect(solr_doc).not_to include 'general_notes_ssim'
         end
       end
 
       context 'ignore extra notes' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <note displayLabel="Document subtype">memorandums</note>
-              <note>a generic note</note>
-            </mods>
-            EOF
+        let(:modsbody) do
+          <<-EOF
+            <note displayLabel="Document subtype">memorandums</note>
+            <note>a generic note</note>
+          EOF
         end
 
         it 'extracts the doc subtypes' do
-          expect(solr_doc['general_notes_ssim']).to contain_exactly 'a generic note'
+          expect(solr_doc['general_notes_ssim']).to eq ['a generic note']
         end
       end
     end # general notes
@@ -262,27 +241,24 @@ describe Spotlight::Dor::Indexer do
   context 'StanfordMods concern' do
     describe '#add_author_no_collector' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_author_no_collector, sdb, solr_doc)
       end
       let(:name) { 'Macro Hamster' }
-      let(:mods) do
-        Nokogiri::XML <<-EOF
-          <mods xmlns="#{Mods::MODS_NS}">
-            <name type="personal">
-              <namePart>#{name}</namePart>
-              <role>
-                <roleTerm type="code" authority="marcrelator">cre</roleTerm>
-              </role>
-            </name>
-            <name type="personal">
-              <namePart>Ignored</namePart>
-              <role>
-                <roleTerm type="code" authority="marcrelator">col</roleTerm>
-              </role>
-            </name>
-          </mods>
-          EOF
+      let(:modsbody) do
+        <<-EOF
+          <name type="personal">
+            <namePart>#{name}</namePart>
+            <role>
+              <roleTerm type="code" authority="marcrelator">cre</roleTerm>
+            </role>
+          </name>
+          <name type="personal">
+            <namePart>Ignored</namePart>
+            <role>
+              <roleTerm type="code" authority="marcrelator">col</roleTerm>
+            </role>
+          </name>
+        EOF
       end
       it 'populates author_no_collector_ssim field in solr doc' do
         expect(solr_doc['author_no_collector_ssim']).to eq [name]
@@ -295,30 +271,20 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_box' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_box, sdb, solr_doc)
       end
-      context 'with a record without a box' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-            </mods>
-          EOF
-        end
 
-        it 'is blank' do
-          expect(solr_doc['box_ssi']).to be_blank
-        end
+      it 'without a box, box_ssi is blank' do
+        expect(solr_doc['box_ssi']).to be_blank
       end
-      context 'with a record with a box' do
-        let(:mods) do
+
+      context 'with a box' do
+        let(:modsbody) do
           # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <location>
-                <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
-              </location>
-            </mods>
+          <<-EOF
+            <location>
+              <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
+            </location>
           EOF
         end
 
@@ -330,21 +296,18 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_collector' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_collector, sdb, solr_doc)
       end
       let(:name) { 'Macro Hamster' }
-      let(:mods) do
-        Nokogiri::XML <<-EOF
-          <mods xmlns="#{Mods::MODS_NS}">
-            <name type="personal">
-              <namePart>#{name}</namePart>
-              <role>
-                <roleTerm type="code" authority="marcrelator">col</roleTerm>
-              </role>
-            </name>
-          </mods>
-          EOF
+      let(:modsbody) do
+        <<-EOF
+          <name type="personal">
+            <namePart>#{name}</namePart>
+            <role>
+              <roleTerm type="code" authority="marcrelator">col</roleTerm>
+            </role>
+          </name>
+        EOF
       end
       it 'populates collector_ssim field in solr doc' do
         expect(solr_doc['collector_ssim']).to eq [name]
@@ -357,33 +320,23 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_coordinates' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_coordinates, sdb, solr_doc)
       end
-      context 'with a record without coordinates' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-            </mods>
-          EOF
-        end
 
-        it 'is blank' do
-          expect(solr_doc['coordinates_tesim']).to be_blank
-        end
+      it 'without coordinates, coordinates_tesim is blank' do
+        expect(solr_doc['coordinates_tesim']).to be_blank
       end
-      context 'with a record with coordinates' do
-        let(:mods) do
-          # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <subject>
-                <cartographics>
-                  <scale>Scale 1:500,000</scale>
-                  <coordinates>(W16°--E28°/N13°--S15°).</coordinates>
-                </cartographics>
-              </subject>
-            </mods>
+
+      context 'with coordinates' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) do
+          <<-EOF
+            <subject>
+              <cartographics>
+                <scale>Scale 1:500,000</scale>
+                <coordinates>(W16°--E28°/N13°--S15°).</coordinates>
+              </cartographics>
+            </subject>
           EOF
         end
 
@@ -395,30 +348,20 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_folder' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_folder, sdb, solr_doc)
       end
-      context 'with a record without a folder' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-            </mods>
-          EOF
-        end
 
-        it 'is blank' do
-          expect(solr_doc['folder_ssi']).to be_blank
-        end
+      it 'without a folder, folder_ssi is blank' do
+        expect(solr_doc['folder_ssi']).to be_blank
       end
-      context 'with a record with a folder' do
-        let(:mods) do
-          # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <location>
-                <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
-              </location>
-            </mods>
+
+      context 'with a folder' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) do
+          <<-EOF
+            <location>
+              <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
+            </location>
           EOF
         end
 
@@ -430,65 +373,38 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_genre' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_genre, sdb, solr_doc)
       end
 
-      context 'with a record without a genre' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-            </mods>
-            EOF
-        end
-
-        it 'is blank' do
-          expect(solr_doc['genre_ssim']).to be_blank
-        end
+      it 'without a genre, genre_ssim is blank' do
+        expect(solr_doc['genre_ssim']).to be_blank
       end
 
-      context 'with a record with a genre' do
-        let(:mods) do
-          # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <genre authority="aat" valueURI="http://vocab.getty.edu/aat/300028579">manuscripts for publication</genre>
-            </mods>
-            EOF
-        end
-
+      context 'with a genre' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) { '<genre authority="aat" valueURI="http://vocab.getty.edu/aat/300028579">manuscripts for publication</genre>' }
         it 'extracts the genre' do
-          expect(solr_doc['genre_ssim']).to contain_exactly 'manuscripts for publication'
+          expect(solr_doc['genre_ssim']).to eq ['manuscripts for publication']
         end
       end
     end
 
     describe '#add_location' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_location, sdb, solr_doc)
       end
-      context 'with a record without a location' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-            </mods>
-          EOF
-        end
 
-        it 'is blank' do
-          expect(solr_doc['location_ssi']).to be_blank
-        end
+      it 'without a location, location_ssi is blank' do
+        expect(solr_doc['location_ssi']).to be_blank
       end
-      context 'with a record with a location' do
-        let(:mods) do
-          # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <location>
-                <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
-              </location>
-            </mods>
+
+      context 'with a location' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) do
+          <<-EOF
+            <location>
+              <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
+            </location>
           EOF
         end
 
@@ -500,33 +416,23 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_point_bbox' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_point_bbox, sdb, solr_doc)
       end
-      context 'with a record without coordinates' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-            </mods>
-          EOF
-        end
 
-        it 'is blank' do
-          expect(solr_doc['point_bbox']).to be_blank
-        end
+      it 'without coordinates, point_bbox is blank' do
+        expect(solr_doc['point_bbox']).to be_blank
       end
-      context 'with a record with coordinates' do
-        let(:mods) do
-          # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <subject>
-                <cartographics>
-                  <scale>Scale 1:500,000</scale>
-                  <coordinates>(W16°--E28°/N13°--S15°).</coordinates>
-                </cartographics>
-              </subject>
-            </mods>
+
+      context 'with coordinates' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) do
+          <<-EOF
+            <subject>
+              <cartographics>
+                <scale>Scale 1:500,000</scale>
+                <coordinates>(W16°--E28°/N13°--S15°).</coordinates>
+              </cartographics>
+            </subject>
           EOF
         end
 
@@ -538,30 +444,20 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_series' do
       before do
-        allow(r).to receive(:mods).and_return(mods)
         subject.send(:add_series, sdb, solr_doc)
       end
-      context 'with a record without a series' do
-        let(:mods) do
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-            </mods>
-          EOF
-        end
 
-        it 'is blank' do
-          expect(solr_doc['series_ssi']).to be_blank
-        end
+      it 'without a series, series_ssi is blank' do
+        expect(solr_doc['series_ssi']).to be_blank
       end
-      context 'with a record with a series' do
-        let(:mods) do
-          # e.g. from https://purl.stanford.edu/vw282gv1740
-          Nokogiri::XML <<-EOF
-            <mods xmlns="#{Mods::MODS_NS}">
-              <location>
-                <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
-              </location>
-            </mods>
+
+      context 'with a series' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) do
+          <<-EOF
+            <location>
+              <physicalLocation>Series 1, Box 10, Folder 8</physicalLocation>
+            </location>
           EOF
         end
 
@@ -575,11 +471,12 @@ describe Spotlight::Dor::Indexer do
   context 'Full Text Indexing concern' do
     describe '#add_object_full_text' do
       let(:full_text_solr_fname) { 'full_text_tesimv' }
+      let!(:expected_text) { 'SOME full text string that is returned from the server' }
+      let!(:full_file_path) { 'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt' }
       before do
         allow(sdb).to receive(:bare_druid).and_return(fake_druid)
       end
-      let!(:expected_text) { 'SOME full text string that is returned from the server' }
-      let!(:full_file_path) { 'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt' }
+
       it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
         public_xml_with_feigenbaum_full_text = Nokogiri::XML <<-EOF
           <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
@@ -603,6 +500,7 @@ describe Spotlight::Dor::Indexer do
         expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
         expect(solr_doc[full_text_solr_fname]).to eq [expected_text]
       end
+
       it 'does not index the full text if no recognized pattern is found' do
         public_xml_with_no_recognized_full_text = Nokogiri::XML <<-EOF
           <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
@@ -623,6 +521,7 @@ describe Spotlight::Dor::Indexer do
         expect(subject.object_level_full_text_urls(sdb)).to eq []
         expect(solr_doc[full_text_solr_fname]).to be_nil
       end
+
       it 'indexes the full text from two files if two recognized patterns are found' do
         public_xml_with_two_recognized_full_text_files = Nokogiri::XML <<-EOF
           <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
