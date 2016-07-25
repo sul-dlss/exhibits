@@ -7,7 +7,7 @@ describe 'gdor indexing integration test', :vcr do
     r = Spotlight::Resources::DorHarvester.new(druid_list: 'xf680rd3068')
     allow(r).to receive(:to_global_id).and_return('x')
     allow(r).to receive(:exhibit).and_return(exhibit)
-    r.to_solr.first
+    r.document_builder.to_solr.first
   end
 
   it 'has a doc id' do
