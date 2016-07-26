@@ -46,7 +46,7 @@ GEM
     autoprefixer-rails (6.3.7)
       execjs
     bcrypt (3.1.11)
-    blacklight (6.3.1)
+    blacklight (6.3.3)
       bootstrap-sass (~> 3.2)
       deprecation
       globalid
@@ -54,7 +54,7 @@ GEM
       nokogiri (~> 1.6)
       rails (>= 4.2, < 6)
       rsolr (~> 1.0, >= 1.0.6)
-      twitter-typeahead-rails (~> 0.11)
+      twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
     blacklight-gallery (0.6.1)
       blacklight (~> 6.3)
       bootstrap-sass (~> 3.0)
@@ -72,7 +72,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.19.2)
+    blacklight-spotlight (0.20.0)
       acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -211,7 +211,7 @@ GEM
     dotenv (2.1.1)
     erubis (2.7.0)
     execjs (2.7.0)
-    exhibits_solr_conf (0.1.0)
+    exhibits_solr_conf (0.1.1)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.7.0)
@@ -233,7 +233,7 @@ GEM
       stanford-mods (>= 1.4.0)
       trollop
     github-markup (1.4.0)
-    globalid (0.3.6)
+    globalid (0.3.7)
       activesupport (>= 4.1.0)
     harvestdor (0.2.0)
       confstruct
@@ -506,7 +506,7 @@ GEM
       tilt (>= 1.4, < 3)
     twitter-text (1.14.0)
       unf (~> 0.1.0)
-    twitter-typeahead-rails (0.11.1)
+    twitter-typeahead-rails (0.11.1.pre.corejavascript)
       actionpack (>= 3.1)
       jquery-rails
       railties (>= 3.1)
