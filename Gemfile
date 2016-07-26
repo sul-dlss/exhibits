@@ -59,8 +59,6 @@ end
 
 group :production do
   gem 'mysql2', '~> 0.4.4'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', platforms: :ruby
 end
 
 gem 'squash_ruby', require: 'squash/ruby'
