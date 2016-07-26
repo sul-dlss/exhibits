@@ -238,7 +238,7 @@ GEM
     harvestdor (0.2.0)
       confstruct
       nokogiri
-    harvestdor-indexer (2.3.2)
+    harvestdor-indexer (2.3.3)
       activesupport
       confstruct
       dor-fetcher (= 1.0.5)
