@@ -1,12 +1,9 @@
 describe 'gdor indexing integration test', :vcr do
-  let :exhibit do
-    double(solr_data: {}, blacklight_config: Blacklight::Configuration.new)
-  end
+  let(:exhibit) { FactoryGirl.create(:exhibit) }
 
   subject do
-    r = Spotlight::Resources::DorHarvester.new(druid_list: 'xf680rd3068')
+    r = Spotlight::Resources::DorHarvester.new(druid_list: 'xf680rd3068', exhibit: exhibit)
     allow(r).to receive(:to_global_id).and_return('x')
-    allow(r).to receive(:exhibit).and_return(exhibit)
     r.document_builder.to_solr.first
   end
 

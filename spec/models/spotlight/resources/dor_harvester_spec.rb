@@ -7,7 +7,7 @@ describe Spotlight::Resources::DorHarvester do
     double
   end
 
-  subject { described_class.new druid_list: 'xf680rd3068' }
+  subject { described_class.new druid_list: 'xf680rd3068', exhibit: exhibit }
   let(:resource) { subject.resources.first }
 
   before do
