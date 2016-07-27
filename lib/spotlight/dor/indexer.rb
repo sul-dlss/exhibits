@@ -5,6 +5,7 @@
 require 'gdor/indexer'
 require 'solrizer'
 require 'faraday'
+require 'nokogiri'
 
 module Spotlight::Dor
   # Base class to harvest from DOR via harvestdor gem
@@ -35,6 +36,7 @@ module Spotlight::Dor
         before_index :add_coordinates
         before_index :add_folder
         before_index :add_genre
+        before_index :add_geonames
         before_index :add_location
         before_index :add_point_bbox
         before_index :add_series
@@ -48,6 +50,12 @@ module Spotlight::Dor
 
       def add_box(sdb, solr_doc)
         solr_doc['box_ssi'] = sdb.smods_rec.box
+      end
+
+      # pulls from //subject/geographic
+      def add_geonames(sdb, solr_doc)
+        ids = extract_geonames_ids(sdb)
+        solr_doc['geographic_srpt'] = ids.map { |id| get_geonames_api_envelope(id) }.reject(&:nil?)
       end
 
       # add coordinates solr field containing the cartographic coordinates per
@@ -82,6 +90,31 @@ module Spotlight::Dor
 
       def add_series(sdb, solr_doc)
         solr_doc['series_ssi'] = sdb.smods_rec.series
+      end
+
+      # @return [Array{String}] The IDs from geonames //subject/geographic URIs, if any
+      def extract_geonames_ids(sdb)
+        sdb.smods_rec.subject.map do |z|
+          uri = z.geographic.attr('valueURI')
+          m = %r{^https?://sws\.geonames\.org/(\d+)}i.match(uri.nil? ? '' : uri.value)
+          m ? m[1] : nil
+        end.reject(&:nil?).reject(&:empty?)
+      end
+
+      # Fetch remote geonames metadata and format it for Solr
+      # @param [String] id geonames identifier
+      # @return [String] Solr WKT/CQL ENVELOPE based on //geoname/bbox
+      def get_geonames_api_envelope(id)
+        url = "http://api.geonames.org/get?geonameId=#{id}&username=#{Spotlight::Dor::Resources::Engine.config.geonames_username}"
+        xml = Nokogiri::XML Faraday.get(url).body
+        bbox = xml.at_xpath('//geoname/bbox')
+        return if bbox.nil?
+        min_x, max_x = [bbox.at_xpath('west').text.to_f, bbox.at_xpath('east').text.to_f].minmax
+        min_y, max_y = [bbox.at_xpath('north').text.to_f, bbox.at_xpath('south').text.to_f].minmax
+        "ENVELOPE(#{min_x},#{max_x},#{max_y},#{min_y})"
+      rescue RuntimeError => e
+        logger.error("Error fetching/parsing #{url} -- #{e.message}")
+        nil
       end
     end # StanfordMods concern
 
@@ -150,9 +183,10 @@ module Spotlight::Dor
         solr_doc['doc_subtype_ssi'] = subtype.first unless subtype.empty?
       end
 
+      # @note upcasing each word not the same as .capitalize (lowercases the rest of the string), or .titleize (breaks CamelCase words apart)
       def add_donor_tags(sdb, solr_doc)
         donor_tags = sdb.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
-        insert_field solr_doc, 'donor_tags', upcase_first_character(donor_tags), :symbol # this is a _ssim field
+        insert_field solr_doc, 'donor_tags', donor_tags.map { |v| v.sub(/^./, &:upcase) }, :symbol # this is a _ssim field
       end
 
       # add the folder name to solr_doc as folder_name_ssi field (note: single valued!)
@@ -211,12 +245,6 @@ module Spotlight::Dor
           "//contentMetadata/resource/file[@id=\"#{sdb.bare_druid}.txt\"]" # feigenbaum style - full text in .txt named for druid
         ]
       end
-    end
-
-    # takes an array, upcases just the first character of each element in the array and returns the new array
-    #   not the same as .captialize which will lowercase the rest of the string
-    def upcase_first_character(values)
-      values.map { |value| value.sub(/^./, &:upcase) }
     end
 
     def insert_field(solr_doc, field, values, *args)

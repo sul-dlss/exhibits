@@ -5,7 +5,7 @@ describe Spotlight::Dor::Indexer do
   let(:r) { Harvestdor::Indexer::Resource.new(double, fake_druid) }
   let(:sdb) { GDor::Indexer::SolrDocBuilder.new(r, Logger.new(StringIO.new)) }
   let(:solr_doc) { {} }
-  let(:modsbody) { "" }
+  let(:modsbody) { '' }
   let(:mods) do
     Nokogiri::XML <<-EOF
       <mods xmlns="#{Mods::MODS_NS}">
@@ -116,7 +116,7 @@ describe Spotlight::Dor::Indexer do
       end
 
       context 'without donor tags' do
-        let(:modsbody) { %q[<note displayLabel="preferred citation">(not a donor tag)</note>] }
+        let(:modsbody) { '<note displayLabel="preferred citation">(not a donor tag)</note>' }
 
         it 'is blank' do
           expect(solr_doc['donor_tags_ssim']).to be_blank
@@ -181,7 +181,7 @@ describe Spotlight::Dor::Indexer do
         describe "for example '#{example}'" do
           context 'in preferred citation note' do
             let(:example) { example }
-            let(:modsbody) { %q[<note type="preferred citation">#{example}</note>] }
+            let(:modsbody) { %q(<note type="preferred citation">#{example}</note>) }
             before do
               allow(r).to receive(:mods).and_return(mods_note_preferred_citation)
               subject.send(:add_folder_name, sdb, solr_doc)
@@ -342,6 +342,65 @@ describe Spotlight::Dor::Indexer do
 
         it 'extracts the coordinates' do
           expect(solr_doc['coordinates_tesim']).to eq(['(W16°--E28°/N13°--S15°).'])
+        end
+      end
+    end # add_coordinates
+
+    describe '#add_geonames' do
+      it 'without coordinates, geographic_srpt is blank' do
+        subject.add_geonames(sdb, solr_doc)
+        expect(solr_doc['geographic_srpt']).to be_blank
+        expect(subject.extract_geonames_ids(sdb)).to be_blank
+      end
+
+      context 'with 2 geonames' do
+        # e.g. from https://purl.stanford.edu/rh234sw2751.mods (with 2nd value added)
+        let(:modsbody) do
+          <<-EOF
+            <subject>
+              <geographic valueURI="http://sws.geonames.org/5350937/"/>
+            </subject>
+            <subject>
+              <geographic valueURI="http://sws.geonames.org/5350964/"/>
+            </subject>
+          EOF
+        end
+        let(:geoname_5350937) do
+          instance_double Faraday::Response, body: <<-EOF
+            <geoname>
+              <bbox>
+                <west>-119.9344</west>
+                <north>36.91154</north>
+                <east>-119.655</east>
+                <south>36.66216</south>
+              </bbox>
+            </geoname>
+          EOF
+        end
+        let(:geoname_5350964) do
+          instance_double Faraday::Response, body: <<-EOF
+            <geoname>
+              <bbox>
+                <west>-120.91826</west>
+                <north>37.58572</north>
+                <east>-118.36175</east>
+                <south>35.90518</south>
+              </bbox>
+            </geoname>
+          EOF
+        end
+
+        it '#extract_geonames_ids extracts the geonames IDs' do
+          expect(subject.extract_geonames_ids(sdb)).to eq %w(5350937 5350964)
+        end
+
+        it 'fetches and extracts the envelopes' do
+          lopes = ['ENVELOPE(-119.9344,-119.655,36.91154,36.66216)', 'ENVELOPE(-120.91826,-118.36175,37.58572,35.90518)']
+          allow(Spotlight::Dor::Resources::Engine.config).to receive(:geonames_username).and_return 'foobar'
+          expect(Faraday).to receive(:get).with('http://api.geonames.org/get?geonameId=5350937&username=foobar').and_return geoname_5350937
+          expect(Faraday).to receive(:get).with('http://api.geonames.org/get?geonameId=5350964&username=foobar').and_return geoname_5350964
+          subject.add_geonames(sdb, solr_doc)
+          expect(solr_doc['geographic_srpt']).to eq(lopes)
         end
       end
     end # add_coordinates
