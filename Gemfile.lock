@@ -39,7 +39,7 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     addressable (2.4.0)
-    airbrussh (1.0.2)
+    airbrussh (1.1.0)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
     ast (2.3.0)
@@ -114,7 +114,7 @@ GEM
       thor (~> 0.18)
     byebug (9.0.5)
     cancancan (1.15.0)
-    capistrano (3.5.0)
+    capistrano (3.6.0)
       airbrussh (>= 1.0.0)
       capistrano-harrow
       i18n
@@ -238,7 +238,7 @@ GEM
     harvestdor (0.2.0)
       confstruct
       nokogiri
-    harvestdor-indexer (2.3.3)
+    harvestdor-indexer (2.4.0)
       activesupport
       confstruct
       dor-fetcher (= 1.0.5)
@@ -446,11 +446,11 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (2.0.0)
-      blacklight-spotlight (~> 0.19)
+    spotlight-dor-resources (2.0.1)
+      blacklight-spotlight (~> 0.20)
       faraday
       gdor-indexer (>= 0.5.0)
-      harvestdor-indexer (~> 2.3, >= 2.3.2)
+      harvestdor-indexer (~> 2.4)
       parallel
       rails
       solrizer
