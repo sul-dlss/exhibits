@@ -39,7 +39,7 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     addressable (2.4.0)
-    airbrussh (1.0.2)
+    airbrussh (1.1.0)
       sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
     ast (2.3.0)
@@ -114,7 +114,7 @@ GEM
       thor (~> 0.18)
     byebug (9.0.5)
     cancancan (1.15.0)
-    capistrano (3.5.0)
+    capistrano (3.6.0)
       airbrussh (>= 1.0.0)
       capistrano-harrow
       i18n
@@ -238,7 +238,7 @@ GEM
     harvestdor (0.2.0)
       confstruct
       nokogiri
-    harvestdor-indexer (2.3.3)
+    harvestdor-indexer (2.4.0)
       activesupport
       confstruct
       dor-fetcher (= 1.0.5)
@@ -275,7 +275,6 @@ GEM
     leaflet-sidebar-rails (0.0.3)
     legato (0.7.0)
       multi_json
-    libv8 (3.16.14.15)
     lodash-rails (4.13.1)
       railties (>= 3.1)
     loofah (2.0.3)
@@ -360,7 +359,6 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     redcarpet (3.3.4)
-    ref (2.0.0)
     representable (2.3.0)
       uber (~> 0.0.7)
     request_store (1.3.1)
@@ -448,11 +446,11 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (2.0.0)
-      blacklight-spotlight (~> 0.19)
+    spotlight-dor-resources (2.0.1)
+      blacklight-spotlight (~> 0.20)
       faraday
       gdor-indexer (>= 0.5.0)
-      harvestdor-indexer (~> 2.3, >= 2.3.2)
+      harvestdor-indexer (~> 2.4)
       parallel
       rails
       solrizer
@@ -487,9 +485,6 @@ GEM
     test_xml (0.1.7)
       diffy (~> 3.0)
       nokogiri (>= 1.3.2)
-    therubyracer (0.12.2)
-      libv8 (~> 3.16.14.0)
-      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -586,7 +581,6 @@ DEPENDENCIES
   squash_rails
   squash_ruby
   sul_styles
-  therubyracer
   turbolinks
   turnout
   uglifier (>= 2.7.2)
