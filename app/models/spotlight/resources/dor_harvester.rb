@@ -12,9 +12,7 @@ module Spotlight::Resources
     end
 
     def resources
-      @resources ||= druids.map do |d|
-        Spotlight::Dor::Resources.indexer.resource d
-      end
+      @resources ||= druids.map { |d| Spotlight::Dor::Resources.indexer.resource(d) }.select(&:exists?)
     end
 
     def druids

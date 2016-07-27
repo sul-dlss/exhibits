@@ -61,6 +61,18 @@ describe Spotlight::Resources::DorHarvester do
     it 'has the correct indexer' do
       expect(resource.indexer).to eq Spotlight::Dor::Resources.indexer.harvestdor
     end
+
+    context 'with an unpublished druid' do
+      let(:missing_resource) { instance_double(Harvestdor::Indexer::Resource, exists?: false) }
+
+      before do
+        allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with('xf680rd3068').and_return(missing_resource)
+      end
+
+      it 'excludes missing resources' do
+        expect(subject.resources).to be_empty
+      end
+    end
   end
 
   describe '#reindex' do
