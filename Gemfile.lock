@@ -72,7 +72,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.20.0)
+    blacklight-spotlight (0.20.1)
       acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
       blacklight (~> 6.3)
