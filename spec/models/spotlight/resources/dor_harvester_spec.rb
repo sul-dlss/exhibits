@@ -79,7 +79,7 @@ describe Spotlight::Resources::DorHarvester do
     before do
       allow(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_return(upstream: true)
       allow(resource).to receive(:collection?).and_return(false)
-      allow(exhibit).to receive(:solr_data).and_return({})
+      allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return({})
     end
 
     it 'adds a document to solr' do
