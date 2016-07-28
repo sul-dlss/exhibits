@@ -35,7 +35,7 @@ describe DorSolrDocumentBuilder do
       end
 
       context 'with items' do
-        let(:item) { instance_double('Harvestdor::Indexer::Resource', druid: 'xyz') }
+        let(:item) { instance_double('Harvestdor::Indexer::Resource', druid: 'xyz', bare_druid: 'xyz') }
 
         before do
           allow(resource).to receive(:items).and_return([item])

@@ -15,7 +15,7 @@ class DorSolrDocumentBuilder < Spotlight::SolrDocumentBuilder
       base_doc = super
 
       indexable_resources.each_with_index do |res, idx|
-        benchmark "Indexing item #{res.druid} in resource #{resource_id} (#{idx} / #{size})" do
+        process_resource_with_logging(res, idx) do
           doc = to_solr_document(res)
           yield base_doc.merge(doc) if doc
         end
@@ -27,6 +27,19 @@ class DorSolrDocumentBuilder < Spotlight::SolrDocumentBuilder
 
   def resource_id
     resource.id
+  end
+
+  def process_resource_with_logging(res, idx)
+    benchmark "Indexing item #{res.druid} in resource #{resource_id} (#{idx} / #{size})" do
+      yield
+    end
+    resource.on_success(res)
+  rescue => e
+    logger.error("Error processing #{res.druid}: #{e}")
+    resource.on_error(res, e)
+    raise e unless e.is_a? RuntimeError
+  ensure
+    resource.save if resource.persisted?
   end
 
   ##
@@ -42,12 +55,6 @@ class DorSolrDocumentBuilder < Spotlight::SolrDocumentBuilder
   # @return [Hash]
   def to_solr_document(resource)
     Spotlight::Dor::Resources.indexer.solr_document(resource)
-  rescue RuntimeError => e
-    logger.error("Error processing #{resource.druid}: #{e}")
-    nil
-  rescue => e
-    logger.error("Error processing #{resource.druid}: #{e}")
-    raise e
   end
 
   ##
