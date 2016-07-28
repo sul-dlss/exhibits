@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Spotlight::Resources::DorHarvester do
+describe DorHarvester do
   let(:exhibit) { FactoryGirl.create(:exhibit) }
 
   let :blacklight_solr do
@@ -82,10 +82,12 @@ describe Spotlight::Resources::DorHarvester do
       allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return({})
     end
 
+    let(:solr_data) do
+      [{ spotlight_resource_id_ssim: subject.to_global_id,
+         spotlight_resource_type_ssim: 'dor_harvesters',
+         upstream: true }]
+    end
     it 'adds a document to solr' do
-      solr_data = [{ spotlight_resource_id_ssim: subject.to_global_id,
-                     spotlight_resource_type_ssim: 'spotlight/resources/dor_harvesters',
-                     upstream: true }]
       expect(blacklight_solr).to receive(:update).with(params: { commitWithin: 500 },
                                                        data: solr_data.to_json,
                                                        headers: { 'Content-Type' => 'application/json' })

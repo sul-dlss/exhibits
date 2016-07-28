@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Spotlight::Resources::DorSolrDocumentBuilder do
+describe DorSolrDocumentBuilder do
   let(:exhibit) { FactoryGirl.create(:exhibit) }
 
   let :blacklight_solr do
@@ -8,7 +8,7 @@ describe Spotlight::Resources::DorSolrDocumentBuilder do
   end
 
   subject { described_class.new harvester }
-  let(:harvester) { Spotlight::Resources::DorHarvester.new druid_list: 'xf680rd3068', exhibit: exhibit }
+  let(:harvester) { DorHarvester.new druid_list: 'xf680rd3068', exhibit: exhibit }
 
   before do
     allow(harvester).to receive(:blacklight_solr).and_return(blacklight_solr)
