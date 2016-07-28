@@ -72,7 +72,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.20.1)
+    blacklight-spotlight (0.20.2)
       acts-as-taggable-on (~> 3.5)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -126,7 +126,7 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-harrow (0.5.2)
+    capistrano-harrow (0.5.3)
     capistrano-one_time_key (0.0.1)
       capistrano (~> 3.0)
     capistrano-passenger (0.2.0)
@@ -378,7 +378,7 @@ GEM
       uber (>= 0.0.5)
     rsolr (1.1.1)
       builder (>= 2.1.2)
-    rspec-core (3.5.1)
+    rspec-core (3.5.2)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
