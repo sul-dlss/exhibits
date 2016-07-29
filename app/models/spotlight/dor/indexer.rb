@@ -105,7 +105,7 @@ module Spotlight::Dor
       # @param [String] id geonames identifier
       # @return [String] Solr WKT/CQL ENVELOPE based on //geoname/bbox
       def get_geonames_api_envelope(id)
-        url = "http://api.geonames.org/get?geonameId=#{id}&username=#{Spotlight::Dor::Resources::Engine.config.geonames_username}"
+        url = "http://api.geonames.org/get?geonameId=#{id}&username=#{Settings.geonames_username}"
         xml = Nokogiri::XML Faraday.get(url).body
         bbox = xml.at_xpath('//geoname/bbox')
         return if bbox.nil?
@@ -161,7 +161,7 @@ module Spotlight::Dor
       end
 
       def stacks_iiif_url(bare_druid, file_name)
-        "#{Spotlight::Dor::Resources::Engine.config.stacks_iiif_url}/#{bare_druid}%2F#{file_name}"
+        "#{Settings.stacks.iiif_url}/#{bare_druid}%2F#{file_name}"
       end
     end
 
@@ -232,7 +232,7 @@ module Spotlight::Dor
         files = []
         object_level_full_text_filenames(sdb).each do |xpath_location|
           files += sdb.public_xml.xpath(xpath_location).map do |txt_file|
-            "#{Spotlight::Dor::Resources::Engine.config.stacks_file_url}/#{sdb.bare_druid}/#{txt_file['id']}"
+            "#{Settings.stacks.file_url}/#{sdb.bare_druid}/#{txt_file['id']}"
           end
         end
         files

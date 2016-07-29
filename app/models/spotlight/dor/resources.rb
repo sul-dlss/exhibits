@@ -1,5 +1,4 @@
 require 'harvestdor-indexer'
-require 'spotlight/dor/resources/version'
 
 module Spotlight
   module Dor
@@ -7,9 +6,6 @@ module Spotlight
     # that is capable of harvesting and indexing resources
     # from Searchworks and PURL endpoints
     module Resources
-      require 'spotlight/dor/indexer'
-      require 'spotlight/dor/resources/engine'
-
       class <<self
         def indexer
           @indexer ||= Spotlight::Dor::Indexer.new gdor_config_path, solr: solr_config

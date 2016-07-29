@@ -1,5 +1,6 @@
+require 'rails_helper'
+
 RSpec.describe Spotlight::Resources::DorHarvesterController, type: :controller do
-  routes { Spotlight::Dor::Resources::Engine.routes }
   let(:resource) { double }
   let(:exhibit) { FactoryGirl.create(:exhibit) }
   let(:user) { FactoryGirl.create(:exhibit_admin, exhibit: exhibit) }

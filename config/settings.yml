@@ -1,6 +1,7 @@
 superadmin_workgroups:
   - dlss:exhibits-admin
 default_contact_email: exhibits-feedback@lists.stanford.edu
-indexing:
-  parallel_options:
-    in_threads: 1
+geonames_username: ''
+stacks:
+  iiif_url: 'https://stacks.stanford.edu/image/iiif'
+  file_url: 'https://stacks.stanford.edu/file'

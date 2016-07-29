@@ -18,5 +18,8 @@ Exhibits::Application.routes.draw do
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
 
   mount Spotlight::Engine, at: '/'
-  mount Spotlight::Dor::Resources::Engine, at: '/'
+
+  resources :exhibits, path: '/', only: [] do
+    resource :dor_harvester, controller: :"spotlight/resources/dor_harvester", only: [:create, :update]
+  end
 end

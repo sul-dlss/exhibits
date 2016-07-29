@@ -1,9 +1,10 @@
+require 'rails_helper'
+
 describe Spotlight::Dor::Indexer do
   subject { described_class.new }
 
   let(:fake_druid) { 'oo000oo0000' }
-  let(:r) { Harvestdor::Indexer::Resource.new(double, fake_druid) }
-  let(:sdb) { GDor::Indexer::SolrDocBuilder.new(r, Logger.new(StringIO.new)) }
+  let(:resource) { Harvestdor::Indexer::Resource.new(double, fake_druid) }
   let(:solr_doc) { {} }
   let(:modsbody) { '' }
   let(:mods) do
@@ -16,20 +17,20 @@ describe Spotlight::Dor::Indexer do
 
   before do
     # reduce log noise
-    allow(r).to receive(:harvestdor_client)
+    allow(resource).to receive(:harvestdor_client)
     i = Harvestdor::Indexer.new
     i.logger.level = Logger::WARN
-    allow(r).to receive(:indexer).and_return i
-    allow(r).to receive(:mods).and_return(mods)
+    allow(resource).to receive(:indexer).and_return i
+    allow(resource).to receive(:mods).and_return(mods)
+    allow(resource).to receive(:bare_druid).and_return(fake_druid)
   end
 
   describe '#add_content_metadata_fields' do
     before do
-      allow(r).to receive(:public_xml).and_return(public_xml)
-      allow(sdb).to receive(:bare_druid).and_return(fake_druid)
+      allow(resource).to receive(:public_xml).and_return(public_xml)
       # stacks url calculations require the druid
       solr_doc[:id] = fake_druid
-      subject.send(:add_content_metadata_fields, sdb, solr_doc)
+      subject.send(:add_content_metadata_fields, resource, solr_doc)
     end
 
     context 'without contentMetadata' do
@@ -80,7 +81,7 @@ describe Spotlight::Dor::Indexer do
   context 'Feigbenbaum specific fields concern' do
     describe '#add_document_subtype' do
       before do
-        subject.send(:add_document_subtype, sdb, solr_doc)
+        subject.send(:add_document_subtype, resource, solr_doc)
       end
 
       context 'without document subtype' do
@@ -112,7 +113,7 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_donor_tags' do
       before do
-        subject.send(:add_donor_tags, sdb, solr_doc)
+        subject.send(:add_donor_tags, resource, solr_doc)
       end
 
       context 'without donor tags' do
@@ -148,7 +149,6 @@ describe Spotlight::Dor::Indexer do
     end # donor tags
 
     # TODO: avoid each loop around specs
-    # rubocop:disable Metrics/LineLength
     describe '#add_folder_name' do
       let(:mods_note_preferred_citation) do
         Nokogiri::XML <<-EOF
@@ -183,8 +183,8 @@ describe Spotlight::Dor::Indexer do
             let(:example) { example }
             let(:modsbody) { %q(<note type="preferred citation">#{example}</note>) }
             before do
-              allow(r).to receive(:mods).and_return(mods_note_preferred_citation)
-              subject.send(:add_folder_name, sdb, solr_doc)
+              allow(resource).to receive(:mods).and_return(mods_note_preferred_citation)
+              subject.send(:add_folder_name, resource, solr_doc)
             end
             it "has the expected folder name '#{expected}'" do
               expect(solr_doc['folder_name_ssi']).to eq expected
@@ -193,7 +193,7 @@ describe Spotlight::Dor::Indexer do
           context 'in plain note' do
             let(:modsbody) { "<note>#{example}</note>" }
             before do
-              subject.send(:add_folder_name, sdb, solr_doc)
+              subject.send(:add_folder_name, resource, solr_doc)
             end
             it 'does not have a folder name' do
               expect(solr_doc).not_to include 'folder_name_ssi'
@@ -202,11 +202,10 @@ describe Spotlight::Dor::Indexer do
         end # for example
       end # each
     end # add_folder_name
-    # rubocop:enable Metrics/LineLength
 
     describe '#add_general_notes' do
       before do
-        subject.send(:add_general_notes, sdb, solr_doc)
+        subject.send(:add_general_notes, resource, solr_doc)
       end
 
       context 'no general notes, but other types of notes' do
@@ -241,7 +240,7 @@ describe Spotlight::Dor::Indexer do
   context 'StanfordMods concern' do
     describe '#add_author_no_collector' do
       before do
-        subject.send(:add_author_no_collector, sdb, solr_doc)
+        subject.send(:add_author_no_collector, resource, solr_doc)
       end
       let(:name) { 'Macro Hamster' }
       let(:modsbody) do
@@ -264,14 +263,14 @@ describe Spotlight::Dor::Indexer do
         expect(solr_doc['author_no_collector_ssim']).to eq [name]
       end
       it 'calls non_collector_person_authors on Stanford::Mods::Record object' do
-        expect(sdb.smods_rec).to receive(:non_collector_person_authors)
-        subject.send(:add_author_no_collector, sdb, solr_doc)
+        expect(resource.smods_rec).to receive(:non_collector_person_authors)
+        subject.send(:add_author_no_collector, resource, solr_doc)
       end
     end
 
     describe '#add_box' do
       before do
-        subject.send(:add_box, sdb, solr_doc)
+        subject.send(:add_box, resource, solr_doc)
       end
 
       it 'without a box, box_ssi is blank' do
@@ -296,7 +295,7 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_collector' do
       before do
-        subject.send(:add_collector, sdb, solr_doc)
+        subject.send(:add_collector, resource, solr_doc)
       end
       let(:name) { 'Macro Hamster' }
       let(:modsbody) do
@@ -313,14 +312,14 @@ describe Spotlight::Dor::Indexer do
         expect(solr_doc['collector_ssim']).to eq [name]
       end
       it 'calls collectors_w_dates on Stanford::Mods::Record object' do
-        expect(sdb.smods_rec).to receive(:collectors_w_dates)
-        subject.send(:add_collector, sdb, solr_doc)
+        expect(resource.smods_rec).to receive(:collectors_w_dates)
+        subject.send(:add_collector, resource, solr_doc)
       end
     end
 
     describe '#add_coordinates' do
       before do
-        subject.send(:add_coordinates, sdb, solr_doc)
+        subject.send(:add_coordinates, resource, solr_doc)
       end
 
       it 'without coordinates, coordinates_tesim is blank' do
@@ -348,9 +347,9 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_geonames' do
       it 'without coordinates, geographic_srpt is blank' do
-        subject.add_geonames(sdb, solr_doc)
+        subject.add_geonames(resource, solr_doc)
         expect(solr_doc['geographic_srpt']).to be_blank
-        expect(subject.extract_geonames_ids(sdb)).to be_blank
+        expect(subject.extract_geonames_ids(resource)).to be_blank
       end
 
       context 'with 2 geonames' do
@@ -391,15 +390,15 @@ describe Spotlight::Dor::Indexer do
         end
 
         it '#extract_geonames_ids extracts the geonames IDs' do
-          expect(subject.extract_geonames_ids(sdb)).to eq %w(5350937 5350964)
+          expect(subject.extract_geonames_ids(resource)).to eq %w(5350937 5350964)
         end
 
         it 'fetches and extracts the envelopes' do
           lopes = ['ENVELOPE(-119.9344,-119.655,36.91154,36.66216)', 'ENVELOPE(-120.91826,-118.36175,37.58572,35.90518)']
-          allow(Spotlight::Dor::Resources::Engine.config).to receive(:geonames_username).and_return 'foobar'
-          expect(Faraday).to receive(:get).with('http://api.geonames.org/get?geonameId=5350937&username=foobar').and_return geoname_5350937
-          expect(Faraday).to receive(:get).with('http://api.geonames.org/get?geonameId=5350964&username=foobar').and_return geoname_5350964
-          subject.add_geonames(sdb, solr_doc)
+          allow(Settings).to receive(:geonames_username).and_return 'foobar'
+          expect(Faraday.default_connection).to receive(:get).with('http://api.geonames.org/get?geonameId=5350937&username=foobar').and_return geoname_5350937
+          expect(Faraday.default_connection).to receive(:get).with('http://api.geonames.org/get?geonameId=5350964&username=foobar').and_return geoname_5350964
+          subject.add_geonames(resource, solr_doc)
           expect(solr_doc['geographic_srpt']).to eq(lopes)
         end
       end
@@ -407,8 +406,8 @@ describe Spotlight::Dor::Indexer do
 
     describe '#get_geonames_api_envelope' do
       it 'logs exceptions while returning nil' do
-        allow(Spotlight::Dor::Resources::Engine.config).to receive(:geonames_username).and_return 'foobar'
-        allow(Faraday).to receive(:get).with(any_args) { raise Faraday::TimeoutError.new, 'Too slow!' }
+        allow(Settings).to receive(:geonames_username).and_return 'foobar'
+        allow(Faraday.default_connection).to receive(:get).with(any_args) { raise Faraday::TimeoutError.new, 'Too slow!' }
         expect(subject.logger).to receive(:error).twice
         expect { subject.get_geonames_api_envelope('1234') }.not_to raise_error
         expect(subject.get_geonames_api_envelope('1234')).to be_nil
@@ -418,7 +417,7 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_folder' do
       before do
-        subject.send(:add_folder, sdb, solr_doc)
+        subject.send(:add_folder, resource, solr_doc)
       end
 
       it 'without a folder, folder_ssi is blank' do
@@ -443,7 +442,7 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_genre' do
       before do
-        subject.send(:add_genre, sdb, solr_doc)
+        subject.send(:add_genre, resource, solr_doc)
       end
 
       it 'without a genre, genre_ssim is blank' do
@@ -461,7 +460,7 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_location' do
       before do
-        subject.send(:add_location, sdb, solr_doc)
+        subject.send(:add_location, resource, solr_doc)
       end
 
       it 'without a location, location_ssi is blank' do
@@ -486,7 +485,7 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_point_bbox' do
       before do
-        subject.send(:add_point_bbox, sdb, solr_doc)
+        subject.send(:add_point_bbox, resource, solr_doc)
       end
 
       it 'without coordinates, point_bbox is blank' do
@@ -514,7 +513,7 @@ describe Spotlight::Dor::Indexer do
 
     describe '#add_series' do
       before do
-        subject.send(:add_series, sdb, solr_doc)
+        subject.send(:add_series, resource, solr_doc)
       end
 
       it 'without a series, series_ssi is blank' do
@@ -543,9 +542,6 @@ describe Spotlight::Dor::Indexer do
       let(:full_text_solr_fname) { 'full_text_tesimv' }
       let!(:expected_text) { 'SOME full text string that is returned from the server' }
       let!(:full_file_path) { 'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt' }
-      before do
-        allow(sdb).to receive(:bare_druid).and_return(fake_druid)
-      end
 
       it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
         public_xml_with_feigenbaum_full_text = Nokogiri::XML <<-EOF
@@ -563,11 +559,11 @@ describe Spotlight::Dor::Indexer do
               </contentMetadata>
             </publicObject>
           EOF
-        allow(sdb).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
+        allow(resource).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
         # don't actually attempt a call to the stacks
         allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
-        subject.send(:add_object_full_text, sdb, solr_doc)
-        expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path]
+        subject.send(:add_object_full_text, resource, solr_doc)
+        expect(subject.object_level_full_text_urls(resource)).to eq [full_file_path]
         expect(solr_doc[full_text_solr_fname]).to eq [expected_text]
       end
 
@@ -586,9 +582,9 @@ describe Spotlight::Dor::Indexer do
               </contentMetadata>
             </publicObject>
           EOF
-        allow(sdb).to receive(:public_xml).and_return(public_xml_with_no_recognized_full_text)
-        subject.send(:add_object_full_text, sdb, solr_doc)
-        expect(subject.object_level_full_text_urls(sdb)).to eq []
+        allow(resource).to receive(:public_xml).and_return(public_xml_with_no_recognized_full_text)
+        subject.send(:add_object_full_text, resource, solr_doc)
+        expect(subject.object_level_full_text_urls(resource)).to eq []
         expect(solr_doc[full_text_solr_fname]).to be_nil
       end
 
@@ -609,10 +605,10 @@ describe Spotlight::Dor::Indexer do
               </contentMetadata>
             </publicObject>
           EOF
-        allow(sdb).to receive(:public_xml).and_return(public_xml_with_two_recognized_full_text_files)
+        allow(resource).to receive(:public_xml).and_return(public_xml_with_two_recognized_full_text_files)
         allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
-        subject.send(:add_object_full_text, sdb, solr_doc)
-        expect(subject.object_level_full_text_urls(sdb)).to eq [full_file_path, full_file_path]
+        subject.send(:add_object_full_text, resource, solr_doc)
+        expect(subject.object_level_full_text_urls(resource)).to eq [full_file_path, full_file_path]
         expect(solr_doc[full_text_solr_fname]).to eq [expected_text, expected_text] # same file twice in a 2 element array
       end
     end # add_object_full_text

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.4" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+  <titleInfo>
+    <title>Latin glossary : small manuscript fragment on vellum</title>
+  </titleInfo>
+  <typeOfResource manuscript="yes">mixed material</typeOfResource>
+  <originInfo>
+    <place>
+      <placeTerm type="code" authority="marccountry">fr</placeTerm>
+    </place>
+    <place>
+      <placeTerm type="text">France?</placeTerm>
+    </place>
+    <dateCreated>13th century</dateCreated>
+    <dateIssued encoding="marc" point="start" qualifier="questionable">1200</dateIssued>
+    <dateIssued encoding="marc" point="end" qualifier="questionable">1299</dateIssued>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">lat</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>1 fragment, 96 x 151 mm.</extent>
+  </physicalDescription>
+  <abstract>Unidentified Latin vocabulary, this portion part of the letter M, with a total of 35 lemmata (a word or phrase that is glossed; headword).</abstract>
+  <note type="statement of responsibility" altRepGroup="00"/>
+  <note>Lower portion of vellum leaf, removed from a binding.</note>
+  <note>Script: professional gotica textualis, 2 columns, with a fair amount of abbreviations.</note>
+  <note type="acquisition">Purchased from Bonhams, 2013. Accession 2013-080.</note>
+  <note type="ownership">Previously in the Bernard M. Rosenthal collection; with Rosenthal's dealer description included with the manuscript, together with a note re previous ownership of Bernard Bischoff.</note>
+  <subject authority="lcsh">
+    <topic>Manuscripts, Latin (Medieval and modern)</topic>
+    <geographic>France</geographic>
+  </subject>
+  <location>
+    <physicalLocation>Department of Special Collections, Stanford University Libraries, Stanford, CA 94305</physicalLocation>
+  </location>
+  <recordInfo>
+    <descriptionStandard>dacs</descriptionStandard>
+    <recordContentSource authority="marcorg">CSt</recordContentSource>
+    <recordCreationDate encoding="marc">130524</recordCreationDate>
+    <recordIdentifier>a10157160</recordIdentifier>
+    <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4_SDR.xsl (Version 1.2.5 2013/08/11)</recordOrigin>
+  </recordInfo>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Stanford University Libraries Special Collections, Manuscripts Division</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/sk373nx0013</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+</mods>

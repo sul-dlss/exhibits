@@ -1,14 +1,21 @@
-describe 'gdor indexing integration test', :vcr do
+require 'rails_helper'
+
+RSpec.describe 'gdor indexing integration test', type: :feature do
   let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:druid) { 'xf680rd3068' }
+
+  before do
+    stub_const('Harvestdor::PURL_DEFAULT', File.expand_path(File.join('..', '..', 'fixtures'), __FILE__))
+  end
 
   subject do
-    r = Spotlight::Resources::DorHarvester.new(druid_list: 'xf680rd3068', exhibit: exhibit)
+    r = Spotlight::Resources::DorHarvester.new(druid_list: druid, exhibit: exhibit)
     allow(r).to receive(:to_global_id).and_return('x')
     r.document_builder.to_solr.first
   end
 
   it 'has a doc id' do
-    expect(subject[:id]).to eq 'xf680rd3068'
+    expect(subject[:id]).to eq druid
   end
 
   it 'has the gdor data' do
@@ -23,9 +30,8 @@ describe 'gdor indexing integration test', :vcr do
     expect(subject).to include 'full_image_url_ssm'
   end
 
-  it 'can write doc to solr with latest exhibits_solr_conf', vcr: false do
-    # hd778hw9236 has B.C. date -- good for checking Solr field types
-    r = Spotlight::Resources::DorHarvester.new(druid_list: 'hd778hw9236')
+  it 'can write doc to solr with latest exhibits_solr_conf' do
+    r = Spotlight::Resources::DorHarvester.new(druid_list: druid)
     allow(r).to receive(:to_global_id).and_return('x')
     allow(r).to receive(:exhibit).and_return(exhibit)
     r.reindex

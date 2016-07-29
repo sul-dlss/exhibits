@@ -1,0 +1,26 @@
+dor_fetcher:
+  service_url: https://dorfetcher-url
+  skip_heartbeat: true
+
+# ---------- White and Black list parameters -----
+
+# name of file containing druids that WILL be processed (all others will be ignored)
+#  either give absolute path or path relative to where the command will be executed
+#whitelist: config/ap_whitelist.txt
+
+harvestdor:
+  # You will want to copy this file and change the following settings:
+  # 1. log_dir, log_name
+  # 2. default_set
+  # 3. blacklist or whitelist if you are using them
+  # 4. Solr baseurl
+
+  # log_dir:  directory for log file  (default logs, relative to harvestdor gem path)
+  log_dir: log/gdor_logs
+
+  # log_name: name of log file  (default: harvestdor.log)
+  log_name: gdor.log
+
+  # purl: url for the DOR purl server (used to get ContentMetadata, etc.)
+  purl: https://purl.stanford.edu
+
