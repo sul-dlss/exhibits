@@ -403,7 +403,18 @@ describe Spotlight::Dor::Indexer do
           expect(solr_doc['geographic_srpt']).to eq(lopes)
         end
       end
-    end # add_coordinates
+    end # add_geonames
+
+    describe '#get_geonames_api_envelope' do
+      it 'logs exceptions while returning nil' do
+        allow(Spotlight::Dor::Resources::Engine.config).to receive(:geonames_username).and_return 'foobar'
+        allow(Faraday).to receive(:get).with(any_args) { raise Faraday::TimeoutError.new, 'Too slow!' }
+        expect(subject.logger).to receive(:error).twice
+        expect { subject.get_geonames_api_envelope('1234') }.not_to raise_error
+        expect(subject.get_geonames_api_envelope('1234')).to be_nil
+      end
+      # otherwise tested as part of #add_geonames
+    end
 
     describe '#add_folder' do
       before do

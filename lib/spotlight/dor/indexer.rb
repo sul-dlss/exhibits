@@ -55,7 +55,7 @@ module Spotlight::Dor
       # pulls from //subject/geographic
       def add_geonames(sdb, solr_doc)
         ids = extract_geonames_ids(sdb)
-        solr_doc['geographic_srpt'] = ids.map { |id| get_geonames_api_envelope(id) }.reject(&:nil?)
+        solr_doc['geographic_srpt'] = ids.map { |id| get_geonames_api_envelope(id) }.compact
       end
 
       # add coordinates solr field containing the cartographic coordinates per
@@ -98,7 +98,7 @@ module Spotlight::Dor
           uri = z.geographic.attr('valueURI')
           m = %r{^https?://sws\.geonames\.org/(\d+)}i.match(uri.nil? ? '' : uri.value)
           m ? m[1] : nil
-        end.reject(&:nil?).reject(&:empty?)
+        end.compact.reject(&:empty?)
       end
 
       # Fetch remote geonames metadata and format it for Solr
@@ -112,7 +112,7 @@ module Spotlight::Dor
         min_x, max_x = [bbox.at_xpath('west').text.to_f, bbox.at_xpath('east').text.to_f].minmax
         min_y, max_y = [bbox.at_xpath('north').text.to_f, bbox.at_xpath('south').text.to_f].minmax
         "ENVELOPE(#{min_x},#{max_x},#{max_y},#{min_y})"
-      rescue RuntimeError => e
+      rescue Faraday::Error => e
         logger.error("Error fetching/parsing #{url} -- #{e.message}")
         nil
       end
