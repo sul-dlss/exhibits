@@ -561,10 +561,30 @@ describe Spotlight::Dor::Indexer do
           EOF
         allow(resource).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
         # don't actually attempt a call to the stacks
-        allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
+        allow(Faraday.default_connection).to receive(:get).with(full_file_path).and_return(instance_double(Faraday::Response, body: expected_text))
         subject.send(:add_object_full_text, resource, solr_doc)
         expect(subject.object_level_full_text_urls(resource)).to eq [full_file_path]
         expect(solr_doc[full_text_solr_fname]).to eq [expected_text]
+      end
+
+      context 'with missing full text content' do
+        it 'ignores fulltext data' do
+          public_xml_with_feigenbaum_full_text = Nokogiri::XML <<-EOF
+            <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
+              <contentMetadata objectId="oo000oo0000" type="book">
+                <resource id="oo000oo0000_4" sequence="4" type="object">
+                  <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
+                </resource>
+                </contentMetadata>
+              </publicObject>
+            EOF
+          allow(resource).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
+          allow(Faraday.default_connection).to receive(:get).with(full_file_path).and_raise Faraday::TimeoutError.new('')
+
+          expect(subject.logger).to receive(:error).with(/Error indexing full text/)
+          subject.send(:add_object_full_text, resource, solr_doc)
+          expect(solr_doc[full_text_solr_fname]).to be_blank
+        end
       end
 
       it 'does not index the full text if no recognized pattern is found' do
