@@ -15,9 +15,9 @@ begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
-  # this rescue block is here for deployment to production, where the jettywrapper
-  # does not exist and requiring it will fail, and is ok
-  STDERR.puts 'WARNING:  and/or Rubocop was not found and could not be required.'
+  # this rescue block is here for deployment to production, where
+  # certain dependencies are not expected, and that is OK
+  STDERR.puts 'WARNING: RSpec and/or Rubocop was not found and could not be required.'
 end
 
 desc 'Run tests in generated test Rails app with generated Solr instance running'
