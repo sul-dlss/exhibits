@@ -446,15 +446,6 @@ GEM
       nokogiri
       stomp
       xml-simple
-    spotlight-dor-resources (2.0.1)
-      blacklight-spotlight (~> 0.20)
-      faraday
-      gdor-indexer (>= 0.5.0)
-      harvestdor-indexer (~> 2.4)
-      parallel
-      rails
-      solrizer
-      stanford-mods (~> 2.1)
     spotlight-resources-iiif (0.1.1)
       blacklight-spotlight
       faraday
@@ -557,7 +548,10 @@ DEPENDENCIES
   dotenv
   exhibits_solr_conf (~> 0.1)
   factory_girl_rails
+  faraday
   friendly_id
+  gdor-indexer (~> 0.5)
+  harvestdor-indexer (~> 2.4)
   is_it_working-cbeer
   jbuilder (~> 2.0)
   jquery-rails
@@ -565,6 +559,7 @@ DEPENDENCIES
   rack-dev-mark
   rails (= 4.2.7)
   riiif (~> 0.4.0)
+  rsolr
   rspec-rails
   rubocop
   rubocop-rspec
@@ -575,11 +570,12 @@ DEPENDENCIES
   sitemap_generator
   social-share-button
   solr_wrapper
-  spotlight-dor-resources (~> 2.0)
+  solrizer
   spotlight-resources-iiif
   sqlite3
   squash_rails
   squash_ruby
+  stanford-mods (~> 2.1)
   sul_styles
   turbolinks
   turnout
