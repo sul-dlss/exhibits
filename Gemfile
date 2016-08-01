@@ -61,9 +61,6 @@ group :production do
   gem 'mysql2', '~> 0.4.4'
 end
 
-gem 'squash_ruby', require: 'squash/ruby'
-gem 'squash_rails', require: 'squash/rails'
-
 gem 'config'
 
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -98,3 +95,4 @@ gem 'faraday'
 gem 'harvestdor-indexer', '~> 2.4'
 gem 'stanford-mods', '~> 2.1'
 gem 'solrizer'
+gem 'honeybadger', '~> 2.0'

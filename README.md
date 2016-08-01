@@ -9,6 +9,7 @@ The project's `master` branch provides a template Spotlight application with SUL
 Exhibits need to provide the following configuration files:
 
 * `config/database.yml` - Standard Rails database configuration
+* `config/honeybadger.yml` - Honeybadger.io exception reporting configuration
 * `config/blacklight.yml` - Blacklight solr configuration
 * `config/gdor.yml` - gdor indexer configuration (i.e. url of dor-fetcher service and purl url basenames), use config/gdor.yml.example as a template
 * `config/exhibit.yml` - Exhibit indexing directives (in addition to the indexer configuration above). It can contain environment-specific sets that should be synchronized using the `rake spotlight:reindex` task. E.g.:
@@ -20,7 +21,6 @@ Exhibits need to provide the following configuration files:
     ```
 
 * config/initializers/secret_token.rb - Rails secret token
-* config/initializers/squash.rb - Squash error reporting configuration
 * public/.htaccess - An Apache .htaccess file with the necessary passenger configuration, e.g.:
     ```
     PassengerBaseURI /my-exhibit
