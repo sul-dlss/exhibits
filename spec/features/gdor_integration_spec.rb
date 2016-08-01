@@ -30,7 +30,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
     expect(subject).to include 'full_image_url_ssm'
   end
 
-  it 'can write doc to solr with latest exhibits_solr_conf' do
+  it 'can write the document to solr' do
     r = DorHarvester.new(druid_list: druid)
     allow(r).to receive(:to_global_id).and_return('x')
     allow(r).to receive(:exhibit).and_return(exhibit)

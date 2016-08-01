@@ -497,13 +497,13 @@ describe Spotlight::Dor::Indexer do
       end
     end # add_location
 
-    describe '#add_point_bbox' do
+    describe '#add_point_srpt' do
       before do
-        subject.send(:add_point_bbox, resource, solr_doc)
+        subject.send(:add_point_srpt, resource, solr_doc)
       end
 
-      it 'without coordinates, point_bbox is blank' do
-        expect(solr_doc['point_bbox']).to be_blank
+      it 'without coordinates, point_srpt is blank' do
+        expect(solr_doc['point_srpt']).to be_blank
       end
 
       context 'with coordinates' do
@@ -519,11 +519,11 @@ describe Spotlight::Dor::Indexer do
           EOF
         end
 
-        it 'extracts the point_bbox' do
-          expect(solr_doc['point_bbox']).to eq(['ENVELOPE(-16.0, 28.0, 13.0, -15.0)'])
+        it 'extracts the point_srpt' do
+          expect(solr_doc['point_srpt']).to eq(['ENVELOPE(-16.0, 28.0, 13.0, -15.0)'])
         end
       end
-    end # add_point_bbox
+    end # add_point_srpt
 
     describe '#add_series' do
       before do
