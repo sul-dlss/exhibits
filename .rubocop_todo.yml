@@ -30,6 +30,13 @@ RSpec/ExampleLength:
     - 'spec/models/spotlight/resources/dor_harvester_spec.rb'
 
 # Offense count: 3
+RSpec/AnyInstance:
+  Exclude:
+    - 'spec/controllers/login_controller_spec.rb'
+    - 'spec/features/exhibit_spec.rb'
+    - 'spec/models/spotlight/resources/dor_harvester_spec.rb'
+
+# Offense count: 3
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
