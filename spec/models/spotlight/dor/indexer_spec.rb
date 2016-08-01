@@ -352,6 +352,20 @@ describe Spotlight::Dor::Indexer do
         expect(subject.extract_geonames_ids(resource)).to be_blank
       end
 
+      context 'without geographic data' do
+        # e.g. from https://purl.stanford.edu/pj169kw1971.mods (with 2nd value added)
+        let(:modsbody) do
+          <<-EOF
+          <subject authority="lcsh">
+            <topic>Design</topic>
+          </subject>
+          EOF
+        end
+
+        it 'is nil' do
+          expect(subject.extract_geonames_ids(resource)).to be_blank
+        end
+      end
       context 'with 2 geonames' do
         # e.g. from https://purl.stanford.edu/rh234sw2751.mods (with 2nd value added)
         let(:modsbody) do

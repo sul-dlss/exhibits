@@ -95,8 +95,11 @@ module Spotlight::Dor
       # @return [Array{String}] The IDs from geonames //subject/geographic URIs, if any
       def extract_geonames_ids(sdb)
         sdb.smods_rec.subject.map do |z|
+          next unless z.geographic.any?
           uri = z.geographic.attr('valueURI')
-          m = %r{^https?://sws\.geonames\.org/(\d+)}i.match(uri.nil? ? '' : uri.value)
+          next if uri.nil?
+
+          m = %r{^https?://sws\.geonames\.org/(\d+)}i.match(uri.value)
           m ? m[1] : nil
         end.compact.reject(&:empty?)
       end
