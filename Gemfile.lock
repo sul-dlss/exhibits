@@ -324,6 +324,7 @@ GEM
       ast (~> 2.2)
     pkg-config (1.1.7)
     powerpack (0.1.1)
+    puma (3.6.0)
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -554,6 +555,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (~> 0.4.4)
+  puma (~> 3.0)
   rack-dev-mark
   rails (= 4.2.7)
   riiif (~> 0.4.0)
