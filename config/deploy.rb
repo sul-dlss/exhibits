@@ -23,7 +23,7 @@ set :log_level, :info
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w(config/secrets.yml config/database.yml config/blacklight.yml config/gdor.yml config/initializers/squash.rb public/.htaccess)
+set :linked_files, %w(config/secrets.yml config/database.yml config/blacklight.yml config/gdor.yml config/honeybadger.yml public/.htaccess)
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads config/settings)
@@ -34,8 +34,6 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-before 'deploy:publishing', 'squash:write_revision'
-
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
@@ -45,3 +43,6 @@ namespace :deploy do
     end
   end
 end
+
+# honeybadger_env otherwise defaults to rails_env
+set :honeybadger_env, "#{fetch(:stage)}"

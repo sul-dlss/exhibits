@@ -7,9 +7,6 @@ class ApplicationController < ActionController::Base
 
   before_action :set_paper_trail_whodunnit
 
-  include Squash::Ruby::ControllerMethods
-  enable_squash_client
-
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
 
