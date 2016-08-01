@@ -57,8 +57,8 @@ class CatalogController < ApplicationController
     config.view.gallery.partials = [:index_header, :index]
     config.view.masonry.partials = [:index]
     config.view.slideshow.partials = [:index]
-    config.view.maps.type = 'placename_coord'
-    config.view.maps.placename_coord_field = 'placename_coords_ssim'
+    config.view.maps.type = 'bbox'
+    config.view.maps.bbox_field = 'point_srpt'
     config.view.embed.partials = [:osd_or_embed]
     config.view.embed.if = false
 
