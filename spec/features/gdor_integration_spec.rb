@@ -9,7 +9,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
   end
 
   subject do
-    r = Spotlight::Resources::DorHarvester.new(druid_list: druid, exhibit: exhibit)
+    r = DorHarvester.new(druid_list: druid, exhibit: exhibit)
     allow(r).to receive(:to_global_id).and_return('x')
     r.document_builder.to_solr.first
   end
@@ -31,7 +31,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
   end
 
   it 'can write doc to solr with latest exhibits_solr_conf' do
-    r = Spotlight::Resources::DorHarvester.new(druid_list: druid)
+    r = DorHarvester.new(druid_list: druid)
     allow(r).to receive(:to_global_id).and_return('x')
     allow(r).to receive(:exhibit).and_return(exhibit)
     r.reindex

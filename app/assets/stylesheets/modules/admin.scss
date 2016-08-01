@@ -1,0 +1,17 @@
+#sdr-item-status-section {
+  .panel-default > .panel-heading {
+    background-color: $color-beige-05;
+  }
+}
+
+.form-group.sdr-form {
+  margin-left: 10px;
+}
+
+a[aria-expanded=true] .glyphicon-chevron-right {
+  display: none;
+}
+
+a[aria-expanded=false] .glyphicon-chevron-down {
+  display: none;
+}

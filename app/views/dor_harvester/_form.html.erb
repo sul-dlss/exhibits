@@ -1,0 +1,48 @@
+<% harvester = DorHarvester.instance(current_exhibit) %>
+<div class="tab-content">
+  <div class="panel-group" id="sdr-accordion" role="tablist" aria-multiselectable="true">
+    <%= render partial: 'dor_harvester/status', locals: { harvester: harvester } %>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="sdr-item-submission">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#sdr-accordion" href="#sdr-item-submission-section" aria-expanded="true" aria-controls="sdr-item-submission-section" class="">
+            <%= t('admin.items.item-submission') %>
+            <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+          </a>
+        </h4>
+      </div>
+      <div id="sdr-item-submission-section" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sdr-item-submission" aria-expanded="true">
+        <div class="panel-body">
+          <div id="external_resource_tab_0" role="tabpanel" class="tab-pane active">
+            <p><%= t('admin.items.item-submission-help_html') %></p>
+
+            <%= bootstrap_form_for(harvester, url: exhibit_dor_harvester_path(exhibit_id: current_exhibit), layout: :horizontal, label_col: 'col-md-0', control_col: 'col-xs-6 col-sm-4') do |f| %>
+
+            <!--  Hardcoded form to get page working without dor_harvester -->
+            <form role="form" class="form-horizontal" id="edit_resources_dor_harvester_4" action="/test-exhibit/dor_harvester" accept-charset="UTF-8" method="post">
+              <input name="utf8" type="hidden" value="✓">
+              <input type="hidden" name="_method" value="patch">
+              <input type="hidden" name="authenticity_token" value="hgsCBeMEnu+e8kAhD88RMy8UbYHJUuAehatI0mTiYEEOxAfrhQAulSb/DrHfRFalxn1gQDPu0hu9eVQBNj+7oQ==">
+              <!--  Added class for styling-->
+              <div class="form-group sdr-form">
+                <div>
+                  <!--  Added hide_label -->
+                  <%= f.text_area :druid_list, hide_label: true, rows: 10  %>
+                </div>
+              </div>
+              <div class="form-actions">
+                <div class="primary-actions">
+                  <%= cancel_link "", :back, class: 'btn btn-default' %>
+                  <%= f.submit t('.add_item'), class: 'btn btn-primary' %>
+                </div>
+              </div>
+
+              <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

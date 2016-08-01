@@ -8,6 +8,10 @@ require: rubocop-rspec
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+Metrics/MethodLength:
+  Exclude:
+    - app/models/dor_harvester.rb
+
 # Offense count: 1
 # Configuration parameters: ContextCreatingMethods.
 Lint/UselessAccessModifier:
@@ -27,20 +31,21 @@ Metrics/LineLength:
 RSpec/ExampleLength:
   Exclude:
     - 'spec/models/spotlight/dor/indexer_spec.rb'
-    - 'spec/models/spotlight/resources/dor_harvester_spec.rb'
 
 # Offense count: 3
 RSpec/AnyInstance:
   Exclude:
     - 'spec/controllers/login_controller_spec.rb'
     - 'spec/features/exhibit_spec.rb'
-    - 'spec/models/spotlight/resources/dor_harvester_spec.rb'
+    - 'spec/models/dor_harvester_spec.rb'
 
 # Offense count: 3
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'app/controllers/spotlight/resources/dor_harvester_controller.rb'
     - 'app/models/spotlight/dor/indexer.rb'
-    - 'app/models/spotlight/resources/dor_harvester.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/services/dor_solr_document_builder.rb'

@@ -21,3 +21,26 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      dor_harvester:
+        druid_list: Object IDs
+    help:
+      dor_harvester:
+        druid_list: Collection object PURLs, one per line (e.g. qb438pg7646)
+
+  dor_harvester:
+    form:
+      add_item: Add items
+      title: SDR
+
+  admin:
+    items:
+      item-status: "Item status"
+      item-submission: "Item submission"
+      item-submission-help_html: "To add SDR items to the exhibit, enter collection or item druids below, one per line (e.g. qb438pg7646)."
+      object-druids: "Object druids"
+      object-druids-help_html: "Items below with the status of <em>published</em> were added to the exhibit. Items must be published before they can be added to the exhibit."
+      collection-druids: "Collection druids"
+      collection-druids-help_html: "Items associated with the collection druids below were added to the exhibit. If the number of items associated with a collection druid does not match your expectation, verify that all of its associated items have been published."

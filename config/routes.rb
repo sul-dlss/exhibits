@@ -20,6 +20,6 @@ Exhibits::Application.routes.draw do
   mount Spotlight::Engine, at: '/'
 
   resources :exhibits, path: '/', only: [] do
-    resource :dor_harvester, controller: :"spotlight/resources/dor_harvester", only: [:create, :update]
+    resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update]
   end
 end
