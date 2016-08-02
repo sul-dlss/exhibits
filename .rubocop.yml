@@ -23,3 +23,6 @@ Style/StringLiterals:
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
+
+RSpec/NamedSubject:
+  Enabled: false
