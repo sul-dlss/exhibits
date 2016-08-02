@@ -63,7 +63,7 @@ class CatalogController < ApplicationController
     config.view.embed.if = false
 
     # BlacklightHeatmaps configuration values
-    config.geometry_field = :point_srpt
+    config.geometry_field = :geographic_srpt
     # Basemaps configured include: 'positron', 'darkMatter', 'OpenStreetMap.HOT'
     config.basemap_provider = 'positron'
 
