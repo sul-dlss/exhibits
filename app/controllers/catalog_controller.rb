@@ -55,12 +55,17 @@ class CatalogController < ApplicationController
     config.view.list.thumbnail_field = :thumbnail_square_url_ssm
     config.view.list.partials = [:thumbnail, :index_header, :index]
     config.view.gallery.partials = [:index_header, :index]
+    config.view.heatmaps.partials = []
+    config.view.heatmaps.color_ramp = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494']
     config.view.masonry.partials = [:index]
     config.view.slideshow.partials = [:index]
-    config.view.maps.type = 'bbox'
-    config.view.maps.bbox_field = 'point_srpt'
     config.view.embed.partials = [:osd_or_embed]
     config.view.embed.if = false
+
+    # BlacklightHeatmaps configuration values
+    config.geometry_field = :point_srpt
+    # Basemaps configured include: 'positron', 'darkMatter', 'OpenStreetMap.HOT'
+    config.basemap_provider = 'positron'
 
     # solr field configuration for document/show views
     # config.show.title_field = 'title_display'
