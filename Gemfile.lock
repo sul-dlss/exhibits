@@ -60,13 +60,6 @@ GEM
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.2.0)
       rails
-    blacklight-maps (0.2.0)
-      blacklight (>= 5.1.0)
-      bootstrap-sass (~> 3.0)
-      leaflet-markercluster-rails
-      leaflet-rails
-      leaflet-sidebar-rails (~> 0.0.2)
-      rails
     blacklight-oembed (0.1.0)
       blacklight (>= 5.0, < 7)
       bootstrap-sass (~> 3.0)
@@ -103,6 +96,11 @@ GEM
       social-share-button (~> 0.3)
       tophat
       underscore-rails (~> 1.6)
+    blacklight_heatmaps (0.1.0)
+      blacklight (~> 6.0)
+      leaflet-rails
+      leaflet-sidebar-rails (~> 0.1.9)
+      rails (~> 4.2.6)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -269,10 +267,8 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    leaflet-markercluster-rails (0.7.0)
-      railties (>= 3.1)
     leaflet-rails (0.7.7)
-    leaflet-sidebar-rails (0.0.3)
+    leaflet-sidebar-rails (0.1.9)
     legato (0.7.0)
       multi_json
     lodash-rails (4.14.1)
@@ -521,8 +517,8 @@ PLATFORMS
 DEPENDENCIES
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
-  blacklight-maps (= 0.2.0)
   blacklight-spotlight (~> 0.19)
+  blacklight_heatmaps
   bootstrap-sass (~> 3.3.5)
   byebug
   capistrano (~> 3.0)

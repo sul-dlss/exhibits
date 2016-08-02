@@ -68,7 +68,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'blacklight', '~> 6.3'
 gem 'blacklight-gallery', '~> 0.3'
-gem 'blacklight-maps', '0.2.0'
+gem 'blacklight_heatmaps'
 gem 'blacklight-spotlight', '~> 0.19'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'

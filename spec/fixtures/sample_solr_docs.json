@@ -116,6 +116,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/hj066rn6500"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 51.0, 37.0, -35.0)"
         ]
     },
     {
@@ -227,6 +230,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/wd297xz1362"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-16.0, 28.0, 13.0, -15.0)"
         ]
     },
     {
@@ -351,6 +357,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/xy658qf4887"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-35.0, 63.0, 37.0, -35.0)"
         ]
     },
     {
@@ -463,6 +472,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/wk210cf6868"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 51.0, 37.0, -35.0)"
         ]
     },
     {
@@ -594,6 +606,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/hx676nr2846"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(29.0, 31.0, 1.0, 0.0)"
         ]
     },
     {
@@ -770,8 +785,8 @@
         "physical": [
             "31 x 42 cm"
         ],
-        "point_srpt": [
-            "ENVELOPE(51.0, -18.0, 37.0, -35.0)"
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 51.0, 37.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1891,
         "pub_year_w_approx_isi": 1891,
@@ -888,8 +903,8 @@
         "physical": [
             "34 x 41 cm"
         ],
-        "point_srpt": [
-            "ENVELOPE(34.0, 14.0, -21.0, -35.0)"
+        "geographic_srpt": [
+            "ENVELOPE(14.0, 34.0, -21.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1890,
         "pub_year_w_approx_isi": 1890,
@@ -1177,6 +1192,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/ht152fg3281"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(20.0, 51.0, 37.0, -5.0)"
         ]
     },
     {
@@ -1362,8 +1380,8 @@
         "physical": [
             "52 x 82 cm"
         ],
-        "point_srpt": [
-            "ENVELOPE(41.0, 6.0, -5.0, -37.0)"
+        "geographic_srpt": [
+            "ENVELOPE(6.0, 41.0, -5.0, -37.0)"
         ],
         "pub_year_no_approx_isi": 1886,
         "pub_year_w_approx_isi": 1886,
@@ -1538,6 +1556,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/rg759wj0953"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 51.0, 37.0, -35.0)"
         ]
     },
     {
@@ -1659,6 +1680,9 @@
         "title_sort": "Birds eye view of the Soudan and surrounding countries",
         "url_fulltext": [
             "http://purl.stanford.edu/pb900ct4951"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(12.0, 54.0, 35.0, 6.0)"
         ]
     },
     {
@@ -1735,8 +1759,8 @@
         "physical": [
             "27 x 34 cm"
         ],
-        "point_srpt": [
-            "ENVELOPE(51.0, -18.0, 37.0, -35.0)"
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 51.0, 37.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1881,
         "pub_year_w_approx_isi": 1881,
@@ -1897,6 +1921,9 @@
         "title_sort": "NordwestAfrika",
         "url_fulltext": [
             "http://purl.stanford.edu/wr055hy7401"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-30.0, 20.0, 37.0, -2.0)"
         ]
     },
     {
@@ -1973,8 +2000,8 @@
         "physical": [
             "24 x 32 cm"
         ],
-        "point_srpt": [
-            "ENVELOPE(51.0, -18.0, 37.0, -35.0)"
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 51.0, 37.0, -35.0)"
         ],
         "pub_year_no_approx_isi": 1880,
         "pub_year_w_approx_isi": 1880,
@@ -2135,6 +2162,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/fx703zs6529"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 73.0, 37.0, -34.0)"
         ]
     },
     {
@@ -2249,6 +2279,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/qy458yc1855"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-18.0, 51.0, 37.0, -35.0)"
         ]
     },
     {
@@ -2369,6 +2402,9 @@
         ],
         "url_fulltext": [
             "http://purl.stanford.edu/ct493wg6431"
+        ],
+        "geographic_srpt": [
+            "ENVELOPE(-20.0, 50.0, 40.0, -40.0)"
         ]
     }
 ]

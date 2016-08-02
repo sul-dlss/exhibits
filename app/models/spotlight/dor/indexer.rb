@@ -38,7 +38,7 @@ module Spotlight::Dor
         before_index :add_genre
         before_index :add_geonames
         before_index :add_location
-        before_index :add_point_srpt
+        before_index :add_geographic_srpt
         before_index :add_series
       end
 
@@ -55,7 +55,8 @@ module Spotlight::Dor
       # pulls from //subject/geographic
       def add_geonames(sdb, solr_doc)
         ids = extract_geonames_ids(sdb)
-        solr_doc['geographic_srpt'] = ids.map { |id| get_geonames_api_envelope(id) }.compact
+        solr_doc['geographic_srpt'] ||= []
+        solr_doc['geographic_srpt'] += ids.map { |id| get_geonames_api_envelope(id) }.compact
       end
 
       # add coordinates solr field containing the cartographic coordinates per
@@ -82,10 +83,11 @@ module Spotlight::Dor
         solr_doc['location_ssi'] = sdb.smods_rec.physical_location_str
       end
 
-      # add point_srpt solr field containing the point bounding box per
+      # add geographic_srpt solr field containing the point bounding box per
       # MODS subject.cartographics.coordinates (via stanford-mods gem)
-      def add_point_srpt(sdb, solr_doc)
-        solr_doc['point_srpt'] = sdb.smods_rec.coordinates_as_envelope
+      def add_geographic_srpt(sdb, solr_doc)
+        solr_doc['geographic_srpt'] ||= []
+        solr_doc['geographic_srpt'] += sdb.smods_rec.coordinates_as_envelope
       end
 
       def add_series(sdb, solr_doc)

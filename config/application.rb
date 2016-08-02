@@ -1,8 +1,5 @@
 require File.expand_path('../boot', __FILE__)
 
-# Explicitly require dependencies to avoid load problems with blacklight-maps
-require 'active_support/dependencies'
-
 require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
