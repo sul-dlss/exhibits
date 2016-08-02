@@ -1,3 +1,38 @@
+GIT
+  remote: git://github.com/projectblacklight/spotlight.git
+  revision: 408caad932ada074e881bc0588901de47698f8bc
+  branch: st06
+  specs:
+    blacklight-spotlight (0.22.0)
+      acts-as-taggable-on (>= 4.0.0.pre)
+      autoprefixer-rails
+      blacklight (~> 6.3)
+      blacklight-gallery (>= 0.3.0)
+      blacklight-oembed (>= 0.0.3)
+      bootstrap_form (~> 2.2)
+      breadcrumbs_on_rails (~> 2.3.0)
+      cancancan
+      carrierwave
+      carrierwave-crop
+      devise (>= 3.0)
+      devise_invitable (~> 1.6)
+      faraday
+      faraday_middleware
+      friendly_id (>= 5.2.0.beta.1, < 6)
+      github-markup
+      legato
+      mini_magick
+      nokogiri
+      oauth2
+      openseadragon
+      paper_trail (~> 5.0)
+      rails (>= 4.2.0, < 6)
+      roar-rails
+      signet
+      sir_trevor_rails (~> 0.5)
+      tophat
+      underscore-rails (~> 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -65,37 +100,6 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.21.0)
-      acts-as-taggable-on (>= 4.0.0.pre)
-      autoprefixer-rails
-      blacklight (~> 6.3)
-      blacklight-gallery (>= 0.3.0)
-      blacklight-oembed (>= 0.0.3)
-      bootstrap_form (~> 2.2)
-      breadcrumbs_on_rails (~> 2.3.0)
-      cancancan
-      carrierwave
-      carrierwave-crop
-      devise (>= 3.0)
-      devise_invitable (~> 1.6)
-      faraday
-      faraday_middleware
-      friendly_id (>= 5.2.0.beta.1, < 6)
-      github-markup
-      legato
-      lodash-rails
-      mini_magick
-      nokogiri
-      oauth2
-      openseadragon
-      paper_trail (~> 5.0)
-      rails (>= 4.2.0, < 6)
-      roar-rails
-      signet
-      sir_trevor_rails (~> 0.5)
-      social-share-button (~> 0.3)
-      tophat
-      underscore-rails (~> 1.6)
     blacklight_heatmaps (0.1.0)
       blacklight (~> 6.0)
       leaflet-rails
@@ -271,8 +275,6 @@ GEM
     leaflet-sidebar-rails (0.1.9)
     legato (0.7.0)
       multi_json
-    lodash-rails (4.14.1)
-      railties (>= 3.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -517,7 +519,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
-  blacklight-spotlight (~> 0.19)
+  blacklight-spotlight (~> 0.19)!
   blacklight_heatmaps
   bootstrap-sass (~> 3.3.5)
   byebug
