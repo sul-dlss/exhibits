@@ -26,9 +26,6 @@ en:
     attributes:
       dor_harvester:
         druid_list: Object IDs
-    help:
-      dor_harvester:
-        druid_list: Collection object PURLs, one per line (e.g. qb438pg7646)
 
   dor_harvester:
     form:
