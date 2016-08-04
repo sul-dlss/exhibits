@@ -195,9 +195,9 @@ GEM
     devise-remote-user (0.4.1)
       devise
       rails (>= 3.2, < 5.0)
-    devise_invitable (1.6.0)
-      actionmailer (>= 3.2.6)
-      devise (>= 3.2.0)
+    devise_invitable (1.7.0)
+      actionmailer (>= 4.0.0)
+      devise (>= 4.0.0)
     diff-lcs (1.2.5)
     diffy (3.1.0)
     dlss-capistrano (3.3.0)
@@ -431,9 +431,6 @@ GEM
       twitter-text (~> 1.4)
     sitemap_generator (5.1.0)
       builder
-    social-share-button (0.3.1)
-      coffee-rails
-      sass-rails
     solr_wrapper (0.15.0)
       faraday
       ruby-progressbar
@@ -473,7 +470,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
-    tins (1.11.0)
+    tins (1.12.0)
     tophat (2.3.0)
       actionpack (>= 3.0.0)
     trollop (2.1.2)
@@ -563,7 +560,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sir_trevor_rails
   sitemap_generator
-  social-share-button
   solr_wrapper
   solrizer
   spotlight-resources-iiif
