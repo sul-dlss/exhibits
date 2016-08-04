@@ -58,6 +58,13 @@
   }
 
   &.documents-list {
+    .document {
+      box-sizing: content-box;
+      min-height: 100px;
+      padding-bottom: $padding-large-vertical;
+      padding-top: $padding-large-vertical;
+    }
+
     .index_title {
       margin-left: 120px;
     }
