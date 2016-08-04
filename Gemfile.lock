@@ -474,7 +474,7 @@ GEM
     tophat (2.3.0)
       actionpack (>= 3.0.0)
     trollop (2.1.2)
-    turbolinks (5.0.1)
+    turbolinks (5.0.0)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     turnout (2.3.1)
@@ -566,7 +566,7 @@ DEPENDENCIES
   sqlite3
   stanford-mods (~> 2.1)
   sul_styles
-  turbolinks
+  turbolinks (= 5.0.0)
   turnout
   uglifier (>= 2.7.2)
   web-console
