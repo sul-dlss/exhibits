@@ -221,14 +221,14 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     friendly_id (5.2.0.beta.1)
       activerecord (>= 4.0.0)
-    gdor-indexer (0.5.0)
+    gdor-indexer (0.6.0)
       activesupport
       harvestdor-indexer
       hooks
       mail
       nokogiri
       rsolr
-      stanford-mods (>= 1.4.0)
+      stanford-mods (~> 2.2.1)
       trollop
     github-markup (1.4.0)
     globalid (0.3.7)
@@ -456,7 +456,7 @@ GEM
     sshkit (1.11.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stanford-mods (2.2.0)
+    stanford-mods (2.2.1)
       activesupport
       mods (~> 2.0.2)
     stomp (1.4.1)
@@ -540,7 +540,7 @@ DEPENDENCIES
   factory_girl_rails
   faraday
   friendly_id
-  gdor-indexer (~> 0.5)
+  gdor-indexer (~> 0.6)
   harvestdor-indexer (~> 2.4)
   honeybadger (~> 2.0)
   is_it_working-cbeer
@@ -564,7 +564,7 @@ DEPENDENCIES
   solrizer
   spotlight-resources-iiif
   sqlite3
-  stanford-mods (~> 2.1)
+  stanford-mods (~> 2.2, >= 2.2.1)
   sul_styles
   turbolinks
   turnout
