@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.7'
+gem 'rails', '4.2.7.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Puma as the app server
@@ -69,7 +69,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'blacklight', '~> 6.3'
 gem 'blacklight-gallery', '~> 0.3'
 gem 'blacklight_heatmaps'
-gem 'blacklight-spotlight', '~> 0.19'
+gem 'blacklight-spotlight', '~> 0.25'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
 gem 'devise-remote-user'
