@@ -2,7 +2,7 @@
 class DorHarvester < Spotlight::Resource
   self.document_builder_class = DorSolrDocumentBuilder
 
-  store :data, accessors: [:druid_list, :collections, :druid_info]
+  store :data, accessors: [:druid_list, :collections]
 
   class << self
     def instance(current_exhibit)
@@ -20,12 +20,7 @@ class DorHarvester < Spotlight::Resource
 
   def waiting!
     super
-    update(collections: fetch_collection_metadata, druid_info: {})
-  end
-
-  def druid_info
-    data[:druid_info] ||= {}
-    super
+    update(collections: fetch_collection_metadata)
   end
 
   def collections
@@ -56,7 +51,7 @@ class DorHarvester < Spotlight::Resource
   end
 
   def on_success(resource)
-    druid_info[resource.bare_druid] = { ok: true }
+    sidecar(resource.bare_druid).update(index_status: { ok: true, timestamp: Time.zone.now })
   end
 
   def on_error(resource, exception_or_message)
@@ -66,7 +61,7 @@ class DorHarvester < Spotlight::Resource
                 exception_or_message.to_s
               end
 
-    druid_info[resource.bare_druid] = { ok: false, message: message }
+    sidecar(resource.bare_druid).update(index_status: { ok: false, message: message, timestamp: Time.zone.now })
   end
 
   private
@@ -78,6 +73,12 @@ class DorHarvester < Spotlight::Resource
   def fetch_collection_metadata
     resources.select(&:exists?).select(&:collection?).each_with_object({}) do |obj, memo|
       memo[obj.bare_druid] = { size: obj.items.size }
+    end
+  end
+
+  def sidecar(id)
+    exhibit.solr_document_sidecars.find_or_initialize_by(document_id: id, document_type: document_model) do |sidecar|
+      sidecar.resource = self
     end
   end
 end

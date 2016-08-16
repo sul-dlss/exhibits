@@ -11,7 +11,7 @@
   <div id="sdr-item-status-section" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sdr-item-status" aria-expanded="false">
     <div class="panel-body">
       <div class="panel-group" id="status-accordion">
-      <% if harvester.druid_info.any? %>
+      <% if harvester.solr_document_sidecars.any? %>
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
@@ -33,14 +33,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% harvester.druid_info.each do |druid, status| %>
-                      <tr class="<%= 'danger' unless status['ok'] %>">
-                        <td><%= druid %></td>
+                    <% harvester.solr_document_sidecars.each do |sidecar| %>
+                      <tr class="<%= 'danger' unless sidecar.index_status['ok'] %>">
+                        <td><%= sidecar.document_id %></td>
                         <td>
-                          <% if status['ok'] %>
+                          <% if sidecar.index_status['ok'] %>
                             Published
                           <% else %>
-                            <%= status['message'] %>
+                            <%= sidecar.index_status['message'] %>
                           <% end %>
                         </td>
                       </tr>

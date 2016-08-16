@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728165423) do
+ActiveRecord::Schema.define(version: 20160816140722) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -302,9 +302,12 @@ ActiveRecord::Schema.define(version: 20160728165423) do
     t.datetime "updated_at"
     t.string   "document_id"
     t.string   "document_type"
+    t.integer  "resource_id"
+    t.string   "resource_type"
   end
 
   add_index "spotlight_solr_document_sidecars", ["exhibit_id"], name: "index_spotlight_solr_document_sidecars_on_exhibit_id"
+  add_index "spotlight_solr_document_sidecars", ["resource_type", "resource_id"], name: "spotlight_solr_document_sidecars_resource"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
