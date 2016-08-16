@@ -65,7 +65,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.26.1)
+    blacklight-spotlight (0.27.0)
       acts-as-taggable-on (>= 4.0.0.pre)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -511,7 +511,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
-  blacklight-spotlight (~> 0.25)
+  blacklight-spotlight (~> 0.27)
   blacklight_heatmaps
   bootstrap-sass (~> 3.3.5)
   byebug

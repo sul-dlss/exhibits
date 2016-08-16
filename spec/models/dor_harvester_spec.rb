@@ -60,7 +60,7 @@ describe DorHarvester do
     it 'records a successful index for a druid' do
       expect do
         subject.on_success(resource)
-      end.to change { subject.druid_info[druid] }.from(nil).to hash_including(ok: true)
+      end.to change { sidecar(druid).index_status }.from(nil).to hash_including(ok: true)
     end
   end
 
@@ -69,8 +69,12 @@ describe DorHarvester do
     it 'records an indexing error for a druid' do
       expect do
         subject.on_error(resource, 'error message')
-      end.to change { subject.druid_info[druid] }.from(nil).to hash_including(ok: false, message: 'error message')
+      end.to change { sidecar(druid).index_status }.from(nil).to hash_including(ok: false, message: 'error message')
     end
+  end
+
+  def sidecar(druid)
+    Spotlight::SolrDocumentSidecar.find_or_initialize_by(document_id: druid, document_type: SolrDocument)
   end
 
   describe '#waiting!' do
@@ -83,13 +87,6 @@ describe DorHarvester do
 
     before do
       allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(resource)
-
-      # populate some old data
-      subject.druid_info[:x] = { old: :data }
-    end
-
-    it 'clears out existing status logging' do
-      expect { subject.waiting! }.to change { subject.druid_info.size }.from(1).to(0)
     end
 
     it 'retrieves collection metadata' do
