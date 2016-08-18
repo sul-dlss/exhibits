@@ -34,13 +34,13 @@
                   </thead>
                   <tbody>
                     <% harvester.solr_document_sidecars.each do |sidecar| %>
-                      <tr class="<%= 'danger' unless sidecar.index_status['ok'] %>">
+                      <tr class="<%= 'danger' unless sidecar.index_status[:ok] %>">
                         <td><%= sidecar.document_id %></td>
                         <td>
-                          <% if sidecar.index_status['ok'] %>
+                          <% if sidecar.index_status[:ok] %>
                             Published
                           <% else %>
-                            <%= sidecar.index_status['message'] %>
+                            <%= sidecar.index_status[:message] %>
                           <% end %>
                         </td>
                       </tr>
