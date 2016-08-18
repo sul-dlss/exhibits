@@ -60,7 +60,7 @@ describe DorHarvester do
     it 'records a successful index for a druid' do
       expect do
         subject.on_success(resource)
-      end.to change { sidecar(druid).index_status }.from(nil).to hash_including(ok: true)
+      end.to change { sidecar(druid).index_status }.from({}).to hash_including(ok: true)
     end
   end
 
@@ -69,7 +69,7 @@ describe DorHarvester do
     it 'records an indexing error for a druid' do
       expect do
         subject.on_error(resource, 'error message')
-      end.to change { sidecar(druid).index_status }.from(nil).to hash_including(ok: false, message: 'error message')
+      end.to change { sidecar(druid).index_status }.from({}).to hash_including(ok: false, message: 'error message')
     end
   end
 
