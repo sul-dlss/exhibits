@@ -1,4 +1,8 @@
 Exhibits::Application.routes.draw do
+  # API compatible with is_it_working checks
+  match "/is_it_working" => "ok_computer/ok_computer#index", via: [:get, :options]
+  mount OkComputer::Engine, at: "/is_it_working"
+
   mount Spotlight::Resources::Iiif::Engine, at: 'spotlight_resources_iiif'
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
