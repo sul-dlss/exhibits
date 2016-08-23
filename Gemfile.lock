@@ -46,7 +46,7 @@ GEM
     autoprefixer-rails (6.4.0.3)
       execjs
     bcrypt (3.1.11)
-    blacklight (6.4.2)
+    blacklight (6.5.0)
       bootstrap-sass (~> 3.2)
       deprecation
       globalid
@@ -231,8 +231,9 @@ GEM
     github-markup (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    harvestdor (0.2.0)
+    harvestdor (0.3.0)
       confstruct
+      faraday
       nokogiri
     harvestdor-indexer (2.4.0)
       activesupport
