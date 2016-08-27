@@ -2,14 +2,9 @@ require 'rails_helper'
 
 describe DorHarvester do
   let(:exhibit) { FactoryGirl.create(:exhibit) }
-
-  let :blacklight_solr do
-    double
-  end
-
-  subject { harvester }
   let(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
   let(:druid) { 'xf680rd3068' }
+  let(:blacklight_solr) { double }
 
   before do
     allow(harvester).to receive(:exhibit).and_return(exhibit)
@@ -20,9 +15,7 @@ describe DorHarvester do
   describe '.instance' do
     subject { described_class.instance(exhibit) }
 
-    before do
-      subject.save!
-    end
+    before { subject.save! }
 
     it 'behaves like a singleton' do
       expect(described_class.instance(exhibit)).to eq subject
@@ -55,25 +48,27 @@ describe DorHarvester do
     end
   end
 
-  describe '#on_success' do
+  subject { harvester }
+
+  context 'hooks' do
     let(:resource) { instance_double(Harvestdor::Indexer::Resource, bare_druid: druid) }
-    it 'records a successful index for a druid' do
-      expect do
-        subject.on_success(resource)
-      end.to change { sidecar(druid).index_status }.from({}).to hash_including(ok: true)
+
+    # rubocop:disable Metrics/LineLength
+    describe '#on_success' do
+      it 'records a successful index for a druid' do
+        expect { subject.on_success(resource) }.to change { sidecar.index_status }.from({}).to hash_including(ok: true)
+      end
     end
+
+    describe '#on_error' do
+      it 'records an indexing error for a druid' do
+        expect { subject.on_error(resource, 'error message') }.to change { sidecar.index_status }.from({}).to hash_including(ok: false, message: 'error message')
+      end
+    end
+    # rubocop:enable Metrics/LineLength
   end
 
-  describe '#on_error' do
-    let(:resource) { instance_double(Harvestdor::Indexer::Resource, bare_druid: druid) }
-    it 'records an indexing error for a druid' do
-      expect do
-        subject.on_error(resource, 'error message')
-      end.to change { sidecar(druid).index_status }.from({}).to hash_including(ok: false, message: 'error message')
-    end
-  end
-
-  def sidecar(druid)
+  def sidecar
     Spotlight::SolrDocumentSidecar.find_or_initialize_by(document_id: druid, document_type: SolrDocument)
   end
 
@@ -91,7 +86,6 @@ describe DorHarvester do
 
     it 'retrieves collection metadata' do
       subject.waiting!
-
       expect(subject.collections[druid]).to eq 'size' => 3
     end
   end
@@ -113,15 +107,18 @@ describe DorHarvester do
   end
 
   describe '#indexable_resources' do
+    let(:exists_bool) { true }
+    let(:items) { [] }
+    let(:resource) do
+      instance_double(Harvestdor::Indexer::Resource, exists?: exists_bool, bare_druid: druid, items: items)
+    end
+
     subject { harvester.indexable_resources.to_a }
+    before do
+      allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(resource)
+    end
 
     context 'with a published druid' do
-      let(:resource) { instance_double(Harvestdor::Indexer::Resource, exists?: true, bare_druid: druid, items: []) }
-
-      before do
-        allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(resource)
-      end
-
       it 'includes resources' do
         expect(subject.size).to eq 1
         expect(subject.first.bare_druid).to eq druid
@@ -129,12 +126,7 @@ describe DorHarvester do
     end
 
     context 'with an unpublished druid' do
-      let(:missing_resource) { instance_double(Harvestdor::Indexer::Resource, exists?: false, bare_druid: druid) }
-
-      before do
-        allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(missing_resource)
-      end
-
+      let(:exists_bool) { false }
       it 'excludes missing resources' do
         expect(subject).to be_empty
       end
@@ -142,12 +134,7 @@ describe DorHarvester do
 
     context 'with a collection' do
       let(:items) { [child].each } # `#each` converts the array to an enumerable
-      let(:resource) { instance_double(Harvestdor::Indexer::Resource, exists?: true, bare_druid: druid, items: items) }
       let(:child) { instance_double(Harvestdor::Indexer::Resource, exists?: true, bare_druid: druid, items: []) }
-
-      before do
-        allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(resource)
-      end
 
       it 'includes child resources' do
         expect(subject.size).to eq 2

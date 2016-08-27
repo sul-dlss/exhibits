@@ -2,27 +2,19 @@ require 'rails_helper'
 
 describe DorSolrDocumentBuilder do
   let(:exhibit) { FactoryGirl.create(:exhibit) }
-
-  let :blacklight_solr do
-    double
-  end
-
-  subject { described_class.new harvester }
   let(:harvester) { DorHarvester.new druid_list: 'xf680rd3068', exhibit: exhibit }
-
-  before do
-    allow(harvester).to receive(:blacklight_solr).and_return(blacklight_solr)
-    allow(harvester).to receive(:to_global_id).and_return('x')
-  end
-
   let(:resource) { harvester.resources.first }
   let(:indexer) { Spotlight::Dor::Resources.indexer }
 
-  describe '#to_solr' do
-    before do
-      allow(indexer).to receive(:solr_document)
-    end
+  subject { described_class.new harvester }
 
+  before do
+    allow(harvester).to receive(:blacklight_solr).and_return(double)
+    allow(harvester).to receive(:to_global_id).and_return('x')
+    allow(indexer).to receive(:solr_document)
+  end
+
+  describe '#to_solr' do
     context 'with a collection' do
       before do
         allow(resource).to receive(:collection?).and_return(true)

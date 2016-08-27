@@ -1,4 +1,5 @@
 ruby:
+  enabled: false
   config_file: .rubocop.yml
 
 scss:
