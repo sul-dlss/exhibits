@@ -1,6 +1,3 @@
-# config valid only for Capistrano 3.5
-lock '3.6.0'
-
 set :application, 'spotlight'
 set :repo_url, 'https://github.com/sul-dlss/exhibits.git'
 
