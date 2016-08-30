@@ -10,6 +10,16 @@ require 'nokogiri'
 module Spotlight::Dor
   # Base class to harvest from DOR via harvestdor gem
   class Indexer < GDor::Indexer
+    # Array-like object that dumps validation messages on the floor
+    class DevNullValidationMessages < SimpleDelegator
+      def concat(*args); end
+    end
+
+    def initialize(*args)
+      super
+      @validation_messages = DevNullValidationMessages.new([])
+    end
+
     def resource(druid)
       Harvestdor::Indexer::Resource.new harvestdor, druid
     end
