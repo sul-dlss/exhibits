@@ -4,3 +4,5 @@ server 'exhibits-worker-stage-a.stanford.edu', user: 'exhibits', roles: %w(app b
 
 Capistrano::OneTimeKey.generate_one_time_key!
 set :rails_env, 'production'
+
+set :sidekiq_role, :background
