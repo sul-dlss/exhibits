@@ -3,7 +3,7 @@ OkComputer.mount_at = false
 
 OkComputer::Registry.register "version", OkComputer::AppVersionCheck.new
 OkComputer::Registry.register "cache", OkComputer::CacheCheck.new
-OkComputer::Registry.register "delayed_jobs", OkComputer::DelayedJobBackedUpCheck.new(10, 50)
+OkComputer::Registry.register "background_jobs", OkComputer::SidekiqLatencyCheck.new(10, 50)
 OkComputer::Registry.register "solr", OkComputer::SolrCheck.new(Blacklight.default_index.connection.uri.to_s.sub(/\/$/, ''))
 
-OkComputer.make_optional %w(version cache delayed_jobs)
+OkComputer.make_optional %w(version cache background_jobs)

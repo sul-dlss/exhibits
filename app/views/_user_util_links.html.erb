@@ -6,8 +6,8 @@
         <% if current_exhibit and can? :curate, current_exhibit %>
           <li><%= link_to t('spotlight.dashboards.show.header'), spotlight.exhibit_dashboard_path(current_exhibit) %></li>
         <% end %>
-        <% if can? :read, Delayed::Job %>
-          <li><%= link_to "Queued Jobs", main_app.delayed_jobs_path %></li>
+        <% if current_user.superadmin? %>
+          <li><%= link_to "Queued Jobs", main_app.sidekiq_web_path %></li>
         <% end %>
         <% if can? :create, Spotlight::Exhibit %>
         <li class="divider"></li>

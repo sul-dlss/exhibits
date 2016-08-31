@@ -24,7 +24,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'dlss/capistrano'
-require 'capistrano/delayed_job'
+require 'capistrano/sidekiq'
 require 'capistrano/sitemap_generator'
 require 'whenever/capistrano'
 

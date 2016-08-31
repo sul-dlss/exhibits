@@ -3,6 +3,12 @@ Exhibits::Application.routes.draw do
   match "/is_it_working" => "ok_computer/ok_computer#index", via: [:get, :options]
   mount OkComputer::Engine, at: "/is_it_working"
 
+  authenticate :user, lambda { |u| u.superadmin? } do
+    require 'sidekiq/web'
+    Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_key_base]
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   mount Spotlight::Resources::Iiif::Engine, at: 'spotlight_resources_iiif'
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
@@ -16,7 +22,6 @@ Exhibits::Application.routes.draw do
   end
 
   resource :purl_resources
-  resources :delayed_jobs
 
   mount Blacklight::Engine => '/'
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'

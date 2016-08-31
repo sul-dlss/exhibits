@@ -5,6 +5,4 @@ server 'exhibits-worker-prod-a.stanford.edu', user: 'exhibits', roles: %w(app ba
 Capistrano::OneTimeKey.generate_one_time_key!
 set :rails_env, 'production'
 
-set :delayed_job_workers, 8
-set :delayed_job_roles, [:background]
-set :delayed_job_monitor, true
+set :sidekiq_role, :background

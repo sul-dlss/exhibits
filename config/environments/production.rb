@@ -82,5 +82,5 @@ Exhibits::Application.configure do
   # serialization
   Rack::Utils.multipart_part_limit = 0
 
-  config.active_job.queue_adapter = :delayed_job
+  config.active_job.queue_adapter = :sidekiq
 end
