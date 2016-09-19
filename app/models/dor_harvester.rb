@@ -67,7 +67,7 @@ class DorHarvester < Spotlight::Resource
   private
 
   def size
-    resources.select(&:exists?).sum { |r| r.items.size }
+    @size ||= resources.select(&:exists?).sum { |r| r.items.size }
   end
 
   def fetch_collection_metadata
