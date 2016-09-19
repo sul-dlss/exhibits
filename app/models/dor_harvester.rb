@@ -15,7 +15,7 @@ class DorHarvester < Spotlight::Resource
   end
 
   def druids
-    @druids ||= druid_list.split(/\s+/).reject(&:blank?)
+    @druids ||= druid_list.split(/\s+/).reject(&:blank?).uniq
   end
 
   def waiting!
