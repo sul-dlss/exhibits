@@ -11,7 +11,9 @@ class DorHarvester < Spotlight::Resource
   end
 
   def resources
-    @resources ||= druids.map { |d| Spotlight::Dor::Resources.indexer.resource(d) }
+    return to_enum(:resources) { druids.size } unless block_given?
+
+    druids.each { |d| yield Spotlight::Dor::Resources.indexer.resource(d) }
   end
 
   def druids
