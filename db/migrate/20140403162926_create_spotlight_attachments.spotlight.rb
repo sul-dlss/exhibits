@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20131120172811)
-class CreateSpotlightAttachments < ActiveRecord::Migration
+class CreateSpotlightAttachments < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_attachments do |t|
       t.string :name

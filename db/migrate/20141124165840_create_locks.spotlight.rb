@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20141117111311)
-class CreateLocks < ActiveRecord::Migration
+class CreateLocks < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_locks do |t|
       t.references :on, polymorphic: true

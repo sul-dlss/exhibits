@@ -1,6 +1,6 @@
 # This migration comes from spotlight (originally 20140206152810)
 # This migration comes from acts_as_taggable_on_engine (originally 2)
-class AddMissingUniqueIndices < ActiveRecord::Migration
+class AddMissingUniqueIndices < ActiveRecord::Migration[5.0]
   def self.up
     add_index :tags, :name, unique: true
 

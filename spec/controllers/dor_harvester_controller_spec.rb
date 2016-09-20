@@ -9,7 +9,7 @@ RSpec.describe DorHarvesterController, type: :controller do
   before do
     sign_in user
     allow(DorHarvester).to receive(:instance).and_return(resource)
-    expect(resource).to receive(:update).with(attributes)
+    expect(resource).to receive(:update).with(hash_including(attributes))
     allow(resource).to receive(:save_and_index).and_return(save_status)
   end
 
@@ -18,7 +18,7 @@ RSpec.describe DorHarvesterController, type: :controller do
       let(:save_status) { true }
 
       it 'goes to the exhibit' do
-        post :create, exhibit_id: exhibit.id, dor_harvester: attributes
+        post :create, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
       end
@@ -28,7 +28,7 @@ RSpec.describe DorHarvesterController, type: :controller do
       let(:save_status) { false }
 
       it 'goes to the exhibit' do
-        post :create, exhibit_id: exhibit.id, dor_harvester: attributes
+        post :create, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
       end
@@ -40,7 +40,7 @@ RSpec.describe DorHarvesterController, type: :controller do
       let(:save_status) { true }
 
       it 'goes to the exhibit' do
-        patch :update, exhibit_id: exhibit.id, dor_harvester: attributes
+        patch :update, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
       end
@@ -50,7 +50,7 @@ RSpec.describe DorHarvesterController, type: :controller do
       let(:save_status) { false }
 
       it 'goes to the exhibit' do
-        patch :update, exhibit_id: exhibit.id, dor_harvester: attributes
+        patch :update, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
       end

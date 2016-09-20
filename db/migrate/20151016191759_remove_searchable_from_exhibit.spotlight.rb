@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20151016092343)
-class RemoveSearchableFromExhibit < ActiveRecord::Migration
+class RemoveSearchableFromExhibit < ActiveRecord::Migration[5.0]
   def up
     Spotlight::Exhibit.where(searchable: false).find_each do |e|
       e.home_page.update(display_sidebar: false)

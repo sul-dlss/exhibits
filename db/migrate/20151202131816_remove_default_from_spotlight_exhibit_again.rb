@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20151124101123)
-class RemoveDefaultFromSpotlightExhibitAgain < ActiveRecord::Migration
+class RemoveDefaultFromSpotlightExhibitAgain < ActiveRecord::Migration[5.0]
   def up
     Spotlight::Exhibit.reset_column_information
     return unless Spotlight::Exhibit.column_names.include? 'default'

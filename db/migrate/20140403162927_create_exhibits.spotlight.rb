@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20140128155151)
-class CreateExhibits < ActiveRecord::Migration
+class CreateExhibits < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_exhibits do |t|
       t.boolean :default

@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20150217111511)
-class AddPolymorphicDocumentToSidecars < ActiveRecord::Migration
+class AddPolymorphicDocumentToSidecars < ActiveRecord::Migration[5.0]
   def change
     add_column :spotlight_solr_document_sidecars, :document_id, :string
     add_column :spotlight_solr_document_sidecars, :document_type, :string

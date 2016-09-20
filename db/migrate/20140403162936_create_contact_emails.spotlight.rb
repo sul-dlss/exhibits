@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20140225180948)
-class CreateContactEmails < ActiveRecord::Migration
+class CreateContactEmails < ActiveRecord::Migration[5.0]
   def change
     create_table(:spotlight_contact_emails) do |t|
       t.references :exhibit

@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20151215141516)
-class ChangeRolesToSupportPolymorphicAssociations < ActiveRecord::Migration
+class ChangeRolesToSupportPolymorphicAssociations < ActiveRecord::Migration[5.0]
   def up
     add_column :spotlight_roles, :resource_id, :integer
     add_column :spotlight_roles, :resource_type, :string

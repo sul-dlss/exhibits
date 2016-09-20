@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20150304071512)
-class AddSpotlightFeaturedImages < ActiveRecord::Migration
+class AddSpotlightFeaturedImages < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_featured_images do |t|
       t.string :type

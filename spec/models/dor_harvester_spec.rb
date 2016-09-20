@@ -69,7 +69,7 @@ describe DorHarvester do
   end
 
   def sidecar
-    Spotlight::SolrDocumentSidecar.find_or_initialize_by(document_id: druid, document_type: SolrDocument)
+    Spotlight::SolrDocumentSidecar.find_or_initialize_by(document_id: druid, document_type: 'SolrDocument')
   end
 
   describe '#waiting!' do

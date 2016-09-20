@@ -79,7 +79,8 @@ class DorHarvester < Spotlight::Resource
   end
 
   def sidecar(id)
-    exhibit.solr_document_sidecars.find_or_initialize_by(document_id: id, document_type: document_model) do |sidecar|
+    exhibit.solr_document_sidecars.find_or_initialize_by(document_id: id,
+                                                         document_type: document_model.model_name.name) do |sidecar|
       sidecar.resource = self
     end
   end

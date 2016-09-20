@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20131119213142)
-class CreateSpotlightPages < ActiveRecord::Migration
+class CreateSpotlightPages < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_pages do |t|
       t.string :title
@@ -14,11 +14,10 @@ class CreateSpotlightPages < ActiveRecord::Migration
       t.integer :last_edited_by_id
       t.timestamps
       t.integer :parent_page_id
+      t.index :parent_page_id
       t.boolean :display_sidebar
       t.boolean :display_title
     end
-    add_index :spotlight_pages, :exhibit_id
-    add_index :spotlight_pages, :parent_page_id
     add_index :spotlight_pages, [:slug, :scope], unique: true
   end
 end
