@@ -26,3 +26,4 @@
 /coverage
 .env
 .pry_history
+/spec/examples.txt
