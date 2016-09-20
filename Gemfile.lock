@@ -65,7 +65,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.28.3)
+    blacklight-spotlight (0.29.0)
       acts-as-taggable-on (>= 4.0.0.pre)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -88,18 +88,18 @@ GEM
       nokogiri
       oauth2
       openseadragon
-      paper_trail (~> 5.0)
+      paper_trail (~> 5.0, >= 5.2.1)
       rails (>= 4.2.0, < 6)
       roar-rails
       signet
       sir_trevor_rails (~> 0.5)
       tophat
       underscore-rails (~> 1.6)
-    blacklight_heatmaps (0.2.0)
+    blacklight_heatmaps (0.3.0)
       blacklight (~> 6.0)
       leaflet-rails
       leaflet-sidebar-rails (~> 0.1.9)
-      rails (~> 4.2.6)
+      rails (>= 4.2.6, < 6)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -463,8 +463,8 @@ GEM
       activesupport
       mods (~> 2.0.2)
     stomp (1.4.3)
-    sul_styles (0.6.0)
-      rails (~> 4.1)
+    sul_styles (0.6.1)
+      rails (>= 4.1, < 6)
     term-ansicolor (1.3.2)
       tins (~> 1.0)
     test_xml (0.1.7)
@@ -576,4 +576,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.13.0
+   1.13.1
