@@ -10,6 +10,25 @@ class DorHarvester < Spotlight::Resource
     end
   end
 
+  ##
+  # Override upstream to write to index in parallel
+  #
+  # @return [Integer] number of records indexed
+  def reindex
+    benchmark "Reindexing #{self} (batch size: #{batch_size})" do
+      count = 0
+
+      run_callbacks :index do
+        document_builder.documents_to_index.each_slice(batch_size) do |batch|
+          write_to_index(batch.map(&:value))
+          update(last_indexed_count: (count += batch.length))
+        end
+
+        count
+      end
+    end
+  end
+
   def resources
     return to_enum(:resources) { druids.size } unless block_given?
 

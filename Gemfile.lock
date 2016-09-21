@@ -531,6 +531,7 @@ DEPENDENCIES
   capistrano-sidekiq
   capybara
   coffee-rails (~> 4.2.1)
+  concurrent-ruby
   config
   coveralls
   database_cleaner
@@ -550,6 +551,7 @@ DEPENDENCIES
   jquery-rails
   mysql2 (~> 0.4.4)
   okcomputer
+  parallel
   puma (~> 3.0)
   rack-dev-mark
   rails (= 4.2.7.1)

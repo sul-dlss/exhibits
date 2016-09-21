@@ -15,10 +15,14 @@ class DorSolrDocumentBuilder < Spotlight::SolrDocumentBuilder
       base_doc = super
 
       indexable_resources.each_with_index do |res, idx|
-        process_resource_with_logging(res, idx) do
-          doc = to_solr_document(res)
-          yield base_doc.merge(doc) if doc
+        future = Concurrent::Future.new do
+          process_resource_with_logging(res, idx) do
+            doc = to_solr_document(res)
+            base_doc.merge(doc) if doc
+          end
         end
+
+        yield future
       end
     end
   end
