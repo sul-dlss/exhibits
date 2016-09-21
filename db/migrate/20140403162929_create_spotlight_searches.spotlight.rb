@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20140130155151)
-class CreateSpotlightSearches < ActiveRecord::Migration
+class CreateSpotlightSearches < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_searches do |t|
       t.string :title
@@ -15,7 +15,6 @@ class CreateSpotlightSearches < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :spotlight_searches, :exhibit_id
     add_index :spotlight_searches, [:slug, :scope], unique: true
   end
 end

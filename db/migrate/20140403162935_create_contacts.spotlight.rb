@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20140218155151)
-class CreateContacts < ActiveRecord::Migration
+class CreateContacts < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_contacts do |t|
       t.string :slug
@@ -12,7 +12,5 @@ class CreateContacts < ActiveRecord::Migration
       t.references :exhibit
       t.timestamps
     end
-
-    add_index :spotlight_contacts, :exhibit_id
   end
 end

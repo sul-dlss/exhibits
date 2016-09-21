@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20151217211019)
-class CreateSpotlightExhibitFilters < ActiveRecord::Migration
+class CreateSpotlightExhibitFilters < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_filters do |t|
       t.string :field

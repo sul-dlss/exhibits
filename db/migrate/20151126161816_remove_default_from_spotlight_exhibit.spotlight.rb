@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20151124101123)
-class RemoveDefaultFromSpotlightExhibit < ActiveRecord::Migration
+class RemoveDefaultFromSpotlightExhibit < ActiveRecord::Migration[5.0]
   def up
     return unless Spotlight::Exhibit.column_names.include? 'default'
 

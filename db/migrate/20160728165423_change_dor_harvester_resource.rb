@@ -1,4 +1,4 @@
-class ChangeDorHarvesterResource < ActiveRecord::Migration
+class ChangeDorHarvesterResource < ActiveRecord::Migration[5.0]
   def up
     Spotlight::Resource.where(type: 'Spotlight::Resources::DorHarvester').update_all(type: 'DorHarvester')
   end

@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20160815165432)
-class AddResourceToSolrDocumentSidecar < ActiveRecord::Migration
+class AddResourceToSolrDocumentSidecar < ActiveRecord::Migration[5.0]
   def change
     add_column :spotlight_solr_document_sidecars, :resource_id, :integer
     add_column :spotlight_solr_document_sidecars, :resource_type, :string

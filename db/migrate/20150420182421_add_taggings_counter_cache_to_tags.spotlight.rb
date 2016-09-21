@@ -1,6 +1,6 @@
 # This migration comes from spotlight (originally 20150410180014)
 # This migration comes from acts_as_taggable_on_engine (originally 3)
-class AddTaggingsCounterCacheToTags < ActiveRecord::Migration
+class AddTaggingsCounterCacheToTags < ActiveRecord::Migration[5.0]
   def self.up
     add_column :tags, :taggings_count, :integer, default: 0
 

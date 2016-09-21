@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20140211212626)
-class CreateSpotlightSolrDocumentSidecars < ActiveRecord::Migration
+class CreateSpotlightSolrDocumentSidecars < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_solr_document_sidecars do |t|
       t.references :exhibit, index: true

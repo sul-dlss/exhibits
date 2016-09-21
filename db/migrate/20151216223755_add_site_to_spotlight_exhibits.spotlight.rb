@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20151211131415)
-class AddSiteToSpotlightExhibits < ActiveRecord::Migration
+class AddSiteToSpotlightExhibits < ActiveRecord::Migration[5.0]
   def up
     add_column :spotlight_exhibits, :site_id, :integer
     add_index :spotlight_exhibits, :site_id

@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20140403180324)
-class CreateSpotlightMainNavigations < ActiveRecord::Migration
+class CreateSpotlightMainNavigations < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_main_navigations do |t|
       t.string :label
@@ -8,6 +8,5 @@ class CreateSpotlightMainNavigations < ActiveRecord::Migration
       t.references :exhibit
       t.timestamps
     end
-    add_index :spotlight_main_navigations, :exhibit_id
   end
 end
