@@ -17,6 +17,8 @@ Lint/UselessAccessModifier:
 # Offense count: 1
 Metrics/AbcSize:
   Max: 18
+  Exclude:
+    - app/services/dor_solr_document_builder.rb
 
 Metrics/MethodLength:
   Exclude:
