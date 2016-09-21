@@ -37,7 +37,7 @@ class DorSolrDocumentBuilder < Spotlight::SolrDocumentBuilder
   rescue => e
     logger.error("Error processing #{res.druid}: #{e}")
     resource.on_error(res, e)
-    raise e unless e.is_a? RuntimeError
+    Honeybadger.notify(exception, context: { druid: res.druid, resource_id: resource_id })
   ensure
     resource.save if resource.persisted?
   end
