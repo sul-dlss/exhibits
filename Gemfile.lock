@@ -246,6 +246,7 @@ GEM
     honeybadger (2.6.1)
     hooks (0.4.1)
       uber (~> 0.0.14)
+    http_logger (0.5.1)
     i18n (0.7.0)
     iiif-presentation (0.1.0)
       activesupport (>= 3.2.18)
@@ -546,6 +547,7 @@ DEPENDENCIES
   gdor-indexer (~> 0.6)
   harvestdor-indexer (~> 2.4)
   honeybadger (~> 2.0)
+  http_logger
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (~> 0.4.4)
