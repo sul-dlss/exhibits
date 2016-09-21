@@ -214,6 +214,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.10.0)
       faraday (>= 0.7.4, < 0.10)
+    ffi (1.9.14)
     friendly_id (5.2.0.beta.1)
       activerecord (>= 4.0.0)
     gdor-indexer (0.7.1)
@@ -283,6 +284,7 @@ GEM
       iso-639
       nokogiri
       nom-xml (~> 0.5.2)
+    msgpack (1.0.0)
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -352,6 +354,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.1.0)
     rake (11.3.0)
+    rbtrace (0.4.8)
+      ffi (>= 1.0.6)
+      msgpack (>= 0.4.3)
+      trollop (>= 1.16.2)
     rdoc (4.2.2)
       json (~> 1.4)
     redcarpet (3.3.4)
@@ -555,6 +561,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rack-dev-mark
   rails (= 4.2.7.1)
+  rbtrace
   riiif (~> 0.4.0)
   rsolr
   rspec-rails
