@@ -53,7 +53,7 @@ class DorHarvester < Spotlight::Resource
   end
 
   def on_success(resource)
-    sidecar(resource.bare_druid).update(index_status: { ok: true, timestamp: Time.zone.now })
+    RecordIndexStatusJob.perform_later(self, resource.bare_druid, ok: true)
   end
 
   def on_error(resource, exception_or_message)
@@ -63,7 +63,7 @@ class DorHarvester < Spotlight::Resource
                 exception_or_message.to_s
               end
 
-    sidecar(resource.bare_druid).update(index_status: { ok: false, message: message, timestamp: Time.zone.now })
+    RecordIndexStatusJob.perform_later(self, resource.bare_druid, ok: false, message: message)
   end
 
   private
@@ -75,13 +75,6 @@ class DorHarvester < Spotlight::Resource
   def fetch_collection_metadata
     resources.select(&:exists?).select(&:collection?).each_with_object({}) do |obj, memo|
       memo[obj.bare_druid] = { size: obj.items.size }
-    end
-  end
-
-  def sidecar(id)
-    exhibit.solr_document_sidecars.find_or_initialize_by(document_id: id,
-                                                         document_type: document_model.model_name.name) do |sidecar|
-      sidecar.resource = self
     end
   end
 end

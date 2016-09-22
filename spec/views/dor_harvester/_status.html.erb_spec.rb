@@ -6,8 +6,8 @@ RSpec.describe 'dor_harvester/_status.html.erb', type: :view do
 
   context 'with status information' do
     before do
-      harvester.on_success(instance_double(Harvestdor::Indexer::Resource, bare_druid: 'okdruid'))
-      harvester.on_error(instance_double(Harvestdor::Indexer::Resource, bare_druid: 'baddruid'), 'broken')
+      RecordIndexStatusJob.perform_now(harvester, 'okdruid', ok: true)
+      RecordIndexStatusJob.perform_now(harvester, 'baddruid', ok: false, message: 'broken')
       harvester.collections['collectiondruid'] = { size: 52 }
     end
 
