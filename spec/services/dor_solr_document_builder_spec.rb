@@ -50,7 +50,7 @@ describe DorSolrDocumentBuilder do
         allow(resource).to receive(:items).and_return([])
         expect(indexer).to receive(:solr_document).and_raise(StandardError.new)
         expect(subject.send(:logger)).to receive(:error).with(/Error processing xf680rd3068/)
-        expect { subject.to_solr.to_a }.to raise_error StandardError
+        expect { subject.to_solr.to_a }.not_to raise_error
       end
     end
 
