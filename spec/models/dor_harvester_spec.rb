@@ -51,18 +51,19 @@ describe DorHarvester do
   subject { harvester }
 
   context 'hooks' do
+    before { ActiveJob::Base.queue_adapter = :test }
     let(:resource) { instance_double(Harvestdor::Indexer::Resource, bare_druid: druid) }
 
     # rubocop:disable Metrics/LineLength
     describe '#on_success' do
       it 'records a successful index for a druid' do
-        expect { subject.on_success(resource) }.to change { sidecar.index_status }.from({}).to hash_including(ok: true)
+        expect { subject.on_success(resource) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: true)
       end
     end
 
     describe '#on_error' do
       it 'records an indexing error for a druid' do
-        expect { subject.on_error(resource, 'error message') }.to change { sidecar.index_status }.from({}).to hash_including(ok: false, message: 'error message')
+        expect { subject.on_error(resource, 'error message') }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: false, message: 'error message')
       end
     end
     # rubocop:enable Metrics/LineLength
