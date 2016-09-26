@@ -1,5 +1,4 @@
 #header-navbar {
-  height: $brandbar-height;
   min-height: $brandbar-height;
 
   .navbar-brand {
@@ -8,15 +7,16 @@
     background: transparent image-url("sul.png") no-repeat center left;
     height: $brandbar-height;
     padding: $brandbar-padding-vertical $navbar-padding-horizontal;
-    width: 350px;
-
-    @media (max-width: $screen-xs-max) {
-      background: transparent image-url("sul-logo-small-white-text.png") no-repeat center left;
-      width: 68px;
-    }
+    width: 297px;
   }
 
   .navbar-nav {
+    @media (max-width: $screen-xs-max) {
+      &.pull-right {
+        float: none !important;
+      }
+    }
+
     @media (min-width: $grid-float-breakpoint) {
       > li {
         > a {
