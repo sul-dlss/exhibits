@@ -72,8 +72,8 @@ describe Spotlight::Dor::Indexer do
         expect(solr_doc['content_metadata_image_iiif_info_ssm']).to include "#{stacks_base_url}/info.json"
         expect(solr_doc['thumbnail_square_url_ssm']).to include "#{stacks_base_url}/square/100,100/0/default.jpg"
         expect(solr_doc['thumbnail_url_ssm']).to include "#{stacks_base_url}/full/!400,400/0/default.jpg"
-        expect(solr_doc['large_image_url_ssm']).to include "#{stacks_base_url}/full/pct:25/0/default.jpg"
-        expect(solr_doc['full_image_url_ssm']).to include "#{stacks_base_url}/full/full/0/default.jpg"
+        expect(solr_doc['large_image_url_ssm']).to include "#{stacks_base_url}/full/!1000,1000/0/default.jpg"
+        expect(solr_doc['full_image_url_ssm']).to include "#{stacks_base_url}/full/!3000,3000/0/default.jpg"
       end
     end
   end
