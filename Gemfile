@@ -69,6 +69,7 @@ end
 
 group :production do
   gem 'mysql2', '~> 0.4.4'
+  gem 'newrelic_rpm'
 end
 
 gem 'config'
