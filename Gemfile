@@ -33,6 +33,7 @@ group :deployment do
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
   gem 'capistrano-sidekiq'
+  gem 'capistrano-shared_configs'
   gem 'dlss-capistrano'
 end
 
@@ -101,6 +102,7 @@ gem 'riiif', '~> 0.4.0'
 gem 'rsolr'
 gem 'gdor-indexer', '~> 0.6'
 gem 'faraday'
+gem 'net-http-persistent', '< 3' # 3.x is incompatible with Faraday 0.9
 gem 'harvestdor-indexer', '~> 2.4'
 gem 'stanford-mods', '~> 2.2', '>= 2.2.1'
 gem 'solrizer'

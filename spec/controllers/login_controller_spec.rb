@@ -9,7 +9,7 @@ describe LoginController do
   context 'with an explicit referrer parameter' do
     it 'accepts the user invitation on login and redirects to the referrer' do
       expect(user).to receive(:accept_invitation!)
-      get :login, referrer: '/home'
+      get :login, params: { referrer: '/home' }
       expect(response).to redirect_to '/home'
     end
   end
