@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 describe DorHarvester do
+  subject(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
+
   let(:exhibit) { FactoryGirl.create(:exhibit) }
-  let(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
   let(:druid) { 'xf680rd3068' }
   let(:blacklight_solr) { double }
 
@@ -47,8 +48,6 @@ describe DorHarvester do
       end
     end
   end
-
-  subject { harvester }
 
   context 'hooks' do
     before { ActiveJob::Base.queue_adapter = :test }
@@ -108,13 +107,14 @@ describe DorHarvester do
   end
 
   describe '#indexable_resources' do
+    subject { harvester.indexable_resources.to_a }
+
     let(:exists_bool) { true }
     let(:items) { [] }
     let(:resource) do
       instance_double(Harvestdor::Indexer::Resource, exists?: exists_bool, bare_druid: druid, items: items)
     end
 
-    subject { harvester.indexable_resources.to_a }
     before do
       allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(resource)
     end

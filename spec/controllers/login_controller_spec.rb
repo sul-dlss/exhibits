@@ -3,7 +3,7 @@ require 'rails_helper'
 describe LoginController do
   let(:user) { create(:curator) }
   before do
-    allow_any_instance_of(ApplicationController).to receive_messages(current_user: user)
+    allow(controller).to receive_messages(current_user: user)
   end
 
   context 'with an explicit referrer parameter' do

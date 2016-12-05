@@ -15,6 +15,9 @@ Rails:
 
 Metrics/LineLength:
   Max: 120
+  Exclude:
+    - 'app/models/spotlight/dor/indexer.rb'
+    - 'spec/models/spotlight/dor/indexer_spec.rb'
 
 Style/StringLiterals:
   Enabled: true
