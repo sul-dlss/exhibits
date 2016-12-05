@@ -26,3 +26,6 @@ Metrics/ClassLength:
 
 RSpec/NamedSubject:
   Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
