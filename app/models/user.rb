@@ -39,14 +39,10 @@ class User < ActiveRecord::Base
 
   private
 
-  # rubocop:disable Metrics/MethodLength
   def create_roles_from_workgroups
     return if superadmin?
 
-    role_attributes = {
-      resource: Spotlight::Site.instance,
-      role: ('admin' if (webauth_groups & Settings.superadmin_workgroups).any?)
-    }
+    role_attributes = default_role_attributes
 
     return unless role_attributes[:role].present?
 
@@ -56,5 +52,11 @@ class User < ActiveRecord::Base
       roles.build role_attributes
     end
   end
-  # rubocop:enable Metrics/MethodLength
+
+  def default_role_attributes
+    {
+      resource: Spotlight::Site.instance,
+      role: ('admin' if (webauth_groups & Settings.superadmin_workgroups).any?)
+    }
+  end
 end

@@ -35,7 +35,6 @@ Metrics/MethodLength:
 # Offense count: 3
 RSpec/AnyInstance:
   Exclude:
-    - 'spec/controllers/login_controller_spec.rb'
     - 'spec/features/exhibit_spec.rb'
     - 'spec/models/dor_harvester_spec.rb'
 
@@ -44,12 +43,6 @@ RSpec/AnyInstance:
 RSpec/ExampleLength:
   Exclude:
     - 'spec/models/spotlight/dor/indexer_spec.rb'
-
-# Offense count: 3
-RSpec/LeadingSubject:
-  Exclude:
-    - 'spec/features/gdor_integration_spec.rb'
-    - 'spec/models/dor_harvester_spec.rb'
 
 # Offense count: 20
 RSpec/MultipleExpectations:
