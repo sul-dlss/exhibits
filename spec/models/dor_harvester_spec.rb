@@ -73,6 +73,15 @@ describe DorHarvester do
   end
 
   describe '#waiting!' do
+    it 'retrieves collection metadata' do
+      ActiveJob::Base.queue_adapter = :test
+      expect do
+        subject.waiting!
+      end.to enqueue_job(RecordResourceMetadataJob)
+    end
+  end
+
+  describe '#update_collection_metadata!' do
     let(:resource) do
       instance_double(Harvestdor::Indexer::Resource, bare_druid: druid,
                                                      exists?: true,
@@ -85,7 +94,7 @@ describe DorHarvester do
     end
 
     it 'retrieves collection metadata' do
-      subject.waiting!
+      subject.update_collection_metadata!
       expect(subject.collections[druid]).to eq 'size' => 3
     end
   end

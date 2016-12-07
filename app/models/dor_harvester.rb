@@ -22,7 +22,8 @@ class DorHarvester < Spotlight::Resource
 
   def waiting!
     super
-    update(collections: fetch_collection_metadata)
+    update(collections: {})
+    RecordResourceMetadataJob.perform_later(self)
   end
 
   def collections
@@ -64,6 +65,10 @@ class DorHarvester < Spotlight::Resource
               end
 
     RecordIndexStatusJob.perform_later(self, resource.bare_druid, ok: false, message: message)
+  end
+
+  def update_collection_metadata!
+    update(collections: fetch_collection_metadata)
   end
 
   private
