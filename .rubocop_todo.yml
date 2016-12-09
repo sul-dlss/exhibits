@@ -7,12 +7,6 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 1
-# Configuration parameters: ContextCreatingMethods.
-Lint/UselessAccessModifier:
-  Exclude:
-    - 'app/models/spotlight/dor/indexer.rb'
-
-# Offense count: 1
 Metrics/AbcSize:
   Max: 19
 
