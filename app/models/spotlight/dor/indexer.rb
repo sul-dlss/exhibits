@@ -153,8 +153,6 @@ module Spotlight::Dor
         end
       end
 
-      private
-
       def add_thumbnail_fields(node, solr_doc)
         file_id = node.attr('id').gsub('.jp2', '')
         image_data = node.at_xpath('./imageData')
