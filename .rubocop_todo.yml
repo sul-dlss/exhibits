@@ -13,7 +13,12 @@ Metrics/AbcSize:
 # Offense count: 4
 # Configuration parameters: CountComments.
 Metrics/BlockLength:
-  Max: 132
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'app/controllers/catalog_controller.rb'
+    - 'app/models/spotlight/dor/indexer.rb'
 
 # Offense count: 1
 # Configuration parameters: CountComments.
