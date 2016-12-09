@@ -26,12 +26,6 @@ RSpec/AnyInstance:
     - 'spec/features/exhibit_spec.rb'
     - 'spec/models/dor_harvester_spec.rb'
 
-# Offense count: 7
-# Configuration parameters: Max.
-RSpec/ExampleLength:
-  Exclude:
-    - 'spec/models/spotlight/dor/indexer_spec.rb'
-
 # Offense count: 20
 RSpec/MultipleExpectations:
   Max: 5

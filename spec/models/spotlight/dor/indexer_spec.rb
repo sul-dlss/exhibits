@@ -56,6 +56,7 @@ describe Spotlight::Dor::Indexer do
           </publicObject>
           EOF
       end
+      let(:stacks_base_url) { 'https://stacks.stanford.edu/image/iiif/oo000oo0000%2Fbj356mh7176_00_0001' }
 
       it 'indexes the declared content metadata type' do
         expect(solr_doc['content_metadata_type_ssim']).to eq ['image']
@@ -68,7 +69,6 @@ describe Spotlight::Dor::Indexer do
       end
 
       it 'indexes the images' do
-        stacks_base_url = 'https://stacks.stanford.edu/image/iiif/oo000oo0000%2Fbj356mh7176_00_0001'
         expect(solr_doc['content_metadata_image_iiif_info_ssm']).to include "#{stacks_base_url}/info.json"
         expect(solr_doc['thumbnail_square_url_ssm']).to include "#{stacks_base_url}/square/100,100/0/default.jpg"
         expect(solr_doc['thumbnail_url_ssm']).to include "#{stacks_base_url}/full/!400,400/0/default.jpg"
@@ -132,7 +132,6 @@ describe Spotlight::Dor::Indexer do
             <note displayLabel="Donor tags">medical applications</note>
             <note displayLabel="Donor tags">medical Applications (second word CAPPED)</note>
             <note displayLabel="Donor tags">Publishing</note>
-            <note displayLabel="Donor tags">Stanford</note>
             <note displayLabel="Donor tags">Stanford Computer Science Department</note>
           EOF
         end
@@ -142,7 +141,6 @@ describe Spotlight::Dor::Indexer do
                                                                  'Medical applications',
                                                                  'Medical Applications (second word CAPPED)',
                                                                  'Publishing',
-                                                                 'Stanford',
                                                                  'Stanford Computer Science Department'
         end
       end
@@ -403,17 +401,20 @@ describe Spotlight::Dor::Indexer do
           EOF
         end
 
+        before do
+          allow(Settings).to receive(:geonames_username).and_return 'foobar'
+          allow(Faraday.default_connection).to receive(:get).with('http://api.geonames.org/get?geonameId=5350937&username=foobar').and_return geoname_5350937
+          allow(Faraday.default_connection).to receive(:get).with('http://api.geonames.org/get?geonameId=5350964&username=foobar').and_return geoname_5350964
+        end
+
         it '#extract_geonames_ids extracts the geonames IDs' do
           expect(subject.extract_geonames_ids(resource)).to eq %w(5350937 5350964)
         end
 
         it 'fetches and extracts the envelopes' do
-          lopes = ['ENVELOPE(-119.9344,-119.655,36.91154,36.66216)', 'ENVELOPE(-120.91826,-118.36175,37.58572,35.90518)']
-          allow(Settings).to receive(:geonames_username).and_return 'foobar'
-          expect(Faraday.default_connection).to receive(:get).with('http://api.geonames.org/get?geonameId=5350937&username=foobar').and_return geoname_5350937
-          expect(Faraday.default_connection).to receive(:get).with('http://api.geonames.org/get?geonameId=5350964&username=foobar').and_return geoname_5350964
+          expected_envelopes = ['ENVELOPE(-119.9344,-119.655,36.91154,36.66216)', 'ENVELOPE(-120.91826,-118.36175,37.58572,35.90518)']
           subject.add_geonames(resource, solr_doc)
-          expect(solr_doc['geographic_srpt']).to eq(lopes)
+          expect(solr_doc['geographic_srpt']).to eq(expected_envelopes)
         end
       end
     end # add_geonames
@@ -556,9 +557,8 @@ describe Spotlight::Dor::Indexer do
       let(:full_text_solr_fname) { 'full_text_tesimv' }
       let!(:expected_text) { 'SOME full text string that is returned from the server' }
       let!(:full_file_path) { 'https://stacks.stanford.edu/file/oo000oo0000/oo000oo0000.txt' }
-
-      it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
-        public_xml_with_feigenbaum_full_text = Nokogiri::XML <<-EOF
+      let(:public_xml_with_feigenbaum_full_text) do
+        Nokogiri::XML <<-EOF
           <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
             <contentMetadata objectId="oo000oo0000" type="book">
               <resource id="oo000oo0000_4" sequence="4" type="object">
@@ -573,6 +573,8 @@ describe Spotlight::Dor::Indexer do
               </contentMetadata>
             </publicObject>
           EOF
+      end
+      it 'indexes the full text into the appropriate field if a recognized file pattern is found' do
         allow(resource).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
         # don't actually attempt a call to the stacks
         allow(Faraday.default_connection).to receive(:get).with(full_file_path).and_return(instance_double(Faraday::Response, body: expected_text))
@@ -582,16 +584,18 @@ describe Spotlight::Dor::Indexer do
       end
 
       context 'with missing full text content' do
-        it 'ignores fulltext data' do
-          public_xml_with_feigenbaum_full_text = Nokogiri::XML <<-EOF
+        let(:public_xml_with_feigenbaum_full_text) do
+          Nokogiri::XML <<-EOF
             <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
               <contentMetadata objectId="oo000oo0000" type="book">
                 <resource id="oo000oo0000_4" sequence="4" type="object">
                   <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
                 </resource>
-                </contentMetadata>
-              </publicObject>
-            EOF
+              </contentMetadata>
+            </publicObject>
+          EOF
+        end
+        it 'ignores fulltext data' do
           allow(resource).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
           allow(Faraday.default_connection).to receive(:get).with(full_file_path).and_raise Faraday::TimeoutError.new('')
 
@@ -601,8 +605,8 @@ describe Spotlight::Dor::Indexer do
         end
       end
 
-      it 'does not index the full text if no recognized pattern is found' do
-        public_xml_with_no_recognized_full_text = Nokogiri::XML <<-EOF
+      let(:public_xml_with_no_recognized_full_text) do
+        Nokogiri::XML <<-EOF
           <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
             <contentMetadata objectId="oo000oo0000" type="book">
               <resource id="oo000oo0000_4" sequence="4" type="object">
@@ -613,17 +617,19 @@ describe Spotlight::Dor::Indexer do
                 <label>Page 1</label>
                 <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
               </resource>
-              </contentMetadata>
-            </publicObject>
-          EOF
+            </contentMetadata>
+          </publicObject>
+        EOF
+      end
+      it 'does not index the full text if no recognized pattern is found' do
         allow(resource).to receive(:public_xml).and_return(public_xml_with_no_recognized_full_text)
         subject.send(:add_object_full_text, resource, solr_doc)
         expect(subject.object_level_full_text_urls(resource)).to eq []
         expect(solr_doc[full_text_solr_fname]).to be_nil
       end
 
-      it 'indexes the full text from two files if two recognized patterns are found' do
-        public_xml_with_two_recognized_full_text_files = Nokogiri::XML <<-EOF
+      let(:public_xml_with_two_recognized_full_text_files) do
+        Nokogiri::XML <<-EOF
           <publicObject id="druid:oo000oo0000" published="2015-10-17T18:24:08-07:00">
             <contentMetadata objectId="oo000oo0000" type="book">
               <resource id="oo000oo0000_4" sequence="4" type="object">
@@ -636,9 +642,11 @@ describe Spotlight::Dor::Indexer do
                 <file id="oo000oo0000_00001.jp2" mimetype="image/jp2" size="1864266"><imageData width="2632" height="3422"/></file>
                 <file id="oo000oo0000.txt" mimetype="text/plain" size="23376"></file>
               </resource>
-              </contentMetadata>
-            </publicObject>
-          EOF
+            </contentMetadata>
+          </publicObject>
+        EOF
+      end
+      it 'indexes the full text from two files if two recognized patterns are found' do
         allow(resource).to receive(:public_xml).and_return(public_xml_with_two_recognized_full_text_files)
         allow(subject).to receive(:get_file_content).with(full_file_path).and_return(expected_text)
         subject.send(:add_object_full_text, resource, solr_doc)
