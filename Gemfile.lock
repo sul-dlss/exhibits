@@ -98,7 +98,7 @@ GEM
       sir_trevor_rails (~> 0.5)
       tophat
       underscore-rails (~> 1.6)
-    blacklight_advanced_search (6.2.0)
+    blacklight_advanced_search (6.2.1)
       blacklight (~> 6.0, >= 6.0.1)
       parslet
     blacklight_heatmaps (0.3.0)
