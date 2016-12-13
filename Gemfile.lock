@@ -46,7 +46,7 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     arel (7.1.4)
     ast (2.3.0)
-    autoprefixer-rails (6.5.3.1)
+    autoprefixer-rails (6.5.4)
       execjs
     bcrypt (3.1.11)
     blacklight (6.7.2)
@@ -98,7 +98,7 @@ GEM
       sir_trevor_rails (~> 0.5)
       tophat
       underscore-rails (~> 1.6)
-    blacklight_advanced_search (6.1.0)
+    blacklight_advanced_search (6.2.0)
       blacklight (~> 6.0, >= 6.0.1)
       parslet
     blacklight_heatmaps (0.3.0)
@@ -118,7 +118,7 @@ GEM
       thor (~> 0.18)
     byebug (9.0.6)
     cancancan (1.15.0)
-    capistrano (3.6.1)
+    capistrano (3.7.0)
       airbrussh (>= 1.0.0)
       capistrano-harrow
       i18n
@@ -161,7 +161,7 @@ GEM
       jquery-rails
       rails (>= 3.2)
     chronic (0.10.2)
-    clipboard-rails (1.5.15)
+    clipboard-rails (1.5.16)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -254,7 +254,7 @@ GEM
       rsolr
       stanford-mods
     hashie (3.4.6)
-    honeybadger (2.7.1)
+    honeybadger (2.7.2)
     hooks (0.4.1)
       uber (~> 0.0.14)
     i18n (0.7.0)
@@ -305,7 +305,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
-    newrelic_rpm (3.17.1.326)
+    newrelic_rpm (3.17.2.327)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -533,7 +533,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    unicode-display_width (1.1.1)
+    unicode-display_width (1.1.2)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (3.4.0)
