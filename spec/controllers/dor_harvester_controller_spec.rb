@@ -9,7 +9,7 @@ RSpec.describe DorHarvesterController, type: :controller do
   before do
     sign_in user
     allow(DorHarvester).to receive(:instance).and_return(resource)
-    expect(resource).to receive(:update).with(hash_including(attributes))
+    allow(resource).to receive(:update).with(hash_including(attributes))
     allow(resource).to receive(:save_and_index).and_return(save_status)
   end
 
@@ -21,6 +21,9 @@ RSpec.describe DorHarvesterController, type: :controller do
         post :create, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
+
+        expect(resource).to have_received(:update)
+        expect(resource).to have_received(:save_and_index)
       end
     end
 
@@ -31,6 +34,9 @@ RSpec.describe DorHarvesterController, type: :controller do
         post :create, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
+
+        expect(resource).to have_received(:update)
+        expect(resource).to have_received(:save_and_index)
       end
     end
   end
@@ -43,6 +49,9 @@ RSpec.describe DorHarvesterController, type: :controller do
         patch :update, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
+
+        expect(resource).to have_received(:update)
+        expect(resource).to have_received(:save_and_index)
       end
     end
 
@@ -53,6 +62,9 @@ RSpec.describe DorHarvesterController, type: :controller do
         patch :update, params: { exhibit_id: exhibit.id, dor_harvester: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
+
+        expect(resource).to have_received(:update)
+        expect(resource).to have_received(:save_and_index)
       end
     end
   end

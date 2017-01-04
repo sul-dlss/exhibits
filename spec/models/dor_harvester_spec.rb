@@ -161,6 +161,9 @@ describe DorHarvester do
       allow(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_return(upstream: true)
       allow(resource).to receive(:collection?).and_return(false)
       allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return({})
+
+      allow(blacklight_solr).to receive(:update)
+      allow(subject).to receive(:commit)
     end
 
     let(:solr_data) do
@@ -170,11 +173,12 @@ describe DorHarvester do
     end
 
     it 'adds a document to solr' do
-      expect(blacklight_solr).to receive(:update).with(params: { commitWithin: 500 },
-                                                       data: solr_data.to_json,
-                                                       headers: { 'Content-Type' => 'application/json' })
-      expect(subject).to receive(:commit)
       subject.reindex
+
+      expect(blacklight_solr).to have_received(:update).with(params: { commitWithin: 500 },
+                                                             data: solr_data.to_json,
+                                                             headers: { 'Content-Type' => 'application/json' })
+      expect(subject).to have_received(:commit)
     end
   end
 end
