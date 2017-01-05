@@ -17,18 +17,26 @@
       <%= link_to "Giving to SUL",
       "http://library.stanford.edu/#middle-tab-24" %>
     </li>
-  </ul>
-
-  <% if can?(:create, Spotlight::Exhibit) %>
-      <%= link_to spotlight.new_exhibit_path, class: "btn btn-default", role: "button" do %>
-          Request a new exhibit
-          <small class="sunet-notice">Requires SUNet login</small>
+    <li>
+      <%= link_to "https://consul.stanford.edu/x/2ok1CQ" do %>
+        Exhibit documentation <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
       <% end %>
-  <% end %>
+    </li>
+    <li>
+      <%= link_to "https://consul.stanford.edu/x/g4A-CQ" do %>
+        Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
+      <% end %>
+    </li>
+  </ul>
 
   <% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
     <h3 class="nav-heading"><%=t(:'.header') %></h3>
     <ul class="nav sidenav">
+      <li>
+        <% if can?(:create, Spotlight::Exhibit) %>
+          <%= link_to "Request a new exhibit", spotlight.new_exhibit_path %>
+        <% end %>
+      </li>
       <li><%= link_to t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings' %></li>
 
       <% if can? :manage, Spotlight::Site.instance %>
