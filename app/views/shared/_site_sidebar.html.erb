@@ -18,16 +18,14 @@
       "http://library.stanford.edu/#middle-tab-24" %>
     </li>
     <li>
-      <%= link_to "Exhibit documentation",
-      "https://consul.stanford.edu/x/2ok1CQ",
-      class: "exhibit-inline" %>
-      <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
+      <%= link_to "https://consul.stanford.edu/x/2ok1CQ" do %>
+        Exhibit documentation <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
+      <% end %>
     </li>
     <li>
-      <%= link_to "Request an exhibit",
-      "https://consul.stanford.edu/x/g4A-CQ",
-      class: 'exhibit-inline' %>
-      <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
+      <%= link_to "https://consul.stanford.edu/x/g4A-CQ" do %>
+        Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
+      <% end %>
     </li>
   </ul>
 
