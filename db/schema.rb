@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20160818140248) do
     t.integer  "avatar_crop_y"
     t.integer  "avatar_crop_w"
     t.integer  "avatar_crop_h"
+    t.integer  "avatar_id"
+    t.index ["avatar_id"], name: "index_spotlight_contacts_on_avatar_id"
     t.index ["exhibit_id"], name: "index_spotlight_contacts_on_exhibit_id"
   end
 
@@ -165,6 +167,7 @@ ActiveRecord::Schema.define(version: 20160818140248) do
     t.integer  "image_crop_h"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "iiif_url"
   end
 
   create_table "spotlight_filters", force: :cascade do |t|

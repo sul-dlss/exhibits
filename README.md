@@ -55,3 +55,9 @@ You must be on VPN to deploy the worker machine.  Then deploy as usual using Cap
 ```console
 $ cap staging deploy
 ```
+
+## Upgrading to use iiif images:
+
+```console
+$ rake spotlight::migrate_to_iiif[exhibits.stanford.edu]
+```
