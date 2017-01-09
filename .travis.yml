@@ -2,7 +2,7 @@ notifications:
   email: false
 
 rvm:
-  - 2.3.1
+  - 2.4.0
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
