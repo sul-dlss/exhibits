@@ -50,6 +50,7 @@ module Spotlight::Dor
         before_index :add_location
         before_index :add_geographic_srpt
         before_index :add_series
+        before_index :add_identifiers
       end
 
       # add author_no_collector_ssim solr field containing the person authors, excluding collectors
@@ -102,6 +103,10 @@ module Spotlight::Dor
 
       def add_series(sdb, solr_doc)
         solr_doc['series_ssi'] = sdb.smods_rec.series
+      end
+
+      def add_identifiers(sdb, solr_doc)
+        solr_doc['identifier_ssim'] = sdb.smods_rec.identifier.content
       end
 
       # @return [Array{String}] The IDs from geonames //subject/geographic URIs, if any

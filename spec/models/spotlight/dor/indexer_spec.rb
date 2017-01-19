@@ -550,6 +550,25 @@ describe Spotlight::Dor::Indexer do
         end
       end
     end # add_series
+
+    describe '#add_identifiers' do
+      before do
+        subject.send(:add_identifiers, resource, solr_doc)
+      end
+
+      context 'with an identifier' do
+        # e.g. from https://purl.stanford.edu/cm896kp1291
+        let(:modsbody) do
+          <<-EOF
+            <identifier displayLabel="Accession Number">16768</identifier>
+          EOF
+        end
+
+        it 'extracts the series' do
+          expect(solr_doc['identifier_ssim']).to eq(['16768'])
+        end
+      end
+    end # add_series
   end # context StanfordMods concern
 
   context 'Full Text Indexing concern' do
