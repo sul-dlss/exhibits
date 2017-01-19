@@ -151,6 +151,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'box_ssi', label: 'Box'
     config.add_index_field 'folder_ssi', label: 'Folder'
     config.add_index_field 'folder_name_ssi', label: 'Folder Name'
+    config.add_index_field 'identifier_ssim', label: 'Identifier'
     config.add_index_field 'location_ssi', label: 'Location'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
     config.add_index_field 'doc_subtype_ssi', label: 'Document Subtype'
