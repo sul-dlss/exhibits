@@ -34,7 +34,7 @@
     <ul class="nav sidenav">
       <li>
         <% if can?(:create, Spotlight::Exhibit) %>
-          <%= link_to "Request a new exhibit", spotlight.new_exhibit_path %>
+          <%= link_to "Create a new exhibit", spotlight.new_exhibit_path %>
         <% end %>
       </li>
       <li><%= link_to t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings' %></li>
