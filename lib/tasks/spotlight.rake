@@ -16,7 +16,7 @@ namespace :spotlight do
     end
 
     begin
-      @exhibit_yml = YAML.load(@solr_erb)
+      @exhibit_yml = YAML.safe_load(@solr_erb)
     rescue StandardError
       raise("exhibit.yml was found, but could not be parsed.\n")
     end
