@@ -19,6 +19,8 @@ describe DorSolrDocumentBuilder do
   end
 
   describe '#to_solr' do
+    let(:logger) { subject.send(:logger) }
+
     context 'with a collection' do
       before do
         allow(resource).to receive(:collection?).and_return(true)
@@ -49,8 +51,9 @@ describe DorSolrDocumentBuilder do
       it 'traps indexing errors' do
         allow(resource).to receive(:items).and_return([])
         allow(indexer).to receive(:solr_document).and_raise(StandardError.new)
-        expect(subject.send(:logger)).to receive(:error).with(/Error processing xf680rd3068/)
+        allow(logger).to receive(:error)
         expect { subject.to_solr.to_a }.not_to raise_error
+        expect(logger).to have_received(:error).with(/Error processing xf680rd3068/)
       end
     end
 
