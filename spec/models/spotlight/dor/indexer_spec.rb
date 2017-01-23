@@ -261,8 +261,9 @@ describe Spotlight::Dor::Indexer do
         expect(solr_doc['author_no_collector_ssim']).to eq [name]
       end
       it 'calls non_collector_person_authors on Stanford::Mods::Record object' do
-        expect(resource.smods_rec).to receive(:non_collector_person_authors)
+        allow(resource.smods_rec).to receive(:non_collector_person_authors)
         subject.send(:add_author_no_collector, resource, solr_doc)
+        expect(resource.smods_rec).to have_received(:non_collector_person_authors)
       end
     end
 
@@ -310,8 +311,9 @@ describe Spotlight::Dor::Indexer do
         expect(solr_doc['collector_ssim']).to eq [name]
       end
       it 'calls collectors_w_dates on Stanford::Mods::Record object' do
-        expect(resource.smods_rec).to receive(:collectors_w_dates)
+        allow(resource.smods_rec).to receive(:collectors_w_dates)
         subject.send(:add_collector, resource, solr_doc)
+        expect(resource.smods_rec).to have_received(:collectors_w_dates)
       end
     end
 
@@ -423,9 +425,10 @@ describe Spotlight::Dor::Indexer do
       it 'logs exceptions while returning nil' do
         allow(Settings).to receive(:geonames_username).and_return 'foobar'
         allow(Faraday.default_connection).to receive(:get).with(any_args) { raise Faraday::TimeoutError.new, 'Too slow!' }
-        expect(subject.logger).to receive(:error).twice
+        allow(subject.logger).to receive(:error)
         expect { subject.get_geonames_api_envelope('1234') }.not_to raise_error
         expect(subject.get_geonames_api_envelope('1234')).to be_nil
+        expect(subject.logger).to have_received(:error).twice
       end
       # otherwise tested as part of #add_geonames
     end
@@ -618,9 +621,10 @@ describe Spotlight::Dor::Indexer do
           allow(resource).to receive(:public_xml).and_return(public_xml_with_feigenbaum_full_text)
           allow(Faraday.default_connection).to receive(:get).with(full_file_path).and_raise Faraday::TimeoutError.new('')
 
-          expect(subject.logger).to receive(:error).with(/Error indexing full text/)
+          allow(subject.logger).to receive(:error)
           subject.send(:add_object_full_text, resource, solr_doc)
           expect(solr_doc[full_text_solr_fname]).to be_blank
+          expect(subject.logger).to have_received(:error).with(/Error indexing full text/)
         end
       end
 
