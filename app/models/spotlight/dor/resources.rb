@@ -12,7 +12,7 @@ module Spotlight
         end
 
         def gdor_config_path
-          File.join(Rails.root, 'config', 'gdor.yml')
+          Rails.root.join('config', 'gdor.yml')
         end
 
         def solr_config
