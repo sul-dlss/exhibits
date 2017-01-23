@@ -4,7 +4,7 @@ namespace :spotlight do
     require 'erb'
     require 'yaml'
 
-    exhibit_file = File.join(Rails.root, 'config', 'exhibit.yml')
+    exhibit_file = Rails.root.join('config', 'exhibit.yml')
     unless File.exist?(exhibit_file)
       raise "You are missing a exhibit configuration file: #{exhibit_file}"
     end
