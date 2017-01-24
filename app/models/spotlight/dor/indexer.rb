@@ -35,7 +35,17 @@ module Spotlight::Dor
       solr_doc[:author_sort] &&= solr_doc[:author_sort].tr("\uFFFF", "\uFFFD")
     end
 
+    before_index :add_iiif_manifest_url
+
     private
+
+    def add_iiif_manifest_url(sdb, solr_doc)
+      solr_doc['iiif_manifest_url_ssi'] = iiif_manifest_url(sdb.bare_druid)
+    end
+
+    def iiif_manifest_url(bare_druid)
+      format Settings.purl.iiif_manifest_url, druid: bare_druid
+    end
 
     # Functionality grouped when code was moved to the StanfordMods gem
     concerning :StanfordMods do
