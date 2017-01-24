@@ -25,6 +25,16 @@ describe Spotlight::Dor::Indexer do
     allow(resource).to receive(:bare_druid).and_return(fake_druid)
   end
 
+  describe '#add_iiif_manifest_url' do
+    before do
+      subject.send(:add_iiif_manifest_url, resource, solr_doc)
+    end
+
+    it 'adds a reference to the IIIF manifest' do
+      expect(solr_doc['iiif_manifest_url_ssi']).to eq 'https://purl.stanford.edu/oo000oo0000/iiif/manifest.json'
+    end
+  end
+
   describe '#add_content_metadata_fields' do
     before do
       allow(resource).to receive(:public_xml).and_return(public_xml)

@@ -5,3 +5,6 @@ geonames_username: ''
 stacks:
   iiif_url: 'https://stacks.stanford.edu/image/iiif'
   file_url: 'https://stacks.stanford.edu/file'
+
+purl:
+  iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest.json'
