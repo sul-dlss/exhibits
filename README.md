@@ -53,5 +53,5 @@ $ REMOTE_USER="archivist1@example.com" rake server
 You must be on VPN to deploy the worker machine.  Then deploy as usual using Capistrano:
 
 ```console
-$ cap staging deploy
+$ cap stage deploy
 ```
