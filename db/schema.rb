@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818140248) do
+ActiveRecord::Schema.define(version: 20170201233152) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -237,6 +237,18 @@ ActiveRecord::Schema.define(version: 20160818140248) do
     t.index ["slug", "scope"], name: "index_spotlight_pages_on_slug_and_scope", unique: true
   end
 
+  create_table "spotlight_reindexing_log_entries", force: :cascade do |t|
+    t.integer  "items_reindexed_count"
+    t.integer  "items_reindexed_estimate"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "job_status"
+    t.integer  "exhibit_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "spotlight_resources", force: :cascade do |t|
     t.integer  "exhibit_id"
     t.string   "type"
@@ -298,6 +310,8 @@ ActiveRecord::Schema.define(version: 20160818140248) do
     t.integer  "resource_id"
     t.string   "resource_type"
     t.binary   "index_status"
+    t.index ["document_type", "document_id"], name: "spotlight_solr_document_sidecars_solr_document"
+    t.index ["exhibit_id", "document_type", "document_id"], name: "spotlight_solr_document_sidecars_exhibit_document"
     t.index ["exhibit_id"], name: "index_spotlight_solr_document_sidecars_on_exhibit_id"
     t.index ["resource_type", "resource_id"], name: "spotlight_solr_document_sidecars_resource"
   end
