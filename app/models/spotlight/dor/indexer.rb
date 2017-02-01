@@ -106,9 +106,12 @@ module Spotlight::Dor
 
       # add geographic_srpt solr field containing the point bounding box per
       # MODS subject.cartographics.coordinates (via stanford-mods gem)
+      # and per stanford geo mods extension
       def add_geographic_srpt(sdb, solr_doc)
         solr_doc['geographic_srpt'] ||= []
         solr_doc['geographic_srpt'] += sdb.smods_rec.coordinates_as_envelope
+        solr_doc['geographic_srpt'] += sdb.smods_rec.geo_extensions_as_envelope
+        solr_doc['geographic_srpt'] += sdb.smods_rec.geo_extensions_point_data
       end
 
       def add_series(sdb, solr_doc)

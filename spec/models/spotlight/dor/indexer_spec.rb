@@ -9,7 +9,7 @@ describe Spotlight::Dor::Indexer do
   let(:modsbody) { '' }
   let(:mods) do
     Nokogiri::XML <<-EOF
-      <mods xmlns="#{Mods::MODS_NS}">
+      <mods xmlns="#{Mods::MODS_NS}" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
       #{modsbody}
       </mods>
     EOF
@@ -535,6 +535,57 @@ describe Spotlight::Dor::Indexer do
 
         it 'extracts the geographic_srpt' do
           expect(solr_doc['geographic_srpt']).to eq(['ENVELOPE(-16.0, 28.0, 13.0, -15.0)'])
+        end
+      end
+
+      context 'with geo extension bounding boxes' do
+        # e.g. from https://purl.stanford.edu/vw282gv1740
+        let(:modsbody) do
+          <<-EOF
+            <extension displayLabel="geo">
+              <rdf:RDF xmlns:gml="http://www.opengis.net/gml/3.2/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                <rdf:Description rdf:about="http://purl.stanford.edu/cw222pt0426">
+                <dc:format>image/jpeg</dc:format>
+                <dc:type>Image</dc:type>
+                <gml:boundedBy>
+                  <gml:Envelope>
+                    <gml:lowerCorner>-122.191292 37.4063388</gml:lowerCorner>
+                    <gml:upperCorner>-122.149475 37.4435369</gml:upperCorner>
+                  </gml:Envelope>
+                </gml:boundedBy>
+                </rdf:Description>
+              </rdf:RDF>
+            </extension>
+          EOF
+        end
+
+        it 'extracts the geographic_srpt' do
+          expect(solr_doc['geographic_srpt']).to eq(['ENVELOPE(-122.191292, -122.149475, 37.4435369, 37.4063388)'])
+        end
+      end
+
+      context 'with geo extension center point data' do
+        # e.g. from https://purl.stanford.edu/cm896kp1291
+        let(:modsbody) do
+          <<-EOF
+          <extension displayLabel="geo">
+            <rdf:RDF xmlns:gml="http://www.opengis.net/gml/3.2/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gmd="http://www.isotc211.org/2005/gmd">
+              <rdf:Description rdf:about="http://www.stanford.edu/cm896kp1291">
+                <dc:format>image/jpeg</dc:format>
+                <dc:type>Image</dc:type>
+                <gmd:centerPoint>
+                  <gml:Point gml:id="ID">
+                    <gml:pos>41.8898687280593 12.4913412520789</gml:pos>
+                  </gml:Point>
+                </gmd:centerPoint>
+              </rdf:Description>
+            </rdf:RDF>
+          </extension>
+          EOF
+        end
+
+        it 'extracts the geographic_srpt' do
+          expect(solr_doc['geographic_srpt']).to eq(['12.4913412520789 41.8898687280593'])
         end
       end
     end # add_geographic_srpt

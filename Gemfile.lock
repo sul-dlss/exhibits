@@ -501,7 +501,7 @@ GEM
     sshkit (1.11.5)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stanford-mods (2.3.1)
+    stanford-mods (2.4.0)
       activesupport
       mods (~> 2.0, >= 2.0.2)
     stomp (1.4.3)
