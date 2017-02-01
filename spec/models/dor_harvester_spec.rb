@@ -72,15 +72,6 @@ describe DorHarvester do
     Spotlight::SolrDocumentSidecar.find_or_initialize_by(document_id: druid, document_type: 'SolrDocument')
   end
 
-  describe '#waiting!' do
-    it 'retrieves collection metadata' do
-      ActiveJob::Base.queue_adapter = :test
-      expect do
-        subject.waiting!
-      end.to enqueue_job(RecordResourceMetadataJob)
-    end
-  end
-
   describe '#update_collection_metadata!' do
     let(:resource) do
       instance_double(Harvestdor::Indexer::Resource, bare_druid: druid,
@@ -158,6 +149,7 @@ describe DorHarvester do
     let(:resource) { subject.resources.first }
 
     before do
+      subject.save!
       allow(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_return(upstream: true)
       allow(resource).to receive(:collection?).and_return(false)
       allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return({})
