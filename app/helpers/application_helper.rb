@@ -9,4 +9,8 @@ module ApplicationHelper
   def document_collection_title(value:, **)
     Array(value).map { |v| collection_title(v) }.to_sentence
   end
+
+  def document_leaflet_map(document:, **)
+    render_document_partial(document, 'show_leaflet_map_wrapper')
+  end
 end

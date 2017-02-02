@@ -59,7 +59,6 @@ class CatalogController < ApplicationController
     config.show.title_field = 'title_full_display'
     config.show.oembed_field = :url_fulltext
     config.show.partials.insert(1, :osd_or_embed)
-    config.show.partials.insert(2, :show_leaflet_map_wrapper)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
     config.view.list.thumbnail_field = :thumbnail_square_url_ssm
@@ -131,6 +130,12 @@ class CatalogController < ApplicationController
 
     # Solr fields to be displayed in the search results and the show (single result) views
     #   The ordering of the field names is the order of the display
+
+    # The inline map should only be displayed on the catalog#show page.
+    config.add_index_field config.geometry_field, label: 'Inline Map',
+                                                  helper_method: :document_leaflet_map,
+                                                  immutable: config.view.keys.map { |k| [k, false] }.to_h
+
     config.add_index_field 'title_full_display', label: 'Title'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
     config.add_index_field 'author_person_full_display', label: 'Author' # includes Collectors
@@ -161,7 +166,6 @@ class CatalogController < ApplicationController
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes'
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
-
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
