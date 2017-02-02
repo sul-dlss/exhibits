@@ -1,0 +1,14 @@
+.blacklight-heatmaps-show-map-wrapper {
+  @media (min-width: $screen-md-min) {
+    padding-left: 50px;
+  }
+}
+
+.blacklight-heatmaps-show-map {
+  margin-bottom: $padding-large-vertical;
+  width: 100%;
+
+  @media (min-width: $screen-md-min) {
+    height: 250px;
+  }
+}
