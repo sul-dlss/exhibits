@@ -1,7 +1,7 @@
 Exhibits::Application.routes.draw do
   # API compatible with is_it_working checks
   match "/is_it_working" => "ok_computer/ok_computer#index", via: [:get, :options]
-  mount OkComputer::Engine, at: "/is_it_working"
+  mount OkComputer::Engine, at: "/status"
 
   authenticate :user, lambda { |u| u.superadmin? } do
     require 'sidekiq/web'
