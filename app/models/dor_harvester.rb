@@ -4,6 +4,8 @@ class DorHarvester < Spotlight::Resource
 
   store :data, accessors: [:druid_list, :collections]
 
+  before_index :trigger_update_resource_metadata
+
   class << self
     def instance(current_exhibit)
       find_or_initialize_by exhibit: current_exhibit
@@ -18,12 +20,6 @@ class DorHarvester < Spotlight::Resource
 
   def druids
     @druids ||= druid_list.split(/\s+/).reject(&:blank?).uniq
-  end
-
-  def waiting!
-    super
-    update(collections: {})
-    RecordResourceMetadataJob.perform_later(self)
   end
 
   def collections
@@ -65,6 +61,11 @@ class DorHarvester < Spotlight::Resource
               end
 
     RecordIndexStatusJob.perform_later(self, resource.bare_druid, ok: false, message: message)
+  end
+
+  def trigger_update_resource_metadata
+    update(collections: {})
+    RecordResourceMetadataJob.perform_later(self)
   end
 
   def update_collection_metadata!
