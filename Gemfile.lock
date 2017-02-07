@@ -58,7 +58,7 @@ GEM
       rails (>= 4.2, < 6)
       rsolr (>= 1.0.6, < 3)
       twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
-    blacklight-gallery (0.7.0)
+    blacklight-gallery (0.8.0)
       blacklight (~> 6.3)
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.2.0)
@@ -111,7 +111,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap_form (2.5.3)
+    bootstrap_form (2.6.0)
     breadcrumbs_on_rails (2.3.1)
     builder (3.2.3)
     bundler-audit (0.5.0)
@@ -338,7 +338,7 @@ GEM
       activerecord (>= 3.0, < 6.0)
       request_store (~> 1.1)
     parallel (1.10.0)
-    parser (2.3.3.1)
+    parser (2.4.0.0)
       ast (~> 2.2)
     parslet (1.7.1)
       blankslate (>= 2.0, <= 4.0)
@@ -475,7 +475,7 @@ GEM
       rack-timeout (>= 0.3.0)
       rails
       safely_block
-    solr_wrapper (0.20.0)
+    solr_wrapper (0.21.0)
       faraday
       ruby-progressbar
       rubyzip
@@ -516,7 +516,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (2.0.6)
-    tins (1.13.0)
+    tins (1.13.2)
     tophat (2.3.0)
       actionpack (>= 3.0.0)
     trollop (2.1.2)
