@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201233152) do
+ActiveRecord::Schema.define(version: 20170208004309) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20170201233152) do
     t.integer  "avatar_crop_y"
     t.integer  "avatar_crop_w"
     t.integer  "avatar_crop_h"
+    t.integer  "avatar_id"
+    t.index ["avatar_id"], name: "index_spotlight_contacts_on_avatar_id"
     t.index ["exhibit_id"], name: "index_spotlight_contacts_on_exhibit_id"
   end
 
@@ -149,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170201233152) do
     t.integer  "thumbnail_id"
     t.integer  "weight",         default: 50
     t.integer  "site_id"
+    t.string   "theme"
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
   end
@@ -165,6 +168,11 @@ ActiveRecord::Schema.define(version: 20170201233152) do
     t.integer  "image_crop_h"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "iiif_region"
+    t.string   "iiif_manifest_url"
+    t.string   "iiif_canvas_id"
+    t.string   "iiif_image_id"
+    t.string   "iiif_tilesource"
   end
 
   create_table "spotlight_filters", force: :cascade do |t|
@@ -259,8 +267,10 @@ ActiveRecord::Schema.define(version: 20170201233152) do
     t.datetime "updated_at",   null: false
     t.binary   "metadata"
     t.integer  "index_status"
+    t.integer  "upload_id"
     t.index ["exhibit_id"], name: "index_spotlight_resources_on_exhibit_id"
     t.index ["index_status"], name: "index_spotlight_resources_on_index_status"
+    t.index ["upload_id"], name: "index_spotlight_resources_on_upload_id"
   end
 
   create_table "spotlight_roles", force: :cascade do |t|
