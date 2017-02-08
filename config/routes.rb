@@ -9,7 +9,6 @@ Exhibits::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  mount Spotlight::Resources::Iiif::Engine, at: 'spotlight_resources_iiif'
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
 
