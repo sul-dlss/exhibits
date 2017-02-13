@@ -111,7 +111,7 @@ GEM
     blacklight_advanced_search (6.2.1)
       blacklight (~> 6.0, >= 6.0.1)
       parslet
-    blacklight_heatmaps (0.3.0)
+    blacklight_heatmaps (0.4.0)
       blacklight (~> 6.0)
       leaflet-rails
       leaflet-sidebar-rails (~> 0.1.9)
@@ -259,7 +259,7 @@ GEM
       retries
       rsolr
       stanford-mods
-    hashie (3.5.1)
+    hashie (3.5.3)
     honeybadger (2.7.2)
     hooks (0.4.1)
       uber (~> 0.0.14)
@@ -308,7 +308,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_magick (4.6.0)
+    mini_magick (4.6.1)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     mods (2.1.0)
