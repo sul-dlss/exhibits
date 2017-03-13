@@ -29,5 +29,6 @@ Exhibits::Application.routes.draw do
 
   resources :exhibits, path: '/', only: [] do
     resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update]
+    resource :services, only: [:edit, :update]
   end
 end
