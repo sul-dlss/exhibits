@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208004309) do
+ActiveRecord::Schema.define(version: 20170314224503) do
+
+  create_table "bibliography_services", force: :cascade do |t|
+    t.string   "header"
+    t.string   "api_id"
+    t.string   "api_type"
+    t.datetime "sync_completed_at"
+    t.integer  "exhibit_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["exhibit_id"], name: "index_bibliography_services_on_exhibit_id"
+  end
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
