@@ -15,3 +15,11 @@ a[aria-expanded=true] .glyphicon-chevron-right {
 a[aria-expanded=false] .glyphicon-chevron-down {
   display: none;
 }
+
+.text-as-label {
+  font-weight: bold;
+}
+
+.input-like-text {
+  padding-top: 7px;
+}
