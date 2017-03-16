@@ -34,5 +34,15 @@ describe 'Bibliography Service', type: :feature do
       expect(object.api_id).to eq 'abc123'
       expect(object.api_type).to eq 'user'
     end
+
+    it 'includes breadcrumbs on the edit page' do
+      visit edit_exhibit_services_path(exhibit)
+
+      within('ul.breadcrumb') do
+        expect(page).to have_link 'Home'
+        expect(page).to have_link 'Configuration'
+        expect(page).to have_css('li.active', text: 'Services')
+      end
+    end
   end
 end
