@@ -6,7 +6,11 @@ class ServicesController < Spotlight::ApplicationController
   before_action :build_resource
   load_and_authorize_resource :bibliography_service, through: :exhibit, singleton: true
 
-  def edit; end
+  def edit
+    add_breadcrumb t(:'spotlight.exhibits.breadcrumb', title: @exhibit.title), [spotlight, @exhibit]
+    add_breadcrumb t(:'spotlight.configuration.sidebar.header'), spotlight.exhibit_dashboard_path(@exhibit)
+    add_breadcrumb t(:'services.menu_link'), edit_exhibit_services_path(@exhibit)
+  end
 
   def update
     if @bibliography_service.update(update_params)
