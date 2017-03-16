@@ -12,7 +12,11 @@ describe 'Bibliography Service', type: :feature do
     let(:user) { create(:exhibit_admin, exhibit: exhibit) }
 
     it 'can edit the service configurations' do
-      visit edit_exhibit_services_path(exhibit)
+      visit spotlight.exhibit_dashboard_path(exhibit)
+
+      within('#sidebar') do
+        click_link 'Services'
+      end
 
       fill_in 'Section heading', with: 'My New Header'
       fill_in 'Zotero ID', with: 'abc123'

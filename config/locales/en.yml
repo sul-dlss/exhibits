@@ -82,6 +82,7 @@ en:
         help: >
           If you have added exhibit items or changed your Zotero library since the last time it
           was synchronized you can resynchronize to update exhibit item bibliographies.
+    menu_link: Services
     update:
       notice: The bibliography service settings have been updated.
       error: There was a problem udpating the bibliography service settings.
