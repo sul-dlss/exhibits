@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe BibliographyService do
+describe SyncBibliographyService do
   subject { described_class.new 3_802_090 } # TODO: replace with fixtures, currently drh's public library
   context 'user' do
     context 'properties' do
