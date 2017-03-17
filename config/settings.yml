@@ -8,3 +8,5 @@ stacks:
 
 purl:
   iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest.json'
+zotero_api:
+  endpoint: 'https://api.zotero.org/%{type}s/%{id}'
