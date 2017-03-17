@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SyncBibliographyService do
+describe ZoteroApi::Client do
   subject { described_class.new 3_802_090 } # TODO: replace with fixtures, currently drh's public library
   context 'user' do
     context 'properties' do
