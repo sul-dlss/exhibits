@@ -5,7 +5,7 @@ describe ZoteroApi::Client do
   subject { described_class.new id: 'abc', type: :user }
   before do
     allow(subject).to receive(:api_items).with(0).and_return(zotero_api_response)
-    allow(subject).to receive(:api_items).with(3).and_return([])
+    allow(subject).to receive(:api_items).with(5).and_return([])
   end
   describe '#bibliography' do
     it 'calls fetch_bibliography when @index is not present' do
@@ -40,6 +40,11 @@ describe ZoteroApi::Client do
       context 'when absent' do
         it { expect(subject.bibliography_for('yolo')).to be_nil }
       end
+    end
+    it 'provides sorted ZoteroApi::Bibliography' do
+      first = subject.bibliography_for('ee555ff6666').first
+      expect(first.author).to eq 'Doe, Jane'
+      expect(first.date).to eq 2001
     end
   end
 end

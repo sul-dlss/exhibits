@@ -18,7 +18,7 @@ module ZoteroApi
     ##
     # @param [String] druid
     def bibliography_for(druid)
-      bibliography[druid]
+      bibliography[druid].try(:sort_by_author_date)
     end
 
     private

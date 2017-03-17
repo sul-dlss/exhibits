@@ -4,6 +4,13 @@ module ResponseFixtures
       {
         'data' =>
           {
+            'creators': [
+              {
+                'firstName': 'John',
+                'lastName': 'Doe'
+              }
+            ],
+            'date': 2001,
             'tags' => [
               {
                 'tag' => 'ee555ff6666'
@@ -14,6 +21,47 @@ module ResponseFixtures
       {
         'data' =>
           {
+            'creators': [
+              {
+                'firstName': 'Jane',
+                'lastName': 'Doe'
+              }
+            ],
+            'date': 2010,
+            'tags' => [
+              {
+                'tag' => 'ee555ff6666'
+              }
+            ]
+          }
+      },
+      {
+        'data' =>
+          {
+            'creators': [
+              {
+                'firstName': 'Jane',
+                'lastName': 'Doe'
+              }
+            ],
+            'date': 2001,
+            'tags' => [
+              {
+                'tag' => 'ee555ff6666'
+              }
+            ]
+          }
+      },
+      {
+        'data' =>
+          {
+            'creators': [
+              {
+                'firstName': 'Jane',
+                'lastName': 'Doe'
+              }
+            ],
+            'date': 2001,
             'tags' => [
               {
                 'tag' => 'aa111bb2222'
@@ -24,6 +72,13 @@ module ResponseFixtures
       {
         'data' =>
           {
+            'creators': [
+              {
+                'firstName': 'Jane',
+                'lastName': 'Doe'
+              }
+            ],
+            'date': 2001,
             'tags' => [
               {
                 'tag' => 'cc333dd4444'

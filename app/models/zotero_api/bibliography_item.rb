@@ -1,7 +1,7 @@
 module ZoteroApi
   ##
   # A single Zotero Bibliography item
-  class BibliographyItem < Hash
+  class BibliographyItem < HashWithIndifferentAccess
     # @return [String] an Author-Date sort key
     def to_author_date
       [author, date].join(' ')
