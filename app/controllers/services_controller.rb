@@ -14,6 +14,7 @@ class ServicesController < Spotlight::ApplicationController
 
   def update
     if @bibliography_service.update(update_params)
+      @exhibit.sync_bibliography if @bibliography_service.api_settings_changed?
       redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.update.notice')
     else
       redirect_to edit_exhibit_services_path(@exhibit), alert: I18n.t('services.update.error')

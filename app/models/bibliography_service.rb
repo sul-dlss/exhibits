@@ -9,4 +9,12 @@ class BibliographyService < ActiveRecord::Base
   def initial_sync_complete?
     sync_completed_at.present?
   end
+
+  def api_settings_changed?
+    api_id_previously_changed? || api_type_previously_changed?
+  end
+
+  def mark_as_updated!
+    update(sync_completed_at: DateTime.current)
+  end
 end

@@ -51,6 +51,12 @@ describe SyncBibliographyService do
       expect(service).to receive_messages(bibliography_api: api)
     end
 
+    it 'updates the given bibliography_service to indicate a sync has happened' do
+      expect(api).to receive_messages(bibliography_for: nil)
+      expect_any_instance_of(BibliographyService).to receive(:mark_as_updated!)
+      service.sync
+    end
+
     context 'when a document has a matching bibliography' do
       before do
         expect(api).to receive_messages(

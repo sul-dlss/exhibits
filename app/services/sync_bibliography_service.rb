@@ -12,6 +12,8 @@ class SyncBibliographyService
         sync_resource(resource, sidecar)
       end
     end
+
+    exhibit.bibliography_service.mark_as_updated!
   end
 
   def validate
