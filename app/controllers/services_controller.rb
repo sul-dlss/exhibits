@@ -22,6 +22,7 @@ class ServicesController < Spotlight::ApplicationController
 
   def create
     if @bibliography_service.update(update_params)
+      @exhibit.sync_bibliography
       redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.create.notice')
     else
       redirect_to edit_exhibit_services_path(@exhibit), alert: I18n.t('services.create.error')

@@ -7,4 +7,8 @@ module ExhibitExtension
   included do
     has_one :bibliography_service
   end
+
+  def sync_bibliography
+    SyncBibliographyServiceJob.perform_later(self)
+  end
 end

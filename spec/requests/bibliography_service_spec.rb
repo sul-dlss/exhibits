@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'Bibliography Service Configuration', type: :request do
+  include ActiveJob::TestHelper
   let(:exhibit) { create(:exhibit) }
   let(:user) { nil }
   let(:bibliography_service) { BibliographyService.create(exhibit_id: exhibit.id) }
@@ -106,6 +107,12 @@ describe 'Bibliography Service Configuration', type: :request do
 
       it 'sets a flash notice that the synchronization has started' do
         expect(flash[:notice]).to eq 'Synchronization with Zotero has started.'
+      end
+
+      it 'invokes the SyncBibliograhyService job' do
+        expect(enqueued_jobs.size).to eq(1)
+        last_job = enqueued_jobs.last
+        expect(last_job[:job]).to eq SyncBibliographyServiceJob
       end
     end
   end
