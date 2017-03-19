@@ -1,4 +1,8 @@
 module ZoteroApi
+  ##
+  # A Client class for the Zotero API.
+  # This class fetches from the Zotero API
+  # and gives access to bibliographies returned.
   class Client
     attr_reader :zotero_id, :zotero_id_type
 
