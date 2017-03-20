@@ -15,7 +15,7 @@ module ZoteroApi
 
     # @return [String] HTML for the entire bibliography, sorted by Author-Date
     def render
-      sort_by_author_date.collect(&:to_html).join("\n")
+      "<ul>#{sort_by_author_date.collect(&:to_html).join}</ul>"
     end
   end
 end
