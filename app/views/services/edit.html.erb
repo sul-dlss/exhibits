@@ -24,7 +24,7 @@
         <%= t('.zotero_sync.label') %>
       </span>
 
-      <div class="col-md-9 input-like-text">
+      <div class="col-md-9 form-control-static">
         <% if @bibliography_service.initial_sync_complete? %>
           <p><%= t('.zotero_sync.status', datetime: l(@bibliography_service.sync_completed_at, format: :long)) %></p>
           <p><%= t('.zotero_sync.help') %></p>
