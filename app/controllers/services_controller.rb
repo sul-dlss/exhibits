@@ -38,11 +38,7 @@ class ServicesController < Spotlight::ApplicationController
   private
 
   def build_resource
-    @bibliography_service = if @exhibit.bibliography_service
-                              @exhibit.bibliography_service
-                            else
-                              ::BibliographyService.new(exhibit_id: @exhibit.id)
-                            end
+    @bibliography_service = @exhibit.bibliography_service || @exhibit.build_bibliography_service
   end
 
   def update_params
