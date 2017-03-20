@@ -143,4 +143,38 @@ describe 'Bibliography Service Configuration', type: :request do
       end
     end
   end
+
+  describe '#sync' do
+    context 'an anonymous user' do
+      it 'redirects to the login page' do
+        patch "/#{exhibit.slug}/services/sync", params: { id: bibliography_service }
+
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'an exhibit admin' do
+      let(:user) { create(:exhibit_admin, exhibit: exhibit) }
+
+      before do
+        patch "/#{exhibit.slug}/services/sync", params: {
+          id: bibliography_service.id
+        }
+      end
+
+      it 'syncs the bibliography service and redirects to the edit form' do
+        expect(response).to redirect_to "/#{exhibit.slug}/services/edit"
+      end
+
+      it 'sets a flash notice that the synchronization has started' do
+        expect(flash[:notice]).to eq 'Synchronization with Zotero has started.'
+      end
+
+      it 'invokes the SyncBibliograhyService job' do
+        expect(enqueued_jobs.size).to eq(1)
+        last_job = enqueued_jobs.last
+        expect(last_job[:job]).to eq SyncBibliographyServiceJob
+      end
+    end
+  end
 end

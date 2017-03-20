@@ -30,6 +30,11 @@ class ServicesController < Spotlight::ApplicationController
     end
   end
 
+  def sync
+    @exhibit.sync_bibliography
+    redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.sync.started')
+  end
+
   private
 
   def build_resource
