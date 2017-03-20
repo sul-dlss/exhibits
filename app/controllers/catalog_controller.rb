@@ -61,6 +61,8 @@ class CatalogController < ApplicationController
     config.show.partials.insert(1, :osd_or_embed)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
+    config.show.partials << :bibliography
+
     config.view.list.thumbnail_field = :thumbnail_square_url_ssm
     config.view.list.partials = [:thumbnail, :index_header, :index]
     config.view.gallery.partials = [:index_header, :index]
