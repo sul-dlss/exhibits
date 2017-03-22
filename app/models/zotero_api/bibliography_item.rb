@@ -37,7 +37,7 @@ module ZoteroApi
     def druids
       druids = []
       tags.each do |t|
-        druid = t.match(/([a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4})/) # parse out druid from tag
+        druid = t.match(Exhibits::Application.config.druid_regex) # parse out druid from tag
         druids << druid[1] unless druid.nil?
       end
       druids.uniq
