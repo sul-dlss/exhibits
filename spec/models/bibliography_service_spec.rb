@@ -50,4 +50,23 @@ describe BibliographyService do
       expect(subject.sync_completed_at_previously_changed?).to be true
     end
   end
+
+  describe '#update_and_sync_bibliography' do
+    it 'updates the biblography service configuration' do
+      expect(subject.header).to eq 'Bibliography'
+      subject.update_and_sync_bibliography(header: 'New Heading')
+      expect(subject.reload.header).to eq 'New Heading'
+    end
+
+    it 'syncs the exhibit bibliography when the api settings have changed' do
+      exhibit = instance_spy(Spotlight::Exhibit)
+      expect(subject).to receive_messages(exhibit: exhibit)
+      subject.update_and_sync_bibliography(api_id: 'abc123')
+      expect(exhibit).to have_received(:sync_bibliography)
+    end
+
+    it 'returns the status of the update' do
+      expect(subject.update_and_sync_bibliography({})).to eq true
+    end
+  end
 end

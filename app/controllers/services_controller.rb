@@ -13,8 +13,7 @@ class ServicesController < Spotlight::ApplicationController
   end
 
   def update
-    if @bibliography_service.update(update_params)
-      @exhibit.sync_bibliography if @bibliography_service.api_settings_changed?
+    if @bibliography_service.update_and_sync_bibliography(update_params)
       redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.update.notice')
     else
       redirect_to edit_exhibit_services_path(@exhibit), alert: I18n.t('services.update.error')
@@ -22,8 +21,7 @@ class ServicesController < Spotlight::ApplicationController
   end
 
   def create
-    if @bibliography_service.update(update_params)
-      @exhibit.sync_bibliography
+    if @bibliography_service.update_and_sync_bibliography(update_params)
       redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.create.notice')
     else
       redirect_to edit_exhibit_services_path(@exhibit), alert: I18n.t('services.create.error')
