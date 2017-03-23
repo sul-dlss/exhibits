@@ -39,7 +39,7 @@ class SyncBibliographyService
       resource.reindex_later
     # Otherwise if the bibliography is present render it
     elsif bibliography
-      sidecar.data[solr_document_field] = bibliography.render
+      sidecar.data[solr_document_field] = bibliography.to_solr
       sidecar.save
       resource.reindex_later
     end

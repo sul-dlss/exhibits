@@ -60,7 +60,7 @@ describe SyncBibliographyService do
     context 'when a document has a matching bibliography' do
       before do
         expect(api).to receive_messages(
-          bibliography_for: instance_double(ZoteroApi::Bibliography, render: '<bibliography />')
+          bibliography_for: instance_double(ZoteroApi::Bibliography, to_solr: ['<bibliography />'])
         )
         sidecars.each do |sidecar|
           expect(sidecar).to receive_messages(save: true)
@@ -70,7 +70,7 @@ describe SyncBibliographyService do
         expect(resource1).to receive_messages(reindex_later: true)
         service.sync
         sidecars.each do |sidecar|
-          expect(sidecar.data[Settings.zotero_api.solr_document_field]).to eq '<bibliography />'
+          expect(sidecar.data[Settings.zotero_api.solr_document_field]).to eq ['<bibliography />']
         end
       end
     end

@@ -8,7 +8,7 @@ describe 'catalog/_bibliography_default.html.erb', type: :view do
   context 'with a populated bibliography' do
     let(:document) do
       SolrDocument.new(
-        Settings.zotero_api.solr_document_field => '<ul><li><div class="csl-bib-body"></li></ul>'
+        Settings.zotero_api.solr_document_field => ['<ul><li><div class="csl-bib-body"></li></ul>']
       )
     end
     context 'with a bibliography service' do

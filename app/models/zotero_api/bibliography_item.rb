@@ -30,7 +30,7 @@ module ZoteroApi
     #     </div>
     #
     def to_html
-      "<li>#{fetch('bib')}</li>"
+      fetch('bib')
     end
 
     # @return [Array<String>] the list of druids associated with this bibliography item

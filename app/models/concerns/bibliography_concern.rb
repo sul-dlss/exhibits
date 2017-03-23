@@ -3,6 +3,8 @@
 # bibliography
 module BibliographyConcern
   def bibliography
-    fetch(Settings.zotero_api.solr_document_field, nil)
+    @bibliography ||= fetch(Settings.zotero_api.solr_document_field, []).collect do |bib_item|
+      DocumentBibliography.new(bib_item)
+    end
   end
 end
