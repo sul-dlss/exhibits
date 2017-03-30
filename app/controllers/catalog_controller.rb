@@ -143,7 +143,6 @@ class CatalogController < ApplicationController
     config.add_index_field 'collector_ssim', label: 'Collector'
     config.add_index_field 'author_corp_display', label: 'Corporate Author'
     config.add_index_field 'author_meeting_display', label: 'Meeting Author'
-    config.add_index_field 'medium', label: 'Medium'
     config.add_index_field 'summary_display', label: 'Description'
     config.add_index_field 'topic_display', label: 'Topic'
     config.add_index_field 'subject_other_display', label: 'Subject'
