@@ -85,6 +85,45 @@ module ResponseFixtures
               }
             ]
           }
+      },
+      {
+        'data' =>
+          {
+            'date': 2002,
+            'tags' => [
+              {
+                'tag' => 'cc333dd4444'
+              }
+            ]
+          }
+      },
+      {
+        'data' =>
+          {
+            'creators': [],
+            'date': 1988,
+            'tags' => [
+              {
+                'tag' => 'cc333dd4444'
+              }
+            ]
+          }
+      },
+      {
+        'data' =>
+          {
+            'creators': [
+              {
+                'lastName': 'The Artist'
+              }
+            ],
+            'date': 1999,
+            'tags' => [
+              {
+                'tag' => 'cc333dd4444'
+              }
+            ]
+          }
       }
     ]
   end

@@ -9,8 +9,7 @@ module ZoteroApi
 
     # @return [String] returns the first author's full name (last, first)
     def author
-      creator = data['creators'].first
-      [creator['lastName'], creator['firstName']].join(', ')
+      BibliographyItemCreator.new(data.fetch('creators', []).first).formatted_author
     end
 
     # @return [String] the (unparsed) date for the item
