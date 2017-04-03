@@ -325,7 +325,7 @@ GEM
     net-ssh (4.0.1)
     newrelic_rpm (3.18.1.330)
     nio4r (1.2.1)
-    nokogiri (1.7.0.1)
+    nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     nom-xml (0.6.0)
       activesupport (>= 3.2.18)
@@ -607,6 +607,7 @@ DEPENDENCIES
   mysql2 (~> 0.4.4)
   net-http-persistent (< 3)
   newrelic_rpm
+  nokogiri (>= 1.7.1)
   okcomputer
   puma (~> 3.0)
   rack-dev-mark
@@ -639,4 +640,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.13.6
+   1.14.4
