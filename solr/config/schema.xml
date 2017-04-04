@@ -238,6 +238,7 @@
     <dynamicField name="*_ssm" type="string" stored="true" indexed="false" multiValued="true" omitNorms="true" />
     <dynamicField name="*_ssi" type="string" stored="true" indexed="true" omitNorms="true" />
     <dynamicField name="*_ssim" type="string" stored="true" indexed="true" multiValued="true" omitNorms="true" />
+    <dynamicField name="*_tsi" type="text" stored="true" indexed="true" omitNorms="true" />
     <dynamicField name="*_isi" type="tint" stored="true" indexed="true" omitNorms="true" />
     <dynamicField name="*_isim" type="tint" stored="true" indexed="true" multiValued="true" omitNorms="true" />
     <dynamicField name="*_sort" type="alphaSort" stored="true" indexed="true"/>
