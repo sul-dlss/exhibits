@@ -56,8 +56,8 @@ group :development, :test do
 
   gem 'database_cleaner'
 
-  gem 'rubocop', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop', '= 0.47.1', require: false
+  gem 'rubocop-rspec', '= 1.10.0', require: false
 end
 
 group :test do
