@@ -17,5 +17,7 @@ module Exhibits
     config.to_prepare do
       Spotlight::Exhibit.send(:include, ExhibitExtension)
     end
+
+    config.druid_regex = /([a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4})/
   end
 end

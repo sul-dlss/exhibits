@@ -8,3 +8,8 @@ stacks:
 
 purl:
   iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest.json'
+zotero_api:
+  endpoint: 'https://api.zotero.org/%{type}s/%{id}'
+  solr_document_field: zotero_bibliography_tsi
+sidekiq:
+  logger_level: 'Logger::INFO' # The default from Sidekiq

@@ -1,0 +1,6 @@
+<% if document.bibliography && current_exhibit.bibliography_service %>
+  <div class='col-md-12'>
+    <%= content_tag(:h3, current_exhibit.bibliography_service.header, class: 'bibliography-service-heading') %>
+    <%= document.bibliography.html_safe %>
+  </div>
+<% end %>

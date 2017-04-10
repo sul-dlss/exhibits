@@ -24,11 +24,11 @@
         <%= t('.zotero_sync.label') %>
       </span>
 
-      <div class="col-md-9 input-like-text">
+      <div class="col-md-9 form-control-static">
         <% if @bibliography_service.initial_sync_complete? %>
           <p><%= t('.zotero_sync.status', datetime: l(@bibliography_service.sync_completed_at, format: :long)) %></p>
           <p><%= t('.zotero_sync.help') %></p>
-          <%= link_to t('.zotero_sync.button'), 'javascript:;', class: 'btn btn-default btn-sm' %>
+          <%= link_to t('.zotero_sync.button'), sync_exhibit_services_path(@exhibit), class: 'btn btn-default btn-sm', method: :patch %>
         <% else %>
           <p><%= t('.zotero_sync.not_synced') %></p>
         <% end %>
@@ -37,7 +37,7 @@
 
     <div class="form-actions">
       <div class="primary-actions">
-        <%= f.submit t('.save'), class: 'btn btn-primary' %>
+        <%= f.primary t('.save') %>
       </div>
     </div>
   <% end %>

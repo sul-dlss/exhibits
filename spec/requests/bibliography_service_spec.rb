@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'Bibliography Service Configuration', type: :request do
+  include ActiveJob::TestHelper
   let(:exhibit) { create(:exhibit) }
   let(:user) { nil }
   let(:bibliography_service) { BibliographyService.create(exhibit_id: exhibit.id) }
@@ -59,11 +60,12 @@ describe 'Bibliography Service Configuration', type: :request do
 
     context 'an exhibit admin' do
       let(:user) { create(:exhibit_admin, exhibit: exhibit) }
+      let(:update_params) { { header: 'New Header' } }
 
       before do
         patch "/#{exhibit.slug}/services", params: {
           id: bibliography_service.id,
-          bibliography_service: { header: 'New Header' }
+          bibliography_service: update_params
         }
       end
 
@@ -75,6 +77,32 @@ describe 'Bibliography Service Configuration', type: :request do
 
       it 'sets a flash notice indicating that the settings have been updated' do
         expect(flash[:notice]).to eq 'The bibliography service settings have been updated.'
+      end
+
+      context 'when the api_id is updated' do
+        let(:update_params) { { api_id: 'new_api_id' } }
+
+        it 'invokes the SyncBibliograhyService job' do
+          expect(enqueued_jobs.size).to eq(1)
+          last_job = enqueued_jobs.last
+          expect(last_job[:job]).to eq SyncBibliographyServiceJob
+        end
+      end
+
+      context 'when the api_type is updated' do
+        let(:update_params) { { api_type: 'new_api_type' } }
+
+        it 'invokes the SyncBibliograhyService job' do
+          expect(enqueued_jobs.size).to eq(1)
+          last_job = enqueued_jobs.last
+          expect(last_job[:job]).to eq SyncBibliographyServiceJob
+        end
+      end
+
+      context 'when the api configuration is not changed updated' do
+        it 'the SyncBibliograhyService job is not invoked' do
+          expect(enqueued_jobs.size).to eq(0)
+        end
       end
     end
   end
@@ -106,6 +134,46 @@ describe 'Bibliography Service Configuration', type: :request do
 
       it 'sets a flash notice that the synchronization has started' do
         expect(flash[:notice]).to eq 'Synchronization with Zotero has started.'
+      end
+
+      it 'invokes the SyncBibliograhyService job' do
+        expect(enqueued_jobs.size).to eq(1)
+        last_job = enqueued_jobs.last
+        expect(last_job[:job]).to eq SyncBibliographyServiceJob
+      end
+    end
+  end
+
+  describe '#sync' do
+    context 'an anonymous user' do
+      it 'redirects to the login page' do
+        patch "/#{exhibit.slug}/services/sync", params: { id: bibliography_service }
+
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'an exhibit admin' do
+      let(:user) { create(:exhibit_admin, exhibit: exhibit) }
+
+      before do
+        patch "/#{exhibit.slug}/services/sync", params: {
+          id: bibliography_service.id
+        }
+      end
+
+      it 'syncs the bibliography service and redirects to the edit form' do
+        expect(response).to redirect_to "/#{exhibit.slug}/services/edit"
+      end
+
+      it 'sets a flash notice that the synchronization has started' do
+        expect(flash[:notice]).to eq 'Synchronization with Zotero has started.'
+      end
+
+      it 'invokes the SyncBibliograhyService job' do
+        expect(enqueued_jobs.size).to eq(1)
+        last_job = enqueued_jobs.last
+        expect(last_job[:job]).to eq SyncBibliographyServiceJob
       end
     end
   end

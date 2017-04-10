@@ -13,7 +13,7 @@ class ServicesController < Spotlight::ApplicationController
   end
 
   def update
-    if @bibliography_service.update(update_params)
+    if @bibliography_service.update_and_sync_bibliography(update_params)
       redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.update.notice')
     else
       redirect_to edit_exhibit_services_path(@exhibit), alert: I18n.t('services.update.error')
@@ -21,21 +21,22 @@ class ServicesController < Spotlight::ApplicationController
   end
 
   def create
-    if @bibliography_service.update(update_params)
+    if @bibliography_service.update_and_sync_bibliography(update_params)
       redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.create.notice')
     else
       redirect_to edit_exhibit_services_path(@exhibit), alert: I18n.t('services.create.error')
     end
   end
 
+  def sync
+    @exhibit.sync_bibliography
+    redirect_to edit_exhibit_services_path(@exhibit), notice: I18n.t('services.sync.started')
+  end
+
   private
 
   def build_resource
-    @bibliography_service = if @exhibit.bibliography_service
-                              @exhibit.bibliography_service
-                            else
-                              ::BibliographyService.new(exhibit_id: @exhibit.id)
-                            end
+    @bibliography_service = @exhibit.bibliography_service || @exhibit.build_bibliography_service
   end
 
   def update_params
