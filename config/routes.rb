@@ -35,4 +35,6 @@ Exhibits::Application.routes.draw do
       end
     end
   end
+
+  mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 end
