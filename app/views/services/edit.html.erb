@@ -1,0 +1,44 @@
+<%= render 'spotlight/shared/exhibit_sidebar' %>
+<div id="content" class="col-md-9">
+  <%= configuration_page_title %>
+  <%= bootstrap_form_for @bibliography_service, url: exhibit_services_path(@exhibit, @bibliography_service), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
+    <h3><%= t('.title') %></h3>
+    <p class="instructions"><%= t :'.instructions' %></p>
+
+    <%= f.text_field :header %>
+    <%= f.text_field :api_id, help: t(:'.api_id.help') %>
+
+    <div class="form-group" aria-labelledby='zotero-type-section-label'>
+      <span id="zotero-type-section-label" class="control-label col-md-3 text-as-label">
+        <%= t('.zotero_section_label') %>
+      </span>
+
+      <div class="col-md-9">
+        <%= f.radio_button :api_type, 'group', label: 'Group' %>
+        <%= f.radio_button :api_type, 'user', label: 'User' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="control-label col-md-3 text-as-label">
+        <%= t('.zotero_sync.label') %>
+      </span>
+
+      <div class="col-md-9 form-control-static">
+        <% if @bibliography_service.initial_sync_complete? %>
+          <p><%= t('.zotero_sync.status', datetime: l(@bibliography_service.sync_completed_at, format: :long)) %></p>
+          <p><%= t('.zotero_sync.help') %></p>
+          <%= link_to t('.zotero_sync.button'), sync_exhibit_services_path(@exhibit), class: 'btn btn-default btn-sm', method: :patch %>
+        <% else %>
+          <p><%= t('.zotero_sync.not_synced') %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <div class="primary-actions">
+        <%= f.primary t('.save') %>
+      </div>
+    </div>
+  <% end %>
+</div>

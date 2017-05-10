@@ -1,3 +1,43 @@
+GIT
+  remote: https://github.com/projectblacklight/spotlight
+  revision: 3514a0535c46ecc4e457f791f4db42fea0bf2f8e
+  branch: master
+  specs:
+    blacklight-spotlight (0.34.1)
+      acts-as-taggable-on (~> 4.0)
+      almond-rails (~> 0.0.1)
+      autoprefixer-rails
+      blacklight (~> 6.3)
+      blacklight-gallery (>= 0.3.0)
+      blacklight-oembed (>= 0.0.3)
+      bootstrap_form (~> 2.2)
+      breadcrumbs_on_rails (~> 2.3.0)
+      cancancan
+      carrierwave
+      clipboard-rails (~> 1.5)
+      devise (>= 3.0)
+      devise_invitable (~> 1.6)
+      faraday
+      faraday_middleware
+      friendly_id (~> 5.2)
+      github-markup
+      iiif_manifest
+      legato
+      mini_magick
+      nokogiri
+      oauth2
+      openseadragon
+      paper_trail (~> 5.0, >= 5.2.1)
+      rails (>= 4.2.0, < 6)
+      riiif (~> 1.0)
+      roar (~> 1.1)
+      roar-rails
+      signet
+      sir_trevor_rails (~> 0.5)
+      sprockets-es6
+      tophat
+      underscore-rails (~> 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -74,40 +114,6 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (0.34.0)
-      acts-as-taggable-on (~> 4.0)
-      almond-rails (~> 0.0.1)
-      autoprefixer-rails
-      blacklight (~> 6.3)
-      blacklight-gallery (>= 0.3.0)
-      blacklight-oembed (>= 0.0.3)
-      bootstrap_form (~> 2.2)
-      breadcrumbs_on_rails (~> 2.3.0)
-      cancancan
-      carrierwave
-      clipboard-rails (~> 1.5)
-      devise (>= 3.0)
-      devise_invitable (~> 1.6)
-      faraday
-      faraday_middleware
-      friendly_id (~> 5.2)
-      github-markup
-      iiif_manifest
-      legato
-      mini_magick
-      nokogiri
-      oauth2
-      openseadragon
-      paper_trail (~> 5.0, >= 5.2.1)
-      rails (>= 4.2.0, < 6)
-      riiif (~> 1.0)
-      roar (~> 1.1)
-      roar-rails
-      signet
-      sir_trevor_rails (~> 0.5)
-      sprockets-es6
-      tophat
-      underscore-rails (~> 1.6)
     blacklight_advanced_search (6.2.1)
       blacklight (~> 6.0, >= 6.0.1)
       parslet
@@ -162,7 +168,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     chronic (0.10.2)
-    clipboard-rails (1.6.0)
+    clipboard-rails (1.6.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -237,7 +243,7 @@ GEM
       rsolr
       stanford-mods (~> 2.2, >= 2.2.1)
       trollop
-    github-markup (1.4.1)
+    github-markup (1.4.4)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     harvestdor (0.3.1)
@@ -326,8 +332,8 @@ GEM
       activesupport (>= 3.2.18)
       i18n
       nokogiri
-    oauth2 (1.3.0)
-      faraday (>= 0.8, < 0.11)
+    oauth2 (1.3.1)
+      faraday (>= 0.8, < 0.12)
       jwt (~> 1.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
@@ -403,13 +409,13 @@ GEM
       railties (>= 4.2, < 6)
     roar (1.1.0)
       representable (~> 3.0.0)
-    roar-rails (1.0.1)
+    roar-rails (1.1.0)
       actionpack
       railties (>= 3.0.0)
       responders
-      roar (>= 1.0.0, <= 1.1.0)
+      roar (~> 1.1.0)
       test_xml (>= 0.1.6)
-      uber (>= 0.0.5)
+      uber (< 0.2.0)
     rsolr (1.1.2)
       builder (>= 2.1.2)
     rspec-core (3.5.4)
@@ -568,7 +574,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
-  blacklight-spotlight (~> 0.34)
+  blacklight-spotlight!
   blacklight_advanced_search
   blacklight_heatmaps
   bootstrap-sass (~> 3.3.5)

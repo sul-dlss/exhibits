@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208004309) do
+ActiveRecord::Schema.define(version: 20170404191035) do
+
+  create_table "bibliography_services", force: :cascade do |t|
+    t.string   "header"
+    t.string   "api_id"
+    t.string   "api_type"
+    t.datetime "sync_completed_at"
+    t.integer  "exhibit_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["exhibit_id"], name: "index_bibliography_services_on_exhibit_id"
+  end
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer  "user_id",       null: false
@@ -311,10 +322,10 @@ ActiveRecord::Schema.define(version: 20170208004309) do
 
   create_table "spotlight_solr_document_sidecars", force: :cascade do |t|
     t.integer  "exhibit_id"
-    t.boolean  "public",        default: true
-    t.text     "data"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "public",                         default: true
+    t.text     "data",          limit: 16777215
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "document_id"
     t.string   "document_type"
     t.integer  "resource_id"

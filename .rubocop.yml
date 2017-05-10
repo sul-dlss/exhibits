@@ -9,6 +9,7 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
 
 Rails:
   Enabled: true
