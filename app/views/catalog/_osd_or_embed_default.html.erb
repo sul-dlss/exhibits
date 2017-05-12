@@ -1,5 +1,27 @@
 <% if document.uploaded_resource? %>
   <%= render partial: "openseadragon_default", locals: {document: document} %>
 <% else %>
-  <%= render partial: "oembed_default", locals: {document: document} %>
+  <!-- <%= render partial: "oembed_default", locals: {document: document} %> -->
+  <%= mirador_tag(:height => "40vw", :width => "40vw", :options => {
+      "mainMenuSettings": {
+        "show":  false
+      },
+      "buildPath": "/assets/",
+      "showAddFromURLBox": false,
+      "saveSession": false,
+      "data": [
+        {
+          "manifestUri": document["iiif_manifest_url_ssi"], "location": "Stanford University"
+        }
+      ],
+      "windowObjects": [
+        {
+          "loadedManifest": document["iiif_manifest_url_ssi"],
+          "displayLayout": false,
+          "sidePanel": false,
+          "bottomPanelVisible": false,
+          "annotationCreation": false,
+        }
+      ]
+  }) %>
 <% end %>
