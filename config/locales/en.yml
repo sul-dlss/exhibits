@@ -92,9 +92,9 @@ en:
   viewers:
     menu_link: Viewers
     edit:
-      title: Viewers
+      title: Item Detail Page
       header: Viewers
-      instructions: By default, Exhibits uses SUL-Embed as a viewer for image resources. If you would prefer to use a pre-configured version of Mirador instead, you can select it below. The Mirador viewer will be close to 'zen mode,' with many visual options turned off. However, it will have annotation viewing enabled for any IIIF manifests with annotations.
+      instructions: By default, the Item Detail page displays image resources using SUL-Embed as the viewer. You can change this setting to use a pre-configured version of Mirador as the viewer instead. The Mirador viewer provides minimal options (similar to 'zen mode'), but does include annotation viewing for any IIIF manifests with annotations.
       viewer_section_label: Viewer
       save: Save changes
     update:
