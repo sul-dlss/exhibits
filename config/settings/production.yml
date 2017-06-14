@@ -7,3 +7,5 @@ searchworks:
 purl:
   link:
     prefix: "http://purl.stanford.edu/"
+sidekiq:
+  logger_level: 'Logger::WARN'

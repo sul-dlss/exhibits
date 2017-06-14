@@ -9,6 +9,8 @@ class SolrDocument
 
   include Spotlight::SolrDocument::AtomicUpdates
 
+  include BibliographyConcern
+
   # self.unique_key = 'id'
 
   # Email uses the semantic field mappings below to generate the body of an email.

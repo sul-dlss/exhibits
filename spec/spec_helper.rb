@@ -6,6 +6,8 @@ Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
 FIXTURES_PATH = File.expand_path('../fixtures', __FILE__)
 
+require 'fixtures/response_fixtures'
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
