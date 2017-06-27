@@ -58,7 +58,7 @@ class CatalogController < ApplicationController
 
     config.show.title_field = 'title_full_display'
     config.show.oembed_field = :url_fulltext
-    config.show.partials.insert(1, :osd_or_embed)
+    config.show.partials.insert(1, :viewer)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
     config.show.partials << :bibliography
@@ -70,7 +70,7 @@ class CatalogController < ApplicationController
     config.view.heatmaps.color_ramp = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494']
     config.view.masonry.partials = [:index]
     config.view.slideshow.partials = [:index]
-    config.view.embed.partials = [:osd_or_embed]
+    config.view.embed.partials = [:viewer]
     config.view.embed.if = false
 
     # BlacklightHeatmaps configuration values
