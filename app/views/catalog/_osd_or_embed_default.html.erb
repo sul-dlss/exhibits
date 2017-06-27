@@ -1,8 +1,0 @@
-<% @viewer = Viewer.find_by(exhibit: @exhibit) %>
-<% if document.uploaded_resource? %>
-  <%= render partial: "openseadragon_default", locals: {document: document} %>
-<% elsif @viewer.viewer_type == "mirador" %>
-  <%= render partial: "viewers/mirador", locals: {document: document} %>
-<% else %>
-  <%= render partial: "oembed_default", locals: {document: document} %>
-<% end %>

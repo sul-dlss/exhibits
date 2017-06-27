@@ -1,0 +1,6 @@
+<% viewer = Viewer.find_by(exhibit: @exhibit) %>
+<% if document.uploaded_resource? %>
+  <%= render partial: "openseadragon_default", locals: {document: document} %>
+<% else %>
+  <%= render viewer, document: document %>
+<% end %>
