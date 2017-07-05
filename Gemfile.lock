@@ -314,7 +314,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_magick (4.6.1)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.2.0)
     minitest (5.10.1)
     mirador_rails (0.5.0)
       font-awesome-rails
@@ -336,8 +336,8 @@ GEM
     net-ssh (4.1.0)
     newrelic_rpm (3.18.1.330)
     nio4r (1.2.1)
-    nokogiri (1.7.1)
-      mini_portile2 (~> 2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     nom-xml (0.6.0)
       activesupport (>= 3.2.18)
       i18n
