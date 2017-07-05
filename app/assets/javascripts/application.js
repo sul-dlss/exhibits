@@ -14,6 +14,7 @@
 //= require 'blacklight_advanced_search'
 
 
+//= require mirador
 //= require jquery_ujs
 //= require turbolinks
 //

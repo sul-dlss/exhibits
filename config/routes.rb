@@ -34,5 +34,8 @@ Exhibits::Application.routes.draw do
         patch 'sync'
       end
     end
+    resource :viewers, only: [:create, :edit, :update]
   end
+
+  mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 end

@@ -232,6 +232,8 @@ GEM
     faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.9.17)
+    font-awesome-rails (4.7.0.1)
+      railties (>= 3.2, < 5.1)
     friendly_id (5.2.0)
       activerecord (>= 4.0.0)
     gdor-indexer (0.8.0)
@@ -305,6 +307,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    material_icons (2.2.1)
+      railties (>= 3.2)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -312,6 +316,12 @@ GEM
     mini_magick (4.6.1)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    mirador_rails (0.5.0)
+      font-awesome-rails
+      jquery-rails
+      material_icons
+      openseadragon
+      tinymce-rails
     mods (2.1.0)
       iso-639
       nokogiri
@@ -525,6 +535,8 @@ GEM
     thread_safe (0.3.5)
     tilt (2.0.6)
     tins (1.13.2)
+    tinymce-rails (4.5.6)
+      railties (>= 3.1.1)
     tophat (2.3.0)
       actionpack (>= 3.0.0)
     trollop (2.1.2)
@@ -605,6 +617,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  mirador_rails
   mysql2 (~> 0.4.4)
   net-http-persistent (< 3)
   newrelic_rpm

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404191035) do
+ActiveRecord::Schema.define(version: 20170515204158) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string   "header"
@@ -394,6 +394,14 @@ ActiveRecord::Schema.define(version: 20170404191035) do
     t.text     "object"
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  end
+
+  create_table "viewers", force: :cascade do |t|
+    t.string   "viewer_type"
+    t.integer  "exhibit_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["exhibit_id"], name: "index_viewers_on_exhibit_id"
   end
 
 end

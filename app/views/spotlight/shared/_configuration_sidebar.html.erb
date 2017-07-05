@@ -15,4 +15,7 @@
   <% if can? :manage, BibliographyService %>
     <li><%= link_to t(:'services.menu_link'), edit_exhibit_services_path(current_exhibit) %></li>
   <% end %>
+  <% if can? :manage, Viewer %>
+    <li><%= link_to t(:'viewers.menu_link'), edit_exhibit_viewers_path(current_exhibit) %></li>
+  <% end %>
 </ul>

@@ -1,0 +1,25 @@
+<%= render 'spotlight/shared/exhibit_sidebar' %>
+<div id="content" class="col-md-9">
+  <%= configuration_page_title %>
+  <%= bootstrap_form_for @viewer, url: exhibit_viewers_path(@exhibit, @viewer), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
+    <h3><%= t('.title') %></h3>
+    <p class="instructions"><%= t :'.instructions' %></p>
+
+    <div class="form-group" aria-labelledby='viewer-type-section-label'>
+      <span id="viewer-type-section-label" class="control-label col-md-3 text-as-label">
+        <%= t('.viewer_section_label') %>
+      </span>
+
+      <div class="col-md-9">
+        <%= f.radio_button :viewer_type, 'sul-embed', label: 'SUL-Embed', checked: true %>
+        <%= f.radio_button :viewer_type, 'mirador', label: 'Mirador' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <div class="primary-actions">
+        <%= f.primary t('.save') %>
+      </div>
+    </div>
+  <% end %>
+</div>

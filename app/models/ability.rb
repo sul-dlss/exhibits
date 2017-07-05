@@ -14,6 +14,8 @@ class Ability
 
     can :manage, BibliographyService, exhibit_id: user.exhibit_roles.pluck(:resource_id)
 
+    can :manage, Viewer, exhibit_id: user.exhibit_roles.pluck(:resource_id)
+
     # disable spotlight functionality we don't want to expose in spotlight:
 
     # disable exhibit import/export

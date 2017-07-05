@@ -33,3 +33,6 @@ RSpec/NamedSubject:
 
 Bundler/OrderedGems:
   Enabled: false
+
+RSpec/ExampleLength:
+  Max: 7
