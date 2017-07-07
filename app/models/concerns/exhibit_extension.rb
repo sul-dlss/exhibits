@@ -12,4 +12,12 @@ module ExhibitExtension
   def sync_bibliography
     SyncBibliographyServiceJob.perform_later(self)
   end
+
+  ##
+  # If an Exhibit doesn't already have a Viewer setup, create one.
+  # @return [Viewer]
+  def required_viewer
+    return viewer if viewer.present?
+    Viewer.create(exhibit: self)
+  end
 end
