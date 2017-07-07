@@ -12,5 +12,7 @@ describe Viewer do
     expect(viewer.to_partial_path).to eq 'oembed_default'
     viewer.viewer_type = 'mirador'
     expect(viewer.to_partial_path).to eq '../viewers/mirador'
+    viewer.viewer_type = nil
+    expect(viewer.to_partial_path).to eq 'oembed_default'
   end
 end
