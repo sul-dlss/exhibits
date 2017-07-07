@@ -6,6 +6,7 @@ module ExhibitExtension
 
   included do
     has_one :bibliography_service
+    has_one :viewer
   end
 
   def sync_bibliography
