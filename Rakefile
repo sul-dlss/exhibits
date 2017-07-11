@@ -2,6 +2,7 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 require File.expand_path('../config/application', __FILE__)
 
+task(:default).clear
 task default: :ci
 
 Exhibits::Application.load_tasks
@@ -11,13 +12,10 @@ begin
   RuboCop::RakeTask.new(:rubocop) do |task|
     task.fail_on_error = true
   end
-
-  require 'rspec/core/rake_task'
-  RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
   # this rescue block is here for deployment to production, where
   # certain dependencies are not expected, and that is OK
-  STDERR.puts 'WARNING: RSpec and/or Rubocop was not found and could not be required.'
+  STDERR.puts 'WARNING: Rubocop was not found and could not be required.'
 end
 
 desc 'Run tests in generated test Rails app with generated Solr instance running'
