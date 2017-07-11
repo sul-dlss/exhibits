@@ -33,7 +33,7 @@ Exhibits::Application.routes.draw do
       member do
         patch 'sync'
       end
-    end
+    end if Settings.sync_bibliography_service.enabled # FeatureFlag: SyncBibliograhyService
     resource :viewers, only: [:create, :edit, :update]
   end
 

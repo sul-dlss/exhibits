@@ -13,3 +13,5 @@ zotero_api:
   solr_document_field: zotero_bibliography_tsi
 sidekiq:
   logger_level: 'Logger::INFO' # The default from Sidekiq
+sync_bibliography_service:
+  enabled: false # FeatureFlag: SyncBibliograhyService

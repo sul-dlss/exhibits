@@ -12,7 +12,7 @@
     <li><%= link_to t(:'spotlight.configuration.sidebar.metadata'), spotlight.edit_exhibit_metadata_configuration_path(current_exhibit) %></li>
     <li><%= link_to t(:'spotlight.configuration.sidebar.search_configuration'), spotlight.edit_exhibit_search_configuration_path(current_exhibit) %></li>
   <% end %>
-  <% if can? :manage, BibliographyService %>
+  <% if (can? :manage, BibliographyService) && Settings.sync_bibliography_service.enabled # FeatureFlag: SyncBibliograhyService %>
     <li><%= link_to t(:'services.menu_link'), edit_exhibit_services_path(current_exhibit) %></li>
   <% end %>
   <% if can? :manage, Viewer %>
