@@ -3,12 +3,6 @@ Exhibits::Application.routes.draw do
   match "/is_it_working" => "ok_computer/ok_computer#index", via: [:get, :options]
   mount OkComputer::Engine, at: "/status"
 
-  authenticate :user, lambda { |u| u.superadmin? } do
-    require 'sidekiq/web'
-    Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_key_base]
-    mount Sidekiq::Web => '/sidekiq'
-  end
-
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
 
