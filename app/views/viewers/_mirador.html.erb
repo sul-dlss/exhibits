@@ -1,22 +1,11 @@
-<%= mirador_tag(:height => "40vw", :options => {
-    "mainMenuSettings": {
-      "show":  false
-    },
-    "buildPath": "/assets/",
-    "showAddFromURLBox": false,
-    "saveSession": false,
-    "data": [
-      {
-        "manifestUri": document["iiif_manifest_url_ssi"], "location": "Stanford University"
-      }
-    ],
-    "windowObjects": [
-      {
-        "loadedManifest": document["iiif_manifest_url_ssi"],
-        "displayLayout": false,
-        "sidePanel": false,
-        "bottomPanelVisible": false,
-        "annotationCreation": false,
-      }
-    ]
-}) %>
+<iframe 
+  src="<%= mirador_index_path(
+    manifest_url: document['iiif_manifest_url_ssi']
+  ) %>"
+  frameborder="0"
+  marginwidth="0"
+  marginheight="0"
+  scrolling="no"
+  height="400px"
+  width="100%"
+></iframe>
