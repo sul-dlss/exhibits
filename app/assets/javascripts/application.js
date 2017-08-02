@@ -14,10 +14,16 @@
 //= require 'blacklight_advanced_search'
 
 
-//= require mirador
 //= require jquery_ujs
 //= require turbolinks
 //
 // Required by Blacklight
 //= require blacklight/blacklight
-//= require_tree .
+
+//= require analytics
+//= require blacklight_gallery
+//= require blacklight_heatmaps
+//= require blacklight_oembed
+//= require openseadragon
+//= require spotlight
+//= require sul-exhibits-template

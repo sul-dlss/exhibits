@@ -12,6 +12,8 @@ Exhibits::Application.routes.draw do
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
 
+  resources :mirador, only: [:index]
+
   root to: 'spotlight/exhibits#index'
 
   devise_for :users, skip: [:sessions]

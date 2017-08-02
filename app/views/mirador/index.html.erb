@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag "mirador_bundle" %>
+<%= javascript_include_tag "mirador_bundle" %>
+
+<%= mirador_tag(:height => "400px", :options => {
+    "mainMenuSettings": {
+      "show":  false
+    },
+    "buildPath": "/assets/",
+    "showAddFromURLBox": false,
+    "saveSession": false,
+    "data": [
+      {
+        "manifestUri": @manifest_url, "location": "Stanford University"
+      }
+    ],
+    "windowObjects": [
+      {
+        "loadedManifest": @manifest_url,
+        "displayLayout": false,
+        "sidePanel": false,
+        "bottomPanelVisible": false,
+        "annotationCreation": false,
+      }
+    ]
+}) %>
