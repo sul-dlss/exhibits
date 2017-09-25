@@ -30,7 +30,7 @@ Exhibits need to provide the following configuration files:
 
 ## Reindexing content
 
-A rake task is provided to (re)index content into the Solr index. It uses the configured sets in `config/exhibit.yml`.
+A Rake task is provided to (re)index content into the Solr index. It uses the configured sets in `config/exhibit.yml`.
 
 ```console
 $ rake spotlight:index
@@ -40,32 +40,25 @@ A whenever-based cron task is configured to run nightly to keep the exhibit sync
 
 ## Development
 
-Install dependencies and set up the databases and migrations:
+Install dependencies, set up the databases and run migrations:
 ```console
 $ bundle install
 $ bundle exec rake db:setup
 ```
 
-Spin up solr in a separate terminal window:
+You can spin up the Rails server, solr_wrapper, and populate the Solr index using this command:
 ```console
-$ solr_wrapper
+$ REMOTE_USER="archivist1@example.com" bundle exec rake server
 ```
-
-Seed test fixtures and create an admin user (e.g. archivist1@eample.com):
-```console
-$ bundle exec rake spotlight:seed
-$ bundle exec rake spotlight:initialize
-```
-
-Spin up the rails server. (`REMOTE_USER` should match the name of the user you create when prompted. This will allow you to bypass the webauth authentication.)
-```console
-$ REMOTE_USER="archivist1@example.com" bundle exec rails server
-```
-
+When prompted to create an admin user, the email should match the email provided in  `REMOTE_USER`. This will allow you to bypass the webauth authentication.
 
 ## Testing
+Run RuboCop and tests:
+```console
+$ bundle exec rake
+```
 
-With Solr running in another widnow, run tests with `bundle exec rspec`.
+**Tip:** if you receive the error message `ERROR: Core 'blacklight-core' already exists!` you have an instance of Solr running elsewhere. Clean out your data with `solr_wrapper clean` or search for rogue instances with `ps aux | grep solr`.
 
 ## Deploying
 
