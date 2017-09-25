@@ -40,10 +40,15 @@ A whenever-based cron task is configured to run nightly to keep the exhibit sync
 
 ## Development
 
-You can spin up the rails server, jetty, and populate the solr index using this command:
+You can spin up the rails server, solr_wrapper, and populate the solr index using this command:
 
 ```console
 $ REMOTE_USER="archivist1@example.com" rake server
+```
+
+Make sure that database migrations have been run
+```console
+$ rake db:migrate
 ```
 
 `REMOTE_USER` should match the name of the user you create when prompted. This will allow you to bypass the webauth authentication.
