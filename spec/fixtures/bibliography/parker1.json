@@ -1,0 +1,28 @@
+[
+	{
+		"id": "http://zotero.org/groups/1051392/items/E3MS2TQK",
+		"type": "thesis",
+		"title": "A Critical Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Library",
+		"publisher": "University of Oxford",
+		"publisher-place": "Oxford",
+		"genre": "B.Litt.",
+		"event-place": "Oxford",
+		"shortTitle": "Wilson 1968",
+		"author": [
+			{
+				"family": "Wilson",
+				"given": "E. A."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1968"
+				]
+			]
+		},
+		"keyword": [
+			"dd998pq6752"
+		]
+	}
+]
