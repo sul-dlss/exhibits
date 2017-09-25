@@ -1,4 +1,5 @@
 # Place any default configuration for solr_wrapper here
+version: 6.6.0 # to match sul-solr deployment
 # port: 8983
 collection:
   dir: solr/config
