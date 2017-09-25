@@ -40,13 +40,32 @@ A whenever-based cron task is configured to run nightly to keep the exhibit sync
 
 ## Development
 
-You can spin up the rails server, jetty, and populate the solr index using this command:
-
+Install dependencies and set up the databases and migrations:
 ```console
-$ REMOTE_USER="archivist1@example.com" rake server
+$ bundle install
+$ bundle exec rake db:setup
 ```
 
-`REMOTE_USER` should match the name of the user you create when prompted. This will allow you to bypass the webauth authentication.
+Spin up solr in a separate terminal window:
+```console
+$ solr_wrapper
+```
+
+Seed test fixtures and create an admin user (e.g. archivist1@eample.com):
+```console
+$ bundle exec rake spotlight:seed
+$ bundle exec rake spotlight:initialize
+```
+
+Spin up the rails server. (`REMOTE_USER` should match the name of the user you create when prompted. This will allow you to bypass the webauth authentication.)
+```console
+$ REMOTE_USER="archivist1@example.com" bundle exec rails server
+```
+
+
+## Testing
+
+With Solr running in another widnow, run tests with `bundle exec rspec`.
 
 ## Deploying
 
