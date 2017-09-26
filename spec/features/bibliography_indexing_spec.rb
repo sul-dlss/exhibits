@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.feature 'Bibliography Indexing' do
   let(:exhibit) { create(:exhibit) }
   let(:slug) { exhibit.slug }
-  let(:doc) { { id: ['http://zotero.org/groups/1051392/items/KJERZE6Q'] } }
+  let(:doc) { { id: ['http://zotero.org/groups/1051392/items/E3MS2TQK'] } }
   let(:title_fields) do
     %i[title_245a_search title_245_search title_sort title_display title_full_display]
   end
@@ -18,11 +18,11 @@ RSpec.feature 'Bibliography Indexing' do
     end
 
     scenario 'enqueues an indexing job' do
-      title_fields.map { |key| doc[key] = ['Crime and Justice Under Edward III: The Case of Thomas de Lisle'] }
+      title_fields.map { |key| doc[key] = ['A Critical Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Library'] }
       full_doc = doc.to_json.unicode_normalize
-      expect { indexer.process(File.open('spec/fixtures/bib.bib')) }
+      expect { indexer.process(File.open('spec/fixtures/bibliography/parker1.bib')) }
         .to have_enqueued_job(CreateResourceJob).with(
-          'http://zotero.org/groups/1051392/items/KJERZE6Q', exhibit, full_doc
+          'http://zotero.org/groups/1051392/items/E3MS2TQK', exhibit, full_doc
         )
     end
   end
@@ -34,11 +34,11 @@ RSpec.feature 'Bibliography Indexing' do
     end
 
     scenario 'enqueues an indexing job' do
-      title_fields.map { |key| doc[key] = ['Crime and Justice Under Edward III: The Case of Thomas de Lisle'] }
+      title_fields.map { |key| doc[key] = ['A Critical Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Library'] }
       full_doc = doc.to_json.unicode_normalize
-      expect { indexer.process(File.open('spec/fixtures/bib.json')) }
+      expect { indexer.process(File.open('spec/fixtures/bibliography/parker1.json')) }
         .to have_enqueued_job(CreateResourceJob).with(
-          'http://zotero.org/groups/1051392/items/KJERZE6Q', exhibit, full_doc
+          'http://zotero.org/groups/1051392/items/E3MS2TQK', exhibit, full_doc
         )
     end
   end
