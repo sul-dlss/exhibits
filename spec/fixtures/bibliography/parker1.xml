@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+  <mods>
+    <titleInfo>
+      <title>A Critical Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Library</title>
+    </titleInfo>
+    <titleInfo type="abbreviated">
+      <title>Wilson 1968</title>
+    </titleInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre authority="local">thesis</genre>
+    <genre authority="marcgt">thesis</genre>
+    <genre>B.Litt.</genre>
+    <name type="personal">
+      <namePart type="family">Wilson</namePart>
+      <namePart type="given">E. A.</namePart>
+      <role>
+        <roleTerm type="code" authority="marcrelator">aut</roleTerm>
+      </role>
+    </name>
+    <originInfo>
+      <place>
+        <placeTerm type="text">Oxford</placeTerm>
+      </place>
+      <publisher>University of Oxford</publisher>
+      <dateCreated>1968</dateCreated>
+      <issuance>monographic</issuance>
+    </originInfo>
+    <note>The following values have no corresponding Zotero field:&lt;br/&gt;volume: B.Litt.</note>
+    <subject>
+      <topic>dd998pq6752</topic>
+    </subject>
+  </mods>
+</modsCollection>

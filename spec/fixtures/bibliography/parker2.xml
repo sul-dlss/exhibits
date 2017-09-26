@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-2.xsd">
+  <mods>
+    <titleInfo>
+      <title>A "symple wrecche" at work: the Life and Miracles of St. Erkenwald in the &lt;i&gt;Gilte Legende&lt;/i&gt;, BL Add. 35298</title>
+    </titleInfo>
+    <titleInfo type="abbreviated">
+      <title>Whatley 1986</title>
+    </titleInfo>
+    <typeOfResource>text</typeOfResource>
+    <genre authority="local">bookSection</genre>
+    <name type="personal">
+      <namePart type="family">Whatley</namePart>
+      <namePart type="given">E. G.</namePart>
+      <role>
+        <roleTerm type="code" authority="marcrelator">aut</roleTerm>
+      </role>
+    </name>
+    <note>&lt;p&gt; NJM&lt;/p&gt;</note>
+    <subject>
+      <topic>qt747ct6627</topic>
+    </subject>
+    <relatedItem type="host">
+      <genre authority="marcgt">book</genre>
+      <name type="personal">
+        <namePart type="family">Dunn-Lardeau</namePart>
+        <namePart type="given">B.</namePart>
+        <role>
+          <roleTerm type="code" authority="marcrelator">edt</roleTerm>
+        </role>
+      </name>
+      <part>
+        <extent unit="pages">
+          <start>333</start>
+          <end>43</end>
+        </extent>
+      </part>
+      <originInfo>
+        <place>
+          <placeTerm type="text">Montréal/Paris</placeTerm>
+        </place>
+        <copyrightDate>1986</copyrightDate>
+        <issuance>monographic</issuance>
+      </originInfo>
+      <titleInfo>
+        <title>Legenda aurea. Sept siècles de diffusion. Actes du colloque international sur la &lt;i&gt;Legenda aurea&lt;/i&gt;, Université du Québec, Montréal, 11-12 mai 1983</title>
+      </titleInfo>
+    </relatedItem>
+  </mods>
+</modsCollection>

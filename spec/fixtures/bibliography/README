@@ -1,0 +1,7 @@
+The following fixtures were exported from the Zotero Desktop application
+using "Export Item..." with Notes enabled.
+
+  *.bib  - BibTeX (custon translator that adds URI for id)
+  *.json - CSL JSON with tags (custom translator that adds tags)
+  *.png  - Screenshot of record in Zotero Web UI
+  *.xml  - MODS
