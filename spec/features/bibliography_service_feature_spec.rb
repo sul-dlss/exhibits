@@ -8,11 +8,18 @@ describe 'Bibliography Service', type: :feature do
     sign_in user
   end
 
+  around do |example|
+    previous = ActiveJob::Base.queue_adapter
+    ActiveJob::Base.queue_adapter = :test
+    example.run
+    ActiveJob::Base.queue_adapter = previous
+  end
+
   context 'an authorized user' do
     let(:user) { create(:exhibit_admin, exhibit: exhibit) }
 
     # Travis may be timing out in an odd way on this feature
-    xit 'can edit the service configurations' do
+    it 'can edit the service configurations' do
       visit spotlight.exhibit_dashboard_path(exhibit)
 
       within('#sidebar') do
