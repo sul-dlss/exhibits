@@ -7,7 +7,10 @@ RSpec.feature 'Bibliography Indexing' do
   let(:slug) { exhibit.slug }
   let(:doc) { { id: ['http://zotero.org/groups/1051392/items/E3MS2TQK'] } }
   let(:title_fields) do
-    %i[title_245a_search title_245_search title_sort title_display title_full_display]
+    %i(title_245a_search title_245_search title_sort title_display title_full_display)
+  end
+  let(:title) do
+    'A Critical Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Library'
   end
 
   feature 'BibTex' do
@@ -18,7 +21,7 @@ RSpec.feature 'Bibliography Indexing' do
     end
 
     scenario 'enqueues an indexing job' do
-      title_fields.map { |key| doc[key] = ['A Critical Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Library'] }
+      title_fields.map { |key| doc[key] = [title] }
       full_doc = doc.to_json.unicode_normalize
       expect { indexer.process(File.open('spec/fixtures/bibliography/parker1.bib')) }
         .to have_enqueued_job(CreateResourceJob).with(
@@ -34,7 +37,7 @@ RSpec.feature 'Bibliography Indexing' do
     end
 
     scenario 'enqueues an indexing job' do
-      title_fields.map { |key| doc[key] = ['A Critical Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Library'] }
+      title_fields.map { |key| doc[key] = [title] }
       full_doc = doc.to_json.unicode_normalize
       expect { indexer.process(File.open('spec/fixtures/bibliography/parker1.json')) }
         .to have_enqueued_job(CreateResourceJob).with(
