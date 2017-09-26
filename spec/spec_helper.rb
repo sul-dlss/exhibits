@@ -8,6 +8,16 @@ FIXTURES_PATH = File.expand_path('../fixtures', __FILE__)
 
 require 'fixtures/response_fixtures'
 
+SimpleCov.start('rails') do
+  # Ignore these because simplecov doesn't detect when traject
+  # loads and evals them. See https://github.com/traject/traject/blob/6df447621826b92e26a4675a2f7610f8c78056ff/lib/traject/indexer.rb#L193
+  add_filter 'lib/traject/**/*.rb'
+
+  # the upstream default is app + lib, but track_files doesn't respect any
+  # applied filters. https://github.com/colszowka/simplecov/issues/610
+  track_files 'app/**/*.rb'
+end
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
