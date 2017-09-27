@@ -1,14 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'bib_reader'
-require_relative 'bib_json_resource_writer'
-# require_relative 'macros/json'
-
-# extend Macros::JSON
 
 settings do
   provide 'reader_class_name', 'BibReader'
-  provide 'writer_class_name', 'BibJsonResourceWriter'
 end
 
 to_field 'id', lambda { |record, accumulator, _context|

@@ -34,6 +34,10 @@ en:
     form:
       add_item: Add items
       title: SDR
+  bibliography_resources:
+    form:
+      add_item: Add items
+      title: Bibliography via BibTeX
 
   admin:
     items:
