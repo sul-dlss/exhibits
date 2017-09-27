@@ -23,7 +23,7 @@ RSpec.feature 'Bibliography Indexing' do
     scenario 'enqueues an indexing job' do
       title_fields.map { |key| doc[key] = [title] }
       full_doc = doc.to_json.unicode_normalize
-      expect { indexer.process(File.open('spec/fixtures/bibliography/parker1.bib')) }
+      expect { indexer.process(File.open('spec/fixtures/bibliography/phdthesis.bib')) }
         .to have_enqueued_job(CreateResourceJob).with(
           'http://zotero.org/groups/1051392/items/E3MS2TQK', exhibit, full_doc
         )
@@ -39,7 +39,7 @@ RSpec.feature 'Bibliography Indexing' do
     scenario 'enqueues an indexing job' do
       title_fields.map { |key| doc[key] = [title] }
       full_doc = doc.to_json.unicode_normalize
-      expect { indexer.process(File.open('spec/fixtures/bibliography/parker1.json')) }
+      expect { indexer.process(File.open('spec/fixtures/bibliography/phdthesis.json')) }
         .to have_enqueued_job(CreateResourceJob).with(
           'http://zotero.org/groups/1051392/items/E3MS2TQK', exhibit, full_doc
         )

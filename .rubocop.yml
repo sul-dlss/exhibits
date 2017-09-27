@@ -19,6 +19,7 @@ Metrics/LineLength:
   Exclude:
     - 'app/models/spotlight/dor/indexer.rb'
     - 'spec/models/spotlight/dor/indexer_spec.rb'
+    - 'spec/features/bibliography_formatting_spec.rb'
 
 Style/StringLiterals:
   Enabled: true
