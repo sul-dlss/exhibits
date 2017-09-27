@@ -35,4 +35,4 @@ Bundler/OrderedGems:
   Enabled: false
 
 RSpec/ExampleLength:
-  Max: 7
+  Max: 10
