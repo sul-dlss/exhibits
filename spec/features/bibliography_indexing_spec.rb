@@ -23,5 +23,6 @@ RSpec.feature 'Bibliography indexing', type: :feature do
       click_button 'Add items'
     end
     expect(page).to have_css 'h5', text: /Quelques/
+    expect(page).to have_css '.alert-info', text: 'Your bibliography resource has been successfully created.'
   end
 end

@@ -12,9 +12,11 @@ class BibliographyResourcesController < Spotlight::ResourcesController
     @resource.update(resource_params)
 
     if @resource.save_and_index
-      redirect_to spotlight.admin_exhibit_catalog_path(current_exhibit)
+      redirect_to spotlight.admin_exhibit_catalog_path(current_exhibit),
+                  notice: I18n.t('bibliography_resources.create.notice')
     else
-      redirect_to spotlight.new_exhibit_resource_path(current_exhibit)
+      redirect_to spotlight.new_exhibit_resource_path(current_exhibit),
+                  alert: I18n.t('bibliography_resources.create.error')
     end
   end
   alias update create
