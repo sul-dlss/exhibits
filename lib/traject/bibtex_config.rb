@@ -14,6 +14,10 @@ to_field 'title_display', lambda { |record, accumulator, _context|
   accumulator << record.title.to_s(filter: :latex)
 }
 
+to_field 'title_full_display', lambda { |record, accumulator, _context|
+  accumulator << record.title.to_s(filter: :latex)
+}
+
 to_field 'title_uniform_search', lambda { |record, accumulator, _context|
   accumulator << record.title.to_s(filter: :latex)
 }

@@ -7,7 +7,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
   let(:exhibit) { FactoryGirl.create(:exhibit) }
   let(:title_fields) do
-    %w(title_display title_uniform_search)
+    %w(title_display title_full_display title_uniform_search)
   end
 
   it 'can write the document to solr' do
