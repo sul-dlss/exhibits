@@ -4,10 +4,18 @@
 # Custom Bibliography class used for indexing Bibliography records coming from
 # Traject.
 class BibliographyBuilder < Spotlight::SolrDocumentBuilder
+  include ActiveSupport::Benchmarkable
+  delegate :logger, to: :Rails
+
   def to_solr
     return to_enum(:to_solr) unless block_given?
-    traject_reader.each do |record|
-      yield convert_id(traject_indexer.map_record(record))
+
+    benchmark "Indexing resource #{inspect}" do
+      base_doc = super
+      traject_reader.each do |record|
+        doc = convert_id(traject_indexer.map_record(record))
+        yield base_doc.merge(doc) if doc
+      end
     end
   end
 
