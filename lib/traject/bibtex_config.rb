@@ -45,3 +45,10 @@ to_field 'formatted_bibliography_ts', lambda { |record, accumulator, _context|
   reference = doc.at_css('ol li').children.to_html # extract just the reference from <li>
   accumulator << reference.to_s
 }
+
+# Druids are kept as tags (keywords) in the BibTeX::Entry
+to_field 'related_document_id_ssim', lambda { |record, accumulator, _context|
+  record.keywords.to_s.split(',').map(&:strip).each do |druid|
+    accumulator << druid if druid =~ Exhibits::Application.config.druid_regex
+  end
+}

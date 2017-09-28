@@ -16,6 +16,5 @@ module BibliographyConcern
 
   def formatted_bibliography
     fetch('formatted_bibliography_ts', []).first if reference?
-    # TODO: for non-reference resources we'll generate a bibliography for them
   end
 end
