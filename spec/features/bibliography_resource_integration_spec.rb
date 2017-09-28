@@ -11,7 +11,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   end
 
   it 'can write the document to solr' do
-    bibliograpy_resource.reindex
+    expect { bibliograpy_resource.reindex }.not_to raise_error
   end
 
   context 'to_solr' do
