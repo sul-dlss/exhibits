@@ -10,4 +10,10 @@ describe 'viewers/_mirador.html.erb', type: :view do
   it 'has one iframe tag' do
     expect(rendered).to have_selector(:css, 'iframe', count: 1)
   end
+
+  it 'the iframe tag allows fullscreen' do
+    iframe = Capybara.string(rendered).find('iframe')
+
+    expect(iframe['allowfullscreen']).to eq 'true'
+  end
 end
