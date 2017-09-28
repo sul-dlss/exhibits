@@ -26,6 +26,6 @@ class BibliographyResourcesController < Spotlight::ResourcesController
   end
 
   def resource_params
-    params.require(:resource).permit(:url)
+    params.require(:bibliography_resource).permit(:url)
   end
 end

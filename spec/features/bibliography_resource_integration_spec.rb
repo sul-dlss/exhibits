@@ -7,7 +7,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
   let(:exhibit) { FactoryGirl.create(:exhibit) }
   let(:title_fields) do
-    %w(title_245a_search title_245_search title_sort title_display title_full_display)
+    %w(title_display title_uniform_search)
   end
 
   it 'can write the document to solr' do
@@ -20,7 +20,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
     end
 
     it 'has a doc id' do
-      expect(document['id']).to eq ['http://zotero.org/groups/1051392/items/QTWBAWKX']
+      expect(document[:id]).to eq 'QTWBAWKX'
     end
 
     it 'has some titles' do

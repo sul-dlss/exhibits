@@ -20,7 +20,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { true }
 
       it 'goes to the exhibit' do
-        post :create, params: { exhibit_id: exhibit.id, resource: attributes }
+        post :create, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
 
@@ -33,7 +33,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { false }
 
       it 'goes to the exhibit' do
-        post :create, params: { exhibit_id: exhibit.id, resource: attributes }
+        post :create, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
 
@@ -48,7 +48,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { true }
 
       it 'goes to the exhibit' do
-        patch :update, params: { exhibit_id: exhibit.id, resource: attributes }
+        patch :update, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
 
@@ -61,7 +61,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { false }
 
       it 'goes to the exhibit' do
-        patch :update, params: { exhibit_id: exhibit.id, resource: attributes }
+        patch :update, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
 

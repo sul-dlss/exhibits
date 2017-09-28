@@ -7,7 +7,7 @@ class BibliographyBuilder < Spotlight::SolrDocumentBuilder
   def to_solr
     return to_enum(:to_solr) unless block_given?
     traject_reader.each do |record|
-      yield traject_indexer.map_record(record)
+      yield convert_id(traject_indexer.map_record(record))
     end
   end
 
@@ -26,5 +26,12 @@ class BibliographyBuilder < Spotlight::SolrDocumentBuilder
     Traject::Indexer.new('exhibit_slug' => resource.exhibit.slug).tap do |i|
       i.load_config_file('lib/traject/bibtex_config.rb')
     end
+  end
+
+  private
+
+  def convert_id(doc)
+    doc[:id] = doc['id'].first
+    doc
   end
 end
