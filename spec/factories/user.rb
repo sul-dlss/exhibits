@@ -1,14 +1,14 @@
 # This will guess the User class
 FactoryGirl.define do
   factory :curator, class: User do
-    email 'curator@example.com'
+    sequence(:email) { |n| "curator#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
     after(:build) { |user| user.webauth_groups = 'dlss:exhibits-creators' }
   end
 
   factory :admin, class: User do
-    email 'admin@example.com'
+    sequence(:email) { |n| "admin#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
     after(:build) { |user| user.webauth_groups = 'dlss:exhibits-admin' }
