@@ -17,3 +17,4 @@ sync_bibliography_service:
   enabled: false # FeatureFlag: SyncBibliograhyService
 feature_flags:
   themes: false
+  bibliograpy_resource: false
