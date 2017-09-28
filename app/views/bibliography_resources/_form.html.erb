@@ -1,4 +1,4 @@
-<%= bootstrap_form_for([current_exhibit, @resource.becomes(BibliographyResource)], as: :resource) do |f| %>
+<%= bootstrap_form_for([current_exhibit, @resource.becomes(BibliographyResource)], as: :bibliography_resource) do |f| %>
   <%= f.text_field :url, label: 'BibTeX Filename'  %>
   <div class="form-actions">
     <div class="primary-actions">
