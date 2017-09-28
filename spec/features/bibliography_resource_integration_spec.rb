@@ -16,11 +16,15 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
   context 'to_solr' do
     subject(:document) do
-      bibliograpy_resource.document_builder.to_solr.first
+      SolrDocument.new(bibliograpy_resource.document_builder.to_solr.first)
     end
 
     it 'has a doc id' do
       expect(document[:id]).to eq 'QTWBAWKX'
+    end
+
+    it 'is a reference document' do
+      expect(document.reference?).to be_truthy
     end
 
     it 'has some titles' do
@@ -30,8 +34,12 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
     end
 
-    it 'has a format type' do
-      expect(document).to include 'format_main_ssim' => ['Reference']
+    it 'has BibTeX' do
+      expect(document.bibtex.to_s).to include '@article{http://zotero.org/groups/1051392/items/QTWBAWKX'
+    end
+
+    it 'has formatted bibliography in HTML' do
+      expect(document.formatted_bibliography).to match(/^Wille, Clara/)
     end
 
     it 'has spotlight data' do
