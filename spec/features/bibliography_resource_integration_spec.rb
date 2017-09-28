@@ -30,6 +30,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
     end
 
+    it 'has a format type' do
+      expect(document).to include 'format_main_ssim' => ['Reference']
+    end
+
     it 'has spotlight data' do
       expect(document).to include :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
     end
