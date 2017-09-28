@@ -30,8 +30,8 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
     end
 
-    pending 'has spotlight data' do
-      expect(document).to include :spotlight_resource_id_ssim
+    it 'has spotlight data' do
+      expect(document).to include :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
     end
   end
 end
