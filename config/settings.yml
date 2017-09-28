@@ -15,3 +15,5 @@ sidekiq:
   logger_level: 'Logger::INFO' # The default from Sidekiq
 sync_bibliography_service:
   enabled: false # FeatureFlag: SyncBibliograhyService
+feature_flags:
+  themes: false

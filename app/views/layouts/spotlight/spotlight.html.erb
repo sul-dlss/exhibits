@@ -18,7 +18,11 @@
       <link href="<%= spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search"/>
     <% end %>
     <%= favicon_link_tag 'favicon.ico' %>
-    <%= stylesheet_link_tag "application" %>
+    <% if current_exhibit %>
+      <%= exhibit_stylesheet_link_tag "application" %>
+    <% else %>
+      <%= stylesheet_link_tag "application" %>
+    <% end %>
     <%= stylesheet_link_tag "https://www.stanford.edu/su-identity/css/su-identity.css" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
