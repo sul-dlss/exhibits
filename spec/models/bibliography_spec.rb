@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.feature 'Bibliography formatting' do
-  subject(:bibliography) { Exhibits::Bibliography.new(bibtex) }
+RSpec.describe Bibliography do
+  subject(:bibliography) { described_class.new(bibtex) }
 
   context 'rendering bibliography as HTML' do
     context 'phdthesis' do
