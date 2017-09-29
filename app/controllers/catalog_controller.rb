@@ -163,6 +163,8 @@ class CatalogController < ApplicationController
     config.add_index_field 'location_ssi', label: 'Location'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
     config.add_index_field 'doc_subtype_ssi', label: 'Document Subtype'
+    config.add_index_field 'volume_ssm', label: 'Volume'
+    config.add_index_field 'pages_ssm', label: 'Pages'
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes'

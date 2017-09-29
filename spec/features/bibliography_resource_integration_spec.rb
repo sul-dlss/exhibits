@@ -47,6 +47,14 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document['pub_display']).to eq ['Reinardus. Yearbook of the International Reynard Society']
     end
 
+    it 'has a volume' do
+      expect(document['volume_ssm']).to eq ['17']
+    end
+
+    it 'has pages' do
+      expect(document['pages_ssm']).to eq ['181–201']
+    end
+
     it 'has BibTeX' do
       expect(document.bibtex.to_s).to include '@article{http://zotero.org/groups/1051392/items/QTWBAWKX'
     end
@@ -57,6 +65,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
     it 'has spotlight data' do
       expect(document).to include :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
+    end
+
+    it 'skips undefined fields' do
+      expect(document['place']).to be_nil
     end
   end
   context 'with no title' do
