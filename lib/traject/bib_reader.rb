@@ -7,7 +7,7 @@ class BibReader
   def initialize(input_stream, settings)
     @settings = Traject::Indexer::Settings.new settings
     @input_stream = input_stream
-    @bibtex = BibTeX.parse(input_stream.read)
+    @bibtex = BibTeX.parse(input_stream.read, filter: :latex)
   end
 
   def each(&block)
