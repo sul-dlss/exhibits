@@ -22,6 +22,14 @@ to_field 'title_uniform_search', lambda { |record, accumulator, _context|
   accumulator << record.title.to_s(filter: :latex)
 }
 
+to_field 'author_person_full_display', lambda { |record, accumulator, _context|
+  accumulator << record.author.to_s(filter: :latex)
+}
+
+to_field 'pub_display', lambda { |record, accumulator, _context|
+  accumulator << record.journal.to_s(filter: :latex)
+}
+
 to_field 'format_main_ssim', literal('Reference')
 
 # raw serialization of BibTeX::Entry

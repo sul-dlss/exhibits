@@ -34,6 +34,14 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
     end
 
+    it 'has an author' do
+      expect(document['author_person_full_display']).to eq ['Wille, Clara']
+    end
+
+    it 'has publication title' do
+      expect(document['pub_display']).to eq ['Reinardus. Yearbook of the International Reynard Society']
+    end
+
     it 'has BibTeX' do
       expect(document.bibtex.to_s).to include '@article{http://zotero.org/groups/1051392/items/QTWBAWKX'
     end
