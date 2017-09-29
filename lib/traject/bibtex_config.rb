@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'bib_reader'
+require 'bibliography'
 
 settings do
   provide 'reader_class_name', 'BibReader'
@@ -31,7 +32,7 @@ to_field 'bibtex_ts', lambda { |record, accumulator, _context|
 
 # formatted BibTeX::Entry in Chicago style as HTML
 to_field 'formatted_bibliography_ts', lambda { |record, accumulator, _context|
-  html = Exhibits::Bibliography.new(record.to_s).to_html
+  html = Bibliography.new(record.to_s).to_html
   doc = Nokogiri::HTML(html)
   reference = doc.at_css('ol li').children.to_html # extract just the reference from <li>
   accumulator << reference.to_s
