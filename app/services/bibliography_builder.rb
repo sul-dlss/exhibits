@@ -7,8 +7,10 @@ class BibliographyBuilder < Spotlight::SolrDocumentBuilder
   include ActiveSupport::Benchmarkable
   delegate :logger, to: :Rails
 
+  delegate :size, to: :traject_reader
+
   def to_solr
-    return to_enum(:to_solr) unless block_given?
+    return to_enum(:to_solr) { size } unless block_given?
 
     benchmark "Indexing resource #{inspect}" do
       base_doc = super
@@ -37,8 +39,7 @@ class BibliographyBuilder < Spotlight::SolrDocumentBuilder
   private
 
   def convert_id(doc)
-    return unless doc['id']
-    doc[:id] = doc['id'].first
+    doc[:id] = doc['id'].try(:first)
     doc
   end
 end
