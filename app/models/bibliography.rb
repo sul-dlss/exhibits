@@ -40,8 +40,8 @@ class Bibliography
   # of cases.
   def remove_latex_markup!
     @bibliography.each do |item|
-      item.title = strip_latex(item.title)
-      item.booktitle = strip_latex(item.booktitle)
+      item.title = strip_latex(item.title) if item.respond_to?(:title)
+      item.booktitle = strip_latex(item.booktitle) if item.respond_to?(:booktitle)
       # TODO: do we need to call strip_latex on other fields?
     end
     @bibliography = @bibliography.convert :latex # cleans up the remaining {}'s in other fields
@@ -53,6 +53,7 @@ class Bibliography
   def strip_latex(latex)
     return if latex.blank?
     s = latex.dup
+    s.gsub!(/\\textbackslash/i, '')
     s.gsub!(/\\textit/i, '')
     s.gsub!(/\\textbf/i, '')
     s.gsub!(/[\{\}]/, '')

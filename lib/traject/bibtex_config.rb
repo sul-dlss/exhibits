@@ -48,7 +48,8 @@ to_field 'bibtex_ts', lambda { |record, accumulator, _context|
 to_field 'formatted_bibliography_ts', lambda { |record, accumulator, _context|
   html = Bibliography.new(record.to_s).to_html
   doc = Nokogiri::HTML(html)
-  reference = doc.at_css('ol li').children.to_html # extract just the reference from <li>
+  li = doc.at_css('ol li')
+  reference = li.children.to_html if li.present? # extract just the reference from <li>
   accumulator << reference.to_s
 }
 

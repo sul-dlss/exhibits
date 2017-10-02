@@ -63,6 +63,7 @@ RSpec.describe Bibliography do
         http://zotero.org/groups/1051392/items/E9MZZKFV
         http://zotero.org/groups/1051392/items/6Q6TF4HD
         http://zotero.org/groups/1051392/items/E3MS2TQK
+        http://zotero.org/groups/1051392/items/MT4A9V2I
       )
     end
     it '#to_html (in sorted order)' do
