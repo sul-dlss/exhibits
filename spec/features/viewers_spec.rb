@@ -2,15 +2,13 @@ require 'rails_helper'
 
 describe 'Viewers', type: :feature do
   let(:exhibit) { FactoryGirl.create(:exhibit) }
-  let(:user) { nil }
+  let(:user) { create(:exhibit_admin, exhibit: exhibit) }
 
   before do
     sign_in user
   end
 
   context 'an authorized user' do
-    let(:user) { create(:exhibit_admin, exhibit: exhibit) }
-
     it 'sees the default configuration' do
       visit spotlight.exhibit_dashboard_path(exhibit)
 
