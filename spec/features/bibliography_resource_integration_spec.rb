@@ -73,4 +73,11 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
     end
   end
+  context 'with no keywords' do
+    subject(:no_keywords) { BibliographyResource.new(url: 'nokeywords.bib', exhibit: exhibit) }
+
+    it 'is skipped' do
+      expect(no_keywords.document_builder.to_solr.first).to be_nil
+    end
+  end
 end
