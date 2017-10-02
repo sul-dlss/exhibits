@@ -10,6 +10,7 @@ end
 
 each_record do |record, context|
   context.skip!("Skipping #{record.key} no title") if record.title.blank?
+  context.skip!("Skipping #{record.key} no keywords") unless record.respond_to?(:keywords)
 end
 
 to_field 'id', lambda { |record, accumulator, _context|

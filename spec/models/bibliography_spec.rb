@@ -60,6 +60,7 @@ RSpec.describe Bibliography do
         http://zotero.org/groups/1051392/items/TXXUJDG2
         http://zotero.org/groups/1051392/items/EI8BRRXB
         http://zotero.org/groups/1051392/items/JMIMQVT6
+        http://zotero.org/groups/1051392/items/E9MZZKFV
         http://zotero.org/groups/1051392/items/6Q6TF4HD
         http://zotero.org/groups/1051392/items/E3MS2TQK
       )
