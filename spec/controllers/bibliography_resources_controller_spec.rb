@@ -6,12 +6,13 @@ RSpec.describe BibliographyResourcesController, type: :controller do
   let(:resource) { double }
   let(:exhibit) { FactoryGirl.create(:exhibit) }
   let(:user) { FactoryGirl.create(:exhibit_admin, exhibit: exhibit) }
-  let(:attributes) { { url: '' } }
+  let(:fixture_file) { fixture_file_upload('spec/fixtures/bibliography/article.bib') }
+  let(:attributes) { { bibtex_file: fixture_file } }
 
   before do
     sign_in user
     allow(BibliographyResource).to receive(:find_or_initialize_by).and_return(resource)
-    allow(resource).to receive(:update).with(hash_including(attributes))
+    allow(resource).to receive(:update).with(bibtex_file: fixture_file.read)
     allow(resource).to receive(:save_and_index).and_return(save_status)
   end
 
@@ -20,7 +21,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { true }
 
       it 'goes to the exhibit' do
-        post :create, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
+        post :create, params: { exhibit_id: exhibit.id, resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
 
@@ -33,7 +34,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { false }
 
       it 'goes to the exhibit' do
-        post :create, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
+        post :create, params: { exhibit_id: exhibit.id, resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
 
@@ -48,7 +49,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { true }
 
       it 'goes to the exhibit' do
-        patch :update, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
+        patch :update, params: { exhibit_id: exhibit.id, resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
 
@@ -61,7 +62,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       let(:save_status) { false }
 
       it 'goes to the exhibit' do
-        patch :update, params: { exhibit_id: exhibit.id, bibliography_resource: attributes }
+        patch :update, params: { exhibit_id: exhibit.id, resource: attributes }
 
         expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
 

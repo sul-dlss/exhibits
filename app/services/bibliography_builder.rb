@@ -24,9 +24,7 @@ class BibliographyBuilder < Spotlight::SolrDocumentBuilder
   # based on some model value
   def traject_reader
     traject_indexer.reader!(
-      File.open(
-        Rails.root.join('spec', 'fixtures', 'bibliography', resource.url)
-      )
+      StringIO.new(resource.bibtex_file).set_encoding('UTF-8')
     )
   end
 
