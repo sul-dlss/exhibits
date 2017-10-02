@@ -54,4 +54,23 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document).to include :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
     end
   end
+  context 'with no title' do
+    subject(:no_title) { BibliographyResource.new(url: 'notitle.bib', exhibit: exhibit) }
+
+    it 'is skipped' do
+      expect(no_title.document_builder.to_solr.first).to be_nil
+    end
+  end
+  context 'with no author' do
+    subject(:no_author) { BibliographyResource.new(url: 'noauthor.bib', exhibit: exhibit) }
+
+    let(:document) { no_author.document_builder.to_solr.first }
+
+    it 'is not skipped' do
+      expect(document['author_person_full_display']).to be_nil
+      title_fields.each do |field_name|
+        expect(document).to include field_name
+      end
+    end
+  end
 end

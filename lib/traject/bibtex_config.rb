@@ -2,9 +2,14 @@
 
 require_relative 'bib_reader'
 require 'bibliography'
+require 'active_support/core_ext/object/blank'
 
 settings do
   provide 'reader_class_name', 'BibReader'
+end
+
+each_record do |record, context|
+  context.skip!("Skipping #{record.key} no title") if record.title.blank?
 end
 
 to_field 'id', lambda { |record, accumulator, _context|
@@ -12,23 +17,23 @@ to_field 'id', lambda { |record, accumulator, _context|
 }
 
 to_field 'title_display', lambda { |record, accumulator, _context|
-  accumulator << record.title.to_s(filter: :latex)
+  accumulator << record.title.to_s.presence
 }
 
 to_field 'title_full_display', lambda { |record, accumulator, _context|
-  accumulator << record.title.to_s(filter: :latex)
+  accumulator << record.title.to_s.presence
 }
 
 to_field 'title_uniform_search', lambda { |record, accumulator, _context|
-  accumulator << record.title.to_s(filter: :latex)
+  accumulator << record.title.to_s.presence
 }
 
 to_field 'author_person_full_display', lambda { |record, accumulator, _context|
-  accumulator << record.author.to_s(filter: :latex)
+  accumulator << record.author.to_s.presence
 }
 
 to_field 'pub_display', lambda { |record, accumulator, _context|
-  accumulator << record.journal.to_s(filter: :latex)
+  accumulator << record.journal.to_s.presence
 }
 
 to_field 'format_main_ssim', literal('Reference')
