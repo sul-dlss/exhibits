@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight
-  revision: c441239f97c59977704f65ede1612bb3ba03b50b
+  revision: 8461d034841355a8e5ded92b24be329b0e4c73df
   branch: master
   specs:
-    blacklight-spotlight (1.0.0.alpha2)
+    blacklight-spotlight (1.0.0)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -166,7 +166,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (1.1.0)
+    carrierwave (1.2.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -286,7 +286,7 @@ GEM
       activesupport (>= 3.2.18)
       faraday (>= 0.9)
       json
-    iiif_manifest (0.2.0)
+    iiif_manifest (0.3.0)
       activesupport (>= 4)
       iiif-presentation (~> 0.2.0)
     iso-639 (0.2.8)
