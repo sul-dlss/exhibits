@@ -39,7 +39,7 @@ class BibliographyBuilder < Spotlight::SolrDocumentBuilder
   private
 
   def convert_id(doc)
-    return nil unless doc['id']
+    return unless doc['id']
     doc[:id] = doc['id'].first
     doc
   end
