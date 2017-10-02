@@ -5,10 +5,11 @@ require 'rails_helper'
 RSpec.describe 'Bibliography resource integration test', type: :feature do
   subject(:bibliograpy_resource) do
     BibliographyResource.new(
-      bibtex_file: File.open('spec/fixtures/bibliography/article.bib').read, exhibit: exhibit
+      bibtex_file: File.open(file).read, exhibit: exhibit
     )
   end
 
+  let(:file) { 'spec/fixtures/bibliography/article.bib' }
   let(:exhibit) { FactoryGirl.create(:exhibit) }
   let(:title_fields) do
     %w(title_display title_full_display title_uniform_search)
@@ -94,6 +95,28 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
     it 'is skipped' do
       expect(no_keywords.document_builder.to_solr.first).to be_nil
+    end
+  end
+  context 'with TeX-ified title' do
+    subject(:document) do
+      SolrDocument.new(bibliograpy_resource.document_builder.to_solr.first)
+    end
+
+    let(:file) { 'spec/fixtures/bibliography/texifiedtitle.bib' }
+
+    before do
+      allow(BibTeX.log).to receive(:warn).with(/Lexer: unbalanced braces at 210/)
+    end
+
+    it 'does not parse the BibTeX cleanly' do
+      expect { document }.not_to raise_error
+      expect(BibTeX.log).to have_received(:warn)
+    end
+
+    it 'parses the titles' do
+      title_fields.each do |field_name|
+        expect(document[field_name].first).to match(/Language and Mortality/)
+      end
     end
   end
 end
