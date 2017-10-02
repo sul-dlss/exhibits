@@ -6,8 +6,6 @@ Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
 FIXTURES_PATH = File.expand_path('../fixtures', __FILE__)
 
-require 'fixtures/response_fixtures'
-
 SimpleCov.start('rails') do
   # Ignore these because simplecov doesn't detect when traject
   # loads and evals them. See https://github.com/traject/traject/blob/6df447621826b92e26a4675a2f7610f8c78056ff/lib/traject/indexer.rb#L193

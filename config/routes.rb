@@ -32,11 +32,6 @@ Exhibits::Application.routes.draw do
   resources :exhibits, path: '/', only: [] do
     resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update]
     resource :bibliography_resources, only: [:create, :update]
-    resource :services, only: [:create, :edit, :update] do
-      member do
-        patch 'sync'
-      end
-    end if Settings.sync_bibliography_service.enabled # FeatureFlag: SyncBibliograhyService
     resource :viewers, only: [:create, :edit, :update]
   end
 
