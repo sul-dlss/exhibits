@@ -3,7 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Bibliography resource integration test', type: :feature do
-  subject(:bibliograpy_resource) { BibliographyResource.new(url: 'article.bib', exhibit: exhibit) }
+  subject(:bibliograpy_resource) do
+    BibliographyResource.new(
+      bibtex_file: File.open('spec/fixtures/bibliography/article.bib').read, exhibit: exhibit
+    )
+  end
 
   let(:exhibit) { FactoryGirl.create(:exhibit) }
   let(:title_fields) do
@@ -55,14 +59,22 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
     end
   end
   context 'with no title' do
-    subject(:no_title) { BibliographyResource.new(url: 'notitle.bib', exhibit: exhibit) }
+    subject(:no_title) do
+      BibliographyResource.new(
+        bibtex_file: File.open('spec/fixtures/bibliography/notitle.bib').read, exhibit: exhibit
+      )
+    end
 
     it 'is skipped' do
       expect(no_title.document_builder.to_solr.first).to be_nil
     end
   end
   context 'with no author' do
-    subject(:no_author) { BibliographyResource.new(url: 'noauthor.bib', exhibit: exhibit) }
+    subject(:no_author) do
+      BibliographyResource.new(
+        bibtex_file: File.open('spec/fixtures/bibliography/noauthor.bib').read, exhibit: exhibit
+      )
+    end
 
     let(:document) { no_author.document_builder.to_solr.first }
 
@@ -74,7 +86,11 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
     end
   end
   context 'with no keywords' do
-    subject(:no_keywords) { BibliographyResource.new(url: 'nokeywords.bib', exhibit: exhibit) }
+    subject(:no_keywords) do
+      BibliographyResource.new(
+        bibtex_file: File.open('spec/fixtures/bibliography/nokeywords.bib').read, exhibit: exhibit
+      )
+    end
 
     it 'is skipped' do
       expect(no_keywords.document_builder.to_solr.first).to be_nil

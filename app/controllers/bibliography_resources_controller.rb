@@ -9,7 +9,7 @@ class BibliographyResourcesController < Spotlight::ResourcesController
   authorize_resource
 
   def create
-    @resource.update(resource_params)
+    @resource.update(bibtex_file: resource_params[:bibtex_file].read)
 
     if @resource.save_and_index
       redirect_to spotlight.admin_exhibit_catalog_path(current_exhibit),
@@ -23,11 +23,11 @@ class BibliographyResourcesController < Spotlight::ResourcesController
 
   private
 
-  def build_resource
-    @resource = BibliographyResource.find_or_initialize_by(exhibit: current_exhibit, url: resource_params[:url])
+  def resource_class
+    BibliographyResource
   end
 
-  def resource_params
-    params.require(:bibliography_resource).permit(:url)
+  def build_resource
+    @resource = BibliographyResource.find_or_initialize_by(exhibit: current_exhibit)
   end
 end

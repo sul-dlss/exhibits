@@ -18,8 +18,8 @@ RSpec.feature 'Bibliography indexing', type: :feature do
   scenario 'indexes an item and makes it available to search' do
     visit spotlight.new_exhibit_resource_path(exhibit)
     click_link 'Bibliography via BibTeX'
-    within 'form#new_bibliography_resource' do
-      fill_in 'bibliography_resource_url', with: 'article.bib'
+    within '#external_resource_tab_1' do
+      attach_file 'resource_bibtex_file', 'spec/fixtures/bibliography/article.bib'
       click_button 'Add items'
     end
     expect(page).to have_css 'h5', text: /Quelques/

@@ -1,5 +1,5 @@
-<%= bootstrap_form_for([current_exhibit, @resource.becomes(BibliographyResource)], as: :bibliography_resource) do |f| %>
-  <%= f.text_field :url, label: 'BibTeX Filename'  %>
+<%= bootstrap_form_for([current_exhibit, @resource.becomes(BibliographyResource)], as: :resource) do |f| %>
+  <%= f.file_field :bibtex_file, label: 'BibTeX File', required: true, accept: 'application/x-bibtex'  %>
   <div class="form-actions">
     <div class="primary-actions">
       <%= cancel_link @resource, :back, class: 'btn btn-default' %>
