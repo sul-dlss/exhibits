@@ -3,14 +3,18 @@
 # bibliography
 module BibliographyConcern
   def reference?
-    fetch('format_main_ssim', []).first == 'Reference'
+    first('format_main_ssim') == 'Reference'
   end
 
   def bibtex
-    BibTeX.parse(fetch('bibtex_ts', []).first) if reference?
+    BibTeX.parse(first('bibtex_ts')) if reference?
   end
 
   def formatted_bibliography
-    fetch('formatted_bibliography_ts', []).first if reference?
+    first('formatted_bibliography_ts') if reference?
+  end
+
+  def related_document_ids
+    fetch('related_document_id_ssim', []) if reference?
   end
 end

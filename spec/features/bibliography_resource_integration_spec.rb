@@ -3,7 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Bibliography resource integration test', type: :feature do
-  subject(:bibliograpy_resource) do
+  subject(:document) { SolrDocument.new(to_solr_hash) }
+
+  let(:bibliography_resource) do
     BibliographyResource.new(
       bibtex_file: File.open(file).read, exhibit: exhibit
     )
@@ -17,16 +19,13 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   let(:author_fields) do
     %w(author_person_full_display author_sort)
   end
+  let(:to_solr_hash) { bibliography_resource.document_builder.to_solr.first }
 
   it 'can write the document to solr' do
-    expect { bibliograpy_resource.reindex }.not_to raise_error
+    expect { bibliography_resource.reindex }.not_to raise_error
   end
 
   context 'to_solr' do
-    subject(:document) do
-      SolrDocument.new(bibliograpy_resource.document_builder.to_solr.first)
-    end
-
     it 'has a doc id' do
       expect(document[:id]).to eq 'QTWBAWKX'
     end
@@ -80,47 +79,44 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document['pub_year_isi']).to eq [2004]
     end
   end
-  context 'with no title' do
-    subject(:no_title) do
-      BibliographyResource.new(
-        bibtex_file: File.open('spec/fixtures/bibliography/notitle.bib').read, exhibit: exhibit
-      )
+  context 'with related documents' do
+    let(:file) { 'spec/fixtures/bibliography/noauthor.bib' }
+
+    it '#related_document_ids' do
+      expect(document.bibtex[0].keywords).to eq 'dg156sv6886, test, aa111bb2222'
+      expect(document.related_document_ids.length).to eq 2
+      expect(document.related_document_ids).to include 'dg156sv6886'
+      expect(document.related_document_ids).to include 'aa111bb2222'
+      expect(document.related_document_ids).not_to include 'test' # strips out "test"
     end
+  end
+  context 'with no title' do
+    let(:file) { 'spec/fixtures/bibliography/notitle.bib' }
 
     it 'is skipped' do
-      expect(no_title.document_builder.to_solr.first).to be_nil
+      expect(to_solr_hash).to be_nil
     end
   end
   context 'with no author' do
-    subject(:no_author) do
-      BibliographyResource.new(
-        bibtex_file: File.open('spec/fixtures/bibliography/noauthor.bib').read, exhibit: exhibit
-      )
-    end
-
-    let(:document) { no_author.document_builder.to_solr.first }
+    let(:file) { 'spec/fixtures/bibliography/noauthor.bib' }
 
     it 'is not skipped' do
-      expect(document['author_person_full_display']).to be_nil
+      expect(to_solr_hash['author_person_full_display']).to be_nil
       title_fields.each do |field_name|
-        expect(document).to include field_name
+        expect(to_solr_hash).to include field_name
       end
     end
   end
   context 'with no keywords' do
-    subject(:no_keywords) do
-      BibliographyResource.new(
-        bibtex_file: File.open('spec/fixtures/bibliography/nokeywords.bib').read, exhibit: exhibit
-      )
-    end
+    let(:file) { 'spec/fixtures/bibliography/nokeywords.bib' }
 
     it 'is skipped' do
-      expect(no_keywords.document_builder.to_solr.first).to be_nil
+      expect(to_solr_hash).to be_nil
     end
   end
   context 'with TeX-ified title' do
     subject(:document) do
-      SolrDocument.new(bibliograpy_resource.document_builder.to_solr.first)
+      SolrDocument.new(bibliography_resource.document_builder.to_solr.first)
     end
 
     let(:file) { 'spec/fixtures/bibliography/texifiedtitle.bib' }
