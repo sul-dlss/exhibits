@@ -12,8 +12,6 @@ class Ability
     # We're doing this temporarily until spotlight#1752 is solved (which may just end up doing this)
     can :create, Spotlight::FeaturedImage if user.roles.any?
 
-    can :manage, BibliographyService, exhibit_id: user.exhibit_roles.pluck(:resource_id)
-
     can :manage, Viewer, exhibit_id: user.exhibit_roles.pluck(:resource_id)
 
     # disable spotlight functionality we don't want to expose in spotlight:

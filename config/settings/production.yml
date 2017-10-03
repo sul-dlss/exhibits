@@ -9,5 +9,3 @@ purl:
     prefix: "http://purl.stanford.edu/"
 sidekiq:
   logger_level: 'Logger::WARN'
-sync_bibliography_service:
-  enabled: false # FeatureFlag: SyncBibliograhyService

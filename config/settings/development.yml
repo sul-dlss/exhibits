@@ -7,8 +7,6 @@ searchworks:
 purl:
   link:
     prefix: "http://purl.stanford.edu/"
-sync_bibliography_service:
-  enabled: true # FeatureFlag: SyncBibliograhyService
 feature_flags:
   themes: true
   bibliography_resource: true
