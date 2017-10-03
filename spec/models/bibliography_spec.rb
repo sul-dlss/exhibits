@@ -25,7 +25,8 @@ RSpec.describe Bibliography do
         'lte Legende, BL Add. 35298.” In <i>Legenda Aurea. Sept Siècles De Dif'\
         'fusion. Actes Du Colloque International Sur La Legenda Aurea, Univers'\
         'ité Du Québec, Montréal, 11-12 Mai 1983</i>, edited by B. Dunn-Lardea'\
-        'u, 333–43. Montréal/Paris.'
+        'u, 1st ed., 1:333–43. Textes Et Études Du Moyen Âge. Montréal/Paris: '\
+        'My Publisher.'
       end
     end
 
@@ -35,8 +36,8 @@ RSpec.describe Bibliography do
       it '#to_html' do
         expect(bibliography.to_html).to include 'de Azevedo, R. 1962. <i>A Car'\
         'ta Ou Memória Do Cruzado Inglês R. Para Osberto De Bawdsey Sobre a Co'\
-        'nquista De Lisboa Em 1147</i>. Coimbra: Faculdade de Letras da Univer'\
-        'sidade de Coimbra.'
+        'nquista De Lisboa Em 1147</i>. 1st ed. Vol. I. Coimbra: Faculdade de '\
+        'Letras da Universidade de Coimbra.'
       end
     end
 
@@ -47,18 +48,19 @@ RSpec.describe Bibliography do
         expect(bibliography.to_html).to include 'Wille, Clara. 2004. “Quelques'\
         ' Observations Sur Le Porc-Épic Et Le Hérisson Dans La Littérature Et '\
         'l’Iconographie Médiévale.” <i>Reinardus. Yearbook of the Internationa'\
-        'l Reynard Society</i> 17: 181–201. doi:10.1075/rein.17.14wil.'
+        'l Reynard Society</i> 17 (1): 181–201. doi:10.1075/rein.17.14wil.'
       end
     end
   end
 
   context 'sorting bibliography' do
     let(:bibtex) { `cat spec/fixtures/bibliography/*.bib` }
-    it '#bibliography (unsorted)' do
+    it '#bibliography (unsorted)' do # rubocop: disable RSpec/ExampleLength
       expect(bibliography.bibliography.collect(&:id)).to eq %w(
         http://zotero.org/groups/1051392/items/QTWBAWKX
         http://zotero.org/groups/1051392/items/TXXUJDG2
         http://zotero.org/groups/1051392/items/EI8BRRXB
+        http://zotero.org/groups/1051392/items/SQA6T57X
         http://zotero.org/groups/1051392/items/JMIMQVT6
         http://zotero.org/groups/1051392/items/E9MZZKFV
         http://zotero.org/groups/1051392/items/6Q6TF4HD
