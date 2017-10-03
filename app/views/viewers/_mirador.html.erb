@@ -1,12 +1,14 @@
-<iframe
-  src="<%= mirador_index_path(
-    manifest_url: document['iiif_manifest_url_ssi']
-  ) %>"
-  allowfullscreen="true"
-  class="mirador-embed-wrapper"
-  frameborder="0"
-  marginwidth="0"
-  marginheight="0"
-  scrolling="no"
-  width="100%"
-></iframe>
+<% if document.manifest %>
+  <iframe
+    src="<%= mirador_index_path(
+      manifest_url: document.manifest
+    ) %>"
+    allowfullscreen="true"
+    class="mirador-embed-wrapper"
+    frameborder="0"
+    marginwidth="0"
+    marginheight="0"
+    scrolling="no"
+    width="100%"
+  ></iframe>
+<% end %>
