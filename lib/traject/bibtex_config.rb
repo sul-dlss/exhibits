@@ -11,22 +11,23 @@ end
 each_record do |record, context|
   context.skip!("Skipping #{record.key} no title") if record.title.blank?
   context.skip!("Skipping #{record.key} no keywords") unless record.respond_to?(:keywords)
+  context.clipboard[:title] = record.title.to_s.presence
 end
 
 to_field 'id', lambda { |record, accumulator, _context|
   accumulator << record.key.gsub('http://zotero.org/groups/1051392/items/', '')
 }
 
-to_field 'title_display', lambda { |record, accumulator, _context|
-  accumulator << record.title.to_s.presence
+to_field 'title_display', lambda { |_record, accumulator, context|
+  accumulator << context.clipboard[:title]
 }
 
-to_field 'title_full_display', lambda { |record, accumulator, _context|
-  accumulator << record.title.to_s.presence
+to_field 'title_full_display', lambda { |_record, accumulator, context|
+  accumulator << context.clipboard[:title]
 }
 
-to_field 'title_uniform_search', lambda { |record, accumulator, _context|
-  accumulator << record.title.to_s.presence
+to_field 'title_uniform_search', lambda { |_record, accumulator, context|
+  accumulator << context.clipboard[:title]
 }
 
 to_field 'author_person_full_display', lambda { |record, accumulator, _context|
