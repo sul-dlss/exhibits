@@ -47,16 +47,57 @@ to_field 'pub_year_isi', lambda { |record, accumulator, _context|
   accumulator << record.year.to_i.presence if record.respond_to?(:year)
 }
 
+to_field 'editor_ssim', lambda { |record, accumulator, _context|
+  accumulator << record.editor.to_s.presence if record.respond_to?(:editor)
+}
+
+to_field 'book_title_ssim', lambda { |record, accumulator, _context|
+  accumulator << record.booktitle.to_s.presence if record.respond_to?(:booktitle)
+}
+
 to_field 'pub_display', lambda { |record, accumulator, _context|
   accumulator << record.journal.to_s.presence if record.respond_to?(:journal)
+  accumulator << record.publisher.to_s.presence if record.respond_to?(:publisher)
+}
+
+to_field 'pub_year_w_approx_isi', lambda { |record, accumulator, _context|
+  accumulator << record.year.to_s.presence if record.respond_to?(:year)
+}
+
+to_field 'location_ssi', lambda { |record, accumulator, _context|
+  accumulator << record.address.to_s.presence if record.respond_to?(:address)
+}
+
+to_field 'university_ssim', lambda { |record, accumulator, _context|
+  accumulator << record.school.to_s.presence if record.respond_to?(:school)
+}
+
+to_field 'edition_ssm', lambda { |record, accumulator, _context|
+  accumulator << record.edition.to_s.presence if record.respond_to?(:edition)
+}
+
+to_field 'series_ssi', lambda { |record, accumulator, _context|
+  accumulator << record.series.to_s.presence if record.respond_to?(:series)
+}
+
+to_field 'thesis_type_ssm', lambda { |record, accumulator, _context|
+  accumulator << record.fields[:type].to_s.presence if record.fields.include?(:type)
 }
 
 to_field 'volume_ssm', lambda { |record, accumulator, _context|
   accumulator << record.volume.to_s.presence if record.respond_to?(:volume)
 }
 
+to_field 'issue_ssm', lambda { |record, accumulator, _context|
+  accumulator << record.issue.to_s.presence if record.respond_to?(:issue)
+}
+
 to_field 'pages_ssm', lambda { |record, accumulator, _context|
   accumulator << record.pages.to_s.presence if record.respond_to?(:pages)
+}
+
+to_field 'doi_ssim', lambda { |record, accumulator, _context|
+  accumulator << record.doi.to_s.presence if record.respond_to?(:doi)
 }
 
 to_field 'format_main_ssim', literal('Reference')

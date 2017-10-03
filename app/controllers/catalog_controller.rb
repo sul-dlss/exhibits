@@ -142,6 +142,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
     config.add_index_field 'author_person_full_display', label: 'Author' # includes Collectors
     config.add_index_field 'author_no_collector_ssim', label: 'Author (no Collectors)'
+    config.add_index_field 'editor_ssim', label: 'Editor'
     config.add_index_field 'collector_ssim', label: 'Collector'
     config.add_index_field 'author_corp_display', label: 'Corporate Author'
     config.add_index_field 'author_meeting_display', label: 'Meeting Author'
@@ -163,8 +164,15 @@ class CatalogController < ApplicationController
     config.add_index_field 'location_ssi', label: 'Location'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
     config.add_index_field 'doc_subtype_ssi', label: 'Document Subtype'
+    # Fields added by Zotero API BibTeX import
     config.add_index_field 'volume_ssm', label: 'Volume'
     config.add_index_field 'pages_ssm', label: 'Pages'
+    config.add_index_field 'doi_ssim', label: 'DOI'
+    config.add_index_field 'issue_ssm', label: 'Issue'
+    config.add_index_field 'edition_ssm', label: 'Edition'
+    config.add_index_field 'university_ssim', label: 'University'
+    config.add_index_field 'thesis_type_ssm', label: 'Degree Type'
+    config.add_index_field 'book_title_ssim', label: 'Book Title'
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes'
