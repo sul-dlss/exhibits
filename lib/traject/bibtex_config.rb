@@ -12,6 +12,7 @@ each_record do |record, context|
   context.skip!("Skipping #{record.key} no title") if record.title.blank?
   context.skip!("Skipping #{record.key} no keywords") unless record.respond_to?(:keywords)
   context.clipboard[:title] = record.title.to_s.presence
+  context.clipboard[:author] = record.author.to_s.presence
 end
 
 to_field 'id', lambda { |record, accumulator, _context|
@@ -30,8 +31,20 @@ to_field 'title_uniform_search', lambda { |_record, accumulator, context|
   accumulator << context.clipboard[:title]
 }
 
-to_field 'author_person_full_display', lambda { |record, accumulator, _context|
-  accumulator << record.author.to_s.presence
+to_field 'title_sort', lambda { |_record, accumulator, context|
+  accumulator << context.clipboard[:title]
+}
+
+to_field 'author_person_full_display', lambda { |_record, accumulator, context|
+  accumulator << context.clipboard[:author]
+}
+
+to_field 'author_sort', lambda { |_record, accumulator, context|
+  accumulator << context.clipboard[:author]
+}
+
+to_field 'pub_year_isi', lambda { |record, accumulator, _context|
+  accumulator << record.year.to_i.presence if record.respond_to?(:year)
 }
 
 to_field 'pub_display', lambda { |record, accumulator, _context|
