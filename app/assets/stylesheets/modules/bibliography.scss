@@ -1,5 +1,25 @@
-.show-document {
+.bibliography-contents {
+  margin-left: 0;
+  padding-left: 0;
+
   h3 {
     color: $brand-primary;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .bibliography-list {
+    margin-left: 0;
+    padding-left: 0;
+
+    a {
+      white-space: nowrap;
+    }
+
+    .bibliography-body {
+      margin-left: 2em;
+      max-width: 80ch;
+      text-indent: -2em;
+    }
   }
 }
