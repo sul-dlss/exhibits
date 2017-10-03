@@ -35,7 +35,15 @@ to_field 'author_person_full_display', lambda { |record, accumulator, _context|
 }
 
 to_field 'pub_display', lambda { |record, accumulator, _context|
-  accumulator << record.journal.to_s.presence
+  accumulator << record.journal.to_s.presence if record.respond_to?(:journal)
+}
+
+to_field 'volume_ssm', lambda { |record, accumulator, _context|
+  accumulator << record.volume.to_s.presence if record.respond_to?(:volume)
+}
+
+to_field 'pages_ssm', lambda { |record, accumulator, _context|
+  accumulator << record.pages.to_s.presence if record.respond_to?(:pages)
 }
 
 to_field 'format_main_ssim', literal('Reference')
