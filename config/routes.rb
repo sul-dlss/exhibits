@@ -31,6 +31,7 @@ Exhibits::Application.routes.draw do
 
   resources :exhibits, path: '/', only: [] do
     resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update]
+    resource :bibliography_formatting, controller: :"bibliography_formatting", only: [:show]
     resource :bibliography_resources, only: [:create, :update]
     resource :services, only: [:create, :edit, :update] do
       member do
