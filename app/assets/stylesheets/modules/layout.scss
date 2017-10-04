@@ -4,7 +4,8 @@
   .navbar-brand {
     @extend .text-hide;
 
-    background: transparent image-url("sul.png") no-repeat center left;
+    background: transparent image-url("StanfordLibraries-logo-whitetext.svg") no-repeat center left;
+    background-size: contain;
     height: $brandbar-height;
     padding: $brandbar-padding-vertical $navbar-padding-horizontal;
     width: 189px;
