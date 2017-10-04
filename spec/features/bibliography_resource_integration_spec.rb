@@ -51,18 +51,6 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
     end
 
-    it 'has publication title' do
-      expect(document['pub_display']).to eq ['Reinardus. Yearbook of the International Reynard Society']
-    end
-
-    it 'has a volume' do
-      expect(document['volume_ssm']).to eq ['17']
-    end
-
-    it 'has pages' do
-      expect(document['pages_ssm']).to eq ['181–201']
-    end
-
     it 'has BibTeX' do
       expect(document.bibtex.to_s).to include '@article{http://zotero.org/groups/1051392/items/QTWBAWKX'
     end
@@ -79,10 +67,73 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document['place']).to be_nil
     end
 
-    it 'has a year' do
-      expect(document['pub_year_isi']).to eq [2004]
+    context 'article' do
+      it 'has publication title' do
+        expect(document['pub_display']).to eq ['Reinardus. Yearbook of the International Reynard Society']
+      end
+
+      it 'has a volume' do
+        expect(document['volume_ssm']).to eq ['17']
+      end
+
+      it 'has pages' do
+        expect(document['pages_ssm']).to eq ['181–201']
+      end
+
+      it 'has a year' do
+        expect(document['pub_year_isi']).to eq [2004]
+      end
+
+      it 'has a DOI' do
+        expect(document['doi_ssim']).to eq ['10.1075/rein.17.14wil']
+      end
+    end
+
+    context 'book' do
+      let(:file) { 'spec/fixtures/bibliography/book.bib' }
+
+      it 'has a publisher' do
+        expect(document['pub_display']).to eq ['Faculdade de Letras da Universidade de Coimbra']
+      end
+
+      it 'has an edition' do
+        expect(document['edition_ssm']).to eq ['1st']
+      end
+
+      it 'has an address' do
+        expect(document['location_ssi']).to eq ['Coimbra']
+      end
+    end
+
+    context 'book section' do
+      let(:file) { 'spec/fixtures/bibliography/incollection.bib' }
+
+      it 'has a book title' do
+        expect(document['book_title_ssim'].first).to match(/^Legenda aurea/)
+      end
+
+      it 'has a series' do
+        expect(document['series_ssi']).to eq ['Textes et Études du Moyen Âge']
+      end
+
+      it 'has an editor ' do
+        expect(document['editor_ssim']).to eq ['Dunn-Lardeau, B.']
+      end
+    end
+
+    context 'thesis' do
+      let(:file) { 'spec/fixtures/bibliography/phdthesis.bib' }
+
+      it 'has a degree type' do
+        expect(document['thesis_type_ssm']).to eq ['B.Litt.']
+      end
+
+      it 'has a university' do
+        expect(document['university_ssim']).to eq ['University of Oxford']
+      end
     end
   end
+
   context 'with related documents' do
     let(:file) { 'spec/fixtures/bibliography/noauthor.bib' }
 
