@@ -6,8 +6,8 @@ Spotlight::Engine.config.upload_fields = [
 ]
 Spotlight::Engine.config.default_contact_email = Settings.default_contact_email
 Spotlight::Engine.config.external_resources_partials += ['dor_harvester/form']
-Spotlight::Engine.config.external_resources_partials += ['bibliography_resources/form'] if Settings.feature_flags.bibliography_resource
+Spotlight::Engine.config.external_resources_partials += ['bibliography_resources/form'] if FeatureFlags.new.bibliography_resource?
 
 Spotlight::Resources::Upload.document_builder_class = ::UploadSolrDocumentBuilder
 
-Spotlight::Engine.config.exhibit_themes = %w[default parker] if Settings.feature_flags.themes
+Spotlight::Engine.config.exhibit_themes = %w[default parker] if FeatureFlags.new.themes?
