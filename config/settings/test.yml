@@ -10,3 +10,5 @@ purl:
 feature_flags:
   themes: true
   bibliography_resource: true
+  test-flag-exhibit-slug:
+    test_thing: true
