@@ -16,7 +16,7 @@ each_record do |record, context|
 end
 
 to_field 'id', lambda { |record, accumulator, _context|
-  accumulator << record.key.gsub('http://zotero.org/groups/1051392/items/', '')
+  accumulator << record.key.gsub(%r{http:\/\/zotero.org\/groups\/\d*\/items\/}, '')
 }
 
 to_field 'title_display', lambda { |_record, accumulator, context|
