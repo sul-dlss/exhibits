@@ -1,7 +1,9 @@
-<% if document.manifest %>
+<% exhibit_specific_manifest = document.exhibit_specific_manifest(@exhibit.required_viewer.custom_manifest_pattern) %>
+
+<% if exhibit_specific_manifest %>
   <iframe
     src="<%= mirador_index_path(
-      manifest_url: document.manifest
+      manifest_url: exhibit_specific_manifest
     ) %>"
     allowfullscreen="true"
     class="mirador-embed-wrapper"

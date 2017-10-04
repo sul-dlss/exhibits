@@ -27,7 +27,7 @@ class ViewersController < Spotlight::ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def viewer_params
-    params.require(:viewer).permit(:viewer_type)
+    params.require(:viewer).permit(:viewer_type, :custom_manifest_pattern)
   end
 
   def build_resource
