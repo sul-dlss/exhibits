@@ -86,6 +86,8 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
+    archive-zip (0.7.0)
+      io-like (~> 0.3.0)
     arel (7.1.4)
     ast (2.3.0)
     autoprefixer-rails (7.1.4.1)
@@ -170,6 +172,11 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    childprocess (0.8.0)
+      ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.1.0)
+      archive-zip (~> 0.7.0)
+      nokogiri (~> 1.6)
     chronic (0.10.2)
     citeproc (1.0.5)
       namae (~> 0.8)
@@ -289,6 +296,7 @@ GEM
     iiif_manifest (0.3.0)
       activesupport (>= 4)
       iiif-presentation (~> 0.2.0)
+    io-like (0.3.0)
     iso-639 (0.2.8)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -499,6 +507,9 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     scrub_rb (1.0.1)
+    selenium-webdriver (3.6.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
     sidekiq (4.2.9)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -643,6 +654,7 @@ DEPENDENCIES
   capistrano-shared_configs
   capistrano-sidekiq
   capybara
+  chromedriver-helper
   citeproc-ruby
   coffee-rails (~> 4.2, >= 4.2.1)
   config
@@ -682,6 +694,7 @@ DEPENDENCIES
   rubocop-rspec
   ruby-oembed
   sass-rails (~> 5.0)
+  selenium-webdriver
   sidekiq
   sir_trevor_rails
   sitemap_generator

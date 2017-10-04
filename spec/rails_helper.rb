@@ -5,6 +5,17 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'factory_girl_rails'
 
+require 'selenium-webdriver'
+
+Capybara.javascript_driver = :headless_chrome
+
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w(headless disable-gpu no-sandbox) }
+  )
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+end
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

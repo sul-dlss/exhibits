@@ -65,6 +65,8 @@ group :test do
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
   gem 'capybara'
+  gem 'chromedriver-helper'
+  gem 'selenium-webdriver'
   gem 'coveralls', require: false
 end
 
