@@ -19,6 +19,10 @@ to_field 'id', lambda { |record, accumulator, _context|
   accumulator << record.key.gsub(%r{http:\/\/zotero.org\/groups\/\d*\/items\/}, '')
 }
 
+to_field 'bibtex_key_ss', lambda { |record, accumulator, _context|
+  accumulator << record.key
+}
+
 to_field 'title_display', lambda { |_record, accumulator, context|
   accumulator << context.clipboard[:title]
 }

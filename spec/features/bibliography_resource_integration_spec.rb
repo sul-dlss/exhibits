@@ -30,6 +30,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document[:id]).to eq 'QTWBAWKX'
     end
 
+    it 'has the BibTeX key' do
+      expect(document['bibtex_key_ss']).to eq ['http://zotero.org/groups/1051392/items/QTWBAWKX']
+    end
+
     it 'is a reference document' do
       expect(document.reference?).to be_truthy
     end
