@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  def feature_flags
+    @feature_flags ||= FeatureFlags.for(current_exhibit)
+  end
+  helper_method :feature_flags
 end
