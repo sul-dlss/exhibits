@@ -1,120 +1,65 @@
 # frozen_string_literal: true
 
 require_relative 'bib_reader'
+require_relative 'macros/bibtex'
 require 'bibliography'
 require 'active_support/core_ext/object/blank'
+extend Macros::BibTeX
 
 settings do
   provide 'reader_class_name', 'BibReader'
+  provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
-
-BIBTEX_ZOTERO_MAPPING = {
-  phdthesis: 'Thesis',
-  incollection: 'Book section',
-  article: 'Journal article',
-  book: 'Book',
-  misc: 'Document'
-}.freeze
 
 each_record do |record, context|
+  context.skip!("Skipping #{record.key} no key") if record.key.blank?
   context.skip!("Skipping #{record.key} no title") if record.title.blank?
   context.skip!("Skipping #{record.key} no keywords") unless record.respond_to?(:keywords)
-  context.clipboard[:title] = record.title.to_s.presence
-  context.clipboard[:author] = record.author.to_s.presence
 end
 
-to_field 'id', lambda { |record, accumulator, _context|
-  accumulator << record.key.gsub(%r{http:\/\/zotero.org\/groups\/\d*\/items\/}, '')
-}
+to_field 'id', from_bibtex(:id)
 
-to_field 'bibtex_key_ss', lambda { |record, accumulator, _context|
-  accumulator << record.key
-}
+to_field 'bibtex_key_ss', from_bibtex(:key)
 
-to_field 'ref_type_ssm', lambda { |record, accumulator, _context|
-  accumulator << BIBTEX_ZOTERO_MAPPING[record.type] if BIBTEX_ZOTERO_MAPPING.include?(record.type)
-}
+to_field 'ref_type_ssm', from_bibtex(:ref_type)
 
-to_field 'title_display', lambda { |_record, accumulator, context|
-  accumulator << context.clipboard[:title]
-}
+to_field 'title_display', from_bibtex(:title)
+to_field 'title_full_display', from_bibtex(:title)
+to_field 'title_uniform_search', from_bibtex(:title)
+to_field 'title_sort', from_bibtex(:title)
 
-to_field 'title_full_display', lambda { |_record, accumulator, context|
-  accumulator << context.clipboard[:title]
-}
+to_field 'author_person_full_display', from_bibtex(:author)
+to_field 'author_sort', from_bibtex(:author)
 
-to_field 'title_uniform_search', lambda { |_record, accumulator, context|
-  accumulator << context.clipboard[:title]
-}
+to_field 'pub_year_isi', from_bibtex(:year)
+to_field 'pub_year_w_approx_isi', from_bibtex(:year)
 
-to_field 'title_sort', lambda { |_record, accumulator, context|
-  accumulator << context.clipboard[:title]
-}
+to_field 'editor_ssim', from_bibtex(:editor)
 
-to_field 'author_person_full_display', lambda { |_record, accumulator, context|
-  accumulator << context.clipboard[:author]
-}
-
-to_field 'author_sort', lambda { |_record, accumulator, context|
-  accumulator << context.clipboard[:author]
-}
-
-to_field 'pub_year_isi', lambda { |record, accumulator, _context|
-  accumulator << record.year.to_i.presence if record.respond_to?(:year)
-}
-
-to_field 'editor_ssim', lambda { |record, accumulator, _context|
-  accumulator << record.editor.to_s.presence if record.respond_to?(:editor)
-}
-
-to_field 'book_title_ssim', lambda { |record, accumulator, _context|
-  accumulator << record.booktitle.to_s.presence if record.respond_to?(:booktitle)
-}
+to_field 'book_title_ssim', from_bibtex(:booktitle)
 
 to_field 'pub_display', lambda { |record, accumulator, _context|
   accumulator << record.journal.to_s.presence if record.respond_to?(:journal)
   accumulator << record.publisher.to_s.presence if record.respond_to?(:publisher)
 }
 
-to_field 'pub_year_w_approx_isi', lambda { |record, accumulator, _context|
-  accumulator << record.year.to_s.presence if record.respond_to?(:year)
-}
+to_field 'location_ssi', from_bibtex(:address)
 
-to_field 'location_ssi', lambda { |record, accumulator, _context|
-  accumulator << record.address.to_s.presence if record.respond_to?(:address)
-}
+to_field 'university_ssim', from_bibtex(:school)
 
-to_field 'university_ssim', lambda { |record, accumulator, _context|
-  accumulator << record.school.to_s.presence if record.respond_to?(:school)
-}
+to_field 'edition_ssm', from_bibtex(:edition)
 
-to_field 'edition_ssm', lambda { |record, accumulator, _context|
-  accumulator << record.edition.to_s.presence if record.respond_to?(:edition)
-}
+to_field 'series_ssi', from_bibtex(:series)
 
-to_field 'series_ssi', lambda { |record, accumulator, _context|
-  accumulator << record.series.to_s.presence if record.respond_to?(:series)
-}
+to_field 'thesis_type_ssm', from_bibtex(:type)
 
-to_field 'thesis_type_ssm', lambda { |record, accumulator, _context|
-  accumulator << record.fields[:type].to_s.presence if record.fields.include?(:type)
-}
+to_field 'volume_ssm', from_bibtex(:volume)
 
-to_field 'volume_ssm', lambda { |record, accumulator, _context|
-  accumulator << record.volume.to_s.presence if record.respond_to?(:volume)
-}
+to_field 'issue_ssm', from_bibtex(:issue)
 
-to_field 'issue_ssm', lambda { |record, accumulator, _context|
-  accumulator << record.issue.to_s.presence if record.respond_to?(:issue)
-}
+to_field 'pages_ssm', from_bibtex(:pages)
 
-to_field 'pages_ssm', lambda { |record, accumulator, _context|
-  accumulator << record.pages.to_s.presence if record.respond_to?(:pages)
-}
-
-to_field 'doi_ssim', lambda { |record, accumulator, _context|
-  accumulator << record.doi.to_s.presence if record.respond_to?(:doi)
-}
+to_field 'doi_ssim', from_bibtex(:doi)
 
 to_field 'general_notes_ssim', lambda { |record, accumulator, _context|
   accumulator << record.annote.to_s.presence if record.respond_to?(:annote)
@@ -123,9 +68,7 @@ to_field 'general_notes_ssim', lambda { |record, accumulator, _context|
 to_field 'format_main_ssim', literal('Reference')
 
 # raw serialization of BibTeX::Entry
-to_field 'bibtex_ts', lambda { |record, accumulator, _context|
-  accumulator << record.to_s
-}
+to_field 'bibtex_ts', from_bibtex(:raw)
 
 # formatted BibTeX::Entry in Chicago style as HTML
 to_field 'formatted_bibliography_ts', lambda { |record, accumulator, _context|
