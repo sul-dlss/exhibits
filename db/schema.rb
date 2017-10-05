@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821165811) do
+ActiveRecord::Schema.define(version: 20171004141834) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string   "header"
@@ -399,8 +399,9 @@ ActiveRecord::Schema.define(version: 20170821165811) do
   create_table "viewers", force: :cascade do |t|
     t.string   "viewer_type"
     t.integer  "exhibit_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "custom_manifest_pattern"
     t.index ["exhibit_id"], name: "index_viewers_on_exhibit_id"
   end
 

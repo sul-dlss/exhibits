@@ -28,9 +28,10 @@ describe 'Viewers', type: :feature do
         click_link 'Viewers'
       end
 
-      choose 'Mirador'
-
-      click_button 'Save changes'
+      within '#item-detail-page' do
+        choose 'Mirador'
+        click_button 'Save changes'
+      end
 
       expect(field_labeled('Mirador')[:checked]).to eq 'checked'
     end
@@ -43,6 +44,29 @@ describe 'Viewers', type: :feature do
         expect(page).to have_link 'Configuration'
         expect(page).to have_css('li.active', text: 'Viewers')
       end
+    end
+
+    it 'allows updating a custom manifest URL pattern' do
+      visit edit_exhibit_viewers_path(exhibit)
+
+      within '#iiif-manifest' do
+        fill_in 'viewer_custom_manifest_pattern', with: 'https://example.com/manifest/{id}'
+        click_button 'Save changes'
+      end
+
+      expect(field_labeled('IIIF manifest URL pattern').value).to eq 'https://example.com/manifest/{id}'
+    end
+
+    it 'is invalid without {id}' do
+      visit edit_exhibit_viewers_path(exhibit)
+
+      within '#iiif-manifest' do
+        fill_in 'viewer_custom_manifest_pattern', with: 'https://poorlyformed.com/manifest'
+        click_button 'Save changes'
+      end
+
+      expect(page).to have_css '.alert.alert-warning', text: 'There was a problem updating the viewer settings'
+      expect(field_labeled('IIIF manifest URL pattern').value).to be_nil
     end
   end
 end

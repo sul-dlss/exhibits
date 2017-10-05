@@ -2,10 +2,16 @@ require 'rails_helper'
 
 describe 'viewers/_mirador.html.erb', type: :view do
   let(:document) do
-    SolrDocument.new('iiif_manifest_url_ssi' => 'https://purl.stanford.edu/bc853rd3116?manifest')
+    SolrDocument.new(
+      'id' => 'abc123',
+      'iiif_manifest_url_ssi' => 'https://purl.stanford.edu/bc853rd3116?manifest'
+    )
   end
+  let(:current_exhibit) { create(:exhibit) }
+  let(:viewer) { Viewer.create(exhibit_id: exhibit.id) }
 
   before do
+    assign(:exhibit, current_exhibit)
     render partial: 'viewers/mirador', locals: { document: document }
   end
 
@@ -23,6 +29,23 @@ describe 'viewers/_mirador.html.erb', type: :view do
 
     it 'is not viewable' do
       expect(rendered).not_to have_css 'iframe'
+    end
+  end
+
+  context 'when using default indexed manifest' do
+    it do
+      expect(rendered).to include CGI.escape('https://purl.stanford.edu/bc853rd3116?manifest')
+    end
+  end
+  context 'when using a custom manifest pattern' do
+    before do
+      current_exhibit.required_viewer.custom_manifest_pattern = 'https://example.com/{id}'
+      current_exhibit.viewer.save
+      # Re-render now that the exhibit is updated
+      render partial: 'viewers/mirador', locals: { document: document }
+    end
+    it do
+      expect(rendered).to include CGI.escape('https://example.com/abc123')
     end
   end
 end

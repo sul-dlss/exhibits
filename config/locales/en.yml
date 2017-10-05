@@ -99,10 +99,17 @@ en:
   viewers:
     menu_link: Viewers
     edit:
-      title: Item Detail Page
+      item_detail:
+        title: Item Detail Page
+        viewer_section_label: Viewer
+        instructions: By default, the Item Detail page displays image resources using SUL-Embed as the viewer. You can change this setting to use a pre-configured version of Mirador as the viewer instead. The Mirador viewer provides minimal options (similar to 'zen mode'), but does include annotation viewing for any IIIF manifests with annotations.
+      iiif_manifest:
+        title: IIIF Manifests
+        alternate_pattern_label: IIIF manifest URL pattern
+        instructions_html: If IIIF manifests for items in this exhibit are to be retrieved using specific URL pattern, enter that pattern below, where the <strong>{id}</strong> token in the pattern represents the unique identifier of a given item.
+        example_url: https://www.example.com/manifest/data/manifests/my-project/{id}/manifest.json
+        help_html: "Enter a URL pattern to indicate where the IIIF manifests for items in this exhibit can be found. Use the token <strong>{id}</strong> in the pattern to represent the item's unique identifier. For example: <br><p class='help-text-row'>%{example_url}</p>"
       header: Viewers
-      instructions: By default, the Item Detail page displays image resources using SUL-Embed as the viewer. You can change this setting to use a pre-configured version of Mirador as the viewer instead. The Mirador viewer provides minimal options (similar to 'zen mode'), but does include annotation viewing for any IIIF manifests with annotations.
-      viewer_section_label: Viewer
       save: Save changes
     update:
       notice: The viewer settings have been updated.
