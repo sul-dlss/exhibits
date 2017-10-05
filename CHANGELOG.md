@@ -4,9 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). One notable difference is that for this project, semantic versioning is used in reference to user facing experience.
 
-## [1.1.1] - 2017-10-?
+## [1.1.1] - Unreleased
 ### Changed
-- Adds additional Zotero fields to BibTeX index  #664, #675
+- Adds additional Zotero fields to BibTeX indexing  #664, #675
+- Replaces SUL brand logos with SVGs #673
 
 ## [1.1.0] - 2017-10-04
 
