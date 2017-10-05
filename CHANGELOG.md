@@ -4,10 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). One notable difference is that for this project, semantic versioning is used in reference to user facing experience.
 
-## [1.1.1] - Unreleased
+## [Unreleased]
+### Added
+- Adds a Bibliography for a show page with related BibTeX records #660
+- Adds exhibit based feature flag pattern for releasing certain features to specific exhibits #674
+
 ### Changed
 - Adds additional Zotero fields to BibTeX indexing  #664, #675
 - Replaces SUL brand logos with SVGs #673
+- Generalizes how BibTeX keys are converted to SolrDocument id's #666
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
 
 ## [1.1.0] - 2017-10-04
 
