@@ -87,6 +87,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       it 'has a DOI' do
         expect(document['doi_ssim']).to eq ['10.1075/rein.17.14wil']
       end
+
+      it 'has a reference type' do
+        expect(document['ref_type_ssm']).to eq ['Journal article']
+      end
     end
 
     context 'book' do
@@ -119,6 +123,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       it 'has an editor ' do
         expect(document['editor_ssim']).to eq ['Dunn-Lardeau, B.']
       end
+
+      it 'has a reference type' do
+        expect(document['ref_type_ssm']).to eq ['Book section']
+      end
     end
 
     context 'thesis' do
@@ -130,6 +138,18 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
       it 'has a university' do
         expect(document['university_ssim']).to eq ['University of Oxford']
+      end
+
+      it 'has a reference type' do
+        expect(document['ref_type_ssm']).to eq ['Thesis']
+      end
+    end
+
+    context 'miscellaneous' do
+      let(:file) { 'spec/fixtures/bibliography/misc.bib' }
+
+      it 'has a reference type' do
+        expect(document['ref_type_ssm']).to eq ['Document']
       end
     end
   end

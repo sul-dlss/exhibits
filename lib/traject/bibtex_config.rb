@@ -8,6 +8,14 @@ settings do
   provide 'reader_class_name', 'BibReader'
 end
 
+BIBTEX_ZOTERO_MAPPING = {
+  phdthesis: 'Thesis',
+  incollection: 'Book section',
+  article: 'Journal article',
+  book: 'Book',
+  misc: 'Document'
+}.freeze
+
 each_record do |record, context|
   context.skip!("Skipping #{record.key} no title") if record.title.blank?
   context.skip!("Skipping #{record.key} no keywords") unless record.respond_to?(:keywords)
@@ -21,6 +29,10 @@ to_field 'id', lambda { |record, accumulator, _context|
 
 to_field 'bibtex_key_ss', lambda { |record, accumulator, _context|
   accumulator << record.key
+}
+
+to_field 'ref_type_ssm', lambda { |record, accumulator, _context|
+  accumulator << BIBTEX_ZOTERO_MAPPING[record.type] if BIBTEX_ZOTERO_MAPPING.include?(record.type)
 }
 
 to_field 'title_display', lambda { |_record, accumulator, context|

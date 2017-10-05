@@ -173,6 +173,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'university_ssim', label: 'University'
     config.add_index_field 'thesis_type_ssm', label: 'Degree Type'
     config.add_index_field 'book_title_ssim', label: 'Book Title'
+    config.add_index_field 'ref_type_ssm', label: 'Reference Type'
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes'
