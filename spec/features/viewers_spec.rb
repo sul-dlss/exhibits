@@ -56,5 +56,17 @@ describe 'Viewers', type: :feature do
 
       expect(field_labeled('IIIF manifest URL pattern').value).to eq 'https://example.com/manifest/{id}'
     end
+
+    it 'is invalid without {id}' do
+      visit edit_exhibit_viewers_path(exhibit)
+
+      within '#iiif-manifest' do
+        fill_in 'viewer_custom_manifest_pattern', with: 'https://poorlyformed.com/manifest'
+        click_button 'Save changes'
+      end
+
+      expect(page).to have_css '.alert.alert-warning', text: 'There was a problem updating the viewer settings'
+      expect(field_labeled('IIIF manifest URL pattern').value).to be_nil
+    end
   end
 end
