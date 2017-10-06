@@ -5,20 +5,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). One notable difference is that for this project, semantic versioning is used in reference to user facing experience.
 
 ## [Unreleased]
+
 ### Added
-- Adds a Bibliography for a show page with related BibTeX records #660
-- Adds exhibit based feature flag pattern for releasing certain features to specific exhibits #674
-
 ### Changed
-- Adds additional Zotero fields to BibTeX indexing  #664, #675
-- Replaces SUL brand logos with SVGs #673
-- Generalizes how BibTeX keys are converted to SolrDocument id's #666
-
 ### Deprecated
 ### Removed
 ### Fixed
 ### Security
 
+## [1.2.0] - 2017-10-06
+### Added
+- Adds a Bibliography for a show page with related BibTeX records #660
+- Adds exhibit based feature flag pattern for releasing certain features to specific exhibits #674
+- Adds the ability for an exhibit editor to add a custom manifest pattern for a given exhibit #668
+
+### Changed
+- Adds additional Zotero fields to BibTeX indexing  #664, #675, #682
+- Replaces SUL brand logos with SVGs #673
+- Generalizes how BibTeX keys are converted to SolrDocument id's #666
+
+### Fixed
+- Fixes an issue where home page tags were showing now exhibits #690
+- When reindexing BibTeX data, a total count is now shown #655
 
 ## [1.1.0] - 2017-10-04
 
