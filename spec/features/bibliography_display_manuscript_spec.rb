@@ -51,7 +51,7 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
   end
 
   context 'when there are no associated bibliography documents returned', js: true do
-    let(:resource_id) { 'hj066rn6500' }
+    let(:resource_id) { 'xy658qf4887' }
 
     scenario 'the bibliography section is rendered (but not visible)' do
       expect(page).to have_css('.bibliography-contents', visible: false)

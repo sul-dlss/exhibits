@@ -64,6 +64,7 @@ class CatalogController < ApplicationController
     config.show.partials.insert(1, :viewer)
     config.show.partials.unshift :bibliography_buttons
     config.show.partials << :bibliography
+    config.show.partials << :cited_documents
 
     config.view.list.thumbnail_field = :thumbnail_square_url_ssm
     config.view.list.partials = [:exhibits_document_header, :index]

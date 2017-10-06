@@ -1,0 +1,10 @@
+<% if @document.reference? && @document.cites_other_documents? %>
+  <div class='col-md-12 cited-documents-contents'
+       data-path="<%= search_exhibit_catalog_path(exhibit_id: @exhibit) %>"
+       data-parentid="<%= @document.id %>"
+       data-documentids="<%= @document.related_document_ids %>"
+  >
+    <h3 class="col-md-9">This reference is found in these document bibliographies</h3>
+    <ul class="col-md-9 cited-documents-list"></ul>
+  </div>
+<% end %>

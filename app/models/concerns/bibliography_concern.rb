@@ -6,6 +6,10 @@ module BibliographyConcern
     first('format_main_ssim') == 'Reference'
   end
 
+  def cites_other_documents?
+    !related_document_ids.empty?
+  end
+
   def bibtex
     BibTeX.parse(first('bibtex_ts')) if reference?
   end
