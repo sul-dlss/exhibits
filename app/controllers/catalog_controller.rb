@@ -58,9 +58,10 @@ class CatalogController < ApplicationController
 
     config.show.title_field = 'title_full_display'
     config.show.oembed_field = :url_fulltext
-    config.show.partials.insert(1, :viewer)
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
+    config.show.partials.insert(1, :viewer)
+    config.show.partials.unshift :bibliography_buttons
     config.show.partials << :bibliography
 
     config.view.list.thumbnail_field = :thumbnail_square_url_ssm

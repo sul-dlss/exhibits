@@ -17,4 +17,18 @@ module BibliographyConcern
   def related_document_ids
     fetch('related_document_id_ssim', []) if reference?
   end
+
+  def bibliography_url
+    first('bibtex_key_ss') if reference?
+  end
+
+  def zotero_url
+    return unless reference?
+    begin
+      url = URI.parse(bibliography_url)
+      url.to_s if url.host =~ /zotero/i
+    rescue URI::InvalidURIError
+      nil # just a regular BibTeX key
+    end
+  end
 end
