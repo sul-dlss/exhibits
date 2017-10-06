@@ -1,5 +1,5 @@
-<%= bootstrap_form_for([current_exhibit, @resource.becomes(BibliographyResource)], as: :resource) do |f| %>
-  <%= f.file_field :bibtex_file, label: 'BibTeX File', required: true, accept: 'application/x-bibtex'  %>
+<%= bootstrap_form_for([current_exhibit, @resource.becomes(BibliographyResource)], layout: :horizontal, label_col: `col-md-2`, control_col: `col-md-6`, as: :resource) do |f| %>
+  <%= f.file_field :bibtex_file, label: 'BibTeX File', class: 'form-control', control_col: 'col-sm-6', required: true, accept: 'application/x-bibtex', help: 'Each BibTeX file entry will be added as an exhibit item with a “Reference” resource type.'  %>
   <div class="form-actions">
     <div class="primary-actions">
       <%= cancel_link @resource, :back, class: 'btn btn-default' %>
