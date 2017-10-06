@@ -639,6 +639,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   bibtex-ruby
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
