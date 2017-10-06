@@ -13,3 +13,5 @@ sidekiq:
 feature_flags:
   themes: false
   bibliography_resource: false
+traject:
+  processing_thread_pool: 1
