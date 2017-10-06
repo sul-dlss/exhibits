@@ -91,6 +91,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       it 'has a reference type' do
         expect(document['ref_type_ssm']).to eq ['Journal article']
       end
+
+      it 'has annotations' do
+        expect(document['general_notes_ssim'].last).to match(/^The following values/)
+      end
     end
 
     context 'book' do

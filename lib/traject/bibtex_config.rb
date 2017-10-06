@@ -116,6 +116,10 @@ to_field 'doi_ssim', lambda { |record, accumulator, _context|
   accumulator << record.doi.to_s.presence if record.respond_to?(:doi)
 }
 
+to_field 'general_notes_ssim', lambda { |record, accumulator, _context|
+  accumulator << record.annote.to_s.presence if record.respond_to?(:annote)
+}
+
 to_field 'format_main_ssim', literal('Reference')
 
 # raw serialization of BibTeX::Entry
