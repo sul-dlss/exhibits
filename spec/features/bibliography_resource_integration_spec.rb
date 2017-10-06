@@ -168,8 +168,8 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   context 'with no title' do
     let(:file) { 'spec/fixtures/bibliography/notitle.bib' }
 
-    it 'is skipped' do
-      expect(to_solr_hash).to be_nil
+    it 'does not error (will be skipped because it does not include an id)' do
+      expect(to_solr_hash[:id]).to be_blank
     end
   end
   context 'with no author' do
@@ -185,8 +185,8 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   context 'with no keywords' do
     let(:file) { 'spec/fixtures/bibliography/nokeywords.bib' }
 
-    it 'is skipped' do
-      expect(to_solr_hash).to be_nil
+    it 'does not error (will be skipped because it does not include an id)' do
+      expect(to_solr_hash[:id]).to be_blank
     end
   end
   context 'with TeX-ified title' do

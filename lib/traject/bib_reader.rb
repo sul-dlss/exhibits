@@ -4,6 +4,9 @@
 class BibReader
   # @param input_stream [File]
   # @param settings [Traject::Indexer::Settings]
+
+  delegate :size, to: :bibtex
+
   def initialize(input_stream, settings)
     @settings = Traject::Indexer::Settings.new settings
     @input_stream = input_stream

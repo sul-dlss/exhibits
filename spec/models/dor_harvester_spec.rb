@@ -152,14 +152,15 @@ describe DorHarvester do
       subject.save!
       allow(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_return(upstream: true)
       allow(resource).to receive(:collection?).and_return(false)
-      allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return({})
+      allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return(id: 'abc123')
 
       allow(blacklight_solr).to receive(:update)
       allow(subject).to receive(:commit)
     end
 
     let(:solr_data) do
-      [{ spotlight_resource_id_ssim: subject.to_global_id,
+      [{ id: 'abc123',
+         spotlight_resource_id_ssim: subject.to_global_id,
          spotlight_resource_type_ssim: 'dor_harvesters',
          upstream: true }]
     end
