@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Adds placeholder thumbnails for bibliography documents. #698
+
 ### Changed
 - Updates BibTeX file upload UI #699
 ### Deprecated
