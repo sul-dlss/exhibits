@@ -20,7 +20,7 @@
           var html = '<p class="bibliography-body">' +
                       bibEntry.formatted_bibliography_ts +
                       ' <a href="' +
-                      data.baseurl + bibEntry.id +
+                      [ data.path, bibEntry.id].join('/') +
                       '">[View full reference]</a>' +
                       '</p>';
           $el.find('.bibliography-list').append(html);
