@@ -38,11 +38,11 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
         # must be sorted correctly
         within 'p:nth-child(1)' do
           expect(page).to have_content('Whatley, E. G. 1986.')
-          expect(page).to have_css('a[href="http://zotero.org/groups/1051392/items/EI8BRRXB"]')
+          expect(page).to have_css('a[href="/default-exhibit/catalog/EI8BRRXB"]')
         end
         within 'p:nth-child(2)' do
           expect(page).to have_content('Wille, Clara. 2004.')
-          expect(page).to have_css('a[href="http://zotero.org/groups/1051392/items/QTWBAWKX"]')
+          expect(page).to have_css('a[href="/default-exhibit/catalog/QTWBAWKX"]')
         end
       end
     end
