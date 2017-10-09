@@ -61,9 +61,7 @@ to_field 'pages_ssm', from_bibtex(:pages)
 
 to_field 'doi_ssim', from_bibtex(:doi)
 
-to_field 'general_notes_ssim', lambda { |record, accumulator, _context|
-  accumulator << record.annote.to_s.presence if record.respond_to?(:annote)
-}
+to_field 'general_notes_ssim', from_bibtex(:annote)
 
 to_field 'format_main_ssim', literal('Reference')
 
