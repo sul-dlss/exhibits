@@ -21,6 +21,14 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   end
   let(:to_solr_hash) { bibliography_resource.document_builder.to_solr.first }
 
+  before :all do
+    ActiveJob::Base.queue_adapter = :inline # block until indexing has committed
+  end
+
+  after :all do
+    ActiveJob::Base.queue_adapter = :test # restore
+  end
+
   it 'can write the document to solr' do
     expect { bibliography_resource.reindex }.not_to raise_error
   end
@@ -111,6 +119,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       it 'has an address' do
         expect(document['location_ssi']).to eq ['Coimbra']
       end
+
+      it 'has formatted bibliography in HTML' do
+        expect(document.formatted_bibliography).to match(/^de Azevedo, R\./)
+      end
     end
 
     context 'book section' do
@@ -131,6 +143,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       it 'has a reference type' do
         expect(document['ref_type_ssm']).to eq ['Book section']
       end
+
+      it 'has formatted bibliography in HTML' do
+        expect(document.formatted_bibliography).to match(/^Whatley, E\. G\./)
+      end
     end
 
     context 'thesis' do
@@ -147,6 +163,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       it 'has a reference type' do
         expect(document['ref_type_ssm']).to eq ['Thesis']
       end
+
+      it 'has formatted bibliography in HTML' do
+        expect(document.formatted_bibliography).to match(/^Wilson, E\. A\./)
+      end
     end
 
     context 'miscellaneous' do
@@ -154,6 +174,10 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
       it 'has a reference type' do
         expect(document['ref_type_ssm']).to eq ['Document']
+      end
+
+      it 'has formatted bibliography in HTML' do
+        expect(document.formatted_bibliography).to match(/^Gwara, S\./)
       end
     end
   end
@@ -168,12 +192,20 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document.related_document_ids).to include 'aa111bb2222'
       expect(document.related_document_ids).not_to include 'test' # strips out "test"
     end
+
+    it 'has formatted bibliography in HTML' do
+      expect(document.formatted_bibliography).to include 'A Declaration of Certayne Principall Articles of Religion'
+    end
   end
   context 'with no title' do
     let(:file) { 'spec/fixtures/bibliography/notitle.bib' }
 
     it 'does not error (will be skipped because it does not include an id)' do
       expect(to_solr_hash[:id]).to be_blank
+    end
+
+    it 'has no formatted_bibliography as it is excluded' do
+      expect(document.formatted_bibliography).to be_nil
     end
   end
   context 'with no author' do
@@ -185,12 +217,20 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
         expect(to_solr_hash).to include field_name
       end
     end
+
+    it 'has formatted bibliography in HTML' do
+      expect(document.formatted_bibliography).to include 'A Declaration of Certayne Principall Articles of Religion'
+    end
   end
   context 'with no keywords' do
     let(:file) { 'spec/fixtures/bibliography/nokeywords.bib' }
 
     it 'does not error (will be skipped because it does not include an id)' do
       expect(to_solr_hash[:id]).to be_blank
+    end
+
+    it 'has no formatted_bibliography as it is excluded' do
+      expect(document.formatted_bibliography).to be_nil
     end
   end
   context 'with TeX-ified title' do
@@ -206,13 +246,18 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
     it 'does not parse the BibTeX cleanly' do
       expect { document }.not_to raise_error
-      expect(BibTeX.log).to have_received(:warn)
+      expect(BibTeX.log).not_to have_received(:warn)
     end
 
     it 'parses the titles' do
       title_fields.each do |field_name|
         expect(document[field_name].first).to match(/Language and Mortality/)
       end
+    end
+
+    it 'has formatted bibliography in HTML' do
+      expect(document.formatted_bibliography).to match(/^Rowley, S\./)
+      expect(document.formatted_bibliography).to include 'A Wesen/Dan Nacodnisse'
     end
   end
 end

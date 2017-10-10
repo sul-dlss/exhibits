@@ -4,18 +4,20 @@
 class BibReader
   # @param input_stream [File]
   # @param settings [Traject::Indexer::Settings]
-
-  delegate :size, to: :bibtex
-
   def initialize(input_stream, settings)
     @settings = Traject::Indexer::Settings.new settings
     @input_stream = input_stream
-    @bibtex = BibTeX.parse(input_stream.read, filter: :latex)
+    @bibliography = Bibliography.new(input_stream.read)
   end
 
+  # @return [BibTeX::Entry]
   def each(&block)
-    bibtex.each(&block)
+    bibliography.bibliography.each(&block)
   end
 
-  attr_reader :bibtex
+  def size
+    bibliography.bibliography.size
+  end
+
+  attr_reader :bibliography
 end

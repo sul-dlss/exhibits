@@ -10,15 +10,14 @@ class Bibliography
   def initialize(bibliography)
     @bibliography = case bibliography
                     when Pathname
-                      BibTeX.parse(bibliography.read)
+                      to_bibtex(bibliography.read)
                     when String
-                      BibTeX.parse(bibliography)
+                      to_bibtex(bibliography)
                     when BibTeX::Bibliography
                       bibliography
                     else
                       raise ArgumentError, 'Unsupported type'
                     end
-    remove_latex_markup!
   end
 
   def to_html
@@ -34,30 +33,16 @@ class Bibliography
     cp.bibliography.join
   end
 
-  # Our bibliography has elements that have LaTeX markup in them, namely {}'s and
-  # \textit{}, etc. This method removes that markup. Note that the `.convert :latex`
-  # function provided by the bibtex-ruby gem is trivial and doesn't handle the majority
-  # of cases.
-  def remove_latex_markup!
-    @bibliography.each do |item|
-      item.title = strip_latex(item.title) if item.respond_to?(:title)
-      item.booktitle = strip_latex(item.booktitle) if item.respond_to?(:booktitle)
-      # TODO: do we need to call strip_latex on other fields?
-    end
-    @bibliography = @bibliography.convert :latex # cleans up the remaining {}'s in other fields
+  # @return [BibTeX::Bibliography]
+  def to_bibtex(bibtex_data)
+    BibTeX.parse(preprocess(bibtex_data), filter: :latex)
   end
 
-  # LaTeX.decode from the latex-decode gem doesn't catch nested cases like
-  # `\textit{my {Capitalized Title}}`. So we implement a very simple aggressive
-  # removal of LaTeX markup
-  def strip_latex(latex)
-    return if latex.blank?
-    s = latex.dup
-    s.gsub!(/\\textbackslash/i, '')
-    s.gsub!(/\\textit/i, '')
-    s.gsub!(/\\textbf/i, '')
-    s.gsub!(/[\{\}]/, '')
-    s.gsub!(/\\\s*&/, '')
-    s
+  def preprocess(bibtex_data)
+    # BibTeX.parse `filter: latex` doesn't handle these cases correctly
+    bibtex_data.gsub!(/\\textbackslash/i, '')
+    bibtex_data.gsub!(/\\textit/i, '')
+
+    bibtex_data
   end
 end
