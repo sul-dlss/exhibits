@@ -1,18 +1,18 @@
 ##
 # Mirador controller providing an iframeable Mirador
 class MiradorController < ApplicationController
-  before_action :set_manifest_url
-  layout :false
+  before_action :set_manifest
+  layout false
 
   def index; end
 
   private
 
-  def set_manifest_url
-    @manifest_url = mirador_params
+  def set_manifest
+    @manifest = mirador_params
   end
 
   def mirador_params
-    params.require(:manifest_url)
+    params.require(:manifest)
   end
 end
