@@ -22,4 +22,9 @@ module ApplicationHelper
       image_tag 'iiif-drag-n-drop.svg', width: '40px', alt: 'IIIF Drag-n-drop'
     end
   end
+
+  def paragraph_wrap(options = {})
+    return if options[:value].blank?
+    safe_join(options[:value].map { |value| content_tag('p', value) })
+  end
 end

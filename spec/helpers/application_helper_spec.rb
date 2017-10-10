@@ -16,4 +16,10 @@ describe ApplicationHelper, type: :helper do
       expect(helper.document_collection_title(value: ['foo-|-bar', 'baz-|-bop'])).to eq 'bar and bop'
     end
   end
+
+  describe '#paragraph_wrap' do
+    it 'separates multivalued fields into paragraphs' do
+      expect(helper.paragraph_wrap(value: %w(a b))).to eq '<p>a</p><p>b</p>'
+    end
+  end
 end
