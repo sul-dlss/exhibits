@@ -52,6 +52,7 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
     config.index.display_type_field = 'display_type'
+    config.index.default_bibliography_thumbnail = 'default-square-thumbnail-book.png'
     config.index.thumbnail_field = :thumbnail_url_ssm
     config.index.square_image_field = :thumbnail_square_url_ssm
     config.index.slideshow_field = :large_image_url_ssm
@@ -67,9 +68,11 @@ class CatalogController < ApplicationController
     config.view.list.thumbnail_field = :thumbnail_square_url_ssm
     config.view.list.partials = [:thumbnail, :index_header, :index]
     config.view.gallery.partials = [:index_header, :index]
+    config.view.gallery.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
     config.view.heatmaps.partials = []
     config.view.heatmaps.color_ramp = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494']
     config.view.masonry.partials = [:index]
+    config.view.masonry.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
     config.view.slideshow.partials = [:index]
     config.view.embed.partials = [:viewer]
     config.view.embed.if = false
