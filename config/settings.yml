@@ -7,7 +7,7 @@ stacks:
   file_url: 'https://stacks.stanford.edu/file'
 
 purl:
-  iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest.json'
+  iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest'
 sidekiq:
   logger_level: 'Logger::INFO' # The default from Sidekiq
 feature_flags:

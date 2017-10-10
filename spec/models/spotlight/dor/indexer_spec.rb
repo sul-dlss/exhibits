@@ -31,7 +31,7 @@ describe Spotlight::Dor::Indexer do
     end
 
     it 'adds a reference to the IIIF manifest' do
-      expect(solr_doc['iiif_manifest_url_ssi']).to eq 'https://purl.stanford.edu/oo000oo0000/iiif/manifest.json'
+      expect(solr_doc['iiif_manifest_url_ssi']).to eq 'https://purl.stanford.edu/oo000oo0000/iiif/manifest'
     end
   end
 
