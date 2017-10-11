@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Adds a IIIF Drag and Drop badge to Mirador viewer pages #707
 ### Changed
 - Updates BibTeX file upload UI #699
 ### Deprecated

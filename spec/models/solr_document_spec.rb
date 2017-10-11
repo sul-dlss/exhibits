@@ -35,5 +35,12 @@ describe SolrDocument do
           .to eq 'https://www.example.com/new/abc123'
       end
     end
+    context 'without an indexed manifest' do
+      subject { described_class.new }
+
+      it 'returns nil' do
+        expect(subject.exhibit_specific_manifest('present')).to be_nil
+      end
+    end
   end
 end

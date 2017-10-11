@@ -48,4 +48,9 @@ describe 'viewers/_mirador.html.erb', type: :view do
       expect(rendered).to include CGI.escape('https://example.com/abc123')
     end
   end
+  it 'has the IIIF drag and drop' do
+    expect(rendered).to have_css 'a[href="https://library.stanford.edu/project'\
+      's/international-image-interoperability-framework/viewers?manifest=https'\
+      '%3A%2F%2Fpurl.stanford.edu%2Fbc853rd3116%3Fmanifest"]'
+  end
 end

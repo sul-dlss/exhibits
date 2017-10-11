@@ -8,6 +8,8 @@ module ManifestConcern
 
   def exhibit_specific_manifest(custom_manifest_pattern)
     return manifest if custom_manifest_pattern.blank?
+    # Return early if there is not a manifest pattern (a heuristic for a non-image thing)
+    return manifest if manifest.blank?
     custom_manifest_pattern.gsub('{id}', first('id'))
   end
 end
