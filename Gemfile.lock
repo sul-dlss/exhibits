@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight
-  revision: 6a6f7ecf3a5e0fc8eca2980e77beef7db4cd9f07
+  revision: f5c3e65b204fd0f30fab4539d99273507ded3ab3
   branch: master
   specs:
     blacklight-spotlight (1.0.0)
@@ -90,7 +90,7 @@ GEM
       io-like (~> 0.3.0)
     arel (7.1.4)
     ast (2.3.0)
-    autoprefixer-rails (7.1.4.1)
+    autoprefixer-rails (7.1.5)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
