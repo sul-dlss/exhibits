@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'bib_reader'
+require_relative 'bibtex_reader'
 require_relative 'macros/bibtex'
 require_relative 'macros/general'
 
@@ -10,7 +10,7 @@ extend Macros::BibTeX
 extend Macros::General
 
 settings do
-  provide 'reader_class_name', 'BibReader'
+  provide 'reader_class_name', 'BibTeXReader'
   provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
 

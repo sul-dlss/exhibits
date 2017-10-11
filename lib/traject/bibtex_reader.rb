@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Reads in BibTex records for traject
-class BibReader
+class BibTeXReader
   # @param input_stream [File]
   # @param settings [Traject::Indexer::Settings]
   def initialize(input_stream, settings)

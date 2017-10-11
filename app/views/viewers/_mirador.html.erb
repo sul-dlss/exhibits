@@ -3,7 +3,7 @@
 <% if exhibit_specific_manifest %>
   <iframe
     src="<%= mirador_index_path(
-      manifest_url: exhibit_specific_manifest
+      manifest: exhibit_specific_manifest
     ) %>"
     allowfullscreen="true"
     class="mirador-embed-wrapper"
@@ -13,4 +13,6 @@
     scrolling="no"
     width="100%"
   ></iframe>
+
+  <%= iiif_drag_n_drop(exhibit_specific_manifest) %>
 <% end %>

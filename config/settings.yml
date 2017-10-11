@@ -15,3 +15,4 @@ feature_flags:
   bibliography_resource: false
 traject:
   processing_thread_pool: 1
+iiif_dnd_base_url: https://library.stanford.edu/projects/international-image-interoperability-framework/viewers?%{query}
