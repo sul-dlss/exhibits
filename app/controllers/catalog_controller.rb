@@ -267,4 +267,9 @@ class CatalogController < ApplicationController
     config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
     config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
   end
+
+  # JSON API queries should not trigger new search histories
+  def start_new_search_session?
+    super && params[:format] != 'json'
+  end
 end
