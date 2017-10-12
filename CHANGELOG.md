@@ -7,15 +7,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
-- Adds placeholder thumbnails for bibliography documents. #698
-- Adds a IIIF Drag and Drop badge to Mirador viewer pages #707
-
 ### Changed
-- Updates BibTeX file upload UI #699
 ### Deprecated
 ### Removed
 ### Fixed
 ### Security
+
+## [1.3.0] - 2017-10-12
+### Added
+- Adds placeholder thumbnails for bibliography documents #651, #698
+- Adds a IIIF Drag and Drop badge to Mirador viewer pages #680, #693, #707
+- Adds IIIF drag-n-drop icon to search results #681, #732
+- Adds support for multiple notes per bibliography resource #605, #685, #715
+- Adds View on Zotero site to bibliography show page #539, #670
+
+### Changed
+- Updates BibTeX file upload UI #695, #699
+- Refactor BibTeX field extraction into Traject Macro #669, #671, #686
+- Refactor BibTeX extraction macros #671, #706
+- Refactor to use BibTeX prefix for Traject pipeline throughout #712
+- Drop the `.json` from our manifest urls (for SDR objects) #710
+- Add rails config to `.gitignore` (not added on install) #719
+- Updates mirador to v2.6.0 fixes #599, #730
+- Configure sidekiq processes on stage to better match prod #711
+- Remove the mirador configuration that prevents the Add Slot control #667, #733
+
+### Fixed
+- View full reference goes to Reference show page #702, #705
+- Updates Spotlight to enable delete email fixes #704, #708
+- Does not store a search result to reduce pollution of search session #701, #717
 
 ## [1.2.0] - 2017-10-06
 ### Added
