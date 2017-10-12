@@ -65,23 +65,26 @@
       padding-top: $padding-large-vertical;
     }
 
-    .index_title {
-      margin-left: 120px;
-    }
-
     .document-counter {
       display: none;
     }
 
     .document-metadata {
-      margin-left: 120px;
+      @extend .col-xs-8;
+      @extend .col-md-9;
+      @extend .col-xs-offset-3;
+      @extend .col-md-offset-2;
     }
 
     .document-thumbnail {
-      float: left;
+      float: none;
       height: 0;
       margin: 0;
       padding: 0;
+
+      @media (max-width: $screen-sm-min) {
+        height: auto;
+      }
     }
   }
 

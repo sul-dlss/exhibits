@@ -66,7 +66,7 @@ class CatalogController < ApplicationController
     config.show.partials << :bibliography
 
     config.view.list.thumbnail_field = :thumbnail_square_url_ssm
-    config.view.list.partials = [:thumbnail, :index_header, :index]
+    config.view.list.partials = [:exhibits_document_header, :index]
     config.view.gallery.partials = [:index_header, :index]
     config.view.gallery.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
     config.view.heatmaps.partials = []
