@@ -42,6 +42,7 @@ class Bibliography
     # BibTeX.parse `filter: latex` doesn't handle these cases correctly
     bibtex_data.gsub!(/\\textbackslash/i, '')
     bibtex_data.gsub!(/\\textit/i, '')
+    bibtex_data.gsub!(/\\textbar/i, '|')
 
     bibtex_data
   end

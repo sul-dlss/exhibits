@@ -101,6 +101,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
 
       it 'has annotations' do
+        expect(document['general_notes_ssim'].first).to eq 'ELB'
         expect(document['general_notes_ssim'].last).to match(/^The following values/)
       end
     end
@@ -122,6 +123,11 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
       it 'has formatted bibliography in HTML' do
         expect(document.formatted_bibliography).to match(/^de Azevedo, R\./)
+      end
+
+      it 'has annotations with commas' do
+        expect(document['general_notes_ssim'][1]).to match(/^CCC MS 470/)
+        expect(document['general_notes_ssim'].last).to match(/^The following values/)
       end
     end
 
