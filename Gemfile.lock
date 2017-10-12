@@ -349,7 +349,7 @@ GEM
     mini_magick (4.8.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
-    mirador_rails (0.6.0)
+    mirador_rails (0.7.0)
       font-awesome-rails
       jquery-rails
       material_icons
@@ -579,7 +579,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.6)
     tins (1.13.2)
-    tinymce-rails (4.6.4)
+    tinymce-rails (4.6.7)
       railties (>= 3.1.1)
     tophat (2.3.1)
       actionpack (>= 3.0.0)
