@@ -16,10 +16,10 @@ module ApplicationHelper
 
   ##
   # @param [String] manifest
-  def iiif_drag_n_drop(manifest)
+  def iiif_drag_n_drop(manifest, width: '40px')
     link_url = format Settings.iiif_dnd_base_url, query: { manifest: manifest }.to_query
     link_to link_url, class: 'iiif-dnd pull-right', data: { turbolinks: false } do
-      image_tag 'iiif-drag-n-drop.svg', width: '40px', alt: 'IIIF Drag-n-drop'
+      image_tag 'iiif-drag-n-drop.svg', width: width, alt: 'IIIF Drag-n-drop'
     end
   end
 end
