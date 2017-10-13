@@ -739,4 +739,36 @@ describe Spotlight::Dor::Indexer do
       end
     end # add_object_full_text
   end # full text indexing concern
+
+  context 'Parker specific indexing' do
+    let(:manuscript_number_field) { 'manuscript_number_ssim' }
+
+    describe '#add_manuscript_number' do
+      before do
+        subject.send(:add_manuscript_number, resource, solr_doc)
+      end
+
+      it 'without a manuscript number, expect blank' do
+        expect(solr_doc[manuscript_number_field]).to be_blank
+      end
+
+      context 'with a manuscript number' do
+        # e.g. from https://purl.stanford.edu/cf386wt1778.mods
+        let(:modsbody) do
+          <<-EOF
+            <location>
+              <physicalLocation type="repository">
+                UK, Cambridge, Corpus Christi College, Parker Library
+              </physicalLocation>
+              <shelfLocator>MS 69</shelfLocator>
+            </location>
+          EOF
+        end
+
+        it 'extracts correctly' do
+          expect(solr_doc[manuscript_number_field]).to include 'MS 69'
+        end
+      end
+    end # add_manuscript_number
+  end
 end

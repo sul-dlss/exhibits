@@ -37,3 +37,9 @@ Bundler/OrderedGems:
 
 RSpec/ExampleLength:
   Max: 10
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
+    - 'app/models/spotlight/dor/indexer.rb'
+    - 'spec/**/*'
