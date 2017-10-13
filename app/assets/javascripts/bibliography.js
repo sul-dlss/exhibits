@@ -15,16 +15,20 @@
           format: 'json',
           rows: '1000'
         }, function (response) {
-        for (var i = 0; i < response.response.docs.length; i++) {
-          var bibEntry = response.response.docs[i];
-          var html = '<p class="bibliography-body">' +
-                      bibEntry.formatted_bibliography_ts +
-                      ' <a href="' +
-                      [ data.path, bibEntry.id].join('/') +
-                      '">[View full reference]</a>' +
-                      '</p>';
-          $el.find('.bibliography-list').append(html);
-        }
+          if (response.response.docs.length > 0) {
+            $el.show();
+
+            for (var i = 0; i < response.response.docs.length; i++) {
+              var bibEntry = response.response.docs[i];
+              var html = '<p class="bibliography-body">' +
+                          bibEntry.formatted_bibliography_ts +
+                          ' <a href="' +
+                          [ data.path, bibEntry.id].join('/') +
+                          '">[View full reference]</a>' +
+                          '</p>';
+              $el.find('.bibliography-list').append(html);
+            }
+          }
       });
     }
   };

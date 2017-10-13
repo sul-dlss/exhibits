@@ -2,7 +2,8 @@
   <div class='col-md-12 bibliography-contents'
        data-path="<%= search_exhibit_catalog_path(exhibit_id: @exhibit) %>"
        data-parentid="<%= @document.id %>"
-       data-sort="author_sort asc, pub_year_isi asc, title_sort asc">
+       data-sort="author_sort asc, pub_year_isi asc, title_sort asc"
+       style='display: none;'>
        <%# TODO: retrieve this sort configuration from the blacklight config %>
        <h3 class="col-md-9">Bibliography</h3>
        <div class="col-md-9 bibliography-list"></div>

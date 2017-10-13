@@ -27,9 +27,11 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
   end
 
   scenario 'bibliography element data required by async loader' do
-    expect(page).to have_css('div.bibliography-contents[data-path="/default-exhibit/catalog"]')
-    expect(page).to have_css("div.bibliography-contents[data-parentid=\"#{resource_id}\"]")
-    expect(page).to have_css('div.bibliography-contents[data-sort="author_sort asc, pub_year_isi asc, title_sort asc"]')
+    expect(page).to have_css('div.bibliography-contents[data-path="/default-exhibit/catalog"]', visible: false)
+    expect(page).to have_css("div.bibliography-contents[data-parentid=\"#{resource_id}\"]", visible: false)
+    expect(page).to have_css(
+      'div.bibliography-contents[data-sort="author_sort asc, pub_year_isi asc, title_sort asc"]', visible: false
+    )
   end
 
   scenario 'async loading of the sorted, formatted bibliography', js: true do # rubocop: disable RSpec/ExampleLength
@@ -45,6 +47,18 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
           expect(page).to have_css('a[href="/default-exhibit/catalog/QTWBAWKX"]')
         end
       end
+    end
+  end
+
+  context 'when there are no associated bibliography documents returned', js: true do
+    let(:resource_id) { 'hj066rn6500' }
+
+    scenario 'the bibliography section is rendered (but not visible)' do
+      expect(page).to have_css('.bibliography-contents', visible: false)
+      expect(page).not_to have_css('h3', text: 'Bibliography', visible: true)
+
+      # No documents are added
+      expect(page).not_to have_css('.bibliography-list')
     end
   end
 end
