@@ -180,7 +180,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'ref_type_ssm', label: 'Reference Type'
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
-    config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :paragraph_wrap
+    config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

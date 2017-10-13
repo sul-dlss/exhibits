@@ -23,14 +23,12 @@ module ApplicationHelper
     end
   end
 
-  def paragraph_wrap(options = {})
+  def notes_wrap(options = {})
     return if options[:value].blank?
-    safe_join(options[:value].map do |value|
-      if value.start_with?('<p>')
-        value.html_safe
-      else
-        content_tag('p', value.html_safe)
-      end
-    end)
+    content_tag('ul', class: 'general-notes') do
+      safe_join(options[:value].collect do |note|
+        content_tag('li', note.html_safe)
+      end)
+    end
   end
 end
