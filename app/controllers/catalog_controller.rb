@@ -144,6 +144,7 @@ class CatalogController < ApplicationController
 
     config.add_index_field 'title_full_display', label: 'Title'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
+    config.add_index_field 'text_titles_ssim', label: 'Table of Contents'
     config.add_index_field 'author_person_full_display', label: 'Author' # includes Collectors
     config.add_index_field 'author_no_collector_ssim', label: 'Author (no Collectors)'
     config.add_index_field 'editor_ssim', label: 'Editor'
