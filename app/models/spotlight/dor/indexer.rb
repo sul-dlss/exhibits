@@ -40,7 +40,9 @@ module Spotlight::Dor
     private
 
     def add_iiif_manifest_url(sdb, solr_doc)
-      solr_doc['iiif_manifest_url_ssi'] = iiif_manifest_url(sdb.bare_druid)
+      url = iiif_manifest_url(sdb.bare_druid)
+      return unless Faraday.head(url).status == 200
+      solr_doc['iiif_manifest_url_ssi'] = url
     end
 
     def iiif_manifest_url(bare_druid)
