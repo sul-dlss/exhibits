@@ -281,12 +281,19 @@ module Spotlight::Dor
     concerning :ParkerIndexing do
       included do
         before_index :add_manuscript_number
+        before_index :add_text_titles
       end
 
       def add_manuscript_number(sdb, solr_doc)
         manuscript_number = sdb.smods_rec.location.shelfLocator.try(:text)
         return if manuscript_number.blank?
         insert_field solr_doc, 'manuscript_number', manuscript_number, :symbol
+      end
+
+      def add_text_titles(sdb, solr_doc)
+        text_titles = sdb.smods_rec.tableOfContents.try(:content)
+        return if text_titles.blank?
+        insert_field solr_doc, 'text_titles', text_titles, :symbol # this is a _ssim field
       end
     end
 

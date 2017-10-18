@@ -770,5 +770,25 @@ describe Spotlight::Dor::Indexer do
         end
       end
     end # add_manuscript_number
+
+    context '#add_text_titles' do
+      before do
+        subject.send(:add_text_titles, resource, solr_doc)
+      end
+
+      it 'handles missing metadata' do
+        expect(solr_doc['text_titles_ssim']).to be_blank
+      end
+
+      context 'with metadata' do
+        let(:modsbody) do
+          '<tableOfContents displayLabel="Contents">Homiliae XL in euangelia</tableOfContents>'
+        end
+
+        it 'extracts the titles' do
+          expect(solr_doc['text_titles_ssim']).to eq(['Homiliae XL in euangelia'])
+        end
+      end
+    end
   end
 end
