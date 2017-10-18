@@ -278,6 +278,18 @@ module Spotlight::Dor
       end
     end
 
+    concerning :ParkerIndexing do
+      included do
+        before_index :add_manuscript_number
+      end
+
+      def add_manuscript_number(sdb, solr_doc)
+        manuscript_number = sdb.smods_rec.location.shelfLocator.try(:text)
+        return if manuscript_number.blank?
+        insert_field solr_doc, 'manuscript_number', manuscript_number, :symbol
+      end
+    end
+
     def insert_field(solr_doc, field, values, *args)
       Array(values).each do |v|
         Solrizer.insert_field solr_doc, field, v, *args
