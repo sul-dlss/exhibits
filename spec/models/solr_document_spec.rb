@@ -43,4 +43,43 @@ describe SolrDocument do
       end
     end
   end
+
+  describe '#annotation' do
+    subject(:annotation) do
+      described_class.new(
+        id: 'anno123',
+        'format_main_ssim' => %w(Annotation),
+        'annotation_tesim' => %w(This\ is\ my\ annotation),
+        'xywh_ssim' => %w(10,20,30,40),
+        'canvas_ssim' => %w(canvas456),
+        'related_document_id_ssim' => %w(aa111bb2222),
+        'language' => %w(Latin),
+        'motivation_ssim' => %w(sc:commenting)
+      ).annotation
+    end
+
+    it 'creates an instance from Solr document' do
+      expect(annotation).to be_an Annotation
+      expect(annotation.id).to eq 'anno123'
+    end
+
+    it 'has text content' do
+      expect(annotation.text).to be_an Annotation::Text
+      expect(annotation.content).to eq 'This is my annotation'
+      expect(annotation.language).to eq 'Latin'
+      expect(annotation.format).to eq 'text/plain'
+    end
+
+    it 'has target content' do
+      expect(annotation.target).to be_an Annotation::Target
+      expect(annotation.xywh).to eq '10,20,30,40'
+      expect(annotation.canvas).to eq 'canvas456'
+      expect(annotation.druid).to eq 'aa111bb2222'
+      expect(annotation.on).to eq 'canvas456#xywh=10,20,30,40'
+    end
+
+    it 'has misc content' do
+      expect(annotation.motivation).to eq 'sc:commenting'
+    end
+  end
 end
