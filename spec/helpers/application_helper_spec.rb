@@ -17,9 +17,11 @@ describe ApplicationHelper, type: :helper do
     end
   end
 
-  describe '#paragraph_wrap' do
-    it 'separates multivalued fields into paragraphs' do
-      expect(helper.paragraph_wrap(value: %w(a b))).to eq '<p>a</p><p>b</p>'
+  describe '#notes_wrap' do
+    let(:output) { '<ul class="general-notes"><li>a</li><li><p>b</p><p>c</p></li><li>d</li></ul>' }
+
+    it 'permits embedded HTML and handles multivalued notes as an unordered list' do
+      expect(helper.notes_wrap(value: %w(a <p>b</p><p>c</p> d))).to eq output
     end
   end
 end
