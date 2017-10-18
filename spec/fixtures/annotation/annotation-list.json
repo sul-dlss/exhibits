@@ -1,0 +1,345 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json",
+    "@id": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f253v.json",
+    "@type": "sc:AnnotationList",
+    "resources": [
+        {
+            "@id": "_:N9b143507e3d84ce3a777a45a9eed8bfa",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "9947d1a3fa5f92c068d90f06637b2235",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,320,3275,302"
+        },
+        {
+            "@id": "_:Nc6e7a54776c249a2a177a6e1bb84eb39",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "b3491f57a71f11488192cdacdaf504d3",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,623,3275,205"
+        },
+        {
+            "@id": "_:N648c6a1992a94b6da13472adccb06cde",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "108684d862e7ecf496e141b49ae0260f",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,829,3275,157"
+        },
+        {
+            "@id": "_:Nd65b43e3dd214ee79faad751830e631d",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "7b97f5d79acafd8f4d7da2cda0284924",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,986,3275,169"
+        },
+        {
+            "@id": "_:N35d48066ccbc4f7baa68b41f5c792bcc",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "e9f4b7d6086854cbdabc1ed56bc15990",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,1156,3275,187"
+        },
+        {
+            "@id": "_:Nc5206db64d32406dbca9e680157fdc0a",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "844e9e94e5d109b01d425dbeca479f54",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,1343,3275,205"
+        },
+        {
+            "@id": "_:N000c206c936b4d808fb7ce6b70d18d97",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "743d120c0aa7907c5ff6829b1554d831",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,1549,3275,157"
+        },
+        {
+            "@id": "_:Na0b3f70b993e4f628ec5ade46d8fdacf",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "5b7db3c3cc154bb1d4b05f51725e7ca7",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,1707,3275,169"
+        },
+        {
+            "@id": "_:N63cc9fcdc4514c8dbecf09bde445b27e",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "50167cd094edec46d5dbf75f1db554a9",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,1876,3275,169"
+        },
+        {
+            "@id": "_:Naf0d0c250162463abb01ad4d0356caa4",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "75cf1f6662e3281c7a198ffa3c2dc2a1",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,2046,3275,217"
+        },
+        {
+            "@id": "_:N690518997b644b46b1695fc6fbd5e71b",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "a65cc9870504c2737c10e13816f8b896",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,2264,3275,181"
+        },
+        {
+            "@id": "_:Na634f718e51f422797efcb2841593aa5",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "ee6cb74df4a52b1bfd7e22a3c57b3de8",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,2445,3275,193"
+        },
+        {
+            "@id": "_:N475e9df3e0b049f7a7783410bf06de73",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "9c4993e2449c02248c58a45535482fe0",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,2639,3275,193"
+        },
+        {
+            "@id": "_:Ne9d0393ed430489aa0dfe95db2c9f960",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "a6a571547256d415b7002ec399cde62d",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,2833,3275,157"
+        },
+        {
+            "@id": "_:Nf688bd8907de4fcf9a4512036b541922",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "9df5ebdd274bf8c10c51c62775d9504f",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,2990,3275,181"
+        },
+        {
+            "@id": "_:N2699138175cf48f7bf70ea10614489a4",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "deb0b81ab345ab072f76b1dfc9a36fba",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,3172,3275,181"
+        },
+        {
+            "@id": "_:Ne3bd65a9838447848c01f045b9ef5bf0",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "a992e845465d08b444af4bc3b8b9c845",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,3353,3275,193"
+        },
+        {
+            "@id": "_:Nc8a2effe4fd84368baf36c8a614741f5",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "bab217d0ded1e5e602e27d84ef9cc304",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "IN DIE PENTECOSTEN[:]",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,3547,3275,145"
+        },
+        {
+            "@id": "_:N60432bed27774715846277876e216c31",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "4ab843578bbe66a7c3376187361b1deb",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "{lhm: ## co[n]#?i?o 47a[superscript]/##### Wb.}Fram \u00fea[m] halgan easterlican d\u00e6ge: synd getealde ",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,3692,3275,193"
+        },
+        {
+            "@id": "_:Nab41b087e0664a53b9fbe35a545603e1",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "73a33f6fbb1ac93dd1c4349b8f2d451c",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "fiftig daga to \u00feisu[m] d\u00e6ge. [et] \u00f0es d\u00e6g is gehaten pente",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,3886,3275,217"
+        },
+        {
+            "@id": "_:N664eac1b41244a0f8904375c77a89f23",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "135ac434523aef18eccb1fcd001ec52d",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "costen: \u00fe[\u00e6t] is se fifteogo\u00f0a d\u00e6g \u00fe\u00e6re easterlican tide; ",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,4104,3275,187"
+        },
+        {
+            "@id": "_:N683fe4372949493293e857ce5d4b9c12",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "61303e4a7257b0c19f2c9602e6c8be38",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "\u00fees d\u00e6g w\u00e6s on \u00f0\u00e6re ealdan \u00e6*. geset [et]amp; gehalgod; God ",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,4292,3275,205"
+        },
+        {
+            "@id": "_:N029e40a93d38429ea1fd181aa6cb1993",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "fac57cf7fc199c80029720210d94ca10",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "bebead moyse on egypta lande [erasure of approx 8 letters] \u00fe[\u00e6t] he [et] eall is",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,4498,3275,133"
+        },
+        {
+            "@id": "_:Ned6424f254fa44afb40372a4ad286a54",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "11cc0a4fa9e392d4d2657f3943d28824",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "rahela folc sceoldan offrian \u00e6t \u00e6lcu[m] hiwisce{domum} gode ",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,4631,3275,211"
+        },
+        {
+            "@id": "_:N1c0de9157bc54796a69598f6ba66478c",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "37bdf64ecf8dbf08b754739f9c1109b1",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "an lamb anes geares [et] mearcian mid \u00fea[m] blode rode",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,4843,3275,163"
+        },
+        {
+            "@id": "_:N202d08e5f2574d2a9da0b083e55a2cce",
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "resource": {
+                "@id": "821bd33466495ef5e771d4a554af5f8d",
+                "@type": "cnt:ContentAsText",
+                "format": "text/plain",
+                "chars": "tacn on heora ge{i}dyru[m]. [et] oferslegu[m] {bott margin: sup[er]liminarib[us]}; \u00fea on \u00f0\u00e6re nihte ",
+                "language": "ang"
+            },
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-520#xywh=684,5006,3275,193"
+        }
+    ]
+}
