@@ -13,6 +13,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.4.0] - 2017-10-19
+### Added
+- Adds Manuscript Number and tableOfContents to MODS indexing #721, #723
+
+### Changed
+- Style general notes as an unordered list #742
+
+### Fixed
+- Only display the Bibliography section when the async process returns documents #738
+- Only add IIIF logos to SDR objects with manifests #745
+- Add missing migration from Spotlight related to tagging #753
+- Permit up to 1000 hits for JSON API (results in full listing of bibliographies) #700
+- Remove media-query to help results thumbnail alignment #735
+- Configure sidekiq processes to account for concurrency and nCPUs in stage #711
+
 ## [1.3.0] - 2017-10-12
 ### Added
 - Adds placeholder thumbnails for bibliography documents #651, #698
