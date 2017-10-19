@@ -813,5 +813,34 @@ describe Spotlight::Dor::Indexer do
         end
       end
     end
+
+    context '#add_incipit' do
+      before do
+        subject.send(:add_incipit, resource, solr_doc)
+      end
+
+      it 'handles missing metadata' do
+        expect(solr_doc['incipit_ssim']).to be_blank
+      end
+
+      context 'with metadata' do
+        let(:modsbody) do # from cf386wt1778
+          <<-EOF
+          <relatedItem type="something">
+            <note/>
+          </relatedItem>
+          <relatedItem type="constituent">
+            <note displayLabel="Incipit" type="incipit">
+              In illo tempore maria magdalene et maria iacobi et solomae
+            </note>
+          </relatedItem>
+          EOF
+        end
+
+        it 'extracts the incipit' do
+          expect(solr_doc['incipit_ssim']).to eq(['In illo tempore maria magdalene et maria iacobi et solomae'])
+        end
+      end
+    end
   end
 end
