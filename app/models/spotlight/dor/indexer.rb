@@ -283,6 +283,7 @@ module Spotlight::Dor
     concerning :ParkerIndexing do
       included do
         before_index :add_manuscript_number
+        before_index :add_manuscript_titles
         before_index :add_text_titles
         before_index :add_incipit
       end
@@ -291,6 +292,14 @@ module Spotlight::Dor
         manuscript_number = sdb.smods_rec.location.shelfLocator.try(:text)
         return if manuscript_number.blank?
         insert_field solr_doc, 'manuscript_number', manuscript_number, :symbol
+      end
+
+      # We need to join the `displayLabel` and titles for all *alternative* titles
+      # `title_variant_display` has different behavior
+      def add_manuscript_titles(sdb, solr_doc)
+        manuscript_titles = parse_manuscript_titles(sdb)
+        return if manuscript_titles.blank?
+        insert_field solr_doc, 'manuscript_titles', manuscript_titles, :symbol # this is a _ssim field
       end
 
       def add_text_titles(sdb, solr_doc)
@@ -304,6 +313,21 @@ module Spotlight::Dor
         return if incipit.blank?
         insert_field solr_doc, 'incipit', incipit, :symbol # this is a _ssim field
       end
+
+      # parse titleInfo[type="alternative"]/title into tuples of (displayLabel, title)
+      def parse_manuscript_titles(sdb)
+        manuscript_titles = []
+        sdb.smods_rec.title_info.each do |title_info|
+          next unless title_info.attr('type') == 'alternative'
+          display_label = title_info.attr('displayLabel')
+          title_info.at_xpath('*[local-name()="title"]').tap do |title|
+            label_with_title = [display_label, title.content].map(&:to_s).map(&:strip)
+            manuscript_titles << label_with_title.join('-|-')
+          end
+        end
+        manuscript_titles
+      end
+      private :parse_manuscript_titles
 
       def parse_incipit(sdb)
         sdb.smods_rec.related_item.each do |item|
