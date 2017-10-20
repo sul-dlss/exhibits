@@ -842,5 +842,58 @@ describe Spotlight::Dor::Indexer do
         end
       end
     end
+
+    context '#add_manuscript_titles' do
+      before do
+        subject.send(:add_manuscript_titles, resource, solr_doc)
+      end
+
+      it 'handles missing metadata' do
+        expect(solr_doc['manuscript_titles_ssim']).to be_blank
+      end
+
+      context 'with no alternative titles' do
+        let(:modsbody) do # from hq225cp3879
+          <<-EOF
+            <titleInfo authority="Corpus Christi College">
+              <title>
+                Abd Allah Baydawi, Tawali Al-Anwar. Mahmud Isfahani, Commentary on Tawali Al-Anwar
+              </title>
+            </titleInfo>
+          EOF
+        end
+
+        it 'is blank' do
+          expect(solr_doc['manuscript_titles_ssim']).to be_blank
+        end
+      end
+
+      context 'with alternative titles' do
+        let(:modsbody) do # from hq225cp3879
+          <<-EOF
+            <titleInfo authority="Corpus Christi College">
+              <title>
+                Abd Allah Baydawi, Tawali Al-Anwar. Mahmud Isfahani, Commentary on Tawali Al-Anwar
+              </title>
+            </titleInfo>
+            <titleInfo authority="James Catalog" type="alternative">
+              <title>
+                Liber Arabicus
+              </title>
+            </titleInfo>
+            <titleInfo displayLabel="My Label" type="alternative">
+              <title>My Title</title>
+            </titleInfo>
+            <titleInfo displayLabel="My Other Label" type="uniform">
+              <title>My Other Title</title>
+            </titleInfo>
+          EOF
+        end
+
+        it 'extracts the titles' do
+          expect(solr_doc['manuscript_titles_ssim']).to eq(['-|-Liber Arabicus', 'My Label-|-My Title'])
+        end
+      end
+    end
   end
 end
