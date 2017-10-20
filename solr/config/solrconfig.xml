@@ -50,6 +50,8 @@
       <str name="q.op">AND</str>
 
       <str name="qf">
+        manuscript_number_ssim^2000
+
         title_245a_exact_search^1000
         title_245a_unstem_search^500
         title_245a_search^75           vern_title_245a_search^75
@@ -111,6 +113,8 @@
         full_text_search^0.5
       </str>
       <str name="pf"> <!-- (phrase boost within result set) -->
+        manuscript_number_ssim^10000
+
         title_245a_exact_search^5000
         title_245a_unstem_search^2500
         title_245a_search^375          vern_title_245a_search^375
@@ -167,6 +171,8 @@
         full_text_search^2.5
       </str>
       <str name="pf3">  <!-- (token trigrams boost within result set) -->
+        manuscript_number_ssim^3000
+
         title_245a_search^1500         vern_title_245a_search^1500
         title_245_search^225           vern_title_245_search^225
         title_uniform_search^150       vern_title_uniform_search^150
@@ -197,6 +203,8 @@
         full_text_search^1.5
       </str>
       <str name="pf2"> <!--(token bigrams boost within result set) -->
+        manuscript_number_ssim^2000
+
         title_245a_search^1000         vern_title_245a_search^1000
         title_245_search^150           vern_title_245_search^150
         title_uniform_search^100       vern_title_uniform_search^100
@@ -228,6 +236,8 @@
       </str>
 
       <str name="qf_cjk">
+        manuscript_number_ssim^2000
+
         title_245a_exact_search^1000
         title_245a_unstem_search^500
         title_245a_search^75           vern_title_245a_search^75           cjk_title_245a_search^75
@@ -286,6 +296,8 @@
         all_search                     vern_all_search                     cjk_all_search
       </str>
       <str name="pf_cjk"> <!-- (phrase boost within result set) -->
+        manuscript_number_ssim^10000
+
         title_245a_exact_search^5000
         title_245a_unstem_search^2500
         title_245a_search^375          vern_title_245a_search^375          cjk_title_245a_search^375
@@ -340,6 +352,8 @@
         all_search^5                   vern_all_search^5                   cjk_all_search^5
       </str>
       <str name="pf3_cjk">  <!-- (token trigrams boost within result set) -->
+        manuscript_number_ssim^3000
+
         title_245a_search^1500         vern_title_245a_search^1500         cjk_title_245a_search^1500
         title_245_search^225           vern_title_245_search^225           cjk_title_245_search^225
         title_uniform_search^150       vern_title_uniform_search^150       cjk_title_uniform_search^150
@@ -369,6 +383,8 @@
         all_search^3                   vern_all_search^3                   cjk_all_search^3
       </str>
       <str name="pf2_cjk"> <!--(token bigrams boost within result set) -->
+        manuscript_number_ssim^2000
+
         title_245a_search^1000         vern_title_245a_search^1000         cjk_title_245a_search^1000
         title_245_search^150           vern_title_245_search^150           cjk_title_245_search^150
         title_uniform_search^100       vern_title_uniform_search^100       cjk_title_uniform_search^100
@@ -700,6 +716,7 @@
 
       <!-- for advanced search number text box -->
       <str name="qf_number">
+        manuscript_number_ssim^10
         id
         isbn_search
         issn_search
@@ -707,9 +724,9 @@
         barcode_search
         callnum_search
       </str>
-      <str name="pf_number">issn_search^5 callnum_search^5</str>
-      <str name="pf3_number">callnum_search^3</str>
-      <str name="pf2_number">callnum_search^2</str>
+      <str name="pf_number">manuscript_number_ssim^10 issn_search^5 callnum_search^5</str>
+      <str name="pf3_number">manuscript_number_ssim^10 callnum_search^3</str>
+      <str name="pf2_number">manuscript_number_ssim^10 callnum_search^2</str>
 
 
       <!-- for exhibits -->
@@ -796,6 +813,7 @@
         isbn_display,
         item_display,
         lccn,
+        manuscript_number_ssim,
         marcbib_xml,
         mhld_display,
         modsxml,
