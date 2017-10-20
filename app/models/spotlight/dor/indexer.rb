@@ -284,6 +284,7 @@ module Spotlight::Dor
       included do
         before_index :add_manuscript_number
         before_index :add_text_titles
+        before_index :add_incipit
       end
 
       def add_manuscript_number(sdb, solr_doc)
@@ -297,6 +298,22 @@ module Spotlight::Dor
         return if text_titles.blank?
         insert_field solr_doc, 'text_titles', text_titles, :symbol # this is a _ssim field
       end
+
+      def add_incipit(sdb, solr_doc)
+        incipit = parse_incipit(sdb)
+        return if incipit.blank?
+        insert_field solr_doc, 'incipit', incipit, :symbol # this is a _ssim field
+      end
+
+      def parse_incipit(sdb)
+        sdb.smods_rec.related_item.each do |item|
+          item.note.each do |note|
+            return note.text.strip if note.attr('type') == 'incipit'
+          end
+        end
+        nil
+      end
+      private :parse_incipit
     end
 
     def insert_field(solr_doc, field, values, *args)
