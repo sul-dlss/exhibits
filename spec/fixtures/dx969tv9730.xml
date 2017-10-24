@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<publicObject id="druid:dx969tv9730" published="2015-07-13T19:40:23-07:00">
+  <identityMetadata>
+    <objectLabel>Parker Manuscripts</objectLabel>
+    <adminPolicy>druid:bm077td6448</adminPolicy>
+    <objectType>collection</objectType>
+    <objectType>set</objectType>
+    <otherId name="uuid">9f585750-04c9-11e1-be50-0800200c9a66</otherId>
+    <objectId>druid:dx969tv9730</objectId>
+    <objectCreator>DOR</objectCreator>
+    <agreementId>druid:sc384wv5056</agreementId>
+    <tag>Remediated By : 4.20.1</tag>
+  </identityMetadata>
+  <contentMetadata objectId="druid:dx969tv9730" type="file">
+  
+</contentMetadata>
+  <rightsMetadata>
+    <access type="discover">
+      <machine>
+        <world/>
+      </machine>
+    </access>
+    <access type="read">
+      <machine>
+        <world/>
+      </machine>
+    </access>
+  </rightsMetadata>
+  <rdf:RDF xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="info:fedora/druid:dx969tv9730">
+    </rdf:Description>
+  </rdf:RDF>
+  <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:srw_dc="info:srw/schema/1/dc-schema" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+    <dc:title>Parker Manuscripts</dc:title>
+    <dc:description>The Parker Library's holdings of Old English texts account for a substantial proportion of all extant manuscripts in Anglo-Saxon, including the earliest copy of the Anglo-Saxon Chronicle (c. 890), unique copies of Old English poems and other texts, and King Alfred's translation of Gregory the Great's Pastoral Care. The Parker Library also contains key Anglo-Norman and Middle English texts ranging from the Ancrene Wisse and the Brut Chronicle to one of the finest copies of Chaucer's Troilus and Criseyde. Other subjects represented in the collection are theology, music, medieval travelogues and maps, apocalypses, bestiaries, royal ceremonies, historical chronicles and Bibles. The Parker Library holds a magnificent collection of English illuminated manuscripts, such as the Bury and Dover Bibles (c. 1135 and c. 1150) and the Chronica maiora by Matthew Paris (c. 1230-50). Scholars in a variety of disciplines - including historians of art, music, science, literature, politics and religion - find invaluable resources in the Library's collection.</dc:description>
+    <dc:type>Collection</dc:type>
+    <dc:language>eng</dc:language>
+  </oai_dc:dc>
+  <ReleaseData/>
+</publicObject>
