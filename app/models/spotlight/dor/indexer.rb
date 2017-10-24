@@ -40,9 +40,8 @@ module Spotlight::Dor
     private
 
     def add_iiif_manifest_url(sdb, solr_doc)
-      url = iiif_manifest_url(sdb.bare_druid)
-      return unless Faraday.head(url).status == 200
-      solr_doc['iiif_manifest_url_ssi'] = url
+      # NOTE that the manifest URL may not work at runtime - so we need to check the contentMetadata type then
+      solr_doc['iiif_manifest_url_ssi'] = iiif_manifest_url(sdb.bare_druid)
     end
 
     def iiif_manifest_url(bare_druid)

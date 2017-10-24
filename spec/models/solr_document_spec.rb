@@ -19,7 +19,8 @@ describe SolrDocument do
     subject do
       described_class.new(
         id: 'abc123',
-        'iiif_manifest_url_ssi' => 'http://www.example.com/default/'
+        'iiif_manifest_url_ssi' => 'http://www.example.com/default/',
+        'content_metadata_type_ssm' => %w(image)
       )
     end
 
@@ -40,6 +41,20 @@ describe SolrDocument do
 
       it 'returns nil' do
         expect(subject.exhibit_specific_manifest('present')).to be_nil
+      end
+    end
+    context 'without a whitelisted contentMetadata type' do
+      subject do
+        described_class.new(
+          id: 'abc123',
+          'iiif_manifest_url_ssi' => 'http://www.example.com/default/',
+          'content_metadata_type_ssm' => %w(notanimage)
+        )
+      end
+
+      it 'returns nil' do
+        expect(subject.exhibit_specific_manifest(nil)).to be_nil
+        expect(subject.exhibit_specific_manifest('https://www.example.com/new/{id}')).to be_nil
       end
     end
   end
