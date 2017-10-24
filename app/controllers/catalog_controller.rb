@@ -183,6 +183,8 @@ class CatalogController < ApplicationController
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
+    # Fields specific to Parker Exhibit
+    config.add_index_field 'incipit_tesim', label: 'Incipit'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
