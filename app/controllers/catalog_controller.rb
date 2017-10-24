@@ -269,6 +269,16 @@ class CatalogController < ApplicationController
       }
     end
 
+    config.add_search_field('incipit') do |field|
+      field.label = 'Incipit'
+      field.solr_local_parameters = {
+        qf: 'incipit_tesim',
+        pf: 'incipit_tesim',
+        pf3: 'incipit_tesim',
+        pf2: 'incipit_tesim'
+      }
+    end
+
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc

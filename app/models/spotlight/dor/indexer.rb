@@ -317,7 +317,7 @@ module Spotlight::Dor
       def add_incipit(sdb, solr_doc)
         incipit = parse_incipit(sdb)
         return if incipit.blank?
-        insert_field solr_doc, 'incipit', incipit, :symbol # this is a _ssim field
+        insert_field solr_doc, 'incipit', incipit, :stored_searchable # this is a _tesim field
       end
 
       # parse titleInfo[type="alternative"]/title into tuples of (displayLabel, title)

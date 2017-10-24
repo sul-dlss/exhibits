@@ -815,7 +815,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the incipit' do
-          expect(solr_doc['incipit_ssim']).to eq(['In illo tempore maria magdalene et maria iacobi et solomae'])
+          expect(solr_doc['incipit_tesim']).to eq(['In illo tempore maria magdalene et maria iacobi et solomae'])
         end
       end
     end
