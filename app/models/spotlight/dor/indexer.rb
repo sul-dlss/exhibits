@@ -311,7 +311,7 @@ module Spotlight::Dor
       def add_text_titles(sdb, solr_doc)
         text_titles = sdb.smods_rec.tableOfContents.try(:content)
         return if text_titles.blank?
-        insert_field solr_doc, 'text_titles', text_titles, :symbol # this is a _ssim field
+        insert_field solr_doc, 'text_titles', text_titles, :stored_searchable # this is a _tesim field
       end
 
       def add_incipit(sdb, solr_doc)

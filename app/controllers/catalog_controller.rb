@@ -185,6 +185,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
     # Fields specific to Parker Exhibit
     config.add_index_field 'incipit_tesim', label: 'Incipit'
+    config.add_index_field 'text_titles_tesim', label: 'Text title'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
@@ -278,6 +279,16 @@ class CatalogController < ApplicationController
         pf: 'incipit_tesim',
         pf3: 'incipit_tesim',
         pf2: 'incipit_tesim'
+      }
+    end
+
+    config.add_search_field('text_title') do |field|
+      field.label = 'Text title'
+      field.solr_local_parameters = {
+        qf: 'text_titles_tesim',
+        pf: 'text_titles_tesim',
+        pf3: 'text_titles_tesim',
+        pf2: 'text_titles_tesim'
       }
     end
 

@@ -777,7 +777,7 @@ describe Spotlight::Dor::Indexer do
       end
 
       it 'handles missing metadata' do
-        expect(solr_doc['text_titles_ssim']).to be_blank
+        expect(solr_doc['text_titles_tesim']).to be_blank
       end
 
       context 'with metadata' do
@@ -786,7 +786,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the titles' do
-          expect(solr_doc['text_titles_ssim']).to eq(['Homiliae XL in euangelia'])
+          expect(solr_doc['text_titles_tesim']).to eq(['Homiliae XL in euangelia'])
         end
       end
     end
