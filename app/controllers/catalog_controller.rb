@@ -187,6 +187,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'incipit_tesim', label: 'Incipit'
     config.add_index_field 'text_titles_tesim', label: 'Text title'
     config.add_index_field 'manuscript_titles_tesim', label: 'Manuscript title', helper_method: :manuscript_title
+    config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
@@ -300,6 +301,16 @@ class CatalogController < ApplicationController
         pf: 'manuscript_titles_tesim',
         pf3: 'manuscript_titles_tesim',
         pf2: 'manuscript_titles_tesim'
+      }
+    end
+
+    config.add_search_field('manuscript_number') do |field|
+      field.label = 'Manuscript number'
+      field.solr_local_parameters = {
+        qf: 'manuscript_number_tesim',
+        pf: 'manuscript_number_tesim',
+        pf3: 'manuscript_number_tesim',
+        pf2: 'manuscript_number_tesim'
       }
     end
 

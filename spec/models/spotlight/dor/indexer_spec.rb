@@ -741,7 +741,7 @@ describe Spotlight::Dor::Indexer do
   end # full text indexing concern
 
   context 'Parker specific indexing' do
-    let(:manuscript_number_field) { 'manuscript_number_ssim' }
+    let(:manuscript_number_field) { 'manuscript_number_tesim' }
 
     describe '#add_manuscript_number' do
       before do

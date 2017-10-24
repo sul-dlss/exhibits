@@ -297,7 +297,7 @@ module Spotlight::Dor
       def add_manuscript_number(sdb, solr_doc)
         manuscript_number = sdb.smods_rec.location.shelfLocator.try(:text)
         return if manuscript_number.blank?
-        insert_field solr_doc, 'manuscript_number', manuscript_number, :symbol
+        insert_field solr_doc, 'manuscript_number', manuscript_number, :stored_searchable # this is a _tesim field
       end
 
       # We need to join the `displayLabel` and titles for all *alternative* titles
