@@ -3,9 +3,8 @@ require 'rails_helper'
 describe Spotlight::Dor::Indexer do
   subject { described_class.new }
 
-  let(:fake_druid) { 'oo000oo0000' }
-  let(:real_druid) { 'yy901zw2656' }
-  let(:resource) { Harvestdor::Indexer::Resource.new(double, fake_druid) }
+  let(:druid) { 'oo000oo0000' }
+  let(:resource) { Harvestdor::Indexer::Resource.new(double, druid) }
   let(:solr_doc) { {} }
   let(:modsbody) { '' }
   let(:mods) do
@@ -23,7 +22,7 @@ describe Spotlight::Dor::Indexer do
     i.logger.level = Logger::WARN
     allow(resource).to receive(:indexer).and_return i
     allow(resource).to receive(:mods).and_return(mods)
-    allow(resource).to receive(:bare_druid).and_return(fake_druid)
+    allow(resource).to receive(:bare_druid).and_return(druid)
   end
 
   describe '#add_iiif_manifest_url' do
@@ -31,30 +30,8 @@ describe Spotlight::Dor::Indexer do
       subject.send(:add_iiif_manifest_url, resource, solr_doc)
     end
 
-    context 'with an invalid IIIF manifest URL' do
-      before do
-        allow(Faraday).to receive(:head).with('myurl').and_return(instance_double(Faraday::Response, status: 404))
-      end
-
-      it 'does not add URL' do
-        expect(Faraday).not_to have_received(:head).with('myurl')
-        expect(solr_doc['iiif_manifest_url_ssi']).to be_nil
-      end
-    end
-
-    context 'with valid IIIF manifest' do
-      let(:valid_url) { 'https://purl.stanford.edu/yy901zw2656/iiif/manifest' }
-
-      before do
-        allow(resource).to receive(:bare_druid).and_return(real_druid)
-        allow(Faraday).to receive(:head).with(valid_url).and_return(instance_double(Faraday::Response, status: 200))
-        subject.send(:add_iiif_manifest_url, resource, solr_doc)
-      end
-
-      it 'adds a reference to the IIIF manifest' do
-        expect(Faraday).to have_received(:head).with(valid_url)
-        expect(solr_doc['iiif_manifest_url_ssi']).to eq valid_url
-      end
+    it 'adds a reference to the IIIF manifest' do
+      expect(solr_doc['iiif_manifest_url_ssi']).to eq 'https://purl.stanford.edu/oo000oo0000/iiif/manifest'
     end
   end
 
@@ -62,7 +39,7 @@ describe Spotlight::Dor::Indexer do
     before do
       allow(resource).to receive(:public_xml).and_return(public_xml)
       # stacks url calculations require the druid
-      solr_doc[:id] = fake_druid
+      solr_doc[:id] = druid
       subject.send(:add_content_metadata_fields, resource, solr_doc)
     end
 

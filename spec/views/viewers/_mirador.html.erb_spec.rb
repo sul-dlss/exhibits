@@ -4,7 +4,8 @@ describe 'viewers/_mirador.html.erb', type: :view do
   let(:document) do
     SolrDocument.new(
       'id' => 'abc123',
-      'iiif_manifest_url_ssi' => 'https://purl.stanford.edu/bc853rd3116?manifest'
+      'iiif_manifest_url_ssi' => 'https://purl.stanford.edu/bc853rd3116?manifest',
+      'content_metadata_type_ssm' => %w(image)
     )
   end
   let(:current_exhibit) { create(:exhibit) }

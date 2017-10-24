@@ -16,11 +16,25 @@ describe 'catalog/_exhibits_document_header_default', type: :view do
   end
 
   describe 'IIIF Drag-n-Drop Icon' do
-    context 'when the document has a manifest' do
-      let(:document) { SolrDocument.new(iiif_manifest_url_ssi: 'https://purl.stanford.edu/bc853rd3116/iiif/manifest') }
+    context 'when the document has a manifest and a valid contentMetadata type' do
+      let(:document) do
+        SolrDocument.new(iiif_manifest_url_ssi: 'https://purl.stanford.edu/bc853rd3116/iiif/manifest',
+                         content_metadata_type_ssm: %w(image))
+      end
 
-      it 'rendres the icon' do
+      it 'renders the icon' do
         expect(rendered).to have_css('a.iiif-dnd')
+      end
+    end
+
+    context 'when the document has a manifest but not a valid contentMetadata type' do
+      let(:document) do
+        SolrDocument.new(iiif_manifest_url_ssi: 'https://purl.stanford.edu/bc853rd3116/iiif/manifest',
+                         content_metadata_type_ssm: %w(unknown))
+      end
+
+      it 'does not render the icon' do
+        expect(rendered).not_to have_css('a.iiif-dnd')
       end
     end
 
