@@ -258,6 +258,17 @@ class CatalogController < ApplicationController
         pf2: '$pf2_full_text'
       }
     end
+
+    config.add_search_field('table_of_contents') do |field|
+      field.label = 'Table of contents'
+      field.solr_local_parameters = {
+        qf: '$qf_toc_search',
+        pf: '$pf_toc_search',
+        pf3: '$pf3_toc_search',
+        pf2: '$pf2_toc_search'
+      }
+    end
+
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
