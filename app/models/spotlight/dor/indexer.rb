@@ -357,12 +357,13 @@ module Spotlight::Dor
 
     def parse_notes(sdb)
       notes = {}
-      sdb.smods_rec.related_item.each do |item|
-        item.note.each do |note|
-          next if note.attr('displayLabel').blank?
-          type = note.attr('type') # rubric
-          notes[type] = [note.attr('displayLabel'), note.text.strip]
-        end
+      # gather notes from <relatedItem> and <physicalDescription>
+      nodeset = sdb.smods_rec.related_item.note + sdb.smods_rec.physical_description.note
+      return nil if nodeset.empty?
+      nodeset.each do |note|
+        next if note.attr('displayLabel').blank?
+        type = note.attr('type')
+        notes[type] = [note.attr('displayLabel'), note.text.strip]
       end
       notes
     end
