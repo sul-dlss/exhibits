@@ -305,7 +305,7 @@ module Spotlight::Dor
       def add_manuscript_titles(sdb, solr_doc)
         manuscript_titles = parse_manuscript_titles(sdb)
         return if manuscript_titles.blank?
-        insert_field solr_doc, 'manuscript_titles', manuscript_titles, :symbol # this is a _ssim field
+        insert_field solr_doc, 'manuscript_titles', manuscript_titles, :stored_searchable # this is a _tesim field
       end
 
       def add_text_titles(sdb, solr_doc)

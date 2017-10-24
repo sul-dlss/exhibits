@@ -826,7 +826,7 @@ describe Spotlight::Dor::Indexer do
       end
 
       it 'handles missing metadata' do
-        expect(solr_doc['manuscript_titles_ssim']).to be_blank
+        expect(solr_doc['manuscript_titles_tesim']).to be_blank
       end
 
       context 'with no alternative titles' do
@@ -841,7 +841,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'is blank' do
-          expect(solr_doc['manuscript_titles_ssim']).to be_blank
+          expect(solr_doc['manuscript_titles_tesim']).to be_blank
         end
       end
 
@@ -868,7 +868,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the titles' do
-          expect(solr_doc['manuscript_titles_ssim']).to eq(['-|-Liber Arabicus', 'My Label-|-My Title'])
+          expect(solr_doc['manuscript_titles_tesim']).to eq(['-|-Liber Arabicus', 'My Label-|-My Title'])
         end
       end
     end

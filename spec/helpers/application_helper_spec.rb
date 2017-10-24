@@ -24,4 +24,9 @@ describe ApplicationHelper, type: :helper do
       expect(helper.notes_wrap(value: %w(a <p>b</p><p>c</p> d))).to eq output
     end
   end
+  describe '#manuscript_title' do
+    it 'adds basic support of display label' do
+      expect(helper.manuscript_title(value: ['Label-|-Stuff'])).to eq 'Label - Stuff'
+    end
+  end
 end
