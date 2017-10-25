@@ -37,6 +37,13 @@ module Spotlight::Dor
 
     before_index :add_iiif_manifest_url
 
+    # for Exhibits, we want to change collection formats to "Collection"
+    before_index do |_sdb, solr_doc|
+      if solr_doc[:collection_type] == 'Digital Collection'
+        solr_doc[:format_main_ssim] = %w(Collection)
+      end
+    end
+
     private
 
     def add_iiif_manifest_url(sdb, solr_doc)
