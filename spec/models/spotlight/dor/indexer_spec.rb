@@ -741,7 +741,7 @@ describe Spotlight::Dor::Indexer do
   end # full text indexing concern
 
   context 'Parker specific indexing' do
-    let(:manuscript_number_field) { 'manuscript_number_ssim' }
+    let(:manuscript_number_field) { 'manuscript_number_tesim' }
 
     describe '#add_manuscript_number' do
       before do
@@ -777,7 +777,7 @@ describe Spotlight::Dor::Indexer do
       end
 
       it 'handles missing metadata' do
-        expect(solr_doc['text_titles_ssim']).to be_blank
+        expect(solr_doc['text_titles_tesim']).to be_blank
       end
 
       context 'with metadata' do
@@ -786,7 +786,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the titles' do
-          expect(solr_doc['text_titles_ssim']).to eq(['Homiliae XL in euangelia'])
+          expect(solr_doc['text_titles_tesim']).to eq(['Homiliae XL in euangelia'])
         end
       end
     end
@@ -815,7 +815,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the incipit' do
-          expect(solr_doc['incipit_ssim']).to eq(['In illo tempore maria magdalene et maria iacobi et solomae'])
+          expect(solr_doc['incipit_tesim']).to eq(['In illo tempore maria magdalene et maria iacobi et solomae'])
         end
       end
     end
@@ -826,7 +826,7 @@ describe Spotlight::Dor::Indexer do
       end
 
       it 'handles missing metadata' do
-        expect(solr_doc['manuscript_titles_ssim']).to be_blank
+        expect(solr_doc['manuscript_titles_tesim']).to be_blank
       end
 
       context 'with no alternative titles' do
@@ -841,7 +841,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'is blank' do
-          expect(solr_doc['manuscript_titles_ssim']).to be_blank
+          expect(solr_doc['manuscript_titles_tesim']).to be_blank
         end
       end
 
@@ -868,7 +868,7 @@ describe Spotlight::Dor::Indexer do
         end
 
         it 'extracts the titles' do
-          expect(solr_doc['manuscript_titles_ssim']).to eq(['-|-Liber Arabicus', 'My Label-|-My Title'])
+          expect(solr_doc['manuscript_titles_tesim']).to eq(['-|-Liber Arabicus', 'My Label-|-My Title'])
         end
       end
     end

@@ -297,7 +297,7 @@ module Spotlight::Dor
       def add_manuscript_number(sdb, solr_doc)
         manuscript_number = sdb.smods_rec.location.shelfLocator.try(:text)
         return if manuscript_number.blank?
-        insert_field solr_doc, 'manuscript_number', manuscript_number, :symbol
+        insert_field solr_doc, 'manuscript_number', manuscript_number, :stored_searchable # this is a _tesim field
       end
 
       # We need to join the `displayLabel` and titles for all *alternative* titles
@@ -305,19 +305,19 @@ module Spotlight::Dor
       def add_manuscript_titles(sdb, solr_doc)
         manuscript_titles = parse_manuscript_titles(sdb)
         return if manuscript_titles.blank?
-        insert_field solr_doc, 'manuscript_titles', manuscript_titles, :symbol # this is a _ssim field
+        insert_field solr_doc, 'manuscript_titles', manuscript_titles, :stored_searchable # this is a _tesim field
       end
 
       def add_text_titles(sdb, solr_doc)
         text_titles = sdb.smods_rec.tableOfContents.try(:content)
         return if text_titles.blank?
-        insert_field solr_doc, 'text_titles', text_titles, :symbol # this is a _ssim field
+        insert_field solr_doc, 'text_titles', text_titles, :stored_searchable # this is a _tesim field
       end
 
       def add_incipit(sdb, solr_doc)
         incipit = parse_incipit(sdb)
         return if incipit.blank?
-        insert_field solr_doc, 'incipit', incipit, :symbol # this is a _ssim field
+        insert_field solr_doc, 'incipit', incipit, :stored_searchable # this is a _tesim field
       end
 
       # parse titleInfo[type="alternative"]/title into tuples of (displayLabel, title)

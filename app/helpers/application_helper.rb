@@ -31,4 +31,11 @@ module ApplicationHelper
       end)
     end
   end
+
+  def manuscript_title(options = {})
+    return if options[:value].blank?
+    safe_join(options[:value].collect do |title|
+      title.split('-|-').join(' - ')
+    end, ',')
+  end
 end

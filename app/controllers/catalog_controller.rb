@@ -183,6 +183,11 @@ class CatalogController < ApplicationController
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
+    # Fields specific to Parker Exhibit
+    config.add_index_field 'incipit_tesim', label: 'Incipit'
+    config.add_index_field 'text_titles_tesim', label: 'Text title'
+    config.add_index_field 'manuscript_titles_tesim', label: 'Manuscript title', helper_method: :manuscript_title
+    config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
@@ -258,6 +263,62 @@ class CatalogController < ApplicationController
         pf2: '$pf2_full_text'
       }
     end
+
+    config.add_search_field('table_of_contents') do |field|
+      field.label = 'Table of contents'
+      field.solr_local_parameters = {
+        qf: '$qf_toc_search',
+        pf: '$pf_toc_search',
+        pf3: '$pf3_toc_search',
+        pf2: '$pf2_toc_search'
+      }
+      field.enabled = false
+    end
+
+    config.add_search_field('incipit') do |field|
+      field.label = 'Incipit'
+      field.solr_local_parameters = {
+        qf: 'incipit_tesim',
+        pf: 'incipit_tesim',
+        pf3: 'incipit_tesim',
+        pf2: 'incipit_tesim'
+      }
+      field.enabled = false
+    end
+
+    config.add_search_field('text_title') do |field|
+      field.label = 'Text title'
+      field.solr_local_parameters = {
+        qf: 'text_titles_tesim',
+        pf: 'text_titles_tesim',
+        pf3: 'text_titles_tesim',
+        pf2: 'text_titles_tesim'
+      }
+      field.enabled = false
+    end
+
+    config.add_search_field('manuscript_title') do |field|
+      field.label = 'Manuscript title'
+      field.solr_local_parameters = {
+        qf: 'manuscript_titles_tesim',
+        pf: 'manuscript_titles_tesim',
+        pf3: 'manuscript_titles_tesim',
+        pf2: 'manuscript_titles_tesim'
+      }
+      field.enabled = false
+    end
+
+    config.add_search_field('manuscript_number') do |field|
+      field.label = 'Manuscript number'
+      field.solr_local_parameters = {
+        qf: 'manuscript_number_tesim',
+        pf: 'manuscript_number_tesim',
+        pf3: 'manuscript_number_tesim',
+        pf2: 'manuscript_number_tesim'
+      }
+      field.enabled = false
+    end
+
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc

@@ -730,6 +730,22 @@
         full_text_search^2
       </str>
 
+      <str name="qf_toc_search">
+        toc_unstem_search^5
+        toc_search
+      </str>
+      <str name="pf_toc_search">
+        toc_unstem_search^25
+        toc_search^5
+      </str>
+      <str name="pf3_toc_search">
+        toc_unstem_search^15
+        toc_search^3
+      </str>
+      <str name="pf2_toc_search">
+        toc_unstem_search^10
+        toc_search^2
+      </str>
 
       <bool name="facet">true</bool>
       <int name="facet.mincount">1</int>
