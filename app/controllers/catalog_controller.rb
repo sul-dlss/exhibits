@@ -183,6 +183,7 @@ class CatalogController < ApplicationController
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
+    config.add_index_field 'labeled_notes_ssim', label: 'Labeled Notes', helper_method: :labeled_mods_notes
     # Fields specific to Parker Exhibit
     config.add_index_field 'incipit_tesim', label: 'Incipit'
     config.add_index_field 'text_titles_tesim', label: 'Text title'
