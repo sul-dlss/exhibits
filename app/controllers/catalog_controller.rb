@@ -272,6 +272,7 @@ class CatalogController < ApplicationController
         pf3: '$pf3_toc_search',
         pf2: '$pf2_toc_search'
       }
+      field.enabled = false
     end
 
     config.add_search_field('incipit') do |field|
@@ -282,6 +283,7 @@ class CatalogController < ApplicationController
         pf3: 'incipit_tesim',
         pf2: 'incipit_tesim'
       }
+      field.enabled = false
     end
 
     config.add_search_field('text_title') do |field|
@@ -292,6 +294,7 @@ class CatalogController < ApplicationController
         pf3: 'text_titles_tesim',
         pf2: 'text_titles_tesim'
       }
+      field.enabled = false
     end
 
     config.add_search_field('manuscript_title') do |field|
@@ -302,6 +305,7 @@ class CatalogController < ApplicationController
         pf3: 'manuscript_titles_tesim',
         pf2: 'manuscript_titles_tesim'
       }
+      field.enabled = false
     end
 
     config.add_search_field('manuscript_number') do |field|
@@ -312,6 +316,7 @@ class CatalogController < ApplicationController
         pf3: 'manuscript_number_tesim',
         pf2: 'manuscript_number_tesim'
       }
+      field.enabled = false
     end
 
     # "sort results by" select (pulldown)
