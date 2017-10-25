@@ -325,7 +325,7 @@ module Spotlight::Dor
         notes = parse_notes(sdb)
         return if notes.blank?
         notes.each do |key, value|
-          insert_field solr_doc, key, value.join('-|-'), :symbol
+          insert_field solr_doc, key, value, :symbol
         end
       end
 
@@ -362,8 +362,14 @@ module Spotlight::Dor
       return nil if nodeset.empty?
       nodeset.each do |note|
         next if note.attr('displayLabel').blank?
-        type = note.attr('type')
-        notes[type] = [note.attr('displayLabel'), note.text.strip]
+        # convert MODS camel case types to snake case
+        type = note.attr('type').underscore
+        label_with_title = [note.attr('displayLabel'), note.text.strip].join('-|-')
+        if notes.include?(type)
+          notes[type] << label_with_title
+        else
+          notes[type] = [label_with_title]
+        end
       end
       notes
     end
