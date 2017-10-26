@@ -1,0 +1,57 @@
+require 'digest'
+require 'faraday'
+require_relative 'extraction'
+
+module Macros
+  # IIIF canvas extraction
+  module Canvas
+    def extract_canvas_id
+      lambda do |record, accumulator, _context|
+        accumulator << "canvas-#{Digest::MD5.hexdigest(record['@id'].to_s)}"
+      end
+    end
+
+    def extract_canvas_iiif_id
+      lambda do |record, accumulator, _context|
+        accumulator << record['@id'].to_s
+      end
+    end
+
+    def extract_canvas_label
+      lambda do |record, accumulator, _context|
+        accumulator << record['label'].to_s
+      end
+    end
+
+    def extract_canvas_annotation_list_urls
+      lambda do |record, accumulator, _context|
+        return if record['otherContent'].blank?
+        record['otherContent'].each do |link|
+          next unless link['@type'] == 'sc:AnnotationList'
+          accumulator << link['@id'].to_s
+        end
+      end
+    end
+
+    def extract_canvas_annotations
+      lambda do |record, accumulator, _context|
+        return if record['otherContent'].blank?
+        record['otherContent'].each do |link|
+          next unless link['@type'] == 'sc:AnnotationList'
+          extract_annotations_from_list(accumulator, link['@id'].to_s)
+        end
+      end
+    end
+
+    private
+
+    def extract_annotations_from_list(accumulator, url)
+      annotation_list = JSON.parse(Faraday.get(url).body)
+      return unless annotation_list['@type'] == 'sc:AnnotationList' && annotation_list['resources']
+      annotation_list['resources'].each do |resource|
+        next unless resource['@type'] == 'oa:Annotation'
+        accumulator << resource['resource']['chars'].to_s
+      end
+    end
+  end
+end

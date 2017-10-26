@@ -1,0 +1,397 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json", 
+    "@id": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f254r.json", 
+    "@type": "sc:AnnotationList", 
+    "resources": [
+        {
+            "@id": "_:N9c970cc959cf4a90b242dc4a3072cb08", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "28b1a15c200d40ea3dcd63aa1d036826", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "ferde godes \u00e6ngel and acwealde on \u00e6lcu[m] huse \u00fe\u00e6s egyp {rhm: ang[e]l[u]s}", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,476,3527,174"
+        }, 
+        {
+            "@id": "_:Ncd607a7c4c3849e3a37ce2933cee1789", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "3eeaa4847c9823cf5deb6b8320045561", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "tiscan folces {: [real colon]} \u00fe[\u00e6t] fru[m]cennede cild. [et] \u00fe[\u00e6t] leofeste; [et] isra", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,651,3527,156"
+        }, 
+        {
+            "@id": "_:N3fe2e4e8cf6b49dd8ddb6065bf20f610", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "da34c5b29066375f3ad860d87c4a8649", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "hela folc ferde on \u00f0\u00e6re ilcan nihte. of \u00fea[m] leodscipe: ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,808,3527,211"
+        }, 
+        {
+            "@id": "_:N88b7fba585b743dd9dfcf40cb448fca4", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "255daec4cf2799c2651ab52437acc1bf", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "[et] god hi l\u00e6dde ofer \u00f0a readan s\u00e6*. mid drygu[m] fotum; ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,1019,3527,156"
+        }, 
+        {
+            "@id": "_:N62d8d17624584a8db04b65dd0629f4f6", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "81a09fc5903994afbc319ff25ef0855b", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "\u00fea tengde {ivit} se farao \u00e6fter mid micelre ferde; \u00fea \u00f0a ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,1175,3527,192"
+        }, 
+        {
+            "@id": "_:Ne34f4594a7744365af338a83e4488866", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "ebd247d8fc229cf1cb95af1a9d2c6d56", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "he co[m] onmiddan \u00f0\u00e6re s\u00e6*. \u00fea w\u00e6s \u00fe[\u00e6t] godes folc up a{?e}gan{.} ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,1368,3527,186"
+        }, 
+        {
+            "@id": "_:N2aeb71173a964d27a02b10c02277e916", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "11f63129a9d35611cd2ce71b5299497a", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "[et]amp; god \u00fea bes\u00e6ncte \u00feone pharao [et]amp; eal his werod; \u00fea ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,1555,3527,198"
+        }, 
+        {
+            "@id": "_:Nab795ed84435462aa1e259549bbb3fe7", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "786ef8aaefc2088e8fe150846cf42fce", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "bebead god moyse{.} [et] \u00fea[m] folce \u00fe[\u00e6t] hi heoldon \u00fea tid ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,1754,3527,156"
+        }, 
+        {
+            "@id": "_:Na5f692b49485426c9802f5021ad54964", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "8316ad767e90bba435388624d1ee4bc7", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "mid mycelre arweor\u00f0nisse: on \u00e6lces geares ymbryne; ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,1911,3527,180"
+        }, 
+        {
+            "@id": "_:N2f161e5dc85647e4b10add6e8c378b7f", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "7f6728bab4ea42305180fff2f848c254", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "\u00fea w\u00e6s seo tid \u00f0a[m] folce ge{i}sy{e}t.{: [turning fullstop into real colon]} to eastertide: for \u00f0an ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2092,3527,192"
+        }, 
+        {
+            "@id": "_:N84f79a0c03424c7186483049b2c983e7", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "126b8cbffc821c4f7e1d74f27de1df5a", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "\u00f0e god hi aredde wi\u00f0 heora feondu[m]: [et] heora ehteras ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2285,3527,180"
+        }, 
+        {
+            "@id": "_:Nff78e884cd60497181f1da0a68cb9ba1", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "cb80835c93e5ec14e39452f1464f15f7", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "fordyde; \u00f0a \u00fe\u00e6s {post h[oc]} ymbe fiftig daga {.} sette god \u00fea[m] folce ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2466,3527,192"
+        }, 
+        {
+            "@id": "_:Nf1261cf5f7fa487a8be9acb5e376e074", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "a94ea5ce9b03efbb363b948eb460295d", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "\u00e6*. [et]amp; w\u00e6s gesewen godes wuldor uppon anre dune ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2659,3527,211"
+        }, 
+        {
+            "@id": "_:N8c710bb79c37443abbfe0d24fb3115a4", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "1034c4ade74101845eb3eac0c46e1b26", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2846,3527,518"
+        }, 
+        {
+            "@id": "_:Neae884c3f2874d71b99394f24a7cda47", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "f1e87d98feefac484bf646a343546a55", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "\u00fee is gehaten sinai: \u00f0\u00e6r com micel leoht: [et]amp; egeslic ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2846,3527,518"
+        }, 
+        {
+            "@id": "_:N9bac9613fc004fcba0474b25d1e637af", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "a16708c698b40266bf9a58b8a07ee72b", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2846,3527,162"
+        }, 
+        {
+            "@id": "_:Nb4c0ecb7606d481896efab5c86dc9284", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "e898c7a9b854351527d826e1af121b14", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,2870,3527,180"
+        }, 
+        {
+            "@id": "_:Nd9061752212a457fa53b88e089d9e1bb", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "3765101dc776e4c51994f9c1de8f83f2", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "sweg: [et]amp; blawende byman: \u00fea clipode god \u00f0one moysen ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,3051,3527,217"
+        }, 
+        {
+            "@id": "_:N7d19870acb9f4beeb004880043f3da3d", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "e7708b2a82a532d03e6d39c2ca256df6", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "him to. [et]amp; he w\u00e6s mid gode feowertig daga. [et]amp; awrat ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,3268,3527,120"
+        }, 
+        {
+            "@id": "_:Nb51b5102651a4b2992fe49134a7e7363", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "c5f48076b7ef21d0cd7f2f496f77fb63", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "\u00fea ealdan \u00e6* be godes dihte; \u00fea w\u00e6s se d\u00e6g pente", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,3388,3527,217"
+        }, 
+        {
+            "@id": "_:Na75782bbf81a4167a2b3b9d4fcf6ba45", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "d6ae4d31830bf53ea00b219f4fc89512", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "costes ge{i}haten on \u00fe\u00e6re ealden ge{i}setnysse; \u00fe\u00e6t ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,3497,3527,108"
+        }, 
+        {
+            "@id": "_:N1be035b87c534ea3ae00323a4776f136", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "4272e2e6eb8286dae1348d6003143b4e", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,3605,3527,192"
+        }, 
+        {
+            "@id": "_:Nfb3adeb207b24f1ba0d966f26f35a6b8", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "095f63f1232fb408be758a5e96bf58ba", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "geoffrode lamb getacnode cristes slege. se \u00f0e un", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,3798,3527,144"
+        }, 
+        {
+            "@id": "_:N449c26287f264c3083ed1de0589ec9ae", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "2b7d0459868bee896bfdffae92fcda1c", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "sc\u00e6\u00f0\u00f0ig w\u00e6s his f\u00e6der geoffrod for ure alysed", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,3943,3527,174"
+        }, 
+        {
+            "@id": "_:Nf4317e832d02450ab6decebf2cc44f84", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "5124a04992e6f815813423e321b84883", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "nysse; Nu is his \u00ferowung [et]amp; his \u00e6rist ure easter", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,4118,3527,217"
+        }, 
+        {
+            "@id": "_:Nf268a97929a74317a17bdc9a5b1f6a59", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "41d36ed786c9ac023b4732be8f545d96", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "tid: for \u00f0an \u00fee he us alysde fra[m] deofles \u00feeowdome: ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,4335,3527,156"
+        }, 
+        {
+            "@id": "_:Ne99f50a64e694992848e81814f7f2c68", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "2f0e0a55b258085b33801a3068c5dad5", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "[et] ure ehteras beo\u00f0 bes\u00e6ncte \u00feurh \u00fe[\u00e6t] halige ful", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,4492,3527,223"
+        }, 
+        {
+            "@id": "_:N6194d6d025cc4971b96fc81d2eda4ac1", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "501e99a0948018c283067283e830cfbd", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "luht. swa swa w\u00e6s farao mid his leode on \u00fe\u00e6re ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,4715,3527,156"
+        }, 
+        {
+            "@id": "_:N863c02c3553d4f0385465276abc7ed4e", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "0380ce774e327b705148d0960706beee", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "reden s\u00e6*; \u00feas fiftig daga fra[m] \u00fea[m] easterlican ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,4872,3527,211"
+        }, 
+        {
+            "@id": "_:N283832fe650a4dbe8795053b16fb2bf7", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "d88fb2a16cc5577fabe3e298ec17e672", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "d\u00e6ge send ealle ge{i}halgode to anre m\u00e6rsunge: ", 
+                "language": "ang"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521#xywh=78,5083,3527,289"
+        }
+    ]
+}
