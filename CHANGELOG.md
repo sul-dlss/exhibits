@@ -13,6 +13,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.5.0] - 2017-10-25
+
+### Added
+- Adds an Annotation data model #765
+- Spotlight updates - search fields are configurable now to be turned "off" by default #796
+- Adds search_field for TOC, incipit, manuscript title, manuscript number, text_title #792
+### Changed
+- Updates mod indexing - incipit #782, displayLabel/title #785, collection format #793
+### Fixed
+- Enforce IIIF manifest availability by using contentMetadata type, fixes indexing performance issue #794
+- Spotlight updates - unusable Sir Trevor widgets are not shown to users #796
+
 ## [1.4.0] - 2017-10-19
 ### Added
 - Adds Manuscript Number and tableOfContents to MODS indexing #721, #723
