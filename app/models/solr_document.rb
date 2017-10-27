@@ -13,7 +13,7 @@ class SolrDocument
 
   include ManifestConcern
 
-  include AnnotationConcern
+  include CanvasConcern
 
   # self.unique_key = 'id'
 

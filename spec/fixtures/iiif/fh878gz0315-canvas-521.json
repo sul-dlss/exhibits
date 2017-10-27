@@ -1,0 +1,29 @@
+{
+  "@id": "https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521",
+  "@type": "sc:Canvas",
+  "label": "f. 254 r",
+  "height": 6030,
+  "width": 3950,
+  "images": [{
+    "@id": "https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/imageanno/anno-521",
+    "@type": "oa:Annotation",
+    "motivation": "sc:painting",
+    "resource": {
+      "@id": "https://stacks.stanford.edu/image/iiif/fh878gz0315%2F198_254_R_TC_46/full/full/0/default.jpg",
+      "@type": "dctypes:Image",
+      "format": "image/jpeg",
+      "height": 6030,
+      "width": 3950,
+      "service": {
+        "@id": "https://stacks.stanford.edu/image/iiif/fh878gz0315%2F198_254_R_TC_46",
+        "@context": "http://iiif.io/api/image/2/context.json",
+        "profile": "http://iiif.io/api/image/2/level1.json"
+      }
+    },
+    "on": "https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521"
+  }],
+  "otherContent": [{
+    "@id": "https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f254r.json",
+    "@type": "sc:AnnotationList"
+  }]
+}

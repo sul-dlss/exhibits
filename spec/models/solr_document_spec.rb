@@ -59,42 +59,39 @@ describe SolrDocument do
     end
   end
 
-  describe '#annotation' do
-    subject(:annotation) do
+  describe '#canvas' do
+    subject(:canvas) do
       described_class.new(
-        id: 'anno123',
-        'format_main_ssim' => %w(Annotation),
-        'annotation_tesim' => %w(This\ is\ my\ annotation),
-        'xywh_ssim' => %w(10,20,30,40),
-        'canvas_ssim' => %w(canvas456),
-        'related_document_id_ssim' => %w(aa111bb2222),
-        'language' => %w(Latin),
-        'motivation_ssim' => %w(sc:commenting)
-      ).annotation
+        id: 'canvas-0fa395980b05e493948e0e2b50debd42',
+        'iiif_annotation_list_url_ssim' => [
+          'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f254r.json'
+        ],
+        'iiif_canvas_id_ssim' => ['https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521'],
+        'title_display' => ['f. 254 r'],
+        'format_main_ssim' => %w(Page),
+        'annotation_tesim' => %w(These are all my annotations)
+      ).canvas
     end
 
     it 'creates an instance from Solr document' do
-      expect(annotation).to be_an Annotation
-      expect(annotation.id).to eq 'anno123'
+      expect(canvas).to be_a Canvas
+      expect(canvas.id).to eq 'canvas-0fa395980b05e493948e0e2b50debd42'
+      expect(canvas.iiif_id).to eq 'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521'
     end
 
     it 'has text content' do
-      expect(annotation.text).to be_an Annotation::Text
-      expect(annotation.content).to eq 'This is my annotation'
-      expect(annotation.language).to eq 'Latin'
-      expect(annotation.format).to eq 'text/plain'
+      expect(canvas.label).to eq 'f. 254 r'
+      expect(canvas.annotations).to eq %w(These are all my annotations)
+      expect(canvas.size).to eq 5
     end
 
-    it 'has target content' do
-      expect(annotation.target).to be_an Annotation::Target
-      expect(annotation.xywh).to eq '10,20,30,40'
-      expect(annotation.canvas).to eq 'canvas456'
-      expect(annotation.druid).to eq 'aa111bb2222'
-      expect(annotation.on).to eq 'canvas456#xywh=10,20,30,40'
+    it 'has url to annotation list data' do
+      expect(canvas.annotation_lists.size).to eq 1
+      expect(canvas.annotation_lists).to eq [
+        'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f254r.json'
+      ]
     end
 
-    it 'has misc content' do
-      expect(annotation.motivation).to eq 'sc:commenting'
-    end
+    pending 'Canvas should support multiple AnnotationList URLs as per IIIF spec'
   end
 end
