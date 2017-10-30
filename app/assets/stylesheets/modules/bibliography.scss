@@ -1,4 +1,5 @@
-.bibliography-contents {
+.bibliography-contents,
+.cited-documents-contents {
   margin-left: 0;
   padding-left: 0;
 
@@ -8,7 +9,8 @@
     padding-left: 0;
   }
 
-  .bibliography-list {
+  .bibliography-list,
+  .cited-documents-list {
     margin-left: 0;
     padding-left: 0;
 
@@ -20,6 +22,11 @@
       margin-left: 2em;
       max-width: 80ch;
       text-indent: -2em;
+    }
+
+    .cited-documents-body {
+      margin-left: 2em;
+      max-width: 80ch;
     }
   }
 }

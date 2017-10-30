@@ -22,6 +22,7 @@
 
 //= require analytics
 //= require bibliography
+//= require cited_documents
 //= require blacklight_gallery
 //= require blacklight_heatmaps
 //= require blacklight_oembed
