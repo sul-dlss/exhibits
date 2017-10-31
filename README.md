@@ -40,6 +40,11 @@ A whenever-based cron task is configured to run nightly to keep the exhibit sync
 
 ## Development
 
+### Requirements
+- Redis (for running background jobs with Sidekiq)
+
+See [projectblacklight/spotlight](https://github.com/projectblacklight/spotlight) for additional requirements.
+
 Install dependencies, set up the databases and run migrations:
 ```console
 $ bundle install
