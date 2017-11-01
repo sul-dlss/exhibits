@@ -51,7 +51,11 @@ class DorHarvester < Spotlight::Resource
 
   def on_success(resource)
     RecordIndexStatusJob.perform_later(self, resource.bare_druid, ok: true)
-    IndexRelatedContentJob.perform_later(self, resource.bare_druid)
+    IndexRelatedContentJob.perform_later(self, resource.bare_druid) if index_related_content?
+  end
+
+  def index_related_content?
+    FeatureFlags.for(exhibit.slug).index_related_content?
   end
 
   def on_error(resource, exception_or_message)
