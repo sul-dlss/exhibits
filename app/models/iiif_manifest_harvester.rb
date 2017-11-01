@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 require 'iiif/presentation'
 
+##
+# Responsible for grabbing a IIIF manifest and parsing it
 class IiifManifestHarvester
   attr_reader :url
 
-  def initialize(url, id)
+  def initialize(url)
     @url = url
-    @id = id
   end
 
   def canvases
@@ -15,9 +18,7 @@ class IiifManifestHarvester
 
   def manifest
     @manifest ||= begin
-      conn = Faraday.new(url: url)
-      response = conn.get
-      IIIF::Service.parse(response.body)
+      IIIF::Service.parse(Faraday.get(url).body)
     end
   end
 end
