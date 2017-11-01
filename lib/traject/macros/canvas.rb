@@ -50,6 +50,7 @@ module Macros
       return unless annotation_list['@type'] == 'sc:AnnotationList' && annotation_list['resources']
       annotation_list['resources'].each do |resource|
         next unless resource['@type'] == 'oa:Annotation'
+        next if resource['resource']['chars'].blank?
         accumulator << resource['resource']['chars'].to_s
       end
     end
