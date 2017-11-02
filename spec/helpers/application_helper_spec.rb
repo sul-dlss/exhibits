@@ -24,9 +24,22 @@ describe ApplicationHelper, type: :helper do
       expect(helper.notes_wrap(value: %w(a <p>b</p><p>c</p> d))).to eq output
     end
   end
+
   describe '#manuscript_title' do
     it 'adds basic support of display label' do
       expect(helper.manuscript_title(value: ['Label-|-Stuff'])).to eq 'Label - Stuff'
+    end
+  end
+
+  describe '#table_of_contents_separator' do
+    let(:input) { { value: ['Homiliae--euangelia'] } }
+
+    it 'separates MODS table of contents' do
+      expect(helper.table_of_contents_separator(input)).to match(%r{Homiliae<br \/>euangelia})
+    end
+
+    it 'hides contents in a collapsible div' do
+      expect(helper.table_of_contents_separator(input)).to match(/^<a role='button' data-toggle='collapse'/)
     end
   end
 end

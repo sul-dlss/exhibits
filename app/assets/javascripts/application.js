@@ -29,3 +29,4 @@
 //= require openseadragon
 //= require spotlight
 //= require sul-exhibits-template
+//= require table_of_contents
