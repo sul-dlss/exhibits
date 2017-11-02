@@ -45,7 +45,7 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
 
     it 'has canvas annotations' do
       expect(canvas.annotation_lists).to include annolist_url
-      expect(canvas.annotations.size).to eq 30
+      expect(canvas.annotations.size).to eq 26
       expect(canvas.annotations).to include 'scæððig wæs his fæder geoffrod for ure alysed'
     end
   end
