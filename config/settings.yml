@@ -13,6 +13,7 @@ sidekiq:
 feature_flags:
   themes: false
   bibliography_resource: false
+  index_related_content: false # A feature that will index related SDR content. Initial implemented for Parker's IIIF AnnotationLists
 traject:
   processing_thread_pool: 1
 iiif_dnd_base_url: https://library.stanford.edu/projects/international-image-interoperability-framework/viewers?%{query}

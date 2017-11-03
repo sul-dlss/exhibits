@@ -58,6 +58,20 @@ describe DorHarvester do
       it 'records a successful index for a druid' do
         expect { subject.on_success(resource) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: true)
       end
+      it 'does not enqueue IndexRelatedContentJob unless enabled for exhibit' do
+        expect { subject.on_success(resource) }.not_to have_enqueued_job(IndexRelatedContentJob)
+      end
+      # rubocop:disable RSpec/NestedGroups
+      context 'when index_related_content is enabled for an exhibit' do
+        subject(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
+
+        let(:exhibit) { FactoryGirl.create(:exhibit, slug: 'test-flag-exhibit-slug') }
+
+        it 'enqueues IndexRelatedContentJob' do
+          expect { subject.on_success(resource) }.to have_enqueued_job(IndexRelatedContentJob).with(harvester, druid)
+        end
+      end
+      # rubocop:enable RSpec/NestedGroups
     end
 
     describe '#on_error' do

@@ -12,3 +12,4 @@ feature_flags:
   bibliography_resource: true
   test-flag-exhibit-slug:
     test_thing: true
+    index_related_content: true
