@@ -4,15 +4,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). One notable difference is that for this project, semantic versioning is used in reference to user facing experience.
 
-## [1.6.0] - 2017-10-30
-
-### Added
-- On citation pages, show the cited resources they refereence #692
-- Adds the ability to index "Pages/Canvases" as first class objects (non-user facing) #800
-
-### Removed
-- "Annotation" model in favor of canvas/pages (non-user facing) #800
-
 ## [Unreleased]
 
 ### Added
@@ -21,6 +12,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 ### Fixed
 ### Security
+
+## [1.7.0] - 2017-11-06
+## Added
+- Support for indexing related annotations identified in the object's IIIF manifest #806
+  - _Note: This is being released behind a feature flag for parker-2 only_
+
+## Fixed
+- No longer indexing empty annotation strings #813
+- Responsive behavior of search results display at small screen resolutions #820
+- Updated Spotlight which addressed two user facing issues: #822
+  - Prevent throwing an error on the edit screen of a page when an embedded browse category changes its title. projectblacklight/spotlight#1856
+  - Truncate exhibit descriptions to deal with responsive issue projectblacklight/spotlight#1853
+
+Full Exhibits Changes: https://github.com/sul-dlss/exhibits/compare/v1.6.0...v1.7.0
+Full Spotlight Changes: https://github.com/projectblacklight/spotlight/compare/e9f3771b063ae7f9991c6e6ecf89a634bdd2011a...0929af4e831604ca4aa4847d1efd6782f2ebc34c
+
+## [1.6.0] - 2017-10-30
+
+### Added
+- On citation pages, show the cited resources they refereence #692
+- Adds the ability to index "Pages/Canvases" as first class objects (non-user facing) #800
+
+### Removed
+- "Annotation" model in favor of canvas/pages (non-user facing) #800
 
 ## [1.5.0] - 2017-10-25
 
