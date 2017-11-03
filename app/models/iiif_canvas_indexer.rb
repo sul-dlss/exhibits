@@ -3,7 +3,7 @@
 ##
 # For a given object in an exhibit, gets the correct manifest, and enqueues
 # canvas/page indexing jobs from that manifest.
-class IiifCanvasIndexerEnqueuer
+class IiifCanvasIndexer
   attr_reader :exhibit, :druid
 
   ANNOTATION_LIST = 'sc:AnnotationList'.freeze
@@ -13,12 +13,15 @@ class IiifCanvasIndexerEnqueuer
     @druid = druid
   end
 
-  def enqueue_jobs
+  def index_canvases
     canvases.each do |canvas|
       canvas.other_content.each do |other_content|
         # Don't bother to index unless there is an annotationList content to do so.
         next unless other_content['@type'] == ANNOTATION_LIST
-        IndexCanvasJob.perform_later(other_content['@id'], canvas.to_json, exhibit)
+
+        canvas_resource = CanvasResource.find_or_initialize_by(url: other_content['@id'], exhibit: exhibit)
+        canvas_resource.data = JSON.parse(canvas.to_json)
+        canvas_resource.save_and_index
       end
     end
   end

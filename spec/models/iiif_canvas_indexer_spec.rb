@@ -2,7 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.describe IiifCanvasIndexerEnqueuer do
+RSpec.describe IiifCanvasIndexer do
+  include ActiveJob::TestHelper
   subject { described_class.new(exhibit, druid) }
 
   let(:viewer) do
@@ -30,17 +31,36 @@ RSpec.describe IiifCanvasIndexerEnqueuer do
     allow(SolrDocument).to receive(:find).with(druid).and_return(document)
   end
 
-  describe '#enqueue_jobs' do
-    it 'enqueues the same number of jobs as otherContent annotationLists' do
-      subject.enqueue_jobs
-      expect(IndexCanvasJob).to have_been_enqueued.exactly(3).times
+  describe '#index_canvases' do
+    it 'creates CanvasResource objects for otherContent annotationLists' do
+      expect do
+        subject.index_canvases
+      end.to change { CanvasResource.count }.from(0).to(3)
     end
+
+    it 'stores the JSON of the canvas in the CanvasResource' do
+      subject.index_canvases
+      expect(CanvasResource.first.data['@id']).to eq 'http://example.org/iiif/book1/canvas/p1'
+      expect(CanvasResource.last.data['@id']).to eq 'http://example.org/iiif/book1/canvas/p3'
+    end
+
+    it 'enqueues the same number of jobs as otherContent annotationLists' do
+      expect do
+        subject.index_canvases
+      end.to change { enqueued_jobs.count }.by(3)
+    end
+
     context 'when not a image thing' do
       let(:document) { SolrDocument.new(id: druid) }
 
-      it 'does not enqueue anything' do
-        subject.enqueue_jobs
-        expect(IndexCanvasJob).not_to have_been_enqueued
+      it 'does not create any CanvaseResources or enqueues any jobs' do
+        expect do
+          subject.index_canvases
+        end.not_to(change { CanvasResource.count })
+
+        expect do
+          subject.index_canvases
+        end.not_to(change { enqueued_jobs.count })
       end
     end
   end

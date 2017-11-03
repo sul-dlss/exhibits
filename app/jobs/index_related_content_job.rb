@@ -3,6 +3,6 @@
 # Index related things for an SDR object.
 class IndexRelatedContentJob < ActiveJob::Base
   def perform(harvester, druid)
-    IiifCanvasIndexerEnqueuer.new(harvester.exhibit, druid).enqueue_jobs
+    IiifCanvasIndexer.new(harvester.exhibit, druid).index_canvases
   end
 end

@@ -6,10 +6,10 @@ RSpec.describe IndexRelatedContentJob do
   describe '#perform' do
     let(:exhibit) { FactoryGirl.create(:exhibit) }
     let(:harvester) { DorHarvester.new(exhibit: exhibit) }
-    let(:enqueuer) { instance_double(IiifCanvasIndexerEnqueuer, enqueue_jobs: []) }
+    let(:enqueuer) { instance_double(IiifCanvasIndexer, index_canvases: []) }
 
     it do
-      allow(IiifCanvasIndexerEnqueuer).to receive(:new).and_return(enqueuer)
+      allow(IiifCanvasIndexer).to receive(:new).and_return(enqueuer)
       subject.perform(harvester, 'abc123')
     end
   end
