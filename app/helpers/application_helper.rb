@@ -38,4 +38,15 @@ module ApplicationHelper
       title.split('-|-').join(' - ')
     end, ',')
   end
+
+  def labeled_mods_notes(options = {})
+    return if options[:value].blank?
+    results = []
+    options[:value].each do |note|
+      field, text = note.split('-|-')
+      results << content_tag('dt', field)
+      results << content_tag('dd', text)
+    end
+    safe_join(results)
+  end
 end

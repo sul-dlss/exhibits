@@ -292,6 +292,7 @@ module Spotlight::Dor
         before_index :add_manuscript_titles
         before_index :add_text_titles
         before_index :add_incipit
+        before_index :add_labeled_notes
       end
 
       def add_manuscript_number(sdb, solr_doc)
@@ -320,6 +321,12 @@ module Spotlight::Dor
         insert_field solr_doc, 'incipit', incipit, :stored_searchable # this is a _tesim field
       end
 
+      def add_labeled_notes(sdb, solr_doc)
+        labeled_notes = parse_labeled_notes(sdb)
+        return if labeled_notes.blank?
+        insert_field solr_doc, 'labeled_notes', labeled_notes, :symbol # this is a _ssim field
+      end
+
       # parse titleInfo[type="alternative"]/title into tuples of (displayLabel, title)
       def parse_manuscript_titles(sdb)
         manuscript_titles = []
@@ -344,6 +351,19 @@ module Spotlight::Dor
         nil
       end
       private :parse_incipit
+    end
+
+    def parse_labeled_notes(sdb)
+      notes = []
+      # gather notes from <relatedItem> and <physicalDescription>
+      nodeset = sdb.smods_rec.related_item.note + sdb.smods_rec.physical_description.note
+      return nil if nodeset.empty?
+      nodeset.each do |note|
+        next if note.attr('displayLabel').blank?
+        label_with_title = [note.attr('displayLabel'), note.text.strip].join('-|-')
+        notes << label_with_title
+      end
+      notes
     end
 
     def insert_field(solr_doc, field, values, *args)

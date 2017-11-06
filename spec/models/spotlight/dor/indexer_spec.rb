@@ -872,5 +872,32 @@ describe Spotlight::Dor::Indexer do
         end
       end
     end
+
+    context '#add_labeled_notes' do
+      before do
+        subject.send(:add_labeled_notes, resource, solr_doc)
+      end
+
+      context 'with displayLabels' do
+        let(:modsbody) do # from cf386wt1778
+          <<-MODS
+            <physicalDescription>
+              <note displayLabel="Material" type="material">Vellum</note>
+            </physicalDescription>
+            <relatedItem type="constituent">
+              <note displayLabel="Explicit" type="explicit">uidebitis sicut dixit uobis</note>
+            </relatedItem>
+          MODS
+        end
+
+        it 'extracts physicalDescription notes' do
+          expect(solr_doc['labeled_notes_ssim']).to include 'Material-|-Vellum'
+        end
+
+        it 'extracts relatedItem notes' do
+          expect(solr_doc['labeled_notes_ssim']).to include 'Explicit-|-uidebitis sicut dixit uobis'
+        end
+      end
+    end
   end
 end
