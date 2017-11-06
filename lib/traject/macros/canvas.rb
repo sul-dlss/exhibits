@@ -43,6 +43,15 @@ module Macros
       end
     end
 
+    # Druids are kept as part of the canvas-id
+    def extract_canvas_related_document_ids
+      lambda do |record, accumulator, _context|
+        match = record['@id'][Exhibits::Application.config.druid_regex]
+        return if match.blank?
+        accumulator << match
+      end
+    end
+
     private
 
     def extract_annotations_from_list(accumulator, url)

@@ -48,5 +48,9 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
       expect(canvas.annotations.size).to eq 26
       expect(canvas.annotations).to include 'scæððig wæs his fæder geoffrod for ure alysed'
     end
+
+    it 'has document reference' do
+      expect(document['related_document_id_ssim']).to include 'fh878gz0315'
+    end
   end
 end

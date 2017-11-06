@@ -21,3 +21,4 @@ to_fields %w(title_display title_full_display title_uniform_search title_sort), 
 
 to_field 'iiif_annotation_list_url_ssim', extract_canvas_annotation_list_urls
 to_field 'annotation_tesim', extract_canvas_annotations
+to_field 'related_document_id_ssim', extract_canvas_related_document_ids
