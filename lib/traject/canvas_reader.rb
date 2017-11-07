@@ -2,7 +2,7 @@
 
 # Reads in Canvas records for traject
 class CanvasReader
-  # @param input_stream [File|IO]
+  # @param input_stream [File|IO] An enhanced IIIF Canvas object
   # @param settings [Traject::Indexer::Settings]
   def initialize(input_stream, settings)
     @settings = Traject::Indexer::Settings.new settings

@@ -44,6 +44,11 @@ RSpec.describe IiifCanvasIndexer do
       expect(CanvasResource.last.data['@id']).to eq 'http://example.org/iiif/book1/canvas/p3'
     end
 
+    it 'enhances the JSON of the canvas with additional needed fields' do
+      subject.index_canvases
+      expect(CanvasResource.first.data['manifest_label']).to eq 'Book 1'
+    end
+
     it 'enqueues the same number of jobs as otherContent annotationLists' do
       expect do
         subject.index_canvases

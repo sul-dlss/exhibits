@@ -8,6 +8,8 @@ class IiifCanvasIndexer
 
   ANNOTATION_LIST = 'sc:AnnotationList'.freeze
 
+  delegate :manifest, to: :manifest_harvester
+
   def initialize(exhibit, druid)
     @exhibit = exhibit
     @druid = druid
@@ -20,7 +22,11 @@ class IiifCanvasIndexer
         next unless other_content['@type'] == ANNOTATION_LIST
 
         canvas_resource = CanvasResource.find_or_initialize_by(url: other_content['@id'], exhibit: exhibit)
-        canvas_resource.data = JSON.parse(canvas.to_json)
+        # We need to pass some more information to the canvas indexer, and we
+        # so we do this by enhancing the stored Hash with needed fields.
+        enhanced_canvas = JSON.parse(canvas.to_json)
+        enhanced_canvas['manifest_label'] = manifest.label
+        canvas_resource.data = enhanced_canvas
         canvas_resource.save_and_index
       end
     end
@@ -41,6 +47,11 @@ class IiifCanvasIndexer
 
   def canvases
     return [] unless manifest_url
-    @canvases ||= IiifManifestHarvester.new(manifest_url).canvases
+    @canvases ||= manifest_harvester.canvases
+  end
+
+  def manifest_harvester
+    return unless manifest_url
+    @manifest_harvester ||= IiifManifestHarvester.new(manifest_url)
   end
 end
