@@ -13,7 +13,7 @@ describe CatalogHelper, type: :helper do
     end
 
     context 'for canvases' do
-      let(:document) { SolrDocument.new(format_main_ssim: ['Page']) }
+      let(:document) { SolrDocument.new(format_main_ssim: ['Page details']) }
 
       it { expect(has_thumbnail?(document)).to be true }
     end
@@ -40,7 +40,7 @@ describe CatalogHelper, type: :helper do
     end
 
     context 'for canveses' do
-      let(:document) { SolrDocument.new(id: 'abc123', format_main_ssim: ['Page']) }
+      let(:document) { SolrDocument.new(id: 'abc123', format_main_ssim: ['Page details']) }
 
       it 'renders a default thumbnail' do
         link = Capybara.string(helper.render_thumbnail_tag(document))

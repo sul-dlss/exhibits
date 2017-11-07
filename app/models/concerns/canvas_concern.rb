@@ -4,7 +4,7 @@
 # A concern to be mixed into SolrDocument for accessing a document's annotationlist
 module CanvasConcern
   def canvas?
-    first('format_main_ssim') == 'Page' # TODO: what is the correct format for an AnnotationList?
+    first('format_main_ssim') == 'Page details'
   end
 
   def canvas
