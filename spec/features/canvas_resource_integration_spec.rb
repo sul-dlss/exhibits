@@ -5,7 +5,9 @@ require 'rails_helper'
 RSpec.describe 'Canvas resource integration test', type: :feature do
   subject(:document) { SolrDocument.new(to_solr_hash) }
 
-  let(:resource) { CanvasResource.new(exhibit: exhibit, data: JSON.parse(File.read(file))) }
+  let(:raw_canvas) { JSON.parse(File.read(file)) }
+  let(:enhanced_canvas) { raw_canvas.merge(manifest_label: 'Awesome sauce!') }
+  let(:resource) { CanvasResource.new(exhibit: exhibit, data: enhanced_canvas) }
   let(:file) { 'spec/fixtures/iiif/fh878gz0315-canvas-521.json' }
   let(:exhibit) { FactoryGirl.create(:exhibit) }
   let(:to_solr_hash) { resource.document_builder.to_solr.first }
@@ -40,7 +42,7 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
     it 'has canvas attributes' do
       expect(canvas.id).to eq 'canvas-0fa395980b05e493948e0e2b50debd42'
       expect(canvas.iiif_id).to eq 'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521'
-      expect(canvas.label).to eq 'f. 254 r'
+      expect(canvas.label).to eq 'f. 254 r: Awesome sauce!'
     end
 
     it 'has canvas annotations' do

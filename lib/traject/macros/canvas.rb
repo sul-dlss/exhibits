@@ -17,9 +17,13 @@ module Macros
       end
     end
 
+    ##
+    # Note: This method assumes an "enhanced" canvas with additional properties
+    # added beyond the IIIF Canvas model.
     def extract_canvas_label
       lambda do |record, accumulator, _context|
-        accumulator << record['label'].to_s
+        labels = [record['label'].to_s, record['manifest_label'].to_s].reject(&:empty?)
+        accumulator << labels.join(': ')
       end
     end
 
