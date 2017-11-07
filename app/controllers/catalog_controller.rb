@@ -186,7 +186,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
     # Fields specific to Parker Exhibit
     config.add_index_field 'incipit_tesim', label: 'Incipit'
-    config.add_index_field 'text_titles_tesim', label: 'Text title'
+    config.add_index_field 'text_titles_tesim', label: 'Text title', helper_method: :table_of_contents_separator
     config.add_index_field 'manuscript_titles_tesim', label: 'Manuscript title', helper_method: :manuscript_title
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     # "fielded" search configuration. Used by pulldown among other places.

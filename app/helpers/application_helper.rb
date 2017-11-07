@@ -38,4 +38,11 @@ module ApplicationHelper
       title.split('-|-').join(' - ')
     end, ',')
   end
+
+  def table_of_contents_separator(options = {})
+    return if options[:value].blank?
+    contents = options[:value][0].split('--').map(&:strip)
+    contents = contents.join('<br />').html_safe # rubocop:disable Rails/OutputSafety
+    render partial: 'catalog/table_of_contents', locals: { contents: contents }
+  end
 end
