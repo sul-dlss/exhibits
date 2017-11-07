@@ -53,6 +53,7 @@ class CatalogController < ApplicationController
     config.index.title_field = 'title_display'
     config.index.display_type_field = 'display_type'
     config.index.default_bibliography_thumbnail = 'default-square-thumbnail-book.png'
+    config.index.default_canvas_thumbnail = 'default-square-thumbnail-annotation.png'
     config.index.thumbnail_field = :thumbnail_url_ssm
     config.index.square_image_field = :thumbnail_square_url_ssm
     config.index.slideshow_field = :large_image_url_ssm
@@ -70,6 +71,7 @@ class CatalogController < ApplicationController
     config.view.list.partials = [:exhibits_document_header, :index]
     config.view.gallery.partials = [:index_header, :index]
     config.view.gallery.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
+    config.view.gallery.default_canvas_thumbnail = 'default-square-thumbnail-annotation-large.png'
     config.view.heatmaps.partials = []
     config.view.heatmaps.color_ramp = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494']
     config.view.masonry.partials = [:index]
