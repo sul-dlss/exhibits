@@ -13,6 +13,9 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
   let(:to_solr_hash) { resource.document_builder.to_solr.first }
   let(:annolist_file) { 'spec/fixtures/iiif/fh878g0315-text-f254r.json' }
   let(:annolist_url) { 'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f254r.json' }
+  let(:title_display_search_fields) do
+    %w(title_display title_full_display title_uniform_search)
+  end
 
   before :all do
     ActiveJob::Base.queue_adapter = :inline # block until indexing has committed
@@ -37,6 +40,13 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
 
     it 'has correct format' do
       expect(document['format_main_ssim']).to include 'Page details'
+    end
+
+    it 'has correct title fields' do
+      title_display_search_fields.each do |field_name|
+        expect(document[field_name]).to eq ['f. 254 r: Awesome sauce!']
+      end
+      expect(document['title_sort']).to eq ['Awesome sauce!: f. 254 r']
     end
 
     it 'has canvas attributes' do

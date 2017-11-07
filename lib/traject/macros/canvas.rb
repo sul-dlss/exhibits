@@ -27,6 +27,16 @@ module Macros
       end
     end
 
+    ##
+    # Note: This method assumes an "enhanced" canvas with additional properties
+    # added beyond the IIIF Canvas model.
+    def extract_canvas_label_sort
+      lambda do |record, accumulator, _context|
+        labels = [record['manifest_label'].to_s, record['label'].to_s].reject(&:empty?)
+        accumulator << labels.join(': ')
+      end
+    end
+
     def extract_canvas_annotation_list_urls
       lambda do |record, accumulator, _context|
         return if record['otherContent'].blank?
