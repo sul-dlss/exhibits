@@ -1,8 +1,15 @@
 # frozen_string_literal: true
-
 module Macros
   # General helpers for any traject mappings, stolen originally from DLME
   module General
+    def accumulate(&lambda)
+      lambda do |record, accumulator, context|
+        Array(lambda.call(record, context)).each do |v|
+          accumulator << v
+        end
+      end
+    end
+
     # only accumulate values if a condition is met
     def conditional(condition, lambda)
       lambda do |record, accumulator, context|
@@ -24,6 +31,14 @@ module Macros
     def from_settings(field)
       lambda do |_record, accumulator, context|
         accumulator << context.settings.fetch(field)
+      end
+    end
+
+    def copy(field)
+      lambda do |_record, accumulator, context|
+        Array(context.output_hash[field]).each do |v|
+          accumulator << v
+        end
       end
     end
 

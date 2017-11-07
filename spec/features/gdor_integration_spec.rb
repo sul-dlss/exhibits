@@ -19,7 +19,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
 
     context 'to_solr' do
       subject(:document) do
-        dor_harvester.document_builder.to_solr.first
+        dor_harvester.document_builder.to_solr.first.symbolize_keys
       end
 
       it 'has a doc id' do
@@ -35,7 +35,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
       end
 
       it 'has exhibit-specific indexing' do
-        expect(document).to include 'full_image_url_ssm'
+        expect(document).to include :full_image_url_ssm
       end
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
 
     context 'to_solr' do
       subject(:document) do
-        dor_harvester.document_builder.to_solr.first
+        dor_harvester.document_builder.to_solr.first.symbolize_keys
       end
 
       before do
@@ -57,7 +57,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
       end
 
       it 'has the correct collection tag' do
-        expect(document[:collection_type]).to eq 'Digital Collection'
+        expect(document[:collection_type]).to eq ['Digital Collection']
       end
 
       it 'has correct resource type' do
@@ -65,7 +65,7 @@ RSpec.describe 'gdor indexing integration test', type: :feature do
       end
 
       it 'has correct content metadata type' do
-        expect(document['content_metadata_type_ssm']).to include 'file'
+        expect(document[:content_metadata_type_ssm]).to include 'file'
       end
     end
   end

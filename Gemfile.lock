@@ -277,7 +277,6 @@ GEM
       stanford-mods
     hashie (3.5.6)
     honeybadger (2.7.2)
-    hooks (0.3.3)
     httpclient (2.8.3)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
@@ -666,7 +665,6 @@ DEPENDENCIES
   friendly_id (~> 5.2.0)
   harvestdor-indexer (~> 2.4)
   honeybadger (~> 2.0)
-  hooks
   jbuilder (~> 2.5)
   jquery-rails
   jsonpath

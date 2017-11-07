@@ -103,7 +103,6 @@ gem 'sir_trevor_rails'
 gem 'riiif'
 gem 'rsolr'
 gem 'faraday'
-gem 'hooks'
 gem 'net-http-persistent', '< 3' # 3.x is incompatible with Faraday 0.9
 gem 'harvestdor-indexer', '~> 2.4'
 gem 'stanford-mods', '~> 2.2', '>= 2.2.1'

@@ -47,3 +47,7 @@ Metrics/BlockLength:
     - 'app/controllers/catalog_controller.rb'
     - 'app/models/spotlight/dor/indexer.rb'
     - 'spec/**/*'
+
+Performance/RedundantBlockCall:
+  Exclude:
+    - 'lib/traject/macros/**/*'
