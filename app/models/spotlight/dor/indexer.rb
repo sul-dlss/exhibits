@@ -2,21 +2,25 @@
 # rubocop:disable Metrics/AbcSize
 
 # external gems
-require 'gdor/indexer'
 require 'solrizer'
 require 'faraday'
 require 'nokogiri'
+require 'hooks'
 
 module Spotlight::Dor
   # Base class to harvest from DOR via harvestdor gem
-  class Indexer < GDor::Indexer
+  class Indexer
     # Array-like object that dumps validation messages on the floor
     class DevNullValidationMessages < SimpleDelegator
       def concat(*args); end
     end
+    include Hooks
 
-    def initialize(*args)
-      super
+    define_hooks :before_index
+    attr_accessor :harvestdor
+
+    def initialize(options = {})
+      @harvestdor = Harvestdor::Indexer.new options
       @validation_messages = DevNullValidationMessages.new([])
     end
 
@@ -25,7 +29,7 @@ module Spotlight::Dor
     end
 
     def solr_document(resource)
-      doc_hash = super
+      doc_hash = {}
       run_hook :before_index, resource, doc_hash
       doc_hash
     end
@@ -53,6 +57,152 @@ module Spotlight::Dor
 
     def iiif_manifest_url(bare_druid)
       format Settings.purl.iiif_manifest_url, druid: bare_druid
+    end
+
+    concerning :GDorStuff do
+      included do
+        before_index :add_base_fields
+        before_index :add_collection_fields
+        before_index :add_item_fields
+        before_index :add_mods_fields
+      end
+
+      def add_base_fields(resource, solr_doc)
+        solr_doc[:id] = resource.bare_druid
+        solr_doc[:modsxml] = resource.smods_rec.to_xml
+        solr_doc[:druid] = resource.bare_druid
+        solr_doc[:url_fulltext] = "https://purl.stanford.edu/#{resource.bare_druid}"
+        solr_doc[:access_facet] = 'Online'
+        solr_doc[:building_facet] = 'Stanford Digital Repository' # INDEX-53 add building_facet = Stanford Digital Repository here for item
+      end
+
+      def add_item_fields(resource, solr_doc)
+        return if resource.collection?
+
+        solr_doc[:display_type] = display_type(dor_content_type(resource)) # defined in public_xml_fields
+        solr_doc[:file_id] = file_ids(resource)
+        solr_doc.delete(:file_id) if solr_doc[:file_id].blank?
+
+        solr_doc[:collection] ||= []
+        solr_doc[:collection_with_title] ||= []
+
+        resource.collections.each do |collection|
+          solr_doc[:collection] << collection.bare_druid
+          solr_doc[:collection_with_title] << "#{collection.bare_druid}-|-#{coll_title(collection)}"
+        end
+      end
+
+      def file_ids(resource)
+        ids = []
+        if resource.content_metadata
+          if display_type(dor_content_type(resource)) == 'image'
+            resource.content_metadata.root.xpath('resource[@type="image"]/file/@id').each do |node|
+              ids << node.text unless node.text.empty?
+            end
+          elsif display_type(dor_content_type(resource)) == 'file'
+            resource.content_metadata.root.xpath('resource/file/@id').each do |node|
+              ids << node.text unless node.text.empty?
+            end
+          end
+        end
+        return nil if ids.empty?
+        ids
+      end
+
+      def display_type(dor_content_type)
+        case dor_content_type
+        when 'book'
+          'book'
+        when 'image', 'manuscript', 'map'
+          'image'
+        else
+          'file'
+        end
+      end
+
+      def dor_content_type(resource)
+        resource.content_metadata ? resource.content_metadata.root.xpath('@type').text : nil
+      end
+
+      def coll_title(resource)
+        @collection_titles ||= {}
+        @collection_titles[resource.druid] ||= begin
+          resource.identity_md_obj_label
+        end
+      end
+
+      def add_collection_fields(resource, solr_doc)
+        return unless resource.collection?
+
+        # solr_doc[:display_type] =
+        solr_doc[:format_main_ssim] = 'Archive/Manuscript'
+        solr_doc[:collection_type] = 'Digital Collection'
+      end
+
+      def add_mods_fields(resource, solr_doc)
+        smods_rec = resource.smods_rec
+        doc_hash = {
+          # title fields
+          title_245a_search: smods_rec.sw_short_title,
+          title_245_search: smods_rec.sw_full_title,
+          title_variant_search: smods_rec.sw_addl_titles,
+          title_sort: smods_rec.sw_sort_title,
+          title_245a_display: smods_rec.sw_short_title,
+          title_display: smods_rec.sw_title_display,
+          title_full_display: smods_rec.sw_full_title,
+
+          # author fields
+          author_1xx_search: smods_rec.sw_main_author,
+          author_7xx_search: smods_rec.sw_addl_authors,
+          author_person_facet: smods_rec.sw_person_authors,
+          author_other_facet: smods_rec.sw_impersonal_authors,
+          author_sort: smods_rec.sw_sort_author,
+          author_corp_display: smods_rec.sw_corporate_authors,
+          author_meeting_display: smods_rec.sw_meeting_authors,
+          author_person_display: smods_rec.sw_person_authors,
+          author_person_full_display: smods_rec.sw_person_authors,
+
+          # subject search fields
+          topic_search: smods_rec.topic_search,
+          geographic_search: smods_rec.geographic_search,
+          subject_other_search: smods_rec.subject_other_search,
+          subject_other_subvy_search: smods_rec.subject_other_subvy_search,
+          subject_all_search: smods_rec.subject_all_search,
+          topic_facet: smods_rec.topic_facet,
+          geographic_facet: smods_rec.geographic_facet,
+          era_facet: smods_rec.era_facet,
+
+          format_main_ssim: smods_rec.format_main,
+
+          language: smods_rec.sw_language_facet,
+          physical: smods_rec.term_values([:physical_description, :extent]),
+          summary_search: smods_rec.term_values(:abstract),
+          toc_search: smods_rec.term_values(:tableOfContents),
+          url_suppl: smods_rec.term_values([:related_item, :location, :url]),
+
+          # publication fields
+          pub_search: smods_rec.place,
+          pub_year_isi: smods_rec.pub_year_int(false), # for sorting
+          # TODO:  remove pub_date_sort after reindexing existing colls;  deprecated in favor of pub_year_isi ...
+          pub_date_sort: smods_rec.pub_year_sort_str(false),
+          # these are for single value facet display (in leiu of date slider (pub_year_tisim) )
+          pub_year_no_approx_isi: smods_rec.pub_year_int(true),
+          pub_year_w_approx_isi: smods_rec.pub_year_int(false),
+          # display fields  TODO:  pub_date_display is deprecated;  need better implementation of imprint_display
+          imprint_display: smods_rec.pub_date_display,
+          # pub_date_best_sort_str_value is protected ...
+          creation_year_isi: smods_rec.year_int(smods_rec.date_created_elements(false)),
+          publication_year_isi: smods_rec.year_int(smods_rec.date_issued_elements(false)),
+
+          all_search: smods_rec.text.gsub(/\s+/, ' ')
+        }
+
+        if doc_hash[:pub_year_isi] >= 0
+          doc_hash[:pub_year_tisim] = doc_hash[:pub_year_isi] # for date slider
+        end
+
+        solr_doc.merge!(doc_hash.reject { |k,v| v.blank? })
+      end
     end
 
     # Functionality grouped when code was moved to the StanfordMods gem
