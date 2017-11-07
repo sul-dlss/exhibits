@@ -47,4 +47,16 @@ describe ApplicationHelper, type: :helper do
       expect(helper.table_of_contents_separator(input)).to match(/data-toggle='collapse'/)
     end
   end
+
+  describe '#manuscript_link' do
+    let(:druid) { ['bg021sq9590'] }
+    let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
+    let(:full_title) { { 'title_full_display' => ["p. 3:#{title}"] } }
+    let(:show_page) { '/test-flag-exhibit-slug/catalog/bg021sq9590' }
+
+    it 'removes page prefix' do
+      @exhibit = create(:exhibit, slug: 'test-flag-exhibit-slug')
+      expect(helper.manuscript_link(value: druid, document: full_title)).to have_link(text: title, href: show_page)
+    end
+  end
 end

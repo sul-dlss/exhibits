@@ -47,4 +47,11 @@ module ApplicationHelper
     id = options[:document].id
     render partial: 'catalog/table_of_contents', locals: { contents: contents, collapse_id: "collapseToc-#{id}" }
   end
+
+  def manuscript_link(options = {})
+    return if options[:value].blank?
+    title = options[:document]['title_full_display']
+    title = title.partition(':')[2] if title.include?(':')
+    link_to title, spotlight.exhibit_solr_document_path(@exhibit, options[:value][0])
+  end
 end
