@@ -34,7 +34,7 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
     subject(:canvas) { document.canvas }
 
     it 'has correct format' do
-      expect(document['format_main_ssim']).to include 'Page'
+      expect(document['format_main_ssim']).to include 'Page details'
     end
 
     it 'has canvas attributes' do

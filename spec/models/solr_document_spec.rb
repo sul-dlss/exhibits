@@ -59,6 +59,20 @@ describe SolrDocument do
     end
   end
 
+  describe '#canvas?' do
+    context 'when a document is a canvas' do
+      subject(:document) { described_class.new(format_main_ssim: ['Page details']) }
+
+      it { is_expected.to be_canvas }
+    end
+
+    context 'when a document is not a canvas' do
+      subject(:document) { described_class.new }
+
+      it { is_expected.not_to be_canvas }
+    end
+  end
+
   describe '#canvas' do
     subject(:canvas) do
       described_class.new(
@@ -68,7 +82,7 @@ describe SolrDocument do
         ],
         'iiif_canvas_id_ssim' => ['https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521'],
         'title_display' => ['f. 254 r'],
-        'format_main_ssim' => %w(Page),
+        'format_main_ssim' => ['Page details'],
         'annotation_tesim' => %w(These are all my annotations)
       ).canvas
     end
