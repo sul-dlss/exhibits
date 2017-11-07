@@ -12,7 +12,7 @@ module CatalogHelper
   # @return [Boolean]
   # rubocop:disable Style/PredicateName
   def has_thumbnail?(document)
-    return super unless document.reference?
+    return super unless document.reference? || document.canvas?
 
     true
   end
@@ -28,9 +28,18 @@ module CatalogHelper
   # @param [Hash] url_options to pass to #link_to_document
   # @return [String]
   def render_thumbnail_tag(document, image_options = {}, url_options = {})
-    return super unless document.reference?
-    image_path = blacklight_config.view_config(document_index_view_type).default_bibliography_thumbnail
-    image = image_tag(image_path, image_options)
+    return super unless document.reference? || document.canvas?
+    image = image_tag(thumbnail_tag_image_path(document), image_options)
     link_to_document document, image, url_options
+  end
+
+  private
+
+  def thumbnail_tag_image_path(document)
+    if document.reference?
+      blacklight_config.view_config(document_index_view_type).default_bibliography_thumbnail
+    elsif document.canvas?
+      blacklight_config.view_config(document_index_view_type).default_canvas_thumbnail
+    end
   end
 end
