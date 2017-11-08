@@ -39,7 +39,7 @@
 Blacklight.onLoad(function () {
   'use strict';
 
-  $('.bibliography-contents').each(function (i, element) {
+  $('[data-behavior="bibliography-contents"]').each(function (i, element) {
     Bibliography.init(element); // eslint-disable-line no-undef
   });
 });

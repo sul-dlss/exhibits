@@ -34,7 +34,7 @@
 Blacklight.onLoad(function () {
   'use strict';
 
-  $('.cited-documents-contents').each(function (i, element) {
+  $('[data-behavior="cited-documents-contents"]').each(function (i, element) {
     CitedDocuments.init(element); // eslint-disable-line no-undef
   });
 });
