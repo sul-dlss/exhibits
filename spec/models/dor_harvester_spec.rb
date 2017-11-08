@@ -156,12 +156,19 @@ describe DorHarvester do
   end
 
   describe '#reindex' do
-    let(:resource) { subject.resources.first }
+    let(:resource) do
+      instance_double(Harvestdor::Indexer::Resource, druid: 'abc123',
+                                                     bare_druid: 'abc123',
+                                                     collection?: false,
+                                                     exists?: true,
+                                                     items: [])
+    end
+    let(:druid) { 'abc123' }
 
     before do
       subject.save!
       allow_any_instance_of(Traject::Indexer).to receive(:map_record).and_return(upstream: true)
-      allow(resource).to receive(:collection?).and_return(false)
+      allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, 'abc123').and_return(resource)
       allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return(id: 'abc123')
 
       allow(blacklight_solr).to receive(:update)
