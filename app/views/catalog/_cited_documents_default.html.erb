@@ -1,5 +1,5 @@
 <% if @document.reference? && @document.cites_other_documents? %>
-  <div class='col-md-12 cited-documents-contents'
+  <div class='col-md-12 record-metadata-section'
        data-path="<%= search_exhibit_catalog_path(exhibit_id: @exhibit) %>"
        data-parentid="<%= @document.id %>"
        data-documentids="<%= @document.related_document_ids %>"
