@@ -18,7 +18,8 @@ RSpec.describe IiifCanvasIndexer do
     SolrDocument.new(
       id: druid,
       content_metadata_type_ssm: ['image'],
-      iiif_manifest_url_ssi: 'http://example.com'
+      iiif_manifest_url_ssi: 'http://example.com',
+      identifier_ssim: %w(ABC 123 xyz)
     )
   end
   let(:mani_url) { 'http://example.org/iiif/book1/manifest' }
@@ -47,6 +48,7 @@ RSpec.describe IiifCanvasIndexer do
     it 'enhances the JSON of the canvas with additional needed fields' do
       subject.index_canvases
       expect(CanvasResource.first.data['manifest_label']).to eq 'Book 1'
+      expect(CanvasResource.first.data['parent_identifier']).to eq(%w(ABC 123 xyz))
     end
 
     it 'enqueues the same number of jobs as otherContent annotationLists' do

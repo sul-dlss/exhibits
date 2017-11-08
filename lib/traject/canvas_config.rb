@@ -16,6 +16,7 @@ end
 to_field 'id', extract_canvas_id
 to_field 'iiif_canvas_id_ssim', extract_canvas_iiif_id
 to_field 'format_main_ssim', literal('Page details')
+to_field 'identifier_ssim', extract_canvas_parent_identifier
 
 to_fields %w(title_display title_full_display title_uniform_search), extract_canvas_label
 to_field 'title_sort', extract_canvas_label_sort
