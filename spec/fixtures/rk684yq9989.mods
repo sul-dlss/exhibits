@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd" version="3.5">
+  <typeOfResource>text</typeOfResource>
+  <titleInfo>
+    <title>SUN graphics related to paper</title>
+  </titleInfo>
+  <name type="personal" usage="primary" authority="naf" authorityURI="http://id.loc.gov/authorities/names" valueURI="http://id.loc.gov/authorities/names/no93016284">
+    <namePart>Baskett, Forest</namePart>
+    <role>
+      <roleTerm type="text" authority="marcrelator" authorityURI="http://id.loc.gov/vocabulary/relators" valueURI="http://id.loc.gov/vocabulary/relators/cre">Creator</roleTerm>
+    </role>
+  </name>
+  <name type="personal" authority="local">
+    <namePart>Bechtolscheim, Andreus</namePart>
+    <role>
+      <roleTerm type="text" authority="marcrelator" authorityURI="http://id.loc.gov/vocabulary/relators" valueURI="http://id.loc.gov/vocabulary/relators/ctb">Contributor</roleTerm>
+    </role>
+  </name>
+  <originInfo>
+    <dateCreated encoding="w3cdtf" keyDate="yes">1980-03-30</dateCreated>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <physicalDescription>
+    <extent>1 document</extent>
+    <digitalOrigin>reformatted digital</digitalOrigin>
+    <internetMediaType>application/pdf</internetMediaType>
+  </physicalDescription>
+  <note type="preferred citation">Call Number: SC0340, Accession: 1986-052, Box: 1, Folder: 6, Title: SUN Write-ups and View Graphs</note>
+  <note>Manuscript (1980/3/30)</note>
+  <subject authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh85008180">
+    <topic>Artificial intelligence</topic>
+  </subject>
+  <subject authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh85046450">
+    <topic>Expert systems (Computer science)</topic>
+  </subject>
+  <subject authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh89003285">
+    <topic>Computer science</topic>
+  </subject>
+  <location>
+    <physicalLocation type="repository" displayLabel="Repository" authorityURI="http://id.loc.gov/authorities/names" valueURI="http://id.loc.gov/authorities/names/no2014019980">Stanford University. Libraries. Department of Special Collections and University Archives</physicalLocation>
+    <physicalLocation>Call Number: SC0340, Accession: 1986-052, Box: 1, Folder: 6</physicalLocation>
+  </location>
+  <identifier type="local" displayLabel="Source ID">SC0340_1986-052_rk684yq9989</identifier>
+  <language>
+    <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+  </language>
+  <recordInfo>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+    <recordContentSource authority="marcorg">CSt</recordContentSource>
+    <recordOrigin>Description mapped to MODS from SaltWorks, original scanned file name: SC340_1986-052_b01_f06_i0002.</recordOrigin>
+  </recordInfo>
+  <note displayLabel="Donor tags">Computer Science Department</note>
+  <note displayLabel="Donor tags">SUN</note>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Edward A. Feigenbaum papers, 1950-2007 (inclusive)</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/ms016pb9280</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu).</accessCondition>
+</mods>

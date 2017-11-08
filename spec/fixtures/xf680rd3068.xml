@@ -1,6 +1,5 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-<publicObject id="druid:xf680rd3068" published="2015-04-24T11:45:16-07:00">
+<publicObject id="druid:xf680rd3068" published="2017-04-26T16:25:02Z" publishVersion="dor-services/5.11.0">
   <identityMetadata>
     <sourceId source="sul">MISC_1855</sourceId>
     <objectId>druid:xf680rd3068</objectId>
@@ -16,7 +15,8 @@
     <tag>DPG : Medieval Manuscript Exhibition 2014</tag>
     <tag>DPG : Curator Request : Jordan</tag>
     <tag>Registered By : astrids</tag>
-    <tag>Remediated By : 4.14.4</tag>
+    <displayType>file</displayType>
+    <tag>Remediated By : 5.11.0</tag>
   </identityMetadata>
   <contentMetadata type="image" objectId="xf680rd3068">
     <resource type="image" sequence="1" id="xf680rd3068_1">
@@ -53,8 +53,6 @@
   </rightsMetadata>
   <rdf:RDF xmlns:fedora="info:fedora/fedora-system:def/relations-external#" xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <rdf:Description rdf:about="info:fedora/druid:xf680rd3068">
-      <fedora:isMemberOf rdf:resource="info:fedora/druid:sk373nx0013"/>
-      <fedora:isMemberOfCollection rdf:resource="info:fedora/druid:sk373nx0013"/>
     </rdf:Description>
   </rdf:RDF>
   <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:srw_dc="info:srw/schema/1/dc-schema" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
@@ -72,7 +70,54 @@
     <dc:subject>Manuscripts, Latin (Medieval and modern)</dc:subject>
     <dc:coverage>France</dc:coverage>
     <dc:subject>Manuscripts, Latin (Medieval and modern)--France</dc:subject>
-    <dc:relation type="collection">Stanford University Libraries Special Collections, Manuscripts Division</dc:relation>
   </oai_dc:dc>
-  <ReleaseData/>
+  <mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.4" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+    <titleInfo>
+      <title>Latin glossary : small manuscript fragment on vellum</title>
+    </titleInfo>
+    <typeOfResource manuscript="yes">mixed material</typeOfResource>
+    <originInfo>
+      <place>
+        <placeTerm type="code" authority="marccountry">fr</placeTerm>
+      </place>
+      <place>
+        <placeTerm type="text">France?</placeTerm>
+      </place>
+      <dateCreated>13th century</dateCreated>
+      <dateIssued encoding="marc" point="start" qualifier="questionable">1200</dateIssued>
+      <dateIssued encoding="marc" point="end" qualifier="questionable">1299</dateIssued>
+      <issuance>monographic</issuance>
+    </originInfo>
+    <language>
+      <languageTerm authority="iso639-2b" type="code">lat</languageTerm>
+    </language>
+    <physicalDescription>
+      <extent>1 fragment, 96 x 151 mm.</extent>
+    </physicalDescription>
+    <abstract>Unidentified Latin vocabulary, this portion part of the letter M, with a total of 35 lemmata (a word or phrase that is glossed; headword).</abstract>
+    <note type="statement of responsibility" altRepGroup="00"/>
+    <note>Lower portion of vellum leaf, removed from a binding.</note>
+    <note>Script: professional gotica textualis, 2 columns, with a fair amount of abbreviations.</note>
+    <note type="acquisition">Purchased from Bonhams, 2013. Accession 2013-080.</note>
+    <note type="ownership">Previously in the Bernard M. Rosenthal collection; with Rosenthal's dealer description included with the manuscript, together with a note re previous ownership of Bernard Bischoff.</note>
+    <subject authority="lcsh">
+      <topic>Manuscripts, Latin (Medieval and modern)</topic>
+      <geographic>France</geographic>
+    </subject>
+    <location>
+      <physicalLocation>Department of Special Collections, Stanford University Libraries, Stanford, CA 94305</physicalLocation>
+    </location>
+    <recordInfo>
+      <descriptionStandard>dacs</descriptionStandard>
+      <recordContentSource authority="marcorg">CSt</recordContentSource>
+      <recordCreationDate encoding="marc">130524</recordCreationDate>
+      <recordIdentifier>a10157160</recordIdentifier>
+      <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4_SDR.xsl (Version 1.2.5 2013/08/11)</recordOrigin>
+    </recordInfo>
+    <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+  </mods>
+  <releaseData>
+    <release to="Searchworks">true</release>
+  </releaseData>
+  <thumb>xf680rd3068/xf680rd3068_00_0001.jp2</thumb>
 </publicObject>

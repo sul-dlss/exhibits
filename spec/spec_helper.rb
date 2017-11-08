@@ -3,6 +3,7 @@ Coveralls.wear!('rails')
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
+require 'webmock/rspec'
 
 FIXTURES_PATH = File.expand_path('../fixtures', __FILE__)
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.5" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+  <titleInfo authority="Corpus Christi College">
+    <title>Cambridge, Corpus Christi College, MS 69: Gregory the Great, Homiliae XL in euangelia</title>
+  </titleInfo>
+  <titleInfo displayLabel="M.R. James Title" type="alternative">
+    <title>Gregorii Homiliae</title>
+  </titleInfo>
+  <typeOfResource manuscript="yes">mixed material</typeOfResource>
+  <tableOfContents displayLabel="Contents">Homiliae XL in euangelia</tableOfContents>
+  <originInfo>
+    <dateCreated>viii-ix</dateCreated>
+    <dateCreated encoding="w3cdtf" keyDate="yes" point="start" qualifier="approximate">700</dateCreated>
+    <dateCreated encoding="w3cdtf" point="end" qualifier="approximate">899</dateCreated>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" authorityURI="http://id.loc.gov/vocabulary/iso639-2" type="code" valueURI="http://id.loc.gov/vocabulary/iso639-2/lat">lat</languageTerm>
+    <languageTerm authority="iso639-2b" authorityURI="http://id.loc.gov/vocabulary/iso639-2" type="text" valueURI="http://id.loc.gov/vocabulary/iso639-2/Latin.">Latin.</languageTerm>
+  </language>
+  <physicalDescription>
+    <note displayLabel="Material" type="material">Vellum</note>
+    <extent>ff. 83</extent>
+    <note displayLabel="Layout" type="layout">Double columns of 31 and 36 lines.</note>
+    <note displayLabel="Hand note" type="handNote">In a fine Hiberno-Saxon hand.</note>
+    <note displayLabel="Decoration note" type="decoNote">With initials of Celtic type.</note>
+    <note displayLabel="Height" type="dimensions">300 mm</note>
+    <note displayLabel="Width" type="dimensions">215 mm</note>
+    <note displayLabel="Dimensions" type="dimensions">12 x 8.7 in</note>
+    <note displayLabel="2 fo." type="secondFolio">Reuocando</note>
+    <note displayLabel="Decoration" type="decoNote">The initials are of rather rough execution. A peculiar feature is that every page is bordered on R. and L. and between the columns with lines of red dots, in groups of three.</note>
+    <note displayLabel="Writing" type="handNote">The hand varies in closeness but may very probably be the same throughout.</note>
+    <note displayLabel="Foliation" type="foliation">ff. i + 1-83 + ii</note>
+  </physicalDescription>
+  <note displayLabel="Summary" type="summary">CCCC MS 69, containing Gregory the Great's Forty Homilies on the Gospels, was written in Insular Hybrid minuscule and decorated in typical Insular fashion with red dots, interlace, and occasional animal heads. It was probably made in England south of the Humber, dating to the early part of the early ninth century, and is as such a relatively late product of the Insular book-producing tradition in England, which was to be greatly disrupted by Viking attacks of the middle of the ninth century. The text was used by Étaix in his edition of the work, although he denigrated it as containing terrible readings and fantastic spellings; but its place of origin and early date seemed to him too significant for the manuscript to be ignored.</note>
+  <identifier displayLabel="Source ID" type="local">CCCC:69</identifier>
+  <identifier displayLabel="Stanley ID">L. 14</identifier>
+  <identifier displayLabel="T. James ID">135</identifier>
+  <location>
+    <physicalLocation type="repository">UK, Cambridge, Corpus Christi College, Parker Library</physicalLocation>
+    <shelfLocator>MS 69</shelfLocator>
+  </location>
+  <relatedItem type="constituent">
+    <titleInfo>
+      <title>Homiliae XL in euangelia</title>
+      <partNumber>ff. 1r - 83v</partNumber>
+    </titleInfo>
+    <titleInfo displayLabel="M.R. James Title" type="alternative">
+      <title>Homilies on the Gospels</title>
+    </titleInfo>
+    <name type="personal">
+      <namePart>Gregory the Great</namePart>
+      <role>
+        <roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/aut">author</roleTerm>
+      </role>
+    </name>
+    <physicalDescription>
+      <extent>ff. 83</extent>
+    </physicalDescription>
+    <note>The Gospel Lections are given in full</note>
+    <note displayLabel="Rubric 1" type="rubric">Omelia euangeliorum gregorii papae urbis romae numero uiginti. secundum marcum</note>
+    <note displayLabel="Bibliographic reference" type="bibliographic">P. L. LXX [actually LXXVI]</note>
+    <note displayLabel="Incipit" type="incipit">In illo tempore maria magdalene et maria iacobi et solomae</note>
+    <note displayLabel="Explicit" type="explicit">uidebitis sicut dixit uobis</note>
+    <note displayLabel="Decoration" type="decoNote">Initial I, in green, pink and yellow, with panels of interlaced work. The ground round it is thickly dotted with red. The letters "N ILLO" are filled in with pink and interlacing.</note>
+    <note displayLabel="Rubric 2" type="rubric">Multis uobis lectionibus fratres karissimi</note>
+    <note>The Homilies are irregularly numbered: the last, imperfect, should be the xlth (on Dives and Lazarus).</note>
+  </relatedItem>
+  <relatedItem displayLabel="Description appears in" type="isReferencedBy">
+    <titleInfo>
+      <title>A descriptive catalogue of the manuscripts in the library of Corpus Christi College, Cambridge, Vol. 1</title>
+    </titleInfo>
+    <name type="personal">
+      <namePart>James, M. R. (Montague Rhodes)</namePart>
+      <role>
+        <roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/aut">author</roleTerm>
+      </role>
+    </name>
+    <location>
+      <url>https://purl.stanford.edu/kd310gm7424</url>
+    </location>
+  </relatedItem>
+  <recordInfo>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b" authorityURI="http://id.loc.gov/vocabulary/iso639-2" type="code" valueURI="http://id.loc.gov/vocabulary/iso639-2/eng">eng</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Parker Manuscripts</title>
+    </titleInfo>
+    <location>
+      <url>https://purl.stanford.edu/dx969tv9730</url>
+    </location>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">This work is copyright of the Master and Fellows of Corpus Christi College, Cambridge and is licensed under a Creative Common Attribution-NonCommercial 4.0 International License. For higher resolution images suitable for scholarly or commercial publication, either in print or in an electronic format, please contact the Parker directly at parker-library@corpus.cam.ac.uk</accessCondition>
+  <accessCondition type="license">CC by-nc-i: Attribution-NonCommercial 4.0 International</accessCondition>
+</mods>

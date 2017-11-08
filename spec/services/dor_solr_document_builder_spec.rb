@@ -14,7 +14,7 @@ describe DorSolrDocumentBuilder do
     allow(harvester).to receive(:resources).and_return(resources)
     allow(harvester).to receive(:blacklight_solr).and_return(double)
     allow(harvester).to receive(:to_global_id).and_return('x')
-    allow_any_instance_of(Traject::Indexer).to receive(:map_record).and_return(upstream: true)
+    allow_any_instance_of(Traject::Indexer).to receive(:map_record).and_return('upstream' => true)
   end
 
   describe '#to_solr' do

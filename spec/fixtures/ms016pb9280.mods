@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.4" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+  <titleInfo>
+    <title>Edward A. Feigenbaum papers, 1950-2007 (inclusive)</title>
+  </titleInfo>
+  <name type="personal" usage="primary">
+    <namePart>Feigenbaum, Edward A.</namePart>
+  </name>
+  <typeOfResource collection="yes" manuscript="yes">mixed material</typeOfResource>
+  <genre authority="lcsh.">Phonotapes.</genre>
+  <genre authority="lcsh.">Video recordings</genre>
+  <originInfo>
+    <place>
+      <placeTerm type="code" authority="marccountry">cau</placeTerm>
+    </place>
+    <dateIssued encoding="marc" point="start">1950</dateIssued>
+    <dateIssued encoding="marc" point="end">2007</dateIssued>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>86 linear feet and 89,702.3 megabytes</extent>
+  </physicalDescription>
+  <abstract>Collection primarily concerns his work in artificial intelligence at Stanford University and includes administrative files, correspondence, project files, trip files, proposals, reports, reprints, Artificial Intelligence Lab memos, audio tapes, video tapes, and files on computer programs, including EPAM, DENDRAL, MOLGEN, MYCIN, and others. Also includes manuscript and published editions of his work COMPUTERS AND THOUGHT.</abstract>
+  <note type="statement of responsibility" altRepGroup="00"/>
+  <note type="biographical/historical">Computer scientist. Feigenbaum received his B.S., 1956, and his Ph.D., 1959, in electrical engineering from Carnegie Institute of Technology. He completed a Fulbright Fellowship at the National Physics Laboratory and in 1960 went to the University of California, Berkeley, to teach in the School of Business Administration. He joined the Stanford faculty in 1965 in the Dept. of Computer Science; he served as Director of the Stanford Computation Center from 1965 to 1968 and as chairman of the Department from 1976 to 1981. Feigenbaum is a leading national figure in artificial intelligence and has developed computer resources for interactive research between medical and scientific collaborators on a national and global scale.</note>
+  <note type="ownership">Gift of Edward A. Feigenbaum.</note>
+  <subject authority="lcsh">
+    <name type="personal">
+      <namePart>Feigenbaum, Edward A</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh">
+    <name type="corporate">
+      <namePart>Stanford University.</namePart>
+      <namePart>Computer Science Department</namePart>
+    </name>
+    <topic>Faculty</topic>
+  </subject>
+  <subject authority="lcsh">
+    <titleInfo>
+      <title>DENDRAL</title>
+    </titleInfo>
+  </subject>
+  <subject authority="lcsh">
+    <topic>ARPANET (Computer network)</topic>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Artificial intelligence</topic>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Computer programs</topic>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Expert systems (Computer science)</topic>
+  </subject>
+  <location>
+    <physicalLocation>Dept. of Special Collections &amp; University Archives, Stanford University Libraries, Stanford, CA 94305-6064</physicalLocation>
+  </location>
+  <location>
+    <url displayLabel="Finding aid">http://www.oac.cdlib.org/findaid/ark:/13030/kt500039hc/</url>
+  </location>
+  <location>
+    <url displayLabel="Digital files" usage="primary display">https://exhibits.stanford.edu/feigenbaum</url>
+  </location>
+  <relatedItem>
+    <location>
+      <url displayLabel="Finding aid">http://www.oac.cdlib.org/findaid/ark:/13030/kt500039hc/</url>
+    </location>
+  </relatedItem>
+  <recordInfo>
+    <descriptionStandard>aacr</descriptionStandard>
+    <descriptionStandard>appm</descriptionStandard>
+    <recordContentSource authority="marcorg">CSt</recordContentSource>
+    <recordCreationDate encoding="marc">910110</recordCreationDate>
+    <recordIdentifier source="SIRSI">a4085637</recordIdentifier>
+    <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4_SDR.xsl (Version 1.2.5 2013/08/11)</recordOrigin>
+  </recordInfo>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with  the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Public Services Librarian of the Dept. of Special Collections (http://library.stanford.edu/spc).</accessCondition>
+</mods>

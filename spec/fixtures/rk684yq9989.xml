@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<publicObject id="druid:rk684yq9989" published="2016-02-04T00:24:13-08:00" publishVersion="dor-services/4.22.3">
+  <identityMetadata>
+    <sourceId source="SALT">SC0340_1986-052_rk684yq9989</sourceId>
+    <objectId>druid:rk684yq9989</objectId>
+    <objectCreator>DOR</objectCreator>
+    <objectLabel>SUN graphics related to paper</objectLabel>
+    <objectType>item</objectType>
+    <otherId name="uuid">9ffb1f8c-5dab-11e5-9a53-0050569b52d5</otherId>
+    <tag>Remediated By : 4.22.3</tag>
+  </identityMetadata>
+  <contentMetadata objectId="rk684yq9989" type="book">
+    <resource id="rk684yq9989_4" sequence="4" type="object">
+      <label>Document</label>
+      <file id="rk684yq9989.pdf" mimetype="application/pdf" size="1199381">
+      
+      
+    </file>
+      <file id="rk684yq9989.txt" mimetype="text/plain" size="244">
+      
+      
+    </file>
+    </resource>
+    <resource id="rk684yq9989_5" sequence="5" type="page">
+      <label>Page 1</label>
+      <file id="rk684yq9989_00001.jp2" mimetype="image/jp2" size="1863880">
+        <imageData width="2625" height="3381"/>
+      </file>
+    </resource>
+    <resource id="rk684yq9989_6" sequence="6" type="page">
+      <label>Page 2</label>
+      <file id="rk684yq9989_00002.jp2" mimetype="image/jp2" size="1862233">
+        <imageData width="2625" height="3378"/>
+      </file>
+    </resource>
+    <resource id="rk684yq9989_7" sequence="7" type="page">
+      <label>Page 3</label>
+      <file id="rk684yq9989_00003.jp2" mimetype="image/jp2" size="1862701">
+        <imageData width="2628" height="3375"/>
+      </file>
+    </resource>
+    <resource id="rk684yq9989_8" sequence="8" type="page">
+      <label>Page 4</label>
+      <file id="rk684yq9989_00004.jp2" mimetype="image/jp2" size="1878321">
+        <imageData width="2643" height="3384"/>
+      </file>
+    </resource>
+  </contentMetadata>
+  <rightsMetadata>
+    <access type="discover">
+      <machine>
+        <world/>
+      </machine>
+    </access>
+    <access type="read">
+      <machine>
+        <world/>
+      </machine>
+    </access>
+    <use>
+      <human type="useAndReproduction">The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu).</human>
+      <human type="creativeCommons"/>
+      <machine type="creativeCommons"/>
+    </use>
+    <copyright>
+      <human/>
+    </copyright>
+  </rightsMetadata>
+  <rdf:RDF xmlns:fedora="info:fedora/fedora-system:def/relations-external#" xmlns:fedora-model="info:fedora/fedora-system:def/model#" xmlns:hydra="http://projecthydra.org/ns/relations#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:Description rdf:about="info:fedora/druid:rk684yq9989">
+      <fedora:isMemberOf rdf:resource="info:fedora/druid:ms016pb9280"/>
+      <fedora:isMemberOfCollection rdf:resource="info:fedora/druid:ms016pb9280"/>
+    </rdf:Description>
+  </rdf:RDF>
+  <oai_dc:dc xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:srw_dc="info:srw/schema/1/dc-schema" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+    <dc:type>Text</dc:type>
+    <dc:title>SUN graphics related to paper</dc:title>
+    <dc:contributor>Baskett, Forest (Creator)</dc:contributor>
+    <dc:contributor>Bechtolscheim, Andreus (Contributor)</dc:contributor>
+    <dc:date>1980-03-30</dc:date>
+    <dc:format>1 document</dc:format>
+    <dc:format>application/pdf</dc:format>
+    <dc:description type="preferred citation">Call Number: SC0340, Accession: 1986-052, Box: 1, Folder: 6, Title: SUN Write-ups and View Graphs</dc:description>
+    <dc:description>Manuscript (1980/3/30)</dc:description>
+    <dc:subject>Artificial intelligence</dc:subject>
+    <dc:subject>Expert systems (Computer science)</dc:subject>
+    <dc:subject>Computer science</dc:subject>
+    <dc:relation type="repository">Stanford University. Libraries. Department of Special Collections and University Archives Call Number: SC0340, Accession: 1986-052, Box: 1, Folder: 6</dc:relation>
+    <dc:identifier>SC0340_1986-052_rk684yq9989</dc:identifier>
+    <dc:language>eng</dc:language>
+    <dc:description displayLabel="Donor tags">Computer Science Department</dc:description>
+    <dc:description displayLabel="Donor tags">SUN</dc:description>
+    <dc:relation type="collection">Edward A. Feigenbaum papers, 1950-2007 (inclusive)</dc:relation>
+  </oai_dc:dc>
+</publicObject>

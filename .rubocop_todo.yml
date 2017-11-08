@@ -20,6 +20,7 @@ RSpec/AnyInstance:
   Exclude:
     - 'spec/models/dor_harvester_spec.rb'
     - 'spec/services/sync_bibliography_service_spec.rb'
+    - 'spec/services/dor_solr_document_builder_spec.rb'
 
 # Offense count: 4
 # Configuration parameters: Max.

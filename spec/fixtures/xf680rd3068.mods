@@ -42,12 +42,5 @@
     <recordIdentifier>a10157160</recordIdentifier>
     <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4_SDR.xsl (Version 1.2.5 2013/08/11)</recordOrigin>
   </recordInfo>
-  <relatedItem type="host">
-    <titleInfo>
-      <title>Stanford University Libraries Special Collections, Manuscripts Division</title>
-    </titleInfo>
-    <identifier type="uri">http://purl.stanford.edu/sk373nx0013</identifier>
-    <typeOfResource collection="yes"/>
-  </relatedItem>
   <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
 </mods>

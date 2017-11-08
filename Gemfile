@@ -68,6 +68,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
   gem 'coveralls', require: false
+  gem 'webmock'
 end
 
 group :production do
