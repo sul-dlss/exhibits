@@ -37,6 +37,14 @@ module Macros
       end
     end
 
+    def extract_canvas_parent_identifier
+      lambda do |record, accumulator, _context|
+        return if record['parent_identifier'].blank?
+
+        accumulator.push(*record['parent_identifier'])
+      end
+    end
+
     def extract_canvas_annotation_list_urls
       lambda do |record, accumulator, _context|
         return if record['otherContent'].blank?
