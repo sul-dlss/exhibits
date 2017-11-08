@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight
-  revision: 0929af4e831604ca4aa4847d1efd6782f2ebc34c
+  revision: d11bc4e46086350f4946c3ac018d91b2950a2201
   branch: master
   specs:
     blacklight-spotlight (1.0.0)
@@ -325,7 +325,8 @@ GEM
     kaminari-core (1.1.1)
     latex-decode (0.2.2)
       unicode (~> 0.4)
-    leaflet-rails (1.0.2)
+    leaflet-rails (1.2.0)
+      rails (>= 4.2.0)
     leaflet-sidebar-rails (0.1.9)
     legato (0.7.0)
       multi_json
@@ -349,7 +350,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_magick (4.8.0)
-    mini_mime (0.1.4)
+    mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     mirador_rails (0.7.0)
