@@ -4,7 +4,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Cited manuscripts display on the bibliography show page', type: :feature do
-  let(:exhibit) { FactoryGirl.create(:exhibit, slug: 'default-exhibit') }
+  let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:resource_id) { 'QTWBAWKX' }
   let(:citationsString) { '["gs233db8425", "gk885tn1705", "hj066rn6500"]' }
   let(:bibtex_data) do

@@ -3,7 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 
 require 'selenium-webdriver'
 
@@ -61,7 +61,7 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include RequestSpecHelper
 
   config.before :each do
@@ -81,7 +81,7 @@ RSpec.configure do |config|
     begin
       DatabaseCleaner[:active_record].strategy = :transaction
       DatabaseCleaner.clean_with(:truncation)
-      FactoryGirl.lint
+      FactoryBot.lint
     end
   end
 

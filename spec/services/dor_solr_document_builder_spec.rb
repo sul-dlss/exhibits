@@ -3,7 +3,7 @@ require 'rails_helper'
 describe DorSolrDocumentBuilder do
   subject { described_class.new harvester }
 
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:druid) { 'xf680rd3068' }
   let(:harvester) { DorHarvester.new druid_list: druid, exhibit: exhibit }
   let(:resources) { [resource].to_enum }

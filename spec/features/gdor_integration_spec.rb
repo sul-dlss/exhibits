@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'gdor indexing integration test', type: :feature do
   subject(:dor_harvester) { DorHarvester.new(druid_list: druid, exhibit: exhibit) }
 
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
 
   before do
     stub_const('Harvestdor::PURL_DEFAULT', File.expand_path(File.join('..', '..', 'fixtures'), __FILE__))

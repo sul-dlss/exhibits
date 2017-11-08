@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Bibliography display on the manuscript show page', type: :feature do
-  let(:exhibit) { FactoryGirl.create(:exhibit, slug: 'default-exhibit') }
+  let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:resource_id) { 'gk885tn1705' }
   let(:bibtex_data) do
     Dir.glob('spec/fixtures/bibliography/{article,incollection}.bib').collect do |fn|

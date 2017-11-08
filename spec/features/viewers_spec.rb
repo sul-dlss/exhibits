@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Viewers', type: :feature do
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:user) { nil }
 
   before do

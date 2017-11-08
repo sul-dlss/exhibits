@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Bibliography indexing', type: :feature do
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:curator) { create(:exhibit_admin, exhibit: exhibit) }
 
   before do

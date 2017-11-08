@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'dor_harvester/_status.html.erb', type: :view do
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:harvester) { DorHarvester.new(druid_list: '', exhibit: exhibit) }
 
   context 'with status information' do

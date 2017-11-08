@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'an exhibit', type: :feature do
-  let!(:exhibit) { FactoryGirl.create(:exhibit) }
+  let!(:exhibit) { create(:exhibit) }
 
   it 'loads the home page' do
     visit '/'
@@ -16,7 +16,7 @@ describe 'an exhibit', type: :feature do
   end
 
   describe 'search results' do
-    let(:exhibit) { FactoryGirl.create(:exhibit, slug: 'default-exhibit') }
+    let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
 
     it 'can run a search' do
       visit spotlight.url_for(exhibit)

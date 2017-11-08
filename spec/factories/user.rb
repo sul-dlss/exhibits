@@ -1,5 +1,5 @@
 # This will guess the User class
-FactoryGirl.define do
+FactoryBot.define do
   factory :curator, class: User do
     sequence(:email) { |n| "curator#{n}@example.com" }
     password 'password'

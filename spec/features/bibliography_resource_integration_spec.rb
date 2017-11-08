@@ -12,7 +12,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   end
 
   let(:file) { 'spec/fixtures/bibliography/article.bib' }
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:title_fields) do
     %w(title_display title_full_display title_uniform_search title_sort)
   end
