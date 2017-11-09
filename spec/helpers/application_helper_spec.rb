@@ -32,14 +32,15 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe '#table_of_contents_separator' do
+    before { @document = SolrDocument.new(id: 'cf386wt1778') }
     let(:input) { { value: ['Homiliae--euangelia'] } }
 
     it 'separates MODS table of contents' do
       expect(helper.table_of_contents_separator(input)).to match(%r{Homiliae<br \/>euangelia})
     end
 
-    it 'hides contents in a collapsible div' do
-      expect(helper.table_of_contents_separator(input)).to match(/^<a role='button' data-toggle='collapse'/)
+    it 'collapses content' do
+      expect(helper.table_of_contents_separator(input)).to match(/data-toggle='collapse'/)
     end
   end
 end
