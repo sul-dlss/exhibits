@@ -5,6 +5,15 @@ require_relative 'extraction'
 module Macros
   # IIIF canvas extraction
   module Canvas
+    def extract_parent_manifest_iiif_id
+      lambda do |_record, accumulator, context|
+        return if context.output_hash['related_document_id_ssim'].blank?
+
+        accumulator << format(Settings.purl.iiif_manifest_url,
+                              druid: context.output_hash['related_document_id_ssim'].first.to_s)
+      end
+    end
+
     def extract_canvas_id
       lambda do |record, accumulator, _context|
         accumulator << "canvas-#{Digest::MD5.hexdigest(record['@id'].to_s)}"

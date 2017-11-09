@@ -12,7 +12,7 @@ module ManifestConcern
     return manifest if custom_manifest_pattern.blank?
     # Return early if there is not a manifest pattern (a heuristic for a non-image thing)
     return manifest if manifest.blank?
-    custom_manifest_pattern.gsub('{id}', first('id'))
+    custom_manifest_pattern.gsub('{id}', first('canvas_parent_druid_ssi') || first('id'))
   end
 
   VALID_IIIF_CONTENT_TYPES = %w(image manuscript map book).freeze

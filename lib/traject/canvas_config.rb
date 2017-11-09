@@ -24,3 +24,5 @@ to_field 'title_sort', extract_canvas_label_sort
 to_field 'iiif_annotation_list_url_ssim', extract_canvas_annotation_list_urls
 to_field 'annotation_tesim', extract_canvas_annotations
 to_field 'related_document_id_ssim', extract_canvas_related_document_ids
+to_field 'content_metadata_type_ssm', literal('manuscript')
+to_field 'iiif_manifest_url_ssi', extract_parent_manifest_iiif_id
