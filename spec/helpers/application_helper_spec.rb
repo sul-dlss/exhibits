@@ -51,12 +51,19 @@ describe ApplicationHelper, type: :helper do
   describe '#manuscript_link' do
     let(:druid) { ['bg021sq9590'] }
     let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
-    let(:full_title) { { 'title_full_display' => ["p. 3:#{title}"] } }
     let(:show_page) { '/test-flag-exhibit-slug/catalog/bg021sq9590' }
+    let(:document) do
+      SolrDocument.new(
+        title_full_display: "p. 3:#{title}",
+        manuscript_number_tesim: ['MS 198'],
+        format_main_ssim: ['Page details']
+      )
+    end
+    let(:input) { { value: druid, document: document } }
 
     it 'removes page prefix' do
       @exhibit = create(:exhibit, slug: 'test-flag-exhibit-slug')
-      expect(helper.manuscript_link(value: druid, document: full_title)).to have_link(text: title, href: show_page)
+      expect(helper.manuscript_link(input)).to have_link(text: title, href: show_page)
     end
   end
 end
