@@ -1,5 +1,4 @@
-.bibliography-contents,
-.cited-documents-contents {
+.record-metadata-section {
   margin-left: 0;
   padding-left: 0;
 
@@ -9,8 +8,8 @@
     padding-left: 0;
   }
 
-  .bibliography-list,
-  .cited-documents-list {
+  ul,
+  .bibliography-list {
     margin-left: 0;
     padding-left: 0;
 
@@ -18,15 +17,14 @@
       white-space: nowrap;
     }
 
+    li,
     .bibliography-body {
       margin-left: 2em;
       max-width: 80ch;
-      text-indent: -2em;
     }
 
-    .cited-documents-body {
-      margin-left: 2em;
-      max-width: 80ch;
+    .bibliography-body {
+      text-indent: -2em;
     }
   }
 }

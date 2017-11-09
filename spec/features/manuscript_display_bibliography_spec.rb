@@ -32,14 +32,14 @@ RSpec.feature 'Cited manuscripts display on the bibliography show page', type: :
   end
 
   scenario 'cited documents element data required by async loader comes through to front end' do
-    expect(page).to have_css('div.cited-documents-contents[data-path="/default-exhibit/catalog"]')
-    expect(page).to have_css("div.cited-documents-contents[data-parentid=\"#{resource_id}\"]")
-    expect(page).to have_css('div.cited-documents-contents[data-documentids]')
-    expect(page.find('div.cited-documents-contents[data-documentids]')['data-documentids']).to eq(citationsString)
+    expect(page).to have_css('div.record-metadata-section[data-path="/default-exhibit/catalog"]')
+    expect(page).to have_css("div.record-metadata-section[data-parentid=\"#{resource_id}\"]")
+    expect(page).to have_css('div.record-metadata-section[data-documentids]')
+    expect(page.find('div.record-metadata-section[data-documentids]')['data-documentids']).to eq(citationsString)
   end
 
   scenario 'async loading of the sorted, formatted bibliography', js: true do
-    within '.cited-documents-contents' do
+    within '.record-metadata-section' do
       within '.cited-documents-list' do
         # can appear in any order
         expect(page).to have_content('Afrique Physique.')

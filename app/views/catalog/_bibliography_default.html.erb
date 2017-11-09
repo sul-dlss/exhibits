@@ -1,5 +1,6 @@
 <% unless @document.reference? %>
-  <div class='col-md-12 bibliography-contents'
+  <div class='col-md-12 record-metadata-section'
+       data-behavior='bibliography-contents'
        data-path="<%= search_exhibit_catalog_path(exhibit_id: @exhibit) %>"
        data-parentid="<%= @document.id %>"
        data-sort="author_sort asc, pub_year_isi asc, title_sort asc"
