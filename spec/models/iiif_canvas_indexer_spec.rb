@@ -19,7 +19,7 @@ RSpec.describe IiifCanvasIndexer do
       id: druid,
       content_metadata_type_ssm: ['image'],
       iiif_manifest_url_ssi: 'http://example.com',
-      identifier_ssim: %w(ABC 123 xyz)
+      manuscript_number_tesim: %w(MS 123)
     )
   end
   let(:mani_url) { 'http://example.org/iiif/book1/manifest' }
@@ -48,7 +48,7 @@ RSpec.describe IiifCanvasIndexer do
     it 'enhances the JSON of the canvas with additional needed fields' do
       subject.index_canvases
       expect(CanvasResource.first.data['manifest_label']).to eq 'Book 1'
-      expect(CanvasResource.first.data['parent_identifier']).to eq(%w(ABC 123 xyz))
+      expect(CanvasResource.first.data['parent_manuscript_number']).to eq(%w(MS 123))
     end
 
     it 'enqueues the same number of jobs as otherContent annotationLists' do

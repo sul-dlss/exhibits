@@ -37,11 +37,11 @@ module Macros
       end
     end
 
-    def extract_canvas_parent_identifier
+    def extract_canvas_parent_manuscript_number
       lambda do |record, accumulator, _context|
-        return if record['parent_identifier'].blank?
+        return if record['parent_manuscript_number'].blank?
 
-        accumulator.push(*record['parent_identifier'])
+        accumulator.push(*record['parent_manuscript_number'].map(&:to_s))
       end
     end
 

@@ -26,7 +26,7 @@ class IiifCanvasIndexer
         # so we do this by enhancing the stored Hash with needed fields.
         enhanced_canvas = JSON.parse(canvas.to_json)
         enhanced_canvas['manifest_label'] = manifest.label
-        enhanced_canvas['parent_identifier'] = document.fetch('identifier_ssim', nil)
+        enhanced_canvas['parent_manuscript_number'] = document.fetch('manuscript_number_tesim', nil)
         canvas_resource.data = enhanced_canvas
         canvas_resource.save_and_index
       end
