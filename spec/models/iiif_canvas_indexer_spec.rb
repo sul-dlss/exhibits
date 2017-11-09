@@ -7,12 +7,12 @@ RSpec.describe IiifCanvasIndexer do
   subject { described_class.new(exhibit, druid) }
 
   let(:viewer) do
-    FactoryGirl.create(
+    create(
       :viewer,
       custom_manifest_pattern: 'http://example.org/iiif/{id}/manifest'
     )
   end
-  let(:exhibit) { FactoryGirl.create(:exhibit, viewer: viewer) }
+  let(:exhibit) { create(:exhibit, viewer: viewer) }
   let(:druid) { 'book1' }
   let(:document) do
     SolrDocument.new(

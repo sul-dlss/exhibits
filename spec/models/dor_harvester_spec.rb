@@ -3,7 +3,7 @@ require 'rails_helper'
 describe DorHarvester do
   subject(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
 
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:druid) { 'xf680rd3068' }
   let(:blacklight_solr) { double }
 
@@ -65,7 +65,7 @@ describe DorHarvester do
       context 'when index_related_content is enabled for an exhibit' do
         subject(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
 
-        let(:exhibit) { FactoryGirl.create(:exhibit, slug: 'test-flag-exhibit-slug') }
+        let(:exhibit) { create(:exhibit, slug: 'test-flag-exhibit-slug') }
 
         it 'enqueues IndexRelatedContentJob' do
           expect { subject.on_success(resource) }.to have_enqueued_job(IndexRelatedContentJob).with(harvester, druid)

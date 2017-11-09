@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Search histories', type: :feature do
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
 
   before do
     allow(Search).to receive(:create).and_call_original

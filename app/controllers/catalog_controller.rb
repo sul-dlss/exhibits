@@ -172,6 +172,11 @@ class CatalogController < ApplicationController
     config.add_index_field 'location_ssi', label: 'Location'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
     config.add_index_field 'doc_subtype_ssi', label: 'Document Subtype'
+    ##
+    # Add format/Resource type as an index field for exhibits that are whitelisted here
+    config.add_index_field 'format_main_ssim', label: 'Resource type', if: lambda { |context, _field_config, _document|
+      context.feature_flags.add_resource_type_index_field?
+    }
     # Fields added by Zotero API BibTeX import
     config.add_index_field 'volume_ssm', label: 'Volume'
     config.add_index_field 'pages_ssm', label: 'Pages'

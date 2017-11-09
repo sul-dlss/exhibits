@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Blacklight::MapsHelperOverride, type: :helper do
-  let(:exhibit) { FactoryGirl.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
 
   before do
     helper.extend(Module.new do

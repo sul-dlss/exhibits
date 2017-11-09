@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe IndexRelatedContentJob do
   describe '#perform' do
-    let(:exhibit) { FactoryGirl.create(:exhibit) }
+    let(:exhibit) { create(:exhibit) }
     let(:harvester) { DorHarvester.new(exhibit: exhibit) }
     let(:enqueuer) { instance_double(IiifCanvasIndexer, index_canvases: []) }
 
