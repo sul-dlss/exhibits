@@ -25,6 +25,26 @@
 
     .bibliography-body {
       text-indent: -2em;
+
+      &.hide-bibliography {
+        display: none;
+      }
+    }
+  }
+
+  .bibliography-button {
+    .bibliography-icon {
+      display: inline-block;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-left: 5px;
+      transform: rotate(90deg);
+    }
+
+    &.bibliography-expanded {
+      .bibliography-icon {
+        transform: rotate(-90deg);
+      }
     }
   }
 }

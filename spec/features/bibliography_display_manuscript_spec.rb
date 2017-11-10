@@ -5,14 +5,14 @@ require 'rails_helper'
 RSpec.feature 'Bibliography display on the manuscript show page', type: :feature do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:resource_id) { 'gk885tn1705' }
-  let(:bibtex_data) do
-    Dir.glob('spec/fixtures/bibliography/{article,incollection}.bib').collect do |fn|
-      File.read(fn)
-    end.join("\n")
-  end
+  let(:bibtex_file) { 'spec/fixtures/bibliography/{article,incollection}.bib' }
 
   before do
     ActiveJob::Base.queue_adapter = :inline # block until indexing has committed
+
+    bibtex_data = Dir.glob(bibtex_file).collect do |fn|
+      File.read(fn)
+    end.join("\n")
 
     # we index some bibliography records that have links to our resource
     bib = BibliographyResource.new(bibtex_file: bibtex_data, exhibit: exhibit)
@@ -50,8 +50,29 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
     end
   end
 
-  context 'when there are no associated bibliography documents returned', js: true do
+  context 'large bibliographies' do
     let(:resource_id) { 'xy658qf4887' }
+    let(:bibtex_file) { 'spec/fixtures/bibliography/many_bibliographies.bib' }
+
+    scenario 'are togglable', js: true do
+      within '.record-metadata-section' do
+        within '.bibliography-list' do
+          expect(page).to have_css('p.bibliography-body', count: 3, visible: true)
+
+          click_button 'Expand bibliography'
+
+          expect(page).to have_css('p.bibliography-body', count: 6, visible: true)
+
+          click_button 'Collapse bibliography'
+
+          expect(page).to have_css('p.bibliography-body', count: 3, visible: true)
+        end
+      end
+    end
+  end
+
+  context 'when there are no associated bibliography documents returned', js: true do
+    let(:resource_id) { 'wd297xz1362' }
 
     scenario 'the bibliography section is rendered (but not visible)' do
       expect(page).to have_css('.record-metadata-section', visible: false)

@@ -56,16 +56,17 @@ RSpec.describe Bibliography do
   context 'sorting bibliography' do
     let(:bibtex) { `cat spec/fixtures/bibliography/*.bib` }
     it '#bibliography (unsorted)' do # rubocop: disable RSpec/ExampleLength
-      expect(bibliography.bibliography.collect(&:id)).to eq %w(
-        http://zotero.org/groups/1051392/items/QTWBAWKX
-        http://zotero.org/groups/1051392/items/TXXUJDG2
-        http://zotero.org/groups/1051392/items/EI8BRRXB
-        http://zotero.org/groups/1051392/items/SQA6T57X
-        http://zotero.org/groups/1051392/items/JMIMQVT6
-        http://zotero.org/groups/1051392/items/E9MZZKFV
-        http://zotero.org/groups/1051392/items/6Q6TF4HD
-        http://zotero.org/groups/1051392/items/E3MS2TQK
-        http://zotero.org/groups/1051392/items/MT4A9V2I
+      expect(bibliography.bibliography.count).to eq 15
+      expect(bibliography.bibliography.collect(&:id)).to include(
+        'http://zotero.org/groups/1051392/items/QTWBAWKX',
+        'http://zotero.org/groups/1051392/items/TXXUJDG2',
+        'http://zotero.org/groups/1051392/items/EI8BRRXB',
+        'http://zotero.org/groups/1051392/items/SQA6T57X',
+        'http://zotero.org/groups/1051392/items/JMIMQVT6',
+        'http://zotero.org/groups/1051392/items/E9MZZKFV',
+        'http://zotero.org/groups/1051392/items/6Q6TF4HD',
+        'http://zotero.org/groups/1051392/items/E3MS2TQK',
+        'http://zotero.org/groups/1051392/items/MT4A9V2I'
       )
     end
     it '#to_html (in sorted order)' do
