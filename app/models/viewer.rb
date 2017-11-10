@@ -1,7 +1,7 @@
 ##
 # Model for viewer
 class Viewer < ApplicationRecord
-  belongs_to :exhibit, class_name: Spotlight::Exhibit
+  belongs_to :exhibit, class_name: 'Spotlight::Exhibit'
   validates :custom_manifest_pattern,
             format: {
               with: /{id}/
