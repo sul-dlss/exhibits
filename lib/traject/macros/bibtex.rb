@@ -64,7 +64,8 @@ module Macros
     # Traject macro for converting BibTeX fields into Solr fields
     #
     # @param [Symbol] `key` the BibTeX field name
-    def extract_bibtex_field(key, options = {}) # rubocop: disable Metrics/AbcSize, Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
+    def extract_bibtex_field(key, options = {})
       # Note that `record` is a BibTeX::Entry object
       lambda do |record, accumulator, _context|
         case key.to_sym # BibTeX fields don't all follow the same rules, so handle them here
@@ -85,5 +86,6 @@ module Macros
         end
       end
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
   end
 end
