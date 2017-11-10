@@ -133,7 +133,7 @@ to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
 
 each_record do |resource, context|
   content_metadata = resource.public_xml.at_xpath('/publicObject/contentMetadata')
-  next unless content_metadata.present?
+  next if content_metadata.blank?
   images = content_metadata.xpath('resource/file[@mimetype="image/jp2"]')
   thumbnail_data = images.first { |node| node.attr('id') =~ /jp2$/ }
   context.clipboard['thumbnail_data'] = thumbnail_data

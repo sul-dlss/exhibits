@@ -44,7 +44,7 @@ class User < ApplicationRecord
 
     role_attributes = default_role_attributes
 
-    return unless role_attributes[:role].present?
+    return if role_attributes[:role].blank?
 
     if persisted?
       roles.create role_attributes
