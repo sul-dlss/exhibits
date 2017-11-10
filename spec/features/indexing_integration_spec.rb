@@ -39,9 +39,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       end
 
       it 'has potentially useless fields inherited from gdor indexer' do
-        expect(document).to include access_facet: 'Online',
-                                    building_facet: 'Stanford Digital Repository',
-                                    display_type: 'image'
+        expect(document).to include display_type: 'image'
       end
 
       it 'has a iiif manifest url' do
@@ -57,8 +55,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
                                     thumbnail_square_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/square/100,100/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/square/100,100/0/default.jpg'],
                                     thumbnail_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!400,400/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/full/!400,400/0/default.jpg'],
                                     large_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!1000,1000/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/full/!1000,1000/0/default.jpg'],
-                                    full_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!3000,3000/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/full/!3000,3000/0/default.jpg'],
-                                    file_id: ['xf680rd3068_00_0001.jp2', 'xf680rd3068_00_0002.jp2']
+                                    full_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!3000,3000/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/full/!3000,3000/0/default.jpg']
       end
 
       it 'has MODS title fields' do
@@ -76,12 +73,8 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
       it 'has MODS date fields' do
         expect(document).to include imprint_display: '13th century',
-                                    publication_year_isi: 1200,
-                                    creation_year_isi: 1200,
-                                    pub_date_sort: '1200',
                                     pub_year_isi: 1200,
                                     pub_year_no_approx_isi: 1200,
-                                    pub_year_tisim: 1200,
                                     pub_year_w_approx_isi: 1200
       end
 

@@ -20,26 +20,18 @@ to_field 'display_type' do |resource, accumulator, _context|
   next if resource.collection?
   accumulator << display_type(dor_content_type(resource)) # defined in public_xml_fields
 end
-to_field 'file_id' do |resource, accumulator, _context|
-  next if resource.collection?
-  Array(file_ids(resource)).each do |v|
-    accumulator << v
-  end
-end
+
 to_field 'collection', accumulate { |resource, *_| resource.collections.map(&:bare_druid) }
 to_field 'collection_with_title', accumulate { |resource, *_|
   resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
 }
 
 # COLLECTION FIELDS
-# solr_doc[:display_type] =
 to_field 'format_main_ssim', conditional(->(resource, *_) { resource.collection? }, literal('Collection'))
 to_field 'collection_type', conditional(->(resource, *_) { resource.collection? }, literal('Digital Collection'))
 
 # OTHER FIELDS
 to_field 'url_fulltext', accumulate { |resource, *_| "https://purl.stanford.edu/#{resource.bare_druid}" }
-to_field 'access_facet', literal('Online')
-to_field 'building_facet', literal('Stanford Digital Repository')
 
 # title fields
 to_field 'title_245a_search', stanford_mods(:sw_short_title)
@@ -87,26 +79,12 @@ to_field 'url_suppl', stanford_mods(:term_values, [:related_item, :location, :ur
 # publication fields
 to_field 'pub_search', stanford_mods(:place)
 to_field 'pub_year_isi', stanford_mods(:pub_year_int, false) # for sorting
-# TODO:  remove pub_date_sort after reindexing existing colls;  deprecated in favor of pub_year_isi ...
-to_field 'pub_date_sort', stanford_mods(:pub_year_sort_str, false)
 # these are for single value facet display (in leiu of date slider (pub_year_tisim) )
 to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, true)
 to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, false)
-# display fields  TODO:  pub_date_display is deprecated;  need better implementation of imprint_display
 to_field 'imprint_display', stanford_mods(:pub_date_display)
 
-# pub_date_best_sort_str_value is protected ...
-to_field 'creation_year_isi', accumulate { |resource, *_|
-  resource.smods_rec.year_int(resource.smods_rec.date_created_elements(false))
-}
-to_field 'publication_year_isi', accumulate { |resource, *_|
-  resource.smods_rec.year_int(resource.smods_rec.date_issued_elements(false))
-}
 to_field 'all_search', accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') }
-to_field 'pub_year_tisim' do |_resource, accumulator, context|
-  next unless context.output_hash['pub_year_isi'] && context.output_hash['pub_year_isi'].first >= 0
-  accumulator << context.output_hash['pub_year_isi'].first if context.output_hash['pub_year_isi'].first >= 0
-end
 
 to_field 'author_no_collector_ssim', stanford_mods(:non_collector_person_authors)
 to_field 'box_ssi', stanford_mods(:box)
@@ -351,25 +329,6 @@ def object_level_full_text_filenames(sdb)
     "//contentMetadata/resource/file[@id=\"#{sdb.bare_druid}.txt\"]"
   ]
 end
-
-# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
-def file_ids(resource)
-  ids = []
-  if resource.content_metadata
-    if display_type(dor_content_type(resource)) == 'image'
-      resource.content_metadata.root.xpath('resource[@type="image"]/file/@id').each do |node|
-        ids << node.text unless node.text.empty?
-      end
-    elsif display_type(dor_content_type(resource)) == 'file'
-      resource.content_metadata.root.xpath('resource/file/@id').each do |node|
-        ids << node.text unless node.text.empty?
-      end
-    end
-  end
-  return nil if ids.empty?
-  ids
-end
-# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
 def display_type(dor_content_type)
   case dor_content_type
