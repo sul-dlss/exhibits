@@ -23,6 +23,11 @@ describe ApplicationHelper, type: :helper do
     it 'permits embedded HTML and handles multivalued notes as an unordered list' do
       expect(helper.notes_wrap(value: %w(a <p>b</p><p>c</p> d))).to eq output
     end
+    context 'single note' do
+      it 'returns the note' do
+        expect(helper.notes_wrap(value: %w(<p>stuff</p>))).to eq '<p>stuff</p>'
+      end
+    end
   end
 
   describe '#manuscript_title' do

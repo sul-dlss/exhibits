@@ -25,6 +25,7 @@ module ApplicationHelper
 
   def notes_wrap(options = {})
     return if options[:value].blank?
+    return options[:value].first if options[:value].count == 1
     content_tag('ul', class: 'general-notes') do
       safe_join(options[:value].collect do |note|
         content_tag('li', note.html_safe)
