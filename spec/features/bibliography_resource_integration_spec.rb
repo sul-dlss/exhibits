@@ -122,7 +122,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
 
       it 'has formatted bibliography in HTML' do
-        expect(document.formatted_bibliography).to match(/^de Azevedo, R\./)
+        expect(document.formatted_bibliography).to match(/^Azevedo, R\. de\./)
       end
 
       it 'has annotations with commas' do

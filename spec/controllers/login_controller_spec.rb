@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe LoginController do
   let(:user) { create(:curator) }
+
   before do
     allow(controller).to receive_messages(current_user: user)
   end

@@ -1,5 +1,5 @@
 # Record the status of an index job
-class RecordIndexStatusJob < ActiveJob::Base
+class RecordIndexStatusJob < ApplicationJob
   def perform(harvester, druid, index_status = {})
     s = sidecar(harvester, druid)
 

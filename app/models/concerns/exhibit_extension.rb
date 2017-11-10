@@ -5,7 +5,7 @@ module ExhibitExtension
   extend ActiveSupport::Concern
 
   included do
-    has_one :viewer
+    has_one :viewer, dependent: :delete
   end
 
   ##

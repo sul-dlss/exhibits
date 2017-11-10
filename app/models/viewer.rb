@@ -1,6 +1,6 @@
 ##
 # Model for viewer
-class Viewer < ActiveRecord::Base
+class Viewer < ApplicationRecord
   belongs_to :exhibit, class_name: Spotlight::Exhibit
   validates :custom_manifest_pattern,
             format: {

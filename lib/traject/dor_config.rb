@@ -12,26 +12,25 @@ settings do
   provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
 
-to_fields %w(id druid), accumulate { |resource, *_| resource.bare_druid }
-to_field 'modsxml', accumulate { |resource, *_| resource.smods_rec.to_xml }
+to_fields %w(id druid), (accumulate { |resource, *_| resource.bare_druid })
+to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
 
 # ITEM FIELDS
 to_field 'display_type' do |resource, accumulator, _context|
   next if resource.collection?
   accumulator << display_type(dor_content_type(resource)) # defined in public_xml_fields
 end
-
-to_field 'collection', accumulate { |resource, *_| resource.collections.map(&:bare_druid) }
-to_field 'collection_with_title', accumulate { |resource, *_|
+to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
+to_field 'collection_with_title', (accumulate do |resource, *_|
   resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
-}
+end)
 
 # COLLECTION FIELDS
 to_field 'format_main_ssim', conditional(->(resource, *_) { resource.collection? }, literal('Collection'))
 to_field 'collection_type', conditional(->(resource, *_) { resource.collection? }, literal('Digital Collection'))
 
 # OTHER FIELDS
-to_field 'url_fulltext', accumulate { |resource, *_| "https://purl.stanford.edu/#{resource.bare_druid}" }
+to_field 'url_fulltext', (accumulate { |resource, *_| "https://purl.stanford.edu/#{resource.bare_druid}" })
 
 # title fields
 to_field 'title_245a_search', stanford_mods(:sw_short_title)
@@ -84,7 +83,7 @@ to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, true)
 to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, false)
 to_field 'imprint_display', stanford_mods(:pub_date_display)
 
-to_field 'all_search', accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') }
+to_field 'all_search', (accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') })
 
 to_field 'author_no_collector_ssim', stanford_mods(:non_collector_person_authors)
 to_field 'box_ssi', stanford_mods(:box)
@@ -133,7 +132,7 @@ to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
 
 each_record do |resource, context|
   content_metadata = resource.public_xml.at_xpath('/publicObject/contentMetadata')
-  next unless content_metadata.present?
+  next if content_metadata.blank?
   images = content_metadata.xpath('resource/file[@mimetype="image/jp2"]')
   thumbnail_data = images.first { |node| node.attr('id') =~ /jp2$/ }
   context.clipboard['thumbnail_data'] = thumbnail_data

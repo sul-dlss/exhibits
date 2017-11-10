@@ -34,7 +34,7 @@ RSpec.describe Bibliography do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/book.bib') }
 
       it '#to_html' do
-        expect(bibliography.to_html).to include 'de Azevedo, R. 1962. <i>A Car'\
+        expect(bibliography.to_html).to include 'Azevedo, R. de. 1962. <i>A Car'\
         'ta Ou Memória Do Cruzado Inglês R. Para Osberto De Bawdsey Sobre a Co'\
         'nquista De Lisboa Em 1147</i>. 1st ed. Vol. I. Coimbra: Faculdade de '\
         'Letras da Universidade de Coimbra.'
@@ -55,6 +55,7 @@ RSpec.describe Bibliography do
 
   context 'sorting bibliography' do
     let(:bibtex) { `cat spec/fixtures/bibliography/*.bib` }
+
     it '#bibliography (unsorted)' do # rubocop: disable RSpec/ExampleLength
       expect(bibliography.bibliography.count).to eq 15
       expect(bibliography.bibliography.collect(&:id)).to include(
@@ -77,24 +78,28 @@ RSpec.describe Bibliography do
   context 'initializer support for different forms' do
     context 'a BibTeX::Bibliography' do
       let(:bibtex) { BibTeX.open('spec/fixtures/bibliography/phdthesis.bib') }
+
       it '#bibliography' do
         expect(bibliography.bibliography).to be_a(BibTeX::Bibliography)
       end
     end
     context 'a Pathname' do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/phdthesis.bib') }
+
       it '#bibliography' do
         expect(bibliography.bibliography).to be_a(BibTeX::Bibliography)
       end
     end
     context 'a String (data)' do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/phdthesis.bib').read }
+
       it '#bibliography' do
         expect(bibliography.bibliography).to be_a(BibTeX::Bibliography)
       end
     end
     context 'an unsupported form' do
       let(:bibtex) { nil }
+
       it '#bibliography' do
         expect { bibliography.bibliography }.to raise_error(ArgumentError, /Unsupported type/)
       end

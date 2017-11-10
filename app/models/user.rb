@@ -1,5 +1,5 @@
 # :nodoc:
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include ActiveSupport::Callbacks
 
   define_callbacks :groups_changed
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
     role_attributes = default_role_attributes
 
-    return unless role_attributes[:role].present?
+    return if role_attributes[:role].blank?
 
     if persisted?
       roles.create role_attributes

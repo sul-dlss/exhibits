@@ -35,7 +35,7 @@ module Traject
           next unless attributes.key?(field)
           value = attributes.fetch(field).first
           output[field] = value
-          output.delete(field) unless value.present?
+          output.delete(field) if value.blank?
         end
       end
     end
