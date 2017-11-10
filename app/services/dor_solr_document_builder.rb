@@ -1,3 +1,5 @@
+require 'traject/adjust_cardinality'
+
 # Base Resource indexer for objects in DOR
 class DorSolrDocumentBuilder < Spotlight::SolrDocumentBuilder
   include ActiveSupport::Benchmarkable
@@ -54,12 +56,19 @@ class DorSolrDocumentBuilder < Spotlight::SolrDocumentBuilder
   #
   # @return [Hash]
   def to_solr_document(resource)
-    Spotlight::Dor::Resources.indexer.solr_document(resource)
+    result = traject_indexer.map_record(resource)
+    Traject::AdjustCardinality.call(result).symbolize_keys
   end
 
   ##
   # Write any logs (or benchmarking information) from this class to the gdor logs
   def logger
-    Spotlight::Dor::Resources.indexer.logger
+    Rails.logger
+  end
+
+  def traject_indexer
+    @traject_indexer ||= Traject::Indexer.new({}).tap do |i|
+      i.load_config_file('lib/traject/dor_config.rb')
+    end
   end
 end

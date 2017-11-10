@@ -68,6 +68,7 @@ group :test do
   gem 'chromedriver-helper'
   gem 'selenium-webdriver'
   gem 'coveralls', require: false
+  gem 'webmock'
 end
 
 group :production do
@@ -102,7 +103,6 @@ gem 'dotenv'
 gem 'sir_trevor_rails'
 gem 'riiif'
 gem 'rsolr'
-gem 'gdor-indexer', '~> 0.6'
 gem 'faraday'
 gem 'net-http-persistent', '< 3' # 3.x is incompatible with Faraday 0.9
 gem 'harvestdor-indexer', '~> 2.4'

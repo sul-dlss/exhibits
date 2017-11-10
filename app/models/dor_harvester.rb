@@ -15,7 +15,7 @@ class DorHarvester < Spotlight::Resource
   def resources
     return to_enum(:resources) { druids.size } unless block_given?
 
-    druids.each { |d| yield Spotlight::Dor::Resources.indexer.resource(d) }
+    druids.each { |d| yield harvestdor_resource(d) }
   end
 
   def druids
@@ -87,5 +87,13 @@ class DorHarvester < Spotlight::Resource
     resources.select(&:exists?).select(&:collection?).each_with_object({}) do |obj, memo|
       memo[obj.bare_druid] = { size: obj.items.size }
     end
+  end
+
+  def harvestdor_resource(druid)
+    Harvestdor::Indexer::Resource.new(harvestdor_indexer, druid)
+  end
+
+  def harvestdor_indexer
+    @harvestdor_indexer ||= Harvestdor::Indexer.new(dor_fetcher: Settings.dor_fetcher, harvestdor: Settings.harvestdor)
   end
 end

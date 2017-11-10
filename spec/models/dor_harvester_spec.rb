@@ -95,7 +95,7 @@ describe DorHarvester do
     end
 
     before do
-      allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(resource)
+      allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, druid).and_return(resource)
     end
 
     it 'retrieves collection metadata' do
@@ -114,10 +114,6 @@ describe DorHarvester do
     it 'has the correct druid' do
       expect(resource.druid).to eq 'xf680rd3068'
     end
-
-    it 'has the correct indexer' do
-      expect(resource.indexer).to eq Spotlight::Dor::Resources.indexer.harvestdor
-    end
   end
 
   describe '#indexable_resources' do
@@ -130,7 +126,7 @@ describe DorHarvester do
     end
 
     before do
-      allow(Spotlight::Dor::Resources.indexer).to receive(:resource).with(druid).and_return(resource)
+      allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, druid).and_return(resource)
     end
 
     context 'with a published druid' do
@@ -160,12 +156,19 @@ describe DorHarvester do
   end
 
   describe '#reindex' do
-    let(:resource) { subject.resources.first }
+    let(:resource) do
+      instance_double(Harvestdor::Indexer::Resource, druid: 'abc123',
+                                                     bare_druid: 'abc123',
+                                                     collection?: false,
+                                                     exists?: true,
+                                                     items: [])
+    end
+    let(:druid) { 'abc123' }
 
     before do
       subject.save!
-      allow(Spotlight::Dor::Resources.indexer).to receive(:solr_document).and_return(upstream: true)
-      allow(resource).to receive(:collection?).and_return(false)
+      allow_any_instance_of(Traject::Indexer).to receive(:map_record).and_return(upstream: true)
+      allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, 'abc123').and_return(resource)
       allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return(id: 'abc123')
 
       allow(blacklight_solr).to receive(:update)

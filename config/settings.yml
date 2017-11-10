@@ -23,3 +23,12 @@ action_mailer:
     from: "example-team@example.com"
   default_url_options:
     host: "example.com"
+
+harvestdor:
+  log_dir: log/gdor_logs
+  log_name: gdor.log
+  purl: https://purl.stanford.edu
+
+gdor:
+  service_url: https://dorfetcher-url
+  skip_heartbeat: true
