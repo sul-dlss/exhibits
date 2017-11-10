@@ -1,5 +1,5 @@
 # :nodoc:
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include ActiveSupport::Callbacks
 
   define_callbacks :groups_changed
