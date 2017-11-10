@@ -7,7 +7,7 @@ describe 'viewers/edit.html.erb', type: :view do
   before do
     assign(:viewer, viewer)
     assign(:exhibit, exhibit)
-    expect(view).to receive_messages(configuration_page_title: 'Viewers')
+    allow(view).to receive_messages(configuration_page_title: 'Viewers')
     stub_template 'spotlight/shared/_exhibit_sidebar.html.erb' => 'ignore'
     render
   end

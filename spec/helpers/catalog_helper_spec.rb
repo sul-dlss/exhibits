@@ -21,7 +21,7 @@ describe CatalogHelper, type: :helper do
 
   describe '#render_thumbnail_tag' do
     before do
-      expect(helper).to receive_messages(
+      allow(helper).to receive_messages(
         blacklight_config: CatalogController.blacklight_config,
         current_search_session: {},
         document_index_view_type: :list,

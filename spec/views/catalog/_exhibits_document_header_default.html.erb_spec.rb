@@ -5,7 +5,7 @@ describe 'catalog/_exhibits_document_header_default', type: :view do
   let(:exhibit) { create(:exhibit) }
 
   before do
-    expect(view).to receive_messages(
+    allow(view).to receive_messages(
       current_exhibit: exhibit,
       document: document,
       document_counter: 0,

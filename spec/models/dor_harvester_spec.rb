@@ -137,6 +137,7 @@ describe DorHarvester do
 
     context 'with an unpublished druid' do
       let(:exists_bool) { false }
+
       it 'excludes missing resources' do
         expect(subject).to be_empty
       end
@@ -163,6 +164,12 @@ describe DorHarvester do
                                                      items: [])
     end
     let(:druid) { 'abc123' }
+    let(:solr_data) do
+      [{ id: 'abc123',
+         spotlight_resource_id_ssim: subject.to_global_id.to_s,
+         spotlight_resource_type_ssim: 'dor_harvesters',
+         upstream: true }]
+    end
 
     before do
       subject.save!
@@ -172,13 +179,6 @@ describe DorHarvester do
 
       allow(blacklight_solr).to receive(:update)
       allow(subject).to receive(:commit)
-    end
-
-    let(:solr_data) do
-      [{ id: 'abc123',
-         spotlight_resource_id_ssim: subject.to_global_id.to_s,
-         spotlight_resource_type_ssim: 'dor_harvesters',
-         upstream: true }]
     end
 
     it 'adds a document to solr' do
