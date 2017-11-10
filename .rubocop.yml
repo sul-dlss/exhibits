@@ -26,15 +26,29 @@ Metrics/LineLength:
     - 'spec/models/spotlight/dor/indexer_spec.rb'
     - 'spec/features/bibliography_formatting_spec.rb'
 
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '()'
+    '%w': '()'
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes
+
+Style/SymbolArray:
+  Enabled: false
 
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
 
+Capybara/FeatureMethods:
+  Enabled: false
+
 RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/ContextWording:
   Enabled: false
 
 Bundler/OrderedGems:

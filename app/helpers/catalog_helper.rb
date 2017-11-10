@@ -10,13 +10,13 @@ module CatalogHelper
   #
   # @param [SolrDocument] document
   # @return [Boolean]
-  # rubocop:disable Style/PredicateName
+  # rubocop:disable Naming/PredicateName
   def has_thumbnail?(document)
     return super unless document.reference? || document.canvas?
 
     true
   end
-  # rubocop:enable Style/PredicateName
+  # rubocop:enable Naming/PredicateName
 
   # @note thumbnail handling moves to a presenter in Blacklight 7.
   # Overriding Blacklight to provide a default thumbnail for references.
