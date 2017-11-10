@@ -34,7 +34,7 @@ RSpec.describe Bibliography do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/book.bib') }
 
       it '#to_html' do
-        expect(bibliography.to_html).to include 'de Azevedo, R. 1962. <i>A Car'\
+        expect(bibliography.to_html).to include 'Azevedo, R. de. 1962. <i>A Car'\
         'ta Ou Memória Do Cruzado Inglês R. Para Osberto De Bawdsey Sobre a Co'\
         'nquista De Lisboa Em 1147</i>. 1st ed. Vol. I. Coimbra: Faculdade de '\
         'Letras da Universidade de Coimbra.'
