@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 require 'rails_helper'
@@ -53,6 +54,10 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
       expect(canvas.id).to eq 'canvas-0fa395980b05e493948e0e2b50debd42'
       expect(canvas.iiif_id).to eq 'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/canvas/canvas-521'
       expect(canvas.label).to eq 'f. 254 r: Awesome sauce!'
+    end
+
+    it 'has parent references' do
+      expect(document['iiif_manifest_url_ssi']).to eq ['https://purl.stanford.edu/fh878gz0315/iiif/manifest']
     end
 
     it 'has canvas annotations' do
