@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe DorHarvester do
-  subject(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
+  subject(:harvester) { described_class.create druid_list: druid, exhibit: exhibit }
 
   let(:exhibit) { create(:exhibit) }
   let(:druid) { 'xf680rd3068' }
@@ -10,7 +10,6 @@ describe DorHarvester do
   before do
     allow(harvester).to receive(:exhibit).and_return(exhibit)
     allow(harvester).to receive(:blacklight_solr).and_return(blacklight_solr)
-    allow(harvester).to receive(:to_global_id).and_return('x')
   end
 
   describe '.instance' do
@@ -63,7 +62,7 @@ describe DorHarvester do
       end
       # rubocop:disable RSpec/NestedGroups
       context 'when index_related_content is enabled for an exhibit' do
-        subject(:harvester) { described_class.new druid_list: druid, exhibit: exhibit }
+        subject(:harvester) { described_class.create druid_list: druid, exhibit: exhibit }
 
         let(:exhibit) { create(:exhibit, slug: 'test-flag-exhibit-slug') }
 
@@ -177,7 +176,7 @@ describe DorHarvester do
 
     let(:solr_data) do
       [{ id: 'abc123',
-         spotlight_resource_id_ssim: subject.to_global_id,
+         spotlight_resource_id_ssim: subject.to_global_id.to_s,
          spotlight_resource_type_ssim: 'dor_harvesters',
          upstream: true }]
     end
