@@ -44,6 +44,7 @@ module ApplicationHelper
     return if options[:value].blank?
     contents = options[:value][0].split('--').map(&:strip)
     contents = contents.join('<br />').html_safe
-    render partial: 'catalog/table_of_contents', locals: { contents: contents }
+    id = @document.id
+    render partial: 'catalog/table_of_contents', locals: { contents: contents, collapse_id: "collapseToc-#{id}" }
   end
 end
