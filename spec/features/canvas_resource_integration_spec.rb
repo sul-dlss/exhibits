@@ -6,7 +6,9 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
   subject(:document) { SolrDocument.new(to_solr_hash) }
 
   let(:raw_canvas) { JSON.parse(File.read(file)) }
-  let(:enhanced_canvas) { raw_canvas.merge(manifest_label: 'Awesome sauce!') }
+  let(:enhanced_canvas) do
+    raw_canvas.merge(manifest_label: 'Awesome sauce!', range_labels: %w(Label1 Label2))
+  end
   let(:resource) { CanvasResource.new(exhibit: exhibit, data: enhanced_canvas) }
   let(:file) { 'spec/fixtures/iiif/fh878gz0315-canvas-521.json' }
   let(:exhibit) { create(:exhibit) }
@@ -63,6 +65,10 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
       expect(canvas.annotation_lists).to include annolist_url
       expect(canvas.annotations.size).to eq 26
       expect(canvas.annotations).to include 'scæððig wæs his fæder geoffrod for ure alysed'
+    end
+
+    it 'has range labels' do
+      expect(document['range_labels_tesim']).to eq %w(Label1 Label2)
     end
 
     it 'has document reference' do
