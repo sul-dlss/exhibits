@@ -13,17 +13,4 @@ class LoginController < ApplicationController
       redirect_back fallback_location: root_url
     end
   end
-
-  private
-
-  # Backport from Rails 5
-  def redirect_back(fallback_location:, **args)
-    if defined?(super)
-      super
-    elsif request.headers['Referer']
-      redirect_to request.headers['Referer'], **args
-    else
-      redirect_to fallback_location, **args
-    end
-  end
 end
