@@ -13,6 +13,42 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.8.0] - 2016-11-13
+### Added
+- Collapsible table of contents to manuscript metadata section #821,
+- A default thumbnail to annotation records #839
+- The ability to add a manifest to Mirador instances with a pasted URL #840
+- A dedicated sort field for page detail titles #850
+- A feature flag for resource type indexing field #852
+- The Solr document id of canvases to indexing #851
+- "Page_details" rendering added (making annotations visible) #857
+- A reference to the parent manifest on canvas objects #862
+- A button to toggle/collapse large bibliography sections #866
+
+### Changed
+- Marketing and Exhibit documentation links in the site sidebar have been combined #802
+- Manuscript lables/titles now use merged "page detail title" #844, #860
+- Canvas format has been changed to "page details" from "annotation," etc. #845
+- FactoryGirl out for FactoryBot #852
+- CSS made generic for all record metadata fields #857
+- DOR objects now use traject for indexing #847
+
+### Deprecated
+- gdor-indexer #847
+
+### Removed
+- Dependency on GDOR-indexer, configuration, etc. #847
+
+### Fixed
+- Leaflet-rails and dependencies updated #852
+- A bug with the number of arguments in the "resource type" index field #867
+- Rubocop has been updated to a more recent version #868
+- BlacklightHeatmaps updated to fix map marker zoom bug #859
+- Unwrap single note `ul`/`li`s #871
+- Bulk updates for many dependecies #868
+- Assign unique ids to table of contents sections #863
+- Expose document id as passed option instead of instance variable for search results display fix #876
+
 ## [1.7.0] - 2017-11-06
 ## Added
 - Support for indexing related annotations identified in the object's IIIF manifest #806
