@@ -62,12 +62,13 @@ describe ApplicationHelper, type: :helper do
 
     before do
       helper.extend(Module.new do
-        def current_exhibit; end
+        def current_exhibit
+          FactoryBot.create(:exhibit, slug: 'test-flag-exhibit-slug')
+        end
       end)
     end
 
     it 'removes page prefix' do
-      allow(helper).to receive(:current_exhibit).and_return(create(:exhibit, slug: 'test-flag-exhibit-slug'))
       expect(helper.manuscript_link(input)).to have_link(text: title, href: show_page)
     end
   end
