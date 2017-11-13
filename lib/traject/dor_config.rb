@@ -16,10 +16,8 @@ to_fields %w(id druid), (accumulate { |resource, *_| resource.bare_druid })
 to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
 
 # ITEM FIELDS
-to_field 'display_type' do |resource, accumulator, _context|
-  next if resource.collection?
-  accumulator << display_type(dor_content_type(resource)) # defined in public_xml_fields
-end
+to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(dor_content_type(resource)) })
+
 to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
 to_field 'collection_with_title', (accumulate do |resource, *_|
   resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
@@ -78,7 +76,7 @@ to_field 'url_suppl', stanford_mods(:term_values, [:related_item, :location, :ur
 # publication fields
 to_field 'pub_search', stanford_mods(:place)
 to_field 'pub_year_isi', stanford_mods(:pub_year_int, false) # for sorting
-# these are for single value facet display (in leiu of date slider (pub_year_tisim) )
+# these are for single value facet display (in lieu of date slider (pub_year_tisim) )
 to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, true)
 to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, false)
 to_field 'imprint_display', stanford_mods(:pub_date_display)
@@ -95,30 +93,24 @@ to_field 'coordinates_tesim', stanford_mods(:coordinates)
 # add collector_ssim solr field containing the collector per MODS names (via stanford-mods gem)
 to_field 'collector_ssim', stanford_mods(:collectors_w_dates)
 to_field 'folder_ssi', stanford_mods(:folder)
-to_field 'genre_ssim' do |resource, accumulator, _context|
-  Array(resource.smods_rec.genre.content).each { |v| accumulator << v }
-end
+to_field 'genre_ssim', (accumulate { |resource, *_| resource.smods_rec.genre.content })
 to_field 'location_ssi', stanford_mods(:physical_location_str)
 to_field 'series_ssi', stanford_mods(:series)
-to_field 'identifier_ssim' do |resource, accumulator, _context|
-  Array(resource.smods_rec.identifier.content).each { |v| accumulator << v }
-end
+to_field 'identifier_ssim', (accumulate { |resource, *_| resource.smods_rec.identifier.content })
 
-to_field 'geographic_srpt' do |resource, accumulator, _context|
-  ids = extract_geonames_ids(resource)
-  ids.each do |id|
-    value = get_geonames_api_envelope(id)
-    accumulator << value if value
+to_field 'geographic_srpt', (accumulate { |resource, *_| extract_geonames_ids(resource) }) do |_resource, accumulator, _context|
+  accumulator.map! do |id|
+    get_geonames_api_envelope(id)
   end
+
+  accumulator.compact!
 end
 
 to_field 'geographic_srpt', stanford_mods(:coordinates_as_envelope)
 to_field 'geographic_srpt', stanford_mods(:geo_extensions_as_envelope)
 to_field 'geographic_srpt', stanford_mods(:geo_extensions_point_data)
 
-to_field 'iiif_manifest_url_ssi' do |resource, accumulator, _context|
-  accumulator << iiif_manifest_url(resource.bare_druid)
-end
+to_field 'iiif_manifest_url_ssi', (accumulate { |resource, *_| iiif_manifest_url(resource.bare_druid) })
 
 # CONTENT METADATA
 
@@ -186,11 +178,8 @@ to_field 'doc_subtype_ssi' do |resource, accumulator, _context|
   accumulator << subtype.first unless subtype.empty?
 end
 
-to_field 'donor_tags_ssim' do |resource, accumulator, _context|
-  donor_tags = resource.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content)
-  Array(donor_tags).each do |v|
-    accumulator << v.sub(/^./, &:upcase)
-  end
+to_field 'donor_tags_ssim', (accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content) }) do |_resource, accumulator, _context|
+  accumulator.map! { |v| v.sub(/^./, &:upcase) }
 end
 
 to_field 'folder_name_ssi' do |resource, accumulator, _context|
@@ -199,41 +188,21 @@ to_field 'folder_name_ssi' do |resource, accumulator, _context|
   accumulator << match_data[1].strip if match_data.present?
 end
 
-to_field 'general_notes_ssim' do |resource, accumulator, _context|
-  general_notes = resource.smods_rec.note.select { |n| n.type_at.blank? && n.displayLabel.blank? }.map(&:content)
-  Array(general_notes).each do |v|
-    accumulator << v
-  end
-end
+to_field 'general_notes_ssim', (accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.type_at.blank? && n.displayLabel.blank? }.map(&:content) })
 
 # FULL TEXT FIELDS
-to_field 'full_text_tesimv' do |resource, accumulator, _context|
-  Array(object_level_full_text_urls(resource)).each do |file_url|
-    accumulator << get_file_content(file_url)
-  end
-end
+to_field 'full_text_tesimv', (accumulate do |resource, *_|
+  object_level_full_text_urls(resource).map { |file_url| get_file_content(file_url) }
+end)
 
 # PARKER FIELDS
 
-to_field 'manuscript_number_tesim' do |resource, accumulator, _context|
-  Array(resource.smods_rec.location.shelfLocator.try(:text)).each do |v|
-    accumulator << v.presence
-  end
-end
+to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_rec.location.shelfLocator.try(:text) })
 
 # We need to join the `displayLabel` and titles for all *alternative* titles
 # `title_variant_display` has different behavior
-to_field 'manuscript_titles_tesim' do |resource, accumulator, _context|
-  Array(parse_manuscript_titles(resource)).each do |v|
-    accumulator << v
-  end
-end
-
-to_field 'incipit_tesim' do |resource, accumulator, _context|
-  Array(parse_incipit(resource)).each do |v|
-    accumulator << v
-  end
-end
+to_field 'manuscript_titles_tesim', (accumulate { |resource, *_| parse_manuscript_titles(resource) })
+to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
 
 # parse titleInfo[type="alternative"]/title into tuples of (displayLabel, title)
 def parse_manuscript_titles(sdb)

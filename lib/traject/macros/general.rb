@@ -5,7 +5,7 @@ module Macros
     def accumulate(&lambda)
       lambda do |record, accumulator, context|
         Array(lambda.call(record, context)).each do |v|
-          accumulator << v
+          accumulator << v if v.present?
         end
       end
     end
