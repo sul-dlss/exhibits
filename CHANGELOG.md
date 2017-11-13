@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
-## [1.8.0] - 2016-11-13
+## [1.8.0] - 2017-11-13
 ### Added
 - Collapsible table of contents to manuscript metadata section #821,
 - A default thumbnail to annotation records #839
