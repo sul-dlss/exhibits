@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'traject/adjust_cardinality'
 
 # Base Resource indexer for objects in DOR

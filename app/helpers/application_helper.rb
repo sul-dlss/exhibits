@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # :nodoc:
 module ApplicationHelper
   # Collection titles are indexed as a compound druid + title; we need to

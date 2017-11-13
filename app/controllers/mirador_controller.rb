@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Mirador controller providing an iframeable Mirador
 class MiradorController < ApplicationController

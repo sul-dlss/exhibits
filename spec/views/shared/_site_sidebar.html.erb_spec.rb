@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'shared/_site_sidebar', type: :view do
   subject { rendered }
 

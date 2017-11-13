@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Blacklight::Document model mixin for delivering MODS XML through
 # the Blacklight document extension framework.

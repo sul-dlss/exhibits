@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Macros
   # Macros for working with DOR objects
   module Dor
