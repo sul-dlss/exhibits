@@ -63,8 +63,7 @@ class DorHarvester < Spotlight::Resource
                 exception_or_message.inspect
               else
                 exception_or_message.to_s
-              end
-
+              end.truncate(1.megabyte)
     RecordIndexStatusJob.perform_later(self, resource.bare_druid, ok: false, message: message)
   end
 

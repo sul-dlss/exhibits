@@ -77,6 +77,14 @@ describe DorHarvester do
       it 'records an indexing error for a druid' do
         expect { subject.on_error(resource, 'error message') }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: false, message: 'error message')
       end
+      it 'records an indexing exception for a druid' do
+        expect { subject.on_error(resource, RuntimeError.new('error message')) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: false, message: '#<RuntimeError: error message>')
+      end
+      it 'records an indexing exception for a druid even if very large' do
+        e = RuntimeError.new('error' * 1.megabyte)
+        inspected = e.inspect.truncate(1.megabyte)
+        expect { subject.on_error(resource, e) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: false, message: inspected)
+      end
     end
     # rubocop:enable Metrics/LineLength
   end
