@@ -49,7 +49,6 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe '#manuscript_link' do
-    let(:druid) { ['bg021sq9590'] }
     let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
     let(:show_page) { '/test-flag-exhibit-slug/catalog/bg021sq9590' }
     let(:document) do
@@ -59,10 +58,16 @@ describe ApplicationHelper, type: :helper do
         format_main_ssim: ['Page details']
       )
     end
-    let(:input) { { value: druid, document: document } }
+    let(:input) { { value: ['bg021sq9590'], document: document } }
+
+    before do
+      helper.extend(Module.new do
+        def current_exhibit; end
+      end)
+    end
 
     it 'removes page prefix' do
-      @exhibit = create(:exhibit, slug: 'test-flag-exhibit-slug')
+      allow(helper).to receive(:current_exhibit).and_return(create(:exhibit, slug: 'test-flag-exhibit-slug'))
       expect(helper.manuscript_link(input)).to have_link(text: title, href: show_page)
     end
   end

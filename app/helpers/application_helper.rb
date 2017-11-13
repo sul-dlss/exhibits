@@ -53,8 +53,7 @@ module ApplicationHelper
     ms_number = document['manuscript_number_tesim']
     return if options[:value].blank? || ms_number.blank?
     return options[:value] if document['format_main_ssim'] != ['Page details']
-    title = document['title_full_display']
-    title = title.include?(':') ? title.partition(':')[2] : ms_number[0]
-    link_to title, spotlight.exhibit_solr_document_path(@exhibit, options[:value][0])
+    title = document['title_full_display'].include?(':') ? document['title_full_display'] : ms_number[0]
+    link_to title, spotlight.exhibit_solr_document_path(current_exhibit, options[:value][0])
   end
 end
