@@ -27,6 +27,7 @@ class IiifCanvasIndexer
         enhanced_canvas = JSON.parse(canvas.to_json)
         enhanced_canvas['manifest_label'] = manifest.label
         enhanced_canvas['parent_manuscript_number'] = document.fetch('manuscript_number_tesim', nil)
+        enhanced_canvas['range_labels'] = range_labels_for(canvas['@id'])
         canvas_resource.data = enhanced_canvas
         canvas_resource.save_and_index
       end
@@ -44,6 +45,13 @@ class IiifCanvasIndexer
 
   def manifest_url
     document.exhibit_specific_manifest(exhibit.required_viewer.custom_manifest_pattern)
+  end
+
+  def range_labels_for(canvas_id)
+    @range_labels ||= {}
+    @range_labels[canvas_id] ||= manifest_harvester.ranges_for(canvas_id).map do |range|
+      range['label']
+    end
   end
 
   def canvases

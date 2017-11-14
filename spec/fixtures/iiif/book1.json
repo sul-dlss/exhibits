@@ -157,11 +157,18 @@
       "@id": "http://example.org/iiif/book1/range/r1",
         "@type": "sc:Range",
         "label": "Introduction",
+        "ranges": ["http://example.org/iiif/book1/range/r1-1"],
         "canvases": [
           "http://example.org/iiif/book1/canvas/p1",
           "http://example.org/iiif/book1/canvas/p2",
           "http://example.org/iiif/book1/canvas/p3#xywh=0,0,750,300"
         ]
+    },
+    {
+      "@id": "http://example.org/iiif/book1/range/r1-1",
+      "@type": "sc:Range",
+      "label": "Objectives and Scope",
+      "canvases": ["http://example.org/iiif/book1/canvas/p2#xywh=0,0,500,500"]
     }
   ]
 }

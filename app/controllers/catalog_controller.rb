@@ -199,6 +199,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'text_titles_tesim', label: 'Text title', helper_method: :table_of_contents_separator
     config.add_index_field 'manuscript_titles_tesim', label: 'Manuscript title', helper_method: :manuscript_title
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
+    config.add_index_field 'range_labels_tesim', label: 'Section'
     config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

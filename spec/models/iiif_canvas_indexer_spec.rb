@@ -51,6 +51,11 @@ RSpec.describe IiifCanvasIndexer do
       expect(CanvasResource.first.data['parent_manuscript_number']).to eq(%w(MS 123))
     end
 
+    it 'includes range labels' do
+      subject.index_canvases
+      expect(CanvasResource.first.data['range_labels']).to eq ['Introduction']
+    end
+
     it 'enqueues the same number of jobs as otherContent annotationLists' do
       expect do
         subject.index_canvases

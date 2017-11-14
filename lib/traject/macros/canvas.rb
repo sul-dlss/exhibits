@@ -56,6 +56,17 @@ module Macros
       end
     end
 
+    ##
+    # Note: This method assumes an "enhanced" canvas with additional properties
+    # added beyond the IIIF Canvas model.
+    def extract_canvas_range_labels
+      lambda do |record, accumulator, _context|
+        return if record['range_labels'].blank?
+
+        accumulator.push(*record['range_labels'].map(&:to_s))
+      end
+    end
+
     def extract_canvas_annotation_list_urls
       lambda do |record, accumulator, _context|
         return if record['otherContent'].blank?

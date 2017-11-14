@@ -25,4 +25,25 @@ RSpec.describe IiifManifestHarvester do
       expect(subject.canvases).to all(be_an(IIIF::Presentation::Canvas))
     end
   end
+
+  describe '#ranges_for' do
+    it 'is an array of range objects that include the given canvas id' do
+      ranges = subject.ranges_for('http://example.org/iiif/book1/canvas/p2')
+      expect(ranges.length).to eq 2
+      expect(ranges).to all(be_an(IIIF::Presentation::Range))
+      expect(ranges.first['@id']).to eq 'http://example.org/iiif/book1/range/r1'
+      expect(ranges.last['@id']).to eq 'http://example.org/iiif/book1/range/r1-1'
+    end
+
+    it 'gets the correct range even if the canvas ID in the range has a xywh defined' do
+      ranges = subject.ranges_for('http://example.org/iiif/book1/canvas/p3')
+      expect(ranges.length).to eq 1
+      expect(ranges.first.canvases).not_to include 'http://example.org/iiif/book1/canvas/p3'
+      expect(ranges.first.canvases).to include 'http://example.org/iiif/book1/canvas/p3#xywh=0,0,750,300'
+    end
+
+    it 'is an empty array when the given id does not exist' do
+      expect(subject.ranges_for('non-existent-id')).to eq([])
+    end
+  end
 end
