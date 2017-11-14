@@ -2,7 +2,7 @@
 
 Blacklight.onLoad(function() {
 
-  $('.blacklight-text_titles_tesim').on('click', function(){
+  $('.blacklight-toc_search').on('click', function(){
     var _this = $(this);
     var linkText = $(_this).find('span');
 
