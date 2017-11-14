@@ -5,7 +5,7 @@ require 'iiif/presentation'
 ##
 # Responsible for grabbing a IIIF manifest and parsing it
 class IiifManifestHarvester
-  RANGE_TYPE = 'sc:Range'.freeze
+  RANGE_TYPE = 'sc:Range'
 
   attr_reader :url
 
