@@ -1,0 +1,12 @@
+<div class='view-metadata'>
+  <div class='modal-header'>
+    <button type='button' class='ajax-modal-close close' data-dismiss='modal' aria-hidden='true'>×</button>
+    <h3 class='modal-title'>Metadata: <%= presenter(@document).heading %></h3>
+  </div>
+  <div class='modal-body'>
+    <%= render partial: 'metadata' %>
+  </div>
+  <div class='modal-footer'>
+    <button type='button' class='btn btn-default view-in-modal pull-right' data-dismiss='modal'>Close</button>
+  </div>
+</div>

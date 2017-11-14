@@ -1,0 +1,16 @@
+// .view-in-modal is a helper class used to show content in the modal view only
+// useful for modal close buttons and other stuff
+
+.view-metadata {
+  .view-in-modal {
+    display: none;
+  }
+}
+
+#ajax-modal {
+  .view-metadata {
+    .view-in-modal {
+      display: block;
+    }
+  }
+}
