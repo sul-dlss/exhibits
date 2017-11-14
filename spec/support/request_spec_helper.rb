@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'warden'
 module RequestSpecHelper
   include ::Warden::Test::Helpers

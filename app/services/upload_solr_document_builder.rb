@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Custom upload solr document builder that adds square thumbnail urls
 class UploadSolrDocumentBuilder < Spotlight::UploadSolrDocumentBuilder
   def add_file_versions(solr_hash)

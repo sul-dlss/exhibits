@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Blacklight
   # Override Blacklight::MapsHelper from blacklight_heatmaps
   module MapsHelperOverride

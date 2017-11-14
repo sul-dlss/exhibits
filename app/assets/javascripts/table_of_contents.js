@@ -2,15 +2,11 @@
 
 Blacklight.onLoad(function() {
 
-  var link = $('.blacklight-text_titles_tesim').find('a');
+  $('.blacklight-text_titles_tesim').on('click', function(){
+    var _this = $(this);
+    var linkText = $(_this).find('span');
 
-  $('#collapseToc').on('show.bs.collapse', function () {
-    $(link).find('.caret').removeClass('caret-right');
-    $(link).html($(link).html().replace('Show', 'Hide'));
-  });
-
-  $('#collapseToc').on('hide.bs.collapse', function () {
-    $(link).html($(link).html().replace('Hide', 'Show'));
-    $(link).find('.caret').addClass('caret-right');
+    $(_this).find('.caret').toggleClass('caret-right');
+    $(linkText).text(linkText.text() == 'Show' ? 'Hide' : 'Show' );
   });
 });

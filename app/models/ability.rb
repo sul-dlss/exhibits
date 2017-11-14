@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # CanCan authorization evaluation model
 class Ability

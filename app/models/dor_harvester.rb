@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Base Resource harvester for objects in DOR
 class DorHarvester < Spotlight::Resource
   self.document_builder_class = DorSolrDocumentBuilder

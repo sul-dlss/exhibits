@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # A concern to be mixed into the Spotlight::Exhibit
 # class in order to add ActiveRecord relationship(s)

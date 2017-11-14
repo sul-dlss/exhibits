@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Record the metadata for an index job
 class RecordResourceMetadataJob < ApplicationJob
   def perform(resource)

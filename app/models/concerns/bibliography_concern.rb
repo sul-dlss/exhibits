@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # A concern to be mixed into SolrDocument for accessing a document's
 # bibliography

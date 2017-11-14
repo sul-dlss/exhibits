@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Controller providing a choice of viewers
 class ViewersController < Spotlight::ApplicationController

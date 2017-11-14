@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Record the status of an index job
 class RecordIndexStatusJob < ApplicationJob
   def perform(harvester, druid, index_status = {})

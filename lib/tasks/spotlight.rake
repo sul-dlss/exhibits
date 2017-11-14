@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :spotlight do
   desc 'Update to the latest blacklight + spotlight dependencies'
   task upgrade: :environment do

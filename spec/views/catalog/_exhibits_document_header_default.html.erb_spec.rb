@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'catalog/_exhibits_document_header_default', type: :view do

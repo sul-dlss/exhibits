@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # :nodoc:
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
