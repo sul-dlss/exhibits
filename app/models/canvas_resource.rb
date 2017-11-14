@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # CanvasResource model class
 class CanvasResource < Spotlight::Resource

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # A concern to be mixed into the SolrDocument class in order to provide
 # convenient accessors for IIIF manifests embeded in a SolrDocument

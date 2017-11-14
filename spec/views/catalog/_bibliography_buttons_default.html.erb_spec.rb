@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'catalog/_bibliography_buttons_default', type: :view do

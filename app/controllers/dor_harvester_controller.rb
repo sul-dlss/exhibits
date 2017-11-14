@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Resources controller allowing curators to create new
 # exhibit resources from a list of DRUIDs.

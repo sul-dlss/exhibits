@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # BibliographyResource model class
 class BibliographyResource < Spotlight::Resource

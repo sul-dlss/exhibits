@@ -6,7 +6,7 @@
 class IiifCanvasIndexer
   attr_reader :exhibit, :druid
 
-  ANNOTATION_LIST = 'sc:AnnotationList'.freeze
+  ANNOTATION_LIST = 'sc:AnnotationList'
 
   delegate :manifest, to: :manifest_harvester
 
