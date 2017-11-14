@@ -47,4 +47,29 @@ describe ApplicationHelper, type: :helper do
       expect(helper.table_of_contents_separator(input)).to match(/data-toggle='collapse'/)
     end
   end
+
+  describe '#manuscript_link' do
+    let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
+    let(:show_page) { '/test-flag-exhibit-slug/catalog/bg021sq9590' }
+    let(:document) do
+      SolrDocument.new(
+        title_full_display: "p. 3:#{title}",
+        manuscript_number_tesim: ['MS 198'],
+        format_main_ssim: ['Page details']
+      )
+    end
+    let(:input) { { value: ['bg021sq9590'], document: document } }
+
+    before do
+      helper.extend(Module.new do
+        def current_exhibit
+          FactoryBot.create(:exhibit, slug: 'test-flag-exhibit-slug')
+        end
+      end)
+    end
+
+    it 'removes page prefix' do
+      expect(helper.manuscript_link(input)).to have_link(text: title, href: show_page)
+    end
+  end
 end
