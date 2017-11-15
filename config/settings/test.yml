@@ -14,4 +14,3 @@ feature_flags:
     test_thing: true
     index_related_content: true
     add_resource_type_index_field: true
-  view_all_metadata: true
