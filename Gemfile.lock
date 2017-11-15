@@ -382,6 +382,9 @@ GEM
       iso-639
       nokogiri
       nom-xml (~> 0.6.0)
+    mods_display (0.4.1)
+      i18n
+      stanford-mods (~> 2.1)
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -704,6 +707,7 @@ DEPENDENCIES
   jsonpath
   listen (~> 3.0.5)
   mirador_rails
+  mods_display
   mysql2 (~> 0.4.4)
   net-http-persistent (< 3)
   newrelic_rpm
