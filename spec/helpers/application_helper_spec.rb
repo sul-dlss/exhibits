@@ -42,7 +42,7 @@ describe ApplicationHelper, type: :helper do
     let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae--euangelia'] } }
 
     it 'separates MODS table of contents' do
-      expect(helper.table_of_contents_separator(input)).to match(%r{Homiliae<br \/>euangelia})
+      expect(helper.table_of_contents_separator(input)).to match(%r{<li>Homiliae</li><li>euangelia</li>})
     end
 
     it 'collapses content' do
