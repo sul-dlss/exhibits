@@ -12,11 +12,15 @@ RSpec.feature 'Metadata display' do
   it 'view metadata link links through to page' do
     click_link 'View all metadata »'
     expect(page).to have_css 'h3', text: 'Metadata: Afrique Physique.'
+    expect(page).to have_css 'dt', text: 'Title'
+    expect(page).to have_css 'dd', text: 'Afrique Physique.'
   end
   it 'opens view metadata in modal', js: true do
     click_link 'View all metadata »'
     within '#ajax-modal' do
       expect(page).to have_css 'h3', text: 'Metadata: Afrique Physique.'
+      expect(page).to have_css 'dt', text: 'Title'
+      expect(page).to have_css 'dd', text: 'Afrique Physique.'
     end
   end
 end

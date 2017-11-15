@@ -3,6 +3,7 @@
 class CatalogController < ApplicationController
   include BlacklightAdvancedSearch::Controller
   helper Openseadragon::OpenseadragonHelper
+  include ModsDisplay::ControllerExtension
 
   include Blacklight::Catalog
 
