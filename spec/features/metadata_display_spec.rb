@@ -14,6 +14,7 @@ RSpec.feature 'Metadata display' do
     expect(page).to have_css 'h3', text: 'Metadata: Afrique Physique.'
     expect(page).to have_css 'dt', text: 'Title'
     expect(page).to have_css 'dd', text: 'Afrique Physique.'
+    expect(page).to have_css 'a[download="gk885tn1705.mods.xml"]', text: 'Download'
   end
   it 'opens view metadata in modal', js: true do
     click_link 'View all metadata »'
@@ -21,6 +22,7 @@ RSpec.feature 'Metadata display' do
       expect(page).to have_css 'h3', text: 'Metadata: Afrique Physique.'
       expect(page).to have_css 'dt', text: 'Title'
       expect(page).to have_css 'dd', text: 'Afrique Physique.'
+      expect(page).to have_css 'a[download="gk885tn1705.mods.xml"]', text: 'Download'
     end
   end
 end
