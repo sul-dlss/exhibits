@@ -229,12 +229,6 @@ to_field 'manuscript_titles_tesim' do |resource, accumulator, _context|
   end
 end
 
-to_field 'text_titles_tesim' do |resource, accumulator, _context|
-  Array(resource.smods_rec.tableOfContents.try(:content)).each do |v|
-    accumulator << v
-  end
-end
-
 to_field 'incipit_tesim' do |resource, accumulator, _context|
   Array(parse_incipit(resource)).each do |v|
     accumulator << v

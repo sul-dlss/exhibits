@@ -150,7 +150,6 @@ class CatalogController < ApplicationController
 
     config.add_index_field 'title_full_display', label: 'Title'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
-    config.add_index_field 'text_titles_ssim', label: 'Table of Contents'
     config.add_index_field 'author_person_full_display', label: 'Author' # includes Collectors
     config.add_index_field 'author_no_collector_ssim', label: 'Author (no Collectors)'
     config.add_index_field 'editor_ssim', label: 'Editor'
@@ -196,7 +195,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
     # Fields specific to Parker Exhibit
     config.add_index_field 'incipit_tesim', label: 'Incipit'
-    config.add_index_field 'text_titles_tesim', label: 'Text title', helper_method: :table_of_contents_separator
+    config.add_index_field 'toc_search', label: 'Table of contents', helper_method: :table_of_contents_separator
     config.add_index_field 'manuscript_titles_tesim', label: 'Manuscript title', helper_method: :manuscript_title
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     config.add_index_field 'range_labels_tesim', label: 'Section'
@@ -295,17 +294,6 @@ class CatalogController < ApplicationController
         pf: 'incipit_tesim',
         pf3: 'incipit_tesim',
         pf2: 'incipit_tesim'
-      }
-      field.enabled = false
-    end
-
-    config.add_search_field('text_title') do |field|
-      field.label = 'Text title'
-      field.solr_local_parameters = {
-        qf: 'text_titles_tesim',
-        pf: 'text_titles_tesim',
-        pf3: 'text_titles_tesim',
-        pf2: 'text_titles_tesim'
       }
       field.enabled = false
     end

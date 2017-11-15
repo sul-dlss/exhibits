@@ -142,7 +142,6 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
     it 'has parker-specific fields' do
       expect(document).to include incipit_tesim: ['In illo tempore maria magdalene et maria iacobi et solomae'],
-                                  text_titles_tesim: ['Homiliae XL in euangelia'],
                                   manuscript_titles_tesim: ['M.R. James Title-|-Gregorii Homiliae'],
                                   manuscript_number_tesim: ['MS 69'],
                                   toc_search: ['Homiliae XL in euangelia'],
