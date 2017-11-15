@@ -1,0 +1,12 @@
+<div class='container'>
+  <div class='row'>
+    <% # Using the Bootstrap container/row/col structure here to easily get this on its own line %>
+    <div class='col-md-12'>
+      <%= link_to 'View all metadata »',
+                  metadata_exhibit_solr_document_path(current_exhibit, document),
+                  data: { ajax_modal: 'trigger' },
+                  class: 'btn btn-default'
+      %>
+    </div>
+  </div>
+</div>

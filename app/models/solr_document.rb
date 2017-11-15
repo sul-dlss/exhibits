@@ -16,6 +16,7 @@ class SolrDocument
   include ManifestConcern
 
   include CanvasConcern
+  include ModsDisplay::ModelExtension
 
   # self.unique_key = 'id'
 
@@ -33,5 +34,9 @@ class SolrDocument
   use_extension(Blacklight::Document::DublinCore)
   use_extension(ModsDocument) do |document|
     document[:modsxml]
+  end
+
+  mods_xml_source do |model|
+    model.fetch(:modsxml)
   end
 end

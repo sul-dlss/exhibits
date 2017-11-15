@@ -5,6 +5,7 @@
 class CatalogController < ApplicationController
   include BlacklightAdvancedSearch::Controller
   helper Openseadragon::OpenseadragonHelper
+  include ModsDisplay::ControllerExtension
 
   include Blacklight::Catalog
 
@@ -65,6 +66,7 @@ class CatalogController < ApplicationController
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
     config.show.partials.insert(1, :viewer)
+    config.show.partials << :metadata_button
     config.show.partials.unshift :bibliography_buttons
     config.show.partials << :bibliography
     config.show.partials << :cited_documents
@@ -329,6 +331,20 @@ class CatalogController < ApplicationController
     config.add_sort_field 'pub_year_isi asc, title_sort asc', label: 'year (old to new)'
     config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
     config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
+  end
+
+  ##
+  # A simplification of Blacklight's `Blacklight::CatalogController#show` and
+  # `Blacklight:DefaultComponentConfiguration#add_show_tools_partial` method for
+  # our `metadata` which is not defined as a "Blacklight show tool".
+  # https://github.com/projectblacklight/blacklight/blob/v6.12.0/app/controllers/concerns/blacklight/default_component_configuration.rb#L42-L73
+  def metadata
+    @response, @document = fetch params[:id]
+    respond_to do |format|
+      format.html do
+        return render layout: false if request.xhr?
+      end
+    end
   end
 
   # JSON API queries should not trigger new search histories
