@@ -74,7 +74,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       end
 
       it 'has MODS date fields' do
-        expect(document).to include imprint_display: '13th century',
+        expect(document).to include imprint_display: 'France?, [1200 - 1299?] 13th century',
                                     pub_year_isi: 1200,
                                     pub_year_no_approx_isi: 1200,
                                     pub_year_w_approx_isi: 1200

@@ -2,19 +2,19 @@
 module Macros
   # General helpers for any traject mappings, stolen originally from DLME
   module General
-    def accumulate(&lambda)
+    def accumulate(&block)
       lambda do |record, accumulator, context|
-        Array(lambda.call(record, context)).each do |v|
-          accumulator << v
+        Array(block.call(record, context)).each do |v|
+          accumulator << v if v.present?
         end
       end
     end
 
     # only accumulate values if a condition is met
-    def conditional(condition, lambda)
+    def conditional(condition, block)
       lambda do |record, accumulator, context|
         if condition.call(record, context)
-          lambda.call(record, accumulator, context)
+          block.call(record, accumulator, context)
         end
       end
     end
@@ -22,8 +22,8 @@ module Macros
     # try a bunch of macros and short-circuit after one returns values
     def first(*macros)
       lambda do |record, accumulator, context|
-        macros.lazy.map do |lambda|
-          lambda.call(record, accumulator, context)
+        macros.lazy.map do |block|
+          block.call(record, accumulator, context)
         end.reject(&:blank?).first
       end
     end
@@ -49,10 +49,10 @@ module Macros
 
     # construct a structured hash using values extracted using traject
     def transform_values(context, hash)
-      hash.transform_values do |lambdas|
+      hash.transform_values do |blocks|
         accumulator = []
-        Array(lambdas).each do |lambda|
-          lambda.call(context.source_record, accumulator, context)
+        Array(blocks).each do |block|
+          block.call(context.source_record, accumulator, context)
         end
         accumulator
       end
