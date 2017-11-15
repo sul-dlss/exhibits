@@ -14,7 +14,7 @@ class SolrDocument
   include BibliographyConcern
 
   include ManifestConcern
-
+  include MetadataConcern
   include CanvasConcern
   include ModsDisplay::ModelExtension
 
