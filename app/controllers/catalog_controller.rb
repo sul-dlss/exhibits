@@ -13,6 +13,12 @@ class CatalogController < ApplicationController
     blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
   end
 
+  configure_mods_display do
+    constituent do
+      ignore!
+    end
+  end
+
   configure_blacklight do |config|
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new

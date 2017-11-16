@@ -1,1 +1,7 @@
+<h2>Description</h2>
 <%= render_mods_display(@document).to_html.html_safe %>
+
+<h2>Related items</h2>
+<% render_mods_display(@document).constituent.each do |i| %>
+  <%= mods_record_field(i) %>
+<% end %>
