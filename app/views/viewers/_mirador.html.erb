@@ -4,7 +4,7 @@
   <iframe
     src="<%= mirador_index_path(
       manifest: exhibit_specific_manifest,
-      canvas: document['iiif_canvas_id_ssim'].first
+      canvas: document.canvas.iiif_id
     ) %>"
     allowfullscreen="true"
     class="mirador-embed-wrapper"
