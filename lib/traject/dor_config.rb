@@ -6,14 +6,16 @@ require_relative 'macros/dor'
 require 'active_support/core_ext/object/blank'
 extend Macros::General
 extend Macros::Dor
+extend TrajectPlus::Macros
 
 settings do
   provide 'reader_class_name', 'DorReader'
   provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
 
-to_fields %w(id druid), (accumulate { |resource, *_| resource.bare_druid })
-to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
+to_field 'id', single: true, extract: (accumulate { |resource, *_| resource.bare_druid })
+to_field 'druid', single: true, extract: copy('id')
+to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml }), single: true
 
 # ITEM FIELDS
 to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(dor_content_type(resource)) })
@@ -29,6 +31,10 @@ to_field 'collection_type', conditional(->(resource, *_) { resource.collection? 
 
 # OTHER FIELDS
 to_field 'url_fulltext', (accumulate { |resource, *_| "https://purl.stanford.edu/#{resource.bare_druid}" })
+
+compose(->(resource, accumulator, context) { accumulator << resource.smods_rec }) do
+  to_field 'test', ->(resource, accumulator, context) {  accumulator << 'test' }
+end
 
 # title fields
 to_field 'title_245a_search', stanford_mods(:sw_short_title)
@@ -203,6 +209,32 @@ to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_
 # `title_variant_display` has different behavior
 to_field 'manuscript_titles_tesim', (accumulate { |resource, *_| parse_manuscript_titles(resource) })
 to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
+
+to_field 'role_name_ssim' do |resource, accumulator, _context|
+  resource.smods_rec.plain_name.each do |name|
+    Array(name.role).each do |role|
+      accumulator << "#{role}-|-#{name.display_value}"
+    end
+  end
+
+  accumulator.sort!
+end
+
+to_field 'identifier_displayLabel_ssim' do |resource, accumulator, _context|
+  resource.smods_rec.identifier.each do |identifier|
+    accumulator << "#{identifier.displayLabel || identifier.type}-|-#{identifier.content}"
+  end
+
+  accumulator.sort!
+end
+
+to_field 'repository_ssim', (accumulate do |resource, _context|
+  resource.smods_rec.location.physicalLocation.select { |x| x.attr('type') == 'repository' }.map(&:content)
+end)
+
+to_field 'place_created_ssim', (accumulate do |resource, _context|
+  resource.smods_rec.origin_info.place.placeTerm.select { |x| x.attr('type') == 'text' }.map(&:content)
+end)
 
 # parse titleInfo[type="alternative"]/title into tuples of (displayLabel, title)
 def parse_manuscript_titles(sdb)

@@ -34,6 +34,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       it 'has a doc id' do
         expect(document[:id]).to eq druid
         expect(document[:druid]).to eq druid
+        puts document[:test]
       end
 
       it 'has the gdor data' do

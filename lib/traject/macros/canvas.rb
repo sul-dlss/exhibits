@@ -7,27 +7,6 @@ require_relative 'extraction'
 module Macros
   # IIIF canvas extraction
   module Canvas
-    def extract_parent_manifest_iiif_id
-      lambda do |_record, accumulator, context|
-        return if context.output_hash['related_document_id_ssim'].blank?
-
-        accumulator << format(Settings.purl.iiif_manifest_url,
-                              druid: context.output_hash['related_document_id_ssim'].first.to_s)
-      end
-    end
-
-    def extract_canvas_id
-      lambda do |record, accumulator, _context|
-        accumulator << "canvas-#{Digest::MD5.hexdigest(record['@id'].to_s)}"
-      end
-    end
-
-    def extract_canvas_iiif_id
-      lambda do |record, accumulator, _context|
-        accumulator << record['@id'].to_s
-      end
-    end
-
     ##
     # Note: This method assumes an "enhanced" canvas with additional properties
     # added beyond the IIIF Canvas model.
@@ -48,22 +27,11 @@ module Macros
       end
     end
 
-    def extract_canvas_parent_manuscript_number
+    def extract_record(field)
       lambda do |record, accumulator, _context|
-        return if record['parent_manuscript_number'].blank?
+        return if record[field].blank?
 
-        accumulator.push(*record['parent_manuscript_number'].map(&:to_s))
-      end
-    end
-
-    ##
-    # Note: This method assumes an "enhanced" canvas with additional properties
-    # added beyond the IIIF Canvas model.
-    def extract_canvas_range_labels
-      lambda do |record, accumulator, _context|
-        return if record['range_labels'].blank?
-
-        accumulator.push(*record['range_labels'].map(&:to_s))
+        accumulator.push(*Array(record[field]).map(&:to_s))
       end
     end
 
@@ -84,15 +52,6 @@ module Macros
           next unless link['@type'] == 'sc:AnnotationList'
           extract_annotations_from_list(accumulator, link['@id'].to_s)
         end
-      end
-    end
-
-    # Druids are kept as part of the canvas-id
-    def extract_canvas_related_document_ids
-      lambda do |record, accumulator, _context|
-        match = record['@id'][Exhibits::Application.config.druid_regex]
-        return if match.blank?
-        accumulator << match
       end
     end
 

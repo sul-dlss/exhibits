@@ -1,9 +1,7 @@
-GIT
-  remote: https://github.com/projectblacklight/spotlight
-  revision: d11bc4e46086350f4946c3ac018d91b2950a2201
-  branch: master
+PATH
+  remote: /Users/cabeer/Projects/blacklight/spotlight
   specs:
-    blacklight-spotlight (1.0.0)
+    blacklight-spotlight (1.1.0)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -38,6 +36,14 @@ GIT
       sprockets-es6
       tophat
       underscore-rails (~> 1.6)
+
+PATH
+  remote: /Users/cabeer/Projects/sul-dlss/traject_plus
+  specs:
+    traject_plus (0.0.1)
+      activesupport
+      jsonpath
+      traject
 
 GEM
   remote: https://rubygems.org/
@@ -739,6 +745,7 @@ DEPENDENCIES
   stanford-mods (~> 2.2, >= 2.2.1)
   sul_styles
   traject
+  traject_plus!
   turbolinks (~> 5)
   turnout
   tzinfo-data
