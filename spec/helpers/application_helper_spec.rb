@@ -39,14 +39,25 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe '#table_of_contents_separator' do
-    let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae--euangelia'] } }
+    context 'single value' do
+      let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae'] } }
 
-    it 'separates MODS table of contents' do
-      expect(helper.table_of_contents_separator(input)).to match(%r{<li>Homiliae</li><li>euangelia</li>})
+      it 'presents content inline' do
+        expect(helper.table_of_contents_separator(input)).to eq 'Homiliae'
+        expect(helper.table_of_contents_separator(input)).not_to match(/data-toggle='collapse'/)
+      end
     end
 
-    it 'collapses content' do
-      expect(helper.table_of_contents_separator(input)).to match(/data-toggle='collapse'/)
+    context 'multi-valued' do
+      let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae--euangelia'] } }
+
+      it 'separates MODS table of contents' do
+        expect(helper.table_of_contents_separator(input)).to match(%r{<li>Homiliae</li><li>euangelia</li>})
+      end
+
+      it 'collapses content' do
+        expect(helper.table_of_contents_separator(input)).to match(/data-toggle='collapse'/)
+      end
     end
   end
 

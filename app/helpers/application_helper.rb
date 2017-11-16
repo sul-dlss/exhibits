@@ -45,6 +45,7 @@ module ApplicationHelper
   def table_of_contents_separator(options = {})
     return if options[:value].blank?
     contents = options[:value][0].split('--').map(&:strip)
+    return contents.join if contents.length == 1
     contents = safe_join(contents.map { |v| "<li>#{v}</li>".html_safe })
     id = options[:document].id
     render partial: 'catalog/table_of_contents', locals: { contents: contents, collapse_id: "collapseToc-#{id}" }
