@@ -45,13 +45,15 @@ module ApplicationHelper
   end
 
   def manuscript_link(options = {})
+    return if options[:value].blank?
     druid = options[:value][0]
     document = options[:document]
-    ms_number = document['manuscript_number_tesim']
-    return if druid.blank?
-    return druid if (document['format_main_ssim'] != ['Page details']) || ms_number.blank?
     title = document['title_full_display']
-    title = title.include?(':') ? title.partition(':')[2] : ms_number[0]
-    link_to title, spotlight.exhibit_solr_document_path(current_exhibit, druid)
+    link_title = if document.canvas? && title.include?(':')
+                   title.partition(':')[2]
+                 else
+                   druid
+                 end
+    link_to link_title, spotlight.exhibit_solr_document_path(current_exhibit, druid)
   end
 end

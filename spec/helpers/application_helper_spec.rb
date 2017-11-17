@@ -56,7 +56,9 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe '#manuscript_link' do
-    let(:input) { { value: ['bg021sq9590'], document: document } }
+    let(:druid) { 'bg021sq9590' }
+    let(:input) { { value: [druid], document: document } }
+    let(:show_page) { "/test-flag-exhibit-slug/catalog/#{druid}" }
 
     before do
       helper.extend(Module.new do
@@ -68,7 +70,6 @@ describe ApplicationHelper, type: :helper do
 
     context 'page details' do
       let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
-      let(:show_page) { '/test-flag-exhibit-slug/catalog/bg021sq9590' }
       let(:document) do
         SolrDocument.new(
           title_full_display: "p. 3:#{title}",
@@ -91,7 +92,7 @@ describe ApplicationHelper, type: :helper do
       end
 
       it 'displays druid for Bibliography resources' do
-        expect(helper.manuscript_link(input)).to eq 'bg021sq9590'
+        expect(helper.manuscript_link(input)).to have_link(text: druid, href: show_page)
       end
     end
   end
