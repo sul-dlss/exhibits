@@ -14,7 +14,7 @@
     }
   }
   .modal-body {
-    max-height: calc(100vh - $modal-header-footer-height-guess);
+    max-height: calc(100vh - #{$modal-header-footer-height-guess});
     overflow-y: auto;
   }
 }
