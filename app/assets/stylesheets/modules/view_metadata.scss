@@ -5,6 +5,28 @@
   .view-in-modal {
     display: none;
   }
+
+  .modal-body {
+    dl {
+      margin-bottom: 2em;
+    }
+
+    dt {
+      color: $gray-41-percent;
+      font-size: 0.9em;
+      font-weight: normal;
+      padding-right: 1em;
+      padding-top: 0.15em;
+      text-transform: uppercase !important;
+      width: 12em;
+    }
+
+    dd {
+      margin-bottom: 0.5em;
+      margin-left: 2em;
+      max-width: 45em;
+    }
+  }
 }
 
 #ajax-modal {
