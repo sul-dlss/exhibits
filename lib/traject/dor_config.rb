@@ -213,6 +213,10 @@ to_field 'repository_ssim', (accumulate do |resource, _context|
   resource.smods_rec.location.physicalLocation.select { |x| x.attr('type') == 'repository' }.map(&:content)
 end)
 
+to_field 'place_created_ssim', (accumulate do |resource, _context|
+  resource.smods_rec.origin_info.place.placeTerm.select { |x| x.attr('type') == 'text' }.map(&:content)
+end)
+
 def parse_incipit(sdb)
   sdb.smods_rec.related_item.each do |item|
     item.note.each do |note|

@@ -73,11 +73,12 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
         expect(document).to include author_sort: "\u{10FFFF} Latin glossary  small manuscript fragment on vellum"
       end
 
-      it 'has MODS date fields' do
+      it 'has MODS origin info fields' do
         expect(document).to include imprint_display: 'France?, [1200 - 1299?] 13th century',
                                     pub_year_isi: 1200,
                                     pub_year_no_approx_isi: 1200,
-                                    pub_year_w_approx_isi: 1200
+                                    pub_year_w_approx_isi: 1200,
+                                    place_created_ssim: ['France?']
       end
 
       it 'has other metadata fields' do
