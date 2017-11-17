@@ -95,6 +95,6 @@ class DorHarvester < Spotlight::Resource
   end
 
   def harvestdor_indexer
-    @harvestdor_indexer ||= Harvestdor::Indexer.new(dor_fetcher: Settings.dor_fetcher, harvestdor: Settings.harvestdor)
+    @harvestdor_indexer ||= Harvestdor::Indexer.new(dor_fetcher: Settings.gdor, harvestdor: Settings.harvestdor)
   end
 end
