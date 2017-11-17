@@ -148,7 +148,8 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
     end
 
     it 'has other fields that are present in parker data' do
-      expect(document).to include identifier_displayLabel_ssim: ['Source ID-|-CCCC:69', 'Stanley ID-|-L. 14', 'T. James ID-|-135']
+      expect(document).to include repository_ssim: ['UK, Cambridge, Corpus Christi College, Parker Library'],
+                                  identifier_displayLabel_ssim: ['Source ID-|-CCCC:69', 'Stanley ID-|-L. 14', 'T. James ID-|-135']
     end
   end
 

@@ -209,6 +209,10 @@ to_field 'identifier_displayLabel_ssim' do |resource, accumulator, _context|
   accumulator.sort!
 end
 
+to_field 'repository_ssim', (accumulate do |resource, _context|
+  resource.smods_rec.location.physicalLocation.select { |x| x.attr('type') == 'repository' }.map(&:content)
+end)
+
 def parse_incipit(sdb)
   sdb.smods_rec.related_item.each do |item|
     item.note.each do |note|
