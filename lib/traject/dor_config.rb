@@ -201,6 +201,14 @@ to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_
 
 to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
 
+to_field 'identifier_displayLabel_ssim' do |resource, accumulator, _context|
+  resource.smods_rec.identifier.each do |identifier|
+    accumulator << "#{identifier.displayLabel || identifier.type}-|-#{identifier.content}"
+  end
+
+  accumulator.sort!
+end
+
 def parse_incipit(sdb)
   sdb.smods_rec.related_item.each do |item|
     item.note.each do |note|

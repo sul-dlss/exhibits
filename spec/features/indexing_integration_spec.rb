@@ -146,6 +146,10 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
                                   toc_search: ['Homiliae XL in euangelia'],
                                   url_suppl: ['https://purl.stanford.edu/kd310gm7424', 'https://purl.stanford.edu/dx969tv9730']
     end
+
+    it 'has other fields that are present in parker data' do
+      expect(document).to include identifier_displayLabel_ssim: ['Source ID-|-CCCC:69', 'Stanley ID-|-L. 14', 'T. James ID-|-135']
+    end
   end
 
   context 'collection' do
