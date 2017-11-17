@@ -13,6 +13,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.9.0] - 2017-11-17
+
+### Added
+- Updates Exhibits to Rails 5.1 #873
+- Updates Exhibits to Spotlight v1.1.0 #900
+- Scrolling in metadata modal body #902
+- Add the ability to download Mods metadata #896
+- Adds metadata show modal with basic mods rendering #890
+- Adds manuscript title link to Page details #848
+### Changed
+- Single entry in TOC is displayed without show/hide #907
+- Refactoring dor traject code #880
+- TOC list should be ul/li not line separated #895
+- Text title field moved to TOC #891
+- Adds frozen_string_literal to all Ruby files #882
+### Fixed
+- Fixes a bug in TOC show/hide #892
+- Fixes a bug where errors stored were sometimes too big #881
+- Fixes a bug in indexing collections #909
+- Fixes a bug where modal-body height wasn't being calculated #915
+
 ## [1.8.0] - 2017-11-13
 ### Added
 - Collapsible table of contents to manuscript metadata section #821,
