@@ -198,7 +198,6 @@ class CatalogController < ApplicationController
     # Fields specific to Parker Exhibit
     config.add_index_field 'incipit_tesim', label: 'Incipit'
     config.add_index_field 'toc_search', label: 'Table of contents', helper_method: :table_of_contents_separator
-    config.add_index_field 'manuscript_titles_tesim', label: 'Manuscript title', helper_method: :manuscript_title
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     config.add_index_field 'range_labels_tesim', label: 'Section'
     config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link
@@ -296,17 +295,6 @@ class CatalogController < ApplicationController
         pf: 'incipit_tesim',
         pf3: 'incipit_tesim',
         pf2: 'incipit_tesim'
-      }
-      field.enabled = false
-    end
-
-    config.add_search_field('manuscript_title') do |field|
-      field.label = 'Manuscript title'
-      field.solr_local_parameters = {
-        qf: 'manuscript_titles_tesim',
-        pf: 'manuscript_titles_tesim',
-        pf3: 'manuscript_titles_tesim',
-        pf2: 'manuscript_titles_tesim'
       }
       field.enabled = false
     end

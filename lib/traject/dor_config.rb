@@ -199,24 +199,7 @@ end)
 
 to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_rec.location.shelfLocator.try(:text) })
 
-# We need to join the `displayLabel` and titles for all *alternative* titles
-# `title_variant_display` has different behavior
-to_field 'manuscript_titles_tesim', (accumulate { |resource, *_| parse_manuscript_titles(resource) })
 to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
-
-# parse titleInfo[type="alternative"]/title into tuples of (displayLabel, title)
-def parse_manuscript_titles(sdb)
-  manuscript_titles = []
-  sdb.smods_rec.title_info.each do |title_info|
-    next unless title_info.attr('type') == 'alternative'
-    display_label = title_info.attr('displayLabel')
-    title_info.at_xpath('*[local-name()="title"]').tap do |title|
-      label_with_title = [display_label, title.content].map(&:to_s).map(&:strip)
-      manuscript_titles << label_with_title.join('-|-')
-    end
-  end
-  manuscript_titles
-end
 
 def parse_incipit(sdb)
   sdb.smods_rec.related_item.each do |item|

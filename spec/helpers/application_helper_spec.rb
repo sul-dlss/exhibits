@@ -32,12 +32,6 @@ describe ApplicationHelper, type: :helper do
     end
   end
 
-  describe '#manuscript_title' do
-    it 'adds basic support of display label' do
-      expect(helper.manuscript_title(value: ['Label-|-Stuff'])).to eq 'Label - Stuff'
-    end
-  end
-
   describe '#table_of_contents_separator' do
     context 'single value' do
       let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae'] } }

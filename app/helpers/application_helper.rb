@@ -35,13 +35,6 @@ module ApplicationHelper
     end
   end
 
-  def manuscript_title(options = {})
-    return if options[:value].blank?
-    safe_join(options[:value].collect do |title|
-      title.split('-|-').join(' - ')
-    end, ',')
-  end
-
   def table_of_contents_separator(options = {})
     return if options[:value].blank?
     contents = options[:value][0].split('--').map(&:strip)
