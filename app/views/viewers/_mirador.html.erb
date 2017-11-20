@@ -3,7 +3,8 @@
 <% if exhibit_specific_manifest %>
   <iframe
     src="<%= mirador_index_path(
-      manifest: exhibit_specific_manifest
+      manifest: exhibit_specific_manifest,
+      canvas: document.canvas.iiif_id
     ) %>"
     allowfullscreen="true"
     class="mirador-embed-wrapper"

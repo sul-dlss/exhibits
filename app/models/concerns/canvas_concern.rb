@@ -8,7 +8,6 @@ module CanvasConcern
   end
 
   def canvas
-    return unless canvas?
     Canvas.new(
       id,
       first('iiif_canvas_id_ssim'),
