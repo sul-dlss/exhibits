@@ -297,6 +297,9 @@ class CatalogController < ApplicationController
         pf2: 'incipit_tesim'
       }
       field.enabled = false
+      field.if = lambda { |context, *_args|
+        context.feature_flags.add_parker_search_fields?
+      }
     end
 
     config.add_search_field('manuscript_number') do |field|
@@ -308,6 +311,9 @@ class CatalogController < ApplicationController
         pf2: 'manuscript_number_tesim'
       }
       field.enabled = false
+      field.if = lambda { |context, *_args|
+        context.feature_flags.add_parker_search_fields?
+      }
     end
 
     # "sort results by" select (pulldown)
