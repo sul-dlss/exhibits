@@ -559,7 +559,7 @@ GEM
     slowpoke (0.2.0)
       rack-timeout (>= 0.3.0)
       rails
-    solr_wrapper (1.1.0)
+    solr_wrapper (1.2.0)
       faraday
       retriable
       ruby-progressbar
