@@ -1,0 +1,13 @@
+<% if @document.mods.accessCondition.any? %>
+
+  <hr>
+
+  <h4>Access conditions</h4>
+
+  <dl>
+    <% @document.mods.accessCondition.each do |accessCondition| %>
+      <%= content_tag(:dt, accessCondition.label) %>
+      <%= content_tag(:dd, accessCondition.values.to_sentence.html_safe) %>
+    <% end %>
+  </dl>
+<% end %>
