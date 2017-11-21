@@ -56,16 +56,9 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe '#manuscript_link' do
-    let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
-    let(:show_page) { '/test-flag-exhibit-slug/catalog/bg021sq9590' }
-    let(:document) do
-      SolrDocument.new(
-        title_full_display: "p. 3:#{title}",
-        manuscript_number_tesim: ['MS 198'],
-        format_main_ssim: ['Page details']
-      )
-    end
-    let(:input) { { value: ['bg021sq9590'], document: document } }
+    let(:druid) { 'bg021sq9590' }
+    let(:input) { { value: [druid], document: document } }
+    let(:show_page) { "/test-flag-exhibit-slug/catalog/#{druid}" }
 
     before do
       helper.extend(Module.new do
@@ -75,8 +68,32 @@ describe ApplicationHelper, type: :helper do
       end)
     end
 
-    it 'removes page prefix' do
-      expect(helper.manuscript_link(input)).to have_link(text: title, href: show_page)
+    context 'page details' do
+      let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
+      let(:document) do
+        SolrDocument.new(
+          title_full_display: "p. 3:#{title}",
+          manuscript_number_tesim: ['MS 198'],
+          format_main_ssim: ['Page details']
+        )
+      end
+
+      it 'removes page prefix if present' do
+        expect(helper.manuscript_link(input)).to have_link(text: title, href: show_page)
+      end
+    end
+
+    context 'bibilography resource' do
+      let(:document) do
+        SolrDocument.new(
+          title_full_display: 'A Zotero reference',
+          format_main_ssim: ['Bibliography']
+        )
+      end
+
+      it 'displays druid for Bibliography resources' do
+        expect(helper.manuscript_link(input)).to have_link(text: druid, href: show_page)
+      end
     end
   end
 end
