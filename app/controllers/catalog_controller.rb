@@ -159,7 +159,6 @@ class CatalogController < ApplicationController
     config.add_index_field 'author_meeting_display', label: 'Meeting Author'
     config.add_index_field 'summary_display', label: 'Description'
     config.add_index_field 'topic_display', label: 'Topic'
-    config.add_index_field 'subject_other_display', label: 'Subject'
     config.add_index_field 'language', label: 'Language'
     config.add_index_field 'physical', label: 'Physical Description'
     config.add_index_field 'pub_display', label: 'Publication Info'

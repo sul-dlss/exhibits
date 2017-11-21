@@ -56,7 +56,6 @@ to_field 'author_person_display', stanford_mods(:sw_person_authors)
 to_field 'author_person_full_display', stanford_mods(:sw_person_authors)
 
 # subject search fields
-to_field 'topic_search', stanford_mods(:term_values, [:subject, :topic])
 to_field 'geographic_search', stanford_mods(:term_values, [:subject, :geographic])
 to_field 'geographic_search', (accumulate { |resource, *_| resource.smods_rec.subject.hierarchicalGeographic }) do |record, accumulator, context|
   accumulator.map! do |hg_node|
@@ -66,35 +65,33 @@ end
 
 to_field 'geographic_search', (accumulate { |resource, *_| resource.smods_rec.subject.geographicCode.translated_value })
 
-# to_field 'subject_other_search', stanford_mods(:subject_other_search)
-to_field 'subject_other_search', stanford_mods(:term_values, [:subject, :occupation])
-to_field 'subject_other_search', stanford_mods(:term_values, [:subject, :name_el]) do |record, accumulator, context|
+to_field 'topic_search', stanford_mods(:term_values, [:subject, :topic])
+to_field 'topic_search', stanford_mods(:term_values, [:subject, :occupation])
+to_field 'topic_search', stanford_mods(:term_values, [:subject, :name_el]) do |record, accumulator, context|
   accumulator.reject! { |name_el| name_el.namePart.blank? }
   accumulator.map! do |name_el|
     name_el.namePart.map(&:text).reject(&:empty?).join(', ').strip
   end
   accumulator.reject!(&:blank?)
 end
-to_field 'subject_other_search', stanford_mods(:term_values, [:subject, :titleInfo]) do |record, accumulator, context|
+to_field 'topic_search', stanford_mods(:term_values, [:subject, :titleInfo]) do |record, accumulator, context|
   accumulator.map! do |ti_el|
     ti_el.element_children.map(&:text).reject(&:empty?).join(' ').strip
   end
   accumulator.reject!(&:blank?)
 end
+
+to_field 'topic_facet', copy('topic_search') do |record, accumulator, context|
+  accumulator.map! { |v| v.sub(/[\\,;]$/, '').strip }
+end
+
 to_field 'subject_other_subvy_search', stanford_mods(:term_values, [:subject, :temporal])
 to_field 'subject_other_subvy_search', stanford_mods(:term_values, [:subject, :genre])
 
 to_field 'subject_all_search', copy('topic_search')
 to_field 'subject_all_search', copy('geographic_search')
-to_field 'subject_all_search', copy('subject_other_search')
 to_field 'subject_all_search', copy('subject_other_subvy_search')
 
-to_field 'topic_facet', stanford_mods(:term_values, [:subject, :topic]) do |record, accumulator, context|
-  accumulator.map! { |v| v.sub(/[\\,;]$/, '').strip }
-end
-to_field 'topic_facet', copy('subject_other_search') do |record, accumulator, context|
-  accumulator.map! { |v| v.sub(/[\\,;]$/, '').strip }
-end
 to_field 'geographic_facet', copy('geographic_search') do |record, accumulator, context|
   accumulator.map! { |v| v.sub(/[\\,;]$/, '').strip }
 end
