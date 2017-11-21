@@ -93,7 +93,8 @@ to_field 'coordinates_tesim', stanford_mods(:coordinates)
 # add collector_ssim solr field containing the collector per MODS names (via stanford-mods gem)
 to_field 'collector_ssim', stanford_mods(:collectors_w_dates)
 to_field 'folder_ssi', stanford_mods(:folder)
-to_field 'genre_ssim', (accumulate { |resource, *_| resource.smods_rec.genre.content })
+to_field 'genre_ssim', stanford_mods(:term_values, :genre)
+to_field 'genre_ssim', stanford_mods(:term_values, [:subject, :genre])
 to_field 'location_ssi', stanford_mods(:physical_location_str)
 to_field 'series_ssi', stanford_mods(:series)
 to_field 'identifier_ssim', (accumulate { |resource, *_| resource.smods_rec.identifier.content })
@@ -200,6 +201,22 @@ end)
 to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_rec.location.shelfLocator.try(:text) })
 
 to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
+
+to_field 'identifier_displayLabel_ssim' do |resource, accumulator, _context|
+  resource.smods_rec.identifier.each do |identifier|
+    accumulator << "#{identifier.displayLabel || identifier.type}-|-#{identifier.content}"
+  end
+
+  accumulator.sort!
+end
+
+to_field 'repository_ssim', (accumulate do |resource, _context|
+  resource.smods_rec.location.physicalLocation.select { |x| x.attr('type') == 'repository' }.map(&:content)
+end)
+
+to_field 'place_created_ssim', (accumulate do |resource, _context|
+  resource.smods_rec.origin_info.place.placeTerm.select { |x| x.attr('type') == 'text' }.map(&:content)
+end)
 
 def parse_incipit(sdb)
   sdb.smods_rec.related_item.each do |item|
