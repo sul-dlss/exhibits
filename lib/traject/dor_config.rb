@@ -56,7 +56,6 @@ to_field 'author_person_display', stanford_mods(:sw_person_authors)
 to_field 'author_person_full_display', stanford_mods(:sw_person_authors)
 
 # subject search fields
-to_field 'topic_search', stanford_mods(:term_values, :genre)
 to_field 'topic_search', stanford_mods(:term_values, [:subject, :topic])
 to_field 'geographic_search', stanford_mods(:term_values, [:subject, :geographic])
 to_field 'geographic_search', (accumulate { |resource, *_| resource.smods_rec.subject.hierarchicalGeographic }) do |record, accumulator, context|
