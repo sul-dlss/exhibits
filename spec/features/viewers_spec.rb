@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+include JavascriptFeatureHelpers
 
 describe 'Viewers', type: :feature do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
@@ -72,49 +73,39 @@ describe 'Viewers', type: :feature do
     end
   end
   describe 'rendered viewer' do
-    let(:feature_page) { FactoryBot.create(:feature_page, title: 'Parent Page', exhibit: exhibit) }
-    # FIXME: Not really sure here how to setup a embedded solr document here. This is an attempt but still pending
-    let(:content) do
-      SirTrevorRails::Blocks::SolrDocumentsEmbedBlock.from_hash(
-        {
-          type: 'block',
-          title: 'stuff',
-          'text-align' => 'left',
-          text: '<p>more text</p>',
-          item: {
-            item_0: {
-              id: 'hj066rn6500',
-              title: 'Basic',
-              thumbnail_image_url: '',
-              full_image_url: '',
-              iiif_tilesource: 'https://stacks.stanford.edu/image/iiif/hj066rn6500%2Fhj066rn6500_00_0001/info.json',
-              iiif_manifest_url: 'https://purl.stanford.edu/hj066rn6500/iiif/manifest',
-              iiif_canvas_id: 'https://purl.stanford.edu/hj066rn6500/iiif/canvas/hj066rn6500_1',
-              iiif_image_id: 'https://purl.stanford.edu/hj066rn6500/iiif/annotation/hj066rn6500_1',
-              weight: '0',
-              display: 'true'
-            }
-          }
-        },
-        nil
-      )
-    end
+    let(:feature_page) { FactoryBot.create(:feature_page, exhibit: exhibit) }
+    let(:admin) { FactoryBot.create(:exhibit_admin, exhibit: exhibit) }
 
     before do
       exhibit.required_viewer.viewer_type = 'mirador'
       exhibit.required_viewer.save
-      feature_page.content = content
-      content.save
+      login_as admin
     end
     it 'renders configured viewer on show page' do
       visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
       expect(page).to have_css 'iframe[src*=mirador]'
       expect(page).not_to have_css '.oembed-widget'
     end
-    pending 'renders default viewer on configured widget feature page' do
-      visit spotlight.exhibit_feature_page_path(exhibit, feature_page)
+    # rubocop:disable RSpec/ExampleLength
+    pending 'renders default viewer on configured widget feature page', js: true do
+      visit spotlight.edit_exhibit_feature_page_path(exhibit, feature_page)
+
+      add_widget 'solr_documents' # the "Item Row" widget
+
+      fill_in_typeahead_field with: 'hj066rn6500'
+
+      expect(page).to have_selector '.panel'
+
+      within('.panel') do
+        expect(page).to have_content(/Image \d of \d/)
+        expect(page).to have_link 'Change'
+      end
+
+      save_page
+
       expect(page).not_to have_css 'iframe[src*=mirador]'
       expect(page).to have_css '.oembed-widget'
     end
+    # rubocop:enable RSpec/ExampleLength
   end
 end
