@@ -588,7 +588,7 @@ GEM
     sshkit (1.15.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stanford-mods (2.4.0)
+    stanford-mods (2.4.1)
       activesupport
       mods (~> 2.0, >= 2.0.2)
     sul_styles (0.6.1)
