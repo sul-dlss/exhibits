@@ -80,7 +80,7 @@ to_field 'pub_year_isi', stanford_mods(:pub_year_int, false) # for sorting
 to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, true)
 to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, false)
 
-to_field 'date_display' do |resource, accumulator, _context|
+to_field 'date_ssim' do |resource, accumulator, _context|
   imprint = ModsDisplay::Imprint.new(nil, ModsDisplay::Configuration::Imprint.new, nil)
 
   Array(resource.smods_rec.origin_info).map do |value|

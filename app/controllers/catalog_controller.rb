@@ -163,7 +163,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'language', label: 'Language'
     config.add_index_field 'physical', label: 'Physical Description'
     config.add_index_field 'pub_display', label: 'Publication Info'
-    config.add_index_field 'date_display', label: 'Date'
+    config.add_index_field 'date_ssim', label: 'Date'
     config.add_index_field 'imprint_display', label: 'Imprint'
     config.add_index_field 'genre_ssim', label: 'Genre'
     config.add_index_field 'series_ssi', label: 'Series'
