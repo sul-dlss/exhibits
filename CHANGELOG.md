@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Users can now quickly navigate pages in Mirador using a drop down selection #937
 ### Changed
 ### Deprecated
 ### Removed
