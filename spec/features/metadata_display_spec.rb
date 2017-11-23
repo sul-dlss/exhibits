@@ -40,4 +40,21 @@ RSpec.feature 'Metadata display' do
       expect(page).to have_css 'dd', text: /Property rights reside with/
     end
   end
+
+  describe 'nested related items', js: true do
+    before do
+      visit metadata_exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
+    end
+
+    it 'are togglable' do
+      within '.mods_display_nested_related_items' do
+        expect(page).to have_css('dl', visible: false)
+        expect(page).to have_css('li a', text: 'Constituent Title')
+        click_link 'Constituent Title'
+        expect(page).to have_css('dl', visible: true)
+        expect(page).to have_css('dt', text: /Note:/i)
+        expect(page).to have_css('dd', text: 'Constituent note')
+      end
+    end
+  end
 end
