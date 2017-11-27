@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed "Metadata: " from metadata modal title #943
 ### Deprecated
 ### Removed
+- Table of contents will not be displayed in the Parker exhibit metadata modal #944
 ### Fixed
 ### Security
 
