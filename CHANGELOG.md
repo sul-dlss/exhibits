@@ -7,15 +7,32 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
-- Users can now quickly navigate pages in Mirador using a drop down selection #937
-- Users can now see nested related item metadata in the full metadata display as well as toggle the nested metadata #938
 ### Changed
-- Removed "Metadata: " from metadata modal title #943
 ### Deprecated
 ### Removed
-- Table of contents will not be displayed in the Parker exhibit metadata modal #944
 ### Fixed
 ### Security
+
+## [1.10.0] - 2017-11-27
+
+### Added
+- Users can now quickly navigate pages in Mirador using a drop down selection #937
+- Users can now see nested related item metadata in the full metadata display as well as toggle the nested metadata #938
+- Page detail pages open mirador to show annotations on the correct page #898
+- Access conditions are now available under metadata details page #920
+### Changed
+- Metadata details page updates its style to look more like Purl and SearchWorks #918
+- Display labels are now indexed, subject genres are indexed into genre, place is indexed, physical location is indexed #917
+- Search fields that are Parker specific don't show up in other exhibits (enabled by a feature flag) #927
+- Date qualifiers and ranges are now indexed for display (also imprint) #906
+- Removed "Metadata: " from metadata modal title #943
+- The item embed widget no longer displays a custom viewer, but displays the default one #930
+### Removed
+- Manuscript title was removed for more general "title" (manuscript title was redundant) #919
+- Table of contents will not be displayed in the Parker exhibit metadata modal #944
+- Remove extra Title field from metadata modal #931
+### Fixed
+- Page details related object wasn't displaying correctly, now fixed #909
 
 ## [1.9.0] - 2017-11-17
 
