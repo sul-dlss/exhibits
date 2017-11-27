@@ -2,3 +2,10 @@
 #global-footer {
   display: none;
 }
+
+.view-metadata {
+  dt[title='Contents'],
+  dt[title='Contents'] + dd {
+    display: none;
+  }
+}
