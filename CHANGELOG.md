@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+- BibTeX upload form is now only shown for Exhibits in which it is explicitly enabled through a feature flag #946
 ### Deprecated
 ### Removed
 ### Fixed
