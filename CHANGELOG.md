@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Users can now quickly navigate pages in Mirador using a drop down selection #937
+- Users can now see nested related item metadata in the full metadata display as well as toggle the nested metadata #938
 ### Changed
 - Removed "Metadata: " from metadata modal title #943
 ### Deprecated

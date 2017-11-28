@@ -26,6 +26,7 @@
 //= require blacklight_gallery
 //= require blacklight_heatmaps
 //= require blacklight_oembed
+//= require nested_related_items
 //= require openseadragon
 //= require spotlight
 //= require sul-exhibits-template

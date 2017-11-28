@@ -1,0 +1,22 @@
+.mods_display_nested_related_items {
+  list-style: none;
+  padding-left: 0;
+
+  .mods_display_nested_related_item {
+    &::before {
+      content: "\00BB ";
+      display: inline-block;
+      font-size: 1.2em;
+      padding-right: 5px;
+    }
+
+    &.open::before {
+      transform: rotate(90deg);
+    }
+
+    dl {
+      margin-bottom: 0;
+      margin-left: 12px;
+    }
+  }
+}
