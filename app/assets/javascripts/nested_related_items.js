@@ -13,10 +13,19 @@
         $(this).removeClass('open');
         _this.addToggleLink($(this));
       });
+
+      _this.addToggleAll();
+      _this.toggleAll();
     },
 
     listItems: function(list) {
       return list.find(this.options.itemSelector);
+    },
+
+    addToggleAll: function() {
+      var title = $('dt[title="Contains"]');
+      $(title).append('<a href="javascript:;" id="toggleAll" class="mods_display_related_item_label">Expand all</a>');
+      $(title).attr('id', 'mods_display_related_item_dt');
     },
 
     addToggleLink: function(content) {
@@ -42,6 +51,27 @@
       });
 
       return link;
+    },
+
+    toggleAll: function() {
+      var _this = this;
+
+      $('#toggleAll').on('click', function(){
+        var toggleLink  = $(this);
+        toggleLink.toggleClass('open');
+        toggleLink.text(($(this).text() == 'Collapse all') ? 'Expand all' : 'Collapse all');
+        var links =  $('.mods_display_nested_related_item');
+
+        // Handle mixed lists of open / closed items
+        if (toggleLink.hasClass('open')){
+          links = $(links).not('.open').find('a');
+        } else {
+          links = $(links).filter($('.open')).find('a');
+        }
+        links.each(function(){
+          _this.toggleMetadata($(this));
+        });
+      });
     },
 
     toggleMetadata: function(item) {
