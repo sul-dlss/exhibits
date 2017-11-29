@@ -1,5 +1,5 @@
 <% if document.uploaded_resource? %>
   <%= render partial: "openseadragon_default", locals: {document: document} %>
 <% else %>
-  <%= render @exhibit.required_viewer, document: document %>
+  <%= render_viewer_in_context(document) %>
 <% end %>

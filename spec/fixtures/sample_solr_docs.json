@@ -136,7 +136,8 @@
       "Relief shown by hachures and spot heights.",
       "Includes four insets, Islas Elobey, Guines Éspānola, Isla De Corsico and Isla de Annobon.",
       "Scale [ca. 1:250,000], 1:7,000,000 and 1:140,000."
-    ]
+    ],
+    "iiif_manifest_url_ssi": "https://purl.stanford.edu/hj066rn6500/iiif/manifest"
   },
   {
     "id": "wd297xz1362",

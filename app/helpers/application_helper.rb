@@ -56,4 +56,17 @@ module ApplicationHelper
                  end
     link_to link_title, spotlight.exhibit_solr_document_path(current_exhibit, druid)
   end
+
+  ##
+  # Renders a viewer for an object with understanding of the context. In the
+  # context of spotlight/catalog render the configured viewer. In other contexts
+  # (feature page) render the default viewer
+  # @param [SolrDocument] document
+  def render_viewer_in_context(document)
+    if params[:controller] == 'spotlight/catalog'
+      render current_exhibit.required_viewer, document: document
+    else
+      render current_exhibit.required_viewer.default_viewer_path, document: document
+    end
+  end
 end
