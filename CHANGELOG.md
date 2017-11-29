@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Adds an "Expand all" link to nested related items in the full metadata display #960
 ### Changed
 ### Deprecated
 ### Removed
