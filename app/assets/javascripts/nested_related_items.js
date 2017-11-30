@@ -87,6 +87,14 @@
 Blacklight.onLoad(function () {
   'use strict';
 
+  // Load JS in Bootstrap modal
+  $('#ajax-modal').on('shown.bs.modal', function () {
+    $('.mods_display_nested_related_items').each(function (i, element) {
+      NestedRelatedItems.init($(element)); // eslint-disable-line no-undef
+    });
+  });
+
+  // Metadata page
   $('.mods_display_nested_related_items').each(function (i, element) {
     NestedRelatedItems.init($(element)); // eslint-disable-line no-undef
   });

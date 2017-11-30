@@ -42,31 +42,47 @@ RSpec.feature 'Metadata display' do
   end
 
   describe 'nested related items', js: true do
-    before do
-      visit metadata_exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
-    end
-
-    it 'are togglable' do
-      within '.mods_display_nested_related_items' do
-        expect(page).to have_css('dl', visible: false)
-        expect(page).to have_css('li a', text: 'Constituent Title')
-        click_link 'Constituent Title'
-        expect(page).to have_css('dl', visible: true)
-        expect(page).to have_css('dt', text: /Note:/i)
-        expect(page).to have_css('dd', text: 'Constituent note')
+    context 'in modal' do
+      it 'are togglable' do
+        visit spotlight.exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
+        click_link 'View all metadata »'
+        within '#ajax-modal' do
+          within '.mods_display_nested_related_items' do
+            expect(page).to have_css('dl', visible: false)
+            click_link 'Constituent Title'
+            expect(page).to have_css('dl', visible: true)
+          end
+        end
       end
     end
 
-    it 'can toggle all' do
-      click_link 'Expand all'
-      within '.mods_display_nested_related_items' do
-        expect(page).to have_css('dl', visible: true)
-        expect(page).to have_css('dt', text: /Note:/i)
+    context 'metadata page' do
+      before do
+        visit metadata_exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
       end
-      click_link 'Collapse all'
-      within '.mods_display_nested_related_items' do
-        expect(page).to have_css('dl', visible: false)
-        expect(page).to have_css('li a', text: 'Constituent Title')
+
+      it 'are togglable' do
+        within '.mods_display_nested_related_items' do
+          expect(page).to have_css('dl', visible: false)
+          expect(page).to have_css('li a', text: 'Constituent Title')
+          click_link 'Constituent Title'
+          expect(page).to have_css('dl', visible: true)
+          expect(page).to have_css('dt', text: /Note:/i)
+          expect(page).to have_css('dd', text: 'Constituent note')
+        end
+      end
+
+      it 'can toggle all' do
+        click_link 'Expand all'
+        within '.mods_display_nested_related_items' do
+          expect(page).to have_css('dl', visible: true)
+          expect(page).to have_css('dt', text: /Note:/i)
+        end
+        click_link 'Collapse all'
+        within '.mods_display_nested_related_items' do
+          expect(page).to have_css('dl', visible: false)
+          expect(page).to have_css('li a', text: 'Constituent Title')
+        end
       end
     end
   end
