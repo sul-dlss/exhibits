@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixes a bug in the metadata modal where nested related items toggle was unavailable #965
 ### Security
 
 ## [1.10.0] - 2017-11-27
