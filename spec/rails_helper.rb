@@ -8,12 +8,13 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 
 require 'selenium-webdriver'
+require 'capybara/webmock'
 
 Capybara.javascript_driver = :headless_chrome
 
 Capybara.register_driver :headless_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu no-sandbox) }
+    chromeOptions: { args: %w(headless disable-gpu no-sandbox proxy-server=127.0.0.1:9292) }
   )
 
   Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)

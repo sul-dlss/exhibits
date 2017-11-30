@@ -76,6 +76,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'coveralls', require: false
   gem 'webmock'
+  gem 'capybara-webmock'
 end
 
 group :production do

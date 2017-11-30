@@ -163,6 +163,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webmock (0.4.0)
+      capybara (~> 2.4)
+      rack (>= 1.4)
+      rack-proxy (>= 0.6.0)
+      selenium-webdriver (~> 3.0)
     carrierwave (1.2.1)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -424,6 +429,8 @@ GEM
       rack (>= 1.1, < 2.1)
     rack-protection (2.0.0)
       rack
+    rack-proxy (0.6.2)
+      rack
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
     rack-timeout (0.4.2)
@@ -680,6 +687,7 @@ DEPENDENCIES
   capistrano-shared_configs
   capistrano-sidekiq
   capybara
+  capybara-webmock
   chromedriver-helper
   citeproc-ruby
   coffee-rails (~> 4.2, >= 4.2.1)
