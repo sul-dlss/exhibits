@@ -25,4 +25,16 @@ RSpec.feature 'Bibliography indexing', type: :feature do
     expect(page).to have_css 'h5', text: /Quelques/
     expect(page).to have_css '.alert-info', text: 'Your bibliography resource has been successfully created.'
   end
+  context 'when disabled' do
+    let(:exhibit) { create(:exhibit, slug: 'test-flag-exhibit-slug') }
+
+    it 'is not visible' do
+      visit spotlight.new_exhibit_resource_path(exhibit)
+      click_link 'BibTeX'
+      within '#external_resource_tab_1' do
+        expect(page).not_to have_content 'Add items'
+      end
+      expect(page).to have_content 'This feature is not currently available for this exhibit.'
+    end
+  end
 end

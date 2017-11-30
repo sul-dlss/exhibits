@@ -12,5 +12,6 @@ feature_flags:
   bibliography_resource: true
   test-flag-exhibit-slug:
     test_thing: true
+    bibliography_resource: false
     index_related_content: true
     add_resource_type_index_field: true
