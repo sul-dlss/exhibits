@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20160714144125)
-class AddIiifUrlsToFeaturedImage < ActiveRecord::Migration
+class AddIiifUrlsToFeaturedImage < ActiveRecord::Migration[5.0]
   def change
     add_column :spotlight_featured_images, :iiif_region, :string
     add_column :spotlight_featured_images, :iiif_manifest_url, :string

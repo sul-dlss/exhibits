@@ -1,5 +1,5 @@
 # This migration comes from spotlight (originally 20170105222939)
-class CreateSpotlightReindexingLogEntries < ActiveRecord::Migration
+class CreateSpotlightReindexingLogEntries < ActiveRecord::Migration[5.0]
   def change
     create_table :spotlight_reindexing_log_entries do |t|
       t.integer :items_reindexed_count
