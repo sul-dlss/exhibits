@@ -55,7 +55,8 @@ en:
     search:
       view_title:
         heatmaps: "Map"
-
+  metadata:
+    more_details: 'More details »'
   okcomputer:
     check:
       passed: "OK      : %{registrant_name} - %{message}"

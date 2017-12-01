@@ -14,7 +14,7 @@ describe 'catalog/_metadata_button_default', type: :view do
     it do
       expect(view).to receive_messages(current_exhibit: current_exhibit)
       render
-      expect(rendered).to have_css 'a', text: 'View all metadata »'
+      expect(rendered).to have_css 'a', text: 'More details »'
     end
   end
 
@@ -23,7 +23,7 @@ describe 'catalog/_metadata_button_default', type: :view do
 
     it do
       render
-      expect(rendered).not_to have_css 'a', text: 'View all metadata »'
+      expect(rendered).not_to have_css 'a', text: 'More details »'
     end
   end
 end

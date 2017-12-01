@@ -11,14 +11,14 @@ RSpec.feature 'Metadata display' do
     end
 
     it 'view metadata link links through to page' do
-      click_link 'View all metadata »'
+      click_link 'More details »'
       expect(page).to have_css 'h3', text: 'Afrique Physique.'
       expect(page).not_to have_css 'dt', text: 'Title:'
       expect(page).not_to have_css 'dd', text: 'Afrique Physique.'
       expect(page).to have_css 'a[download="gk885tn1705.mods.xml"]', text: 'Download'
     end
     it 'opens view metadata in modal', js: true do
-      click_link 'View all metadata »'
+      click_link 'More details »'
       within '#ajax-modal' do
         expect(page).to have_css 'h3', text: 'Afrique Physique.'
         expect(page).not_to have_css 'dt', text: 'Title:'
@@ -45,7 +45,7 @@ RSpec.feature 'Metadata display' do
     context 'in modal' do
       it 'are togglable' do
         visit spotlight.exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
-        click_link 'View all metadata »'
+        click_link 'More details »'
         within '#ajax-modal' do
           within '.mods_display_nested_related_items' do
             expect(page).to have_css('dl', visible: false)

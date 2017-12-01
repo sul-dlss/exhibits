@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Adds an "Expand all" link to nested related items in the full metadata display #960
 ### Changed
 - BibTeX upload form is now only shown for Exhibits in which it is explicitly enabled through a feature flag #946
+- Changes text of "View all metadata" link to "More details" #969
 ### Deprecated
 ### Removed
 ### Fixed
