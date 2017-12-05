@@ -264,6 +264,8 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.12.0)
+    edtf (3.0.4)
+      activesupport (>= 3.0, < 6.0)
     erubi (1.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -373,7 +375,8 @@ GEM
       material_icons
       openseadragon
       tinymce-rails
-    mods (2.1.0)
+    mods (2.3.0)
+      edtf
       iso-639
       nokogiri
       nom-xml (~> 0.6.0)
@@ -588,9 +591,9 @@ GEM
     sshkit (1.15.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stanford-mods (2.4.1)
+    stanford-mods (2.5.1)
       activesupport
-      mods (~> 2.0, >= 2.0.2)
+      mods (~> 2.2)
     sul_styles (0.6.1)
       rails (>= 4.1, < 6)
     term-ansicolor (1.6.0)
@@ -742,4 +745,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
