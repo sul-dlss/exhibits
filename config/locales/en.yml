@@ -38,9 +38,14 @@ en:
     form:
       add_item: Add items
       title: BibTeX
+      help: Each BibTeX file entry will be added as an exhibit item with a “Reference” resource type.
+      label: BibTeX File
     create:
       notice: Your bibliography resource has been successfully created.
       error:  There was a problem with adding the BibTeX resource.
+    show:
+      related_documents: This reference is found in these document bibliographies
+      zotero_button: View on Zotero site
 
   admin:
     items:
