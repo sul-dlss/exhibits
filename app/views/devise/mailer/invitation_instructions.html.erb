@@ -13,4 +13,11 @@
 
 <p><%= t("spotlight.#{key}.invitation_instructions.ignore_html", exhibit_name: @resource.roles.first.resource.title) %></p>
 
-<p><%= t("spotlight.#{key}.invitation_instructions.reference_links_text_html", :href => link_to(t("spotlight.#{key}.invitation_instructions.reference_links_href"), "http://exhibits.stanford.edu"), :mailto => mail_to(t("spotlight.#{key}.invitation_instructions.mail_to_href"))) %></p>
+<p><%= t("spotlight.#{key}.invitation_instructions.spotlight_at_sul_html", :href => link_to(t("spotlight.#{key}.invitation_instructions.spotlight_at_sul_href"), t("spotlight.#{key}.invitation_instructions.about_spotlight_href"))) %></p>
+
+
+<p><%= t("spotlight.#{key}.invitation_instructions.all_exhibits_html", :href => link_to(t("spotlight.#{key}.invitation_instructions.all_exhibits_href"), t("spotlight.#{key}.invitation_instructions.all_exhibits_href"))) %></p>
+
+<p><%= t("spotlight.#{key}.invitation_instructions.get_help_html",  :mailto => mail_to(t("spotlight.#{key}.invitation_instructions.mail_to_href"))) %></p>
+
+<p><%= t("spotlight.#{key}.invitation_instructions.closing_html", :mailto => mail_to(t("spotlight.#{key}.invitation_instructions.mail_to_href"))) %></p>
