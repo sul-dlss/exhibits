@@ -56,6 +56,18 @@ en:
     search:
       view_title:
         heatmaps: "Map"
+      fields:
+        search:
+          search: Everything
+          search_title: Title
+          search_author: Author/Contributor
+          subject_terms: Subject
+          call_number: Call number
+          full_text: Full text
+          table_of_contents: Table of contents
+          incipit: Incipit
+          manuscript_number: Manuscript number
+
   metadata:
     more_details: 'More details »'
   okcomputer:
