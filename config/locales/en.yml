@@ -63,41 +63,6 @@ en:
       passed: "OK      : %{registrant_name} - %{message}"
       failed: "FAILED  : %{registrant_name} - %{message}"
 
-  services:
-    bibliography_service:
-      default_header: Bibliography
-    create:
-      notice: Synchronization with Zotero has started.
-      error: There was a problem saving the bilbiography service settings.
-    edit:
-      api_id:
-        help: See the API section of the your Zotero library's settings for your user or group ID.
-      header: Services
-      instructions: >
-        If items in this exhibit have bibliography references associated with them in a Zotero library,
-        the application can display the associated references when an item's detail page is displayed.
-        The Zotero library must be a public, single (non-nested) collection of reference items in which
-        each item is assigned a separate tag (e.g., "gh328kv5465") for each druid associated with it.
-        When an exhibit visitor navigates to an item details page, all Zotero references tagged with
-        the item's druid are displayed in a named section at the bottom of the item details page.
-      save: 'Save changes'
-      title: Item Bibliography
-      zotero_section_label: Zotero ID type
-      zotero_sync:
-        button: Synchronize with Zotero
-        label: Synchronization status
-        not_synced: Exhibit items have never been synchronized with a Zotero library.
-        status: "Exhibit items were last synced with your Zotero library on %{datetime}"
-        help: >
-          If you have added exhibit items or changed your Zotero library since the last time it
-          was synchronized you can resynchronize to update exhibit item bibliographies.
-    menu_link: Services
-    sync:
-      started: Synchronization with Zotero has started.
-    update:
-      notice: The bibliography service settings have been updated.
-      error: There was a problem udpating the bibliography service settings.
-
   viewers:
     menu_link: Viewers
     edit:
