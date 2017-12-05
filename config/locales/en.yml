@@ -63,6 +63,7 @@ en:
         heatmaps: "Map"
   metadata:
     more_details: 'More details »'
+    download: 'Download'
   okcomputer:
     check:
       passed: "OK      : %{registrant_name} - %{message}"
