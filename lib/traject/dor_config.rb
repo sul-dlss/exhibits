@@ -79,6 +79,11 @@ to_field 'pub_year_isi', stanford_mods(:pub_year_int, false) # for sorting
 # these are for single value facet display (in lieu of date slider (pub_year_tisim) )
 to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, true)
 to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, false)
+to_field 'pub_year_tisim' do |resource, accumulator, _context|
+  imprint = Stanford::Mods::Imprint.new(resource.smods_rec.origin_info)
+
+  accumulator.concat imprint.publication_date_for_slider.to_a
+end
 
 to_field 'date_ssim' do |resource, accumulator, _context|
   imprint = ModsDisplay::Imprint.new(nil, ModsDisplay::Configuration::Imprint.new, nil)
