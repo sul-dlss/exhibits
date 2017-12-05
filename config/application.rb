@@ -13,6 +13,8 @@ module Exhibits
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths << Rails.root.join('lib')
 
+    config.time_zone = 'Pacific Time (US & Canada)'
+
     # Inject our ExhibitExtension concern to add behavior
     # (like relationships) to the Spotlight::Exhibit class
     config.to_prepare do

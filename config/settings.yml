@@ -16,6 +16,7 @@ feature_flags:
   index_related_content: false # A feature that will index related SDR content. Initial implemented for Parker's IIIF AnnotationLists
   add_resource_type_index_field: false # Should the resource type field be added as an index/show field. For some exhibits this is desirable
   add_parker_search_fields: false # Parker specific search fields
+  slack_notifications: false
 traject:
   processing_thread_pool: 1
 iiif_dnd_base_url: https://library.stanford.edu/projects/international-image-interoperability-framework/viewers?%{query}
@@ -33,3 +34,6 @@ harvestdor:
 gdor:
   service_url: https://dorfetcher-url
   skip_heartbeat: true
+slack_notifications:
+  default_channel: '#spotlight-service-team'
+  api_token: 'your-api-token-here'

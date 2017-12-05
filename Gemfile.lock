@@ -283,6 +283,7 @@ GEM
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
     github-markup (1.6.1)
+    gli (2.17.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     harvestdor (0.3.1)
@@ -558,6 +559,13 @@ GEM
       twitter-text (~> 1.4)
     sitemap_generator (6.0.0)
       builder (~> 3.0)
+    slack-ruby-client (0.11.0)
+      activesupport
+      faraday (>= 0.9)
+      faraday_middleware
+      gli
+      hashie
+      websocket-driver
     slop (3.6.0)
     slowpoke (0.2.0)
       rack-timeout (>= 0.3.0)
@@ -727,6 +735,7 @@ DEPENDENCIES
   sidekiq
   sir_trevor_rails
   sitemap_generator
+  slack-ruby-client
   slowpoke
   solr_wrapper
   solrizer
