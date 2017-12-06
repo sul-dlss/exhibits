@@ -124,6 +124,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'era_facet', label: 'Era', limit: true
     config.add_facet_field 'author_other_facet', label: 'Organization (as author)', limit: true
     config.add_facet_field 'genre_ssim', label: 'Genre', limit: true
+    config.add_facet_field 'repository_ssim', label: 'Repository', limit: true
     config.add_facet_field 'series_ssi', label: 'Series', limit: true
     config.add_facet_field 'box_ssi', label: 'Box', limit: true
     config.add_facet_field 'folder_ssi', label: 'Folder', limit: true
@@ -172,6 +173,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'folder_name_ssi', label: 'Folder Name'
     config.add_index_field 'identifier_ssim', label: 'Identifier'
     config.add_index_field 'location_ssi', label: 'Location'
+    config.add_index_field 'repository_ssim', label: 'Repository'
     config.add_index_field 'donor_tags_ssim', label: 'Donor tags'
     config.add_index_field 'doc_subtype_ssi', label: 'Document Subtype'
     ##
