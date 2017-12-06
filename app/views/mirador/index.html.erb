@@ -1,34 +1,5 @@
 <%= stylesheet_link_tag "mirador_bundle" %>
 <%= javascript_include_tag "mirador_bundle" %>
 
-<%= mirador_tag(:height => "100%", :options => {
-    "mainMenuSettings": {
-      "show":  false
-    },
-    "buildPath": "/assets/",
-    "saveSession": false,
-    "data": [
-      {
-        "manifestUri": @manifest, "location": "Stanford University"
-      }
-    ],
-    "sidePanelOptions": {
-      "tocTabAvailable": true,
-      "layersTabAvailable": true,
-      "searchTabAvailable": true
-    },
-    "windowObjects": [
-      {
-        "loadedManifest": @manifest,
-        "canvasID": @canvas,
-        "bottomPanelVisible": false,
-        "annotationCreation": false,
-        "canvasControls": {
-          "annotations": {
-            "annotationLayer": true,
-            "annotationState": "on"
-          }
-        }
-      }
-    ]
-}) %>
+<%= mirador_tag(:height => "100%",
+                :options => mirador_options(@manifest, @canvas, @exhibit_slug)) %>

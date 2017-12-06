@@ -13,5 +13,6 @@ class MiradorController < ApplicationController
   def set_mirador_params
     @manifest = params.require(:manifest)
     @canvas = params.fetch(:canvas, nil)
+    @exhibit_slug = params.fetch(:exhibit_slug)
   end
 end

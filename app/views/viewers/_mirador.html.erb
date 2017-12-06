@@ -1,10 +1,11 @@
-<% exhibit_specific_manifest = document.exhibit_specific_manifest(@exhibit.required_viewer.custom_manifest_pattern) %>
+<% exhibit_specific_manifest = document.exhibit_specific_manifest(current_exhibit.required_viewer.custom_manifest_pattern) %>
 
 <% if exhibit_specific_manifest %>
   <iframe
     src="<%= mirador_index_path(
       manifest: exhibit_specific_manifest,
-      canvas: document.canvas.iiif_id
+      canvas: document.canvas.iiif_id,
+      exhibit_slug: current_exhibit.slug
     ) %>"
     allowfullscreen="true"
     class="mirador-embed-wrapper"
