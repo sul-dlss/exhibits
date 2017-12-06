@@ -115,6 +115,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'format_main_ssim', label: 'Resource type', limit: true
     config.add_facet_field 'pub_year_w_approx_isi', label: 'Date', limit: true
     config.add_facet_field 'pub_year_no_approx_isi', label: 'Date (no approx)', limit: true
+    config.add_facet_field 'place_created_ssim', label: 'Place created', limit: true
     config.add_facet_field 'language', label: 'Language', limit: true
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
@@ -164,6 +165,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'physical', label: 'Physical Description'
     config.add_index_field 'pub_display', label: 'Publication Info'
     config.add_index_field 'date_ssim', label: 'Date'
+    config.add_index_field 'place_created_ssim', label: 'Place created'
     config.add_index_field 'imprint_display', label: 'Imprint'
     config.add_index_field 'genre_ssim', label: 'Genre'
     config.add_index_field 'series_ssi', label: 'Series'
