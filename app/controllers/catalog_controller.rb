@@ -76,11 +76,14 @@ class CatalogController < ApplicationController
     config.view.gallery.partials = [:index_header, :index]
     config.view.gallery.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
     config.view.gallery.default_canvas_thumbnail = 'default-square-thumbnail-annotation-large.png'
+    config.view.gallery.title_only_by_default = true
     config.view.heatmaps.partials = []
     config.view.heatmaps.color_ramp = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494']
     config.view.masonry.partials = [:index]
     config.view.masonry.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
+    config.view.masonry.title_only_by_default = true
     config.view.slideshow.partials = [:index]
+    config.view.slideshow.title_only_by_default = true
     config.view.embed.partials = [:viewer]
     config.view.embed.if = false
 
