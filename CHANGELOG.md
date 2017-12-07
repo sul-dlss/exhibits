@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 ### Fixed
 - Fixes a bug in the metadata modal where nested related items toggle was unavailable #965
+- Improves the performance when clicking the "More details" link when a document has many related items #974
 ### Security
 
 ## [1.10.0] - 2017-11-27
