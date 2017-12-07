@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [1.11.0] - 2017-12-07
+
+### Added
 - Adds an "Expand all" link to nested related items in the full metadata display #960
 - Adds a Slack notification when an Exhibit's publish stage changes #975
 - Adds "Place Created" field and facet #989
