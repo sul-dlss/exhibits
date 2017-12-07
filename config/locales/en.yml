@@ -62,6 +62,9 @@ en:
       passed: "OK      : %{registrant_name} - %{message}"
       failed: "FAILED  : %{registrant_name} - %{message}"
 
+  locale_picker:
+    en: 'English'
+
   services:
     bibliography_service:
       default_header: Bibliography
