@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Adds the ability for when embedding SDR items in a page, the selected page will persist for the embedded image view #970
 ### Changed
 ### Deprecated
 ### Removed
