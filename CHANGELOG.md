@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Added ability to view the index status individual items in an exhibit by autocompleting for druid (only applies to exhibits with > 10 item druids) #1013
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixed timeout issue on Add Items page for exhibits with large number of items #1013
 ### Security
 
 ## [1.12.0] - 2017-12-12

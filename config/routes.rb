@@ -38,7 +38,9 @@ Exhibits::Application.routes.draw do
   concern :exportable, Blacklight::Routes::Exportable.new
 
   resources :exhibits, path: '/', only: [] do
-    resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update]
+    resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update] do
+      resources :index_statuses, only: [:index, :show]
+    end
     resource :bibliography_resources, only: [:create, :update]
     resource :viewers, only: [:create, :edit, :update]
 

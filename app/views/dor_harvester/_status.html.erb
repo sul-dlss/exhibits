@@ -24,29 +24,11 @@
             </div>
             <div id="sdr-status-inner-items" class="panel-collapse collapse">
               <div class="panel-body">
-                <p><%= t('admin.items.object-druids-help_html') %></p>
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Druid</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% harvester.solr_document_sidecars.each do |sidecar| %>
-                      <tr class="<%= 'danger' unless sidecar.index_status[:ok] %>">
-                        <td><%= sidecar.document_id %></td>
-                        <td>
-                          <% if sidecar.index_status[:ok] %>
-                            Published
-                          <% else %>
-                            <%= sidecar.index_status[:message] %>
-                          <% end %>
-                        </td>
-                      </tr>
-                    <% end %>
-                  </tbody>
-                </table>
+                <% if harvester.solr_document_sidecars.count > Settings.index_status_threshold %>
+                  <%= render 'dor_harvester/many_index_statuses', { harvester: harvester } %>
+                <% else %>
+                  <%= render 'dor_harvester/index_statuses', { harvester: harvester } %>
+                <% end %>
               </div>
             </div>
           </div>

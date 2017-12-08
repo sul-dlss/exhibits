@@ -37,3 +37,4 @@ gdor:
 slack_notifications:
   default_channel: '#spotlight-service-team'
   api_token: 'your-api-token-here'
+index_status_threshold: 10
