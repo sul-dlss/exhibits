@@ -1,5 +1,7 @@
 <% if document.uploaded_resource? %>
   <%= render partial: "openseadragon_default", locals: {document: document} %>
 <% else %>
-  <%= render_viewer_in_context(document) %>
+  <% # block comes from a local passed in from Spotlight %>
+  <% # https://github.com/projectblacklight/spotlight/blob/37f6a4c266db9aa9d2a59529340a634d1796fefc/app/views/spotlight/sir_trevor/blocks/_solr_documents_embed_block.html.erb#L10 %>
+  <%= render_viewer_in_context(document, choose_canvas_index(local_assigns[:block]) ) %>
 <% end %>

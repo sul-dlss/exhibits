@@ -28,13 +28,37 @@ module ApplicationHelper
   ##
   # Renders a viewer for an object with understanding of the context. In the
   # context of spotlight/catalog render the configured viewer. In other contexts
-  # (feature page) render the default viewer
+  # (feature page) render the default viewer. Now passes through a "block" from
+  # SirTrevor, used for rendering viewers in specific ways (canvas index).
   # @param [SolrDocument] document
-  def render_viewer_in_context(document)
+  # @param [SirTrevorRails::Blocks::SolrDocumentsEmbedBlock] block
+  def render_viewer_in_context(document, block)
     if params[:controller] == 'spotlight/catalog'
-      render current_exhibit.required_viewer, document: document
+      render current_exhibit.required_viewer, document: document, block: block
     else
-      render current_exhibit.required_viewer.default_viewer_path, document: document
+      render current_exhibit.required_viewer.default_viewer_path, document: document, block: block
     end
+  end
+
+  ##
+  #
+  # @param [SolrDocument] document
+  # @param [Integer] canvas_index
+  def custom_render_oembed_tag_async(document, canvas_index)
+    url = document.first(blacklight_config.show.oembed_field)
+
+    content_tag :div, '', data: { embed_url: blacklight_oembed_engine.embed_url(url: url, canvas_index: canvas_index) }
+  end
+
+  ##
+  # This method sends the message of which "canvas index" (zero-based) should be
+  # selected for a oembed viewer. For this it assumes that a
+  # SirTrevorRails::Blocks::SolrDocumentsEmbedBlock's first item has
+  # `iiif_canvas_id` and that `@id` conforms to the common DLSS `@id` format
+  # e.g. https://purl.stanford.edu/ab123cd4567/iiif/canvas/ab123cd4567_1
+  # @param [SirTrevorRails::Blocks::SolrDocumentsEmbedBlock] block
+  # @param [Integer]
+  def choose_canvas_index(sir_trevor_block)
+    [sir_trevor_block.try(:items).try(:first).try(:[], 'iiif_canvas_id').try(:[], /\d*$/).to_i - 1, 0].max
   end
 end

@@ -126,3 +126,5 @@ gem 'csl-styles'
 gem 'acts-as-taggable-on'
 gem 'mods_display'
 gem 'slack-ruby-client'
+gem 'blacklight-oembed', '~> 0.2'
+gem 'rack-test', '0.7.0' # pin to rack-test v0.7.0 to prevent known issues introduced in v0.8.0 #207, #209

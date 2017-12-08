@@ -50,7 +50,7 @@ GEM
       io-like (~> 0.3.0)
     arel (8.0.0)
     ast (2.3.0)
-    autoprefixer-rails (7.1.6)
+    autoprefixer-rails (7.2.1)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -75,7 +75,7 @@ GEM
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.2.0)
       rails
-    blacklight-oembed (0.1.0)
+    blacklight-oembed (0.2.0)
       blacklight (>= 5.0, < 7)
       bootstrap-sass (~> 3.0)
       rails
@@ -679,6 +679,7 @@ DEPENDENCIES
   bibtex-ruby
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
+  blacklight-oembed (~> 0.2)
   blacklight-spotlight (~> 1.1.0)
   blacklight_advanced_search
   blacklight_heatmaps
@@ -722,6 +723,7 @@ DEPENDENCIES
   okcomputer
   puma (~> 3.7)
   rack-dev-mark
+  rack-test (= 0.7.0)
   rails (~> 5.1.4)
   rails-controller-testing
   riiif
