@@ -1,0 +1,14 @@
+<% if Rails.application.config.available_locales.many? %>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <%= t :"locale_picker.#{I18n.locale}" %> <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <% Rails.application.config.available_locales.each do |l| %>
+        <li>
+          <%= link_to t(:"locale_picker.#{l}"), (url_for(locale: l) rescue blacklight.url_for(locale: nil, script_name: "/#{l}")), class: 'dropdown-item' %>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>

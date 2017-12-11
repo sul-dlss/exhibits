@@ -9,40 +9,42 @@ Exhibits::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  mount Blacklight::Oembed::Engine, at: 'oembed'
-  mount Riiif::Engine => '/images', as: 'riiif'
+  scope '(:locale)', locale: Regexp.union(Rails.application.config.available_locales) do
+    mount Blacklight::Oembed::Engine, at: 'oembed'
+    mount Riiif::Engine => '/images', as: 'riiif'
 
-  resources :mirador, only: [:index]
+    resources :mirador, only: [:index]
 
-  root to: 'spotlight/exhibits#index'
+    root to: 'spotlight/exhibits#index'
 
-  devise_for :users, skip: [:sessions]
-  devise_scope :user do
-    get 'users/auth/webauth' => 'login#login', as: :new_user_session
-    match 'users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session, :via => Devise.mappings[:user].sign_out_via
-  end
+    devise_for :users, skip: [:sessions]
+    devise_scope :user do
+      get 'users/auth/webauth' => 'login#login', as: :new_user_session
+      match 'users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session, :via => Devise.mappings[:user].sign_out_via
+    end
 
-  resource :purl_resources
+    resource :purl_resources
 
-  mount Blacklight::Engine => '/'
-  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
+    mount Blacklight::Engine => '/'
+    resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
 
-  mount Spotlight::Engine, at: '/'
-  concern :exportable, Blacklight::Routes::Exportable.new
+    mount Spotlight::Engine, at: '/'
+    concern :exportable, Blacklight::Routes::Exportable.new
 
-  resources :exhibits, path: '/', only: [] do
-    resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update]
-    resource :bibliography_resources, only: [:create, :update]
-    resource :viewers, only: [:create, :edit, :update]
+    resources :exhibits, path: '/', only: [] do
+      resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update]
+      resource :bibliography_resources, only: [:create, :update]
+      resource :viewers, only: [:create, :edit, :update]
 
-    resources :solr_documents, only: [], path: '/catalog', controller: 'catalog' do
-      concerns :exportable
+      resources :solr_documents, only: [], path: '/catalog', controller: 'catalog' do
+        concerns :exportable
 
-      member do
-        get 'metadata'
+        member do
+          get 'metadata'
+        end
       end
     end
-  end
 
-  mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
+    mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
+  end
 end

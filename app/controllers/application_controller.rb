@@ -22,4 +22,14 @@ class ApplicationController < ActionController::Base
     @feature_flags ||= FeatureFlags.for(current_exhibit)
   end
   helper_method :feature_flags
+
+  before_action :set_locale
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
 end

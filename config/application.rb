@@ -22,5 +22,10 @@ module Exhibits
     end
 
     config.druid_regex = /([a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4})/
+
+    config.available_locales = %w(en)
+    config.action_dispatch.rescue_responses.merge!(
+      "I18n::InvalidLocale" => :not_found
+    )
   end
 end
