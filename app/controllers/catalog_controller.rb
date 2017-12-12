@@ -3,6 +3,7 @@
 ##
 # Blacklight controller providing search and discovery features
 class CatalogController < ApplicationController
+  include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   helper Openseadragon::OpenseadragonHelper
 
@@ -116,6 +117,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_year_w_approx_isi', label: 'Date', limit: true
     config.add_facet_field 'pub_year_no_approx_isi', label: 'Date (no approx)', limit: true
     config.add_facet_field 'place_created_ssim', label: 'Place created', limit: true
+    config.add_facet_field 'pub_year_tisim', label: 'Date Range', range: true
     config.add_facet_field 'language', label: 'Language', limit: true
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true

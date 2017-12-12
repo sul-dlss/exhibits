@@ -1,4 +1,5 @@
 Exhibits::Application.routes.draw do
+  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   # API compatible with is_it_working checks
   match "/is_it_working" => "ok_computer/ok_computer#index", via: [:get, :options]
   mount OkComputer::Engine, at: "/status"
@@ -23,6 +24,12 @@ Exhibits::Application.routes.draw do
   end
 
   resource :purl_resources
+
+  # this has to come before the Blacklight + Spotlight routes to avoid getting routed as
+  # a document request.
+  resources :exhibits, path: '/', only: [] do
+    get "catalog/range_limit" => "spotlight/catalog#range_limit"
+  end
 
   mount Blacklight::Engine => '/'
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'

@@ -31,3 +31,9 @@
 //= require spotlight
 //= require sul-exhibits-template
 //= require table_of_contents
+
+
+// For blacklight_range_limit built-in JS, if you don't want it you don't need
+// this:
+//= require 'blacklight_range_limit'
+

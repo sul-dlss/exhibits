@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Adds the ability for when embedding SDR items in a page, the selected page will persist for the embedded image view #970
+- Adds a date range facet #994
 ### Changed
 ### Deprecated
 ### Removed
