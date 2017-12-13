@@ -16,11 +16,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.12.1] - 2017-12-13
 
 ### Added
+- Added date range slider above date range distribution chart #1014
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
-- Fixed styling issue with the Date range facet #1014
 ### Security
 
 ## [1.12.0] - 2017-12-12
