@@ -8,8 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+- Adds i18n keys bibliography resources and metadata display modal  #983
 ### Deprecated
 ### Removed
+- Removes i18n keys for deprecated bibliography service #983
 ### Fixed
 ### Security
 
