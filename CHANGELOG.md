@@ -7,12 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Updates Exhibits to Spotlight v1.2.0 #1012
 - Added ability to view the index status individual items in an exhibit by autocompleting for druid (only applies to exhibits with > 10 item druids) #1013
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
 - Fixed timeout issue on Add Items page for exhibits with large number of items #1013
+- Fixes a bug where newly created admins and curators were not receiving invitations #1012
 ### Security
 
 ## [1.12.1] - 2017-12-13

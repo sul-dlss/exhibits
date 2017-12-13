@@ -80,7 +80,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (1.1.0)
+    blacklight-spotlight (1.2.0)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -137,7 +137,7 @@ GEM
       bundler (~> 1.2)
       thor (~> 0.18)
     byebug (9.1.0)
-    cancancan (2.1.1)
+    cancancan (2.1.2)
     capistrano (3.10.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -286,7 +286,7 @@ GEM
       railties (>= 3.2, < 5.2)
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
-    github-markup (1.6.1)
+    github-markup (1.6.2)
     gli (2.17.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -684,7 +684,7 @@ DEPENDENCIES
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
   blacklight-oembed (~> 0.2)
-  blacklight-spotlight (~> 1.1.0)
+  blacklight-spotlight (~> 1.2.0)
   blacklight_advanced_search
   blacklight_heatmaps
   blacklight_range_limit
