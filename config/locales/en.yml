@@ -49,6 +49,7 @@ en:
       item-submission-help_html: "To add SDR items to the exhibit, enter collection or item druids below, one per line (e.g. qb438pg7646)."
       object-druids: "Object druids"
       object-druids-help_html: "Items below with the status of <em>published</em> were added to the exhibit. Items must be published (i.e., have a valid PURL) before they can be added to the exhibit."
+      many-object-druids-help_html: "<p>There are %{count} object druids indexed in this exhibit. To determine whether a particular item is indexed in this exhibit, or to check the indexing status of an item, begin typing the object druid below.</p><p>Items displayed with a status of published were added to the exhibit. Items must be published (i.e. have a valid PURL) before they can be added to the exhibit.</p>"
       collection-druids: "Collection druids"
       collection-druids-help_html: "Items associated with the collection druids below were added to the exhibit. If the number of items associated with a collection druid does not match your expectation, verify that all of its associated items have been published (i.e., have a valid PURL)."
   blacklight:

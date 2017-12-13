@@ -1,0 +1,16 @@
+<p><%= t('admin.items.many-object-druids-help_html', count: harvester.solr_document_sidecars.count) %></p>
+
+<%= bootstrap_form_for('object', layout: :horizontal, label_col: 'col-md-2', control_col: 'col-md-6') do |f| %>
+  <%= f.text_field :druid, data: { behavior: 'index-status-typeahead' , typeahead_remote_url: exhibit_dor_harvester_index_statuses_path(current_exhibit)}%>
+<% end %>
+
+<table style="display: none;" class="table table-striped" data-behavior="index-status-typeahead-table">
+  <thead>
+    <tr>
+      <th>Druid</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
