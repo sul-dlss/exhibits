@@ -380,7 +380,7 @@ GEM
       material_icons
       openseadragon
       tinymce-rails
-    mods (2.3.0)
+    mods (2.3.1)
       edtf
       iso-639
       nokogiri
