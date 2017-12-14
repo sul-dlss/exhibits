@@ -5,5 +5,16 @@
 .mirador-viewer {
   .page-select {
     margin-right: 5px;
+    max-width: 50%;
+  }
+
+  .window-manifest-navigation {
+    @media screen and (max-width: 768px) {
+      min-width: 42%;
+    }
+
+    @media screen and (max-width: 575px) {
+      min-width: 50%;
+    }
   }
 }
