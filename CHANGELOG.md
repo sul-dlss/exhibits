@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updates Exhibits to Spotlight v1.2.0 #1012
 - Added ability to view the index status individual items in an exhibit by autocompleting for druid (only applies to exhibits with > 10 item druids) #1013
 ### Changed
+- Masonry, Gallery, and Slideshow views only display title by default #1011
 ### Deprecated
 ### Removed
 ### Fixed
