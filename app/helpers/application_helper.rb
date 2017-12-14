@@ -5,7 +5,7 @@ module ApplicationHelper
   # Collection titles are indexed as a compound druid + title; we need to
   # unmangle it for display.
   def collection_title(value, separator: '-|-')
-    value.split(separator).last
+    value.split(separator).first
   end
 
   def document_collection_title(value:, **)

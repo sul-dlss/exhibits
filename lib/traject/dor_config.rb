@@ -20,7 +20,7 @@ to_field 'display_type', conditional(->(resource, *_) { !resource.collection? },
 
 to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
 to_field 'collection_with_title', (accumulate do |resource, *_|
-  resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
+  resource.collections.map { |collection| "#{coll_title(collection)}-|-#{collection.bare_druid}" }
 end)
 
 # COLLECTION FIELDS
