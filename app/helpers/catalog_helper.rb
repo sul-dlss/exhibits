@@ -65,6 +65,15 @@ module CatalogHelper
     link_to link_title, spotlight.exhibit_solr_document_path(current_exhibit, druid)
   end
 
+  def render_fulltext_highlight(args)
+    return if args[:value].blank?
+    safe_join(args[:value].map do |val|
+      content_tag('p') do
+        val
+      end
+    end, '')
+  end
+
   private
 
   def thumbnail_tag_image_path(document)

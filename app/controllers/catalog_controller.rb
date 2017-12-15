@@ -24,7 +24,13 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
-      fl: '*'
+      fl: '*',
+      hl: true,
+      'hl.fl' => 'full_text_tesimv',
+      'hl.snippets' => 5,
+      'hl.fragsize' => 240,
+      'hl.mergeContiguous' => true,
+      'hl.useFastVectorHighlighter' => true
     }
 
     config.default_autocomplete_solr_params = {
@@ -208,6 +214,18 @@ class CatalogController < ApplicationController
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     config.add_index_field 'range_labels_tesim', label: 'Section'
     config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link
+    config.add_index_field(
+      'full_text_tesimv',
+      if: lambda do |*args|
+        # bail out to true (show the field) if we don't have 3 arguments (context being the added argument)
+        # This is required for the metadata configuration admin page to return the field properly.
+        return true if args.length < 3
+        full_text_highlight_exists_in_response?(*args)
+      end,
+      label: 'Preview matches in document text',
+      highlight: true,
+      helper_method: :render_fulltext_highlight
+    )
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
@@ -351,5 +369,18 @@ class CatalogController < ApplicationController
   # JSON API queries should not trigger new search histories
   def start_new_search_session?
     super && params[:format] != 'json'
+  end
+
+  class << self
+    # Blacklight's highlighting feature assumes that the metadata exists in the page
+    # and replaces the rendered version from the dopcument with that of the highlighting
+    # section. In the case of our full text field, we do not render it in the normal results
+    # so we need to not display the field at all unless it was returned in the highlighting.
+    def full_text_highlight_exists_in_response?(context, config, document)
+      response = context.instance_variable_get(:@response)
+      document_highlight = response.dig('highlighting', document['id'])
+      return true if document_highlight.present? && document_highlight[config.key].present?
+      false
+    end
   end
 end
