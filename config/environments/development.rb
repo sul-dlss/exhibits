@@ -26,6 +26,9 @@ Exhibits::Application.configure do
     config.cache_store = :null_store
   end
 
+  # Open emails in a web browser
+  config.action_mailer.delivery_method = :letter_opener
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

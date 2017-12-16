@@ -2,12 +2,27 @@ en:
   spotlight:
     invitation_mailer:
       invitation_instructions:
-        someone_invited_you: 'The SUL Exhibits Administrator has invited you to help work on the "%{exhibit_name}" exhibit. You can accept this invitation by clicking the link below.'
-        ignore_html: "If you don't want to accept the invitation, please ignore this email. You won't be added to the \"%{exhibit_name}\" exhibit team until you access the link above."
-        reference_links_text_html: "If you have questions about this invitation or SUL Exhibits, send an email to %{mailto}. To see examples of exhibits created by other SUL exhibit curators, visit the %{href} page."
+        hello: Welcome to Spotlight at Stanford, an application for showcasing digital content in easy-to-produce exhibits.
+        someone_invited_you: The Spotlight at Stanford Exhibits Administrator has invited you to work on the "%{exhibit_name}" exhibit. You can accept this invitation by clicking on the link below.
+        accept: Accept invitation
+        ignore_html: If you don’t want to accept the invitation, just ignore this email. You won’t be added to the "%{exhibit_name}" exhibit team until you click the invitation link above.
+        spotlight_at_sul_html: For more information about Spotlight at Stanford, visit %{href}
+        all_exhibits_html: To view existing Spotlight at Stanford exhibits, visit %{href}
+        get_help_html: Questions? Contact the Spotlight at Stanford service team by sending an email to %{mailto}
+        closing_html: "Happy exhibit building! <p>Spotlight at Stanford Service Team<br>%{mailto}</p>"
         mail_to_href: "exhibits-feedback@lists.stanford.edu"
-        reference_links_href: "SUL Online Exhibits"
+        all_exhibits_href: "https://exhibits.stanford.edu"
+        spotlight_at_sul_href: "http://library.stanford.edu/research/spotlight"
     exhibits_admin_invitation_mailer:
       invitation_instructions:
-        someone_invited_you: "The SUL Exhibits Administrator has invited you to join the administrative group that manages the SUL online exhibits. You can accept this invitation by clicking the link below."
-        ignore_html: "If you don't want to accept the invitation, please ignore this email. You won't be made a SUL online exhibits administrator until you access the link above."
+        hello: Welcome to Spotlight at Stanford, an application for showcasing digital content in easy-to-produce exhibits.
+        someone_invited_you: The Spotlight at Stanford Exhibits Administrator has invited you to work on the "%{exhibit_name}" exhibit. You can accept this invitation by clicking on the link below.
+        accept: Accept invitation
+        ignore_html: If you don’t want to accept the invitation, just ignore this email. You won’t be added to the "%{exhibit_name}" exhibit team until you click the invitation link above.
+        spotlight_at_sul_html: For more information about Spotlight at Stanford, visit %{href}
+        all_exhibits_html: To view existing Spotlight at Stanford exhibits, visit %{href}
+        get_help_html: Questions? Contact the Spotlight at Stanford service team by sending an email to %{mailto}
+        closing_html: "Happy exhibit building! <p>Spotlight at Stanford Service Team<br>%{mailto}</p>"
+        mail_to_href: "exhibits-feedback@lists.stanford.edu"
+        all_exhibits_href: "https://exhibits.stanford.edu"
+        spotlight_at_sul_href: "http://library.stanford.edu/research/spotlight"
