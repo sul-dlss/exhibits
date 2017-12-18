@@ -14,8 +14,7 @@ describe 'viewers/_mirador.html.erb', type: :view do
   let(:viewer) { Viewer.create(exhibit_id: exhibit.id) }
 
   before do
-    assign(:exhibit, current_exhibit)
-    render partial: 'viewers/mirador', locals: { document: document }
+    render partial: 'viewers/mirador', locals: { current_exhibit: current_exhibit, document: document }
   end
 
   it 'has one iframe tag' do
@@ -45,7 +44,7 @@ describe 'viewers/_mirador.html.erb', type: :view do
       current_exhibit.required_viewer.custom_manifest_pattern = 'https://example.com/{id}'
       current_exhibit.viewer.save
       # Re-render now that the exhibit is updated
-      render partial: 'viewers/mirador', locals: { document: document }
+      render partial: 'viewers/mirador', locals: { current_exhibit: current_exhibit, document: document }
     end
     it do
       expect(rendered).to include CGI.escape('https://example.com/abc123')

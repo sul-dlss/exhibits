@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Masonry, Gallery, and Slideshow views only display title by default #1011
 - Changes text of confirmation email for new curators / admins #976
+- Changes configuration of Mirador viewers to have the sidepanel close by default. Layers and Search tab have been disabled. #296
 ### Deprecated
 ### Removed
 ### Fixed
