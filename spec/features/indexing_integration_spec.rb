@@ -119,7 +119,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
     it 'has collection information' do
       expect(document).to include collection: ['ms016pb9280'],
-                                  collection_with_title: ['Edward A. Feigenbaum papers, 1950-2007 (inclusive)-|-ms016pb9280']
+                                  collection_with_title: ['ms016pb9280-|-Edward A. Feigenbaum papers, 1950-2007 (inclusive)']
     end
 
     it 'has feigenbaum-specific fields' do
