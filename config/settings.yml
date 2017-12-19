@@ -41,9 +41,9 @@ slack_notifications:
 index_status_threshold: 10
 mirador_options:
   sidePanelOptions:
-    tocTabAvailable: false
-    layersTabAvailable: false
-    searchTabAvailable: false
-  windowSettings: 
-    sidePanel: false
+    tocTabAvailable: true
+    layersTabAvailable: true
+    searchTabAvailable: true
+  windowSettings:
+    sidePanel: true
     sidePanelVisible: false
