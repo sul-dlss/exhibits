@@ -21,10 +21,10 @@ describe MiradorHelper, type: :helper do
       it 'is a mirador config without sidepanel settings' do
         side_panel_options = mirador_options(manifest, canvas, exhibit_slug)[:sidePanelOptions]
         window_settings = mirador_options(manifest, canvas, exhibit_slug)[:windowSettings]
-        expect(side_panel_options[:tocTabAvailable]).to be false
-        expect(side_panel_options[:layersTabAvailable]).to be false
-        expect(side_panel_options[:searchTabAvailable]).to be false
-        expect(window_settings[:sidePanel]).to be false
+        expect(side_panel_options[:tocTabAvailable]).to be true
+        expect(side_panel_options[:layersTabAvailable]).to be true
+        expect(side_panel_options[:searchTabAvailable]).to be true
+        expect(window_settings[:sidePanel]).to be true
         expect(window_settings[:sidePanelVisible]).to be false
       end
     end
