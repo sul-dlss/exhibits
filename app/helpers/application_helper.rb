@@ -2,10 +2,12 @@
 
 # :nodoc:
 module ApplicationHelper
-  # Collection titles are indexed as a compound druid + title; we need to
-  # unmangle it for display.
+  # Collection titles were indexed as a compound druid + title. We dropped the druid
+  # but need to keep this method arround so that: 'ABC123-|-Collection Title'
+  # and 'Collection Title' with both return 'Collection title' until all of our indexed
+  # collections are updated using the new indexing code and no longer have the separator present
   def collection_title(value, separator: '-|-')
-    value.split(separator).first
+    value.split(separator).last
   end
 
   def document_collection_title(value:, **)
