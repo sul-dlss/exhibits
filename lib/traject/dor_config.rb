@@ -22,6 +22,9 @@ to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:b
 to_field 'collection_with_title', (accumulate do |resource, *_|
   resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
 end)
+to_field 'collection_titles_ssim', (accumulate do |resource, *_|
+  resource.collections.map { |collection| coll_title(collection) }
+end)
 
 # COLLECTION FIELDS
 to_field 'format_main_ssim', conditional(->(resource, *_) { resource.collection? }, literal('Collection'))
