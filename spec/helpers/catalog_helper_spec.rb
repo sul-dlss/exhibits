@@ -127,4 +127,19 @@ describe CatalogHelper, type: :helper do
       end
     end
   end
+
+  describe '#render_fulltext_highlight' do
+    context 'when there is no value' do
+      it 'is nil' do
+        expect(helper.render_fulltext_highlight(value: [])).to be_nil
+      end
+    end
+
+    context 'when there are values' do
+      it 'wraps each value in a paragraph tag' do
+        ps = helper.render_fulltext_highlight(value: %w(Value1 Value2))
+        expect(ps).to eq '<p>Value1</p><p>Value2</p>'
+      end
+    end
+  end
 end

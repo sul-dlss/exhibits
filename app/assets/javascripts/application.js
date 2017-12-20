@@ -26,6 +26,7 @@
 //= require blacklight_gallery
 //= require blacklight_heatmaps
 //= require blacklight_oembed
+//= require full_text_collapse
 //= require index_status_typeahead
 //= require nested_related_items
 //= require openseadragon
@@ -37,4 +38,3 @@
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
 // this:
 //= require 'blacklight_range_limit'
-
