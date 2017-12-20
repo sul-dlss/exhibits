@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Added support for highlighting matching query terms from full-text content in search results #1030
 ### Changed
 ### Deprecated
 ### Removed
