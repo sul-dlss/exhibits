@@ -213,9 +213,7 @@ end
 to_field 'general_notes_ssim', (accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.type_at.blank? && n.displayLabel.blank? }.map(&:content) })
 
 # FULL TEXT FIELDS
-to_field 'full_text_tesimv', (accumulate do |resource, *_|
-  object_level_full_text_urls(resource).map { |file_url| get_file_content(file_url) }
-end)
+to_field 'full_text_tesimv', (accumulate { |resource, *_| FullTextParser.new(resource).to_text })
 
 # PARKER FIELDS
 
@@ -281,37 +279,6 @@ rescue Faraday::Error => e
   nil
 end
 # rubocop:enable Metrics/AbcSize
-
-# go grab the supplied file url, grab the file, encode and return
-# TODO: this should also be able to deal with .rtf and .xml files, scrubbing/converting as necessary to get plain text
-def get_file_content(file_url)
-  response = Faraday.get(file_url)
-  response.body.scrub.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?').gsub(/\s+/, ' ')
-rescue
-  logger.error("Error indexing full text - couldn't load file #{file_url}")
-  nil
-end
-
-# these are the file locations where full txt files can be found at the object level
-# this method returns an array of fully qualified public URLs that can be accessed to find full text countent
-def object_level_full_text_urls(sdb)
-  files = []
-  object_level_full_text_filenames(sdb).each do |xpath_location|
-    files += sdb.public_xml.xpath(xpath_location).map do |txt_file|
-      "#{::Settings.stacks.file_url}/#{sdb.bare_druid}/#{txt_file['id']}"
-    end
-  end
-  files
-end
-
-# xpaths to locations in the contentMetadata where full text object level files can be found,
-#  add as many as you need, all will be searched
-def object_level_full_text_filenames(sdb)
-  [
-    # feigenbaum style - full text in .txt named for druid
-    "//contentMetadata/resource/file[@id=\"#{sdb.bare_druid}.txt\"]"
-  ]
-end
 
 def display_type(dor_content_type)
   case dor_content_type
