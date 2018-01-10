@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Added support for highlighting matching query terms from full-text content in search results #1030
+- Only allow the full-text highlight field to be rendered in List view (and disabled by default) #1045
 - Adds Stanford-specific helptext to the add admin/curator form #1040
 - Added support for using the exhibit specific manifest URL configuration to configure the SUL Embed environment to be used #1042
 ### Changed

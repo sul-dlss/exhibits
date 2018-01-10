@@ -216,6 +216,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link
     config.add_index_field(
       'full_text_tesimv',
+      immutable: (config.view.keys - [:list]).push(:show).map { |k| [k, false] }.to_h,
       if: lambda do |*args|
         # bail out to true (show the field) if we don't have 3 arguments (context being the added argument)
         # This is required for the metadata configuration admin page to return the field properly.
@@ -224,7 +225,8 @@ class CatalogController < ApplicationController
       end,
       label: 'Preview matches in document text',
       highlight: true,
-      helper_method: :render_fulltext_highlight
+      helper_method: :render_fulltext_highlight,
+      list: false
     )
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
