@@ -26,3 +26,6 @@ en:
         mail_to_href: "exhibits-feedback@lists.stanford.edu"
         all_exhibits_href: "https://exhibits.stanford.edu"
         spotlight_at_sul_href: "http://library.stanford.edu/research/spotlight"
+    roles:
+      edit_fields:
+        help: Enter a valid SUNet email address. Do not enter an email alias or an email address that isn't in the stanford.edu domain.
