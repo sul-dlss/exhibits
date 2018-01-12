@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Added support for highlighting matching query terms from full-text content in search results #1030
+- Adds Stanford-specific helptext to the add admin/curator form #1040
 ### Changed
 ### Deprecated
 ### Removed
