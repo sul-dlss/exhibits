@@ -20,13 +20,42 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe '#custom_render_oembed_tag_async' do
-    let(:document) { SolrDocument.new(url_fulltext: ['http://example.com/stuff']) }
+    context 'when no custom viewer pattern is set' do
+      let(:document) { SolrDocument.new(url_fulltext: ['http://example.com/stuff']) }
 
-    it 'renders a div with embed attribute and canvas index param' do
-      expect(helper).to receive_messages(blacklight_config: CatalogController.blacklight_config)
-      rendered = helper.custom_render_oembed_tag_async(document, 3)
-      expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
-        'mbed?canvas_index=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
+      it 'renders a div with embed attribute and canvas index param' do
+        expect(helper).to receive_messages(
+          blacklight_config: CatalogController.blacklight_config,
+          current_exhibit: create(:exhibit)
+        )
+        rendered = helper.custom_render_oembed_tag_async(document, 3)
+        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+          'mbed?canvas_index=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
+      end
+    end
+
+    context 'when a custom viewer pattern is provided' do
+      let(:document) do
+        SolrDocument.new(
+          id: 'abc123',
+          url_fulltext: ['http://example.com/stuff'],
+          content_metadata_type_ssm: ['image'],
+          iiif_manifest_url_ssi: 'htts://example.com/info.json'
+        )
+      end
+
+      it 'uses a custom manifest pattern if set' do
+        expect(helper).to receive_messages(
+          current_exhibit: create(
+            :exhibit,
+            viewer: create(:viewer, custom_manifest_pattern: 'https://embed-example.com/{id}')
+          )
+        )
+        rendered = helper.custom_render_oembed_tag_async(document, 1)
+
+        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+          'mbed?canvas_index=1&url=https%3A%2F%2Fembed-example.com%2Fabc123"]'
+      end
     end
   end
 
