@@ -5,9 +5,17 @@ require 'rails_helper'
 RSpec.feature 'Full text highlighting' do
   let(:exhibit) { create(:exhibit) }
   let(:dor_harvester) { DorHarvester.new(druid_list: druid, exhibit: exhibit) }
+  let(:user) { create(:exhibit_admin, exhibit: exhibit) }
 
   before do
     allow(Spotlight::Engine.config).to receive(:filter_resources_by_exhibit).and_return(false)
+
+    # Enable the full text field for display
+    sign_in user
+    visit spotlight.edit_exhibit_metadata_configuration_path(exhibit)
+    page.find('#blacklight_configuration_index_fields_full_text_tesimv_list').click
+    click_button 'Save changes'
+    sign_out user
   end
 
   context 'when a document has a full text highlight hit' do
