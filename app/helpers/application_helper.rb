@@ -45,8 +45,7 @@ module ApplicationHelper
   # @param [SolrDocument] document
   # @param [Integer] canvas_index
   def custom_render_oembed_tag_async(document, canvas_index)
-    url = document.exhibit_specific_manifest(current_exhibit.required_viewer.custom_manifest_pattern)
-    url ||= document.first(blacklight_config.show.oembed_field)
+    url = document.first(blacklight_config.show.oembed_field)
 
     content_tag :div, '', data: { embed_url: blacklight_oembed_engine.embed_url(url: url, canvas_index: canvas_index) }
   end
