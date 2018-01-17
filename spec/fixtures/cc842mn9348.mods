@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.6" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd">
+  <titleInfo>
+    <title>
+      CE-SPSC Final Decisions/2001/04b-2001 Sabino Gouveia Leite Judgment.pdf
+    </title>
+  </titleInfo>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Virtual Tribunals: East Timor</title>
+    </titleInfo>
+    <location>
+      <url>https://purl.stanford.edu/kh392jb5994</url>
+    </location>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">TBD</accessCondition>
+</mods>

@@ -9,7 +9,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
   before do
     stub_request(:post, /update/)
-    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778).each do |fixture|
+    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
@@ -134,6 +134,30 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
     it 'indexes full text content' do
       expect(document).to include full_text_tesimv: ['full text']
+    end
+  end
+
+  context 'an item with ALTO OCR' do
+    subject(:document) do
+      dor_harvester.document_builder.to_solr.first
+    end
+
+    let(:druid) { 'cc842mn9348' }
+
+    before do
+      fixture_file = File.new(File.join(FIXTURES_PATH, 'cc842mn9348_ocr_1.xml'))
+      stub_request(
+        :get,
+        'https://stacks.stanford.edu/file/cc842mn9348/EastTimor_CE-SPSC_Final_Decisions_2001_04b-2001_Sabino_Gouveia_Leite_Judgment_0001.xml'
+      ).to_return(body: fixture_file, status: 200)
+    end
+
+    it 'indexes all strings from the ALTO files into the full text field' do
+      fulltext = document[:full_text_tesimv]
+      expect(fulltext).to be_a Array
+      expect(fulltext.length).to eq 1
+      expect(fulltext.first).to start_with 'INTRODUCTION 1 The trial of'
+      expect(fulltext.first).to end_with 'rendering of the decision.'
     end
   end
 
