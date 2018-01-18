@@ -45,7 +45,7 @@ module ApplicationHelper
   # @param [SolrDocument] document
   # @param [Integer] canvas_index
   def custom_render_oembed_tag_async(document, canvas_index)
-    url = document.first(blacklight_config.show.oembed_field)
+    url = context_specific_oembed_url(document)
 
     content_tag :div, '', data: { embed_url: blacklight_oembed_engine.embed_url(url: url, canvas_index: canvas_index) }
   end
@@ -60,5 +60,15 @@ module ApplicationHelper
   # @param [Integer]
   def choose_canvas_index(sir_trevor_block)
     [sir_trevor_block.try(:items).try(:first).try(:[], 'iiif_canvas_id').try(:[], /\d*$/).to_i - 1, 0].max
+  end
+
+  private
+
+  def context_specific_oembed_url(document)
+    if feature_flags.uat_embed? && document['druid'].present?
+      format(Settings.purl.uat_url, druid: document['druid'])
+    else
+      document.first(blacklight_config.show.oembed_field)
+    end
   end
 end
