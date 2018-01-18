@@ -40,6 +40,10 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
         expect(document).to include :modsxml, :url_fulltext, :all_search
       end
 
+      it 'has the published date for the resource' do
+        expect(document).to include last_updated: '2017-04-26T16:25:02Z'
+      end
+
       it 'has potentially useless fields inherited from gdor indexer' do
         expect(document).to include display_type: 'image'
       end
