@@ -67,7 +67,12 @@ en:
           table_of_contents: Table of contents
           incipit: Incipit
           manuscript_number: Manuscript number
-
+        sort:
+          relevance: 'relevance'
+          year_desc: 'year (new to old)'
+          year_asc: 'year (old to new)'
+          author: 'author'
+          title: 'title'
   metadata:
     more_details: 'More details »'
   okcomputer:

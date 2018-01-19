@@ -347,11 +347,11 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, pub_year_isi desc, title_sort asc', label: 'relevance'
-    config.add_sort_field 'pub_year_isi desc, title_sort asc', label: 'year (new to old)'
-    config.add_sort_field 'pub_year_isi asc, title_sort asc', label: 'year (old to new)'
-    config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
-    config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
+    config.add_sort_field 'score desc, pub_year_isi desc, title_sort asc', label: I18n.t('blacklight.fields.sort.relevance')
+    config.add_sort_field 'pub_year_isi desc, title_sort asc', label: I18n.t('blacklight.fields.sort.year_desc')
+    config.add_sort_field 'pub_year_isi asc, title_sort asc', label: I18n.t('blacklight.fields.sort.year_asc')
+    config.add_sort_field 'author_sort asc, title_sort asc', label: I18n.t('blacklight.fields.sort.author')
+    config.add_sort_field 'title_sort asc, pub_year_isi desc', label: I18n.t('blacklight.fields.sort.title')
   end
 
   ##
