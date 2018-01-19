@@ -20,13 +20,29 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe '#custom_render_oembed_tag_async' do
-    let(:document) { SolrDocument.new(url_fulltext: ['http://example.com/stuff']) }
+    let(:document) { SolrDocument.new(url_fulltext: ['http://example.com/stuff'], druid: 'abc123') }
 
-    it 'renders a div with embed attribute and canvas index param' do
-      expect(helper).to receive_messages(blacklight_config: CatalogController.blacklight_config)
-      rendered = helper.custom_render_oembed_tag_async(document, 3)
-      expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
-        'mbed?canvas_index=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
+    context 'normal embed' do
+      it 'renders a div with embed attribute and canvas index param' do
+        expect(helper).to receive_messages(
+          blacklight_config: CatalogController.blacklight_config,
+          feature_flags: FeatureFlags.for(create(:exhibit))
+        )
+        rendered = helper.custom_render_oembed_tag_async(document, 3)
+        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+          'mbed?canvas_index=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
+      end
+    end
+
+    context 'an exhibit that is configured (via feature flag) to point to UAT' do
+      it 'renders a div with the correct embed end-point in the data attribute' do
+        expect(helper).to receive_messages(
+          feature_flags: FeatureFlags.for(create(:exhibit, slug: 'test-flag-exhibit-slug'))
+        )
+        rendered = helper.custom_render_oembed_tag_async(document, 3)
+        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+          'mbed?canvas_index=3&url=https%3A%2F%2Fsul-purl-uat.stanford.edu%2Fabc123"]'
+      end
     end
   end
 

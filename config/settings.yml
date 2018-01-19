@@ -7,6 +7,7 @@ stacks:
   file_url: 'https://stacks.stanford.edu/file'
 
 purl:
+  uat_url: 'https://sul-purl-uat.stanford.edu/%{druid}'
   iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest'
 sidekiq:
   logger_level: 'Logger::INFO' # The default from Sidekiq
@@ -18,6 +19,7 @@ feature_flags:
   add_parker_search_fields: false # Parker specific search fields
   slack_notifications: false
   mirador_options: {}
+  uat_embed: false
 traject:
   processing_thread_pool: 1
 iiif_dnd_base_url: https://library.stanford.edu/projects/international-image-interoperability-framework/viewers?%{query}
