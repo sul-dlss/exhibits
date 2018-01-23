@@ -7,9 +7,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Added support for an exhibit-specific feature flag to point to the PURL UAT environment for Embeds. #1055
+- Added basic (english) indexing support for full text OCR in ALTO (2 & 3) XML. #1043
 ### Changed
 ### Deprecated
 ### Removed
+### Fixed
+### Security
+
+## [1.14.1] - 2018-01-17
+
+### Added
+### Changed
+### Deprecated
+### Removed
+- Removed support for using the exhibit specific manifest URL configuration to configure the SUL Embed environment to be used
 ### Fixed
 ### Security
 
