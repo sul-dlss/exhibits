@@ -109,6 +109,9 @@
         all_search                     vern_all_search
         full_text_unstem_search^2.5
         full_text_search^0.5
+        full_text_search_en^0.5
+        full_text_search_pt^0.5
+        full_text_search_id^0.5
       </str>
       <str name="pf"> <!-- (phrase boost within result set) -->
         title_245a_exact_search^5000
@@ -165,6 +168,9 @@
         all_search^5                   vern_all_search^5
         full_text_unstem_search^12.5
         full_text_search^2.5
+        full_text_search_en^2.5
+        full_text_search_pt^2.5
+        full_text_search_id^2.5
       </str>
       <str name="pf3">  <!-- (token trigrams boost within result set) -->
         title_245a_search^1500         vern_title_245a_search^1500
@@ -195,6 +201,9 @@
         collection_search^3
         all_search^3                   vern_all_search^3
         full_text_search^1.5
+        full_text_search_en^1.5
+        full_text_search_pt^1.5
+        full_text_search_id^1.5
       </str>
       <str name="pf2"> <!--(token bigrams boost within result set) -->
         title_245a_search^1000         vern_title_245a_search^1000
@@ -225,6 +234,9 @@
         collection_search^2
         all_search^2                   vern_all_search^2
         full_text_search
+        full_text_search_en
+        full_text_search_pt
+        full_text_search_id
       </str>
 
       <str name="qf_cjk">
@@ -716,18 +728,30 @@
       <str name="qf_full_text">
         full_text_unstem_search^5
         full_text_search
+        full_text_search_en
+        full_text_search_pt
+        full_text_search_id
       </str>
       <str name="pf_full_text">
         full_text_unstem_search^25
         full_text_search^5
+        full_text_search_en^5
+        full_text_search_pt^5
+        full_text_search_id^5
       </str>
       <str name="pf3_full_text">
         full_text_unstem_search^15
         full_text_search^3
+        full_text_search_en^3
+        full_text_search_pt^3
+        full_text_search_id^3
       </str>
       <str name="pf2_full_text">
         full_text_unstem_search^10
         full_text_search^2
+        full_text_search_en^2
+        full_text_search_pt^2
+        full_text_search_id^2
       </str>
 
       <str name="qf_toc_search">
@@ -788,7 +812,7 @@
       <str name="facet.field">collection_with_title</str>
 
       <!-- Highlighting defaults -->
-      <str name="hl.fl">all_search full_text_search</str>
+      <str name="hl.fl">all_search full_text_search full_text_search_en full_text_search_pt full_text_search_id</str>
 
       <str name="fl">
         score,
