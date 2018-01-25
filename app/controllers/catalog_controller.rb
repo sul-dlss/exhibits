@@ -26,7 +26,7 @@ class CatalogController < ApplicationController
       qt: 'search',
       fl: '*',
       hl: true,
-      'hl.fl' => 'full_text_tesimv',
+      'hl.fl' => Settings.full_text_highlight.fields,
       'hl.snippets' => 5,
       'hl.fragsize' => 240,
       'hl.mergeContiguous' => true,
@@ -378,10 +378,13 @@ class CatalogController < ApplicationController
     # and replaces the rendered version from the dopcument with that of the highlighting
     # section. In the case of our full text field, we do not render it in the normal results
     # so we need to not display the field at all unless it was returned in the highlighting.
-    def full_text_highlight_exists_in_response?(context, config, document)
+    def full_text_highlight_exists_in_response?(context, _config, document)
       response = context.instance_variable_get(:@response) || {}
       document_highlight = response.dig('highlighting', document['id'])
-      return true if document_highlight.present? && document_highlight[config.key].present?
+      return true if document_highlight.present? && document_highlight.any? do |field, _|
+        Settings.full_text_highlight.fields.include?(field)
+      end
+
       false
     end
   end
