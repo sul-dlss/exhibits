@@ -379,7 +379,7 @@ class CatalogController < ApplicationController
     # section. In the case of our full text field, we do not render it in the normal results
     # so we need to not display the field at all unless it was returned in the highlighting.
     def full_text_highlight_exists_in_response?(context, config, document)
-      response = context.instance_variable_get(:@response)
+      response = context.instance_variable_get(:@response) || {}
       document_highlight = response.dig('highlighting', document['id'])
       return true if document_highlight.present? && document_highlight[config.key].present?
       false
