@@ -10,8 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added support for an exhibit-specific feature flag to point to the PURL UAT environment for Embeds. #1055
 - Added basic (english) indexing support for full text OCR in ALTO (2 & 3) XML. #1043
 ### Changed
+- Adds i18n keys bibliography resources and metadata display modal  #983
 ### Deprecated
 ### Removed
+- Removes i18n keys for deprecated bibliography service #983
 ### Fixed
 ### Security
 

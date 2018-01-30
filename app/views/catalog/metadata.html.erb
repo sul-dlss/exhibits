@@ -8,7 +8,7 @@
   </div>
   <div class='modal-footer'>
     <button type='button' class='btn btn-default view-in-modal' data-dismiss='modal'>Close</button>
-    <%= link_to 'Download',
+    <%= link_to t('metadata.download'),
                 solr_document_path(@document, format: 'mods'),
                 class: 'btn btn-primary',
                 download: "#{@document.id}.mods.xml"

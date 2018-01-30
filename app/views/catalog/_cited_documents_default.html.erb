@@ -5,7 +5,7 @@
        data-parentid="<%= @document.id %>"
        data-documentids="<%= @document.related_document_ids %>"
   >
-    <h3 class="col-md-9">This reference is found in these document bibliographies</h3>
+    <h3 class="col-md-9"><%= t('bibliography_resources.show.related_documents') %></h3>
     <ul class="col-md-9 cited-documents-list"></ul>
   </div>
 <% end %>
