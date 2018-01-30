@@ -22,6 +22,11 @@
   #sidebar {
     display: none;
   }
+
+  .dl-horizontal {
+    margin-top: 2 * $padding-large-vertical;
+    width: 85ch;
+  }
 }
 
 .thumbnail {
@@ -29,13 +34,6 @@
 }
 
 #document {
-  .oembed-widget {
-    @extend .col-md-6;
-    @extend .col-sm-12;
-
-    padding-left: 0;
-  }
-
   h1 {
     font-size: $font-size-h3;
   }
