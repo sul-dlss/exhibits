@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 - Removes i18n keys for deprecated bibliography service #983
 ### Fixed
+- Fixed bug that caused feature pages using the search results widget to throw an error #1073
 ### Security
 
 ## [1.14.1] - 2018-01-17
