@@ -1,32 +1,29 @@
 dt.blacklight-full_text_tesimv {
-  @extend .h4;
+  color: $gray-dark;
   cursor: pointer;
   display: inline-block;
   float: none;
   text-align: initial;
   width: auto;
-  // collapse carets shamelessly stolen from blacklight facets
-  &[data-toggle="collapse"]::after {
-    // symbol for "opening" panels
-    content: "\e114";
-    float: right;
-    font-family: "Glyphicons Halflings";
-    font-size: 0.8em;
-    line-height: normal;
-    padding-left: 2ch;
-  }
 
-  &.collapsed::after {
-    // symbol for "collapsed" panels
-    content: "\e080";
+  .caret {
+    border-width: 6px;
+    color: $color-cardinal-red;
+    margin-left: 6px;
   }
 }
 
 dd.blacklight-full_text_tesimv {
+  border-left: 1px solid $color-gray-80;
   float: none;
   margin-left: 0;
+  margin-top: 6px;
 
   em {
     font-weight: bold;
+  }
+
+  p {
+    margin-left: 12px;
   }
 }
