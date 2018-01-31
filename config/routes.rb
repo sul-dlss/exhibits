@@ -6,6 +6,7 @@ Exhibits::Application.routes.draw do
 
   authenticate :user, lambda { |u| u.superadmin? } do
     require 'sidekiq/web'
+    require 'sidekiq/pro/web'
     Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_key_base]
     mount Sidekiq::Web => '/sidekiq'
   end
