@@ -62,8 +62,6 @@ module ApplicationHelper
     [sir_trevor_block.try(:items).try(:first).try(:[], 'iiif_canvas_id').try(:[], /\d*$/).to_i - 1, 0].max
   end
 
-  private
-
   def context_specific_oembed_url(document)
     if feature_flags.uat_embed? && document['druid'].present?
       format(Settings.purl.uat_url, druid: document['druid'])
