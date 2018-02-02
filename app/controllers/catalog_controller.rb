@@ -223,7 +223,7 @@ class CatalogController < ApplicationController
         return true if args.length < 3
         full_text_highlight_exists_in_response?(*args)
       end,
-      label: 'Preview matches in document text',
+      label: 'Sample matches in document text',
       highlight: true,
       helper_method: :render_fulltext_highlight,
       list: false

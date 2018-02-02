@@ -22,10 +22,10 @@ RSpec.feature 'Full text highlighting' do
     it 'shows the full-text hightlight field and provides a toggle', js: true do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'structure')
 
-      expect(page).to have_css('dt', text: 'Preview matches in document text')
+      expect(page).to have_css('dt', text: 'Sample matches in document text')
 
       expect(page).not_to have_css('dd p', text: 'about need for data structures capable of storing', visible: true)
-      page.find('dt', text: 'Preview matches in document text').click
+      page.find('dt', text: 'Sample matches in document text').click
       expect(page).to have_css('dd p', text: 'about need for data structures capable of storing', visible: true)
     end
   end
@@ -36,7 +36,7 @@ RSpec.feature 'Full text highlighting' do
 
       expect(page).to have_css('.documents-list .document') # there are results
 
-      expect(page).not_to have_css('dt', text: 'Preview matches in document text')
+      expect(page).not_to have_css('dt', text: 'Sample matches in document text')
     end
   end
 end

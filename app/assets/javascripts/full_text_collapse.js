@@ -15,9 +15,13 @@ Blacklight.onLoad(function(){
 
   $('dt.blacklight-full_text_tesimv').each(function() {
     $(this).text($(this).text().replace(/:$/, ''));
+    $(this).append('<span class="caret caret-right"></span>');
     $(this).attr('data-toggle', 'collapse');
     $(this).attr('data-target', '#' + $(this).next('dd').attr('id'));
   });
 
   $('dd.blacklight-full_text_tesimv').collapse({ toggle: false });
+  $('dd.blacklight-full_text_tesimv').on('show.bs.collapse hide.bs.collapse', function(){
+    $(this).prev().find('.caret').toggleClass('caret-right');
+  });
 });
