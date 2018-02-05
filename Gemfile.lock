@@ -398,8 +398,7 @@ GEM
     multipart-post (2.0.0)
     mysql2 (0.4.10)
     namae (1.0.1)
-    net-http-persistent (3.0.0)
-      connection_pool (~> 2.2)
+    net-http-persistent (2.9.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
@@ -730,7 +729,7 @@ DEPENDENCIES
   mirador_rails
   mods_display
   mysql2 (~> 0.4.4)
-  net-http-persistent
+  net-http-persistent (< 3)
   newrelic_rpm
   nokogiri (>= 1.7.1)
   okcomputer
