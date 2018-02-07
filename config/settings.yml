@@ -34,9 +34,9 @@ harvestdor:
   log_name: gdor.log
   purl: https://purl.stanford.edu
 
-gdor:
-  service_url: https://dorfetcher-url
-  skip_heartbeat: true
+purl_fetcher:
+  url: 'https://purl-fetcher-url.example.com'
+
 slack_notifications:
   default_channel: '#spotlight-service-team'
   api_token: 'your-api-token-here'
