@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+- Update styling and default label for fulltext snippets #1075
 ### Deprecated
 ### Removed
 ### Fixed
