@@ -139,6 +139,10 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
     it 'indexes full text content' do
       expect(document).to include full_text_tesimv: ['full text']
     end
+
+    it 'has the correct date information (no blank values)' do
+      expect(document).to include date_ssim: ['March 30, 1980']
+    end
   end
 
   context 'an item with ALTO OCR' do

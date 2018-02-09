@@ -97,7 +97,7 @@ to_field 'date_ssim' do |resource, accumulator, _context|
     accumulator.concat(dates.map(&:values).flatten)
 
     part = imprint.send(:parts_element, value)
-    accumulator << part if part
+    accumulator << part if part.present?
   end
 end
 
