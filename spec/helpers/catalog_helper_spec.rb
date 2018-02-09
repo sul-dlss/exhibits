@@ -129,16 +129,50 @@ describe CatalogHelper, type: :helper do
   end
 
   describe '#render_fulltext_highlight' do
-    context 'when there is no value' do
-      it 'is nil' do
-        expect(helper.render_fulltext_highlight(value: [])).to be_nil
+    let(:document) { { 'id' => 'abc123' } }
+    let(:values) { %w(Value1 Value2) }
+
+    context 'when there is a matching highlight for the given document' do
+      it 'wraps each highlight value in a paragraph tag' do
+        assign(
+          :response,
+          'highlighting' => {
+            'abc123' => { 'full_text_search_en' => ['The first <em>Value1</em>', 'The <em>Value2</em> second'] }
+          }
+        )
+
+        ps = helper.render_fulltext_highlight(value: values, document: document)
+        expect(ps).to eq '<p>The first <em>Value1</em></p><p>The <em>Value2</em> second</p>'
       end
     end
 
-    context 'when there are values' do
-      it 'wraps each value in a paragraph tag' do
-        ps = helper.render_fulltext_highlight(value: %w(Value1 Value2))
-        expect(ps).to eq '<p>Value1</p><p>Value2</p>'
+    context 'when there are more than the configured amount of highlight snippets returned' do
+      let(:highlight_snippets) do
+        {
+          'full_text_search_en' => %w(Value1 Value2 Value3 Value4),
+          'full_text_search_pt' => %w(Value5 Value6 Value7 Value8)
+        }
+      end
+
+      it 'only renders the configured amount of snippets' do
+        assign(
+          :response,
+          'highlighting' => {
+            'abc123' => highlight_snippets
+          }
+        )
+
+        ps = helper.render_fulltext_highlight(value: values, document: document)
+        expect(ps.scan('<p>').count).to eq Settings.full_text_highlight.snippet_count
+      end
+    end
+
+    context 'when the response does not include highlighting for the given document' do
+      it 'is nil' do
+        assign(:response, 'highlighting' => { 'xyz987' => { 'full_text_search_en' => values } })
+
+        ps = helper.render_fulltext_highlight(value: values, document: document)
+        expect(ps).to be_nil
       end
     end
   end

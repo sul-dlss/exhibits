@@ -37,6 +37,14 @@ harvestdor:
 purl_fetcher:
   url: 'https://purl-fetcher-url.example.com'
 
+full_text_highlight:
+  fields:
+    - full_text_tesimv
+    - full_text_search_en
+    - full_text_search_pt
+    - full_text_search_id
+  snippet_count: 5
+
 slack_notifications:
   default_channel: '#spotlight-service-team'
   api_token: 'your-api-token-here'

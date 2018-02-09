@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- Added support for indexing, searching, and displaying snippets of Portuguese and Indonesian full text content (in addition to the existing English support). #1060
 ### Changed
 - Update styling and default label for fulltext snippets #1075
 ### Deprecated

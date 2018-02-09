@@ -30,6 +30,16 @@ RSpec.feature 'Full text highlighting' do
     end
   end
 
+  context 'when a document has non-english full text' do
+    it 'stems Portuguese properly', js: true do
+      visit spotlight.search_exhibit_catalog_path(exhibit, q: 'homens')
+
+      expect(page).not_to have_css('dd p', text: 'em conta o homem normal suposto', visible: true)
+      page.find('dt', text: 'Sample matches in document text').click
+      expect(page).to have_css('dd p', text: 'em conta o homem normal suposto', visible: true)
+    end
+  end
+
   context 'when a document does not have a full text highlight hit' do
     it 'does not include full-text highlight', js: true do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'Maps')

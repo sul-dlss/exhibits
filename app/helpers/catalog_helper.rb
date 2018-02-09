@@ -65,14 +65,18 @@ module CatalogHelper
     link_to link_title, spotlight.exhibit_solr_document_path(current_exhibit, druid)
   end
 
+  # rubocop:disable Rails/OutputSafety
   def render_fulltext_highlight(args)
-    return if args[:value].blank?
-    safe_join(args[:value].map do |val|
+    highlights = full_text_highlights(args[:document]['id'])
+    return if highlights.blank?
+
+    safe_join(highlights.take(Settings.full_text_highlight.snippet_count).map do |val|
       content_tag('p') do
-        val
+        val.html_safe # val is highlighted field from solr which is html safe
       end
     end, '')
   end
+  # rubocop:enable Rails/OutputSafety
 
   private
 
@@ -82,5 +86,13 @@ module CatalogHelper
     elsif document.canvas?
       blacklight_config.view_config(document_index_view_type).default_canvas_thumbnail
     end
+  end
+
+  def full_text_highlights(document_id)
+    highlighting_response = @response.dig('highlighting', document_id) || {}
+
+    highlighting_response.select do |k, _|
+      Settings.full_text_highlight.fields.include?(k)
+    end.values.flatten.compact.uniq
   end
 end
