@@ -108,4 +108,17 @@ describe 'Viewers', type: :feature do
     end
     # rubocop:enable RSpec/ExampleLength
   end
+
+  context 'Parker Theme' do
+    before do
+      exhibit.theme = 'parker'
+      exhibit.save
+    end
+
+    it 'hides the PURL link', js: true do
+      visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
+
+      expect(page).not_to have_css('.purl-link', visible: true)
+    end
+  end
 end

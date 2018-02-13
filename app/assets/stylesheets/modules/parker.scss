@@ -2,6 +2,11 @@ body {
   background-color: $color-beige-05;
 }
 
+// Hide PURL link beneath the IIIF viewer
+.purl-link {
+  display: none;
+}
+
 .sul-footer,
 #global-footer {
   display: none;

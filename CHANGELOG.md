@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Added support for indexing, searching, and displaying snippets of Portuguese and Indonesian full text content (in addition to the existing English support). #1060
-- Added a link to the PURL beneath the SUL Embed viewer #1074
+- Added a link to the PURL beneath the SUL Embed viewer (hidden in the Parker theme) #1074
 ### Changed
 - Update styling and default label for fulltext snippets #1075
 - Updated to Spotlight version 1.4.0 ([release notes](https://github.com/projectblacklight/spotlight/releases/tag/v1.4.0))
