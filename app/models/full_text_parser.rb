@@ -58,4 +58,8 @@ class FullTextParser
       "//contentMetadata/resource[@type='page']/file[@mimetype='application/xml' or @mimetype='application/alto+xml']"
     ]
   end
+
+  def logger
+    Rails.logger
+  end
 end
