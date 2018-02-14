@@ -109,16 +109,24 @@ describe 'Viewers', type: :feature do
     # rubocop:enable RSpec/ExampleLength
   end
 
-  context 'Parker Theme' do
-    before do
-      exhibit.theme = 'parker'
-      exhibit.save
-    end
-
-    it 'hides the PURL link', js: true do
+  describe 'PURL link' do
+    it 'does not include the protocol' do
       visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
 
-      expect(page).not_to have_css('.purl-link', visible: true)
+      expect(page).to have_css('a', text: %r{^purl\.stanford\.edu/hj066rn6500})
+    end
+
+    context 'Parker Theme' do
+      before do
+        exhibit.theme = 'parker'
+        exhibit.save
+      end
+
+      it 'hides the PURL link', js: true do
+        visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
+
+        expect(page).not_to have_css('.purl-link', visible: true)
+      end
     end
   end
 end
