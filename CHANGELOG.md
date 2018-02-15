@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+- No longer rendering the protocol (e.g. http/https) in the PURL link text. #1094
 ### Deprecated
 ### Removed
 ### Fixed
