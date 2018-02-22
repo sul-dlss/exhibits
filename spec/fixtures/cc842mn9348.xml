@@ -24,7 +24,7 @@
     </resource>
     <resource id="cc842mn9348_2" sequence="2" type="page">
       <label>Page 1</label>
-      <file id="EastTimor_CE-SPSC_Final_Decisions_2001_04b-2001_Sabino_Gouveia_Leite_Judgment_0001.xml" mimetype="application/xml" size="17009"></file>
+      <file id="EastTimor_CE-SPSC_Final_Decisions_2001_04b-2001_Sabino_Gouveia_Leite_Judgment_0001.xml" mimetype="application/xml" role="transcription" size="17009"></file>
       <file id="EastTimor_CE-SPSC_Final_Decisions_2001_04b-2001_Sabino_Gouveia_Leite_Judgment_0001.jp2" mimetype="image/jp2" size="447995">
         <imageData width="2510" height="3550"/>
       </file>
