@@ -8,22 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
-### Deprecated
-### Removed
-### Fixed
-### Security
-
-## [1.16.1] - 2018-02-23
-
-### Added
-### Changed
 - No longer rendering the protocol (e.g. http/https) in the PURL link text. #1094
-- Background color for parker thumbnails to match body background. #1098
 ### Deprecated
 ### Removed
 ### Fixed
-- Handling multiple date/time formats from the public object xml's published attribute. #1105
-- Prevent stretched images in Item Row widget. #1099
 ### Security
 
 ## [1.16.0] - 2018-02-13
