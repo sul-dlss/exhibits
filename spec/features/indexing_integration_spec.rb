@@ -216,6 +216,10 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       it 'has correct content metadata type' do
         expect(document[:content_metadata_type_ssm]).to include 'file'
       end
+
+      it 'parses and reformats the timestamp to iso8601' do
+        expect(document[:last_updated]).to eq '2015-07-14T02:40:23Z'
+      end
     end
   end
 end
