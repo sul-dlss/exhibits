@@ -5,5 +5,5 @@ server 'exhibits-worker-stage-a.stanford.edu', user: 'exhibits', roles: %w(app b
 Capistrano::OneTimeKey.generate_one_time_key!
 set :rails_env, 'production'
 
-set :sidekiq_role, :background
+set :sidekiq_roles, :background
 set :sidekiq_processes, 6 # prod has 10 but stage box has more limited memory
