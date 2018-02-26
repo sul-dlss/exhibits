@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+- Restricting ALTO OCR indexing to files with the role attribute "transcription". #1104
 ### Deprecated
 ### Removed
 ### Fixed
