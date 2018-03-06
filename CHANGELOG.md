@@ -8,10 +8,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+- Updates Exhibits to Spotlight v1.4.1 #1111
+- Update "Embed + Text" intro text with examples of resources #1111
 - Restricting ALTO OCR indexing to files with the role attribute "transcription". #1104
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixes bug #1103: browse categories displaying the wrong item count #1111
+- Limit max-width of iframe in "Embed + Text" widget #1111
 ### Security
 
 ## [1.16.1] - 2018-02-23
