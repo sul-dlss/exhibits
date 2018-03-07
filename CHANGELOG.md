@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [1.16.2] - 2018-03-07
+
+### Added
+### Changed
 - Updates Exhibits to Spotlight v1.4.1 #1111
 - Update "Embed + Text" intro text with examples of resources #1111
 - Restricting ALTO OCR indexing to files with the role attribute "transcription". #1104
