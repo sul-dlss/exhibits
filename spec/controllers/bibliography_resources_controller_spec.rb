@@ -13,6 +13,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
     sign_in user
     allow(BibliographyResource).to receive(:find_or_initialize_by).and_return(resource)
     allow(resource).to receive(:update).with(bibtex_file: fixture_file.read)
+    fixture_file.rewind
     allow(resource).to receive(:save_and_index).and_return(save_status)
   end
 
