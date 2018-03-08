@@ -247,7 +247,7 @@ class CatalogController < ApplicationController
     # since we aren't specifying it otherwise.
 
     config.add_search_field('search') do |field|
-      field.label = 'Everything'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.solr_local_parameters = {
         pf2: '$p2',
         pf3: '$pf3'
@@ -255,7 +255,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('search_title') do |field|
-      field.label = 'Title'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.solr_local_parameters = {
         qf: '$qf_title',
         pf: '$pf_title',
@@ -265,7 +265,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('search_author') do |field|
-      field.label = 'Author/Contributor'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.solr_local_parameters = {
         qf: '$qf_author',
         pf: '$pf_author',
@@ -275,7 +275,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('subject_terms') do |field|
-      field.label = 'Subject'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.solr_local_parameters = {
         qf: '$qf_subject',
         pf: '$pf_subject',
@@ -285,7 +285,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('call_number') do |field|
-      field.label = 'Call number'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.include_in_advanced_search = false
       field.solr_parameters = { defType: 'lucene' }
       field.solr_local_parameters = {
@@ -294,7 +294,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('full_text') do |field|
-      field.label = 'Full text'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.include_in_advanced_search = false
       field.solr_local_parameters = {
         qf: '$qf_full_text',
@@ -305,7 +305,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('table_of_contents') do |field|
-      field.label = 'Table of contents'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.solr_local_parameters = {
         qf: '$qf_toc_search',
         pf: '$pf_toc_search',
@@ -316,7 +316,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('incipit') do |field|
-      field.label = 'Incipit'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.solr_local_parameters = {
         qf: 'incipit_tesim',
         pf: 'incipit_tesim',
@@ -330,7 +330,7 @@ class CatalogController < ApplicationController
     end
 
     config.add_search_field('manuscript_number') do |field|
-      field.label = 'Manuscript number'
+      field.label = I18n.t("blacklight.search.fields.search.#{field.key}")
       field.solr_local_parameters = {
         qf: 'manuscript_number_tesim',
         pf: 'manuscript_number_tesim',
@@ -347,11 +347,11 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, pub_year_isi desc, title_sort asc', label: 'relevance'
-    config.add_sort_field 'pub_year_isi desc, title_sort asc', label: 'year (new to old)'
-    config.add_sort_field 'pub_year_isi asc, title_sort asc', label: 'year (old to new)'
-    config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
-    config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
+    config.add_sort_field 'score desc, pub_year_isi desc, title_sort asc', label: I18n.t('blacklight.fields.sort.relevance')
+    config.add_sort_field 'pub_year_isi desc, title_sort asc', label: I18n.t('blacklight.fields.sort.year_desc')
+    config.add_sort_field 'pub_year_isi asc, title_sort asc', label: I18n.t('blacklight.fields.sort.year_asc')
+    config.add_sort_field 'author_sort asc, title_sort asc', label: I18n.t('blacklight.fields.sort.author')
+    config.add_sort_field 'title_sort asc, pub_year_isi desc', label: I18n.t('blacklight.fields.sort.title')
   end
 
   ##
