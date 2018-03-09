@@ -247,15 +247,15 @@
     <dynamicField name="*_hsim" type="string_hierarch" stored="true" indexed="true" multiValued="true" />
 
     <!-- exhibits fields -->
-    <field name="full_text_search" type="text" indexed="true" stored="true" termVectors="true" termPositions="true" termOffsets="true" multiValued="true" />
-    <field name="full_text_search_en" type="text_en" indexed="true" stored="true" termVectors="true" termPositions="true" termOffsets="true" multiValued="true" />
-    <field name="full_text_search_pt" type="text_pt" indexed="true" stored="true" termVectors="true" termPositions="true" termOffsets="true" multiValued="true" />
-    <field name="full_text_search_id" type="text_id" indexed="true" stored="true" termVectors="true" termPositions="true" termOffsets="true" multiValued="true" />
+    <field name="full_text_search" type="text" indexed="true" stored="true" multiValued="true" storeOffsetsWithPositions="true" termVectors="true" />
+    <field name="full_text_search_en" type="text_en" indexed="true" stored="true" multiValued="true" storeOffsetsWithPositions="true" termVectors="true" />
+    <field name="full_text_search_pt" type="text_pt" indexed="true" stored="true" multiValued="true" storeOffsetsWithPositions="true" termVectors="true" />
+    <field name="full_text_search_id" type="text_id" indexed="true" stored="true" multiValued="true" storeOffsetsWithPositions="true" termVectors="true" />
     <field name="full_text_unstem_search" type="textNoStem" indexed="true" stored="true" multiValued="true" />
     <!-- NOTE:  *_tesim fields are copied into all_search which is meant for metadata, not full text.  Use _tesimv for full text -->
     <dynamicField name="*_tesim" type="text" stored="true" indexed="true" multiValued="true" omitNorms="true" />
     <!-- NOTE:  *_tesimv fields are copied into full_text_search which is meant for full text, not metadata.  Use _tesim for metadata -->
-    <dynamicField name="*_tesimv" type="text" stored="true" indexed="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+    <dynamicField name="*_tesimv" type="text" stored="true" indexed="true" multiValued="true" storeOffsetsWithPositions="true" termVectors="true" />
     <dynamicField name="*_bsi" type="boolean" stored="true" indexed="true" multiValued="true" omitNorms="true" />
     <dynamicField name="*_ng" type="text_en_ng" stored="false" indexed="true" multiValued="true"/>
     <dynamicField name="*_pt" type="location" stored="true" indexed="true"/>
@@ -371,8 +371,8 @@
         <tokenizer class="solr.WhitespaceTokenizerFactory" />
         <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
         <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
-        <filter class="solr.SnowballPorterFilterFactory"/>
         <filter class="solr.WordDelimiterGraphFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory"/>
         <filter class="solr.TrimFilterFactory"/>
         <filter class="solr.HyphenatedWordsFilterFactory"/>
         <filter class="solr.FlattenGraphFilterFactory"/>
@@ -381,6 +381,7 @@
         <tokenizer class="solr.WhitespaceTokenizerFactory" />
         <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
         <filter class="solr.WordDelimiterGraphFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory"/>
         <filter class="solr.TrimFilterFactory"/>
       </analyzer>
     </fieldtype>
@@ -391,10 +392,8 @@
         <tokenizer class="solr.WhitespaceTokenizerFactory" />
         <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
         <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
-        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
         <filter class="solr.WordDelimiterGraphFilterFactory"/>
-        <filter class="solr.EnglishPossessiveFilterFactory"/>
-        <filter class="solr.EnglishMinimalStemFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
         <filter class="solr.TrimFilterFactory"/>
         <filter class="solr.HyphenatedWordsFilterFactory"/>
         <filter class="solr.FlattenGraphFilterFactory"/>
@@ -403,8 +402,7 @@
         <tokenizer class="solr.WhitespaceTokenizerFactory" />
         <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
         <filter class="solr.WordDelimiterGraphFilterFactory"/>
-        <filter class="solr.EnglishPossessiveFilterFactory"/>
-        <filter class="solr.EnglishMinimalStemFilterFactory"/>
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
         <filter class="solr.TrimFilterFactory"/>
       </analyzer>
     </fieldtype>

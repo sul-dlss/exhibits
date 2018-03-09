@@ -26,11 +26,13 @@ class CatalogController < ApplicationController
       qt: 'search',
       fl: '*',
       hl: true,
+      'hl.method' => 'unified',
+      # explicitly defining offsetSource because solr thinks we're trying to do Term Vectors (full)
+      'hl.offsetSource' => 'postings_with_term_vectors',
       'hl.fl' => Settings.full_text_highlight.fields,
       'hl.snippets' => 5,
       'hl.fragsize' => 240,
-      'hl.mergeContiguous' => true,
-      'hl.useFastVectorHighlighter' => true
+      'hl.mergeContiguous' => true
     }
 
     config.default_autocomplete_solr_params = {
@@ -381,8 +383,8 @@ class CatalogController < ApplicationController
     def full_text_highlight_exists_in_response?(context, _config, document)
       response = context.instance_variable_get(:@response) || {}
       document_highlight = response.dig('highlighting', document['id'])
-      return true if document_highlight.present? && document_highlight.any? do |field, _|
-        Settings.full_text_highlight.fields.include?(field)
+      return true if document_highlight.present? && document_highlight.any? do |field, values|
+        Settings.full_text_highlight.fields.include?(field) && values.present?
       end
 
       false
