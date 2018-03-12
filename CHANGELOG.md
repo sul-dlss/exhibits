@@ -12,6 +12,7 @@ Update Solr configuration to use the Unified Highlighter #1106
 ### Deprecated
 ### Removed
 ### Fixed
+- Prevent list view titles from overlapping image thumbnails #1116
 ### Security
 
 ## [1.16.2] - 2018-03-07
