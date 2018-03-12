@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://gems.contribsys.com/
   specs:
     actioncable (5.1.5)
       actionpack (= 5.1.5)
@@ -549,6 +550,8 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    sidekiq-pro (3.7.0)
+      sidekiq (>= 4.1.5)
     signet (0.8.1)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -744,6 +747,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq
+  sidekiq-pro!
   sir_trevor_rails
   sitemap_generator
   slack-ruby-client
