@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Deprecated
 ### Removed
 ### Fixed
+- Prevent list view titles from overlapping image thumbnails #1116
 ### Security
 
 ## [1.16.2] - 2018-03-07
