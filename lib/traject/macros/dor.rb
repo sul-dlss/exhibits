@@ -28,7 +28,7 @@ module Macros
     private
 
     def stacks_iiif_url(bare_druid, file_name)
-      "#{Settings.stacks.iiif_url}/#{bare_druid}%2F#{file_name}"
+      "#{Settings.stacks.iiif_url}/#{bare_druid}%2F#{ERB::Util.url_encode(file_name)}"
     end
   end
 end
