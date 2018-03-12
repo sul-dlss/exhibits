@@ -40,7 +40,7 @@ class FullTextParser
   end
 
   def full_text_url(file_name)
-    "#{::Settings.stacks.file_url}/#{druid}/#{CGI.escape(file_name)}"
+    "#{::Settings.stacks.file_url}/#{druid}/#{ERB::Util.url_encode(file_name)}"
   end
 
   def alto_xml_string_content(content)
