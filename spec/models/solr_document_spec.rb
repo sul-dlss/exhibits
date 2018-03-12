@@ -117,4 +117,33 @@ describe SolrDocument do
       expect(document.mods).to be_an ModsDisplay::HTML
     end
   end
+
+  describe '#full_text_highlights' do
+    subject(:document) { described_class.new({ id: 'abc123' }, response) }
+    let(:response) { {} }
+
+    context 'without any highlighting results returned' do
+      it 'returns an empty array' do
+        expect(document.full_text_highlights).to be_blank
+      end
+    end
+
+    context 'with highlighting for the document' do
+      let(:response) do
+        {
+          'highlighting' => {
+            'abc123' => {
+              'full_text_search_en' => %w(a b),
+              'full_text_search_pt' => ['c'],
+              'some_other_field' => ['not_d']
+            }
+          }
+        }
+      end
+
+      it 'returns the results from only the configured fields' do
+        expect(document.full_text_highlights).to match_array %w(a b c)
+      end
+    end
+  end
 end

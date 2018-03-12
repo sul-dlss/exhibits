@@ -39,4 +39,12 @@ class SolrDocument
   mods_xml_source do |model|
     model.fetch(:modsxml)
   end
+
+  def full_text_highlights
+    highlighting_response = response.dig('highlighting', id) || {}
+
+    highlighting_response.select do |k, _|
+      Settings.full_text_highlight.fields.include?(k)
+    end.values.flatten.compact.uniq
+  end
 end
