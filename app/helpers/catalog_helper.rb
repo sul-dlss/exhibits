@@ -66,9 +66,9 @@ module CatalogHelper
   end
 
   # rubocop:disable Rails/OutputSafety
-  def render_fulltext_highlight(args)
-    highlights = full_text_highlights(args[:document]['id'])
-    return if highlights.blank?
+  def render_fulltext_highlight(document:, **_args)
+    highlights = document.full_text_highlights
+    return if highlights.none?
 
     safe_join(highlights.take(Settings.full_text_highlight.snippet_count).map do |val|
       content_tag('p') do
@@ -86,13 +86,5 @@ module CatalogHelper
     elsif document.canvas?
       blacklight_config.view_config(document_index_view_type).default_canvas_thumbnail
     end
-  end
-
-  def full_text_highlights(document_id)
-    highlighting_response = @response.dig('highlighting', document_id) || {}
-
-    highlighting_response.select do |k, _|
-      Settings.full_text_highlight.fields.include?(k)
-    end.values.flatten.compact.uniq
   end
 end

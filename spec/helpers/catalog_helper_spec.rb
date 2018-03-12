@@ -129,50 +129,36 @@ describe CatalogHelper, type: :helper do
   end
 
   describe '#render_fulltext_highlight' do
-    let(:document) { { 'id' => 'abc123' } }
-    let(:values) { %w(Value1 Value2) }
+    let(:document) { instance_double(SolrDocument, full_text_highlights: highlights) }
 
     context 'when there is a matching highlight for the given document' do
-      it 'wraps each highlight value in a paragraph tag' do
-        assign(
-          :response,
-          'highlighting' => {
-            'abc123' => { 'full_text_search_en' => ['The first <em>Value1</em>', 'The <em>Value2</em> second'] }
-          }
-        )
+      let(:highlights) do
+        ['The first <em>Value1</em>', 'The <em>Value2</em> second']
+      end
 
-        ps = helper.render_fulltext_highlight(value: values, document: document)
+      it 'wraps each highlight value in a paragraph tag' do
+        ps = helper.render_fulltext_highlight(document: document)
         expect(ps).to eq '<p>The first <em>Value1</em></p><p>The <em>Value2</em> second</p>'
       end
     end
 
     context 'when there are more than the configured amount of highlight snippets returned' do
-      let(:highlight_snippets) do
-        {
-          'full_text_search_en' => %w(Value1 Value2 Value3 Value4),
-          'full_text_search_pt' => %w(Value5 Value6 Value7 Value8)
-        }
+      let(:highlights) do
+        %w(Value1 Value2 Value3 Value4 Value5 Value6 Value7 Value8)
       end
 
       it 'only renders the configured amount of snippets' do
-        assign(
-          :response,
-          'highlighting' => {
-            'abc123' => highlight_snippets
-          }
-        )
-
-        ps = helper.render_fulltext_highlight(value: values, document: document)
+        ps = helper.render_fulltext_highlight(document: document)
         expect(ps.scan('<p>').count).to eq Settings.full_text_highlight.snippet_count
       end
     end
 
     context 'when the response does not include highlighting for the given document' do
-      it 'is nil' do
-        assign(:response, 'highlighting' => { 'xyz987' => { 'full_text_search_en' => values } })
+      let(:highlights) { [] }
 
-        ps = helper.render_fulltext_highlight(value: values, document: document)
-        expect(ps).to be_nil
+      it 'is nil' do
+        ps = helper.render_fulltext_highlight(document: document)
+        expect(ps).to be_blank
       end
     end
   end
