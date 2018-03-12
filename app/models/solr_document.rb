@@ -43,8 +43,12 @@ class SolrDocument
   def full_text_highlights
     highlighting_response = response.dig('highlighting', id) || {}
 
-    highlighting_response.select do |k, _|
+    all_results = highlighting_response.select do |k, _|
       Settings.full_text_highlight.fields.include?(k)
-    end.values.flatten.compact.uniq
+    end.values.flatten.compact
+
+    all_results.uniq do |value|
+      value.gsub(%r{</?em>}, '')
+    end
   end
 end

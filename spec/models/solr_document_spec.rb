@@ -145,5 +145,19 @@ describe SolrDocument do
         expect(document.full_text_highlights).to match_array %w(a b c)
       end
     end
+
+    context 'when there are multiple highlights for the same phrase in a document with varying highlighting' do
+      let(:response) do
+        {
+          'highlighting' => {
+            'abc123' => { 'full_text_search_en' => ['The first <em>Value1</em>', 'The <em>first</em> <em>Value1</em>'] }
+          }
+        }
+      end
+
+      it 'returns only the unique highlighting phrases' do
+        expect(document.full_text_highlights).to match_array ['The first <em>Value1</em>']
+      end
+    end
   end
 end
