@@ -8,11 +8,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
-Update Solr configuration to use the Unified Highlighter #1106
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [1.17.0] - 2018-03-12
+
+### Added
+### Changed
+- Deduplicate results for fulltext snippets #1120
+- Upgrade to Sidekiq Pro for background jobs #1076
+- Update Solr configuration to use the Unified Highlighter #1106
+- Update testing and deployment dependecies #1119, #1117
 ### Deprecated
 ### Removed
 ### Fixed
 - Prevent list view titles from overlapping image thumbnails #1116
+- Use `ERB::Util.url_encode` for escaping file URLs #1121, #1122
 ### Security
 
 ## [1.16.2] - 2018-03-07
