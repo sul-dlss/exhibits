@@ -8,7 +8,7 @@ Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
 
-FIXTURES_PATH = File.expand_path('../fixtures', __FILE__)
+FIXTURES_PATH = File.expand_path('fixtures', __dir__)
 
 SimpleCov.start('rails') do
   # Ignore these because simplecov doesn't detect when traject
