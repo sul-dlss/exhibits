@@ -250,7 +250,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field('search') do |field|
       field.label = 'Everything'
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         pf2: '$p2',
         pf3: '$pf3'
       }
@@ -258,7 +258,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field('search_title') do |field|
       field.label = 'Title'
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         qf: '$qf_title',
         pf: '$pf_title',
         pf3: '$pf3_title',
@@ -268,7 +268,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field('search_author') do |field|
       field.label = 'Author/Contributor'
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         qf: '$qf_author',
         pf: '$pf_author',
         pf3: '$pf3_author',
@@ -278,7 +278,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field('subject_terms') do |field|
       field.label = 'Subject'
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         qf: '$qf_subject',
         pf: '$pf_subject',
         pf3: '$pf3_subject',
@@ -290,7 +290,7 @@ class CatalogController < ApplicationController
       field.label = 'Call number'
       field.include_in_advanced_search = false
       field.solr_parameters = { defType: 'lucene' }
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         df: 'callnum_search'
       }
     end
@@ -298,7 +298,7 @@ class CatalogController < ApplicationController
     config.add_search_field('full_text') do |field|
       field.label = 'Full text'
       field.include_in_advanced_search = false
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         qf: '$qf_full_text',
         pf: '$pf_full_text',
         pf3: '$pf3_full_text',
@@ -308,7 +308,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field('table_of_contents') do |field|
       field.label = 'Table of contents'
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         qf: '$qf_toc_search',
         pf: '$pf_toc_search',
         pf3: '$pf3_toc_search',
@@ -319,7 +319,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field('incipit') do |field|
       field.label = 'Incipit'
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         qf: 'incipit_tesim',
         pf: 'incipit_tesim',
         pf3: 'incipit_tesim',
@@ -333,7 +333,7 @@ class CatalogController < ApplicationController
 
     config.add_search_field('manuscript_number') do |field|
       field.label = 'Manuscript number'
-      field.solr_local_parameters = {
+      field.solr_parameters = {
         qf: 'manuscript_number_tesim',
         pf: 'manuscript_number_tesim',
         pf3: 'manuscript_number_tesim',
