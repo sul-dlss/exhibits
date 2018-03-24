@@ -2,7 +2,7 @@ set :application, 'spotlight'
 set :repo_url, 'https://github.com/sul-dlss/exhibits.git'
 
 # Default branch is :master
-ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+set :branch, 'master'
 fetch(:branch)
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, "/opt/app/exhibits/exhibits"
