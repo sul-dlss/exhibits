@@ -263,6 +263,7 @@
     <dynamicField name="*_srpt" type="location_rpt" stored="true" indexed="true" multiValued="true"/>
     <dynamicField name="*_geohash" type="geohash" stored="true" indexed="true" multiValued="true"/>
     <dynamicField name="*_ts" type="text" indexed="false" stored="true" multiValued="false" />
+    <dynamicField name="random*" type="random" />
   </fields>
 
   <!-- copy fields -->
