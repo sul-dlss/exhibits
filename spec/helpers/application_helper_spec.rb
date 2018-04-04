@@ -46,7 +46,7 @@ describe ApplicationHelper, type: :helper do
     end
   end
 
-  describe '#choose_canvas_index' do
+  describe '#choose_canvas_id' do
     context 'with a valid SirTrevor Block' do
       let(:canvas_index) { 4 }
       let(:st_block) do
@@ -56,27 +56,18 @@ describe ApplicationHelper, type: :helper do
         )
       end
 
-      it 'returns a zero based index' do
-        expect(helper.choose_canvas_index(st_block)).to eq 3
+      it 'returns the selected iiif_canvas_id from the block' do
+        expect(helper.choose_canvas_id(st_block)).to eq "http://example.com/ab123cd4567_#{canvas_index}"
       end
-
-      # rubocop:disable RSpec/NestedGroups
-      context 'when index is zero' do
-        let(:canvas_index) { 0 }
-
-        it 'does not return a negative number' do
-          expect(helper.choose_canvas_index(st_block)).to eq 0
-        end
-      end
-      # rubocop:enable RSpec/NestedGroups
     end
+
     context 'with SirTrevorBlock that is missing things' do
       let(:st_block) do
         instance_double('SirTrevorRails::Blocks::SolrDocumentsEmbedBlock')
       end
 
-      it 'defaults a return to zero' do
-        expect(helper.choose_canvas_index(st_block)).to eq 0
+      it 'defaults to nil' do
+        expect(helper.choose_canvas_id(st_block)).to eq nil
       end
     end
   end

@@ -51,15 +51,11 @@ module ApplicationHelper
   end
 
   ##
-  # This method sends the message of which "canvas index" (zero-based) should be
-  # selected for a oembed viewer. For this it assumes that a
-  # SirTrevorRails::Blocks::SolrDocumentsEmbedBlock's first item has
-  # `iiif_canvas_id` and that `@id` conforms to the common DLSS `@id` format
-  # e.g. https://purl.stanford.edu/ab123cd4567/iiif/canvas/ab123cd4567_1
+  # This method sends the message of which IIIF canvas should be selected by the sul-embed viewer.
   # @param [SirTrevorRails::Blocks::SolrDocumentsEmbedBlock] block
-  # @param [Integer]
-  def choose_canvas_index(sir_trevor_block)
-    [sir_trevor_block.try(:items).try(:first).try(:[], 'iiif_canvas_id').try(:[], /\d*$/).to_i - 1, 0].max
+  # @return [String] Selected canvas URI
+  def choose_canvas_id(sir_trevor_block)
+    sir_trevor_block.try(:items).try(:first).try(:[], 'iiif_canvas_id')
   end
 
   def context_specific_oembed_url(document)
