@@ -13,6 +13,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.17.1] - 2018-04-04
+
+### Changed
+ - Solr 7 compatibility changes (no user facing changes) #1126
+### Fixed
+ - Fixes an issue where embed widgets in pages does not load when some files are not shelved #1139
+ - More consistent stemming behavior for Portuguese and other languages #1129
+ - Solr schema consistency with prod (no user facing changes) #1134
+### Security
+ - Update generic dependencies (no user facing changes) #1124
+
 ## [1.17.0] - 2018-03-12
 
 ### Added
