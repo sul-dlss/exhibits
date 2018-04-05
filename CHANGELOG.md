@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.17.3] - 2018-04-04
+
+### Fixed
+ - Use the correct parameter that sul-embed expects for canvas id #1145
+
+
 ## [1.17.2] - 2018-04-04
 
 ### Security

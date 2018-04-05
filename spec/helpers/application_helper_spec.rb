@@ -30,7 +30,7 @@ describe ApplicationHelper, type: :helper do
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3)
         expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
-          'mbed?canvas_index=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
+          'mbed?canvas_id=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
       end
     end
 
@@ -41,7 +41,7 @@ describe ApplicationHelper, type: :helper do
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3)
         expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
-          'mbed?canvas_index=3&url=https%3A%2F%2Fsul-purl-uat.stanford.edu%2Fabc123"]'
+          'mbed?canvas_id=3&url=https%3A%2F%2Fsul-purl-uat.stanford.edu%2Fabc123"]'
       end
     end
   end
