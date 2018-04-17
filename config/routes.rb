@@ -45,7 +45,7 @@ Exhibits::Application.routes.draw do
     resource :bibliography_resources, only: [:create, :update]
     resource :viewers, only: [:create, :edit, :update]
 
-    resources :solr_documents, only: [], path: '/catalog', controller: 'catalog' do
+    resources :solr_documents, only: [], path: '/catalog', controller: 'spotlight/catalog' do
       concerns :exportable
 
       member do
