@@ -13,6 +13,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.17.4] - 2018-04-18
+
+### Added
+### Changed
+ - Updates Spotlight to v1.15.0 #1149
+### Deprecated
+### Removed
+### Fixed
+ - Fixes an issue in gallery metadata display #1802
+ - Fixes sidekiq running on prod web servers #1144
+### Security
+
+
 ## [1.17.3] - 2018-04-04
 
 ### Fixed
