@@ -396,6 +396,7 @@ GEM
     mods_display (0.5.1)
       i18n
       stanford-mods (~> 2.1)
+    msgpack (1.2.4)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -475,6 +476,10 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    rbtrace (0.4.10)
+      ffi (>= 1.0.6)
+      msgpack (>= 0.4.3)
+      trollop (>= 1.16.2)
     redcarpet (3.4.0)
     redis (4.0.1)
     representable (3.0.4)
@@ -641,6 +646,7 @@ GEM
       marc-fastxmlwriter (~> 1.0)
       slop (>= 3.4.5, < 4.0)
       yell
+    trollop (2.1.2)
     turbolinks (5.1.0)
       turbolinks-source (~> 5.1)
     turbolinks-source (5.1.0)
@@ -742,6 +748,7 @@ DEPENDENCIES
   rack-dev-mark
   rails (~> 5.1.4)
   rails-controller-testing
+  rbtrace
   riiif
   rsolr
   rspec-rails
