@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
 
   before_action :set_paper_trail_whodunnit
 
+  # see projectblacklight/spotlight#2014 ; avoid endlessly adding exhibits to the heap
+  def set_exhibit_locale_scope; end
+
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
 
