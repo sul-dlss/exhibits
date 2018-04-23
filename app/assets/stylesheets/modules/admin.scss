@@ -19,3 +19,22 @@ a[aria-expanded=false] .glyphicon-chevron-down {
 .text-as-label {
   font-weight: bold;
 }
+
+h3 + .table.analytics {
+  margin-top: $padding-large-vertical * 2;
+}
+
+.table.analytics {
+  background-color: $table-bg-accent;
+
+  .value {
+    color: $color-gray-90;
+    font-size: $font-size-h2;
+    font-weight: 700;
+    padding-bottom: 0;
+  }
+
+  + h4 {
+    margin-top: $padding-large-vertical * 4;
+  }
+}
