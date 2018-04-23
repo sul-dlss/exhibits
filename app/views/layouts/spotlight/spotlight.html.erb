@@ -24,7 +24,7 @@
       <%= stylesheet_link_tag "application" %>
     <% end %>
     <%= stylesheet_link_tag "https://www.stanford.edu/su-identity/css/su-identity.css" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", async: Settings.async_javascript %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
     <%= description %>

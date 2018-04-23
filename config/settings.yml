@@ -57,3 +57,4 @@ mirador_options:
   windowSettings:
     sidePanel: true
     sidePanelVisible: false
+async_javascript: false
