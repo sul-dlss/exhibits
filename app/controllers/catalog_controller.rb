@@ -259,30 +259,30 @@ class CatalogController < ApplicationController
     config.add_search_field('search_title') do |field|
       field.label = 'Title'
       field.solr_parameters = {
-        qf: '$qf_title',
-        pf: '$pf_title',
-        pf3: '$pf3_title',
-        pf2: '$pf2_title'
+        qf: '${qf_title}',
+        pf: '${pf_title}',
+        pf3: '${pf3_title}',
+        pf2: '${pf2_title}'
       }
     end
 
     config.add_search_field('search_author') do |field|
       field.label = 'Author/Contributor'
       field.solr_parameters = {
-        qf: '$qf_author',
-        pf: '$pf_author',
-        pf3: '$pf3_author',
-        pf2: '$pf2_author'
+        qf: '${qf_author}',
+        pf: '${pf_author}',
+        pf3: '${pf3_author}',
+        pf2: '${pf2_author}'
       }
     end
 
     config.add_search_field('subject_terms') do |field|
       field.label = 'Subject'
       field.solr_parameters = {
-        qf: '$qf_subject',
-        pf: '$pf_subject',
-        pf3: '$pf3_subject',
-        pf2: '$pf2_subject'
+        qf: '${qf_subject}',
+        pf: '${pf_subject}',
+        pf3: '${pf3_subject}',
+        pf2: '${pf2_subject}'
       }
     end
 
@@ -299,20 +299,20 @@ class CatalogController < ApplicationController
       field.label = 'Full text'
       field.include_in_advanced_search = false
       field.solr_parameters = {
-        qf: '$qf_full_text',
-        pf: '$pf_full_text',
-        pf3: '$pf3_full_text',
-        pf2: '$pf2_full_text'
+        qf: '${qf_full_text}',
+        pf: '${pf_full_text}',
+        pf3: '${pf3_full_text}',
+        pf2: '${pf2_full_text}'
       }
     end
 
     config.add_search_field('table_of_contents') do |field|
       field.label = 'Table of contents'
       field.solr_parameters = {
-        qf: '$qf_toc_search',
-        pf: '$pf_toc_search',
-        pf3: '$pf3_toc_search',
-        pf2: '$pf2_toc_search'
+        qf: '${qf_toc_search}',
+        pf: '${pf_toc_search}',
+        pf3: '${pf3_toc_search}',
+        pf2: '${pf2_toc_search}'
       }
       field.enabled = false
     end
