@@ -36,6 +36,5 @@ Exhibits::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Raises error for missing translations
-  # Temporarily setting to false because spotlight has some missing keys that need to be fixed
-  config.action_view.raise_on_missing_translations = false
+  config.action_view.raise_on_missing_translations = true
 end
