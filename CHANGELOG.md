@@ -13,6 +13,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.17.5] - 2018-04-24
+
+### Added
+- Added ability to load javascript asynchronously to improve initial paint time. #1153
+### Changed
+- Updated styling of exhibit Analytics UI. #1155
+### Deprecated
+### Removed
+### Fixed
+- Fixes memory leak issue by updating to Spotlight 1.5.1. #1154  (temporary fix already in production)
+- Fixes issue causing results to not be returned for some fielded searches. #1156
+### Security
+
 ## [1.17.4] - 2018-04-18
 
 ### Added
