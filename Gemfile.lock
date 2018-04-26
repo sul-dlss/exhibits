@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: f60677e00fc389c3aa72fefa3c44521acbbcaf77
+  revision: 0a2bce10cd030e8c61496837f1c3dad9d39ffcb8
   branch: i18n-🌝
   specs:
-    blacklight-spotlight (1.5.0)
+    blacklight-spotlight (1.5.1)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
