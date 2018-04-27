@@ -1,0 +1,15 @@
+pt-BR:
+  blacklight:
+    search:
+      view:
+        gallery: "Galeria"
+        slideshow: "Apresentação de slides"
+        masonry: "Alvenaria"
+  blacklight_gallery:
+    catalog:
+      grid_slideshow:
+        missing_image: 'Imagem ausente'
+      document_slideshow:
+        header: "Selecione uma imagem para iniciar a apresentação de slides"
+      modal_slideshow:
+        counter: "%{counter} de %{count}"
