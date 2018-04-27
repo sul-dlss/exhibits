@@ -16,14 +16,14 @@ RSpec.describe 'dor_harvester/_status.html.erb', type: :view do
     it 'displays the object status' do
       render partial: 'dor_harvester/status', locals: { harvester: harvester }
       expect(rendered).to have_content('Object druids')
-      expect(rendered).to have_content 'okdruid Published'
+      expect(rendered).to have_content(/okdruid\s+Published/)
       expect(rendered).to have_selector '.danger', text: /baddruid\s+broken/
     end
 
     it 'displays the collection status' do
       render partial: 'dor_harvester/status', locals: { harvester: harvester }
       expect(rendered).to have_content('Collection druids')
-      expect(rendered).to have_content 'collectiondruid 52'
+      expect(rendered).to have_content(/collectiondruid\s+52/)
     end
   end
 

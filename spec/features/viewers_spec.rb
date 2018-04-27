@@ -21,7 +21,7 @@ describe 'Viewers', type: :feature do
         click_link 'Viewers'
       end
 
-      expect(field_labeled('SUL-Embed')[:checked]).to eq 'checked'
+      expect(find_field('SUL-Embed')[:checked]).to eq 'checked'
     end
 
     it 'can edit the viewers configuration' do
@@ -36,7 +36,7 @@ describe 'Viewers', type: :feature do
         click_button 'Save changes'
       end
 
-      expect(field_labeled('Mirador')[:checked]).to eq 'checked'
+      expect(find_field('Mirador')[:checked]).to eq 'checked'
     end
 
     it 'includes breadcrumbs on the edit page' do
@@ -57,7 +57,7 @@ describe 'Viewers', type: :feature do
         click_button 'Save changes'
       end
 
-      expect(field_labeled('IIIF manifest URL pattern').value).to eq 'https://example.com/manifest/{id}'
+      expect(find_field('IIIF manifest URL pattern').value).to eq 'https://example.com/manifest/{id}'
     end
 
     it 'is invalid without {id}' do
@@ -69,7 +69,7 @@ describe 'Viewers', type: :feature do
       end
 
       expect(page).to have_css '.alert.alert-warning', text: 'There was a problem updating the viewer settings'
-      expect(field_labeled('IIIF manifest URL pattern').value).to be_nil
+      expect(find_field('IIIF manifest URL pattern').value).to be_nil
     end
   end
   describe 'rendered viewer' do
