@@ -12,7 +12,7 @@
     </ul>
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="item-detail-page">
-        <%= bootstrap_form_for @viewer, url: exhibit_viewers_path(@exhibit, @viewer), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
+        <%= bootstrap_form_for @viewer, url: exhibit_viewers_path(@exhibit, @viewer, locale: nil), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
           <p class="instructions"><%= t :'.item_detail.instructions' %></p>
 
           <div class="form-group" aria-labelledby='viewer-type-section-label'>
@@ -34,7 +34,7 @@
         <% end %>
       </div>
       <div role="tabpanel" class="tab-pane" id="iiif-manifest">
-        <%= bootstrap_form_for @viewer, url: exhibit_viewers_path(@exhibit, @viewer), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
+        <%= bootstrap_form_for @viewer, url: exhibit_viewers_path(@exhibit, @viewer, locale: nil), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
           <p class="instructions"><%= t :'.iiif_manifest.instructions_html' %></p>
 
           <div class="form-group" aria-labelledby='iiif-manifest-pattern-section-label'>
