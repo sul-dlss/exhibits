@@ -11,48 +11,54 @@ Exhibits::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  mount Blacklight::Oembed::Engine, at: 'oembed'
-  mount Riiif::Engine => '/images', as: 'riiif'
+  scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: 'en' } do
+    mount Blacklight::Oembed::Engine, at: 'oembed'
+    mount Riiif::Engine => '/images', as: 'riiif'
 
-  resources :mirador, only: [:index]
+    resources :mirador, only: [:index]
 
-  root to: 'spotlight/exhibits#index'
+    root to: 'spotlight/exhibits#index'
 
-  devise_for :users, skip: [:sessions]
-  devise_scope :user do
-    get 'users/auth/webauth' => 'login#login', as: :new_user_session
-    match 'users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session, :via => Devise.mappings[:user].sign_out_via
-  end
-
-  resource :purl_resources
-
-  # this has to come before the Blacklight + Spotlight routes to avoid getting routed as
-  # a document request.
-  resources :exhibits, path: '/', only: [] do
-    get "catalog/range_limit" => "spotlight/catalog#range_limit"
-  end
-
-  mount Blacklight::Engine => '/'
-  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
-
-  mount Spotlight::Engine, at: '/'
-  concern :exportable, Blacklight::Routes::Exportable.new
-
-  resources :exhibits, path: '/', only: [] do
-    resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update] do
-      resources :index_statuses, only: [:index, :show]
+    devise_for :users, skip: [:sessions]
+    devise_scope :user do
+      get 'users/auth/webauth' => 'login#login', as: :new_user_session
+      match 'users/sign_out' => 'devise/sessions#destroy', :as => :destroy_user_session, :via => Devise.mappings[:user].sign_out_via
     end
-    resource :bibliography_resources, only: [:create, :update]
-    resource :viewers, only: [:create, :edit, :update]
 
-    resources :solr_documents, only: [], path: '/catalog', controller: 'spotlight/catalog' do
-      concerns :exportable
+    resource :purl_resources
 
-      member do
-        get 'metadata'
+    # this has to come before the Blacklight + Spotlight routes to avoid getting routed as
+    # a document request.
+    resources :exhibits, path: '/', only: [] do
+      get "catalog/range_limit" => "spotlight/catalog#range_limit"
+    end
+
+    resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
+
+    concern :exportable, Blacklight::Routes::Exportable.new
+
+    resources :exhibits, path: '/', only: [] do
+      resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update] do
+        resources :index_statuses, only: [:index, :show]
+      end
+      resource :bibliography_resources, only: [:create, :update]
+      resource :viewers, only: [:create, :edit, :update]
+
+      resources :solr_documents, only: [], path: '/catalog', controller: 'spotlight/catalog' do
+        concerns :exportable
+
+        member do
+          get 'metadata'
+        end
       end
     end
-  end
 
+  end
   mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
+  
+  Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight' }
+  mount Blacklight::Engine => '/'
+  Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight' }
+  mount Spotlight::Engine, at: '/'
+
 end
