@@ -61,7 +61,7 @@ GEM
     bibtex-ruby (4.4.6)
       latex-decode (~> 0.0)
     bindex (0.5.0)
-    blacklight (6.14.1)
+    blacklight (6.15.0)
       bootstrap-sass (~> 3.2)
       deprecation
       globalid
@@ -81,7 +81,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.0.0.rc1)
+    blacklight-spotlight (2.0.0.rc2)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
