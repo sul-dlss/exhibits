@@ -45,3 +45,13 @@ h3 + .table.analytics {
   color: $black;
   font-weight: normal;
 }
+
+#new_language {
+  margin-bottom: $padding-large-vertical * 3;
+}
+
+.translation-subheading {
+  font-size: $font-size-h3;
+  margin-top: $padding-large-vertical * 3;
+  padding-bottom: $padding-base-vertical;
+}
