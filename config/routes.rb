@@ -11,7 +11,7 @@ Exhibits::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  # scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: 'en' } do
+  scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: 'en' } do
     mount Blacklight::Oembed::Engine, at: 'oembed'
     mount Riiif::Engine => '/images', as: 'riiif'
 
@@ -33,10 +33,12 @@ Exhibits::Application.routes.draw do
       get "catalog/range_limit" => "spotlight/catalog#range_limit"
     end
 
-    mount Blacklight::Engine => '/'
+    concern :searchable, Blacklight::Routes::Searchable.new
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
+    resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+      concerns :searchable
+    end
 
-    mount Spotlight::Engine, at: '/'
     concern :exportable, Blacklight::Routes::Exportable.new
 
     resources :exhibits, path: '/', only: [] do
@@ -55,12 +57,12 @@ Exhibits::Application.routes.draw do
       end
     end
 
-  # end
+  end
   mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 
-  # Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight' }
-  # mount Blacklight::Engine => '/'
-  # Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight' }
-  # mount Spotlight::Engine, at: '/'
+  Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight' }
+  mount Blacklight::Engine => '/'
+  Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight' }
+  mount Spotlight::Engine, at: '/'
 
 end
