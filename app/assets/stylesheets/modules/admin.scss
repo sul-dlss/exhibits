@@ -38,3 +38,10 @@ h3 + .table.analytics {
     margin-top: $padding-large-vertical * 4;
   }
 }
+
+[data-behavior="translation-progress"] .badge {
+  background-color: $color-beige-10;
+  border-radius: 3px;
+  color: $black;
+  font-weight: normal;
+}
