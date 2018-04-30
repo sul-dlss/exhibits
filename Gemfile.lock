@@ -51,7 +51,7 @@ GEM
       io-like (~> 0.3.0)
     arel (8.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.3.0.1)
+    autoprefixer-rails (8.4.1)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -81,7 +81,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.0.0.rc2)
+    blacklight-spotlight (2.0.0.rc3)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -695,7 +695,7 @@ DEPENDENCIES
   blacklight (~> 6.3)
   blacklight-gallery (~> 0.3)
   blacklight-oembed (~> 0.2)
-  blacklight-spotlight (~> 2.0.0.rc)
+  blacklight-spotlight (~> 2.0.0.rc3)
   blacklight_advanced_search
   blacklight_heatmaps
   blacklight_range_limit
