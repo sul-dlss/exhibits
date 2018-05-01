@@ -11,7 +11,7 @@ Exhibits::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  # scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: 'en' } do
+  scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: 'en' } do
     mount Blacklight::Oembed::Engine, at: 'oembed'
     mount Riiif::Engine => '/images', as: 'riiif'
 
@@ -34,12 +34,12 @@ Exhibits::Application.routes.draw do
     end
 
     concern :searchable, Blacklight::Routes::Searchable.new
-    mount Blacklight::Engine => '/'
+    # mount Blacklight::Engine => '/'
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
-    mount Spotlight::Engine, at: '/'
-    # resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
-    #   concerns :searchable
-    # end
+    # mount Spotlight::Engine, at: '/'
+    resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+      concerns :searchable
+    end
 
     concern :exportable, Blacklight::Routes::Exportable.new
 
@@ -59,12 +59,12 @@ Exhibits::Application.routes.draw do
       end
     end
 
-  # end
+  end
   mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 
-  # Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight', defaults: { locale: 'en' } }
-  # mount Blacklight::Engine => '/'
-  # Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight', defaults: { locale: 'en' } }
-  # mount Spotlight::Engine, at: '/'
+  Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight', defaults: { locale: 'en' } }
+  mount Blacklight::Engine => '/'
+  Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight', defaults: { locale: 'en' } }
+  mount Spotlight::Engine, at: '/'
 
 end
