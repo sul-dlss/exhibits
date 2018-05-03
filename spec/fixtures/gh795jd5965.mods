@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.4" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+  <titleInfo>
+    <title>Robby Beyers photographs of the Leland Stanford Junior University Marching Band</title>
+  </titleInfo>
+  <titleInfo type="alternative">
+    <title>LSJUMB Pix</title>
+  </titleInfo>
+  <name type="personal" usage="primary">
+    <namePart>Beyers, Robby</namePart>
+  </name>
+  <typeOfResource collection="yes">still image</typeOfResource>
+  <genre authority="aat">Slides.</genre>
+  <genre authority="aat">Digital photographs.</genre>
+  <originInfo>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>2 boxes</extent>
+    <extent>3 TB</extent>
+    <extent>230,000 photographs</extent>
+  </physicalDescription>
+  <abstract>Includes slides and digital photographs of the Leland Stanford Junior University Marching Band and Dollies at Stanford University football games and other events.</abstract>
+  <note type="statement of responsibility" altRepGroup="00"/>
+  <note type="preferred citation">Robby Beyers photographs of the Leland Stanford Junior University Marching Band (PC0170). Dept. of Special Collections &amp; University Archives, Stanford University Libraries, Stanford, Calif.</note>
+  <note type="acquisition">Gift of Robby Beyers, 2015.</note>
+  <subject authority="lcsh">
+    <name type="corporate">
+      <namePart>Stanford University.</namePart>
+    </name>
+    <geographic>Sports</geographic>
+  </subject>
+  <subject authority="lcsh">
+    <name type="corporate">
+      <namePart>Stanford University.</namePart>
+      <namePart>Marching Band.</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh">
+    <name type="corporate">
+      <namePart>Stanford University.</namePart>
+      <namePart>Students.</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Marching Bands</topic>
+    <geographic>California</geographic>
+  </subject>
+  <subject authority="lcsh">
+    <topic>College Students</topic>
+    <geographic>California</geographic>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Football</topic>
+  </subject>
+  <relatedItem>
+    <location>
+      <url displayLabel="Finding aid">http://www.oac.cdlib.org/findaid/ark:/13030/c8bk1hsc</url>
+    </location>
+  </relatedItem>
+  <recordInfo>
+    <descriptionStandard>aacr</descriptionStandard>
+    <descriptionStandard>dacs</descriptionStandard>
+    <recordContentSource authority="marcorg">CSt</recordContentSource>
+    <recordCreationDate encoding="marc">150916</recordCreationDate>
+    <recordIdentifier>a11403803</recordIdentifier>
+    <recordOrigin>Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4_SDR.xsl (Version 1.2.5 2013/08/11)</recordOrigin>
+  </recordInfo>
+  <accessCondition type="useAndReproduction">The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu).</accessCondition>
+</mods>

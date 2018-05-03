@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.loc.gov/mods/v3" version="3.5" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+  <titleInfo>
+    <title>Leland Stanford Junior University Marching Band, Stanford vs. Arizona football game, October 19, 2002</title>
+  </titleInfo>
+  <name type="personal" usage="primary" authority="naf" authorityURI="http://id.loc.gov/authorities/names" valueURI="http://id.loc.gov/authorities/names/no2015139297">
+    <namePart>Beyers, Robby</namePart>
+    <role>
+      <roleTerm type="code" authority="marcrelator" authorityURI="http://id.loc.gov/vocabulary/relators" valueURI="http://id.loc.gov/vocabulary/relators/pht">pht</roleTerm>
+      <roleTerm type="text" authority="marcrelator" authorityURI="http://id.loc.gov/vocabulary/relators" valueURI="http://id.loc.gov/vocabulary/relators/pht">photographer</roleTerm>
+    </role>
+  </name>
+  <typeOfResource>still image</typeOfResource>
+  <genre authority="aat" authorityURI="http://vocab.getty.edu/aat" valueURI="http://vocab.getty.edu/aat/300046300">photographs</genre>
+  <originInfo displayLabel="Place of Creation" eventType="production">
+    <place>
+      <placeTerm type="text" authority="naf" authorityURI="http://id.loc.gov/authorities/names" valueURI="http://id.loc.gov/authorities/names/n50046557">Stanford (Calif.)</placeTerm>
+    </place>
+    <dateCreated keyDate="yes" encoding="w3cdtf">2002-10-19</dateCreated>
+  </originInfo>
+  <physicalDescription>
+    <form authority="aat" authorityURI="http://vocab.getty.edu/aat" valueURI="http://vocab.getty.edu/aat/300128371">slides (photographs)</form>
+    <extent>204 photographs</extent>
+    <digitalOrigin>reformatted digital</digitalOrigin>
+    <internetMediaType>image/jpeg</internetMediaType>
+  </physicalDescription>
+  <abstract>Photographs of the Leland Stanford Junior University Marching Band and Dollies taken by Robby Beyers.</abstract>
+  <note>Photographs in series 1 were selected by the photographer as his best images of the collection.</note>
+  <subject authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects">
+    <name type="corporate" authority="naf" authorityURI="http://id.loc.gov/authorities/names" valueURI="http://id.loc.gov/authorities/names/nr92033776">
+      <namePart>Stanford University. Marching Band</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects">
+    <name type="corporate" authority="naf" authorityURI="http://id.loc.gov/authorities/names" valueURI="http://id.loc.gov/authorities/names/no2016102254">
+      <namePart>Stanford Dollies</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85081020">
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85081020">Marching bands</topic>
+  </subject>
+  <subject authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85028356">
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85028356">College students</topic>
+  </subject>
+  <subject authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85050405">
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85050405">Football</topic>
+  </subject>
+  <subject authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85039778">
+    <topic authority="lcsh" authorityURI="http://id.loc.gov/authorities/subjects" valueURI="http://id.loc.gov/authorities/subjects/sh85039778">Drum majors</topic>
+  </subject>
+  <location>
+    <physicalLocation type="repository" authority="naf" valueURI="http://id.loc.gov/authorities/names/no2014019980">Stanford University. Libraries. Department of Special Collections and University Archives</physicalLocation>
+    <shelfLocator>PC0170, Series 1, Box 2, Series 2</shelfLocator>
+    <url>https://purl.stanford.edu/ws947mh3822</url>
+  </location>
+  <extension displayLabel="geo">
+    <rdf:RDF xmlns:gml="http://www.opengis.net/gml/3.2/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <rdf:Description rdf:about="https://purl.stanford.edu/ws947mh3822">
+        <dc:format>image/jpeg</dc:format>
+        <dc:type>Image</dc:type>
+        <gml:boundedBy>
+          <gml:Envelope>
+            <gml:lowerCorner>-122.191292 37.4063388</gml:lowerCorner>
+            <gml:upperCorner>-122.149475 37.4435369</gml:upperCorner>
+          </gml:Envelope>
+        </gml:boundedBy>
+      </rdf:Description>
+    </rdf:RDF>
+  </extension>
+  <recordInfo>
+    <languageOfCataloging>
+      <languageTerm type="code" authority="iso639-2b" authorityURI="http://id.loc.gov/vocabulary/iso639-2" valueURI="http://id.loc.gov/vocabulary/iso639-2/eng">eng</languageTerm>
+    </languageOfCataloging>
+    <recordContentSource authority="marcorg" authorityURI="http://id.loc.gov/vocabulary/organizations" valueURI="http://id.loc.gov/vocabulary/organizations/cst">CSt</recordContentSource>
+  </recordInfo>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Robby Beyers photographs of the Leland Stanford Junior University Marching Band</title>
+    </titleInfo>
+    <location>
+      <url>https://purl.stanford.edu/gh795jd5965</url>
+    </location>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu).</accessCondition>
+  <accessCondition type="license">CC by-nc-nd: Attribution Non-commercial, No Derivatives 3.0 Unported</accessCondition>
+</mods>

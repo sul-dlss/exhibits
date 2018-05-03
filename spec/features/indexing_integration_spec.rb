@@ -9,7 +9,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
   before do
     stub_request(:post, /update/)
-    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994).each do |fixture|
+    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
@@ -219,6 +219,28 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
       it 'parses and reformats the timestamp to iso8601' do
         expect(document[:last_updated]).to eq '2015-07-14T02:40:23Z'
+      end
+    end
+  end
+
+  context 'virtual object' do
+    let(:druid) { 'ws947mh3822' }
+
+    context 'to_solr' do
+      subject(:document) do
+        dor_harvester.document_builder.to_solr.first
+      end
+
+      it 'has content metadata fields' do
+        expect(document).to include content_metadata_type_ssim: ['image'],
+                                    content_metadata_first_image_file_name_ssm: ['PC0170_s1_E_0204'],
+                                    content_metadata_first_image_width_ssm: ['4488'],
+                                    content_metadata_first_image_height_ssm: ['6738'],
+                                    content_metadata_image_iiif_info_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/info.json https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/info.json),
+                                    thumbnail_square_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/square/100,100/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/square/100,100/0/default.jpg),
+                                    thumbnail_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!400,400/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!400,400/0/default.jpg),
+                                    large_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!1000,1000/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!1000,1000/0/default.jpg),
+                                    full_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!3000,3000/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!3000,3000/0/default.jpg)
       end
     end
   end
