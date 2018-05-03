@@ -81,7 +81,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.0.0.rc4)
+    blacklight-spotlight (2.0.0.rc5)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -406,7 +406,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
     newrelic_rpm (5.0.0.342)
-    nio4r (2.3.0)
+    nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     nom-xml (0.6.0)
