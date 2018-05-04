@@ -13,6 +13,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.18.0] - 2018-05-04
+
+### Added
+- Added ability to translate user provided labels/content in exhibits (by updating to Spotlight 2.0.0) #1164
+### Changed
+- Put a border around thumbnail images that are linked #1161
+- Updated to Spotlight 2.0.0 [release notes](https://github.com/projectblacklight/spotlight/releases/tag/v2.0.0)
+### Deprecated
+### Removed
+### Fixed
+- Fixes thumbnail indexing for virtual objects #1166
+- Fixes issue with slideshow thumbnails not taking up entire available area #1165
+### Security
+
 ## [1.17.5] - 2018-04-24
 
 ### Added
