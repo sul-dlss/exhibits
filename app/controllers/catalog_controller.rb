@@ -149,7 +149,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'folder_name_ssi', label: 'Folder Name', limit: true
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
     config.add_facet_field 'doc_subtype_ssi', label: 'Document Subtype', limit: true
-    config.add_facet_field 'collection_with_title', label: 'Collection', limit: true, helper_method: :collection_title
+    config.add_facet_field 'collection_leading_title',
+                           label: 'Collection',
+                           limit: true,
+                           helper_method: :collection_title
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -209,7 +212,7 @@ class CatalogController < ApplicationController
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
-    config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
+    config.add_index_field 'collection_leading_title', label: 'Collection', helper_method: :document_collection_title
     # Fields specific to Parker Exhibit
     config.add_index_field 'incipit_tesim', label: 'Incipit'
     config.add_index_field 'toc_search', label: 'Table of contents', helper_method: :table_of_contents_separator

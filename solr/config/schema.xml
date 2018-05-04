@@ -216,8 +216,10 @@
     <field name="modsxml" type="string" indexed="false" stored="true" />
     <!-- collection (facet and display): "sirsi" or, for DOR items, the id of their parent coll -->
     <field name="collection" type="string" indexed="true" stored="true" multiValued="true" omitNorms="true" />
-    <!-- collection_with_title: easy way to indicate item's parent coll title in UI (may be deprecated in future) -->
+    <!-- DEPRECATED: collection_with_title: easy way to indicate item's parent coll title in UI (may be deprecated in future) -->
     <field name="collection_with_title" type="string" indexed="true" stored="true" multiValued="true" />
+    <!-- collection_leading_title: easy way to indicate item's parent coll title in UI, sortable by A-Z (may be deprecated in future) -->
+    <field name="collection_leading_title" type="string" indexed="true" stored="true" multiValued="true" />
     <!-- collection_search: allow searching within collections for aggr. colls -->
     <field name="collection_search" type="string_punct_stop" indexed="true" stored="true" multiValued="true" omitNorms="true" />
     <!-- display_type: used by UI code, e.g. 'file' or 'image' -->
