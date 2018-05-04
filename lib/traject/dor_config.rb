@@ -148,15 +148,16 @@ to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
 each_record do |resource, context|
   content_metadata = resource.public_xml.at_xpath('/publicObject/contentMetadata')
   next if content_metadata.blank?
-  images = content_metadata.xpath('resource/file[@mimetype="image/jp2"]')
-  thumbnail_data = images.first { |node| node.attr('id') =~ /jp2$/ }
+  # Select conventional file images or virtual external ones
+  images = content_metadata.xpath('(resource/file[@mimetype="image/jp2"] | resource/externalFile[@mimetype="image/jp2"])')
+  thumbnail_data = images.first { |node| (node.attr('id') || node.attr('fileId')) =~ /jp2$/ }
   context.clipboard['thumbnail_data'] = thumbnail_data
 end
 
 to_field 'content_metadata_first_image_file_name_ssm' do |_resource, accumulator, context|
   next unless context.clipboard['thumbnail_data']
-
-  file_id = context.clipboard['thumbnail_data'].attr('id').gsub('.jp2', '')
+  # Allow for selection of conventional id's or virtual fileIds
+  file_id = (context.clipboard['thumbnail_data'].attr('id') || context.clipboard['thumbnail_data'].attr('fileId')).gsub('.jp2', '')
   accumulator << file_id
 end
 

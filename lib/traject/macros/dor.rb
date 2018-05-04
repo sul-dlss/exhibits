@@ -16,11 +16,18 @@ module Macros
         content_metadata = resource.public_xml.at_xpath('/publicObject/contentMetadata')
         next if content_metadata.nil?
 
-        images = content_metadata.xpath('resource/file[@mimetype="image/jp2"]')
-        jp2s = images.select { |node| node.attr('id') =~ /jp2$/ }
+        # Select conventional file images or virtual external ones
+        images = content_metadata.xpath(
+          '(resource/file[@mimetype="image/jp2"] | resource/externalFile[@mimetype="image/jp2"])'
+        )
+        # Allow for selection of conventional ids and fileId for virtual objects
+        jp2s = images.select { |node| (node.attr('id') || node.attr('fileId')) =~ /jp2$/ }
 
         jp2s.each do |v|
-          accumulator << stacks_iiif_url(resource.bare_druid, v.attr('id').gsub('.jp2', ''))
+          # Select a virtual object druid if available or the bare druid for a conventional image object
+          druid = v.attr('objectId').to_s.gsub('druid:', '')
+          druid = resource.bare_druid if druid.empty?
+          accumulator << stacks_iiif_url(druid, (v.attr('id') || v.attr('fileId')).gsub('.jp2', ''))
         end
       end
     end
