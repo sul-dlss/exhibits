@@ -10,31 +10,31 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require 'blacklight_advanced_search'
+// require jquery
+// require 'blacklight_advanced_search'
 
 
-//= require jquery_ujs
-//= require turbolinks
+// require jquery_ujs
+// require turbolinks
 //
 // Required by Blacklight
-//= require blacklight/blacklight
+// require blacklight/blacklight
 
-//= require analytics
-//= require bibliography
-//= require cited_documents
-//= require blacklight_gallery
-//= require blacklight_heatmaps
-//= require blacklight_oembed
-//= require full_text_collapse
-//= require index_status_typeahead
-//= require nested_related_items
-//= require openseadragon
-//= require spotlight
-//= require sul-exhibits-template
-//= require table_of_contents
+// require analytics
+// require bibliography
+// require cited_documents
+// require blacklight_gallery
+// require blacklight_heatmaps
+// require blacklight_oembed
+// require full_text_collapse
+// require index_status_typeahead
+// require nested_related_items
+// require openseadragon
+// require spotlight
+// require sul-exhibits-template
+// require table_of_contents
 
 
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
 // this:
-//= require 'blacklight_range_limit'
+// require 'blacklight_range_limit'
