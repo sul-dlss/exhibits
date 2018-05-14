@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixes issue preventing adding/editing titles/dates for uploaded documents #1177
 ### Security
 
 ## [1.18.0] - 2018-05-04
