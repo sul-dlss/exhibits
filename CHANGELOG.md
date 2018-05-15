@@ -11,7 +11,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Deprecated
 ### Removed
 ### Fixed
+### Security
+
+## [1.18.1] - 2018-05-15
+
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
 - Fixes issue preventing adding/editing titles/dates for uploaded documents #1177
+- Upgrade to mirador_rails v0.8.0 to deal with translation route parameter [mirador_rails#9](https://github.com/sul-dlss/mirador_rails/pull/9)
 ### Security
 
 ## [1.18.0] - 2018-05-04
