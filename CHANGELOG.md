@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Deprecated
 ### Removed
 ### Fixed
+### Security
+
+## [1.18.2] - 2018-05-31
+
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
 - Fixes issue where you can page browse category records into negative numbers (via Spotlight)
 - Fixes issue where really large sir-trevor widget pages cannot be saved (via Spotlight)
 ### Security
