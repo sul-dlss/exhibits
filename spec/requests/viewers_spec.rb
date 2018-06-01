@@ -37,7 +37,7 @@ describe 'Viewer Configuration', type: :request do
       it 'is allowed' do
         get "/#{exhibit.slug}/viewers/edit"
 
-        expect(response).to be_success
+        expect(response).to be_successful
       end
     end
   end
