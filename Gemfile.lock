@@ -55,7 +55,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.5.0)
+    autoprefixer-rails (8.5.2)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -85,7 +85,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.0.1)
+    blacklight-spotlight (2.0.2)
       acts-as-taggable-on (~> 5.0)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -433,7 +433,7 @@ GEM
     openseadragon (0.4.0)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    paper_trail (9.0.2)
+    paper_trail (9.1.1)
       activerecord (>= 4.2, < 5.3)
       request_store (~> 1.1)
     parallel (1.12.1)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_11_231633) do
+ActiveRecord::Schema.define(version: 20180531002412) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -249,7 +249,7 @@ ActiveRecord::Schema.define(version: 2018_05_11_231633) do
     t.string "type"
     t.string "slug"
     t.string "scope"
-    t.text "content"
+    t.text "content", limit: 16777215
     t.integer "weight", default: 50
     t.boolean "published"
     t.integer "exhibit_id"
