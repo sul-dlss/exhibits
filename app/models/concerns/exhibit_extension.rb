@@ -23,7 +23,7 @@ module ExhibitExtension
   private
 
   def send_publish_state_change_notification
-    return unless saved_changes.keys.include?('published')
+    return unless saved_changes.key?('published')
     SendPublishStateChangeNotificationJob.perform_later(exhibit: self, published: published)
   end
 end

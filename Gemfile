@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Puma as the app server
@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
 
 group :deployment do
   gem 'capistrano', '~> 3.0'
@@ -80,7 +83,7 @@ group :test do
 end
 
 group :production do
-  gem 'mysql2', '~> 0.4.4'
+  gem 'mysql2', '~> 0.5'
   gem 'newrelic_rpm'
 end
 
