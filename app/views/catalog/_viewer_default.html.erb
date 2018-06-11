@@ -1,4 +1,4 @@
-<% if document.uploaded_resource? %>
+<% if document.uploaded_resource? || document.external_iiif? %>
   <%= render partial: "openseadragon_default", locals: {document: document} %>
 <% else %>
   <% # block comes from a local passed in from Spotlight %>
