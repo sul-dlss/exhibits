@@ -118,6 +118,22 @@ describe SolrDocument do
     end
   end
 
+  describe '#external_iiif?' do
+    context 'when a document is an external IIIF resource' do
+      subject(:document) { described_class.new(spotlight_resource_type_ssim: ['spotlight/resources/iiif_harvesters']) }
+      it 'returns true when the correct fields are present' do
+        expect(document.external_iiif?).to be true
+      end
+    end
+
+    context 'when a document is not an external IIIF resource' do
+      subject(:document) { described_class.new }
+      it 'returns false if the correct fields are not present' do
+        expect(document.external_iiif?).to be false
+      end
+    end
+  end
+
   describe '#full_text_highlights' do
     subject(:document) { described_class.new({ id: 'abc123' }, response) }
     let(:response) { {} }

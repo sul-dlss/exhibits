@@ -51,4 +51,9 @@ class SolrDocument
       value.gsub(%r{</?em>}, '')
     end
   end
+
+  def external_iiif?
+    self[self.class.resource_type_field].present? &&
+      self[self.class.resource_type_field].include?('spotlight/resources/iiif_harvesters')
+  end
 end
