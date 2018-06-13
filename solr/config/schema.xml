@@ -346,7 +346,9 @@
   <copyField source="spotlight_upload_date_tesim" dest="date_sort" />
   <!-- NOTE:  all_search is meant for metadata -->
   <copyField source="*_tesim" dest="all_search" />
+  <copyField source="*_tags_ssim" dest="all_search" />
   <copyField source="*_tesim" dest="all_unstem_search" />
+  <copyField source="*_tags_ssim" dest="all_unstem_search" />
   <!-- NOTE:  full_text_search is meant for full text -->
   <copyField source="*_tesimv" dest="full_text_search" />
   <copyField source="full_text_search" dest="full_text_unstem_search" />
