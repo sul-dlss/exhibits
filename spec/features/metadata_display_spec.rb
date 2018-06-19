@@ -27,6 +27,7 @@ RSpec.feature 'Metadata display' do
       end
     end
   end
+
   describe 'specific fields' do
     before do
       visit metadata_exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')

@@ -83,6 +83,7 @@ RSpec.describe Bibliography do
         expect(bibliography.bibliography).to be_a(BibTeX::Bibliography)
       end
     end
+
     context 'a Pathname' do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/phdthesis.bib') }
 
@@ -90,6 +91,7 @@ RSpec.describe Bibliography do
         expect(bibliography.bibliography).to be_a(BibTeX::Bibliography)
       end
     end
+
     context 'a String (data)' do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/phdthesis.bib').read }
 
@@ -97,6 +99,7 @@ RSpec.describe Bibliography do
         expect(bibliography.bibliography).to be_a(BibTeX::Bibliography)
       end
     end
+
     context 'an unsupported form' do
       let(:bibtex) { nil }
 

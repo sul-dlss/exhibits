@@ -39,6 +39,7 @@ describe 'viewers/_mirador.html.erb', type: :view do
       expect(rendered).to include CGI.escape('https://purl.stanford.edu/bc853rd3116?manifest')
     end
   end
+
   context 'when using a custom manifest pattern' do
     before do
       current_exhibit.required_viewer.custom_manifest_pattern = 'https://example.com/{id}'
@@ -46,10 +47,12 @@ describe 'viewers/_mirador.html.erb', type: :view do
       # Re-render now that the exhibit is updated
       render partial: 'viewers/mirador', locals: { current_exhibit: current_exhibit, document: document }
     end
+
     it do
       expect(rendered).to include CGI.escape('https://example.com/abc123')
     end
   end
+
   it 'has the IIIF drag and drop' do
     expect(rendered).to have_css 'a[href="https://library.stanford.edu/project'\
       's/international-image-interoperability-framework/viewers?manifest=https'\

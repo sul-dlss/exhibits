@@ -203,6 +203,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document.formatted_bibliography).to include 'A Declaration of Certayne Principall Articles of Religion'
     end
   end
+
   context 'with no title' do
     let(:file) { 'spec/fixtures/bibliography/notitle.bib' }
 
@@ -214,6 +215,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document.formatted_bibliography).to be_nil
     end
   end
+
   context 'with no author' do
     let(:file) { 'spec/fixtures/bibliography/noauthor.bib' }
 
@@ -228,6 +230,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document.formatted_bibliography).to include 'A Declaration of Certayne Principall Articles of Religion'
     end
   end
+
   context 'with no keywords' do
     let(:file) { 'spec/fixtures/bibliography/nokeywords.bib' }
 
@@ -239,6 +242,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       expect(document.formatted_bibliography).to be_nil
     end
   end
+
   context 'with TeX-ified title' do
     subject(:document) do
       SolrDocument.new(bibliography_resource.document_builder.to_solr.first)

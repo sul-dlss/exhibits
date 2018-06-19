@@ -52,6 +52,7 @@ describe DorHarvester do
 
   context 'hooks' do
     before { ActiveJob::Base.queue_adapter = :test }
+
     let(:resource) { instance_double(Harvestdor::Indexer::Resource, bare_druid: druid) }
 
     # rubocop:disable Metrics/LineLength

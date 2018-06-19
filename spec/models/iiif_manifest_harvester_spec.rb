@@ -19,6 +19,7 @@ RSpec.describe IiifManifestHarvester do
       expect(subject.manifest).to be_an IIIF::Presentation::Manifest
     end
   end
+
   describe '#canvases' do
     it 'returns the first sequence canvases' do
       expect(subject.canvases.count).to eq 3
