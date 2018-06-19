@@ -8,6 +8,7 @@ describe ApplicationController do
       allow(subject).to receive(:current_exhibit)
         .and_return(FactoryBot.create(:exhibit, slug: 'test-flag-exhibit-slug'))
     end
+
     it 'initializes a FeatureFlags object' do
       expect(controller.feature_flags).to be_a FeatureFlags
     end

@@ -29,6 +29,7 @@ describe CatalogHelper, type: :helper do
         search_session: {}
       )
     end
+
     context 'for references' do
       let(:document) { SolrDocument.new(id: 'abc123', format_main_ssim: ['Reference']) }
 

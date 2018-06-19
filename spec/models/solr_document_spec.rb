@@ -17,6 +17,7 @@ describe SolrDocument do
       end
     end
   end
+
   describe '#exhibit_specific_manifest' do
     subject do
       described_class.new(
@@ -32,12 +33,14 @@ describe SolrDocument do
         expect(subject.exhibit_specific_manifest('')).to eq 'http://www.example.com/default/'
       end
     end
+
     context 'with a custom_manifest_pattern' do
       it 'provides a replaced manifest url' do
         expect(subject.exhibit_specific_manifest('https://www.example.com/new/{id}'))
           .to eq 'https://www.example.com/new/abc123'
       end
     end
+
     context 'without an indexed manifest' do
       subject { described_class.new }
 
@@ -45,6 +48,7 @@ describe SolrDocument do
         expect(subject.exhibit_specific_manifest('present')).to be_nil
       end
     end
+
     context 'without a whitelisted contentMetadata type' do
       subject do
         described_class.new(
@@ -110,6 +114,7 @@ describe SolrDocument do
 
     pending 'Canvas should support multiple AnnotationList URLs as per IIIF spec'
   end
+
   describe '#mods' do
     subject(:document) { described_class.new(modsxml: '<xml></xml>') }
 

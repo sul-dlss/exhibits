@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe MiradorController, type: :controller do
   describe '#index' do
     before { get :index, params: { manifest: 'holla', canvas: 'back', exhibit_slug: 'now' } }
+
     it { expect(response).to be_success }
     it 'sets @manifest' do
       expect(assigns(:manifest)).to eq 'holla'

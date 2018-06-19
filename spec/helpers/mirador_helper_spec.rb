@@ -28,6 +28,7 @@ describe MiradorHelper, type: :helper do
         expect(window_settings[:sidePanelVisible]).to be false
       end
     end
+
     context 'exhibit has its own configuration' do
       let(:exhibit_slug) { 'test-flag-exhibit-slug' }
 

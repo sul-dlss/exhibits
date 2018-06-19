@@ -9,6 +9,7 @@ describe 'shared/_site_sidebar', type: :view do
       allow(view).to receive(:can?).with(:manage, Spotlight::Site.instance).and_return(false)
       render
     end
+
     it { is_expected.to have_link('Request an exhibit') }
     it { is_expected.not_to have_link('Create a new exhibit') }
   end
@@ -20,6 +21,7 @@ describe 'shared/_site_sidebar', type: :view do
       allow(view).to receive(:can?).with(:manage, Spotlight::Site.instance).and_return(true)
       render
     end
+
     it { is_expected.to have_link('Create a new exhibit') }
   end
 end

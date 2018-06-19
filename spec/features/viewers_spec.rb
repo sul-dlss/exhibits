@@ -72,6 +72,7 @@ describe 'Viewers', type: :feature do
       expect(find_field('IIIF manifest URL pattern').value).to be_nil
     end
   end
+
   describe 'rendered viewer' do
     let(:feature_page) { FactoryBot.create(:feature_page, exhibit: exhibit) }
     let(:admin) { FactoryBot.create(:exhibit_admin, exhibit: exhibit) }
@@ -81,6 +82,7 @@ describe 'Viewers', type: :feature do
       exhibit.required_viewer.save
       login_as admin
     end
+
     it 'renders configured viewer on show page' do
       visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
       expect(page).to have_css 'iframe[src*=mirador]'
