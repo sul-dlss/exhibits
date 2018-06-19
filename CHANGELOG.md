@@ -13,6 +13,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.18.3] - 2018-06-19
+
+### Added
+- Make exhibit tags searchable #1198
+### Changed
+- Upgrade to Rails 5.2 #1186
+### Deprecated
+### Removed
+### Fixed
+- Fix a bug where external IIIF records did not render a viewer
+### Security
+- Address sprockets security vulnerability and update other dependencies #1201
+
 ## [1.18.2] - 2018-05-31
 
 ### Added
