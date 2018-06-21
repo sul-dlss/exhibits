@@ -25,11 +25,17 @@ class User < ApplicationRecord
     email
   end
 
-  attr_reader :webauth_groups
+  attr_reader :groups
 
   def webauth_groups=(groups)
     run_callbacks :groups_changed do
-      @webauth_groups ||= groups.split('|')
+      @groups ||= groups.split('|')
+    end
+  end
+
+  def shibboleth_groups=(groups)
+    run_callbacks :groups_changed do
+      @groups ||= groups.split(';')
     end
   end
 
@@ -58,7 +64,7 @@ class User < ApplicationRecord
   def default_role_attributes
     {
       resource: Spotlight::Site.instance,
-      role: ('admin' if (webauth_groups & Settings.superadmin_workgroups).any?)
+      role: ('admin' if (groups & Settings.superadmin_workgroups).any?)
     }
   end
 end
