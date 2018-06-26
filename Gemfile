@@ -77,7 +77,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'capybara'
   gem 'chromedriver-helper'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '!= 3.13.0'
   gem 'coveralls', require: false
   gem 'webmock'
 end

@@ -43,8 +43,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (5.0.0)
-      activerecord (>= 4.2.8)
+    acts-as-taggable-on (6.0.0)
+      activerecord (~> 5.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     airbrussh (1.3.0)
@@ -55,7 +55,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.6.3)
+    autoprefixer-rails (8.6.5)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -85,8 +85,8 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.0.2)
-      acts-as-taggable-on (~> 5.0)
+    blacklight-spotlight (2.1.0)
+      acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
       blacklight (~> 6.3)
@@ -168,14 +168,14 @@ GEM
     capistrano-sidekiq (1.0.2)
       capistrano (>= 3.9.0)
       sidekiq (>= 3.4)
-    capybara (3.3.0)
+    capybara (3.3.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
-    carrierwave (1.2.2)
+    carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -206,9 +206,9 @@ GEM
     confstruct (1.0.2)
       hashie (~> 3.3)
     connection_pool (2.2.2)
-    coveralls (0.8.21)
+    coveralls (0.8.22)
       json (>= 1.8, < 3)
-      simplecov (~> 0.14.1)
+      simplecov (~> 0.16.1)
       term-ansicolor (~> 1.3)
       thor (~> 0.19.4)
       tins (~> 1.6)
@@ -245,7 +245,7 @@ GEM
       capistrano-bundle_audit (>= 0.1.0)
       capistrano-one_time_key
       capistrano-shared_configs
-    docile (1.1.5)
+    docile (1.3.1)
     dor-fetcher (1.0.5)
     dot-properties (0.1.3)
     dotenv (2.5.0)
@@ -269,7 +269,7 @@ GEM
       dry-equalizer (~> 0.2)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 0.4, >= 0.4.2)
-    dry-validation (0.12.0)
+    dry-validation (0.12.1)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1, >= 0.1.3)
       dry-core (~> 0.2, >= 0.2.1)
@@ -294,7 +294,7 @@ GEM
       railties (>= 3.2, < 6.0)
     friendly_id (5.2.4)
       activerecord (>= 4.0.0)
-    github-markup (2.0.0)
+    github-markup (2.0.1)
     gli (2.17.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -409,7 +409,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.5.1)
+    mysql2 (0.5.2)
     namae (1.0.1)
     net-http-persistent (2.9.4)
     net-scp (1.2.1)
@@ -417,7 +417,7 @@ GEM
     net-ssh (5.0.2)
     newrelic_rpm (5.2.0.345)
     nio4r (2.3.1)
-    nokogiri (1.8.3)
+    nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     nom-xml (0.6.0)
       activesupport (>= 3.2.18)
@@ -430,7 +430,7 @@ GEM
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
     okcomputer (1.17.2)
-    openseadragon (0.4.0)
+    openseadragon (0.5.0)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
     paper_trail (9.2.0)
@@ -560,7 +560,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     scrub_rb (1.0.1)
-    selenium-webdriver (3.13.0)
+    selenium-webdriver (3.12.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     sidekiq (5.1.3)
@@ -576,8 +576,8 @@ GEM
       faraday (~> 0.9)
       jwt (>= 1.5, < 3.0)
       multi_json (~> 1.10)
-    simplecov (0.14.1)
-      docile (~> 1.1.0)
+    simplecov (0.16.1)
+      docile (~> 1.1)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
@@ -600,7 +600,7 @@ GEM
       actionpack
       rack-timeout (>= 0.3.0, < 0.5.0)
       railties
-    solr_wrapper (1.2.0)
+    solr_wrapper (2.0.0)
       faraday
       retriable
       ruby-progressbar
@@ -674,7 +674,7 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (4.1.12)
+    uglifier (4.1.14)
       execjs (>= 0.3.0, < 3)
     underscore-rails (1.8.3)
     unf (0.1.4)
@@ -766,7 +766,7 @@ DEPENDENCIES
   rubocop-rspec
   ruby-oembed
   sass-rails (~> 5.0)
-  selenium-webdriver
+  selenium-webdriver (!= 3.13.0)
   sidekiq
   sidekiq-pro!
   sir_trevor_rails
