@@ -13,6 +13,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [1.19.0] - 2018-07-10
+
+### Added
+### Changed
+- Migrate from webauth to Shibboleth #1205
+### Deprecated
+### Removed
+- Remove outdated information from README #1204
+### Fixed
+- Skip `selenium-webdriver` v3.13.0 due to unresolved upstream bug that causes Travis builds to fail #1207
+- Only add `@stanford.edu` to user names when necessary #1209
+### Security
+
 ## [1.18.3] - 2018-06-19
 
 ### Added
