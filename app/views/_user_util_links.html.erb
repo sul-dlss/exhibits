@@ -12,7 +12,7 @@
         <% end %>
         <% if can? :create, Spotlight::Exhibit %>
         <li class="divider"></li>
-        <li><%= link_to t(:'helpers.action.spotlight/exhibit.create'), spotlight.new_exhibit_path %></li>
+        <li><%= link_to t(:'spotlight.header_links.create_exhibit'), spotlight.new_exhibit_path %></li>
         <% end %>
         <li class="divider"></li>
         <li><%= link_to t('spotlight.header_links.logout'), main_app.destroy_user_session_path %></li>
