@@ -13,6 +13,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [v1.19.1] - 2018-07-31
+
+### Fixed
+ - Updates "Create new exhibit" link to get previous behavior #1214
+ - Fixes an issue where reindexing jobs were not properly working #1221
+### Security
+ - Updates dependencies #1215, #1219
+
 ## [1.19.0] - 2018-07-10
 
 ### Added
