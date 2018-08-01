@@ -22,4 +22,10 @@ class ApplicationController < ActionController::Base
     @feature_flags ||= FeatureFlags.for(current_exhibit)
   end
   helper_method :feature_flags
+
+  private
+
+  def after_sign_out_path_for(*)
+    '/Shibboleth.sso/Logout'
+  end
 end
