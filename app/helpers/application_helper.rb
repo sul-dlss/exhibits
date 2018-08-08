@@ -65,4 +65,13 @@ module ApplicationHelper
       document.first(blacklight_config.show.oembed_field)
     end
   end
+
+  def render_external_iiif_viewer(document, block)
+    if current_exhibit.viewer.viewer_type != 'mirador'
+      mirador_instance = Viewer.create(viewer_type: 'mirador')
+      render mirador_instance, document: document, block: block
+    else
+      render current_exhibit.required_viewer, document: document, block: block
+    end
+  end
 end

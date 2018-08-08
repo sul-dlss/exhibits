@@ -1,4 +1,10 @@
-<% exhibit_specific_manifest = document.exhibit_specific_manifest(current_exhibit.required_viewer.custom_manifest_pattern) %>
+<% exhibit_specific_manifest = if document.external_iiif?
+                                document["iiif_manifest_url_ssi"]
+                              else
+                                document.exhibit_specific_manifest(
+                                  current_exhibit.required_viewer.custom_manifest_pattern
+                                )
+                              end %>
 
 <% if exhibit_specific_manifest %>
   <iframe
