@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [v1.20.0] - 2018-08-09
+
+### Added
+- Adds Chinese Spotlight locale files #1229
+### Fixed
+- Fix post-Shibboleth sign out redirect path #1224
+
 ## [v1.19.1] - 2018-07-31
 
 ### Fixed
