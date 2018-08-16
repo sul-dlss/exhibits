@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_31_002412) do
+ActiveRecord::Schema.define(version: 2018_08_14_221815) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -428,7 +428,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_002412) do
     t.integer "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
-    t.text "object"
+    t.text "object", limit: 1073741823
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
