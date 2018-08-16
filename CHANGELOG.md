@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [v1.21.0] - 2018-08-16
+
+### Removed
+- Some locale files from upstream Spotlight removed #1228
+### Fixed
+- Long versioned pages cannot be saved now fixed #1225
+### Security
+- Updates dependencies #1232 
+
 ## [v1.20.0] - 2018-08-09
 
 ### Added
