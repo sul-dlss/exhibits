@@ -281,10 +281,10 @@ GEM
       activesupport (>= 3.0, < 6.0)
     erubi (1.7.1)
     execjs (2.7.0)
-    factory_bot (4.10.0)
+    factory_bot (4.11.0)
       activesupport (>= 3.0.0)
-    factory_bot_rails (4.10.0)
-      factory_bot (~> 4.10.0)
+    factory_bot_rails (4.11.0)
+      factory_bot (~> 4.11.0)
       railties (>= 3.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
@@ -542,8 +542,8 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    rubocop-rspec (1.27.0)
-      rubocop (>= 0.56.0)
+    rubocop-rspec (1.28.0)
+      rubocop (>= 0.58.0)
     ruby-oembed (0.12.0)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
@@ -790,4 +790,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.16.3
+   1.16.4
