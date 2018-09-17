@@ -223,6 +223,7 @@ class CatalogController < ApplicationController
         # bail out to true (show the field) if we don't have 3 arguments (context being the added argument)
         # This is required for the metadata configuration admin page to return the field properly.
         return true if args.length < 3
+
         full_text_highlight_exists_in_response?(*args)
       end,
       label: 'Sample matches in document text',

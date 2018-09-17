@@ -70,8 +70,10 @@ module Macros
     def extract_canvas_annotation_list_urls
       lambda do |record, accumulator, _context|
         return if record['otherContent'].blank?
+
         record['otherContent'].each do |link|
           next unless link['@type'] == 'sc:AnnotationList'
+
           accumulator << link['@id'].to_s
         end
       end
@@ -80,8 +82,10 @@ module Macros
     def extract_canvas_annotations
       lambda do |record, accumulator, _context|
         return if record['otherContent'].blank?
+
         record['otherContent'].each do |link|
           next unless link['@type'] == 'sc:AnnotationList'
+
           extract_annotations_from_list(accumulator, link['@id'].to_s)
         end
       end
@@ -92,6 +96,7 @@ module Macros
       lambda do |record, accumulator, _context|
         match = record['@id'][Exhibits::Application.config.druid_regex]
         return if match.blank?
+
         accumulator << match
       end
     end
@@ -101,9 +106,11 @@ module Macros
     def extract_annotations_from_list(accumulator, url)
       annotation_list = JSON.parse(Faraday.get(url).body)
       return unless annotation_list['@type'] == 'sc:AnnotationList' && annotation_list['resources']
+
       annotation_list['resources'].each do |resource|
         next unless resource['@type'] == 'oa:Annotation'
         next if resource['resource']['chars'].blank?
+
         accumulator << resource['resource']['chars'].to_s
       end
     end

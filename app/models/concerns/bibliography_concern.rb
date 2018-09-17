@@ -30,6 +30,7 @@ module BibliographyConcern
 
   def zotero_url
     return unless reference?
+
     begin
       url = URI.parse(bibliography_url)
       url.to_s if url.host =~ /zotero/i

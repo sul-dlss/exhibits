@@ -35,6 +35,7 @@ class IndexStatusesController < ApplicationController
   def filtered_solr_document_ids
     document_ids = @resource.solr_document_sidecars.pluck(:document_id)
     return document_ids unless params[:q]
+
     index_query_param = params[:q].downcase
 
     document_ids.select { |id| id.include?(index_query_param) }

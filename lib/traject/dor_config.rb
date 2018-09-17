@@ -148,6 +148,7 @@ to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
 each_record do |resource, context|
   content_metadata = resource.public_xml.at_xpath('/publicObject/contentMetadata')
   next if content_metadata.blank?
+
   # Select conventional file images or virtual external ones
   images = content_metadata.xpath('(resource/file[@mimetype="image/jp2"] | resource/externalFile[@mimetype="image/jp2"])')
   thumbnail_data = images.first { |node| (node.attr('id') || node.attr('fileId')) =~ /jp2$/ }
@@ -156,6 +157,7 @@ end
 
 to_field 'content_metadata_first_image_file_name_ssm' do |_resource, accumulator, context|
   next unless context.clipboard['thumbnail_data']
+
   # Allow for selection of conventional id's or virtual fileIds
   file_id = (context.clipboard['thumbnail_data'].attr('id') || context.clipboard['thumbnail_data'].attr('fileId')).gsub('.jp2', '')
   accumulator << file_id
@@ -163,6 +165,7 @@ end
 
 to_field 'content_metadata_first_image_width_ssm' do |_resource, accumulator, context|
   next unless context.clipboard['thumbnail_data']
+
   image_data = context.clipboard['thumbnail_data'].at_xpath('./imageData')
 
   accumulator << image_data['width']
@@ -170,6 +173,7 @@ end
 
 to_field 'content_metadata_first_image_height_ssm' do |_resource, accumulator, context|
   next unless context.clipboard['thumbnail_data']
+
   image_data = context.clipboard['thumbnail_data'].at_xpath('./imageData')
 
   accumulator << image_data['height']
@@ -256,6 +260,7 @@ end
 def extract_geonames_ids(sdb)
   sdb.smods_rec.subject.map do |z|
     next unless z.geographic.any?
+
     uri = z.geographic.attr('valueURI')
     next if uri.nil?
 
@@ -273,6 +278,7 @@ def get_geonames_api_envelope(id)
   xml = Nokogiri::XML Faraday.get(url).body
   bbox = xml.at_xpath('//geoname/bbox')
   return if bbox.nil?
+
   min_x, max_x = [bbox.at_xpath('west').text.to_f, bbox.at_xpath('east').text.to_f].minmax
   min_y, max_y = [bbox.at_xpath('north').text.to_f, bbox.at_xpath('south').text.to_f].minmax
   "ENVELOPE(#{min_x},#{max_x},#{max_y},#{min_y})"

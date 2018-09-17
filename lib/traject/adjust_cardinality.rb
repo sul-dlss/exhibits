@@ -33,6 +33,7 @@ module Traject
       attributes.except(*flatten).tap do |output|
         flatten.each do |field|
           next unless attributes.key?(field)
+
           value = attributes.fetch(field).first
           output[field] = value
           output.delete(field) if value.blank?

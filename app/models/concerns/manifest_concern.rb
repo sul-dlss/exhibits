@@ -7,6 +7,7 @@ module ManifestConcern
   def manifest
     manifest_url = fetch('iiif_manifest_url_ssi', nil)
     return if manifest_url.blank? || !manifest_available?
+
     manifest_url
   end
 
@@ -14,6 +15,7 @@ module ManifestConcern
     return manifest if custom_manifest_pattern.blank?
     # Return early if there is not a manifest pattern (a heuristic for a non-image thing)
     return manifest if manifest.blank?
+
     custom_manifest_pattern.gsub('{id}', first('related_document_id_ssim') || first('id'))
   end
 
