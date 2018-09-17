@@ -17,6 +17,7 @@ module ExhibitExtension
   # @return [Viewer]
   def required_viewer
     return viewer if viewer.present?
+
     Viewer.create(exhibit: self)
   end
 
@@ -24,6 +25,7 @@ module ExhibitExtension
 
   def send_publish_state_change_notification
     return unless saved_changes.key?('published')
+
     SendPublishStateChangeNotificationJob.perform_later(exhibit: self, published: published)
   end
 end

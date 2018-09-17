@@ -56,11 +56,13 @@ class IiifCanvasIndexer
 
   def canvases
     return [] unless manifest_url
+
     @canvases ||= manifest_harvester.canvases
   end
 
   def manifest_harvester
     return unless manifest_url
+
     @manifest_harvester ||= IiifManifestHarvester.new(manifest_url)
   end
 end
