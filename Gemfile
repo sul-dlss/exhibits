@@ -124,6 +124,7 @@ gem 'faraday'
 # We have to pin net-http-persistent to before the 3.0.0 release due to an issue w/ faraday.
 # Faraday 0.13.0 resolves this issue, but we're curren't unable to upgrade to that due to
 # oauth2 (1.4.0) requiring Faraday < 0.13.0
+gem 'oauth2', '~> 1.4'
 gem 'net-http-persistent', '< 3'
 gem 'harvestdor-indexer', '~> 2.4'
 gem 'stanford-mods', '~> 2.2', '>= 2.2.1'
