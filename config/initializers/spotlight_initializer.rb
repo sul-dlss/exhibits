@@ -14,6 +14,7 @@ Spotlight::Engine.config.upload_fields = [
     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_attribution_tesim') }
   ),
   Spotlight::UploadFieldConfig.new(
+    solr_fields: %w(date_sort spotlight_upload_date_tesim),
     field_name: :spotlight_upload_date_tesim,
     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }
   )
