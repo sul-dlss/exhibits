@@ -6,7 +6,7 @@ module MiradorHelper
   def mirador_options(manifest, canvas, exhibit_slug)
     {
       "mainMenuSettings": {
-        "show":  false
+        "show": false
       },
       "buildPath": '/assets/',
       "saveSession": false,

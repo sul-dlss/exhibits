@@ -48,7 +48,7 @@ RSpec.describe Bibliography do
         expect(bibliography.to_html).to include 'Wille, Clara. 2004. “Quelques'\
         ' Observations Sur Le Porc-Épic Et Le Hérisson Dans La Littérature Et '\
         'l’Iconographie Médiévale.” <i>Reinardus. Yearbook of the Internationa'\
-        'l Reynard Society</i> 17 (1): 181–201. doi:10.1075/rein.17.14wil.'
+        'l Reynard Society</i> 17 (1): 181–201. https://doi.org/10.1075/rein.17.14wil.'
       end
     end
   end
