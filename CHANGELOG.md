@@ -6,13 +6,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [v1.22.0] - 2018-10-29
+
 ### Added
 ### Changed
 - Change sidebar links to newer documentation #1255, #1260
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixed a bug causing SDR titles to disappear when editing individual items. #1237
 ### Security
+- Updated various dependencies
 
 ## [v1.21.0] - 2018-08-16
 
