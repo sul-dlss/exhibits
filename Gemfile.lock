@@ -55,7 +55,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (9.1.4)
+    autoprefixer-rails (9.3.1)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -65,7 +65,7 @@ GEM
     bibtex-ruby (4.4.7)
       latex-decode (~> 0.0)
     bindex (0.5.0)
-    blacklight (6.15.0)
+    blacklight (6.16.0)
       bootstrap-sass (~> 3.2)
       deprecation
       globalid
@@ -85,7 +85,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.2.1)
+    blacklight-spotlight (2.3.0)
       acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -112,7 +112,7 @@ GEM
       nokogiri
       oauth2
       openseadragon
-      paper_trail (>= 7.0)
+      paper_trail (~> 10.0)
       rails (~> 5.1)
       riiif (~> 1.0)
       roar (~> 1.1)
@@ -236,7 +236,7 @@ GEM
       devise
     devise-remote-user (1.0.0)
       devise
-    devise_invitable (1.7.4)
+    devise_invitable (1.7.5)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.3)
@@ -286,7 +286,7 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faraday (0.12.2)
+    faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
@@ -295,7 +295,7 @@ GEM
       railties (>= 3.2, < 6.0)
     friendly_id (5.2.4)
       activerecord (>= 4.0.0)
-    github-markup (2.0.1)
+    github-markup (3.0.1)
     gli (2.18.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -326,7 +326,7 @@ GEM
       activesupport (>= 3.2.18)
       faraday (>= 0.9)
       json
-    iiif_manifest (0.4.0)
+    iiif_manifest (0.5.0)
       activesupport (>= 4)
     io-like (0.3.0)
     iso-639 (0.2.8)
@@ -342,7 +342,7 @@ GEM
     jsonpath (0.9.4)
       multi_json
       to_regexp (~> 0.2.1)
-    jwt (1.5.6)
+    jwt (2.1.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -372,7 +372,7 @@ GEM
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.7.0)
+    mail (2.7.1)
       mini_mime (>= 0.1.1)
     marc (1.0.2)
       scrub_rb (>= 1.0.1, < 2)
@@ -418,15 +418,15 @@ GEM
     net-ssh (5.0.2)
     newrelic_rpm (5.4.0.347)
     nio4r (2.3.1)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     nom-xml (1.0.0)
       activesupport (>= 3.2.18)
       i18n
       nokogiri
-    oauth2 (1.4.0)
-      faraday (>= 0.8, < 0.13)
-      jwt (~> 1.0)
+    oauth2 (1.4.1)
+      faraday (>= 0.8, < 0.16.0)
+      jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
@@ -569,7 +569,7 @@ GEM
     sidekiq-pro (4.0.4)
       concurrent-ruby (>= 1.0.5)
       sidekiq (>= 5.2.1)
-    signet (0.10.0)
+    signet (0.11.0)
       addressable (~> 2.3)
       faraday (~> 0.9)
       jwt (>= 1.5, < 3.0)
@@ -789,4 +789,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.16.3
+   1.16.6
