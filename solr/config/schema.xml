@@ -339,11 +339,6 @@
   <!-- exhibits fields -->
   <copyField source="id" dest="id_ng" maxChars="3000"/>
   <copyField source="title_full_display" dest="full_title_ng" maxChars="3000"/>
-  <copyField source="spotlight_upload_title_tesim" dest="title_display" />
-  <copyField source="spotlight_upload_title_tesim" dest="title_full_display" />
-  <copyField source="spotlight_upload_title_tesim" dest="title_245_search" />
-  <copyField source="spotlight_upload_title_tesim" dest="title_sort" />
-  <copyField source="spotlight_upload_date_tesim" dest="date_sort" />
   <!-- NOTE:  all_search is meant for metadata -->
   <copyField source="*_tesim" dest="all_search" />
   <copyField source="*_tags_ssim" dest="all_search" />
