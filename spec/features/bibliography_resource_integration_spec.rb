@@ -208,7 +208,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
     let(:file) { 'spec/fixtures/bibliography/notitle.bib' }
 
     it 'does not error (will be skipped because it does not include an id)' do
-      expect(to_solr_hash[:id]).to be_blank
+      expect(to_solr_hash).to be_blank
     end
 
     it 'has no formatted_bibliography as it is excluded' do
@@ -235,7 +235,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
     let(:file) { 'spec/fixtures/bibliography/nokeywords.bib' }
 
     it 'does not error (will be skipped because it does not include an id)' do
-      expect(to_solr_hash[:id]).to be_blank
+      expect(to_solr_hash).to be_blank
     end
 
     it 'has no formatted_bibliography as it is excluded' do
