@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 2.7.2'
+gem 'uglifier', '>= 2.7.2', '<= 4.1.18'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2', '>= 4.2.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
