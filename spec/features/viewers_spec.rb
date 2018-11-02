@@ -88,6 +88,11 @@ describe 'Viewers', type: :feature do
       expect(page).to have_css 'iframe[src*=mirador]'
       expect(page).not_to have_css '.oembed-widget'
     end
+
+    it 'instantiates Mirador and expects the object to be loaded', js: true do
+      visit mirador_index_path(locale: 'en', exhibit_slug: exhibit.slug, manifest: 'https://purl.stanford.edu/hj066rn6500/iiif/manifest')
+      expect(page).to have_css 'h3', text: /Posesiones/
+    end
     # rubocop:disable RSpec/ExampleLength
     pending 'renders default viewer on configured widget feature page', js: true do
       visit spotlight.edit_exhibit_feature_page_path(exhibit, feature_page)
