@@ -16,6 +16,7 @@ module MiradorHelper
           "location": 'Stanford University'
         }
       ],
+      "language": 'en',
       "windowObjects": [{
         "loadedManifest": manifest,
         "canvasID": canvas,
