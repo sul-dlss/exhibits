@@ -58,3 +58,4 @@ mirador_options:
     sidePanel: true
     sidePanelVisible: false
 async_javascript: false
+sidekiq_retry_queue_threshold: 100
