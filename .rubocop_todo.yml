@@ -79,12 +79,6 @@ Style/MixinUsage:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/RedundantBegin:
-  Exclude:
-    - 'spec/rails_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: implicit, explicit
 Style/RescueStandardError:

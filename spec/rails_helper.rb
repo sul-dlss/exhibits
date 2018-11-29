@@ -80,10 +80,8 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    begin
-      DatabaseCleaner[:active_record].strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
+    DatabaseCleaner[:active_record].strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:all, type: :feature) do
