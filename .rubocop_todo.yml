@@ -90,12 +90,6 @@ RSpec/SubjectStub:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Rails/Presence:
-  Exclude:
-    - 'lib/traject/macros/extraction.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Style/IfUnlessModifier:
   Exclude:
     - 'lib/traject/macros/general.rb'
