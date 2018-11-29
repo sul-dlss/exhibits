@@ -18,11 +18,7 @@ module Macros
       end
 
       def default(values, default_value)
-        if values.present?
-          values
-        else
-          default_value
-        end
+        values.presence || default_value
       end
 
       def initialize(options)

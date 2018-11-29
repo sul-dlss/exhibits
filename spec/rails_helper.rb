@@ -66,7 +66,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include RequestSpecHelper
 
-  config.before :each do
+  config.before do
     DatabaseCleaner.strategy = if Capybara.current_driver == :rack_test
                                  :transaction
                                else
@@ -80,10 +80,8 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    begin
-      DatabaseCleaner[:active_record].strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
+    DatabaseCleaner[:active_record].strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:all, type: :feature) do

@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe UploadSolrDocumentBuilder do
   subject(:builder) { described_class.new resource }
+
   let(:exhibit) { create(:exhibit) }
   let(:featured_image) { instance_double(Spotlight::FeaturedImage) }
   let(:upload_id) { 123 }

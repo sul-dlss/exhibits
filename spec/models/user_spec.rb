@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe User do
   subject { create(:user) }
+
   describe '#webauth_groups=' do
     it 'splits groups on the pipe character' do
       subject.webauth_groups = 'a|b|c'
