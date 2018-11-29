@@ -58,14 +58,6 @@ RSpec/MultipleExpectations:
 RSpec/NestedGroups:
   Max: 4
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Strict, EnforcedStyle.
-# SupportedStyles: inflected, explicit
-RSpec/PredicateMatcher:
-  Exclude:
-    - 'spec/features/bibliography_resource_integration_spec.rb'
-
 # Offense count: 2
 RSpec/SubjectStub:
   Exclude:

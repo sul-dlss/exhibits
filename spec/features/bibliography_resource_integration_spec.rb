@@ -43,7 +43,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
     end
 
     it 'is a reference document' do
-      expect(document.reference?).to be_truthy
+      expect(document).to be_reference
     end
 
     it 'has some titles' do
