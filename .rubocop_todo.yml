@@ -42,14 +42,6 @@ RSpec/BeforeAfterAll:
     - 'spec/features/manuscript_display_bibliography_spec.rb'
     - 'spec/models/search_builder_spec.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: method_call, block
-RSpec/ExpectChange:
-  Exclude:
-    - 'spec/models/iiif_canvas_indexer_spec.rb'
-
 # Offense count: 3
 RSpec/ExpectInHook:
   Exclude:

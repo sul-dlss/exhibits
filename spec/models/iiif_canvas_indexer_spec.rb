@@ -36,7 +36,7 @@ RSpec.describe IiifCanvasIndexer do
     it 'creates CanvasResource objects for otherContent annotationLists' do
       expect do
         subject.index_canvases
-      end.to change { CanvasResource.count }.from(0).to(3)
+      end.to change(CanvasResource, :count).from(0).to(3)
     end
 
     it 'stores the JSON of the canvas in the CanvasResource' do
@@ -59,7 +59,7 @@ RSpec.describe IiifCanvasIndexer do
     it 'enqueues the same number of jobs as otherContent annotationLists' do
       expect do
         subject.index_canvases
-      end.to change { enqueued_jobs.count }.by(3)
+      end.to change(enqueued_jobs, :count).by(3)
     end
 
     context 'when not a image thing' do
@@ -68,11 +68,11 @@ RSpec.describe IiifCanvasIndexer do
       it 'does not create any CanvaseResources or enqueues any jobs' do
         expect do
           subject.index_canvases
-        end.not_to(change { CanvasResource.count })
+        end.not_to(change(CanvasResource, :count))
 
         expect do
           subject.index_canvases
-        end.not_to(change { enqueued_jobs.count })
+        end.not_to(change(enqueued_jobs, :count))
       end
     end
   end
