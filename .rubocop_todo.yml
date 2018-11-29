@@ -6,14 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterMagicComment:
-  Exclude:
-    - 'app/controllers/saved_searches_controller.rb'
-    - 'app/controllers/search_history_controller.rb'
-    - 'lib/traject/macros/general.rb'
-
 # Offense count: 8
 Metrics/AbcSize:
   Max: 21
@@ -49,14 +41,6 @@ RSpec/BeforeAfterAll:
     - 'spec/features/canvas_resource_integration_spec.rb'
     - 'spec/features/manuscript_display_bibliography_spec.rb'
     - 'spec/models/search_builder_spec.rb'
-
-# Offense count: 6
-# Cop supports --auto-correct.
-RSpec/EmptyLineAfterSubject:
-  Exclude:
-    - 'spec/models/solr_document_spec.rb'
-    - 'spec/models/user_spec.rb'
-    - 'spec/services/upload_solr_document_builder_spec.rb'
 
 # Offense count: 4
 # Cop supports --auto-correct.

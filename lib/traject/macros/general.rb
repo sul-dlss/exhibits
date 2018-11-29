@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Macros
   # General helpers for any traject mappings, stolen originally from DLME
   module General

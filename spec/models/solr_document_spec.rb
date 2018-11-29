@@ -5,6 +5,7 @@ require 'rails_helper'
 describe SolrDocument do
   describe '#export_as_mods' do
     subject { described_class.new(modsxml: '123') }
+
     it 'provides the original MODS metadata' do
       expect(subject.export_as_mods).to eq '123'
     end
@@ -126,6 +127,7 @@ describe SolrDocument do
   describe '#external_iiif?' do
     context 'when a document is an external IIIF resource' do
       subject(:document) { described_class.new(spotlight_resource_type_ssim: ['spotlight/resources/iiif_harvesters']) }
+
       it 'returns true when the correct fields are present' do
         expect(document.external_iiif?).to be true
       end
@@ -133,6 +135,7 @@ describe SolrDocument do
 
     context 'when a document is not an external IIIF resource' do
       subject(:document) { described_class.new }
+
       it 'returns false if the correct fields are not present' do
         expect(document.external_iiif?).to be false
       end
@@ -141,6 +144,7 @@ describe SolrDocument do
 
   describe '#full_text_highlights' do
     subject(:document) { described_class.new({ id: 'abc123' }, response) }
+
     let(:response) { {} }
 
     context 'without any highlighting results returned' do
