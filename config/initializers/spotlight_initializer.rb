@@ -1,5 +1,5 @@
 Spotlight::Engine.config.upload_title_field = Spotlight::UploadFieldConfig.new(
-  solr_fields: %w(title title_full_display title_display title_245_search title_sort spotlight_upload_title_tesim),
+  solr_fields: %w(title_full_display title_display title_245_search title_sort spotlight_upload_title_tesim),
   field_name: :spotlight_upload_title_tesim,
   label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_title_tesim') }
 )
