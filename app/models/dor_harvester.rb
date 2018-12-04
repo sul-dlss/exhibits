@@ -100,4 +100,34 @@ class DorHarvester < Spotlight::Resource
       harvestdor: Settings.harvestdor
     )
   end
+
+  # Override upstream implementation to add rescuing and logging from failed solr batch updates
+  def write_to_index(batch)
+    documents = documents_that_have_ids(batch)
+    return unless write? && documents.present?
+
+    send_batch(documents)
+  end
+
+  def send_batch(documents)
+    blacklight_solr.update params: { commitWithin: 500 },
+                           data: documents.to_json,
+                           headers: { 'Content-Type' => 'application/json' }
+  rescue StandardError => exception
+    Honeybadger.notify(exception, context: { resource_id: id })
+    Rails.logger.warn "Error sending a batch of documents to solr: #{exception}"
+
+    documents.each do |doc|
+      send_one(doc)
+    end
+  end
+
+  def send_one(document)
+    blacklight_solr.update params: { commitWithin: 500 },
+                           data: [document.to_json],
+                           headers: { 'Content-Type' => 'application/json' }
+  rescue StandardError => exception
+    Honeybadger.notify(exception, context: { druid: document[:id], resource_id: id })
+    RecordIndexStatusJob.perform_later(self, document[:id], ok: false, message: exception.to_s.truncate(300))
+  end
 end
