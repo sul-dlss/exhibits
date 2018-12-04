@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
+- Remove "Call number" and "Full text" from default search fields for new exhibits #1293
 ### Deprecated
 ### Removed
 ### Fixed

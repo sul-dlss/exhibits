@@ -9,7 +9,9 @@ describe 'an exhibit', type: :feature do
     visit '/'
   end
 
-  it 'has working full text fielded search' do
+  it 'can enable full text fielded search' do
+    exhibit.blacklight_configuration.search_fields['full_text'] = { enabled: true }
+    exhibit.blacklight_configuration.save
     visit spotlight.url_for(exhibit)
     fill_in 'q', with: 'cobbler'
     select 'Full text', from: 'search_field'

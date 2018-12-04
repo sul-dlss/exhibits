@@ -294,6 +294,7 @@ class CatalogController < ApplicationController
       field.solr_parameters = {
         df: 'callnum_search'
       }
+      field.enabled = false
     end
 
     config.add_search_field('full_text') do |field|
@@ -305,6 +306,7 @@ class CatalogController < ApplicationController
         pf3: '${pf3_full_text}',
         pf2: '${pf2_full_text}'
       }
+      field.enabled = false
     end
 
     config.add_search_field('table_of_contents') do |field|
