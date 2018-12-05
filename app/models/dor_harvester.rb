@@ -124,7 +124,7 @@ class DorHarvester < Spotlight::Resource
 
   def send_one(document)
     blacklight_solr.update params: { commitWithin: 500 },
-                           data: [document.to_json],
+                           data: [document].to_json,
                            headers: { 'Content-Type' => 'application/json' }
   rescue StandardError => exception
     Honeybadger.notify(exception, context: { druid: document[:id], resource_id: id })
