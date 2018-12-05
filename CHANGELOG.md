@@ -26,8 +26,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 ### Fixed
 - Validate geo ENVELOPE() data #1297
-- Fix JS bug caused by Mirador looking for
-- Handle solr batch update errors gracefully (#1298)
+- Fix JS bug caused by Mirador looking for language setting #1266
+- Handle solr batch update errors gracefully #1298
 ### Security
 
 ## [v1.22.0] - 2018-10-29
