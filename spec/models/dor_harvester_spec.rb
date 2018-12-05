@@ -181,6 +181,8 @@ describe DorHarvester do
     end
 
     before do
+      ActiveJob::Base.queue_adapter = :test
+
       subject.save!
       allow_any_instance_of(Traject::Indexer).to receive(:map_record).and_return(upstream: true)
       allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, 'abc123').and_return(resource)
@@ -197,6 +199,13 @@ describe DorHarvester do
                                                              data: solr_data.to_json,
                                                              headers: { 'Content-Type' => 'application/json' })
       expect(subject).to have_received(:commit)
+    end
+
+    it 'rescues solr batch update errors' do
+      allow(blacklight_solr).to receive(:update).and_raise('Error!')
+
+      expect { subject.reindex }.to have_enqueued_job(RecordIndexStatusJob)
+        .with(harvester, druid, ok: false, message: 'Error!')
     end
   end
 end
