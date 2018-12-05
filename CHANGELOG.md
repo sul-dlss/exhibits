@@ -9,10 +9,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 ### Changed
-- Remove "Call number" and "Full text" from default search fields for new exhibits #1293
 ### Deprecated
 ### Removed
 ### Fixed
+### Security
+
+## [v1.23.0] - 2018-12-04
+
+### Added
+- Additional monitoring for background job retry queue size #1187
+### Changed
+- Remove "Call number" and "Full text" from default search fields for new exhibits #1293
+- Set Rubocop TargetRubyVersion to 2.5 #1292
+- Improve Mirador initialization test #1266
+### Deprecated
+### Removed
+### Fixed
+- Validate geo ENVELOPE() data #1297
+- Fix JS bug caused by Mirador looking for
+- Handle solr batch update errors gracefully (#1298)
 ### Security
 
 ## [v1.22.0] - 2018-10-29
