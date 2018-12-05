@@ -133,6 +133,19 @@ to_field 'geographic_srpt', stanford_mods(:coordinates_as_envelope)
 to_field 'geographic_srpt', stanford_mods(:geo_extensions_as_envelope)
 to_field 'geographic_srpt', stanford_mods(:geo_extensions_point_data)
 
+# Validate ENVELOPE() data before solr rejects them as part of a batch
+each_record do |_resource, context|
+  next unless context.output_hash['geographic_srpt']
+
+  bad_coordinates = context.output_hash['geographic_srpt'].select { |x| x.starts_with? 'ENVELOPE' }.reject do |envelope|
+    coords = envelope.scan(/([\-\d\.]+)/).flatten.map(&:to_f)
+    minx, maxx, maxy, miny = coords
+    (minx <= maxx) || (miny <= maxy) || (-90..90).cover?(maxy) || (-90..90).cover?(miny) || (-180..180).cover?(minx) || (-180..180).cover?(maxx)
+  end
+
+  raise "Invalid envelope data: #{bad_coordinates.inspect}" if bad_coordinates.any?
+end
+
 to_field 'iiif_manifest_url_ssi', (accumulate { |resource, *_| iiif_manifest_url(resource.bare_druid) })
 
 # CONTENT METADATA
