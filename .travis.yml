@@ -10,15 +10,22 @@ env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
     - secure: EibSqr0uzGbdVS8Qx75YOG0wU7idjR2gP+2zukhFUNU3gAn97U58UpC08wwiPW7Rf/B78fqDyNcYBf0FggkH1FBXGXhB1xOyH3TONvmzbOcIsoMhXh3Sh3tLuaqknDHTPFmAKKdmvI3pLUCu+9WvFw9JP5qj9zXDjz2xO4jizo4=
+    - CC_TEST_REPORTER_ID=66dbdb6faa284de8640b86c4be7b561e702b67fc71ee0b3131a7201406322ed1
 
 before_install:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 before_script:
   - bin/rails db:test:prepare
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 sudo: false
 language: ruby
 cache: bundler
 
 jdk: oraclejdk8
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

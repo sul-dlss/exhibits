@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'coveralls'
-Coveralls.wear!('rails')
-
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 require 'webmock/rspec'
