@@ -78,6 +78,7 @@ group :test do
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver', '!= 3.13.0'
+  gem 'simplecov', require: false
   gem 'webmock'
 end
 

@@ -6,6 +6,7 @@ require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
 
 FIXTURES_PATH = File.expand_path('fixtures', __dir__)
+require 'simplecov'
 
 SimpleCov.start('rails') do
   # Ignore these because simplecov doesn't detect when traject
