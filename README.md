@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sul-dlss/exhibits.svg)](https://travis-ci.org/sul-dlss/exhibits) [![Coverage Status](https://coveralls.io/repos/sul-dlss/exhibits/badge.svg?branch=master&service=github)](https://coveralls.io/github/sul-dlss/exhibits?branch=master)
+[![Build Status](https://travis-ci.org/sul-dlss/exhibits.svg)](https://travis-ci.org/sul-dlss/exhibits) [![Code Climate Test Coverage](https://codeclimate.com/github/sul-dlss/exhibits/badges/coverage.svg)](https://codeclimate.com/github/sul-dlss/exhibits/coverage)
 
 # SUL Spotlight Exhibit
 
