@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require 'blacklight_advanced_search'
-
+//= require 'honeybadger'
 
 //= require jquery_ujs
 //= require turbolinks

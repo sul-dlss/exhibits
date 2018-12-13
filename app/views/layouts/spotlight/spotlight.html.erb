@@ -25,6 +25,15 @@
     <% end %>
     <%= stylesheet_link_tag "https://www.stanford.edu/su-identity/css/su-identity.css" %>
     <%= javascript_include_tag "application", async: Settings.async_javascript %>
+    <script type="text/javascript">
+     Honeybadger.configure({
+       apiKey: '<%= Honeybadger.config.get(:api_key) %>',
+       environment: '<%= Honeybadger.config.get(:env) %>',
+       debug: false,
+       onerror: true,
+       revision: '<%= Settings.revision %>'
+     });
+    </script>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
     <%= description %>

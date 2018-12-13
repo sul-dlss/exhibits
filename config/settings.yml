@@ -59,3 +59,4 @@ mirador_options:
     sidePanelVisible: false
 async_javascript: false
 sidekiq_retry_queue_threshold: 100
+revision: <%= File.read("#{Rails.root}/REVISION").chomp if File.exists?("#{Rails.root}/REVISION") %>
