@@ -9,7 +9,8 @@
 
 <p><%= t("spotlight.#{key}.invitation_instructions.someone_invited_you", role: @resource.roles.first.role, exhibit_name: @resource.roles.first.resource.title, url: spotlight.exhibit_home_page_url(@resource.roles.first.resource)) %></p>
 
-<p><%= link_to t("spotlight.#{key}.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token, referrer: spotlight.exhibit_path(@resource.roles.first.resource)) %></p>
+<% # We pass the user to the new_user_session_url so that they are kicked through our authentication service. Devise's default behavior is to send a user to a password confirmation page, which we do not want. %>
+<p><%= link_to t("spotlight.#{key}.invitation_instructions.accept"), new_user_session_url(invitation_token: @token, referrer: spotlight.exhibit_path(@resource.roles.first.resource)) %></p>
 
 <p><%= t("spotlight.#{key}.invitation_instructions.ignore_html", exhibit_name: @resource.roles.first.resource.title) %></p>
 
