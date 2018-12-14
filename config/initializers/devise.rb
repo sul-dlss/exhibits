@@ -166,6 +166,10 @@ Devise.setup do |config|
   # Default: false
   # config.allow_insecure_sign_in_after_accept = true
 
+  # We don't maintain user passwords, so we should not
+  # require a password when a user accepts an invitation
+  config.require_password_on_accepting = false
+
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
   # confirming their account. For instance, if set to 2.days, the user will be
