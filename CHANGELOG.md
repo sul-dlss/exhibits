@@ -14,6 +14,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [v1.24.0] - 2018-12-14
+
+### Added
+- Added Honeybadger error reporting for client side errors #1303
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- No longer sending users who accept invitation via email to a password confirmation page #1243
+### Security
+
+
 ## [v1.23.0] - 2018-12-04
 
 ### Added
