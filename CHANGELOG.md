@@ -14,6 +14,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 ### Security
 
+## [v1.25.0] - 2018-12-19
+
+### Added
+### Changed
+- Update to [spotlight 2.3.1](https://github.com/projectblacklight/spotlight/releases/tag/v2.3.1)
+- Anonymize IP addresses in analytics reports
+### Deprecated
+### Removed
+### Fixed
+- Fix an issue with bad data in the slideshow widget #1314
+### Security
+
 ## [v1.24.0] - 2018-12-14
 
 ### Added
