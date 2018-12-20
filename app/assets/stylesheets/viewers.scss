@@ -10,10 +10,12 @@
   font-size: 0.9em;
 }
 
-.custom-oembed {
+.pull-right .custom-oembed,
+.pull-left .custom-oembed {
   height: 400px;
 }
 
+.custom-oembed,
 .show-document .custom-oembed {
   height: 600px;
 }
