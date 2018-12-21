@@ -89,7 +89,7 @@ end
 
 gem 'config'
 
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass'
 
 gem 'blacklight', '~> 6.3'
 gem 'blacklight-gallery', '~> 0.3'
