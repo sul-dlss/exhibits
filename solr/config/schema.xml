@@ -346,7 +346,7 @@
   <copyField source="*_tags_ssim" dest="all_unstem_search" />
   <!-- NOTE:  full_text_search is meant for full text -->
   <copyField source="*_tesimv" dest="full_text_search" />
-  <copyField source="full_text_search" dest="full_text_unstem_search" />
+  <copyField source="*_tesimv" dest="full_text_unstem_search" />
   <copyField source="*_tesimv" dest="full_text_search_en"/>
   <copyField source="*_tesimv" dest="full_text_search_pt"/>
   <copyField source="*_tesimv" dest="full_text_search_id"/>
