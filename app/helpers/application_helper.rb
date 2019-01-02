@@ -67,7 +67,7 @@ module ApplicationHelper
   end
 
   def render_external_iiif_viewer(document, block)
-    if current_exhibit.viewer.viewer_type != 'mirador'
+    if current_exhibit.viewer.nil? || current_exhibit.viewer.viewer_type != 'mirador'
       mirador_instance = Viewer.create(viewer_type: 'mirador')
       render mirador_instance, document: document, block: block
     else
