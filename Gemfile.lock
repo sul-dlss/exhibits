@@ -453,8 +453,6 @@ GEM
     rack (2.0.6)
     rack-accept (0.4.5)
       rack (>= 0.4)
-    rack-dev-mark (0.7.7)
-      rack (>= 1.1, < 2.1)
     rack-protection (2.0.5)
       rack
     rack-test (1.1.0)
@@ -763,7 +761,6 @@ DEPENDENCIES
   oauth2 (~> 1.4)
   okcomputer
   puma (~> 3.7)
-  rack-dev-mark
   rails (~> 5.2.0)
   rails-controller-testing
   riiif
