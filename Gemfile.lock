@@ -55,7 +55,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (9.4.4)
+    autoprefixer-rails (9.4.5)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -65,7 +65,7 @@ GEM
     bibtex-ruby (4.4.7)
       latex-decode (~> 0.0)
     bindex (0.5.0)
-    blacklight (6.19.1)
+    blacklight (6.19.2)
       bootstrap-sass (~> 3.2)
       deprecation
       globalid
@@ -85,7 +85,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.3.1)
+    blacklight-spotlight (2.3.2)
       acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -294,7 +294,7 @@ GEM
       activerecord (>= 4.0.0)
     github-markup (3.0.2)
     gli (2.18.0)
-    globalid (0.4.1)
+    globalid (0.4.2)
       activesupport (>= 4.2.0)
     harvestdor (0.3.1)
       confstruct
@@ -412,7 +412,7 @@ GEM
     mods_display (0.6.0)
       i18n
       stanford-mods (~> 2.1)
-    msgpack (1.2.4)
+    msgpack (1.2.6)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -424,7 +424,7 @@ GEM
     net-ssh (5.1.0)
     newrelic_rpm (5.6.0.349)
     nio4r (2.3.1)
-    nokogiri (1.10.0)
+    nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     nom-xml (1.1.0)
       activesupport (>= 3.2.18)
@@ -570,8 +570,9 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
-    sidekiq (5.2.3)
+    sidekiq (5.2.5)
       connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
     sidekiq-pro (4.0.4)
@@ -592,7 +593,7 @@ GEM
       rails (>= 3, < 6)
       redcarpet (>= 2.0.1, < 4)
       twitter-text (~> 1.4)
-    sitemap_generator (6.0.1)
+    sitemap_generator (6.0.2)
       builder (~> 3.0)
     slack-ruby-client (0.13.1)
       activesupport
