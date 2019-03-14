@@ -75,7 +75,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  gem 'capybara'
+  gem 'capybara', ' ~> 3.13.2'
   gem 'chromedriver-helper'
   gem 'selenium-webdriver', '!= 3.13.0'
   gem 'simplecov', require: false
