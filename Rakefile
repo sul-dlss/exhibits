@@ -17,7 +17,7 @@ begin
 rescue LoadError
   # this rescue block is here for deployment to production, where
   # certain dependencies are not expected, and that is OK
-  STDERR.puts 'WARNING: Rubocop was not found and could not be required.'
+  warn 'WARNING: Rubocop was not found and could not be required.'
 end
 
 desc 'Run tests in generated test Rails app with generated Solr instance running'
