@@ -113,9 +113,9 @@ class DorHarvester < Spotlight::Resource
     blacklight_solr.update params: { commitWithin: 500 },
                            data: documents.to_json,
                            headers: { 'Content-Type' => 'application/json' }
-  rescue StandardError => exception
-    Honeybadger.notify(exception, context: { resource_id: id })
-    Rails.logger.warn "Error sending a batch of documents to solr: #{exception}"
+  rescue StandardError => e
+    Honeybadger.notify(e, context: { resource_id: id })
+    Rails.logger.warn "Error sending a batch of documents to solr: #{e}"
 
     documents.each do |doc|
       send_one(doc)
@@ -126,8 +126,8 @@ class DorHarvester < Spotlight::Resource
     blacklight_solr.update params: { commitWithin: 500 },
                            data: [document].to_json,
                            headers: { 'Content-Type' => 'application/json' }
-  rescue StandardError => exception
-    Honeybadger.notify(exception, context: { druid: document[:id], resource_id: id })
-    RecordIndexStatusJob.perform_later(self, document[:id], ok: false, message: exception.to_s.truncate(300))
+  rescue StandardError => e
+    Honeybadger.notify(e, context: { druid: document[:id], resource_id: id })
+    RecordIndexStatusJob.perform_later(self, document[:id], ok: false, message: e.to_s.truncate(300))
   end
 end
