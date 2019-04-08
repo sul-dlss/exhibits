@@ -8,8 +8,7 @@ class Viewer < ApplicationRecord
             format: {
               with: /{id}/
             },
-            allow_blank: true,
-            allow_nil: true
+            allow_blank: true
 
   def default_viewer_path
     'oembed_default'
