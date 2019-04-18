@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 describe CatalogHelper, type: :helper do
+  before do
+    controller.extend OptionalLocaleRouteParamInjection
+  end
+
   describe '#has_thumbnail?' do
     context 'for references' do
       let(:document) { SolrDocument.new(format_main_ssim: ['Reference']) }

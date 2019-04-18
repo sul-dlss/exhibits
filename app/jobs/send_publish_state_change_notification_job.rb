@@ -22,6 +22,6 @@ class SendPublishStateChangeNotificationJob < ApplicationJob
 
   def exhibit_url(exhibit)
     url_helpers = Spotlight::Engine.routes.url_helpers
-    url_helpers.exhibit_url(exhibit, host: Settings.action_mailer.default_url_options.host)
+    url_helpers.exhibit_url(exhibit, locale: nil, host: Settings.action_mailer.default_url_options.host)
   end
 end

@@ -65,6 +65,9 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include RequestSpecHelper
+  config.include ::Rails.application.routes.url_helpers, type: :controller
+  config.include ::Rails.application.routes.mounted_helpers, type: :controller
+  config.include OptionalLocaleRouteParamInjection
 
   config.before do
     DatabaseCleaner.strategy = if Capybara.current_driver == :rack_test

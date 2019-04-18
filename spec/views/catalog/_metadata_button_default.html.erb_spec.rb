@@ -7,6 +7,7 @@ describe 'catalog/_metadata_button_default', type: :view do
   let(:current_exhibit) { create(:exhibit) }
 
   before do
+    view.extend OptionalLocaleRouteParamInjection
     assign(:document, document)
   end
 

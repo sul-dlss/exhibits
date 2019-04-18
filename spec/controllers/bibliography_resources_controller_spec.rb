@@ -24,7 +24,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       it 'goes to the exhibit' do
         post :create, params: { exhibit_id: exhibit.id, resource: attributes }
 
-        expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
+        expect(response).to redirect_to spotlight.admin_exhibit_catalog_path(exhibit)
 
         expect(resource).to have_received(:update)
         expect(resource).to have_received(:save_and_index)
@@ -37,7 +37,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       it 'goes to the exhibit' do
         post :create, params: { exhibit_id: exhibit.id, resource: attributes }
 
-        expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
+        expect(response).to redirect_to spotlight.new_exhibit_resource_path(exhibit)
 
         expect(resource).to have_received(:update)
         expect(resource).to have_received(:save_and_index)
@@ -52,7 +52,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       it 'goes to the exhibit' do
         patch :update, params: { exhibit_id: exhibit.id, resource: attributes }
 
-        expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.admin_exhibit_catalog_path(exhibit)
+        expect(response).to redirect_to spotlight.admin_exhibit_catalog_path(exhibit)
 
         expect(resource).to have_received(:update)
         expect(resource).to have_received(:save_and_index)
@@ -65,7 +65,7 @@ RSpec.describe BibliographyResourcesController, type: :controller do
       it 'goes to the exhibit' do
         patch :update, params: { exhibit_id: exhibit.id, resource: attributes }
 
-        expect(response).to redirect_to Spotlight::Engine.routes.url_helpers.new_exhibit_resource_path(exhibit)
+        expect(response).to redirect_to spotlight.new_exhibit_resource_path(exhibit)
 
         expect(resource).to have_received(:update)
         expect(resource).to have_received(:save_and_index)
