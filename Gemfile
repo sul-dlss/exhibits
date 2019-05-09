@@ -77,7 +77,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'capybara'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'selenium-webdriver', '!= 3.13.0'
   gem 'simplecov', require: false
   gem 'webmock'
