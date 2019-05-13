@@ -68,6 +68,7 @@ group :development, :test do
   gem 'database_cleaner'
 
   gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
   gem 'rubocop-rspec', require: false
 end
 
