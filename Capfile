@@ -31,7 +31,6 @@ require 'capistrano/passenger'
 require 'dlss/capistrano'
 require 'capistrano/sidekiq'
 require 'capistrano/sitemap_generator'
-require 'whenever/capistrano'
 require 'capistrano/shared_configs'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
