@@ -21,8 +21,6 @@ A Rake task is provided to (re)index content into the Solr index. It uses the co
 $ rake spotlight:index
 ```
 
-A whenever-based cron task is configured to run nightly to keep the exhibit synchronized with the latest upstream changes. At this time, the task only adds or modifies records, and does not remove records that have been deleted or disassociated with the given OAI set.
-
 ## Development
 
 ### Requirements
