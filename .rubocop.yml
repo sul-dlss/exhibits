@@ -17,10 +17,6 @@ AllCops:
 Rails:
   Enabled: true
 
-Metrics/BlockLength:
-  Exclude:
-  - 'spec/models/spotlight/dor/indexer_spec.rb'
-
 Metrics/LineLength:
   Max: 120
   Exclude:
