@@ -180,7 +180,6 @@ GEM
       mime-types (>= 1.16)
     childprocess (1.0.1)
       rake (< 13.0)
-    chronic (0.10.2)
     citeproc (1.0.9)
       namae (~> 1.0)
     citeproc-ruby (1.1.10)
@@ -282,7 +281,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.11.0)
+    ffi (1.11.1)
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -311,7 +310,7 @@ GEM
       stanford-mods
     hashdiff (0.3.9)
     hashie (3.6.0)
-    honeybadger (3.3.1)
+    honeybadger (4.3.0)
     http (3.3.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -693,7 +692,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webdrivers (3.9.0)
+    webdrivers (3.9.4)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
@@ -748,7 +747,7 @@ DEPENDENCIES
   file_validators
   friendly_id (~> 5.2.0)
   harvestdor-indexer (~> 2.4)
-  honeybadger (~> 3.0)
+  honeybadger
   jbuilder (~> 2.5)
   jquery-rails
   jsonpath
