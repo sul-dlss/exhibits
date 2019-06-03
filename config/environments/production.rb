@@ -95,4 +95,7 @@ Rails.application.configure do
   # Set the multipart limit to infinity to work around bad feature page
   # serialization
   Rack::Utils.multipart_part_limit = 0
+
+  # Have long-running requests timeout after 60 seconds
+  config.slowpoke.timeout = 60
 end

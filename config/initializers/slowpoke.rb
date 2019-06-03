@@ -1,1 +1,0 @@
-Slowpoke.timeout = 60
