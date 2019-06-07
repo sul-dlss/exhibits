@@ -9,7 +9,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
   before do
     stub_request(:post, /update/)
-    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965).each do |fixture|
+    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
@@ -241,6 +241,22 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
                                     thumbnail_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!400,400/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!400,400/0/default.jpg),
                                     large_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!1000,1000/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!1000,1000/0/default.jpg),
                                     full_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!3000,3000/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!3000,3000/0/default.jpg)
+      end
+    end
+  end
+
+  context 'rarebooks object' do
+    let(:druid) { 'hm136qv0310' }
+
+    context 'to_solr' do
+      subject(:document) do
+        dor_harvester.document_builder.to_solr.first
+      end
+
+      it 'has publisher fields' do
+        expect(document).to include publisher_ssim: ['D. Margand et C. Fatout'],
+                                    publisher_ssi: ['D. Margand et C. Fatout'],
+                                    publisher_tesim: ['D. Margand et C. Fatout']
       end
     end
   end

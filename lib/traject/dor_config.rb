@@ -103,6 +103,13 @@ end
 
 to_field 'imprint_display', stanford_mods(:imprint_display_str)
 
+to_field 'publisher_ssim', stanford_mods(:term_values, [:origin_info, :publisher])
+to_field 'publisher_tesim', stanford_mods(:term_values, [:origin_info, :publisher])
+to_field 'publisher_ssi' do |_resource, accumulator, context|
+  value = Array(context.output_hash['publisher_tesim']).first
+  accumulator << value if value
+end
+
 to_field 'all_search', (accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') })
 
 to_field 'author_no_collector_ssim', stanford_mods(:non_collector_person_authors)
