@@ -133,6 +133,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
     config.add_facet_field 'collector_ssim', label: 'Collector', limit: true
+    config.add_facet_field 'publisher_ssim', label: 'Publisher', limit: true
     config.add_facet_field 'topic_facet', label: 'Topic', limit: true
     config.add_facet_field 'geographic_facet', label: 'Region', limit: true
     config.add_facet_field 'era_facet', label: 'Era', limit: true
@@ -172,6 +173,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'collector_ssim', label: 'Collector'
     config.add_index_field 'author_corp_display', label: 'Corporate Author'
     config.add_index_field 'author_meeting_display', label: 'Meeting Author'
+    config.add_index_field 'publisher_ssim', label: 'Publisher'
     config.add_index_field 'summary_display', label: 'Description'
     config.add_index_field 'topic_display', label: 'Topic'
     config.add_index_field 'subject_other_display', label: 'Subject'
@@ -348,6 +350,17 @@ class CatalogController < ApplicationController
       }
     end
 
+    config.add_search_field('publisher') do |field|
+      field.label = 'Publisher'
+      field.solr_parameters = {
+        qf: 'publisher_tesim',
+        pf: 'publisher_tesim',
+        pf3: 'publisher_tesim',
+        pf2: 'publisher_tesim'
+      }
+      field.enabled = false
+    end
+
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
@@ -357,6 +370,7 @@ class CatalogController < ApplicationController
     config.add_sort_field 'pub_year_isi asc, title_sort asc', label: 'year (old to new)'
     config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
     config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
+    config.add_sort_field 'publisher_ssi asc, pub_year_isi desc', label: 'publisher'
   end
 
   ##
