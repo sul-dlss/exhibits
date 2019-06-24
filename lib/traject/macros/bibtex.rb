@@ -21,7 +21,7 @@ module Macros
         result = record.public_send(method)
         result = Macros::Extraction.apply_extraction_options(result, options)
         Array.wrap(result).compact.each do |value|
-          accumulator << value
+          accumulator << value.to_s
         end
       end
     end
@@ -37,7 +37,7 @@ module Macros
           result = record.fields[key.to_sym].to_s.presence
           result = Macros::Extraction.apply_extraction_options(result, options)
           Array.wrap(result).compact.each do |value|
-            accumulator << value
+            accumulator << value.to_s
           end
         end
       end

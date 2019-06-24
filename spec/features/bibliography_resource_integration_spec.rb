@@ -89,7 +89,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
       end
 
       it 'has a year' do
-        expect(document['pub_year_isi']).to eq [2004]
+        expect(document['pub_year_isi']).to eq ['2004']
       end
 
       it 'has a DOI' do

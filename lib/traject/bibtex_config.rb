@@ -15,7 +15,7 @@ BIBTEX_ZOTERO_MAPPING = {
   article: 'Journal article',
   book: 'Book',
   misc: 'Document'
-}.freeze
+}.with_indifferent_access.freeze
 
 settings do
   provide 'reader_class_name', 'BibTeXReader'
