@@ -130,7 +130,11 @@ describe CatalogHelper, type: :helper do
   end
 
   describe '#render_fulltext_highlight' do
-    let(:document) { instance_double(SolrDocument, full_text_highlights: highlights) }
+    let(:document) { SolrDocument.new(druid: 'abc123') }
+
+    before do
+      expect(document).to receive_messages(full_text_highlights: highlights)
+    end
 
     context 'when there is a matching highlight for the given document' do
       let(:highlights) do
@@ -151,6 +155,20 @@ describe CatalogHelper, type: :helper do
       it 'only renders the configured amount of snippets' do
         ps = helper.render_fulltext_highlight(document: document)
         expect(ps.scan('<p>').count).to eq Settings.full_text_highlight.snippet_count
+      end
+    end
+
+    context 'when there is a q param' do
+      let(:highlights) do
+        %w(Value1 Value2 Value3 Value4 Value5 Value6 Value7 Value8)
+      end
+
+      it 'offers a link to go the record view w/ a search initiated' do
+        expect(helper).to receive_messages(current_exhibit: {}, params: { q: 'The search term' })
+
+        link = Capybara.string(helper.render_fulltext_highlight(document: document)).find('a')
+        expect(link.text).to eq('Search for "The search term" in document text')
+        expect(link['href']).to match(/abc123\?search=The\+search\+term/)
       end
     end
 
