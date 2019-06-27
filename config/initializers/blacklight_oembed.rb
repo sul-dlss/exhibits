@@ -1,1 +1,1 @@
-Blacklight::Oembed::Engine.config.additional_params = [:canvas_id]
+Blacklight::Oembed::Engine.config.additional_params = [:canvas_id, :search, :suggested_search]
