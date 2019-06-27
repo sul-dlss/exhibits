@@ -14,10 +14,23 @@ Blacklight.onLoad(function(){
   });
 
   $('dt.blacklight-full_text_tesimv').each(function() {
-    $(this).text($(this).text().replace(/:$/, ''));
-    $(this).append('<span class="caret caret-right"></span>');
-    $(this).attr('data-toggle', 'collapse');
-    $(this).attr('data-target', '#' + $(this).next('dd').attr('id'));
+    var $dt = $(this);
+    var $dd = $dt.next('dd');
+    var $link = $dd.find('a.prepared-search-link');
+
+    $dt.text($dt.text().replace(/:$/, ''));
+    $dt.append('<span class="caret caret-right"></span>');
+    $dt.attr('data-toggle', 'collapse');
+    $dt.attr('data-target', '#' + $dd.attr('id'));
+
+    if ($link.length > 0) {
+      $dt.before(
+        $('<dt class="prepared-search-container"></dt>')
+          .html($link.clone())
+      );
+      $dt.before($('<dd></dd>'));
+      $link.remove();
+    }
   });
 
   $('dd.blacklight-full_text_tesimv').collapse({ toggle: false });

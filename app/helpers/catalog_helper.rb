@@ -76,7 +76,8 @@ module CatalogHelper
     content_tag('p') do
       link_to(
         "Search for \"#{params[:q]}\" in document text",
-        spotlight.exhibit_solr_document_path(current_exhibit, document[:druid], search: params[:q])
+        spotlight.exhibit_solr_document_path(current_exhibit, document[:druid], search: params[:q]),
+        class: 'prepared-search-link'
       )
     end
   end

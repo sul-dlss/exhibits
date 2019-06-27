@@ -18,8 +18,8 @@ RSpec.feature 'Full text highlighting' do
     sign_out user
   end
 
-  context 'when a document has a full text highlight hit' do
-    it 'shows the full-text hightlight field and provides a toggle', js: true do
+  context 'when a document has a full text highlight hit', js: true do
+    it 'shows the full-text hightlight field and provides a toggle' do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'structure')
 
       expect(page).to have_css('dt', text: 'Sample matches in document text')
@@ -27,6 +27,15 @@ RSpec.feature 'Full text highlighting' do
       expect(page).not_to have_css('dd p', text: 'about need for data structures capable of storing', visible: true)
       page.find('dt', text: 'Sample matches in document text').click
       expect(page).to have_css('dd p', text: 'about need for data structures capable of storing', visible: true)
+    end
+
+    it 'pulls the prepared-search-link link from the full text snippet section to a new dt' do
+      visit spotlight.search_exhibit_catalog_path(exhibit, q: 'structure')
+
+      expect(page).to have_css('dt a', text: 'Search for "structure" in document text', visible: true)
+      expect(page).not_to have_css('dd a', text: 'Search for "structure" in document text') # Original link location
+      page.find('dt', text: 'Sample matches in document text').click
+      expect(page).not_to have_css('dd a', text: 'Search for "structure" in document text') # Original link location
     end
   end
 
