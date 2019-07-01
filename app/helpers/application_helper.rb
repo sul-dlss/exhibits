@@ -52,7 +52,7 @@ module ApplicationHelper
         url: url,
         canvas_id: canvas_id,
         search: params[:search],
-        suggested_search: params[:suggested_search]
+        suggested_search: (current_search_session&.query_params || {})[:q]
       )
     }
   end
