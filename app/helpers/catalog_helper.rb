@@ -70,16 +70,30 @@ module CatalogHelper
     link_to link_title, spotlight.exhibit_solr_document_path(current_exhibit, druid)
   end
 
+  def search_for_doc_text_link(document)
+    return '' unless params[:q]
+
+    content_tag('p') do
+      link_to(
+        "Search for \"#{params[:q]}\" in document text",
+        spotlight.exhibit_solr_document_path(current_exhibit, document[:druid], search: params[:q]),
+        class: 'prepared-search-link'
+      )
+    end
+  end
+
   # rubocop:disable Rails/OutputSafety
   def render_fulltext_highlight(document:, **_args)
     highlights = document.full_text_highlights
     return if highlights.none?
 
+    link = search_for_doc_text_link(document)
+
     safe_join(highlights.take(Settings.full_text_highlight.snippet_count).map do |val|
       content_tag('p') do
         val.html_safe # val is highlighted field from solr which is html safe
       end
-    end, '')
+    end.prepend(link), '')
   end
   # rubocop:enable Rails/OutputSafety
 

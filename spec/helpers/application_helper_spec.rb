@@ -26,17 +26,29 @@ describe ApplicationHelper, type: :helper do
       it 'renders a div with embed attribute and canvas index param' do
         expect(helper).to receive_messages(
           blacklight_config: CatalogController.blacklight_config,
+          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3)
         expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
           'mbed?canvas_id=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
       end
+
+      it 'uses the q from the current_search_session to populate the suggested_search param' do
+        expect(helper).to receive_messages(
+          blacklight_config: CatalogController.blacklight_config,
+          current_search_session: instance_double('Blacklight::SearchSession', query_params: { q: 'The Query' }),
+          feature_flags: FeatureFlags.for(create(:exhibit))
+        )
+        rendered = helper.custom_render_oembed_tag_async(document, 3)
+        expect(rendered).to match(/&amp;suggested_search=The\+Query&amp;/)
+      end
     end
 
     context 'an exhibit that is configured (via feature flag) to point to UAT' do
       it 'renders a div with the correct embed end-point in the data attribute' do
         expect(helper).to receive_messages(
+          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit, slug: 'test-flag-exhibit-slug'))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3)

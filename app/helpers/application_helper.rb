@@ -47,7 +47,14 @@ module ApplicationHelper
   def custom_render_oembed_tag_async(document, canvas_id)
     url = context_specific_oembed_url(document)
 
-    content_tag :div, '', data: { embed_url: blacklight_oembed_engine.embed_url(url: url, canvas_id: canvas_id) }
+    content_tag :div, '', data: {
+      embed_url: blacklight_oembed_engine.embed_url(
+        url: url,
+        canvas_id: canvas_id,
+        search: params[:search],
+        suggested_search: (current_search_session&.query_params || {})[:q]
+      )
+    }
   end
 
   ##
