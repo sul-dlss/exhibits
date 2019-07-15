@@ -78,7 +78,7 @@ GEM
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.2.0)
       rails
-    blacklight-oembed (0.2.0)
+    blacklight-oembed (0.3.0)
       blacklight (>= 5.0, < 7)
       bootstrap-sass (~> 3.0)
       rails
