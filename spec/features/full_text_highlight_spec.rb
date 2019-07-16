@@ -39,6 +39,15 @@ RSpec.feature 'Full text highlighting' do
     end
   end
 
+  context 'when a document has full text but there is no highlight', js: true do
+    it 'still offers a link to open up the document with a search prepared (and does not have a highlight section)' do
+      visit spotlight.search_exhibit_catalog_path(exhibit, q: 'zy575vf8599')
+
+      expect(page).to have_css('dt a', text: 'Search for "zy575vf8599" in document text', visible: true)
+      expect(page).not_to have_css('dt', text: 'Sample matches in document text')
+    end
+  end
+
   context 'when a document has non-english full text' do
     it 'stems Portuguese properly', js: true do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'homens')

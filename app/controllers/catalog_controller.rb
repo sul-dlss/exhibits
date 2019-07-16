@@ -226,7 +226,7 @@ class CatalogController < ApplicationController
         # This is required for the metadata configuration admin page to return the field properly.
         return true if args.length < 3
 
-        full_text_highlight_exists_in_response?(*args)
+        document_has_full_text_and_search_is_query?(*args)
       end,
       label: 'Sample matches in document text',
       highlight: true,
@@ -393,18 +393,8 @@ class CatalogController < ApplicationController
   end
 
   class << self
-    # Blacklight's highlighting feature assumes that the metadata exists in the page
-    # and replaces the rendered version from the dopcument with that of the highlighting
-    # section. In the case of our full text field, we do not render it in the normal results
-    # so we need to not display the field at all unless it was returned in the highlighting.
-    def full_text_highlight_exists_in_response?(context, _config, document)
-      response = context.instance_variable_get(:@response) || {}
-      document_highlight = response.dig('highlighting', document['id'])
-      return true if document_highlight.present? && document_highlight.any? do |field, values|
-        Settings.full_text_highlight.fields.include?(field) && values.present?
-      end
-
-      false
+    def document_has_full_text_and_search_is_query?(context, _config, document)
+      context.params[:q].present? && document['full_text_tesimv'].present?
     end
   end
 end
