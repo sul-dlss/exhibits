@@ -73,19 +73,16 @@ module CatalogHelper
   def search_for_doc_text_link(document)
     return '' unless params[:q]
 
-    content_tag('p') do
-      link_to(
-        "Search for \"#{params[:q]}\" in document text",
-        spotlight.exhibit_solr_document_path(current_exhibit, document[:druid], search: params[:q]),
-        class: 'prepared-search-link'
-      )
-    end
+    link_to(
+      "Search for \"#{params[:q]}\" in document text",
+      spotlight.exhibit_solr_document_path(current_exhibit, document[:druid], search: params[:q]),
+      class: 'prepared-search-link'
+    )
   end
 
   # rubocop:disable Rails/OutputSafety
   def render_fulltext_highlight(document:, **_args)
     highlights = document.full_text_highlights
-    return if highlights.none?
 
     link = search_for_doc_text_link(document)
 
