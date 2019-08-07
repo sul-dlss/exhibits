@@ -83,7 +83,7 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.7.1)
+    blacklight-spotlight (2.7.2)
       acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -100,6 +100,7 @@ GEM
       faraday_middleware
       friendly_id (~> 5.2)
       github-markup
+      i18n
       i18n-active_record
       iiif-presentation
       iiif_manifest
@@ -305,7 +306,7 @@ GEM
       stanford-mods
     hashdiff (1.0.0)
     hashie (3.6.0)
-    honeybadger (4.4.2)
+    honeybadger (4.5.0)
     http (3.3.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -642,7 +643,7 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
-    tinymce-rails (5.0.12)
+    tinymce-rails (5.0.13)
       railties (>= 3.1.1)
     to_regexp (0.2.1)
     tophat (2.3.1)
