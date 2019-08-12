@@ -1,0 +1,14 @@
+<% if document.manifest_url.present? %>
+  <% manifest_url = document.manifest_url.starts_with?('/') ? root_url + document.manifest_url.slice(1..-1) : document.manifest_url %>
+  <%= content_tag :iframe, '',
+        src: "#{Settings.iiif_embed.url}?#{{ url: manifest_url }.to_query}",
+        allowfullscreen: true,
+        class: 'mirador-embed-wrapper',
+        frameborder: 0,
+        marginwidth: 0,
+        marginheight: 0,
+        scrolling: 'no',
+        width: '100%'
+        %>
+  <%= iiif_drag_n_drop(manifest_url) %>
+<% end %>
