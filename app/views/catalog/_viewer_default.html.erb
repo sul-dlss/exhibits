@@ -1,4 +1,6 @@
-<% if document.uploaded_resource? || document.external_iiif? %>
+<% if document.external_iiif? %>
+  <%= render partial: "embedded_mirador3", locals: {document: document} %>
+<% elsif document.uploaded_resource? %>
   <%= render partial: "openseadragon_default", locals: {document: document} %>
 <% else %>
   <% # block comes from a local passed in from Spotlight %>
