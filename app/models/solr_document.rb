@@ -52,6 +52,10 @@ class SolrDocument
     end
   end
 
+  def full_text?
+    self['has_full_text_func_boolean']
+  end
+
   def external_iiif?
     self[self.class.resource_type_field].present? &&
       self[self.class.resource_type_field].include?('spotlight/resources/iiif_harvesters')

@@ -24,7 +24,27 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
-      fl: '*',
+      # Wipe out the values of the `all_search*` and `full_text*` fields using clever solr tricks to deal with
+      # cases (like rarebooks) that have abundant full text data (to the tune of 1MB per object.. times 8) that
+      # cause search results to slow to a crawl. We don't actually use these fields for displaying results,
+      # so we're just blanking them out (again, using clever solr tricks) with a boolean to indicate
+      # whether there was data or not.
+      #
+      # Alternatively, we could list all the fields we want, but this could get excessive (and problematic to do
+      # in the solrconfig with exhibit-specific fields). There's also a long-standing issue in solr about
+      # excluding fields that might help too: https://issues.apache.org/jira/browse/SOLR-9467
+      fl: [
+        '*',
+        'all_search:[value v=""]',
+        'all_unstem_search:[value v=""]',
+        'full_text_tesimv:if(exists(full_text_tesimv),true,false)',
+        'full_text_search:if(exists(full_text_tesimv),true,false)',
+        'full_text_unstem_search:if(exists(full_text_tesimv),true,false)',
+        'full_text_search_en:if(exists(full_text_tesimv),true,false)',
+        'full_text_search_pt:if(exists(full_text_tesimv),true,false)',
+        'full_text_search_id:if(exists(full_text_tesimv),true,false)',
+        'has_full_text_func_boolean:exists(full_text_tesimv)'
+      ].join(','),
       hl: true,
       'hl.method' => 'unified',
       # explicitly defining offsetSource because solr thinks we're trying to do Term Vectors (full)
@@ -394,7 +414,7 @@ class CatalogController < ApplicationController
 
   class << self
     def document_has_full_text_and_search_is_query?(context, _config, document)
-      context.params[:q].present? && document['full_text_tesimv'].present?
+      context.params[:q].present? && document.full_text?
     end
   end
 end
