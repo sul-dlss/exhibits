@@ -185,4 +185,12 @@ describe SolrDocument do
       end
     end
   end
+
+  describe '#full_text?' do
+    subject(:document) { described_class.new(has_full_text_func_boolean: true) }
+
+    it 'returns true if there was full text data (figured out using solr func queries)' do
+      expect(document).to be_full_text
+    end
+  end
 end
