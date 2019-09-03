@@ -6,16 +6,17 @@ describe UploadSolrDocumentBuilder do
   subject(:builder) { described_class.new resource }
 
   let(:exhibit) { create(:exhibit) }
-  let(:featured_image) { instance_double(Spotlight::FeaturedImage) }
   let(:upload_id) { 123 }
+  let(:upload) { Spotlight::FeaturedImage.new(id: upload_id) }
   let(:riiif_image) do
     instance_double(Riiif::Image, info: instance_double('Dimensions', width: 5, height: 5))
   end
 
-  let(:resource) { Spotlight::Resources::Upload.create! exhibit: exhibit, upload_id: upload_id }
+  let(:resource) { Spotlight::Resources::Upload.create! exhibit: exhibit, upload: upload }
 
   before do
     allow(Riiif::Image).to receive(:new).with(upload_id).and_return(riiif_image)
+    allow(upload).to receive(:file_present?).and_return(true)
   end
 
   describe '#to_solr' do
