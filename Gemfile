@@ -110,10 +110,10 @@ gem 'friendly_id', '~> 5.2.0'
 gem 'sitemap_generator'
 
 source 'https://gems.contribsys.com/' do
-  gem 'sidekiq-pro'
+  gem 'sidekiq-pro', '~> 5.0'
 end
 
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.0'
 gem 'sul_styles'
 gem 'dotenv'
 gem 'sir_trevor_rails'
