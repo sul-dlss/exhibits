@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_221815) do
+ActiveRecord::Schema.define(version: 2019_09_03_155428) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_221815) do
     t.datetime "updated_at", null: false
     t.string "field_type"
     t.boolean "readonly_field", default: false
+    t.boolean "is_multiple", default: false
     t.index ["exhibit_id"], name: "index_spotlight_custom_fields_on_exhibit_id"
   end
 
@@ -250,7 +251,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_221815) do
     t.string "slug"
     t.string "scope"
     t.text "content", limit: 16777215
-    t.integer "weight", default: 50
+    t.integer "weight", default: 1000
     t.boolean "published"
     t.integer "exhibit_id"
     t.integer "created_by_id"
@@ -263,6 +264,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_221815) do
     t.integer "thumbnail_id"
     t.string "locale", default: "en"
     t.integer "default_locale_page_id"
+    t.string "content_type"
     t.index ["default_locale_page_id"], name: "index_spotlight_pages_on_default_locale_page_id"
     t.index ["exhibit_id"], name: "index_spotlight_pages_on_exhibit_id"
     t.index ["locale"], name: "index_spotlight_pages_on_locale"
@@ -356,7 +358,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_221815) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
-    t.string "taggable_id"
+    t.integer "taggable_id"
     t.string "taggable_type"
     t.string "tagger_type"
     t.integer "tagger_id"
