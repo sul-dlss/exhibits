@@ -52,11 +52,10 @@ Exhibits::Application.routes.draw do
         concerns :exportable
 
         member do
-          get 'metadata'
+          get 'metadata' => 'metadata#show'
         end
       end
     end
-
   end
   mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 
