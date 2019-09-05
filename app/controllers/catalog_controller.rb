@@ -393,20 +393,6 @@ class CatalogController < ApplicationController
     config.add_sort_field 'publisher_ssi asc, pub_year_isi desc', label: 'publisher'
   end
 
-  ##
-  # A simplification of Blacklight's `Blacklight::CatalogController#show` and
-  # `Blacklight:DefaultComponentConfiguration#add_show_tools_partial` method for
-  # our `metadata` which is not defined as a "Blacklight show tool".
-  # https://github.com/projectblacklight/blacklight/blob/v6.12.0/app/controllers/concerns/blacklight/default_component_configuration.rb#L42-L73
-  def metadata
-    @response, @document = fetch params[:id]
-    respond_to do |format|
-      format.html do
-        return render layout: false if request.xhr?
-      end
-    end
-  end
-
   # JSON API queries should not trigger new search histories
   def start_new_search_session?
     super && params[:format] != 'json'

@@ -4,14 +4,18 @@ require 'rails_helper'
 
 RSpec.feature 'Metadata display' do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
+  let(:document_url) do
+    spotlight.exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
+  end
 
   describe 'page behavior' do
     before do
-      visit spotlight.exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
+      visit document_url
     end
 
-    it 'view metadata link links through to page' do
+    it 'view metadata link links through to page', js: false do
       click_link 'More details »'
+      expect(page).to have_link 'Afrique Physique.', href: document_url
       expect(page).to have_css 'h3', text: 'Afrique Physique.'
       expect(page).not_to have_css 'dt', text: 'Title:'
       expect(page).not_to have_css 'dd', text: 'Afrique Physique.'
