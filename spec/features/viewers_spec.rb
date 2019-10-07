@@ -94,6 +94,7 @@ describe 'Viewers', type: :feature do
       expect(page).to have_css 'h3', text: /Posesiones/
     end
     # rubocop:disable RSpec/ExampleLength
+
     pending 'renders default viewer on configured widget feature page', js: true do
       visit spotlight.edit_exhibit_feature_page_path(exhibit, feature_page)
 

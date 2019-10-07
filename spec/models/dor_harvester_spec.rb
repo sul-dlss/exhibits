@@ -60,9 +60,11 @@ describe DorHarvester do
       it 'records a successful index for a druid' do
         expect { subject.on_success(resource) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: true)
       end
+
       it 'does not enqueue IndexRelatedContentJob unless enabled for exhibit' do
         expect { subject.on_success(resource) }.not_to have_enqueued_job(IndexRelatedContentJob)
       end
+
       context 'when index_related_content is enabled for an exhibit' do
         subject(:harvester) { described_class.create druid_list: druid, exhibit: exhibit }
 
@@ -78,9 +80,11 @@ describe DorHarvester do
       it 'records an indexing error for a druid' do
         expect { subject.on_error(resource, 'error message') }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: false, message: 'error message')
       end
+
       it 'records an indexing exception for a druid' do
         expect { subject.on_error(resource, RuntimeError.new('error message')) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: false, message: '#<RuntimeError: error message>')
       end
+
       it 'records an indexing exception for a druid even if very large' do
         e = RuntimeError.new('error' * 1.megabyte)
         inspected = e.inspect.truncate(1.megabyte)
