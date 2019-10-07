@@ -23,7 +23,7 @@ describe FeatureFlags do
     end
 
     it 'throws a NoMethodError if a non-existing flag is requested' do
-      expect(-> { feature_flags.utter_nonsense? }).to raise_error(NoMethodError)
+      expect { feature_flags.utter_nonsense? }.to raise_error(NoMethodError)
     end
   end
 
@@ -55,7 +55,7 @@ describe FeatureFlags do
     end
 
     it 'throws an ArgumentError when the exhibit is not a nil, a string, or an exhibit like object' do
-      expect(-> { described_class.for(['foo']) }).to raise_error(ArgumentError)
+      expect { described_class.for(['foo']) }.to raise_error(ArgumentError)
     end
   end
 end

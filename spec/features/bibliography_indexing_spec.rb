@@ -25,6 +25,7 @@ RSpec.feature 'Bibliography indexing', type: :feature do
     expect(page).to have_css 'h5', text: /Quelques/
     expect(page).to have_css '.alert-info', text: 'Your bibliography resource has been successfully created.'
   end
+
   context 'when disabled' do
     let(:exhibit) { create(:exhibit, slug: 'test-flag-exhibit-slug') }
 

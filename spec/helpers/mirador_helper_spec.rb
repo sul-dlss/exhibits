@@ -12,11 +12,13 @@ describe MiradorHelper, type: :helper do
       mirador_options = mirador_options(manifest, canvas, exhibit_slug)
       expect(mirador_options[:data].first[:manifestUri]).to be manifest
     end
+
     it 'includes the manifest url and canvas uri in the windowObject' do
       mirador_options = mirador_options(manifest, canvas, exhibit_slug)
       expect(mirador_options[:windowObjects].first[:loadedManifest]).to be manifest
       expect(mirador_options[:windowObjects].first[:canvasID]).to be canvas
     end
+
     context 'default exhibit' do
       it 'is a mirador config without sidepanel settings' do
         side_panel_options = mirador_options(manifest, canvas, exhibit_slug)[:sidePanelOptions]

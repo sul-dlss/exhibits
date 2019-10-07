@@ -26,6 +26,7 @@ describe 'viewers/_mirador.html.erb', type: :view do
 
     expect(iframe['allowfullscreen']).to eq 'true'
   end
+
   context 'when manifest is missing' do
     let(:document) { SolrDocument.new }
 

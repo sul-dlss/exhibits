@@ -70,6 +70,7 @@ RSpec.describe Bibliography do
         'http://zotero.org/groups/1051392/items/MT4A9V2I'
       )
     end
+
     it '#to_html (in sorted order)' do
       expect(bibliography.to_html).to eq File.read('spec/fixtures/bibliography/rendered.html').strip
     end
