@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_155428) do
+ActiveRecord::Schema.define(version: 2019_10_21_144901) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -146,6 +146,16 @@ ActiveRecord::Schema.define(version: 2019_09_03_155428) do
     t.boolean "readonly_field", default: false
     t.boolean "is_multiple", default: false
     t.index ["exhibit_id"], name: "index_spotlight_custom_fields_on_exhibit_id"
+  end
+
+  create_table "spotlight_custom_search_fields", force: :cascade do |t|
+    t.string "slug"
+    t.string "field"
+    t.text "configuration"
+    t.integer "exhibit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exhibit_id"], name: "index_spotlight_custom_search_fields_on_exhibit_id"
   end
 
   create_table "spotlight_exhibits", force: :cascade do |t|
