@@ -29,7 +29,7 @@ describe UploadSolrDocumentBuilder do
         'configured_fields' => { 'spotlight_upload_date_tesim' => 'this is a year: 2014' }
       }
 
-      expect(builder.to_solr).to include pub_year_tisim: 2014, pub_year_w_approx_isi: 2014
+      expect(builder.to_solr).to include pub_year_tisim: 2014, pub_year_w_approx_isi: 2014, pub_year_isi: 2014
     end
   end
 end

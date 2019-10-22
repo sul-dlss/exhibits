@@ -21,7 +21,8 @@ Spotlight::Engine.config.upload_fields = [
       'date_sort',
       'spotlight_upload_date_tesim',
       pub_year_w_approx_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) },
-      pub_year_tisim: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) }
+      pub_year_tisim: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) },
+      pub_year_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) }
     ],
     field_name: :spotlight_upload_date_tesim,
     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }
