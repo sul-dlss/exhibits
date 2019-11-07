@@ -44,6 +44,10 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+  # the I18n.default_locale when a translation cannot be found).
+  # config.i18n.fallbacks = [I18n.default_locale]
+
   # Have long-running requests timeout after 60 seconds
   config.slowpoke.timeout = 60
 end
