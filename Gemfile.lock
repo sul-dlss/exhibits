@@ -83,12 +83,12 @@ GEM
       bootstrap-sass (~> 3.0)
       rails
       ruby-oembed
-    blacklight-spotlight (2.11.0)
+    blacklight-spotlight (2.12.0)
       acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
       blacklight (~> 6.20)
-      blacklight-oembed (>= 0.0.3)
+      blacklight-oembed (~> 0.3)
       bootstrap_form (~> 2.2)
       breadcrumbs_on_rails (~> 3.0)
       cancancan
@@ -279,7 +279,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.11.1)
+    ffi (1.11.2)
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -484,7 +484,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
-    rake (13.0.0)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
