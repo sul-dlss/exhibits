@@ -9,6 +9,10 @@ class CatalogController < ApplicationController
 
   include Blacklight::Catalog
 
+  before_action only: :manifest do
+    response.headers['Access-Control-Allow-Origin'] = '*'
+  end
+
   before_action only: :admin do
     blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
   end

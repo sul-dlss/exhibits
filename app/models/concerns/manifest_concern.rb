@@ -5,10 +5,13 @@
 # convenient accessors for IIIF manifests embeded in a SolrDocument
 module ManifestConcern
   def manifest
-    manifest_url = fetch('iiif_manifest_url_ssi', nil)
     return if manifest_url.blank? || !manifest_available?
 
     manifest_url
+  end
+
+  def manifest_url
+    fetch('iiif_manifest_url_ssi', nil)
   end
 
   def exhibit_specific_manifest(custom_manifest_pattern)
