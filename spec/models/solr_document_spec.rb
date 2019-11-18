@@ -19,6 +19,19 @@ describe SolrDocument do
     end
   end
 
+  describe '#manifest_url' do
+    subject do
+      described_class.new(
+        id: 'abc123',
+        'iiif_manifest_url_ssi' => 'http://www.example.com/default/'
+      )
+    end
+
+    it 'pulls data from the solr document' do
+      expect(subject.manifest_url).to eq 'http://www.example.com/default/'
+    end
+  end
+
   describe '#exhibit_specific_manifest' do
     subject do
       described_class.new(
