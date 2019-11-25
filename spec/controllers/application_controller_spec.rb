@@ -5,7 +5,7 @@ require 'rails_helper'
 describe ApplicationController do
   describe '#feature_flags' do
     before do
-      allow(subject).to receive(:current_exhibit)
+      allow(controller).to receive(:current_exhibit)
         .and_return(FactoryBot.create(:exhibit, slug: 'test-flag-exhibit-slug'))
     end
 
