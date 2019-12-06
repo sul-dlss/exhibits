@@ -3,15 +3,24 @@
 # Record the status of an index job
 class RecordIndexStatusJob < ApplicationJob
   def perform(harvester, druid, index_status = {})
-    s = sidecar(harvester, druid)
+    type = harvester.exhibit.blacklight_config.document_model.model_name.name
+    s = create_or_find_sidecar(relation(harvester), document_id: druid, document_type: type)
 
-    s.update(index_status: index_status.merge(timestamp: Time.zone.now))
+    s.update(resource: harvester, index_status: index_status.merge(timestamp: Time.zone.now))
   end
 
-  def sidecar(harvester, id)
-    type = harvester.exhibit.blacklight_config.document_model.model_name.name
-    harvester.exhibit.solr_document_sidecars.find_or_initialize_by(document_id: id, document_type: type) do |sidecar|
-      sidecar.resource = harvester
+  private
+
+  # Inspired by Rails 6's create_or_find_by method
+  def create_or_find_sidecar(relation, attributes = {})
+    relation.transaction(requires_new: true) do
+      relation.create(attributes)
     end
+  rescue ActiveRecord::RecordNotUnique
+    relation.find_by!(attributes)
+  end
+
+  def relation(harvester)
+    harvester.exhibit.solr_document_sidecars
   end
 end
