@@ -34,3 +34,5 @@ Spotlight::Engine.config.external_resources_partials += ['dor_harvester/form', '
 Spotlight::Resources::Upload.document_builder_class = ::UploadSolrDocumentBuilder
 
 Spotlight::Engine.config.exhibit_themes = %w[default parker] if FeatureFlags.new.themes?
+
+Spotlight::ReindexJob.validity_checker = SidekiqValidityChecker.new if Rails.application.config.active_job.queue_adapter == :sidekiq

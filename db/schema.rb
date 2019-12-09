@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_144901) do
+ActiveRecord::Schema.define(version: 2019_12_09_212113) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -361,6 +361,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_144901) do
     t.string "resource_type"
     t.binary "index_status", limit: 10485760
     t.index ["document_type", "document_id"], name: "spotlight_solr_document_sidecars_solr_document"
+    t.index ["exhibit_id", "document_type", "document_id"], name: "by_exhibit_and_doc", unique: true
     t.index ["exhibit_id", "document_type", "document_id"], name: "spotlight_solr_document_sidecars_exhibit_document"
     t.index ["exhibit_id"], name: "index_spotlight_solr_document_sidecars_on_exhibit_id"
     t.index ["resource_type", "resource_id"], name: "spotlight_solr_document_sidecars_resource"
