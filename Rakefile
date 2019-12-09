@@ -26,7 +26,7 @@ task ci: [:rubocop, :environment, 'factory_bot:lint'] do
   require 'solr_wrapper'
   ENV['environment'] = 'test'
   SolrWrapper.wrap(port: '8983') do |solr|
-    solr.with_collection(name: 'blacklight-core', dir: Rails.root.join('solr', 'config')) do
+    solr.with_collection(name: 'blacklight-core', dir: Rails.root.join('solr/config')) do
       # run the tests
       Rake::Task['spotlight:seed'].invoke
       Rake::Task['spec'].invoke
@@ -38,7 +38,7 @@ desc 'Run solr and launch the development Rails server'
 task server: [:environment] do
   require 'solr_wrapper'
   SolrWrapper.wrap(port: '8983') do |solr|
-    solr.with_collection(name: 'blacklight-core', dir: Rails.root.join('solr', 'config')) do
+    solr.with_collection(name: 'blacklight-core', dir: Rails.root.join('solr/config')) do
       system 'bundle exec rake spotlight:seed'
 
       unless File.exist? 'tmp/.initialized'
@@ -52,7 +52,7 @@ end
 
 namespace :spotlight do
   task seed: [:environment] do
-    docs = JSON.parse(File.read(Rails.root.join('spec', 'fixtures', 'sample_solr_docs.json')))
+    docs = JSON.parse(File.read(Rails.root.join('spec/fixtures/sample_solr_docs.json')))
     conn = Blacklight.default_index.connection
     conn.add docs
     conn.commit
