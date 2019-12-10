@@ -5,7 +5,8 @@
 # requested indexing job
 class SidekiqValidityChecker < Spotlight::ValidityChecker
   def mint(resource)
-    t = Time.zone.now
+    t = serialize(Time.zone.now)
+
     Sidekiq.redis do |c|
       c.setex("indexing-validity-#{resource.to_global_id}", 24.hours.to_i, t)
     end
@@ -15,8 +16,22 @@ class SidekiqValidityChecker < Spotlight::ValidityChecker
 
   def check(resource, validity_token)
     Sidekiq.redis do |c|
-      t = c.get("indexing-validity-#{resource.to_global_id}") || Time.zone.at(0)
-      validity_token >= t
+      stored_token = c.get("indexing-validity-#{resource.to_global_id}")
+
+      t = deserialize(stored_token) if stored_token
+      t ||= Time.zone.at(0)
+
+      deserialize(validity_token) >= t
     end
+  end
+
+  private
+
+  def serialize(value)
+    value.to_i.to_s
+  end
+
+  def deserialize(str)
+    Time.zone.at(str.to_s.to_i)
   end
 end
