@@ -1,0 +1,13 @@
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
+
+template: |
+  ## What’s Changed
+  https://github.com/sul-dlss/exhibits/compare/$PREVIOUS_TAG...v$NEXT_PATCH_VERSION
+  $CHANGES
+  ### Added
+  ### Changed
+  ### Deprecated
+  ### Removed
+  ### Fixed
+  ### Security
