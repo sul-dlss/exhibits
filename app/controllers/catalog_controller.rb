@@ -18,9 +18,7 @@ class CatalogController < ApplicationController
   end
 
   before_action only: :index do
-    if request.format.json?
-      blacklight_config.add_index_field 'formatted_bibliography_ts'
-    end
+    blacklight_config.add_index_field 'formatted_bibliography_ts' if request.format.json?
   end
 
   configure_blacklight do |config|
