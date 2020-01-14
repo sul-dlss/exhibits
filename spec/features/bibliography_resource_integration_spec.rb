@@ -68,7 +68,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
     end
 
     it 'has spotlight data' do
-      expect(document).to include :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
+      expect(document.to_h.symbolize_keys).to include :spotlight_resource_id_ssim, :spotlight_resource_type_ssim
     end
 
     it 'skips undefined fields' do
