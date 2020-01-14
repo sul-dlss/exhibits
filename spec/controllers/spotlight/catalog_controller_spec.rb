@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 describe Spotlight::CatalogController do
+  include ActiveJob::TestHelper
   routes { Spotlight::Engine.routes }
 
   let(:exhibit) { create(:exhibit) }
@@ -14,7 +15,14 @@ describe Spotlight::CatalogController do
 
   describe '#manifest' do
     it 'sets appropriate CORS headers' do
-      get :manifest, params: { id: 1, exhibit_id: exhibit.id, locale: 'en' }
+      uploaded_resource = FactoryBot.create(:uploaded_resource)
+      compound_id = uploaded_resource.compound_id
+
+      perform_enqueued_jobs do
+        uploaded_resource.save_and_index
+      end
+
+      get :manifest, params: { id: compound_id, exhibit_id: exhibit.id, locale: 'en' }
 
       expect(response.headers.to_h).to include 'Access-Control-Allow-Origin' => '*'
     end
