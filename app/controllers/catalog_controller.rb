@@ -22,6 +22,8 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
+    config.index.default_thumbnail = :exhibits_default_thumbnail
+
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'

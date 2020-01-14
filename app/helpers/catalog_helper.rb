@@ -18,20 +18,18 @@ module CatalogHelper
   end
   # rubocop:enable Naming/PredicateName
 
-  # @note thumbnail handling moves to a presenter in Blacklight 7.
-  # Overriding Blacklight to provide a default thumbnail for references.
-  # Need to override instead of configuring a thumbnail_method because thumbnail_method
-  # does not receive url_options to be passed to a link_to_document
-  #
-  # @param [SolrDocument] document
-  # @param [Hash] image_options to pass to the image tag
-  # @param [Hash] url_options to pass to #link_to_document
-  # @return [String]
-  def render_thumbnail_tag(document, image_options = {}, url_options = {})
-    return super unless document.reference? || document.canvas?
-
-    image = image_tag(thumbnail_tag_image_path(document), image_options)
-    link_to_document document, image, url_options
+  def exhibits_default_thumbnail(document, image_options)
+    if document.reference?
+      image_tag(
+        blacklight_config.view_config(document_index_view_type).default_bibliography_thumbnail,
+        image_options
+      )
+    elsif document.canvas?
+      image_tag(
+        blacklight_config.view_config(document_index_view_type).default_canvas_thumbnail,
+        image_options
+      )
+    end
   end
 
   def notes_wrap(options = {})
@@ -93,14 +91,4 @@ module CatalogHelper
     end.prepend(link), '')
   end
   # rubocop:enable Rails/OutputSafety
-
-  private
-
-  def thumbnail_tag_image_path(document)
-    if document.reference?
-      blacklight_config.view_config(document_index_view_type).default_bibliography_thumbnail
-    elsif document.canvas?
-      blacklight_config.view_config(document_index_view_type).default_canvas_thumbnail
-    end
-  end
 end

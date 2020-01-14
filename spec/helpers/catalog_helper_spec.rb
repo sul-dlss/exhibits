@@ -19,14 +19,11 @@ describe CatalogHelper, type: :helper do
     end
   end
 
-  describe '#render_thumbnail_tag' do
+  describe '#exhibits_default_thumbnail' do
     before do
       expect(helper).to receive_messages(
         blacklight_config: CatalogController.blacklight_config,
-        current_search_session: {},
-        document_index_view_type: :list,
-        search_state: instance_double('SearchState', url_for_document: '/'),
-        search_session: {}
+        document_index_view_type: :list
       )
     end
 
@@ -34,19 +31,17 @@ describe CatalogHelper, type: :helper do
       let(:document) { SolrDocument.new(id: 'abc123', format_main_ssim: ['Reference']) }
 
       it 'renders a default thumbnail' do
-        link = Capybara.string(helper.render_thumbnail_tag(document))
-        expect(link).to have_css('a[data-context-href]')
-        expect(link.find('img')['src']).to include 'default-square-thumbnail-book'
+        img = Capybara.string(helper.exhibits_default_thumbnail(document, {}))
+        expect(img.find('img')['src']).to include 'default-square-thumbnail-book'
       end
     end
 
-    context 'for canveses' do
+    context 'for canvases' do
       let(:document) { SolrDocument.new(id: 'abc123', format_main_ssim: ['Page details']) }
 
       it 'renders a default thumbnail' do
-        link = Capybara.string(helper.render_thumbnail_tag(document))
-        expect(link).to have_css('a[data-context-href]')
-        expect(link.find('img')['src']).to include 'default-square-thumbnail-annotation'
+        img = Capybara.string(helper.exhibits_default_thumbnail(document, {}))
+        expect(img.find('img')['src']).to include 'default-square-thumbnail-annotation'
       end
     end
   end
