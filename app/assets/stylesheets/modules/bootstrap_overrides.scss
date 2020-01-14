@@ -1,3 +1,11 @@
+.bg-cardinal-red {
+  background-color: $color-cardinal-red !important;
+}
+
+.topbar {
+  @extend .bg-cardinal-red;
+}
+
 .breadcrumb {
   border-bottom: 1px solid lighten($heading-border-color, 5%);
   padding-left: 0;
