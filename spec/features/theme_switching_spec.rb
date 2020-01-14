@@ -13,7 +13,7 @@ describe 'Theme switching', type: :feature do
       visit spotlight.exhibit_dashboard_path(exhibit)
 
       expect(page).to have_css('#global-footer', visible: true)
-      expect(page).to have_css('.sul-footer', visible: true)
+      expect(page).to have_css('#sul-footer', visible: true)
 
       within('#sidebar') { click_link 'Appearance' }
 
@@ -22,7 +22,7 @@ describe 'Theme switching', type: :feature do
       click_button 'Save changes'
 
       expect(page).to have_css('#global-footer', visible: false)
-      expect(page).to have_css('.sul-footer', visible: false)
+      expect(page).to have_css('#sul-footer', visible: false)
     end
   end
 end
