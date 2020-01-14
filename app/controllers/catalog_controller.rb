@@ -17,6 +17,12 @@ class CatalogController < ApplicationController
     blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
   end
 
+  before_action only: :index do
+    if request.format.json?
+      blacklight_config.add_index_field 'formatted_bibliography_ts'
+    end
+  end
+
   configure_blacklight do |config|
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
@@ -396,6 +402,7 @@ class CatalogController < ApplicationController
     config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
     config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
     config.add_sort_field 'publisher_ssi asc, pub_year_isi desc', label: 'publisher'
+    config.add_sort_field 'author_sort asc, pub_year_isi asc, title_sort asc', if: false
   end
 
   # JSON API queries should not trigger new search histories
