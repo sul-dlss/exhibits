@@ -36,7 +36,7 @@
 
 #document {
   h1 {
-    font-size: $font-size-h3;
+    font-size: $h3-font-size;
   }
 }
 
@@ -47,7 +47,7 @@
 
 #documents {
   .index_title {
-    font-size: $font-size-large;
+    font-size: $font-size-lg;
     margin-top: 0;
   }
 
@@ -71,10 +71,8 @@
     }
 
     .document-metadata {
-      @extend .col-xs-8;
+      @extend .col-8;
       @extend .col-md-9;
-      @extend .col-xs-offset-3;
-      @extend .col-sm-offset-2;
     }
 
     .document-thumbnail {

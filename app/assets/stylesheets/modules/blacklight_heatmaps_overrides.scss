@@ -1,5 +1,5 @@
 .blacklight-heatmaps-show-map-wrapper {
-  @media (min-width: $screen-md-min) {
+  @media (min-width: breakpoint-min("sm")) {
     padding-left: 50px;
   }
 }
@@ -8,7 +8,7 @@
   margin-bottom: $padding-large-vertical;
   width: 100%;
 
-  @media (min-width: $screen-md-min) {
+  @media (min-width: breakpoint-min("sm")) {
     height: 250px;
   }
 }
