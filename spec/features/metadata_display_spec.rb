@@ -24,7 +24,7 @@ RSpec.feature 'Metadata display' do
 
     it 'opens view metadata in modal', js: true do
       click_link 'More details »'
-      within '#ajax-modal' do
+      within '#blacklight-modal' do
         expect(page).to have_css 'h3', text: 'Afrique Physique.'
         expect(page).not_to have_css 'dt', text: 'Title:'
         expect(page).not_to have_css 'dd', text: 'Afrique Physique.'
@@ -52,7 +52,7 @@ RSpec.feature 'Metadata display' do
       it 'are togglable' do
         visit spotlight.exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
         click_link 'More details »'
-        within '#ajax-modal' do
+        within '#blacklight-modal' do
           within '.mods_display_nested_related_items' do
             expect(page).to have_css('dl', visible: false)
             click_link 'Constituent Title'
