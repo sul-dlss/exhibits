@@ -1,5 +1,5 @@
 .topbar {
-  min-height: $brandbar-height;
+  height: $brandbar-height;
 
   .navbar-brand {
     @extend .text-hide;
@@ -7,7 +7,8 @@
     background: transparent image-url("StanfordLibraries-logo-whitetext.svg") no-repeat center left;
     background-size: contain;
     height: $brandbar-height;
-    padding: $brandbar-padding-vertical $navbar-padding-x;
+    margin: 0;
+    padding: 0.5rem;
     width: 189px;
   }
 
@@ -18,7 +19,7 @@
       }
     }
 
-    @media (min-width: breakpoint-min("sm")) {
+    @media (max-width: breakpoint-min("sm")) {
       > li {
         > a {
           padding-bottom: $brandbar-padding-vertical;
