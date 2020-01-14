@@ -16,7 +16,7 @@
         format: 'json',
         rows: 1000
       }, function (response) {
-        response.response.docs.forEach(function(citedDocEntry) {
+        response.data.forEach(function(citedDocEntry) {
           var html = '<li class="cited-documents-body">' +
                 ' <a href="' + citedDocEntry.id + '">' +
                 citedDocEntry.title_full_display +
