@@ -42,11 +42,11 @@ RSpec.feature 'Cited manuscripts display on the bibliography show page', type: :
       within '.cited-documents-list' do
         # can appear in any order
         expect(page).to have_content('Afrique Physique.')
-        expect(page).to have_css('a[href="gk885tn1705"]')
+        expect(page).to have_css('a[href$="gk885tn1705"]')
         expect(page).not_to have_content('The Peterborough Psalter and Bestiary.')
-        expect(page).not_to have_css('a[href="gs233db8425"]')
+        expect(page).not_to have_css('a[href$="gs233db8425"]')
         expect(page).to have_content('Posesiones españolas en')
-        expect(page).to have_css('a[href="hj066rn6500"]')
+        expect(page).to have_css('a[href$="hj066rn6500"]')
       end
     end
   end
