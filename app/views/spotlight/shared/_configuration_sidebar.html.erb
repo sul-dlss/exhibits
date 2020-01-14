@@ -1,18 +1,18 @@
 <% # overridden from Spotlight to add the Services link at the bottom %>
 <h4 class="nav-heading"><%=t(:'spotlight.configuration.sidebar.header') %></h4>
-<ul class="nav sidenav">
+<ul class="nav sidenav flex-column">
   <% if can? :update, current_exhibit %>
-    <li><%= link_to t(:'spotlight.configuration.sidebar.settings'), spotlight.edit_exhibit_path(current_exhibit) %></li>
-    <li><%= link_to t(:'spotlight.configuration.sidebar.appearance'), spotlight.edit_exhibit_appearance_path(current_exhibit) %></li>
+    <%= nav_link t(:'spotlight.configuration.sidebar.settings'), spotlight.edit_exhibit_path(current_exhibit) %>
+    <%= nav_link t(:'spotlight.configuration.sidebar.appearance'), spotlight.edit_exhibit_appearance_path(current_exhibit) %>
   <% end %>
   <% if can? :manage, Spotlight::Role.new(resource: current_exhibit) %>
-    <li><%= link_to t(:'spotlight.configuration.sidebar.users'), spotlight.exhibit_roles_path(current_exhibit) %></li>
+    <%= nav_link t(:'spotlight.configuration.sidebar.users'), spotlight.exhibit_roles_path(current_exhibit) %>
   <% end %>
   <% if can? :update, current_exhibit.blacklight_configuration %>
-    <li><%= link_to t(:'spotlight.configuration.sidebar.metadata'), spotlight.edit_exhibit_metadata_configuration_path(current_exhibit) %></li>
-    <li><%= link_to t(:'spotlight.configuration.sidebar.search_configuration'), spotlight.edit_exhibit_search_configuration_path(current_exhibit) %></li>
+    <%= nav_link t(:'spotlight.configuration.sidebar.metadata'), spotlight.edit_exhibit_metadata_configuration_path(current_exhibit) %>
+    <%= nav_link t(:'spotlight.configuration.sidebar.search_configuration'), spotlight.edit_exhibit_search_configuration_path(current_exhibit) %>
   <% end %>
   <% if can? :manage, Viewer %>
-    <li><%= link_to t(:'viewers.menu_link'), edit_exhibit_viewers_path(current_exhibit) %></li>
+    <%= nav_link t(:'viewers.menu_link'), edit_exhibit_viewers_path(current_exhibit) %>
   <% end %>
 </ul>
