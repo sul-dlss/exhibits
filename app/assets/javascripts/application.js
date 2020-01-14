@@ -20,6 +20,7 @@
 // Required by Blacklight
 //= require blacklight/blacklight
 
+//= require bootstrap
 //= require analytics
 //= require bibliography
 //= require cited_documents
