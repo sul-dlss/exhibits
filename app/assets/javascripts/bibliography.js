@@ -18,13 +18,13 @@
           format: 'json',
           rows: '1000'
         }, function (response) {
-          var docTotal = response.response.docs.length;
+          var docTotal = response.data.length;
           if (docTotal > 0) {
             $el.show();
             var bibliographyList = $el.find('.bibliography-list');
 
             for (var i = 0; i < docTotal; i++) {
-              var bibEntry = response.response.docs[i];
+              var bibEntry = response.data[i];
               var html = _this.bibliographyItemTemplate(
                 bibEntry, data.path, i, docTotal
               );
