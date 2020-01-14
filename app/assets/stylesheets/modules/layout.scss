@@ -7,18 +7,18 @@
     background: transparent image-url("StanfordLibraries-logo-whitetext.svg") no-repeat center left;
     background-size: contain;
     height: $brandbar-height;
-    padding: $brandbar-padding-vertical $navbar-padding-horizontal;
+    padding: $brandbar-padding-vertical $navbar-padding-x;
     width: 189px;
   }
 
   .navbar-nav {
-    @media (max-width: $screen-xs-max) {
+    @media (max-width: breakpoint-min("sm")) {
       &.pull-right {
         float: none !important;
       }
     }
 
-    @media (min-width: $grid-float-breakpoint) {
+    @media (min-width: breakpoint-min("sm")) {
       > li {
         > a {
           padding-bottom: $brandbar-padding-vertical;
@@ -33,14 +33,14 @@
   }
 
   .navbar-form {
-    @include brandbar-vertical-align($input-height-base);
+    @include brandbar-vertical-align($input-height);
   }
 
   .navbar-btn {
-    @include brandbar-vertical-align($input-height-base);
+    @include brandbar-vertical-align($input-height);
 
     &.btn-sm {
-      @include brandbar-vertical-align($input-height-small);
+      @include brandbar-vertical-align($input-height-sm);
     }
 
     &.btn-xs {
@@ -49,7 +49,7 @@
   }
 
   .navbar-text {
-    @include brandbar-vertical-align($line-height-computed);
+    @include brandbar-vertical-align($line-height-base);
   }
 }
 

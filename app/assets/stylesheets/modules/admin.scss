@@ -25,11 +25,11 @@ h3 + .table.analytics {
 }
 
 .table.analytics {
-  background-color: $table-bg-accent;
+  background-color: $table-accent-bg;
 
   .value {
     color: $color-gray-90;
-    font-size: $font-size-h2;
+    font-size: $h2-font-size;
     font-weight: 700;
     padding-bottom: 0;
   }
@@ -51,7 +51,7 @@ h3 + .table.analytics {
 }
 
 .translation-subheading {
-  font-size: $font-size-h3;
+  font-size: $h3-font-size;
   margin-top: $padding-large-vertical * 3;
   padding-bottom: $padding-base-vertical;
 }
