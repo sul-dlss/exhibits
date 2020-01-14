@@ -49,22 +49,29 @@
   <body class="<%= render_body_class %>">
     <div id="su-wrap"> <!-- #su-wrap start -->
       <div id="su-content"> <!-- #su-content start -->
+        <div id="skip-link">
+          <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+          <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+          <%= content_for(:skip_links) %>
+        </div>
+
         <%= render partial: 'shared/header_navbar' %>
         <%= render partial: 'shared/masthead' %>
         <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
-        <%= render partial: 'shared/modal' %>
+        <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
+          <%= content_for(:container_header) %>
 
-        <div id="main-container" class="container">
           <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
           <div class="row">
             <%= content_for?(:content) ? yield(:content) : yield %>
           </div>
-        </div>
+        </main>
       </div> <!-- #su-content end -->
     </div> <!-- #su-wrap end -->
 
-    <%= render :partial => 'shared/footer' %>
+    <%= render partial: 'shared/footer' %>
+    <%= render partial: 'shared/modal' %>
   </body>
 <% end %>
