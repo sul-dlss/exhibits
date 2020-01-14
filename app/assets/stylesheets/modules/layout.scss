@@ -12,45 +12,21 @@
     width: 189px;
   }
 
-  .navbar-nav {
-    @media (max-width: breakpoint-min("sm")) {
+  @media (max-width: breakpoint-min("md")) {
+    height: auto;
+
+    .navbar-nav {
       &.pull-right {
         float: none !important;
       }
     }
 
-    @media (max-width: breakpoint-min("sm")) {
-      > li {
-        > a {
-          padding-bottom: $brandbar-padding-vertical;
-          padding-top: $brandbar-padding-vertical;
-        }
+    > li {
+      > a {
+        padding-bottom: $brandbar-padding-vertical;
+        padding-top: $brandbar-padding-vertical;
       }
     }
-  }
-
-  .navbar-toggle {
-    @include brandbar-vertical-align(34px);
-  }
-
-  .navbar-form {
-    @include brandbar-vertical-align($input-height);
-  }
-
-  .navbar-btn {
-    @include brandbar-vertical-align($input-height);
-
-    &.btn-sm {
-      @include brandbar-vertical-align($input-height-sm);
-    }
-
-    &.btn-xs {
-      @include brandbar-vertical-align(22);
-    }
-  }
-
-  .navbar-text {
-    @include brandbar-vertical-align($line-height-base);
   }
 }
 
