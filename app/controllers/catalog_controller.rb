@@ -255,7 +255,6 @@ class CatalogController < ApplicationController
         document_has_full_text_and_search_is_query?(*args)
       end,
       label: 'Sample matches in document text',
-      highlight: true,
       helper_method: :render_fulltext_highlight,
       list: false
     )
