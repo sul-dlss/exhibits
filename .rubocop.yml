@@ -18,7 +18,7 @@ AllCops:
 Rails:
   Enabled: true
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
   Exclude:
     - 'app/models/spotlight/dor/indexer.rb'
