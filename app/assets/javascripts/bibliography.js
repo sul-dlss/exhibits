@@ -47,8 +47,8 @@
         elClass += ' hide-bibliography';
       }
       return '<p class="' + elClass + '">' +
-              bibEntry.formatted_bibliography_ts +
-              ' <a href="' + [ path, bibEntry.id].join('/') + '">' +
+              bibEntry.attributes.formatted_bibliography_ts.attributes.value +
+              ' <a href="' + bibEntry.links.self + '">' +
                 '[View full reference]' +
               '</a>' +
              '</p>';
