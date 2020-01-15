@@ -143,18 +143,18 @@
   padding-top: 0;
 }
 
-.panel-default {
+.facet-limit {
   border-color: $color-beige-30;
 
-  > .panel-heading {
+  > .card-header {
     background-color: $color-beige-10;
   }
 
-  &.facet_limit-active {
+  &.facet-limit-active {
     border-color: $color-beige-40;
 
-    > .panel-heading {
-      background-color: $color-beige-40;
+    > .card-header {
+      background-color: $color-beige-40 !important;
       color: $color-blackish;
     }
   }
