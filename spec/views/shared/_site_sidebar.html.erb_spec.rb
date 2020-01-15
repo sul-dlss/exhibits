@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 describe 'shared/_site_sidebar', type: :view do
   subject { rendered }
+
+  before do
+    view.extend Spotlight::CrudLinkHelpers
+  end
 
   context 'with a non-admin user' do
     before do
