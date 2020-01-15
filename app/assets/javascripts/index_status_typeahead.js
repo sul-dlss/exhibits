@@ -68,7 +68,7 @@
     updateItemIndexStatus: function(druid) {
       var _this = this;
       $.ajax({ url: _this.itemStatusRemoteUrl + '/' + druid })
-       .success(function(data) {
+       .done(function(data) {
          var row = _this.indexStatusRow(druid);
 
          if (!data.status.ok) {
