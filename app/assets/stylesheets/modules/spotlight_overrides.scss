@@ -128,16 +128,6 @@
   }
 }
 
-.search-btn {
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
-    background-color: $color-beige-30;
-    border-color: $color-beige;
-  }
-}
-
 #sidebar ol.sidenav li a:hover,
 #sidebar ol.sidenav li a:focus {
   background-color: $sidebar-link-background-color;
