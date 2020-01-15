@@ -26,11 +26,11 @@ RSpec.feature 'Adding items to an exhibit', type: :feature do
       visit spotlight.new_exhibit_resource_path(exhibit)
 
       within '#sdr-item-status' do
-        click_link 'Item status'
+        click_button 'Item status'
       end
 
       within '#status-accordion' do
-        click_link 'Object druids'
+        click_button 'Object druids'
 
         expect(page).to have_css('table th', text: 'Druid')
         expect(page).to have_css('table th', text: 'Status')
@@ -45,10 +45,10 @@ RSpec.feature 'Adding items to an exhibit', type: :feature do
     it 'displays a form input that allows users to search for a druid' do
       visit spotlight.new_exhibit_resource_path(exhibit)
 
-      within('#sdr-item-status') { click_link 'Item status' }
+      within('#sdr-item-status') { click_button 'Item status' }
 
       within '#status-accordion' do
-        click_link 'Object druids'
+        click_button 'Object druids'
 
         expect(page).to have_content("There are #{number_of_resources} object druids indexed in this exhibit")
 
@@ -72,10 +72,10 @@ RSpec.feature 'Adding items to an exhibit', type: :feature do
       it 'renders the message as a status' do
         visit spotlight.new_exhibit_resource_path(exhibit)
 
-        within('#sdr-item-status') { click_link 'Item status' }
+        within('#sdr-item-status') { click_button 'Item status' }
 
         within '#status-accordion' do
-          click_link 'Object druids'
+          click_button 'Object druids'
 
           fill_in_typeahead_field with: 'xyz'
 
