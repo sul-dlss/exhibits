@@ -50,15 +50,13 @@
   margin-top: 0;
 }
 
-#sidebar h4 {
+#sidebar .nav-heading {
   @include heading-with-border();
   font-size: 20px;
 
-  &.nav-heading {
-    margin-left: 0;
-    padding-left: 3px;
-    padding-top: 0;
-  }
+  margin-left: 0;
+  padding-left: 3px;
+  padding-top: 0;
 }
 
 #sidebar ul.nav > li a {
