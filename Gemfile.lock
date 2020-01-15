@@ -699,6 +699,10 @@ GEM
       tilt (>= 1.4, < 3)
     twitter-text (1.14.7)
       unf (~> 0.1.0)
+    twitter-typeahead-rails (0.11.1.pre.corejavascript)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     uber (0.1.0)
@@ -814,6 +818,7 @@ DEPENDENCIES
   traject
   turbolinks (~> 5)
   turnout
+  twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
   uglifier (>= 2.7.2)
   web-console (>= 3.3.0)
