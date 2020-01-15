@@ -28,7 +28,7 @@ Blacklight.onLoad(function(){
         $('<dt class="prepared-search-container"></dt>')
           .html($link.clone())
       );
-      $dt.before($('<dd></dd>'));
+      $dt.before($('<dd class="w-100"></dd>'));
       $link.remove();
       if ($dd.find('p').length === 0) { // There is no highlight
         $dt.remove();
