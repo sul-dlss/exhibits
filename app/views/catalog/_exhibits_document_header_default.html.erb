@@ -1,11 +1,11 @@
 <div class='row'>
-  <div class='col-xs-3 col-md-2'>
+  <div class='col-3 col-md-2'>
     <%= render_document_partial(document, 'thumbnail', document_counter: document_counter) %>
   </div>
-  <div class='col-xs-7 col-md-9'>
+  <div class='col-7 col-md-9'>
     <%= render_document_partial(document, 'index_header', document_counter: document_counter) %>
   </div>
-  <div class='col-xs-2 col-md-1'>
+  <div class='col-2 col-md-1'>
     <% exhibit_specific_manifest = document.exhibit_specific_manifest(current_exhibit.required_viewer.custom_manifest_pattern) %>
 
     <%= iiif_drag_n_drop(exhibit_specific_manifest, width: '30') if exhibit_specific_manifest %>
