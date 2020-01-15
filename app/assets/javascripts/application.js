@@ -19,8 +19,11 @@
 // Required by Blacklight
 //= require blacklight/blacklight
 
+//= require popper
+//= require twitter/typeahead
 //= require bootstrap
 //= require bs-custom-file-input
+
 //= require analytics
 //= require bibliography
 //= require cited_documents
