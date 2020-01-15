@@ -73,6 +73,8 @@
     .document-metadata {
       @extend .col-8;
       @extend .col-md-9;
+      @extend .offset-3;
+      @extend .offset-md-2;
     }
 
     .document-thumbnail {
