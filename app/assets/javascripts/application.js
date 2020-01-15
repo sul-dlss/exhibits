@@ -10,11 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require 'blacklight_advanced_search'
+//= require jquery3
 //= require 'honeybadger'
 
-//= require jquery_ujs
+//= require rails-ujs
 //= require turbolinks
 //
 // Required by Blacklight
