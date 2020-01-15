@@ -21,6 +21,7 @@
 //= require blacklight/blacklight
 
 //= require bootstrap
+//= require bs-custom-file-input
 //= require analytics
 //= require bibliography
 //= require cited_documents
@@ -34,6 +35,7 @@
 //= require spotlight
 //= require sul-exhibits-template
 //= require table_of_contents
+//= require custom-file-input
 
 
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
