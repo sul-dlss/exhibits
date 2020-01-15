@@ -58,3 +58,7 @@ th {
     color: $color-gray-60;
   }
 }
+
+.btn-outline-secondary {
+  @include button-outline-variant($color-gray-90);
+}

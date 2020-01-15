@@ -3,7 +3,7 @@
     <%= f.file_field :bibtex_file, label: t('bibliography_resources.form.label'), control_col: 'col-sm-6', required: true, accept: 'application/x-bibtex', help: t('bibliography_resources.form.help') %>
     <div class="form-actions">
       <div class="primary-actions">
-        <%= cancel_link @resource, :back, class: 'btn btn-default' %>
+        <%= cancel_link @resource, :back, class: 'btn btn-secondary' %>
         <%= f.submit t('.add_item'), class: 'btn btn-primary' %>
       </div>
     </div>
