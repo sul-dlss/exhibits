@@ -32,6 +32,8 @@ Exhibits::Application.routes.draw do
     resources :exhibits, path: '/', only: [] do
       get "catalog/range_limit" => "spotlight/catalog#range_limit"
       get "catalog/range_limit_panel/:id" => "spotlight/catalog#range_limit_panel"
+      get "home/range_limit" => "spotlight/home_pages#range_limit"
+      get "home/range_limit_panel/:id" => "spotlight/home_pages#range_limit_panel"
     end
 
     concern :searchable, Blacklight::Routes::Searchable.new
