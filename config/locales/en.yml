@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  date:
+    formats:
+      long: '%d %b %Y at %l:%M %p'
   hello: "Hello world"
 
   activerecord:
