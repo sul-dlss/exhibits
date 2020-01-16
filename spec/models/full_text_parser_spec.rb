@@ -33,4 +33,24 @@ describe FullTextParser do
       expect(ocr_text.first).to end_with 'with the rendering of the decision.'
     end
   end
+
+  context 'with a plain-text transcription' do
+    let(:purl_object) { instance_double('PurlObject', bare_druid: 'xt162pg0437', public_xml: public_xml) }
+    let(:public_xml) { Nokogiri::XML.parse(File.read(File.join(FIXTURES_PATH, 'xt162pg0437.xml'))) }
+
+    before do
+      stub_request(
+        :get,
+        %r{^https://stacks.stanford.edu/file/xt162pg0437/.*\.txt$}
+      ).to_return(status: 200, body: 'asdf')
+    end
+
+    describe '#to_text' do
+      it 'is an array of text parsed from the plain text fields' do
+        ocr_text = parser.to_text
+        expect(ocr_text.length).to eq 15
+        expect(ocr_text.first).to eq 'asdf'
+      end
+    end
+  end
 end

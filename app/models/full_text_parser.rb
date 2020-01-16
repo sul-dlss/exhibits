@@ -57,7 +57,7 @@ class FullTextParser
   def xpath
     [
       "//contentMetadata/resource/file[@id=\"#{druid}.txt\"]",
-      "//contentMetadata/resource[@type='page']/file[@role='transcription'][@mimetype='application/xml' or @mimetype='application/alto+xml']"
+      "//contentMetadata/resource[@type='page']/file[@role='transcription'][@mimetype='text/plain' or @mimetype='application/xml' or @mimetype='application/alto+xml']"
     ]
   end
   # rubocop:enable Metrics/LineLength
