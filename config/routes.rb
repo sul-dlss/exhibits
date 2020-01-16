@@ -11,7 +11,7 @@ Exhibits::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: nil } do
+  scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)) do
     mount Blacklight::Oembed::Engine, at: 'oembed'
     mount Riiif::Engine => '/images', as: 'riiif'
 
@@ -59,9 +59,9 @@ Exhibits::Application.routes.draw do
   end
   mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 
-  Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight', defaults: { locale: nil } }
+  Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight' }
   mount Blacklight::Engine => '/'
-  Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight', defaults: { locale: nil } }
+  Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight' }
   mount Spotlight::Engine, at: '/'
 
 end
