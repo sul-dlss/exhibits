@@ -2,7 +2,7 @@
   <%= render '/spotlight/shared/locale_picker' %>
   <% if current_user %>
     <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user%> <b class="caret"></b></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=current_user%></a>
       <ul class="dropdown-menu">
         <% if current_exhibit and can? :curate, current_exhibit %>
           <li><%= link_to t('spotlight.dashboards.show.header'), spotlight.exhibit_dashboard_path(current_exhibit) %></li>
