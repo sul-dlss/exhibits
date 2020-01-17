@@ -124,6 +124,7 @@ class CatalogController < ApplicationController
     config.geometry_field = :geographic_srpt
     # Basemaps configured include: 'positron', 'darkMatter', 'OpenStreetMap.HOT'
     config.basemap_provider = 'positron'
+    config.index.respond_to.heatmaps = true
 
     # solr field configuration for document/show views
     # config.show.title_field = 'title_display'
