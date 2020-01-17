@@ -4,6 +4,10 @@ $stanford-footer-height: 250px;
 $stanford-footer-md-height: 140px;
 $sul-footer-height: 80px;
 
+footer {
+  margin-top: 20px;
+}
+
 #su-content {
   height: 100%;
   padding-bottom: $stanford-footer-height + $sul-footer-height !important;
