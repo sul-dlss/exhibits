@@ -8,7 +8,7 @@ dt.prepared-search-container {
   width: auto;
   @extend .col-12;
 
-  .caret {
+  &::after {
     border-width: 6px;
     color: $color-cardinal-red;
     margin-left: 6px;
