@@ -45,7 +45,7 @@ module ApplicationHelper
   #
   # @param [SolrDocument] document
   # @param [Integer] canvas_id
-  def custom_render_oembed_tag_async(document, canvas_id)
+  def custom_render_oembed_tag_async(document, canvas_id, block)
     url = context_specific_oembed_url(document)
 
     content_tag :div, '', data: {
@@ -53,6 +53,7 @@ module ApplicationHelper
         url: url,
         canvas_id: canvas_id,
         search: params[:search],
+        maxheight: block&.maxheight&.presence || '600',
         suggested_search: (current_search_session&.query_params || {})[:q]
       )
     }

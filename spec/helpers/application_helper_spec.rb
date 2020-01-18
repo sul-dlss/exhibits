@@ -29,9 +29,9 @@ describe ApplicationHelper, type: :helper do
           current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
-        rendered = helper.custom_render_oembed_tag_async(document, 3)
+        rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
         expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
-          'mbed?canvas_id=3&url=http%3A%2F%2Fexample.com%2Fstuff"]'
+          'mbed?canvas_id=3&maxheight=600&url=http%3A%2F%2Fexample.com%2Fstuff"]'
       end
 
       it 'uses the q from the current_search_session to populate the suggested_search param' do
@@ -40,8 +40,22 @@ describe ApplicationHelper, type: :helper do
           current_search_session: instance_double('Blacklight::SearchSession', query_params: { q: 'The Query' }),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
-        rendered = helper.custom_render_oembed_tag_async(document, 3)
+        rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
         expect(rendered).to match(/&amp;suggested_search=The\+Query&amp;/)
+      end
+
+      it 'passes the maxheight from the block parameter' do
+        expect(helper).to receive_messages(
+          blacklight_config: CatalogController.blacklight_config,
+          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
+          feature_flags: FeatureFlags.for(create(:exhibit))
+        )
+        rendered = helper.custom_render_oembed_tag_async(
+          document, 3, instance_double('SirTrevor::Block', maxheight: 300)
+        )
+
+        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+          'mbed?canvas_id=3&maxheight=300&url=http%3A%2F%2Fexample.com%2Fstuff"]'
       end
     end
 
@@ -51,9 +65,10 @@ describe ApplicationHelper, type: :helper do
           current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit, slug: 'test-flag-exhibit-slug'))
         )
-        rendered = helper.custom_render_oembed_tag_async(document, 3)
+        rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
+
         expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
-          'mbed?canvas_id=3&url=https%3A%2F%2Fsul-purl-uat.stanford.edu%2Fabc123"]'
+          'mbed?canvas_id=3&maxheight=600&url=https%3A%2F%2Fsul-purl-uat.stanford.edu%2Fabc123"]'
       end
     end
   end
