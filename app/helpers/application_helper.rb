@@ -33,10 +33,11 @@ module ApplicationHelper
   # @param [SolrDocument] document
   # @param [SirTrevorRails::Blocks::SolrDocumentsEmbedBlock] block
   def render_viewer_in_context(document, block)
+    canvas = choose_canvas_id(block)
     if params[:controller] == 'spotlight/catalog'
-      render current_exhibit.required_viewer, document: document, block: block
+      render current_exhibit.required_viewer, document: document, block: block, canvas: canvas
     else
-      render current_exhibit.required_viewer.default_viewer_path, document: document, block: block
+      render current_exhibit.required_viewer.default_viewer_path, document: document, block: block, canvas: canvas
     end
   end
 
