@@ -9,6 +9,7 @@ GIT
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
   revision: 94e0ed2b681c9c84ded40cf515cece463f08221a
+  branch: master
   specs:
     blacklight-spotlight (3.0.0.alpha.3)
       acts-as-taggable-on (>= 5.0, < 7)
@@ -745,7 +746,7 @@ DEPENDENCIES
   blacklight (~> 7.0)
   blacklight-gallery (~> 1.2)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 3.0.a)!
+  blacklight-spotlight!
   blacklight_advanced_search!
   blacklight_heatmaps
   blacklight_range_limit (~> 7.0)
