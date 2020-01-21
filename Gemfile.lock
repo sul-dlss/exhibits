@@ -8,7 +8,8 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: ecfa456c058edf9d3e4abc061b6ee5e8747d1774
+  revision: f69c309047d337d8c19d53f8cffe4dd54ab95fd5
+  branch: master
   specs:
     blacklight-spotlight (3.0.0.alpha.2)
       acts-as-taggable-on (>= 5.0, < 7)
@@ -149,7 +150,7 @@ GEM
       bundler (>= 1.2.0, < 3)
       thor (~> 0.18)
     byebug (11.0.1)
-    cancancan (3.0.1)
+    cancancan (3.0.2)
     capistrano (3.11.2)
       airbrussh (>= 1.0.0)
       i18n
@@ -288,7 +289,7 @@ GEM
       railties (>= 4.2.0)
     faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.13.1)
+    faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
     ffi (1.12.1)
     ffi-compiler (1.0.1)
@@ -743,7 +744,7 @@ DEPENDENCIES
   blacklight (~> 7.0)
   blacklight-gallery (~> 1.2)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 3.0.a)!
+  blacklight-spotlight!
   blacklight_advanced_search!
   blacklight_heatmaps
   blacklight_range_limit (~> 7.0)
