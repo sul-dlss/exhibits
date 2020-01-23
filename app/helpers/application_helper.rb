@@ -33,10 +33,11 @@ module ApplicationHelper
   # @param [SolrDocument] document
   # @param [SirTrevorRails::Blocks::SolrDocumentsEmbedBlock] block
   def render_viewer_in_context(document, block)
+    canvas = choose_canvas_id(block)
     if params[:controller] == 'spotlight/catalog'
-      render current_exhibit.required_viewer, document: document, block: block
+      render current_exhibit.required_viewer, document: document, block: block, canvas: canvas
     else
-      render current_exhibit.required_viewer.default_viewer_path, document: document, block: block
+      render current_exhibit.required_viewer.default_viewer_path, document: document, block: block, canvas: canvas
     end
   end
 
@@ -44,7 +45,7 @@ module ApplicationHelper
   #
   # @param [SolrDocument] document
   # @param [Integer] canvas_id
-  def custom_render_oembed_tag_async(document, canvas_id)
+  def custom_render_oembed_tag_async(document, canvas_id, block)
     url = context_specific_oembed_url(document)
 
     content_tag :div, '', data: {
@@ -52,6 +53,7 @@ module ApplicationHelper
         url: url,
         canvas_id: canvas_id,
         search: params[:search],
+        maxheight: block&.maxheight&.presence || '600',
         suggested_search: (current_search_session&.query_params || {})[:q]
       )
     }
