@@ -51,6 +51,7 @@ task server: [:environment] do
 end
 
 namespace :spotlight do
+  desc 'Index the fixture documents used in the local test suite (spec/fixutres/sample_solr_docs.json)'
   task seed: [:environment] do
     docs = JSON.parse(File.read(Rails.root.join('spec/fixtures/sample_solr_docs.json')))
     conn = Blacklight.default_index.connection
