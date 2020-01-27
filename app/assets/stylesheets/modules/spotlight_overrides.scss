@@ -14,8 +14,9 @@
 
 // Increase font size because we're using Source Sans in this app
 // and Source Sans is noticeably smaller than the default font.
-.image-masthead .navbar ul.nav.navbar-nav > li a {
+.image-masthead .navbar ul.navbar-nav > li a {
   font-size: 15px;
+  letter-spacing: 1.1px;
 }
 
 .browse-landing .text-overlay .browse-category-title {
