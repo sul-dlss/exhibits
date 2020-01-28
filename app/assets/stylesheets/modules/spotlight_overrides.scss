@@ -1,3 +1,7 @@
+.site-title {
+  font-size: 2.125rem;
+}
+
 .masthead small {
   font-size: 1.3rem;
 }
@@ -35,19 +39,36 @@
   }
 }
 
-// Reduce size of page titles
-.empty-page-block h2 {
-  @extend .h3;
-}
-
+// Reduce size of page titles, headings, etc.
 .page-title,
 .page-header {
-  @extend .h2;
+  font-size: 1.875rem;
   color: $heading-font-color;
 
   small {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
+}
+
+.item-count {
+  color: $cool-grey;
+  font-size: 1.25rem;
+}
+
+h3,
+.h3,
+.empty-page-block h2 {
+  font-size: 1.5rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.25rem;
+}
+
+h5,
+.h5 {
+  font-size: 1rem;
 }
 
 // Ajustments to sidebars to use SUL color palette, more compact vertical spacing
@@ -55,6 +76,7 @@
   margin-top: 0;
 }
 
+#sidebar .facets-heading,
 #sidebar .nav-heading {
   @include heading-with-border();
   font-size: 20px;

@@ -1,5 +1,4 @@
 .facets-heading {
-  @extend .h3;
   @include heading-with-border();
 }
 
@@ -47,7 +46,7 @@
 
 #documents {
   .index_title {
-    font-size: $font-size-lg;
+    font-size: 1rem;
     margin-top: 0;
   }
 
