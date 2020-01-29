@@ -1,10 +1,8 @@
 .facets-heading {
   @extend .h3;
   @include heading-with-border();
-}
 
-.facets-header {
-  padding: $padding-base-vertical 0;
+  width: 100%;
 }
 
 .facet-limit {
