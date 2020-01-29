@@ -31,7 +31,7 @@
   }
 }
 
-.thumbnail {
+.img-thumbnail {
   border: 0;
 }
 
@@ -52,7 +52,7 @@
     margin-top: 0;
   }
 
-  .thumbnail,
+  .img-thumbnail,
   .document-thumbnail {
     img {
       @include thumbnail-image-border;
