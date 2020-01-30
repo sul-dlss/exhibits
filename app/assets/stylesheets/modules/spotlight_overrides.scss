@@ -191,7 +191,7 @@ h5,
   }
 }
 
-.thumbnail > img,
-.thumbnail > a > img {
+.img-thumbnail > img,
+.img-thumbnail > a > img {
   @include thumbnail-image-border;
 }
