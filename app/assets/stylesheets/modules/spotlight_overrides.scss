@@ -1,3 +1,4 @@
+// scss-lint:disable ImportantRule
 .site-title {
   font-size: 2.125rem;
 }
@@ -166,7 +167,7 @@ h5,
   }
 
   &.facet-limit-active {
-    border-color: $color-beige-40;
+    border-color: $color-beige-40 !important;
 
     > .card-header {
       background-color: $color-beige-40 !important;
@@ -175,7 +176,7 @@ h5,
   }
 
   .facet-values li .selected {
-    color: $color-blackish;
+    color: $color-blackish !important;
   }
 }
 
@@ -195,3 +196,4 @@ h5,
 .img-thumbnail > a > img {
   @include thumbnail-image-border;
 }
+// scss-lint:enable ImportantRule
