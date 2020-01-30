@@ -196,4 +196,10 @@ h5,
 .img-thumbnail > a > img {
   @include thumbnail-image-border;
 }
+
+.tags .nav-link {
+  margin-bottom: 0.5rem;
+  padding: 0.33rem 0.66rem;
+}
+
 // scss-lint:enable ImportantRule
