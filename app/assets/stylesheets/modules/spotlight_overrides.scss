@@ -196,4 +196,28 @@ h5,
 .img-thumbnail > a > img {
   @include thumbnail-image-border;
 }
+
+.search-widgets {
+  
+  .btn {
+    @extend .btn-sm;
+  }
+  
+  .view-type-group {
+    height: $input-height-sm;
+  }
+}
+
+.search-box-container .browse-search-form .input-group {
+  @extend .input-group-sm;
+
+  .form-control {
+    height: $input-height-sm;
+  }
+
+  .input-group-btn.input-group-append .btn {
+    height: $input-height-sm;
+  }
+}
+
 // scss-lint:enable ImportantRule
