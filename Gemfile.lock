@@ -113,7 +113,7 @@ GEM
     bibtex-ruby (5.1.1)
       latex-decode (~> 0.0)
     bindex (0.8.1)
-    blacklight (7.5.0)
+    blacklight (7.5.1)
       deprecation
       globalid
       jbuilder (~> 2.7)
@@ -363,18 +363,18 @@ GEM
       multi_json
       to_regexp (~> 0.2.1)
     jwt (2.2.1)
-    kaminari (1.1.1)
+    kaminari (1.2.0)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
+      kaminari-actionview (= 1.2.0)
+      kaminari-activerecord (= 1.2.0)
+      kaminari-core (= 1.2.0)
+    kaminari-actionview (1.2.0)
       actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
+      kaminari-core (= 1.2.0)
+    kaminari-activerecord (1.2.0)
       activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
+      kaminari-core (= 1.2.0)
+    kaminari-core (1.2.0)
     latex-decode (0.3.1)
     launchy (2.4.3)
       addressable (~> 2.3)
