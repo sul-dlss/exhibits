@@ -36,3 +36,9 @@ Spotlight::Resources::Upload.document_builder_class = ::UploadSolrDocumentBuilde
 Spotlight::Engine.config.exhibit_themes = %w[default parker] if FeatureFlags.new.themes?
 
 Spotlight::ReindexJob.validity_checker = SidekiqValidityChecker.new if Rails.application.config.active_job.queue_adapter == :sidekiq
+
+Spotlight::Exhibit.themes_selector = ->(exhibit) do
+  themes = Settings.exhibit_themes
+
+  themes[exhibit&.slug] || themes[:default]
+end
