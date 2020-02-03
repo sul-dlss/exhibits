@@ -126,6 +126,7 @@ describe 'Viewers', type: :feature do
 
     context 'Parker Theme' do
       before do
+        allow(Settings).to receive(:exhibit_themes).and_return(exhibit.slug => %w(parker default))
         exhibit.theme = 'parker'
         exhibit.save
       end
