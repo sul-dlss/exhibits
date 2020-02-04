@@ -68,6 +68,15 @@ en:
       masonry: Masonry view
       slideshow: Slideshow view
     search:
+      fields:
+        spotlight_exhibit_slugs_ssim: 'Exhibit title'
+        index:
+          spotlight_exhibit_slugs_ssim:
+            one: 'Exhibit'
+            many: 'Exhibits'
+        sort:
+          count: 'result count'
+          index: 'exhibit title'
       view_title:
         heatmaps: "Map"
   metadata:
@@ -77,7 +86,13 @@ en:
     check:
       passed: "OK      : %{registrant_name} - %{message}"
       failed: "FAILED  : %{registrant_name} - %{message}"
-
+  search_across:
+    exhibit:
+      results_count:
+        one: "%{count} result"
+        other: "%{count} results"
+    results:
+      heading: Search all exhibits
   viewers:
     menu_link: Viewers
     edit:
