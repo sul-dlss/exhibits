@@ -8,8 +8,7 @@
 }
 
 @mixin sidebar-link-active() {
-  color: $sidebar-link-color;
-  font-weight: 600;
+  color: $sidebar-link-active-color;
 }
 
 @mixin thumbnail-image-border() {
