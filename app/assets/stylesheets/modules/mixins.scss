@@ -9,6 +9,8 @@
 
 @mixin sidebar-link-active() {
   color: $sidebar-link-active-color;
+  cursor: default;
+  text-decoration: none;
 }
 
 @mixin thumbnail-image-border() {

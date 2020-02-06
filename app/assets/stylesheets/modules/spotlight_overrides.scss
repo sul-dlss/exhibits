@@ -96,17 +96,10 @@ h5,
   }
 }
 
-.page-sidebar .nav-link.active {
+.page-sidebar .nav-link.active,
+#sidebar ol.sidenav li.active,
+#sidebar ul.sidenav li.active a {
   @include sidebar-link-active();
-}
-
-#sidebar ol.sidenav li.active {
-  @include sidebar-link-active();
-}
-
-#sidebar ol.sidenav li a:hover,
-#sidebar ol.sidenav li a:focus {
-  background-color: $sidebar-link-background-color;
 }
 
 .blacklight-about_pages-show #sidebar {

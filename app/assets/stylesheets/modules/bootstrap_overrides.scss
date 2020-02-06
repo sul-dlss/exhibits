@@ -16,15 +16,12 @@ body {
   padding-left: 0;
 }
 
-.nav {
-  a {
-    color: $nav-link-color;
-  }
+.nav a {
+  color: $nav-link-color;
+}
 
-  > li > a:hover,
-  > li > a:focus {
-    background-color: $sidebar-link-background-color;
-  }
+.nav-link:hover {
+  text-decoration: underline;
 }
 
 .nav-tabs > li.active > a {
