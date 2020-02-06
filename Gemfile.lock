@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 383d242298cfdb5408b6c307c0869ab2087e473c
+  revision: d5e6d10ba1cc3a32bd6e9456e6a4efa9c740b691
   branch: master
   specs:
     blacklight-spotlight (3.0.0.alpha.2)
@@ -291,7 +291,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.12.1)
+    ffi (1.12.2)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
