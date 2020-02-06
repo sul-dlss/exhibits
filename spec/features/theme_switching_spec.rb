@@ -10,6 +10,7 @@ describe 'Theme switching', type: :feature do
 
   context 'Parker' do
     it 'allows the Parker theme to be selected' do
+      allow(Settings).to receive(:exhibit_themes).and_return(exhibit.slug => %w(parker default))
       visit spotlight.exhibit_dashboard_path(exhibit)
 
       expect(page).to have_css('#global-footer', visible: true)

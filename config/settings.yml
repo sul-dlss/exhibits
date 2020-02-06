@@ -31,6 +31,12 @@ action_mailer:
   default_url_options:
     host: "example.com"
 
+exhibit_themes:
+  parker:
+    - default
+    - parker
+  default:
+    - default
 harvestdor:
   log_dir: log/gdor_logs
   log_name: gdor.log
