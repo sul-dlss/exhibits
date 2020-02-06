@@ -111,49 +111,8 @@ h5,
   @include sidebar-link-active();
 }
 
-// Sidebar adjustments for feature pages.
-// Links here are constructed using h4s and nested ol items so styling
-// needs to be different than other sidebar links.
-#sidebar ol.sidenav {
-  > li > h4 { // parent pages
-    border-bottom: 0;
-    color: $sidebar-link-color;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 3px;
-    margin-top: $padding-base-vertical * 4;
-
-    > a {
-      color: $color-dark-red;
-
-      &:hover,
-      &:focus {
-        background-color: $sidebar-link-background-color;
-      }
-    }
-  }
-
-  li:first-child > h4 {
-    margin-top: $padding-large-vertical * 3;
-  }
-
-  ol.subsection li { // child pages
-    list-style-type: none;
-    margin-left: 0;
-    padding-bottom: 3px;
-    padding-left: 3px;
-    padding-top: 3px;
-
-    &.active {
-      @include sidebar-link-active();
-    }
-
-    > a:hover,
-    > a:focus {
-      background-color: $sidebar-link-background-color;
-    }
-  }
+#sidebar ol.sidenav li.active {
+  @include sidebar-link-active();
 }
 
 #sidebar ol.sidenav li a:hover,
