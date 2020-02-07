@@ -57,3 +57,7 @@ $modal-header-footer-height-guess: 212px;
 
 // Only set max-width of containers at breakpoints above "sm"
 $container-max-widths: map-remove($container-max-widths, "sm");
+
+$input-focus-width:       0.2rem;
+$input-focus-border-color:       rgba($blue, 0.25);
+$input-focus-box-shadow:  0 0 0 $input-focus-width $input-focus-border-color;
