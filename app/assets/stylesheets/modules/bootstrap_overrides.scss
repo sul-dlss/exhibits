@@ -48,6 +48,11 @@ a:hover {
   border-radius: $border-radius;
 }
 
+.form-group .col-form-label {
+  @extend .text-right;
+  @extend .font-weight-bold;
+}
+
 th {
   color: $color-black-80;
   font-size: 15px;
