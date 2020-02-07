@@ -60,6 +60,7 @@ th {
   }
 }
 
+.btn-secondary,
 .btn-outline-secondary {
-  @include button-outline-variant($color-gray-90);
+  @include button-variant($sul-btn-secondary-color, $sul-btn-secondary-border);
 }
