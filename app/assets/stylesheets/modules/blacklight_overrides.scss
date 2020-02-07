@@ -86,6 +86,14 @@
     }
   }
 
+  .masonry {
+    .img-thumbnail {
+      border-radius: 0;
+      padding: 0;
+    }
+  }
+
+
   &.gallery {
     .thumbnail {
       border: 0;
