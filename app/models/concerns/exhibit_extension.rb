@@ -10,6 +10,8 @@ module ExhibitExtension
     has_one :viewer, dependent: :delete
 
     after_update :send_publish_state_change_notification
+
+    scope :discoverable, -> { where.not(slug: Settings.discoverable_exhibit_slugs_blacklist) }
   end
 
   ##
