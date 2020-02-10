@@ -149,6 +149,29 @@ h5,
   @include thumbnail-image-border;
 }
 
+.search-widgets {
+  
+  .btn {
+    @extend .btn-sm;
+  }
+  
+  .view-type-group {
+    height: $input-height-sm;
+  }
+}
+
+.search-box-container .browse-search-form .input-group {
+  @extend .input-group-sm;
+
+  .form-control {
+    height: $input-height-sm;
+  }
+
+  .input-group-btn.input-group-append .btn {
+    height: $input-height-sm;
+  }
+}
+
 .tags .nav-link {
   margin-bottom: 0.5rem;
   padding: 0.33rem 0.66rem;
