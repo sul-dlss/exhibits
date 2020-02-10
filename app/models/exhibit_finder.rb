@@ -10,7 +10,7 @@ class ExhibitFinder
   end
 
   def exhibits
-    @exhibits ||= Spotlight::Exhibit.includes(:thumbnail).where(slug: exhibit_slugs).published
+    @exhibits ||= Spotlight::Exhibit.includes(:thumbnail).where(slug: exhibit_slugs).published.discoverable
   end
 
   def as_json(*)

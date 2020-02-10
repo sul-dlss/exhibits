@@ -46,5 +46,17 @@ describe Spotlight::Exhibit do
         expect(SendPublishStateChangeNotificationJob).not_to have_received(:perform_later)
       end
     end
+
+    describe 'discoverable scope' do
+      it 'blacklists exhibits based on their slug via config' do
+        exhibit1 = create(:exhibit)
+        exhibit2 = create(:exhibit)
+
+        expect(described_class.discoverable.pluck(:slug)).to eq([exhibit1.slug, exhibit2.slug])
+        allow(Settings).to receive(:discoverable_exhibit_slugs_blacklist).and_return([exhibit2.slug])
+
+        expect(described_class.discoverable.pluck(:slug)).to eq([exhibit1.slug])
+      end
+    end
   end
 end
