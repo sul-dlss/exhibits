@@ -85,7 +85,7 @@ class SearchAcrossController < ::CatalogController
   end
 
   before_action do
-    redirect_to root_url unless has_search_parameters?
+    redirect_to root_url unless has_search_parameters? || params[:group]
   end
 
   helper_method :render_grouped_response?, :url_for_document
