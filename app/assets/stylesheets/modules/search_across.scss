@@ -78,6 +78,10 @@
     max-width: 200px;
   }
 
+  .card-body {
+    text-align: center;
+  }
+
   .card-title {
     @extend .h4;
   }
