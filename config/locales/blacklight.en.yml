@@ -1,3 +1,5 @@
 en:
   blacklight:
     application_name: 'Stanford University Libraries'
+    search:
+      start_over: Start over
