@@ -1,13 +1,29 @@
 .exhibit-list {
   .card {
     flex-direction: row;
+    @media (max-width: breakpoint-max(sm)) {
+      background-color: unset !important;
+      border: unset;
+    }
   }
 
   .card-body {
     flex-direction: column;
   }
 
+  .card-title {
+    @extend .h3;
+
+    @media (max-width: breakpoint-max(sm)) {
+      font-size: 20px;
+    }
+  }
+
   .exhibit-thumb {
+    @media (max-width: breakpoint-max(sm)) {
+      max-width: 100px;
+    }
+
     display: flex;
     flex-direction: column;
     max-width: 200px;
@@ -15,6 +31,19 @@
 
     img {
       object-fit: contain;
+    }
+  }
+
+  .subtitle {
+    @extend .h5;
+    font-size: 0.875rem;
+    line-height: $headings-line-height;
+  }
+
+  .description {
+    max-width: 75ch;
+    @media (max-width: breakpoint-max(sm)) {
+      display: none;
     }
   }
 }
