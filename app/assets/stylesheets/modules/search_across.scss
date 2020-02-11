@@ -47,3 +47,21 @@
     }
   }
 }
+
+.exhibit-gallery {
+  .card {
+    max-width: 200px;
+  }
+
+  .card-title {
+    @extend .h4;
+  }
+
+  .exhibit-thumb {
+    max-width: 200px;
+  }
+
+  .description {
+    display: none;
+  }
+}
