@@ -7,6 +7,10 @@
 
 <% content_for(:container_header) do %>
   <h1 class="top-content-title"><%= t('.title') %></h1>
-  <%= page_entries_info(Kaminari.paginate_array(@response.aggregations[SolrDocument.exhibit_slug_field].items), entry_name: 'exhibit') if render_grouped_response? %>
+  <div class="page-links">
+    <div class="page-entries">
+      <%= page_entries_info(Kaminari.paginate_array(@response.aggregations[SolrDocument.exhibit_slug_field].items), entry_name: 'exhibit') if render_grouped_response? %>
+    </div>
+  </div>
 <% end %>
 <%= render 'search_results' %>

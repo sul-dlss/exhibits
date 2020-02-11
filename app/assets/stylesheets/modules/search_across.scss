@@ -1,3 +1,28 @@
+.blacklight-search_across {
+  .sort-pagination {
+    flex-wrap: wrap;
+  }
+
+  .page-links {
+    @extend .w-100;
+  }
+
+  .search-widgets {
+    @extend .w-100;
+    display: flex;
+    justify-content: end;
+  }
+
+  .btn-group {
+    margin-left: 0.5rem;
+  }
+
+  .search-group {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
 .exhibit-list {
   .card {
     flex-direction: row;
