@@ -91,6 +91,9 @@ en:
       results_count:
         one: "%{count} result"
         other: "%{count} results"
+    fields:
+      search:
+        search: All fields
     index:
       title: 'Search results'
     results:

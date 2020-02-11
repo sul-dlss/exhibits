@@ -52,6 +52,8 @@ class SearchAcrossController < ::CatalogController
     config.view.clear
     config.view.list = previous_views.list
     config.view.gallery = previous_views.gallery
+
+    config.search_fields['search'].label = :'search_across.fields.search.search'
   end
 
   before_action do

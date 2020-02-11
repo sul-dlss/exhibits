@@ -12,5 +12,9 @@ module Spotlight
     def search_action_url(*args)
       main_app.search_search_across_url(*args)
     end
+
+    def blacklight_config
+      SearchAcrossController.blacklight_config
+    end
   end
 end
