@@ -91,6 +91,8 @@ en:
       results_count:
         one: "%{count} result"
         other: "%{count} results"
+    index:
+      title: 'Search results'
     results:
       heading: Search all exhibits
   viewers:
