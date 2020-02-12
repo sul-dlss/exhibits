@@ -1,5 +1,4 @@
 Exhibits::Application.routes.draw do
-  concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   # API compatible with is_it_working checks
   match "/is_it_working" => "ok_computer/ok_computer#index", via: [:get, :options]
   mount OkComputer::Engine, at: "/status"
@@ -42,6 +41,7 @@ Exhibits::Application.routes.draw do
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
       concerns :searchable
+      concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
     end
 
     concern :exportable, Blacklight::Routes::Exportable.new

@@ -3,11 +3,11 @@
 ##
 # Blacklight controller providing search and discovery features
 class CatalogController < ApplicationController
-  include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   helper Openseadragon::OpenseadragonHelper
 
   include Blacklight::Catalog
+  include BlacklightRangeLimit::ControllerOverride
 
   before_action only: :manifest do
     response.headers['Access-Control-Allow-Origin'] = '*'
