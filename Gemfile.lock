@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: fbd94c08da99631014d3991d1df04f0d1ed488d2
+  revision: 3935fb342ce9d1814c9cba3d3371203dd2689680
   branch: master
   specs:
-    blacklight-spotlight (3.0.0.alpha.2)
+    blacklight-spotlight (3.0.0.alpha.3)
       acts-as-taggable-on (>= 5.0, < 7)
       almond-rails (~> 0.1)
       autoprefixer-rails
@@ -195,7 +195,7 @@ GEM
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 1.5)
     clipboard-rails (1.7.1)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     config (2.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
@@ -438,7 +438,7 @@ GEM
     net-ssh (5.2.0)
     newrelic_rpm (6.8.0.360)
     nio4r (2.5.2)
-    nokogiri (1.10.7)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     nom-xml (1.1.0)
       activesupport (>= 3.2.18)
@@ -464,7 +464,7 @@ GEM
     popper_js (1.16.0)
     public_suffix (4.0.3)
     puma (3.12.2)
-    rack (2.2.1)
+    rack (2.2.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-protection (2.0.8.1)
