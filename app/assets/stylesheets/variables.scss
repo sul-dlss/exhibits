@@ -1,3 +1,6 @@
+// Bootstrap and other variable type overrides. For things that are dependent on
+// Bootstrap variables, see local_variables.scss
+
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
 @import "sul-styles";
 @import "sul_variables";
@@ -37,27 +40,3 @@ $nav-link-color: $black;
 
 $sidebar-link-color: $color-black-80;
 $sidebar-link-active-color: $color-cardinal-red;
-
-@import "bootstrap-reboot";
-@import "bootstrap/variables";
-@import "spotlight/variables";
-@import "spotlight/variables_bootstrap";
-
-$brandbar-height: 35px;
-$brandbar-padding-vertical: $spacer;
-
-$home-masthead-height: 119px;
-
-$breadcrumb-bg: transparent;
-$breadcrumb-padding-vertical: $spacer;
-
-$nav-link-padding: $spacer;
-
-$modal-header-footer-height-guess: 212px;
-
-// Only set max-width of containers at breakpoints above "sm"
-$container-max-widths: map-remove($container-max-widths, "sm");
-
-$input-focus-width:       0.2rem;
-$input-focus-border-color:       rgba($blue, 0.25);
-$input-focus-box-shadow:  0 0 0 $input-focus-width $input-focus-border-color;
