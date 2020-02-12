@@ -1,3 +1,13 @@
+#header-navbar {
+  a {
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
 .dd-list {
   .panel-default {
     > .panel-heading {
@@ -36,6 +46,7 @@
 }
 
 .page-title,
+
 .page-header {
   @extend .h2;
   color: $heading-font-color;
