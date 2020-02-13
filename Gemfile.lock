@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 3935fb342ce9d1814c9cba3d3371203dd2689680
+  revision: a32256c279c64efb04aa484ad415ac4004928a00
   branch: master
   specs:
     blacklight-spotlight (3.0.0.alpha.3)
@@ -444,7 +444,7 @@ GEM
       activesupport (>= 3.2.18)
       i18n
       nokogiri
-    oauth2 (1.4.3)
+    oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
@@ -613,9 +613,9 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11.0)
     simplecov-html (0.11.0)
-    sir_trevor_rails (0.5.1)
+    sir_trevor_rails (0.6.1)
       multi_json (~> 1.0)
-      rails (>= 3, < 6)
+      rails (>= 3, < 7)
       redcarpet (>= 2.0.1, < 4)
       twitter-text (~> 1.4)
     sitemap_generator (6.1.0)
