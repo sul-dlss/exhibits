@@ -8,12 +8,8 @@
   margin-left: 10px;
 }
 
-a[aria-expanded=true] .glyphicon-chevron-right {
-  display: none;
-}
-
-a[aria-expanded=false] .glyphicon-chevron-down {
-  display: none;
+button[aria-expanded=true] + .icon-expand-rotate svg {
+  transform: rotate(90deg);
 }
 
 .text-as-label {
