@@ -55,13 +55,6 @@ th {
   font-size: 15px;
 }
 
-#facets {
-  .glyphicon-chevron-right,
-  .glyphicon-chevron-down {
-    color: $color-gray-60;
-  }
-}
-
 .btn-secondary,
 .btn-outline-secondary {
   @include button-variant($sul-btn-secondary-color, $sul-btn-secondary-border);
