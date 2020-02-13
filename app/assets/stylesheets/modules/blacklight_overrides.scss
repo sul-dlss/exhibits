@@ -24,10 +24,12 @@
     display: none;
   }
 
-  .dl-horizontal {
-    float: none;
+  .document-metadata {
     margin-top: 2 * $padding-large-vertical;
-    width: 85ch;
+
+    dd {
+      max-width: 45ch;
+    }
   }
 
   .constraints-container {
