@@ -66,3 +66,8 @@ th {
 .btn-outline-secondary {
   @include button-variant($sul-btn-secondary-color, $sul-btn-secondary-border);
 }
+
+.blockquote {
+  border-left: 5px solid $border-color;
+  padding-left: 1rem;
+}
