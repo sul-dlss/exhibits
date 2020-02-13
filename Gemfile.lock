@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: a32256c279c64efb04aa484ad415ac4004928a00
+  revision: c36f2f43f41237498fbe25a91dd047e252926b0a
   branch: master
   specs:
     blacklight-spotlight (3.0.0.alpha.3)
