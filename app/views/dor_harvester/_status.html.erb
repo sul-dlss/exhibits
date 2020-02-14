@@ -1,11 +1,12 @@
 <div class="card">
   <div class="card-header" role="tab" id="sdr-item-status">
     <h4 class="mb-0">
-      <button class="btn btn-link collapsed" data-toggle="collapse" data-parent="#sdr-accordion" href="#sdr-item-status-section" aria-expanded="false" aria-controls="sdr-item-status-section">
+      <button class="btn btn-link collapsed stretched-link" data-toggle="collapse" data-parent="#sdr-accordion" href="#sdr-item-status-section" aria-expanded="false" aria-controls="sdr-item-status-section">
         <%= t('admin.items.item-status') %>
-        <span class="glyphicon glyphicon-chevron-right float-right"></span>
-        <span class="glyphicon glyphicon-chevron-down float-right"></span>
       </button>
+      <div class="float-right icon-expand-rotate">
+        <%= blacklight_icon('chevron_right') %>
+      </div>
     </h4>
   </div>
   <div id="sdr-item-status-section" class="collapse" role="tabpanel" aria-labelledby="sdr-item-status" aria-expanded="false" data-parent="#sdr-accordion">
@@ -15,11 +16,12 @@
           <div class="card">
             <div class="card-header">
               <h4 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-items" aria-expanded="false">
+                <button class="btn btn-link collapsed stretched-link" data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-items" aria-expanded="false">
                   <%= t('admin.items.object-druids') %>
-                  <span class="glyphicon glyphicon-chevron-right float-right"></span>
-                  <span class="glyphicon glyphicon-chevron-down float-right"></span>
                 </button>
+                <div class="float-right icon-expand-rotate">
+                  <%= blacklight_icon('chevron_right') %>
+                </div>
               </h4>
             </div>
             <div id="sdr-status-inner-items" class="collapse">
@@ -37,11 +39,12 @@
           <div class="card">
             <div class="card-header">
               <h4 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-collections" aria-expanded="false">
+                <button class="btn btn-link collapsed stretched-link" data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-collections" aria-expanded="false">
                   <%= t('admin.items.collection-druids') %>
-                  <span class="glyphicon glyphicon-chevron-right float-right"></span>
-                  <span class="glyphicon glyphicon-chevron-down float-right"></span>
                 </button>
+                <div class="float-right icon-expand-rotate">
+                  <%= blacklight_icon('chevron_right') %>
+                </div>
               </h4>
             </div>
             <div id="sdr-status-inner-collections" class="collapse">
