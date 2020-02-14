@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: c36f2f43f41237498fbe25a91dd047e252926b0a
+  revision: 312f53bc410ccf245e30deb0813c49a1f193f7b9
   branch: master
   specs:
     blacklight-spotlight (3.0.0.alpha.3)
@@ -119,7 +119,7 @@ GEM
       jbuilder (~> 2.7)
       kaminari (>= 0.15)
       rails (>= 5.1, < 7)
-    blacklight-gallery (1.5.0)
+    blacklight-gallery (1.7.0)
       blacklight (~> 7.0)
       bootstrap (~> 4.0)
       openseadragon (>= 0.2.0)
