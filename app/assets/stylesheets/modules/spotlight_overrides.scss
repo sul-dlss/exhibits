@@ -10,11 +10,38 @@
 
 // scss-lint:disable ImportantRule
 .site-title {
-  font-size: 2.125rem;
+  font-size: 1.625rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: 2.125rem;
+  }
 }
 
 .masthead small {
-  font-size: 1.3rem;
+  font-size: 1.125rem;
+  padding-top: 0.25rem !important;
+
+  @media screen and (min-width: 992px) {
+    font-size: 1.5rem;
+  }
+}
+
+.site-title-container {
+  max-height: 8rem;
+}
+
+.masthead .site-title-wrapper {
+  padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
+
+  @media screen and (min-width: 992px) {
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+  }
 }
 
 .dd-list {
