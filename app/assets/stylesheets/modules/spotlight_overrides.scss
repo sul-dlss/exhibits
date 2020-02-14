@@ -81,7 +81,7 @@
 .page-title,
 
 .page-header {
-  font-size: 1.875rem;
+  font-size: 2rem;
   color: $heading-font-color;
 
   small {
@@ -89,9 +89,23 @@
   }
 }
 
+.blacklight-browse h1 {
+  font-size: 2rem;
+}
+
 .item-count {
   color: $cool-grey;
   font-size: 1.25rem;
+}
+
+#content h2 {
+  font-size: 1.75rem;
+
+  // Landing page cards use H2 but we don't want them to get the
+  // h2 size above.
+  &.card-title {
+    font-size: initial;
+  }
 }
 
 h3,
