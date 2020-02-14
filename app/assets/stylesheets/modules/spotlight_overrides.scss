@@ -67,7 +67,7 @@
   }
 }
 
-// Reduce size of page titles, headings, etc.
+// Adjust size of page titles, headings, etc.
 .page-title,
 .page-header {
   font-size: 2rem;
@@ -85,6 +85,10 @@
 .item-count {
   color: $cool-grey;
   font-size: 1.25rem;
+}
+
+.tab-pane small.form-text {
+  font-size: 0.875rem;
 }
 
 #content h2 {
