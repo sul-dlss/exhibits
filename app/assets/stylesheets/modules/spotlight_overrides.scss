@@ -25,12 +25,12 @@
 }
 
 .masthead .site-title-wrapper {
-  padding-bottom: 0.5rem;
   margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
 
   @media screen and (min-width: 992px) {
-    padding-bottom: 1rem;
     margin-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -70,8 +70,8 @@
 // Adjust size of page titles, headings, etc.
 .page-title,
 .page-header {
-  font-size: 2rem;
   color: $heading-font-color;
+  font-size: 2rem;
 
   small {
     font-size: 1.5rem;
