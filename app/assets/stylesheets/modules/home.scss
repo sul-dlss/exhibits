@@ -11,12 +11,12 @@
   h3 {
     @include heading-with-border();
     font-size: $h3-font-size;
-    padding-bottom: $padding-base-vertical;
+    padding-bottom: $spacer;
     padding-top: 0;
   }
 
   .btn + h3 {
-    margin-top: $padding-large-vertical * 2;
+    margin-top: $spacer * 2;
   }
 
   .nav > li > a {
@@ -37,7 +37,7 @@
 }
 
 .new_user .form-actions {
-  margin-bottom: $padding-large-vertical * 4;
+  margin-bottom: $spacer * 4;
 }
 
 #all_users.well {
