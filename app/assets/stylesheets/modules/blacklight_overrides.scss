@@ -12,7 +12,7 @@
   background-color: transparent;
   border: 0;
   box-shadow: none;
-  padding: $padding-base-vertical 0;
+  padding: $spacer 0;
 }
 
 .blacklight-catalog-show {
@@ -25,7 +25,7 @@
   }
 
   .document-metadata {
-    margin-top: 2 * $padding-large-vertical;
+    margin-top: 2 * $spacer;
 
     dd {
       max-width: 45em;
@@ -69,8 +69,8 @@
     .document {
       box-sizing: content-box;
       min-height: 100px;
-      padding-bottom: $padding-large-vertical;
-      padding-top: $padding-large-vertical;
+      padding-bottom: $spacer;
+      padding-top: $spacer;
     }
 
     .document-counter {

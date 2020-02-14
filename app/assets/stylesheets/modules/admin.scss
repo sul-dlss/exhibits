@@ -17,7 +17,7 @@ button[aria-expanded=true] + .icon-expand-rotate svg {
 }
 
 h3 + .table.analytics {
-  margin-top: $padding-large-vertical * 2;
+  margin-top: $spacer * 2;
 }
 
 .table.analytics {
@@ -31,7 +31,7 @@ h3 + .table.analytics {
   }
 
   + h4 {
-    margin-top: $padding-large-vertical * 4;
+    margin-top: $spacer * 4;
   }
 }
 
@@ -43,11 +43,11 @@ h3 + .table.analytics {
 }
 
 #new_language {
-  margin-bottom: $padding-large-vertical * 3;
+  margin-bottom: $spacer * 3;
 }
 
 .translation-subheading {
   font-size: $h3-font-size;
-  margin-top: $padding-large-vertical * 3;
-  padding-bottom: $padding-base-vertical;
+  margin-top: $spacer * 3;
+  padding-bottom: $spacer;
 }
