@@ -1,10 +1,37 @@
 // scss-lint:disable ImportantRule
 .site-title {
-  font-size: 2.125rem;
+  font-size: 1.625rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: 2.125rem;
+  }
 }
 
 .masthead small {
-  font-size: 1.3rem;
+  font-size: 1.125rem;
+  padding-top: 0.25rem !important;
+
+  @media screen and (min-width: 992px) {
+    font-size: 1.5rem;
+  }
+}
+
+.site-title-container {
+  max-height: 8rem;
+}
+
+.masthead .site-title-wrapper {
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  @media screen and (min-width: 992px) {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .dd-list {
@@ -40,20 +67,43 @@
   }
 }
 
-// Reduce size of page titles, headings, etc.
+// Adjust size of page titles, headings, etc.
 .page-title,
 .page-header {
-  font-size: 1.875rem;
   color: $heading-font-color;
+  font-size: 2rem;
 
   small {
     font-size: 1.5rem;
   }
 }
 
+.blacklight-browse h1 {
+  font-size: 2rem;
+}
+
 .item-count {
   color: $cool-grey;
   font-size: 1.25rem;
+}
+
+small.form-text {
+  font-size: 0.875rem;
+}
+
+.browse-translations-header,
+table#exhibit-specific-fields .field-label {
+  font-size: 1.125rem;
+}
+
+#content h2 {
+  font-size: 1.75rem;
+
+  // Landing page cards use H2 but we don't want them to get the
+  // h2 size above.
+  &.card-title {
+    font-size: initial;
+  }
 }
 
 h3,
@@ -150,11 +200,11 @@ h5,
 }
 
 .search-widgets {
-  
+
   .btn {
     @extend .btn-sm;
   }
-  
+
   .view-type-group {
     height: $input-height-sm;
   }
