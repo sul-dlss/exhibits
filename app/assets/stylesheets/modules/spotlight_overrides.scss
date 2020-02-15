@@ -157,7 +157,11 @@ h5,
 }
 
 .blacklight-about_pages-show #sidebar {
-  margin-top: $spacer * 2;
+  margin-top: $spacer;
+
+  .contacts-header {
+    margin-top: $spacer * 2.5;
+  }
 }
 
 // Use SUL colors for facet sidebar
