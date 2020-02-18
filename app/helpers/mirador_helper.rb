@@ -2,7 +2,7 @@
 
 # :nodoc:
 module MiradorHelper
-  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/MethodLength
   def mirador_options(manifest, canvas, exhibit_slug)
     {
       "mainMenuSettings": {
@@ -33,5 +33,5 @@ module MiradorHelper
       .merge(FeatureFlags.for(exhibit_slug)
         .mirador_options?.to_hash)
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/MethodLength
 end
