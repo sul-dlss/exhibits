@@ -48,6 +48,7 @@ module CatalogHelper
 
     contents = options[:value][0].split('--').map(&:strip)
     return contents.join if contents.length == 1
+    return contents if request.format.json?
 
     contents = safe_join(contents.map { |v| "<li>#{v}</li>".html_safe }) # rubocop:disable Rails/OutputSafety
     id = options[:document].id
