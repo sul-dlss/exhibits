@@ -1,3 +1,10 @@
-.caret-right {
-  transform: rotate(-90deg);
+.show-hide-toggle {
+  @include caret(right);
+
+  &::after {
+    vertical-align: inherit;
+  }
+  &[aria-expanded="true"] {
+    @include caret();
+  }
 }

@@ -1,17 +1,18 @@
 .facets-heading {
-  @extend .h3;
   @include heading-with-border();
+
+  width: 100%;
 }
 
-.top-panel-heading {
-  padding: $padding-base-vertical 0;
+.facet-limit {
+  margin-bottom: 7px;
 }
 
 .constraints-container {
   background-color: transparent;
   border: 0;
   box-shadow: none;
-  padding: $padding-base-vertical 0;
+  padding: $spacer 0;
 }
 
 .blacklight-catalog-show {
@@ -23,20 +24,26 @@
     display: none;
   }
 
-  .dl-horizontal {
-    float: none;
-    margin-top: 2 * $padding-large-vertical;
-    width: 85ch;
+  .document-metadata {
+    margin-top: 2 * $spacer;
+
+    dd {
+      max-width: 45em;
+    }
+  }
+
+  .constraints-container {
+    display: none;
   }
 }
 
-.thumbnail {
+.img-thumbnail {
   border: 0;
 }
 
 #document {
   h1 {
-    font-size: $font-size-h3;
+    font-size: 1.5rem;
   }
 }
 
@@ -47,11 +54,11 @@
 
 #documents {
   .index_title {
-    font-size: $font-size-large;
+    font-size: 1rem;
     margin-top: 0;
   }
 
-  .thumbnail,
+  .img-thumbnail,
   .document-thumbnail {
     img {
       @include thumbnail-image-border;
@@ -62,8 +69,8 @@
     .document {
       box-sizing: content-box;
       min-height: 100px;
-      padding-bottom: $padding-large-vertical;
-      padding-top: $padding-large-vertical;
+      padding-bottom: $spacer;
+      padding-top: $spacer;
     }
 
     .document-counter {
@@ -71,10 +78,10 @@
     }
 
     .document-metadata {
-      @extend .col-xs-8;
+      @extend .col-8;
       @extend .col-md-9;
-      @extend .col-xs-offset-3;
-      @extend .col-sm-offset-2;
+      @extend .offset-3;
+      @extend .offset-md-2;
     }
 
     .document-thumbnail {
@@ -88,6 +95,10 @@
   &.gallery {
     .thumbnail {
       border: 0;
+    }
+
+    dl {
+      display: block;
     }
   }
 }

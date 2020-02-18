@@ -1,14 +1,14 @@
 .blacklight-heatmaps-show-map-wrapper {
-  @media (min-width: $screen-md-min) {
+  @media (min-width: breakpoint-min("sm")) {
     padding-left: 50px;
   }
 }
 
 .blacklight-heatmaps-show-map {
-  margin-bottom: $padding-large-vertical;
+  margin-bottom: $spacer;
   width: 100%;
 
-  @media (min-width: $screen-md-min) {
+  @media (min-width: breakpoint-min("sm")) {
     height: 250px;
   }
 }

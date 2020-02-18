@@ -1,52 +1,35 @@
-<div class="sidebar home-page-column">
-  <h2 class="nav-heading">See also</h2>
-  <ul class="nav sidenav">
-    <li>
-      <%= link_to "Spotlight at Stanford microsite",
-      "https://library.stanford.edu/research/spotlight" %>
-    </li>
-    <li>
-      <%= link_to "Other library collections at Stanford",
-      "http://library.stanford.edu/collections" %>
-    </li>
-    <li>
-      <%= link_to "Special Collections & University Archives",
-      "http://library.stanford.edu/spc" %>
-    </li>
-    <li>
-      <%= link_to "Giving to Stanford Libraries",
-      "http://library.stanford.edu/department/library-communications-and-development" %>
-    </li>
-    <li>
-      <%= link_to "Exhibit documentation & marketing",
-      "https://exhibits.stanford.edu/exhibits-documentation" %>
-    </li>
-    <li>
-      <%= link_to "https://consul.stanford.edu/x/g4A-CQ" do %>
-        Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
-      <% end %>
-    </li>
-  </ul>
-
-  <% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
-    <h3 class="nav-heading"><%=t(:'.header') %></h3>
-    <ul class="nav sidenav">
-      <li>
-        <% if can?(:create, Spotlight::Exhibit) %>
-          <%= link_to "Create a new exhibit", spotlight.new_exhibit_path %>
-        <% end %>
-      </li>
-      <li><%= link_to t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings' %></li>
-
-      <% if can? :manage, Spotlight::Site.instance %>
-        <li><%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %></li>
-      <% end %>
-
-      <% if can? :manage, Spotlight::Exhibit %>
-        <li><%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %></li>
-        <li><%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %></li>
-      <% end %>
-    </ul>
+<h2 class="nav-heading">See also</h2>
+<ul class="nav sidenav flex-column">
+  <%= nav_link "Spotlight at Stanford microsite",
+  "https://library.stanford.edu/research/spotlight" %>
+  <%= nav_link "Other library collections at Stanford",
+  "http://library.stanford.edu/collections" %>
+  <%= nav_link "Special Collections & University Archives",
+  "http://library.stanford.edu/spc" %>
+  <%= nav_link "Giving to Stanford Libraries",
+  "http://library.stanford.edu/department/library-communications-and-development" %>
+  <%= nav_link "Exhibit documentation & marketing",
+  "https://exhibits.stanford.edu/exhibits-documentation" %>
+  <%= nav_link "https://consul.stanford.edu/x/g4A-CQ" do %>
+    Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
   <% end %>
+</ul>
 
-</div>
+<% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
+  <h3 class="nav-heading"><%=t(:'.header') %></h3>
+  <ul class="nav sidenav flex-column">
+      <% if can?(:create, Spotlight::Exhibit) %>
+        <%= nav_link "Create a new exhibit", spotlight.new_exhibit_path %>
+      <% end %>
+    <%= nav_link t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings' %>
+
+    <% if can? :manage, Spotlight::Site.instance %>
+      <%= nav_link t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %>
+    <% end %>
+
+    <% if can? :manage, Spotlight::Exhibit %>
+      <%= nav_link t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %>
+      <%= nav_link t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %>
+    <% end %>
+  </ul>
+<% end %>

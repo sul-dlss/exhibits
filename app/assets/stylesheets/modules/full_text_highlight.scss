@@ -6,8 +6,9 @@ dt.prepared-search-container {
   float: none;
   text-align: initial;
   width: auto;
+  @extend .col-12;
 
-  .caret {
+  &::after {
     border-width: 6px;
     color: $color-cardinal-red;
     margin-left: 6px;
@@ -17,14 +18,11 @@ dt.prepared-search-container {
 dd.blacklight-full_text_tesimv {
   border-left: 1px solid $color-gray-80;
   float: none;
-  margin-left: 0;
+  margin-left: 15px;
   margin-top: 6px;
+  @extend .col-12;
 
   em {
     font-weight: bold;
-  }
-
-  p {
-    margin-left: 12px;
   }
 }

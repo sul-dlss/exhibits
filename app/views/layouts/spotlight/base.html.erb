@@ -23,7 +23,7 @@
     <% else %>
       <%= stylesheet_link_tag "application" %>
     <% end %>
-    <%= stylesheet_link_tag "https://www.stanford.edu/su-identity/css/su-identity.css" %>
+    <%= stylesheet_link_tag "https://www-media.stanford.edu/su-identity/css/su-identity.css" %>
     <%= javascript_include_tag "application", async: Settings.async_javascript %>
     <script type="text/javascript">
      Honeybadger.configure({
@@ -49,22 +49,29 @@
   <body class="<%= render_body_class %>">
     <div id="su-wrap"> <!-- #su-wrap start -->
       <div id="su-content"> <!-- #su-content start -->
+        <nav id="skip-link" role="navigation" aria-label="<%= t('blacklight.skip_links.label') %>">
+          <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+          <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+          <%= content_for(:skip_links) %>
+        </nav>
+
         <%= render partial: 'shared/header_navbar' %>
         <%= render partial: 'shared/masthead' %>
         <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
-        <%= render partial: 'shared/ajax_modal' %>
+        <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
+          <%= content_for(:container_header) %>
 
-        <div id="main-container" class="container">
-          <%= render partial: '/flash_msg', layout: 'shared/flash_messages' %>
+          <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
           <div class="row">
             <%= content_for?(:content) ? yield(:content) : yield %>
           </div>
-        </div>
+        </main>
       </div> <!-- #su-content end -->
     </div> <!-- #su-wrap end -->
 
-    <%= render :partial => 'shared/footer' %>
+    <%= render partial: 'shared/footer' %>
+    <%= render partial: 'shared/modal' %>
   </body>
 <% end %>

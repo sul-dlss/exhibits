@@ -1,5 +1,5 @@
 #sdr-item-status-section {
-  .panel-default > .panel-heading {
+  .card > .card-heading {
     background-color: $color-beige-05;
   }
 }
@@ -8,12 +8,8 @@
   margin-left: 10px;
 }
 
-a[aria-expanded=true] .glyphicon-chevron-right {
-  display: none;
-}
-
-a[aria-expanded=false] .glyphicon-chevron-down {
-  display: none;
+button[aria-expanded=true] + .icon-expand-rotate svg {
+  transform: rotate(90deg);
 }
 
 .text-as-label {
@@ -21,21 +17,21 @@ a[aria-expanded=false] .glyphicon-chevron-down {
 }
 
 h3 + .table.analytics {
-  margin-top: $padding-large-vertical * 2;
+  margin-top: $spacer * 2;
 }
 
 .table.analytics {
-  background-color: $table-bg-accent;
+  background-color: $table-accent-bg;
 
   .value {
     color: $color-gray-90;
-    font-size: $font-size-h2;
+    font-size: $h2-font-size;
     font-weight: 700;
     padding-bottom: 0;
   }
 
   + h4 {
-    margin-top: $padding-large-vertical * 4;
+    margin-top: $spacer * 4;
   }
 }
 
@@ -47,11 +43,11 @@ h3 + .table.analytics {
 }
 
 #new_language {
-  margin-bottom: $padding-large-vertical * 3;
+  margin-bottom: $spacer * 3;
 }
 
 .translation-subheading {
-  font-size: $font-size-h3;
-  margin-top: $padding-large-vertical * 3;
-  padding-bottom: $padding-base-vertical;
+  font-size: $h3-font-size;
+  margin-top: $spacer * 3;
+  padding-bottom: $spacer;
 }

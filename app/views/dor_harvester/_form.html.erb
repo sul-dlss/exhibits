@@ -1,19 +1,20 @@
 <% harvester = DorHarvester.instance(current_exhibit) %>
 <div class="tab-content">
-  <div class="panel-group" id="sdr-accordion" role="tablist" aria-multiselectable="true">
+  <div id="sdr-accordion" class="accordion" role="tablist" aria-multiselectable="true">
     <%= render partial: 'dor_harvester/status', locals: { harvester: harvester } %>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="sdr-item-submission">
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#sdr-accordion" href="#sdr-item-submission-section" aria-expanded="true" aria-controls="sdr-item-submission-section" class="">
+    <div class="card">
+      <div class="card-header position-relative" role="tab" id="sdr-item-submission">
+        <h4 class="mb-0">
+          <button data-toggle="collapse" href="#sdr-item-submission-section" aria-expanded="true" aria-controls="sdr-item-submission-section" class="btn btn-link stretched-link">
             <%= t('admin.items.item-submission') %>
-            <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
-          </a>
+          </button>
+          <div class="float-right icon-expand-rotate">
+            <%= blacklight_icon('chevron_right') %>
+          </div>
         </h4>
       </div>
-      <div id="sdr-item-submission-section" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sdr-item-submission" aria-expanded="true">
-        <div class="panel-body">
+      <div id="sdr-item-submission-section" class="collapse show" role="tabpanel" aria-labelledby="sdr-item-submission" aria-expanded="true" data-parent="#sdr-accordion">
+        <div class="card-body">
           <div id="external_resource_tab_0" role="tabpanel" class="tab-pane active">
             <p><%= t('admin.items.item-submission-help_html') %></p>
 
@@ -22,7 +23,7 @@
 
               <div class="form-actions">
                 <div class="primary-actions">
-                  <%= cancel_link "", :back, class: 'btn btn-default' %>
+                  <%= cancel_link "", :back, class: 'btn btn-secondary' %>
                   <%= f.submit t('.add_item'), class: 'btn btn-primary' %>
                 </div>
               </div>

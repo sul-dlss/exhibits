@@ -19,7 +19,7 @@ Blacklight.onLoad(function(){
     var $link = $dd.find('a.prepared-search-link');
 
     $dt.text($dt.text().replace(/:$/, ''));
-    $dt.append('<span class="caret caret-right"></span>');
+    $dt.addClass('show-hide-toggle');
     $dt.attr('data-toggle', 'collapse');
     $dt.attr('data-target', '#' + $dd.attr('id'));
 
@@ -28,7 +28,7 @@ Blacklight.onLoad(function(){
         $('<dt class="prepared-search-container"></dt>')
           .html($link.clone())
       );
-      $dt.before($('<dd></dd>'));
+      $dt.before($('<dd class="w-100"></dd>'));
       $link.remove();
       if ($dd.find('p').length === 0) { // There is no highlight
         $dt.remove();
@@ -38,7 +38,4 @@ Blacklight.onLoad(function(){
   });
 
   $('dd.blacklight-full_text_tesimv').collapse({ toggle: false });
-  $('dd.blacklight-full_text_tesimv').on('show.bs.collapse hide.bs.collapse', function(){
-    $(this).prev().find('.caret').toggleClass('caret-right');
-  });
 });

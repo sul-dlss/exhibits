@@ -8,24 +8,61 @@
   }
 }
 
+// scss-lint:disable ImportantRule
+.site-title {
+  font-size: 1.625rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: 2.125rem;
+  }
+}
+
+.masthead small {
+  font-size: 1.125rem;
+  padding-top: 0.25rem !important;
+
+  @media screen and (min-width: 992px) {
+    font-size: 1.5rem;
+  }
+}
+
+.site-title-container {
+  max-height: 8rem;
+}
+
+.masthead .site-title-wrapper {
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  @media screen and (min-width: 992px) {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
 .dd-list {
   .panel-default {
     > .panel-heading {
-      background-color: $gray-lighter;
+      background-color: $gray-200;
     }
   }
 }
 
 .panel-default {
   .page {
-    background-color: $gray-lighter;
+    background-color: $gray-200;
   }
 }
 
 // Increase font size because we're using Source Sans in this app
 // and Source Sans is noticeably smaller than the default font.
-.image-masthead .navbar ul.nav.navbar-nav > li a {
+.image-masthead .navbar ul.navbar-nav > li a {
   font-size: 15px;
+  letter-spacing: 1.1px;
 }
 
 .browse-landing .text-overlay .browse-category-title {
@@ -40,20 +77,64 @@
   }
 }
 
-// Reduce size of page titles
-.empty-page-block h2 {
-  @extend .h3;
-}
-
+// Adjust size of page titles, headings, etc.
 .page-title,
 
 .page-header {
-  @extend .h2;
   color: $heading-font-color;
+  font-size: 2rem;
 
   small {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
+}
+
+.blacklight-browse h1 {
+  font-size: 2rem;
+}
+
+.item-count {
+  color: $cool-grey;
+  font-size: 1.25rem;
+}
+
+.category-caption .item-count {
+  color: inherit;
+}
+
+small.form-text {
+  font-size: 0.875rem;
+}
+
+.browse-translations-header,
+table#exhibit-specific-fields .field-label {
+  font-size: 1.125rem;
+}
+
+#content h2 {
+  font-size: 1.75rem;
+
+  // Landing page cards use H2 but we don't want them to get the
+  // h2 size above.
+  &.card-title {
+    font-size: initial;
+  }
+}
+
+h3,
+.h3,
+.empty-page-block h2 {
+  font-size: 1.5rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.25rem;
+}
+
+h5,
+.h5 {
+  font-size: 1rem;
 }
 
 // Ajustments to sidebars to use SUL color palette, more compact vertical spacing
@@ -61,19 +142,18 @@
   margin-top: 0;
 }
 
-#sidebar h4 {
+#sidebar .facets-heading,
+#sidebar .nav-heading {
   @include heading-with-border();
   font-size: 20px;
 
-  &.nav-heading {
-    margin-bottom: $padding-base-vertical;
-    padding-left: 3px;
-    padding-top: 0;
-  }
+  margin-left: 0;
+  padding-left: 3px;
+  padding-top: 0;
 }
 
 #sidebar ul.nav > li a {
-  padding: 3px $padding-base-horizontal 3px 3px;
+  padding: 0.25rem;
 
   .blacklight-about_pages-show & { // accommodate likely occurrence of multi-line items
     padding-bottom: 4px;
@@ -81,106 +161,47 @@
   }
 }
 
-.sidenav .active > a {
+.page-sidebar .nav-link.active,
+#sidebar ol.sidenav li.active,
+#sidebar ul.sidenav li.active a {
   @include sidebar-link-active();
 }
 
-// Sidebar adjustments for feature pages.
-// Links here are constructed using h4s and nested ol items so styling
-// needs to be different than other sidebar links.
-#sidebar ol.sidenav {
-  > li > h4 { // parent pages
-    border-bottom: 0;
-    color: $sidebar-link-color;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 3px;
-    margin-top: $padding-base-vertical * 4;
-
-    > a {
-      color: $color-dark-red;
-
-      &:hover,
-      &:focus {
-        background-color: $sidebar-link-background-color;
-      }
-    }
-  }
-
-  li:first-child > h4 {
-    margin-top: $padding-large-vertical * 3;
-  }
-
-  ol.subsection li { // child pages
-    list-style-type: none;
-    margin-left: 0;
-    padding-bottom: 3px;
-    padding-left: 3px;
-    padding-top: 3px;
-
-    &.active {
-      @include sidebar-link-active();
-    }
-
-    > a:hover,
-    > a:focus {
-      background-color: $sidebar-link-background-color;
-    }
-  }
-}
-
-.search-btn {
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
-    background-color: $color-beige-30;
-    border-color: $color-beige;
-  }
-}
-
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
-  background-color: $sidebar-link-background-color;
-}
-
-#sidebar ol.sidenav li a:hover,
-#sidebar ol.sidenav li a:focus {
-  background-color: $sidebar-link-background-color;
-}
-
 .blacklight-about_pages-show #sidebar {
-  margin-top: $padding-large-vertical * 2;
+  margin-top: $spacer;
+
+  .contacts-header {
+    margin-top: $spacer * 2.5;
+  }
 }
 
 // Use SUL colors for facet sidebar
-.facets > .top-panel-heading {
+.facets-header {
   padding-top: 0;
 }
 
-.panel-default {
+.facet-limit {
   border-color: $color-beige-30;
 
-  > .panel-heading {
+  > .card-header {
     background-color: $color-beige-10;
   }
 
-  &.facet_limit-active {
-    border-color: $color-beige-40;
+  &.facet-limit-active {
+    border-color: $color-beige-40 !important;
 
-    > .panel-heading {
-      background-color: $color-beige-40;
+    > .card-header {
+      background-color: $color-beige-40 !important;
       color: $color-blackish;
     }
   }
 
   .facet-values li .selected {
-    color: $color-blackish;
+    color: $color-blackish !important;
   }
 }
 
-.callout-danger .btn-default {
+.callout-danger .btn-secondary {
   @extend .btn-danger;
 }
 
@@ -192,7 +213,42 @@
   }
 }
 
-.thumbnail > img,
-.thumbnail > a > img {
+.img-thumbnail > img,
+.img-thumbnail > a > img {
   @include thumbnail-image-border;
 }
+
+.search-widgets {
+
+  .btn {
+    @extend .btn-sm;
+  }
+
+  .view-type-group {
+    height: $input-height-sm;
+  }
+}
+
+.search-box-container .browse-search-form .input-group {
+  @extend .input-group-sm;
+
+  .form-control {
+    height: $input-height-sm;
+  }
+
+  .input-group-btn.input-group-append .btn {
+    height: $input-height-sm;
+  }
+}
+
+.tags .nav-link {
+  margin-bottom: 0.5rem;
+  padding: 0.33rem 0.66rem;
+}
+
+// A hackety McHack so that the search fields contain "Everything" in all the browsers
+#exhibit-navbar #search_field {
+  min-width: 114px;
+}
+
+// scss-lint:enable ImportantRule

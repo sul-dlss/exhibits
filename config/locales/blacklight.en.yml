@@ -1,3 +1,9 @@
 en:
   blacklight:
     application_name: 'Stanford University Libraries'
+    search:
+      start_over: Start over
+  views:
+    pagination:
+      aria:
+        container_label: Results pagination

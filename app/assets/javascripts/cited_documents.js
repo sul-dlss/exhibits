@@ -16,10 +16,10 @@
         format: 'json',
         rows: 1000
       }, function (response) {
-        response.response.docs.forEach(function(citedDocEntry) {
+        response.data.forEach(function(citedDocEntry) {
           var html = '<li class="cited-documents-body">' +
-                ' <a href="' + citedDocEntry.id + '">' +
-                citedDocEntry.title_full_display +
+                ' <a href="' + citedDocEntry.links.self + '">' +
+                citedDocEntry.attributes.title_full_display.attributes.value +
                 '</a>' +
                 '</li>';
           $el.find('.cited-documents-list').append(html);

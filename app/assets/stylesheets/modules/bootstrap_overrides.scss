@@ -1,17 +1,27 @@
+body {
+  font-size: 0.9375rem;
+  line-height: 1.428571429;
+}
+
+.bg-cardinal-red {
+  background-color: $color-cardinal-red !important;
+}
+
+.topbar {
+  @extend .bg-cardinal-red;
+}
+
 .breadcrumb {
   border-bottom: 1px solid lighten($heading-border-color, 5%);
   padding-left: 0;
 }
 
-.nav {
-  a {
-    color: $nav-link-color;
-  }
+.nav a {
+  color: $nav-link-color;
+}
 
-  > li > a:hover,
-  > li > a:focus {
-    background-color: $sidebar-link-background-color;
-  }
+.nav-link:hover {
+  text-decoration: underline;
 }
 
 .nav-tabs > li.active > a {
@@ -32,7 +42,12 @@
 }
 
 a:hover {
-  border-radius: $border-radius-base;
+  border-radius: $border-radius;
+}
+
+.form-group .col-form-label {
+  @extend .text-right;
+  @extend .font-weight-bold;
 }
 
 th {
@@ -40,9 +55,12 @@ th {
   font-size: 15px;
 }
 
-#facets {
-  .glyphicon-chevron-right,
-  .glyphicon-chevron-down {
-    color: $color-gray-60;
-  }
+.btn-secondary,
+.btn-outline-secondary {
+  @include button-variant($sul-btn-secondary-color, $sul-btn-secondary-border);
+}
+
+.blockquote {
+  border-left: 5px solid $border-color;
+  padding-left: 1rem;
 }

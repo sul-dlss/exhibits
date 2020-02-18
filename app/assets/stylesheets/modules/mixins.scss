@@ -7,14 +7,10 @@
   padding-left: 3px;
 }
 
-@mixin brandbar-vertical-align($element-height) {
-  margin-top: (($brandbar-height - $element-height) / 2);
-  margin-bottom: (($brandbar-height - $element-height) / 2);
-}
-
 @mixin sidebar-link-active() {
-  color: $sidebar-link-color;
-  font-weight: 600;
+  color: $sidebar-link-active-color;
+  cursor: default;
+  text-decoration: none;
 }
 
 @mixin thumbnail-image-border() {

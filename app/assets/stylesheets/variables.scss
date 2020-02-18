@@ -1,7 +1,15 @@
+// Bootstrap and other variable type overrides. For things that are dependent on
+// Bootstrap variables, see local_variables.scss
+
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
 @import "sul-styles";
+@import "sul_variables";
+// override sul-styles
+$footer-height: 13rem;
 
 $gray-base: #000;
+$primary: $color-cardinal-red;
+$success: $mint;
 
 $sul-masthead-bg-color: $color-beige-10;
 $sul-masthead-border-color: $color-beige-20;
@@ -10,17 +18,12 @@ $black: $color-blackish;
 $gray-41-percent: #696969;
 $color-gray-80: #ccc;
 
-// Make default a beige button
-$btn-default-color: $black;
-$btn-default-bg: $color-beige-10;
+$secondary: $color-beige-10;
 
-$well-bg: $color-beige-20;
+$exhibit-card-bg: $color-beige-20;
 $exhibit-card-border: $color-gray-80;
 
-$navbar-inverse-bg: $brand-primary;
-$navbar-inverse-border: $color-dark-red;
-$navbar-inverse-color: lighten($gray-base, 86%);
-$navbar-inverse-link-color: lighten($gray-base, 86%);
+$navbar-dark-color: lighten($gray-base, 86%);
 
 $navbar-default-bg: $color-beige-05;
 $navbar-default-link-hover-bg: $color-beige-20;
@@ -36,23 +39,4 @@ $sul-link-color-border: $color-pantone-401;
 $nav-link-color: $black;
 
 $sidebar-link-color: $color-black-80;
-$sidebar-link-background-color: $color-beige-10;
-
-$panel-default-heading-bg: $color-beige-30;
-$panel-success-heading-bg: #c7d1c5;
-
-@import "bootstrap/variables";
-@import "spotlight/variables";
-@import "spotlight/variables_bootstrap";
-
-$brandbar-height: 35px;
-$brandbar-padding-vertical: (($brandbar-height - $line-height-computed) / 2);
-
-$home-masthead-height: 119px;
-
-$breadcrumb-bg: transparent;
-$breadcrumb-padding-vertical: $padding-base-vertical;
-
-$nav-link-padding: $padding-base-vertical $padding-base-horizontal;
-
-$modal-header-footer-height-guess: 212px;
+$sidebar-link-active-color: $color-cardinal-red;

@@ -1,29 +1,31 @@
-<div class="panel panel-default">
-  <div class="panel-heading" role="tab" id="sdr-item-status">
-    <h4 class="panel-title">
-      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#sdr-accordion" href="#sdr-item-status-section" aria-expanded="false" aria-controls="sdr-item-status-section">
+<div class="card">
+  <div class="card-header position-relative" role="tab" id="sdr-item-status">
+    <h4 class="mb-0">
+      <button class="btn btn-link collapsed stretched-link" data-toggle="collapse" data-parent="#sdr-accordion" href="#sdr-item-status-section" aria-expanded="false" aria-controls="sdr-item-status-section">
         <%= t('admin.items.item-status') %>
-        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-        <span class="glyphicon glyphicon-chevron-down pull-right"></span>
-      </a>
+      </button>
+      <div class="float-right icon-expand-rotate">
+        <%= blacklight_icon('chevron_right') %>
+      </div>
     </h4>
   </div>
-  <div id="sdr-item-status-section" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sdr-item-status" aria-expanded="false">
-    <div class="panel-body">
-      <div class="panel-group" id="status-accordion">
+  <div id="sdr-item-status-section" class="collapse" role="tabpanel" aria-labelledby="sdr-item-status" aria-expanded="false" data-parent="#sdr-accordion">
+    <div class="card-body">
+      <div id="status-accordion" class="accordion">
       <% if harvester.solr_document_sidecars.any? %>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-items" aria-expanded="false">
+          <div class="card">
+            <div class="card-header position-relative">
+              <h4 class="mb-0">
+                <button class="btn btn-link collapsed stretched-link" data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-items" aria-expanded="false">
                   <%= t('admin.items.object-druids') %>
-                  <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                  <span class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </a>
+                </button>
+                <div class="float-right icon-expand-rotate">
+                  <%= blacklight_icon('chevron_right') %>
+                </div>
               </h4>
             </div>
-            <div id="sdr-status-inner-items" class="panel-collapse collapse">
-              <div class="panel-body">
+            <div id="sdr-status-inner-items" class="collapse">
+              <div class="card-body">
                 <% if harvester.solr_document_sidecars.count > Settings.index_status_threshold %>
                   <%= render 'dor_harvester/many_index_statuses', { harvester: harvester } %>
                 <% else %>
@@ -34,18 +36,19 @@
           </div>
         <% end %>
         <% if harvester.collections.any? %>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-collections" aria-expanded="false">
+          <div class="card">
+            <div class="card-header position-relative">
+              <h4 class="mb-0">
+                <button class="btn btn-link collapsed stretched-link" data-toggle="collapse" data-parent="#status-accordion" href="#sdr-status-inner-collections" aria-expanded="false">
                   <%= t('admin.items.collection-druids') %>
-                  <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-                  <span class="glyphicon glyphicon-chevron-down pull-right"></span>
-                </a>
+                </button>
+                <div class="float-right icon-expand-rotate">
+                  <%= blacklight_icon('chevron_right') %>
+                </div>
               </h4>
             </div>
-            <div id="sdr-status-inner-collections" class="panel-collapse collapse">
-              <div class="panel-body">
+            <div id="sdr-status-inner-collections" class="collapse">
+              <div class="card-body">
                 <p><%= t('admin.items.collection-druids-help_html') %></p>
                 <table class="table table-striped">
                   <thead>

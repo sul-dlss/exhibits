@@ -3,11 +3,11 @@
 ##
 # Blacklight controller providing search and discovery features
 class CatalogController < ApplicationController
-  include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
   helper Openseadragon::OpenseadragonHelper
 
   include Blacklight::Catalog
+  include BlacklightRangeLimit::ControllerOverride
 
   before_action only: :manifest do
     response.headers['Access-Control-Allow-Origin'] = '*'
@@ -17,7 +17,13 @@ class CatalogController < ApplicationController
     blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
   end
 
+  before_action only: :index do
+    blacklight_config.add_index_field 'formatted_bibliography_ts' if request.format.json?
+  end
+
   configure_blacklight do |config|
+    config.index.default_thumbnail = :exhibits_default_thumbnail
+
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'
@@ -63,8 +69,9 @@ class CatalogController < ApplicationController
       qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'
     }
 
-    config.index.document_actions[:bookmark].if = false
-    config.show.document_actions[:bookmark].if = false
+    config.add_results_collection_tool(:sort_widget)
+    config.add_results_collection_tool(:per_page_widget)
+    config.add_results_collection_tool(:view_type_group)
 
     # solr path which will be added to solr base url before the other solr params.
     # config.solr_path = 'select'
@@ -153,7 +160,9 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_year_w_approx_isi', label: 'Date', limit: true
     config.add_facet_field 'pub_year_no_approx_isi', label: 'Date (no approx)', limit: true
     config.add_facet_field 'place_created_ssim', label: 'Place created', limit: true
-    config.add_facet_field 'pub_year_tisim', label: 'Date Range', range: true, limit: true
+    config.add_facet_field 'pub_year_tisim', label: 'Date Range',
+                                             range: true,
+                                             partial: 'blacklight_range_limit/range_limit_panel'
     config.add_facet_field 'language', label: 'Language', limit: true
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
@@ -254,7 +263,6 @@ class CatalogController < ApplicationController
         document_has_full_text_and_search_is_query?(*args)
       end,
       label: 'Sample matches in document text',
-      highlight: true,
       helper_method: :render_fulltext_highlight,
       list: false
     )
@@ -396,6 +404,7 @@ class CatalogController < ApplicationController
     config.add_sort_field 'author_sort asc, title_sort asc', label: 'author'
     config.add_sort_field 'title_sort asc, pub_year_isi desc', label: 'title'
     config.add_sort_field 'publisher_ssi asc, pub_year_isi desc', label: 'publisher'
+    config.add_sort_field 'author_sort asc, pub_year_isi asc, title_sort asc', if: false
   end
 
   # JSON API queries should not trigger new search histories
