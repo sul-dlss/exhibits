@@ -81,6 +81,15 @@ describe CatalogHelper, type: :helper do
         expect(helper.table_of_contents_separator(input)).to match(/data-toggle='collapse'/)
       end
     end
+
+    context 'json format' do
+      let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae--euangelia'] } }
+
+      it 'separates MODS table of contents' do
+        allow(helper.request.format).to receive(:json?).and_return(true)
+        expect(helper.table_of_contents_separator(input)).to eq(%w(Homiliae euangelia))
+      end
+    end
   end
 
   describe '#manuscript_link' do
