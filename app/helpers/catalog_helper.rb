@@ -69,7 +69,7 @@ module CatalogHelper
   end
 
   def search_for_doc_text_link(document)
-    return '' unless params[:q]
+    return '' unless params[:q] && document[:druid]
 
     link_to(
       "Search for \"#{params[:q]}\" in document text",
