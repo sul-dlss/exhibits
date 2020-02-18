@@ -18,8 +18,10 @@ class CatalogController < ApplicationController
   end
 
   before_action only: :index do
-    blacklight_config.add_index_field 'formatted_bibliography_ts' if request.format.json?
-    blacklight_config.index_fields.values.each { |v| v.if = true }
+    if request.format.json?
+      blacklight_config.add_index_field 'formatted_bibliography_ts'
+      blacklight_config.index_fields.values.each { |v| v.if = true }
+    end
   end
 
   configure_blacklight do |config|
