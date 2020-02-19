@@ -1,5 +1,8 @@
-#header-navbar {
-  a {
+// Override Bootstrap 4 nav-dark link states
+#user-util-collapse {
+   :not(.dropdown-menu) > li > a {
+    color: $white;
+
     &:hover,
     &:focus,
     &:active {
