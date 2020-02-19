@@ -23,7 +23,7 @@ class SearchAcrossController < ::CatalogController
   end
 
   configure_blacklight do |config|
-    config.index.document_presenter_clas = SearchAcrossIndexPresenter
+    config.index.document_presenter_class = SearchAcrossIndexPresenter
     config.search_builder_class = SearchAcrossSearchBuilder
     config.track_search_session = false
     config.default_solr_params["f.#{SolrDocument.exhibit_slug_field}.facet.limit"] = -1
