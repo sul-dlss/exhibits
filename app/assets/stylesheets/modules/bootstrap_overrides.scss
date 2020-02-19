@@ -64,3 +64,36 @@ th {
   border-left: 5px solid $border-color;
   padding-left: 1rem;
 }
+
+.carousel-indicators li {
+  background-color: transparent;
+  border: 1px solid $white;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  height: 10px;
+  margin: 1px 3px;
+  text-indent: -999px;
+  width: 10px;
+
+  &.active {
+    background-color: $white;
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  svg {
+    fill: $white;
+    height: 36px;
+    width: 36px;
+  }
+}
+
+.carousel-control-prev {
+  @include gradient-x($start-color: rgba(0 , 0 , 0, .5) , $end-color: rgba(0 ,0 , 0, .0001));
+}
+
+.carousel-control-next {
+  @include gradient-x($start-color: rgba(0 ,0 , 0, .0001), $end-color: rgba(0 , 0 , 0, .5));
+}
