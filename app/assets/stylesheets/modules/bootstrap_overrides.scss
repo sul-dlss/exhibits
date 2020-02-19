@@ -80,3 +80,11 @@ th {
     background-color: $white;
   }
 }
+
+.carousel-control-prev {
+  @include gradient-x($start-color: rgba(0 , 0 , 0, .5) , $end-color: rgba(0 ,0 , 0, .0001));
+}
+
+.carousel-control-next {
+  @include gradient-x($start-color: rgba(0 ,0 , 0, .0001), $end-color: rgba(0 , 0 , 0, .5));
+}
