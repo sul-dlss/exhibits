@@ -14,7 +14,6 @@ describe 'shared/_site_sidebar', type: :view do
     before do
       allow(view).to receive(:can?).with(:create, Spotlight::Exhibit).and_return(false)
       allow(view).to receive(:can?).with(:manage, Spotlight::Site.instance).and_return(false)
-      allow(view).to receive(:current_page?).and_return(false)
       render
     end
 
