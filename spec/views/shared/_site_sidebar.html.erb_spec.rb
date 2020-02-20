@@ -7,6 +7,8 @@ describe 'shared/_site_sidebar', type: :view do
 
   before do
     view.extend Spotlight::CrudLinkHelpers
+    stub_template 'catalog/search_sidebar' => 'search sidebar'
+    stub_template 'shared/_facets' => 'facets'
   end
 
   context 'with a non-admin user' do

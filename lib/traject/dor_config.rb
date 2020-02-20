@@ -289,7 +289,6 @@ def extract_geonames_ids(sdb)
   end.compact.reject(&:empty?)
 end
 
-# rubocop:disable Metrics/AbcSize
 # Fetch remote geonames metadata and format it for Solr
 # @param [String] id geonames identifier
 # @return [String] Solr WKT/CQL ENVELOPE based on //geoname/bbox
@@ -306,7 +305,6 @@ rescue Faraday::Error => e
   logger.error("Error fetching/parsing #{url} -- #{e.message}")
   nil
 end
-# rubocop:enable Metrics/AbcSize
 
 def display_type(dor_content_type)
   case dor_content_type
