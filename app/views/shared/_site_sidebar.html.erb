@@ -1,6 +1,8 @@
-<%= render 'search_across/search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
-<% if defined? @response %>
-  <%= render 'catalog/search_sidebar' %>
+<% if Settings.feature_flags.search_across || !current_page?(root_path) %>
+  <%= render 'search_across/search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
+  <% if defined? @response %>
+    <%= render 'catalog/search_sidebar' %>
+  <% end %>
 <% end %>
 
 <h2 class="nav-heading">See also</h2>
