@@ -6,6 +6,14 @@ module SearchAcrossHelper
     %w(search_across exhibits).include?(controller_name) && action_name == 'index'
   end
 
+  def search_without_group
+    search_state.params_for_search.except(:group)
+  end
+
+  def search_with_group
+    search_state.params_for_search.merge(group: true)
+  end
+
   # Overrides
 
   def show_pagination?(*_args)
