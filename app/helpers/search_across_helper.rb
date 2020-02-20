@@ -48,7 +48,7 @@ module SearchAcrossHelper
               field_or_opts
             end
 
-    if doc[SolrDocument.exhibit_slug_field].many?
+    if doc[SolrDocument.exhibit_slug_field]&.many?
       label
     else
       link_to label, url_for_document(doc), send(:document_link_params, doc, opts)
