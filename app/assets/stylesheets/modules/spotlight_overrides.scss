@@ -129,9 +129,14 @@ table#exhibit-specific-fields .field-label {
     max-height: 100%;
   }
 
+  &:hover .exhibit-description {
+    margin-bottom: 1.6em;
+  }
+
   .description {
     font-size: 0.8rem;
     line-height: 1.6em;
+    margin-bottom: 0;
   }
 }
 
