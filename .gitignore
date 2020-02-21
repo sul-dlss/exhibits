@@ -18,7 +18,6 @@
 # Ignore ruby version management artifacts.
 /.ruby-*
 
-/config/gdor.yml
 /log/gdor_logs/
 /public/uploads
 /jetty
