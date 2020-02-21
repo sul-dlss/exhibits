@@ -123,6 +123,12 @@ table#exhibit-specific-fields .field-label {
 }
 
 .exhibit-card {
+  overflow-y: hidden;
+
+  .card-img-overlay {
+    max-height: 100%;
+  }
+
   .description {
     font-size: 0.8rem;
     line-height: 1.6em;
