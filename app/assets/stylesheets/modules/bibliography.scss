@@ -3,6 +3,7 @@
   padding-left: 0;
 
   h3 {
+    @extend .mt-4;
     color: $brand-primary;
     margin-left: 0;
     padding-left: 0;
@@ -37,6 +38,7 @@
       display: inline-block;
       font-size: 1.2em;
       font-weight: bold;
+      line-height: 1;
       margin-left: 5px;
       transform: rotate(90deg);
     }
