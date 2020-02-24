@@ -25,6 +25,7 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
+    config.http_method = :post
     config.index.default_thumbnail = :exhibits_default_thumbnail
 
     # default advanced config values
