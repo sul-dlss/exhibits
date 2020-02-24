@@ -52,7 +52,7 @@
           return value.outerHTML;
         }
         return value.textContent;
-      });
+      }).join('');
       return '<p class="' + elClass + '">' +
                 parsedHtml +
               ' <a href="' + bibEntry.links.self + '">' +
