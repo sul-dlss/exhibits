@@ -1,7 +1,7 @@
 <% if document.external_iiif? %>
   <%= render partial: "embedded_mirador3", locals: {document: document} %>
 <% elsif document.uploaded_resource? %>
-  <%= render partial: "openseadragon_default", locals: {document: document} %>
+  <%= render partial: "openseadragon_default", locals: local_assigns %>
 <% else %>
   <% # block comes from a local passed in from Spotlight %>
   <% # https://github.com/projectblacklight/spotlight/blob/37f6a4c266db9aa9d2a59529340a634d1796fefc/app/views/spotlight/sir_trevor/blocks/_solr_documents_embed_block.html.erb#L10 %>
