@@ -9,7 +9,7 @@
   <h1 class="top-content-title"><%= t('.title') %></h1>
   <div class="page-links">
     <div class="page-entries">
-      <%= page_entries_info(Kaminari.paginate_array(@response.aggregations[SolrDocument.exhibit_slug_field].items), entry_name: 'exhibit') if render_grouped_response? %>
+      <%= page_entries_info(Kaminari.paginate_array(@response.aggregations[SolrDocument.exhibit_slug_field].items).page(params[:page] || 1).per(params[:per_page] || 10), entry_name: 'exhibit') if render_grouped_response? %>
     </div>
   </div>
 <% end %>
