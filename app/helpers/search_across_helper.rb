@@ -23,16 +23,17 @@ module SearchAcrossHelper
   end
 
   def document_index_path_templates
+    return ['exhibit_%<index_view_type>s'] if render_grouped_response?
+
     [
-      ('exhibit_%<index_view_type>s' if render_grouped_response?),
       'document_%<index_view_type>s',
       'catalog/document_%<index_view_type>s',
       'catalog/document_list'
     ].compact
   end
 
-  def render_grouped_document_index
-    slugs = @response.aggregations[SolrDocument.exhibit_slug_field].items.map(&:value)
+  def render_grouped_document_index(response = @response)
+    slugs = response.aggregations[SolrDocument.exhibit_slug_field].items.map(&:value)
     exhibits = Spotlight::Exhibit.where(slug: slugs).sort_by { |e| slugs.index e.slug }
     render_document_index(exhibits)
   end
@@ -61,14 +62,6 @@ module SearchAcrossHelper
     else
       link_to label, url_for_document(doc), send(:document_link_params, doc, opts)
     end
-  end
-
-  def exhibit_slugs
-    @response.documents.flat_map { |x| x[SolrDocument.exhibit_slug_field] }.uniq
-  end
-
-  def accessible_exhibits_from_search_results
-    Spotlight::Exhibit.where(slug: exhibit_slugs).accessible_by(current_ability)
   end
 
   def exhibit_metadata
@@ -134,5 +127,15 @@ module SearchAcrossHelper
                                                      total_num: number_with_delimiter(collection.total_count),
                                                      count: collection.total_pages).html_safe
     end
+  end
+
+  private
+
+  def exhibit_slugs
+    @response.documents.flat_map { |x| x[SolrDocument.exhibit_slug_field] }.uniq
+  end
+
+  def accessible_exhibits_from_search_results
+    Spotlight::Exhibit.where(slug: exhibit_slugs).accessible_by(current_ability)
   end
 end
