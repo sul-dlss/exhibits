@@ -1,0 +1,16 @@
+<% content_for(:sidebar) do %>
+  <%= render "shared/site_sidebar" %>
+<% end %>
+
+<% content_for(:content_position) { 'order-12 order-lg-0' } %>
+<% content_for(:sidebar_position) { 'order-0 order-lg-12' } %>
+
+<% content_for(:container_header) do %>
+  <h1 class="top-content-title"><%= t('.title') %></h1>
+  <div class="page-links">
+    <div class="page-entries">
+      <%= page_entries_info(Kaminari.paginate_array(@response.aggregations[SolrDocument.exhibit_slug_field].items).page(params[:page] || 1).per(params[:per_page] || current_per_page), entry_name: 'exhibit') if render_grouped_response? %>
+    </div>
+  </div>
+<% end %>
+<%= render 'search_results' %>
