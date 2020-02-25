@@ -7,6 +7,7 @@ describe 'shared/_site_sidebar', type: :view do
 
   before do
     view.extend Spotlight::CrudLinkHelpers
+    stub_template 'shared/_facets' => 'rendered facets'
   end
 
   context 'with a non-admin user' do
@@ -18,6 +19,7 @@ describe 'shared/_site_sidebar', type: :view do
 
     it { is_expected.to have_link('Request an exhibit') }
     it { is_expected.not_to have_link('Create a new exhibit') }
+    it { is_expected.to have_content 'rendered facets' }
   end
 
   context 'with an admin user' do

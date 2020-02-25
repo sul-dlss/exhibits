@@ -10,6 +10,7 @@ purl:
 feature_flags:
   themes: true
   bibliography_resource: true
+  search_across: true
   test-flag-exhibit-slug:
     test_thing: true
     bibliography_resource: false
@@ -24,4 +25,3 @@ feature_flags:
       windowSettings:
         sidePanel: true 
         sidePanelVisible: true
-
