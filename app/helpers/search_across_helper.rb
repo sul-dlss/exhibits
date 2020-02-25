@@ -120,12 +120,12 @@ module SearchAcrossHelper
         t('search_across.pagination_info.single_item_found', entry_name: entry_name).html_safe
       else
         t('search_across.pagination_info.pages', entry_name: entry_name,
-                                                     current_page: collection.current_page,
-                                                     num_pages: collection.total_pages,
+                                                     current_page: collection.try(:current_page),
+                                                     num_pages: collection.try(:total_pages),
                                                      start_num: number_with_delimiter(collection.offset_value + 1),
                                                      end_num: number_with_delimiter(end_num),
                                                      total_num: number_with_delimiter(collection.total_count),
-                                                     count: collection.total_pages).html_safe
+                                                     count: collection.try(:total_pages) || 1).html_safe
     end
   end
 
