@@ -58,20 +58,13 @@ class SearchAcrossController < ::CatalogController
 
   before_action do
     add_facet_visibility_field
-
-    tags = Spotlight::Exhibit.accessible_by(current_ability).tag_counts_on(:tags).pluck(:name)
-    blacklight_config.add_facet_field 'exhibit_tags', query: (tags.each_with_object({}) do |v, h|
-      slugs = Spotlight::Exhibit.accessible_by(current_ability).tagged_with(v).pluck(:slug)
-
-      h[v] = {
-        label: v,
-        fq: "#{SolrDocument.exhibit_slug_field}:(#{slugs.join(' OR ')})"
-      }
-    end)
+    blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config
 
     if render_grouped_response?
+      # we can't use solr's pagination because it can't sort  by exhibit title
       blacklight_config.index.collection_actions.delete(:per_page_widget)
 
+      # define some stub sort fields (picked up and handled in solr for count (below) and in the  UI for index)
       blacklight_config.sort_fields.clear
       blacklight_config.add_sort_field(key: 'index', sort: '')
       blacklight_config.add_sort_field(key: 'count', sort: '')
@@ -94,7 +87,6 @@ class SearchAcrossController < ::CatalogController
     params[:group]
   end
 
-  # TODO
   def url_for_document(doc)
     if doc[SolrDocument.exhibit_slug_field].many?
       '#'
@@ -102,5 +94,19 @@ class SearchAcrossController < ::CatalogController
       exhibit_id = doc.first(SolrDocument.exhibit_slug_field)
       spotlight.exhibit_solr_document_path(exhibit_id, doc.id)
     end
+  end
+
+  # Generate facet queries for exhibit tags
+  def exhibit_tags_facet_query_config
+    tags = Spotlight::Exhibit.accessible_by(current_ability).tag_counts_on(:tags).pluck(:name)
+
+    (tags.each_with_object({}) do |v, h|
+      slugs = Spotlight::Exhibit.accessible_by(current_ability).tagged_with(v).pluck(:slug)
+
+      h[v] = {
+        label: v,
+        fq: "#{SolrDocument.exhibit_slug_field}:(#{slugs.join(' OR ')})"
+      }
+    end)
   end
 end
