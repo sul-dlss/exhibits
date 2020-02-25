@@ -27,6 +27,10 @@ Layout/LineLength:
     - 'spec/models/spotlight/dor/indexer_spec.rb'
     - 'spec/features/bibliography_formatting_spec.rb'
 
+Metrics/ModuleLength:
+  Exclude:
+    - "app/helpers/search_across_helper.rb"
+
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     '%i': '()'
