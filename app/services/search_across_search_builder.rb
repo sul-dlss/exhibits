@@ -3,6 +3,7 @@
 # Search builder for getting search results across exhibits
 class SearchAcrossSearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
+  DENY_ALL = 'id:does-not-exist'
 
   self.default_processor_chain += [:filter_public_documents_in_accessible_exhibits]
 
@@ -10,7 +11,7 @@ class SearchAcrossSearchBuilder < Blacklight::SearchBuilder
     fq = Array.wrap(solr_params[:fq])
 
     if accessible_documents_query.blank?
-      solr_params[:fq] = 'id:does-not-exist'
+      solr_params[:fq] = DENY_ALL
     else
       solr_params[:fq] = fq.append(accessible_documents_query) unless fq.include?(accessible_documents_query)
       solr_params[:"f.#{exhibit_slug_field}.facet.matches"] = Regexp.union(accessible_exhibit_slugs.map(&:slug))
