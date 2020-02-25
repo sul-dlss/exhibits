@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe SearchAcrossThumbnailPresenter do
+RSpec.describe SearchAcrossThumbnailPresenter, type: :view do
   subject(:presenter) { described_class.new(document, view_context, config) }
 
   let(:view_context) { view }

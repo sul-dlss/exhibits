@@ -55,8 +55,8 @@ describe SearchAcrossSearchBuilder do
 
       expect(actual).to include 'spotlight_exhibit_slugs_ssim:exhibit-title-public'
       expect(actual).to include 'exhibit_exhibit-title-public_public_bsi:true'
-      expect(actual).to include 'spotlight_exhibit_slugs_ssim:exhibit-title-curateds'
-      expect(actual).not_to include 'exhibit_exhibit-title-public_public_bsi:true'
+      expect(actual).to include 'spotlight_exhibit_slugs_ssim:exhibit-title-curated'
+      expect(actual).not_to include 'exhibit_exhibit-title-curated_public_bsi:true'
       expect(actual).not_to include 'spotlight_exhibit_slugs_ssim:exhibit-title-private'
     end
   end
