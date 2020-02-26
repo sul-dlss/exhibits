@@ -88,6 +88,8 @@ en:
     check:
       passed: "OK      : %{registrant_name} - %{message}"
       failed: "FAILED  : %{registrant_name} - %{message}"
+  root:
+    breadcrumb: Exhibits
   search_across:
     exhibit:
       results_count:
