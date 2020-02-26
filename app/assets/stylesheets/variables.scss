@@ -42,7 +42,7 @@ $nav-link-color: $black;
 $input-focus-width: 0.2rem;
 $input-focus-border-color: #80bdff;
 $input-focus-box-shadow: 0 0 0 $input-focus-width $input-focus-border-color;
-$input-btn-focus-color: $input-focus-border-color;
+$input-btn-focus-color: $input-focus-border-color !important;
 
 $sidebar-link-color: $color-black-80;
 $sidebar-link-active-color: $color-cardinal-red;
