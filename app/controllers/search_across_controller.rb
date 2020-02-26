@@ -61,8 +61,10 @@ class SearchAcrossController < ::CatalogController
   end
 
   before_action do
-    blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config,
-                                                      label: 'Exhibit subject area'
+    tags_facet = blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config,
+                                                                   label: 'Exhibit category'
+    blacklight_config.facet_fields.delete(tags_facet.key)
+    blacklight_config.facet_fields = { tags_facet.key => tags_facet }.merge(blacklight_config.facet_fields)
 
     if can? :curate, Spotlight::Exhibit
       blacklight_config.add_facet_field 'exhibit_visibility',
