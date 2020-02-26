@@ -28,6 +28,9 @@ class CatalogController < ApplicationController
     config.http_method = :post
     config.index.default_thumbnail = :exhibits_default_thumbnail
 
+    config.document_solr_request_handler = 'document'
+    config.document_solr_path = nil
+
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     # config.advanced_search[:qt] ||= 'advanced'
