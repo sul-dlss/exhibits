@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 # Search builder for getting search results across exhibits
-class SearchAcrossSearchBuilder < Blacklight::SearchBuilder
-  include Blacklight::Solr::SearchBuilderBehavior
+class SearchAcrossSearchBuilder < SearchBuilder
   DENY_ALL = 'id:does-not-exist'
 
   self.default_processor_chain += [:filter_public_documents_in_accessible_exhibits]
