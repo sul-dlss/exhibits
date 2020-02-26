@@ -11,7 +11,7 @@
       var data = $el.data();
       var solrQueryString = data.documentids.join(' OR ');
 
-      $.getJSON(data.path, {
+      $.post(data.path, {
         q: solrQueryString,
         format: 'json',
         rows: 1000
