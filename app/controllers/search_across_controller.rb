@@ -38,7 +38,7 @@ class SearchAcrossController < ::CatalogController
     config.facet_fields.clear
     config.add_facet_field SolrDocument.exhibit_slug_field,
                            helper_method: :render_exhibit_title_facet
-    config.add_facet_field 'pub_year_tisim', label: 'Date Range',
+    config.add_facet_field 'pub_year_tisim', label: 'Date range',
                                              range: true,
                                              partial: 'blacklight_range_limit/range_limit_panel'
 
@@ -61,7 +61,8 @@ class SearchAcrossController < ::CatalogController
   end
 
   before_action do
-    blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config
+    blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config,
+                                                      label: 'Exhibit subject area'
 
     if can? :curate, Spotlight::Exhibit
       blacklight_config.add_facet_field 'exhibit_visibility',
