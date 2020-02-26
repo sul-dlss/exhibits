@@ -23,6 +23,9 @@ class SearchAcrossController < ::CatalogController
   end
 
   configure_blacklight do |config|
+    ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
+    config.default_solr_params.reject! { |k, _v| k.to_s.starts_with? 'hl' }
+
     config.index.document_presenter_class = SearchAcrossIndexPresenter
     config.search_builder_class = SearchAcrossSearchBuilder
     config.track_search_session = false
