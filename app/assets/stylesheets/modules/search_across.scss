@@ -26,6 +26,8 @@
 .exhibit-list {
   .card {
     flex-direction: row;
+    margin-bottom: $spacer;
+
     @media (max-width: breakpoint-max(sm)) {
       background-color: unset !important;
       border: unset;
