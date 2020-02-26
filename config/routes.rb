@@ -44,6 +44,11 @@ Exhibits::Application.routes.draw do
       concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
     end
 
+    resource :search_across, only: [:index], path: '/search', controller: 'search_across' do
+      concerns :searchable
+      concerns :range_searchable
+    end
+
     concern :exportable, Blacklight::Routes::Exportable.new
 
     resources :exhibits, path: '/', only: [] do

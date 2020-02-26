@@ -20,6 +20,7 @@ feature_flags:
   slack_notifications: false
   mirador_options: {}
   uat_embed: false
+  search_across: false
 traject:
   processing_thread_pool: 1
 iiif_embed:

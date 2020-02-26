@@ -1,0 +1,19 @@
+<div class="card bg-light">
+  <%= link_to [spotlight, exhibit], class: 'exhibit-thumb' do %>
+    <% if exhibit.thumbnail.present? && exhibit.thumbnail.iiif_url %>
+      <%= image_tag(exhibit.thumbnail.iiif_url, class: 'card-img-top', alt: '') %>
+    <% else %>
+      <%= image_tag 'spotlight/default_thumbnail.jpg', class: 'card-img-top default-thumbnail', alt: '' %>
+    <% end %>
+  <% end %>
+  <div class="card-body">
+    <h2 class="card-title <%= 'mb-0' if exhibit.subtitle.present? %>"><%= link_to exhibit.title, [spotlight, exhibit] %></h2>
+    <% if exhibit.subtitle.present? %>
+      <p class="card-text subtitle"><%= exhibit.subtitle  %></p>
+    <% end %>
+    <% if exhibit.description.present? %>
+      <p class="card-text description"><%= exhibit.description %></p>
+    <% end %>
+    <p class="card-text"><%= link_to t('.results_count', count: @response.aggregations[SolrDocument.exhibit_slug_field].items.find { |x| x.value == exhibit.slug }.hits), spotlight.search_exhibit_catalog_path(exhibit, search_state.to_h.except(:group, :page, :controller, :action))%></p>
+  </div>
+</div>

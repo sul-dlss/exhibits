@@ -55,7 +55,7 @@ describe DorHarvester do
 
     let(:resource) { instance_double(Harvestdor::Indexer::Resource, bare_druid: druid) }
 
-    # rubocop:disable Metrics/LineLength
+    # rubocop:disable Layout/LineLength
     describe '#on_success' do
       it 'records a successful index for a druid' do
         expect { subject.on_success(resource) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: true)
@@ -91,7 +91,7 @@ describe DorHarvester do
         expect { subject.on_error(resource, e) }.to have_enqueued_job(RecordIndexStatusJob).with(harvester, druid, ok: false, message: inspected)
       end
     end
-    # rubocop:enable Metrics/LineLength
+    # rubocop:enable Layout/LineLength
   end
 
   def sidecar

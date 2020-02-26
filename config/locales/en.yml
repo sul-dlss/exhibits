@@ -61,6 +61,8 @@ en:
       collection-druids: "Collection druids"
       collection-druids-help_html: "Items associated with the collection druids below were added to the exhibit. If the number of items associated with a collection druid does not match your expectation, verify that all of its associated items have been published (i.e., have a valid PURL)."
   blacklight:
+    entry_name:
+      default: 'item'
     icon:
       gallery: Gallery view
       heatmaps: Heatmap view
@@ -68,6 +70,15 @@ en:
       masonry: Masonry view
       slideshow: Slideshow view
     search:
+      fields:
+        spotlight_exhibit_slugs_ssim: 'Exhibit title'
+        index:
+          spotlight_exhibit_slugs_ssim:
+            one: 'Exhibit'
+            other: 'Exhibits'
+        sort:
+          count: 'result count'
+          index: 'exhibit title'
       view_title:
         heatmaps: "Map"
   metadata:
@@ -77,7 +88,24 @@ en:
     check:
       passed: "OK      : %{registrant_name} - %{message}"
       failed: "FAILED  : %{registrant_name} - %{message}"
-
+  search_across:
+    exhibit:
+      results_count:
+        one: "%{count} result"
+        other: "%{count} results"
+    fields:
+      search:
+        search: All fields
+    index:
+      title: 'Search results'
+    pagination_info:
+      no_items_found: 'No %{entry_name} found'
+      single_item_found: '<strong>1</strong> %{entry_name} found'
+      pages:
+        one: '<strong>%{start_num}</strong> - <strong>%{end_num}</strong> of <strong>%{total_num} %{entry_name}</strong>'
+        other: '<strong>%{start_num}</strong> - <strong>%{end_num}</strong> of <strong>%{total_num} %{entry_name}</strong>'
+    results:
+      heading: Search all exhibits
   viewers:
     menu_link: Viewers
     edit:

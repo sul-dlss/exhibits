@@ -53,14 +53,14 @@ class FullTextParser
   end
 
   # full text in druid.txt named for druid (feigenbaum) and ALTO OCR xml in page resources
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   def xpath
     [
       "//contentMetadata/resource/file[@id=\"#{druid}.txt\"]",
       "//contentMetadata/resource[@type='page']/file[@role='transcription'][@mimetype='text/plain' or @mimetype='application/xml' or @mimetype='application/alto+xml']"
     ]
   end
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
 
   def logger
     Rails.logger

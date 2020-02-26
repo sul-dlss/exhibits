@@ -1,0 +1,5 @@
+<% # container for all documents in index list view -%>
+
+<div class="exhibit-<%= document_index_view_type %>">
+  <%= render partial: 'exhibit', collection: documents.sort_by { |x| exhibit_metadata.dig(x.slug, 'title') if params[:sort] != 'count' } %>
+</div>
