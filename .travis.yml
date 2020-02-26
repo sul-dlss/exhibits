@@ -6,6 +6,8 @@ notifications:
 
 rvm:
   - 2.6.3
+  - 2.7.0
+
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
