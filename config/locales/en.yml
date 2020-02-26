@@ -106,6 +106,9 @@ en:
         other: '<strong>%{start_num}</strong> - <strong>%{end_num}</strong> of <strong>%{total_num} %{entry_name}</strong>'
     results:
       heading: Search all exhibits
+  shared:
+    site_search_form:
+      placeholder: 'Find items in all exhibits'
   viewers:
     menu_link: Viewers
     edit:

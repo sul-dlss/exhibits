@@ -1,42 +1,46 @@
-<% if Settings.feature_flags.search_across || controller.controller_name == 'search_across' %>
-  <%= render 'search_across/search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
-  <% if defined? @response %>
-    <%= render 'catalog/search_sidebar' %>
-  <% end %>
-<% end %>
-
-<h2 class="nav-heading">See also</h2>
-<ul class="nav sidenav flex-column">
-  <%= nav_link "Spotlight at Stanford microsite",
-  "https://library.stanford.edu/research/spotlight" %>
-  <%= nav_link "Other library collections at Stanford",
-  "http://library.stanford.edu/collections" %>
-  <%= nav_link "Special Collections & University Archives",
-  "http://library.stanford.edu/spc" %>
-  <%= nav_link "Giving to Stanford Libraries",
-  "http://library.stanford.edu/department/library-communications-and-development" %>
-  <%= nav_link "Exhibit documentation & marketing",
-  "https://exhibits.stanford.edu/exhibits-documentation" %>
-  <%= nav_link "https://consul.stanford.edu/x/g4A-CQ" do %>
-    Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
-  <% end %>
-</ul>
-
-<% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
-  <h3 class="nav-heading"><%=t(:'.header') %></h3>
-  <ul class="nav sidenav flex-column">
-      <% if can?(:create, Spotlight::Exhibit) %>
-        <%= nav_link "Create a new exhibit", spotlight.new_exhibit_path %>
+<% unless Settings.feature_flags.home_page_navbar %>
+  <% if Settings.feature_flags.search_across || controller.controller_name == 'search_across' %>
+    <div class="mb-4">
+      <%= render 'shared/site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
+      <% if defined? @response %>
+        <%= render 'catalog/search_sidebar' %>
       <% end %>
-    <%= nav_link t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings' %>
+    </div>
+  <% end %>
 
-    <% if can? :manage, Spotlight::Site.instance %>
-      <%= nav_link t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %>
-    <% end %>
-
-    <% if can? :manage, Spotlight::Exhibit %>
-      <%= nav_link t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %>
-      <%= nav_link t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %>
+  <h2 class="nav-heading">See also</h2>
+  <ul class="nav sidenav flex-column">
+    <%= nav_link "Spotlight at Stanford microsite",
+    "https://library.stanford.edu/research/spotlight" %>
+    <%= nav_link "Other library collections at Stanford",
+    "http://library.stanford.edu/collections" %>
+    <%= nav_link "Special Collections & University Archives",
+    "http://library.stanford.edu/spc" %>
+    <%= nav_link "Giving to Stanford Libraries",
+    "http://library.stanford.edu/department/library-communications-and-development" %>
+    <%= nav_link "Exhibit documentation & marketing",
+    "https://exhibits.stanford.edu/exhibits-documentation" %>
+    <%= nav_link "https://consul.stanford.edu/x/g4A-CQ" do %>
+      Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
     <% end %>
   </ul>
+
+  <% if can?(:manage, Spotlight::Site.instance) || can?(:create, Spotlight::Exhibit) %>
+    <h3 class="nav-heading"><%=t(:'.header') %></h3>
+    <ul class="nav sidenav flex-column">
+        <% if can?(:create, Spotlight::Exhibit) %>
+          <%= nav_link "Create a new exhibit", spotlight.new_exhibit_path %>
+        <% end %>
+      <%= nav_link t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings' %>
+
+      <% if can? :manage, Spotlight::Site.instance %>
+        <%= nav_link t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path %>
+      <% end %>
+
+      <% if can? :manage, Spotlight::Exhibit %>
+        <%= nav_link t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path %>
+        <%= nav_link t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path %>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>

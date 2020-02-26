@@ -1,0 +1,3 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-<%= Settings.feature_flags.home_page_navbar ? 4 : 3 %>">
+  <%= render collection: exhibits, partial: 'exhibit_card', as: 'exhibit' %>
+</div>

@@ -2,14 +2,12 @@
 
 require 'rails_helper'
 
-describe 'shared/_site_sidebar', type: :view do
+describe 'shared/_site_navbar', type: :view do
   subject { rendered }
 
   before do
     view.extend Spotlight::CrudLinkHelpers
     stub_template 'shared/_site_search_form' => 'search form'
-    stub_template 'shared/_facets' => 'rendered facets'
-    allow(Settings.feature_flags).to receive(:home_page_navbar).and_return(false)
   end
 
   context 'with a non-admin user' do
@@ -24,7 +22,6 @@ describe 'shared/_site_sidebar', type: :view do
     it { is_expected.to have_link('Request an exhibit') }
     it { is_expected.not_to have_link('Create a new exhibit') }
     it { is_expected.to have_content 'search form' }
-    it { is_expected.to have_content 'rendered facets' }
   end
 
   context 'with an admin user' do
