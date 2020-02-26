@@ -67,6 +67,7 @@ RSpec/ExampleLength:
 Metrics/BlockLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
+    - 'app/controllers/search_across_controller.rb'
     - 'app/models/spotlight/dor/indexer.rb'
     - 'spec/**/*'
 

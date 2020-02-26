@@ -1,0 +1,66 @@
+<% if Settings.feature_flags.home_page_navbar %>
+  <div id="site-navbar" class="exhibit-navbar navbar navbar-light navbar-expand-md" role="navigation" aria-label="<%= t('spotlight.exhibitnavbar.label') %>">
+    <div class="container flex-column flex-md-row">
+      <ul class="navbar-nav mr-auto">
+        <li class="navbar-item">
+          <% if Settings.feature_flags.search_across || controller.controller_name == 'search_across' %>
+            <%= render 'shared/site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
+          <% end  %>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Spotlight at Stanford microsite",
+            "https://library.stanford.edu/research/spotlight", class: 'dropdown-item' %>
+            <%= link_to "Exhibit documentation & marketing",
+            "https://exhibits.stanford.edu/exhibits-documentation", class: 'dropdown-item' %>
+            <%= link_to "https://consul.stanford.edu/x/g4A-CQ", class: 'dropdown-item' do %>
+              Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
+            <% end %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More at Stanford
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Other library collections at Stanford",
+            "http://library.stanford.edu/collections", class: 'dropdown-item' %>
+            <%= link_to "Special Collections & University Archives",
+            "http://library.stanford.edu/spc", class: 'dropdown-item' %>
+            <%= link_to "Giving to Stanford Libraries",
+            "http://library.stanford.edu/department/library-communications-and-development", class: 'dropdown-item' %>
+          </div>
+        </li>
+        <% if can?([:create, :manage], Spotlight::Exhibit) || can?(:manage, Spotlight::Site.instance) %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <% if can?(:create, Spotlight::Exhibit) %>
+                <%= link_to "Create a new exhibit", spotlight.new_exhibit_path, class: 'dropdown-item' %>
+              <% end %>
+
+              <%= link_to t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings', class: 'dropdown-item' %>
+
+              <% if can? :manage, Spotlight::Site.instance %>
+                <%= link_to t(:'spotlight.sites.edit.page_title'), spotlight.edit_site_path, class: 'dropdown-item' %>
+              <% end %>
+
+              <% if can? :manage, Spotlight::Exhibit %>
+                <%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), spotlight.edit_site_exhibits_path, class: 'dropdown-item' %>
+                <%= link_to t(:'spotlight.admin_users.index.page_title'), spotlight.admin_users_path, class: 'dropdown-item' %>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

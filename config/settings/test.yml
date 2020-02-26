@@ -11,6 +11,7 @@ feature_flags:
   themes: true
   bibliography_resource: true
   search_across: true
+  home_page_navbar: true
   test-flag-exhibit-slug:
     test_thing: true
     bibliography_resource: false
@@ -19,9 +20,9 @@ feature_flags:
     uat_embed: true
     mirador_options:
       sidePanelOptions:
-        tocTabAvailable: true 
-        layersTabAvailable: false 
-        searchTabAvailable: true 
+        tocTabAvailable: true
+        layersTabAvailable: false
+        searchTabAvailable: true
       windowSettings:
-        sidePanel: true 
+        sidePanel: true
         sidePanelVisible: true

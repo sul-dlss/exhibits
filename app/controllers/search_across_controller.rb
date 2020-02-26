@@ -56,7 +56,8 @@ class SearchAcrossController < ::CatalogController
     config.view.list = previous_views.list
     config.view.gallery = previous_views.gallery
 
-    config.search_fields['search'].label = :'search_across.fields.search.search'
+    config.search_fields.clear
+    config.add_search_field('default')
   end
 
   before_action do
@@ -80,8 +81,9 @@ class SearchAcrossController < ::CatalogController
     end
   end
 
-  before_action do
-    redirect_to root_url unless has_search_parameters? || params[:group]
+  before_action only: [:index] do
+    add_breadcrumb t(:'root.breadcrumb'), root_url
+    add_breadcrumb t(:'spotlight.catalog.breadcrumb.index'), search_search_across_path(search_state.params_for_search)
   end
 
   helper_method :render_grouped_response?, :url_for_document
