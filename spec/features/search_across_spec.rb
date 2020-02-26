@@ -34,6 +34,15 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
         expect(page).not_to have_css('.facet-label', text: unpublished_exhibit_with_documents.title, visible: false)
       end
     end
+
+    it 'has no item visibility facet' do
+      visit root_path
+      within(first('.search-query-form')) do
+        click_button 'Search'
+      end
+
+      expect(page).not_to have_css('.card', text: 'Item Visibility')
+    end
   end
 
   context 'as a user who is an admin' do
@@ -50,6 +59,18 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
       within '#facets .facet-limit.blacklight-spotlight_exhibit_slugs_ssim', visible: false do
         expect(page).to have_css('.facet-label', text: unpublished_exhibit_with_documents.title, visible: false)
       end
+    end
+
+    it 'has an item visibility facet' do
+      visit root_path
+      within(first('.search-query-form')) do
+        click_button 'Search'
+      end
+
+      click_button 'Item Visibility'
+      click_link 'Private'
+
+      expect(page).to have_content 'Kaart van Zuid-Afrika'
     end
   end
 end

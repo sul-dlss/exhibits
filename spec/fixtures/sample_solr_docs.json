@@ -967,7 +967,7 @@
   },
   {
     "id": "zm589dr6916",
-    "exhibit_default-exhibit_public_bsi": true,
+    "exhibit_default-exhibit_public_bsi": false,
     "spotlight_exhibit_slug_default-exhibit_bsi": true,
     "spotlight_exhibit_slugs_ssim": [
       "default-exhibit"

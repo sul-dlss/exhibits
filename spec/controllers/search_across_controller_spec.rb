@@ -81,4 +81,24 @@ RSpec.describe SearchAcrossController, type: :controller do
       expect(config['baz'][:fq]).to eq "#{SolrDocument.exhibit_slug_field}:(c)"
     end
   end
+
+  describe '#exhibit_visibility_query_config' do
+    subject(:config) { controller.exhibit_visibility_query_config }
+
+    let(:exhibit) do
+      create(:exhibit, slug: 'mine', published: true, tag_list: ['bar'])
+    end
+    let(:user) { create(:exhibit_admin, exhibit: exhibit) }
+
+    before do
+      sign_in user
+      create(:exhibit, slug: 'other')
+    end
+
+    it 'constructs facet queries for each exhibit the user can curate' do
+      expect(config.keys).to match_array %i(private)
+      expect(config[:private][:fq]).to include 'exhibit_mine_public_bsi:false'
+      expect(config[:private][:fq]).not_to include 'exhibit_other_public_bsi:false'
+    end
+  end
 end
