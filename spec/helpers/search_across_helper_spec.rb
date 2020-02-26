@@ -70,6 +70,7 @@ RSpec.describe SearchAcrossHelper, type: :helper do
       actual = Capybara.string(helper.render_exhibit_title(document: doc, value: %w(abc 123 private)))
       expect(actual).to have_link text: 'Alphabet', href: spotlight.exhibit_solr_document_path(exhibit_id: 'abc', id: 1)
       expect(actual).to have_link text: 'Numbers', href: spotlight.exhibit_solr_document_path(exhibit_id: '123', id: 1)
+      expect(actual).to have_css 'br'
       expect(actual).not_to have_link text: 'Secret'
     end
   end

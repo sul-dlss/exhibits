@@ -73,8 +73,7 @@ module SearchAcrossHelper
     exhibit_links = exhibit_metadata.slice(*value).values.map do |x|
       link_to x['title'] || x['slug'], spotlight.exhibit_solr_document_path(x['slug'], document.id)
     end
-
-    safe_join exhibit_links, ', '
+    safe_join exhibit_links, '<br/>'.html_safe
   end
 
   def render_exhibit_title_facet(value)
