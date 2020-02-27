@@ -42,28 +42,6 @@ module SearchAcrossHelper
     spotlight.opensearch_search_across_url(*args)
   end
 
-  def link_to_document(doc, field_or_opts, opts = { counter: nil })
-    label = case field_or_opts
-            when NilClass
-              index_presenter(doc).heading
-            when Hash
-              opts = field_or_opts
-              index_presenter(doc).heading
-            when Proc, Symbol
-              Deprecation.silence(Blacklight::IndexPresenter) do
-                index_presenter(doc).label field_or_opts, opts
-              end
-            else # String
-              field_or_opts
-            end
-
-    if doc[SolrDocument.exhibit_slug_field]&.many?
-      label
-    else
-      link_to label, url_for_document(doc), send(:document_link_params, doc, opts)
-    end
-  end
-
   def exhibit_metadata
     @exhibit_metadata ||= accessible_exhibits_from_search_results.as_json(only: %i(slug title description id))
                                                                  .index_by { |x| x['slug'] }
