@@ -14,7 +14,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             About
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <%= link_to "Spotlight at Stanford microsite",
             "https://library.stanford.edu/research/spotlight", class: 'dropdown-item' %>
             <%= link_to "Exhibit documentation & marketing",
@@ -28,7 +28,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             More at Stanford
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <%= link_to "Other library collections at Stanford",
             "http://library.stanford.edu/collections", class: 'dropdown-item' %>
             <%= link_to "Special Collections & University Archives",
@@ -42,7 +42,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Admin
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <% if can?(:create, Spotlight::Exhibit) %>
                 <%= link_to "Create a new exhibit", spotlight.new_exhibit_path, class: 'dropdown-item' %>
               <% end %>
