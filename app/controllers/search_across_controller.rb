@@ -102,15 +102,12 @@ class SearchAcrossController < ::CatalogController
     params[:group]
   end
 
+  # Disable implicit links to documents
   def url_for_document(doc)
-    if doc[SolrDocument.exhibit_slug_field].many?
-      '#'
-    else
-      exhibit_id = doc.first(SolrDocument.exhibit_slug_field)
-      spotlight.exhibit_solr_document_path(exhibit_id, doc.id)
-    end
+    return '#'
   end
 
+  # Disable implicit links to documents
   def link_to_document(doc, field_or_opts, opts = { counter: nil })
     label = case field_or_opts
             when NilClass
@@ -126,11 +123,7 @@ class SearchAcrossController < ::CatalogController
               field_or_opts
             end
 
-    if doc[SolrDocument.exhibit_slug_field]&.many?
-      label
-    else
-      view_context.link_to label, url_for_document(doc), view_context.send(:document_link_params, doc, opts)
-    end
+    label
   end
 
   # Generate facet queries for exhibit tags

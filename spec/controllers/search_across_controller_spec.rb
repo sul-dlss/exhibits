@@ -45,34 +45,19 @@ RSpec.describe SearchAcrossController, type: :controller do
     let(:document) do
       SolrDocument.new(id: 1, "#{SolrDocument.exhibit_slug_field}": ['a'])
     end
-    let(:multi_exhibit_document) do
-      SolrDocument.new(id: 2, "#{SolrDocument.exhibit_slug_field}": %w(a b))
-    end
 
-    it 'links to the document in the context of the exhibit' do
-      expected = controller.spotlight.exhibit_solr_document_path(exhibit_id: 'a', id: 1)
-      expect(controller.url_for_document(document)).to eq expected
-    end
-
-    it 'suppresses links for multi-exhibit documents' do
-      expect(controller.url_for_document(multi_exhibit_document)).to eq '#'
+    it 'suppresses links for documents' do
+      expect(controller.url_for_document(document)).to eq '#'
     end
   end
 
   describe '#link_to_document' do
-    let(:exhibit_document) do
+    let(:document) do
       SolrDocument.new(id: 'SomeId1', "#{SolrDocument.exhibit_slug_field}": ['abc'])
-    end
-    let(:multi_exhibit_document) do
-      SolrDocument.new(id: 'SomeId2', "#{SolrDocument.exhibit_slug_field}": %w(abc xyz))
     end
 
     it 'links to exhibit documents' do
-      expect(controller.link_to_document(exhibit_document, nil)).to eq '<a href="/abc/catalog/SomeId1">SomeId1</a>'
-    end
-
-    it 'suppresses links for multi-exhibit documents' do
-      expect(controller.link_to_document(multi_exhibit_document, nil)).to eq 'SomeId2'
+      expect(controller.link_to_document(document, nil)).to eq 'SomeId1'
     end
   end
 
