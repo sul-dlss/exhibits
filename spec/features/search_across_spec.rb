@@ -13,11 +13,15 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
     FactoryBot.create(:exhibit, published: false, slug: 'default-exhibit')
   end
   let(:exhibit_admin) { FactoryBot.create(:exhibit_admin, exhibit: unpublished_exhibit_with_documents) }
+  let(:tag1) do
+    FactoryBot.create(:tagging, tagger: published_exhibit_with_document, taggable: published_exhibit_with_document)
+  end
 
   before do
-    # "touch" published exhibits so they are created (and users aren't routed to a single exhibit)
+    # "touch" fixtures that need to be created before a user visits the app
     published_exhibit_without_document
     published_exhibit_with_document
+    tag1
   end
 
   context 'as an anonymous user' do
@@ -42,6 +46,19 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
       end
 
       expect(page).not_to have_css('.card', text: 'Item Visibility')
+    end
+
+    it 'renders the appropriate facets in correct order' do
+      visit root_path
+      within(first('.search-query-form')) do
+        click_button 'Search'
+      end
+
+      within '#facets', visible: false do
+        facet_labels = page.all('h3').map(&:text)
+        expect(facet_labels.first).to eq 'Exhibit category'
+        expect(facet_labels).to include('Exhibit category', 'Exhibit title')
+      end
     end
   end
 
