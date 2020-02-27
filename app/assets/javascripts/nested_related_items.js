@@ -8,13 +8,15 @@
     options: { itemSelector: 'li.mods_display_nested_related_item' },
     init: function (el) {
       var _this = this;
-
-      _this.listItems(el).each(function() {
+      var listItems = _this.listItems(el);
+      listItems.each(function() {
         $(this).removeClass('open');
         _this.addToggleLink($(this));
       });
 
-      _this.addToggleAll(el);
+      if (listItems.has('dl').length > 0) {
+        _this.addToggleAll(el);
+      }
     },
 
     listItems: function(list) {
