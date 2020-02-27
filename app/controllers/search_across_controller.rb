@@ -61,8 +61,13 @@ class SearchAcrossController < ::CatalogController
   end
 
   before_action do
-    add_facet_visibility_field
     blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config
+
+    if can? :curate, Spotlight::Exhibit
+      blacklight_config.add_facet_field 'exhibit_visibility',
+                                        label: I18n.t(:'spotlight.catalog.facets.exhibit_visibility.label'),
+                                        query: exhibit_visibility_query_config
+    end
 
     if render_grouped_response?
       # we can't use solr's pagination because it can't sort  by exhibit title
@@ -113,5 +118,19 @@ class SearchAcrossController < ::CatalogController
         fq: "#{SolrDocument.exhibit_slug_field}:(#{slugs.join(' OR ')})"
       }
     end)
+  end
+
+  def exhibit_visibility_query_config
+    exhibits = Spotlight::Exhibit.accessible_by(current_ability, :curate)
+    fqs = exhibits.map do |e|
+      "#{blacklight_config.document_model.visibility_field(e)}:false"
+    end
+
+    {
+      private: {
+        label: I18n.t(:'spotlight.catalog.facets.exhibit_visibility.private'),
+        fq: fqs.join(' OR ')
+      }
+    }
   end
 end
