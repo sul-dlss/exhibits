@@ -10,7 +10,7 @@
   .search-widgets {
     @extend .w-100;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .btn-group {
