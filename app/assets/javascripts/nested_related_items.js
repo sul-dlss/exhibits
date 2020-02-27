@@ -29,7 +29,6 @@
       var el = $('<a href="javascript:;" class="toggleAll mods_display_related_item_label">Expand all</a>');
       this.toggleAll(el, content);
       title.append(el);
-      title.attr('id', 'mods_display_related_item_dt');
     },
 
     addToggleLink: function(content) {
