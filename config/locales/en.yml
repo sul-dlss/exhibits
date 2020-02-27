@@ -74,8 +74,8 @@ en:
         spotlight_exhibit_slugs_ssim: 'Exhibit title'
         index:
           spotlight_exhibit_slugs_ssim:
-            one: 'Exhibit'
-            other: 'Exhibits'
+            one: 'In exhibit'
+            other: 'In exhibits'
         sort:
           count: 'result count'
           index: 'exhibit title'
