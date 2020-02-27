@@ -15,7 +15,6 @@
       });
 
       _this.addToggleAll(el);
-      _this.toggleAll(el);
     },
 
     listItems: function(list) {
@@ -25,7 +24,9 @@
     addToggleAll: function(content) {
       // find the preceding <dt>
       var title = $(content).parents('dd').prev();
-      title.append('<a href="javascript:;" id="toggleAll" class="mods_display_related_item_label">Expand all</a>');
+      var el = $('<a href="javascript:;" class="toggleAll mods_display_related_item_label">Expand all</a>');
+      this.toggleAll(el, content);
+      title.append(el);
       title.attr('id', 'mods_display_related_item_dt');
     },
 
@@ -54,9 +55,9 @@
       return link;
     },
 
-    toggleAll: function(content) {
+    toggleAll: function(el, content) {
       var _this = this;
-      $('#toggleAll').on('click', function(){
+      el.on('click', function(){
         var toggleLink  = $(this);
         toggleLink.toggleClass('open');
         toggleLink.text((toggleLink.text() == 'Collapse all') ? 'Expand all' : 'Collapse all');
