@@ -43,6 +43,15 @@ Style/StringLiterals:
 Style/SymbolArray:
   Enabled: false
 
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
