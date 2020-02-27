@@ -182,34 +182,5 @@ RSpec.describe SearchAcrossHelper, type: :helper do
         expect(helper).to have_received(:render_document_index).with(exhibits)
       end
     end
-
-    describe '#link_to_document' do
-      let(:exhibit_document) do
-        SolrDocument.new(id: 'Some title', "#{SolrDocument.exhibit_slug_field}": ['abc'])
-      end
-      let(:multi_exhibit_document) do
-        SolrDocument.new(id: 'Some title', "#{SolrDocument.exhibit_slug_field}": %w(abc xyz))
-      end
-      let(:blacklight_config) { SearchAcrossController.new.blacklight_config }
-
-      it 'links to exhibit documents' do
-        expect(helper).to receive_messages(
-          blacklight_config: blacklight_config,
-          blacklight_configuration_context: Blacklight::Configuration::Context.new(SearchAcrossController.new),
-          search_state: Blacklight::SearchState.new({}, blacklight_config),
-          search_session: {},
-          current_search_session: {}
-        )
-        expect(helper.link_to_document(exhibit_document, nil)).to eq '<a href="/catalog/Some%20title">Some title</a>'
-      end
-
-      it 'suppresses links for multi-exhibit documents' do
-        expect(helper).to receive_messages(
-          blacklight_config: blacklight_config,
-          blacklight_configuration_context: Blacklight::Configuration::Context.new(SearchAcrossController.new)
-        )
-        expect(helper.link_to_document(multi_exhibit_document, nil)).to eq 'Some title'
-      end
-    end
   end
 end

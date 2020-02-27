@@ -59,6 +59,23 @@ RSpec.describe SearchAcrossController, type: :controller do
     end
   end
 
+  describe '#link_to_document' do
+    let(:exhibit_document) do
+      SolrDocument.new(id: 'SomeId1', "#{SolrDocument.exhibit_slug_field}": ['abc'])
+    end
+    let(:multi_exhibit_document) do
+      SolrDocument.new(id: 'SomeId2', "#{SolrDocument.exhibit_slug_field}": %w(abc xyz))
+    end
+
+    it 'links to exhibit documents' do
+      expect(controller.link_to_document(exhibit_document, nil)).to eq '<a href="/abc/catalog/SomeId1">SomeId1</a>'
+    end
+
+    it 'suppresses links for multi-exhibit documents' do
+      expect(controller.link_to_document(multi_exhibit_document, nil)).to eq 'SomeId2'
+    end
+  end
+
   describe '#exhibit_tags_facet_query_config' do
     subject(:config) { controller.exhibit_tags_facet_query_config }
 
