@@ -102,9 +102,9 @@ class SearchAcrossController < ::CatalogController
     params[:group]
   end
 
-  # Disable implicit links to documents
-  def url_for_document(doc)
-    return '#'
+  # Disable Blacklight implicit links to documents
+  def url_for_document(_doc)
+    '#'
   end
 
   # Disable implicit links to documents
