@@ -30,7 +30,14 @@
   }
 }
 
-.exhibit-navbar {
+.site-navbar {
+  .search-query-form {
+    min-width: 17em;
+  }
+}
+
+.exhibit-navbar,
+.site-navbar {
   .search-query-form {
     .btn-primary {
       @extend .btn-secondary;
