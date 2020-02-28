@@ -94,7 +94,7 @@ class SearchAcrossController < ::CatalogController
 
   before_action only: [:index] do
     add_breadcrumb t(:'root.breadcrumb'), root_url
-    add_breadcrumb t(:'spotlight.catalog.breadcrumb.index'), search_search_across_path(search_state.params_for_search)
+    add_breadcrumb t(:'spotlight.catalog.breadcrumb.index')
   end
 
   # Generate facet queries for exhibit tags
