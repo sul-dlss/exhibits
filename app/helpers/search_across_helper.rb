@@ -14,6 +14,15 @@ module SearchAcrossHelper
     search_state.params_for_search.merge(group: true)
   end
 
+  # Strip out parameters (particularly facets) that don't make sense to pass
+  # along to the exhibit-specific search endpoint
+  def exhibit_search_state_params(my_search_state = search_state)
+    exhibit_search_state_params = my_search_state.to_h.except(:group, :page, :controller, :action, :search_field)
+    exhibit_facet_keys = CatalogController.blacklight_config.facet_fields.keys
+    exhibit_search_state_params[:f] &&= exhibit_search_state_params[:f].slice(*exhibit_facet_keys)
+    exhibit_search_state_params
+  end
+
   def exhibit_metadata
     @exhibit_metadata ||= accessible_exhibits_from_search_results.as_json(only: %i(slug title description id))
                                                                  .index_by { |x| x['slug'] }

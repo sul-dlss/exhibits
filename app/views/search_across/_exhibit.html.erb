@@ -16,6 +16,6 @@
         <p class="card-text description"><%= exhibit.description %></p>
       <% end %>
     </div>
-    <p class="card-text"><%= link_to t('.results_count', count: @response.aggregations[SolrDocument.exhibit_slug_field].items.find { |x| x.value == exhibit.slug }.hits), spotlight.search_exhibit_catalog_path(exhibit, search_state.to_h.except(:group, :page, :controller, :action))%></p>
+    <p class="card-text"><%= link_to t('.results_count', count: @response.aggregations[SolrDocument.exhibit_slug_field].items.find { |x| x.value == exhibit.slug }.hits), spotlight.search_exhibit_catalog_path(exhibit, exhibit_search_state_params)%></p>
   </div>
 </div>

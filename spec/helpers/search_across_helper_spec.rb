@@ -35,6 +35,19 @@ RSpec.describe SearchAcrossHelper, type: :helper do
     end
   end
 
+  describe '#exhibit_search_state_params' do
+    it 'simplifies the search state to just the stuff that makes sense within an exhibit' do
+      bad_params = { group: true, page: 15, f: { whatever: 'bad', SolrDocument.exhibit_slug_field => 'some-slug' } }
+      good_params = { q: 'some search', f: { format_main_ssim: ['Book'] } }
+      search_across_params = ActionController::Parameters.new(bad_params.deep_merge(good_params))
+      search_across_params.permit!
+
+      search_state = Blacklight::SearchState.new(search_across_params, nil, nil)
+
+      expect(helper.exhibit_search_state_params(search_state)).to eq good_params.deep_stringify_keys
+    end
+  end
+
   describe '#render_exhibit_title' do
     let(:blacklight_config) { SearchAcrossController.blacklight_config }
     let(:response) do

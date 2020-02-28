@@ -99,5 +99,18 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
 
       expect(page).to have_content 'Kaart van Zuid-Afrika'
     end
+
+    it 'only passes through relevant parameters information' do
+      visit search_search_across_path(
+        group: true, range: { pub_year_tisim: { begin: 1879, end: 1890 } },
+        f: { spotlight_exhibit_slugs_ssim: ['default-exhibit'] }
+      )
+
+      expect(page).to have_link href: '/default-exhibit'
+      expect(page).to have_content '13 results'
+
+      click_link '13 results'
+      expect(page).to have_content '1 - 10 of 13'
+    end
   end
 end
