@@ -21,15 +21,12 @@ Rails:
 Layout/LineLength:
   Max: 120
   Exclude:
+    - 'app/controllers/concerns/search_across_blacklight_overrides.rb'
     - 'app/models/spotlight/dor/indexer.rb'
     - 'lib/traject/dor_config.rb'
     - 'spec/features/indexing_integration_spec.rb'
     - 'spec/models/spotlight/dor/indexer_spec.rb'
     - 'spec/features/bibliography_formatting_spec.rb'
-
-Metrics/ModuleLength:
-  Exclude:
-    - "app/helpers/search_across_helper.rb"
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
@@ -55,7 +52,6 @@ Style/HashTransformValues:
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
-    - 'app/controllers/search_across_controller.rb'
 
 Capybara/FeatureMethods:
   Enabled: false

@@ -61,6 +61,52 @@ RSpec.describe SearchAcrossController, type: :controller do
     end
   end
 
+  describe '#show_pagination?' do
+    it 'is suppressed for grouped responses' do
+      allow(controller).to receive(:render_grouped_response?).and_return(true)
+      expect(controller.show_pagination?).to eq false
+    end
+  end
+
+  describe '#document_index_path_templates' do
+    it 'injects custom exhibits document partials' do
+      allow(controller).to receive(:render_grouped_response?).and_return(true)
+      expect(controller.document_index_path_templates).to eq ['exhibit_%<index_view_type>s']
+    end
+  end
+
+  describe '#render_grouped_document_index' do
+    let(:response) do
+      Blacklight::Solr::Response.new({
+                                       facet_counts: {
+                                         facet_fields: {
+                                           "#{SolrDocument.exhibit_slug_field}": {
+                                             a: 1,
+                                             b: 3,
+                                             c: 15
+                                           }
+                                         }
+                                       }
+                                     }, nil)
+    end
+
+    let!(:exhibits) do
+      [
+        create(:exhibit, slug: 'a'),
+        create(:exhibit, slug: 'b'),
+        create(:exhibit, slug: 'c')
+      ]
+    end
+
+    let(:view_context) { instance_double('ViewContext', render_document_index: ->(*) { 'x' }) }
+
+    it 'replaces solr results with exhibits from the database' do
+      allow(controller).to receive(:view_context).and_return(view_context)
+      controller.render_grouped_document_index(response)
+      expect(view_context).to have_received(:render_document_index).with(exhibits)
+    end
+  end
+
   describe '#exhibit_tags_facet_query_config' do
     subject(:config) { controller.exhibit_tags_facet_query_config }
 
