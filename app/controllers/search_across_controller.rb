@@ -10,6 +10,7 @@ class SearchAcrossController < ::CatalogController
 
   helper Spotlight::CrudLinkHelpers
   include BlacklightRangeLimit::ControllerOverride
+  include SearchAcrossBlacklightOverrides
 
   layout 'spotlight/home'
 
@@ -94,36 +95,6 @@ class SearchAcrossController < ::CatalogController
   before_action only: [:index] do
     add_breadcrumb t(:'root.breadcrumb'), root_url
     add_breadcrumb t(:'spotlight.catalog.breadcrumb.index'), search_search_across_path(search_state.params_for_search)
-  end
-
-  helper_method :render_grouped_response?, :url_for_document, :link_to_document
-
-  def render_grouped_response?(*_args)
-    params[:group]
-  end
-
-  # Disable Blacklight implicit links to documents
-  def url_for_document(_doc)
-    '#'
-  end
-
-  # Disable implicit links to documents
-  def link_to_document(doc, field_or_opts, opts = { counter: nil })
-    label = case field_or_opts
-            when NilClass
-              view_context.index_presenter(doc).heading
-            when Hash
-              opts = field_or_opts
-              view_context.index_presenter(doc).heading
-            when Proc, Symbol
-              Deprecation.silence(Blacklight::IndexPresenter) do
-                view_context.index_presenter(doc).label field_or_opts, opts
-              end
-            else # String
-              field_or_opts
-            end
-
-    label
   end
 
   # Generate facet queries for exhibit tags

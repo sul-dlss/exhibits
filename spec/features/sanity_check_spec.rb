@@ -17,4 +17,12 @@ RSpec.describe 'Sanity checking upstream dependencies', type: :feature do
       end
     end
   end
+
+  describe 'catalog search results' do
+    it 'has renders linkable titles (and other controller behavior is not leaking in)' do
+      visit spotlight.search_exhibit_catalog_path(exhibit, params: { q: 'map' })
+
+      expect(page).to have_css('.document h3 a', count: 10)
+    end
+  end
 end
