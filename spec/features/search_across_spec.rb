@@ -48,6 +48,16 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
       expect(page).not_to have_css('.card', text: 'Item Visibility')
     end
 
+    it 'renders the appropriate page title' do
+      visit root_path
+      within(first('.search-query-form')) do
+        fill_in :q, with: 'map'
+        click_button 'Search'
+      end
+
+      expect(page.title).to start_with('map')
+    end
+
     it 'renders the appropriate facets in correct order' do
       visit root_path
       within(first('.search-query-form')) do
