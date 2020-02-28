@@ -1,9 +1,9 @@
-<div class="card bg-light">
-  <%= link_to [spotlight, exhibit], class: 'exhibit-thumb' do %>
+<div class="card exhibit-card bg-light">
+  <%= link_to [spotlight, exhibit], aria: { hidden: true  }, tabindex: '-1' do %>
     <% if exhibit.thumbnail.present? && exhibit.thumbnail.iiif_url %>
-      <%= image_tag(exhibit.thumbnail.iiif_url, class: 'card-img-top', alt: '') %>
+      <%= image_tag(exhibit.thumbnail.iiif_url, class: 'card-img ', alt: '') %>
     <% else %>
-      <%= image_tag 'spotlight/default_thumbnail.jpg', class: 'card-img-top default-thumbnail', alt: '' %>
+      <%= image_tag 'spotlight/default_thumbnail.jpg', class: 'card-img default-thumbnail', alt: '' %>
     <% end %>
   <% end %>
   <div class="card-body">
