@@ -7,7 +7,12 @@
     <% end %>
   <% end %>
   <div class="card-body">
-    <h2 class="card-title <%= 'mb-0' if exhibit.subtitle.present? %>"><%= link_to exhibit.title, [spotlight, exhibit] %></h2>
+    <h2 class="card-title <%= 'mb-0' if exhibit.subtitle.present? %>">
+      <%= link_to exhibit.title, [spotlight, exhibit] %>
+      <% unless exhibit.published %>
+        <span class="badge badge-warning ml-1"><%= t('catalog.index.unpublished') %></span>
+      <% end %>
+    </h2>
     <div class="exhibit-description">
       <% if exhibit.subtitle.present? %>
         <p class="card-text subtitle"><%= exhibit.subtitle  %></p>
