@@ -44,6 +44,11 @@
     @media (max-width: breakpoint-max(sm)) {
       font-size: 20px;
     }
+
+    .badge {
+      font-size: 75%; // Reset font-size to what bootstrap sets
+      vertical-align: bottom;
+    }
   }
 
   .card-img {

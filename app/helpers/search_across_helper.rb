@@ -14,14 +14,23 @@ module SearchAcrossHelper
     search_state.params_for_search.merge(group: true)
   end
 
+  def unpublished_badge(**html_options)
+    css_class = html_options.delete(:class)
+    content_tag('span', class: "badge badge-warning #{css_class}", **html_options) { t('catalog.index.unpublished') }
+  end
+
   def exhibit_metadata
-    @exhibit_metadata ||= accessible_exhibits_from_search_results.as_json(only: %i(slug title description id))
-                                                                 .index_by { |x| x['slug'] }
+    @exhibit_metadata ||= accessible_exhibits_from_search_results.as_json(
+      only: %i(slug title description id published)
+    ).index_by { |x| x['slug'] }
   end
 
   def render_exhibit_title(document:, value:, **)
     exhibit_links = exhibit_metadata.slice(*value).values.map do |x|
-      link_to x['title'] || x['slug'], spotlight.exhibit_solr_document_path(x['slug'], document.id)
+      link = link_to(x['title'] || x['slug'], spotlight.exhibit_solr_document_path(x['slug'], document.id))
+      badge = unpublished_badge(class: 'ml-1') unless x['published']
+
+      safe_join([link, badge], ' ')
     end
     safe_join exhibit_links, '<br/>'.html_safe
   end
