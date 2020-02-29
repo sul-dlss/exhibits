@@ -35,6 +35,24 @@ RSpec.describe SearchAcrossHelper, type: :helper do
     end
   end
 
+  describe '#unpublished_badge' do
+    it 'returns an badge w/ the Unpublished text' do
+      expect(Capybara.string(helper.unpublished_badge)).to have_css('span.badge.badge-warning', text: 'Unpublished')
+    end
+
+    it 'allows a css class to be passed in (that is appended)' do
+      expect(
+        Capybara.string(helper.unpublished_badge(class: 'unpublished'))
+      ).to have_css('span.badge.badge-warning.unpublished')
+    end
+
+    it 'allows other HTML attributes to be passed in' do
+      expect(
+        Capybara.string(helper.unpublished_badge(title: 'The Title'))
+      ).to have_css('span.badge.badge-warning[title="The Title"]')
+    end
+  end
+
   describe '#render_exhibit_title' do
     let(:blacklight_config) { SearchAcrossController.blacklight_config }
     let(:response) do
@@ -80,10 +98,8 @@ RSpec.describe SearchAcrossHelper, type: :helper do
       end
 
       it 'includes an Unpublished badge for unpublished exhibits' do
-        allow(helper).to receive('t')
         titles = helper.render_exhibit_title(document: doc, value: %w(abc 123 private))
         expect(titles).to match(%r{>Secret</a> <span class="badge badge-warning})
-        expect(helper).to have_received('t').with('.unpublished')
       end
     end
   end
