@@ -33,6 +33,10 @@ en:
       dor_harvester:
         druid_list: Object IDs
 
+  catalog:
+    index:
+      unpublished: Unpublished
+
   dor_harvester:
     form:
       add_item: Add items
