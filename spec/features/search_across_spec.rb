@@ -58,6 +58,15 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
       expect(page.title).to start_with('map')
     end
 
+    it 'links the start over link to the home page' do
+      visit root_path
+      within(first('.search-query-form')) do
+        fill_in :q, with: 'map'
+        click_button 'Search'
+      end
+      expect(page).to have_link 'Start over', href: '/'
+    end
+
     it 'renders the appropriate facets in correct order' do
       visit root_path
       within(first('.search-query-form')) do
