@@ -20,9 +20,14 @@ module SearchAcrossHelper
   end
 
   def exhibit_metadata
-    @exhibit_metadata ||= accessible_exhibits_from_search_results.as_json(
-      only: %i(slug title description id published)
-    ).index_by { |x| x['slug'] }
+    @exhibit_metadata ||= begin
+      attrs = %i(slug title description id published)
+      arel_attrs = attrs.collect { |attr| Arel.sql(attr.to_s) } # Needed for rails 6
+      data = accessible_exhibits_from_search_results.pluck(*arel_attrs).map do |exhibit|
+        attrs.zip(exhibit).to_h.stringify_keys
+      end
+      data.index_by { |x| x['slug'] }
+    end
   end
 
   def render_exhibit_title(document:, value:, **)
