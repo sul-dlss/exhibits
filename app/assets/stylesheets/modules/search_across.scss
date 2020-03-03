@@ -35,6 +35,12 @@
   }
 
   .card-body {
+    @media (max-width: breakpoint-max(sm)) {
+      padding-top: 0;
+    }
+
+    padding-bottom: $spacer * 0.5;
+    padding-top: $spacer * 0.5;
     flex-direction: column;
   }
 
@@ -69,13 +75,16 @@
   .exhibit-description,
   &:hover .exhibit-description,
   &:focus-within .exhibit-description {
-    margin-bottom: 0;
+    @extend .my-1;
     max-height: inherit;
   }
 
   .subtitle {
-    @extend .h5;
-    font-size: 0.875rem;
+    @media (max-width: breakpoint-max(sm)) {
+      margin-bottom: $spacer * 0.25;
+    }
+
+    font-size: 1rem;
     line-height: $headings-line-height;
     text-align: left;
   }
@@ -95,6 +104,7 @@
 
 .exhibit-gallery {
   .card-body {
+    @extend .p-3;
     text-align: center;
   }
 
@@ -110,6 +120,7 @@
   .exhibit-description,
   &:hover .exhibit-description,
   &:focus-within .exhibit-description {
+    @extend .mt-2;
     margin-bottom: 0;
     max-height: inherit;
   }
