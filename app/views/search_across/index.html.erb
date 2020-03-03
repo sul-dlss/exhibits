@@ -2,13 +2,11 @@
   <%= render 'search_sidebar' %>
 <% end %>
 
-<% content_for(:container_header) do %>
-  <% if render_grouped_response? %>
-    <div class="page-links">
-      <div class="page-entries">
-        <%= page_entries_info(Kaminari.paginate_array(@response.aggregations[SolrDocument.exhibit_slug_field].items).page(params[:page] || 1).per(params[:per_page] || current_per_page), entry_name: 'exhibit') %>
-      </div>
+<% if render_grouped_response? %>
+  <div class="page-links">
+    <div class="page-entries">
+      <%= page_entries_info(Kaminari.paginate_array(@response.aggregations[SolrDocument.exhibit_slug_field].items).page(params[:page] || 1).per(params[:per_page] || current_per_page), entry_name: 'exhibit') %>
     </div>
-  <% end %>
+  </div>
 <% end %>
 <%= render 'search_results' %>
