@@ -1,6 +1,6 @@
 en:
   blacklight:
-    application_name: 'Stanford University Libraries'
+    application_name: Spotlight at Stanford
     search:
       start_over: Start over
   views:
