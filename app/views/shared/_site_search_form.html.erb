@@ -4,18 +4,10 @@
     <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
   <% end %>
   <div class="input-group">
-    <% if search_fields.length > 1 %>
-        <%= select_tag(:search_field,
-                       options_for_select(search_fields, h(params[:search_field])),
-                       title: t('blacklight.search.form.search_field.title'),
-                       id: "search_field",
-                       class: "custom-select search-field") %>
-    <% elsif search_fields.length == 1 %>
-      <%= hidden_field_tag :search_field, search_fields.first.last %>
-    <% end %>
+    <%= hidden_field_tag :search_field, search_fields.first.last %>
 
     <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
-    <%= text_field_tag :q, params[:q], placeholder: t('.placeholder'), class: "search-q q form-control rounded-#{search_fields.length > 1 ? '0' : 'left'}", id: "q", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: search_action_path(action: :suggest) }  %>
+    <%= text_field_tag :q, params[:q], placeholder: t('.placeholder'), class: "search-q q form-control rounded-left", id: "q", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: search_action_path(action: :suggest) }  %>
 
     <span class="input-group-append">
       <button type="submit" class="btn btn-primary search-btn" id="search">
