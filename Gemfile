@@ -92,7 +92,7 @@ gem 'config'
 
 gem 'bootstrap'
 gem 'blacklight', '~> 7.0'
-gem 'blacklight-gallery', '~> 1.2'
+gem 'blacklight-gallery', '~> 2'
 gem 'blacklight_heatmaps'
 gem 'blacklight-spotlight', '3.0.0.alpha.7'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
