@@ -6,7 +6,7 @@
   <div class="page-links">
     <div class="page-entries">
       <% items = @response.aggregations[SolrDocument.exhibit_slug_field].items %>
-      <%= page_entries_info(Kaminari.paginate_array(items).page(1).per(items.length), entry_name: 'exhibit') if render_grouped_response? %>
+      <%= page_entries_info(Kaminari.paginate_array(items).page(1).per(items.length), entry_name: 'exhibit') %>
     </div>
   </div>
 <% end %>
