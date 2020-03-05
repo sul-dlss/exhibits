@@ -67,7 +67,9 @@ class SearchAcrossController < ::CatalogController
 
   before_action do
     tags_facet = blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config,
-                                                                   label: 'Exhibit category'
+                                                                   label: 'Exhibit category',
+                                                                   sort: :count
+
     blacklight_config.facet_fields.delete(tags_facet.key)
     blacklight_config.facet_fields = { tags_facet.key => tags_facet }.merge(blacklight_config.facet_fields)
 
