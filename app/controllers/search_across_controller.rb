@@ -40,7 +40,9 @@ class SearchAcrossController < ::CatalogController
 
     config.facet_fields.clear
     config.add_facet_field SolrDocument.exhibit_slug_field,
-                           helper_method: :render_exhibit_title_facet
+                           helper_method: :render_exhibit_title_facet,
+                           sort: :count
+
     config.add_facet_field 'pub_year_tisim', label: 'Date range',
                                              range: true,
                                              partial: 'blacklight_range_limit/range_limit_panel'
