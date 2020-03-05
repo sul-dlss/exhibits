@@ -175,6 +175,12 @@ h5,
   padding-top: 0;
 }
 
+#sidebar .facets-heading {
+  @media (max-width: breakpoint-max(md)) {
+    border-bottom: 0;
+  }
+}
+
 #sidebar ul.nav > li a {
   padding: 0.25rem;
 
