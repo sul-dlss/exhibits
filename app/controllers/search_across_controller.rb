@@ -40,7 +40,9 @@ class SearchAcrossController < ::CatalogController
 
     config.facet_fields.clear
     config.add_facet_field SolrDocument.exhibit_slug_field,
-                           helper_method: :render_exhibit_title_facet
+                           helper_method: :render_exhibit_title_facet,
+                           sort: :count
+
     config.add_facet_field 'pub_year_tisim', label: 'Date range',
                                              range: true,
                                              partial: 'blacklight_range_limit/range_limit_panel'
@@ -65,7 +67,9 @@ class SearchAcrossController < ::CatalogController
 
   before_action do
     tags_facet = blacklight_config.add_facet_field 'exhibit_tags', query: exhibit_tags_facet_query_config,
-                                                                   label: 'Exhibit category'
+                                                                   label: 'Exhibit category',
+                                                                   sort: :count
+
     blacklight_config.facet_fields.delete(tags_facet.key)
     blacklight_config.facet_fields = { tags_facet.key => tags_facet }.merge(blacklight_config.facet_fields)
 
