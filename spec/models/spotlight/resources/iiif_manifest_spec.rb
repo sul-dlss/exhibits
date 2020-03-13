@@ -23,12 +23,50 @@ describe Spotlight::Resources::IiifManifest do
         thumbnail_field: 'thumbnail_field',
         manifest: manifest
       )
-
       iiif_manifest_resource.add_thumbnail_url
+
       expect(iiif_manifest_resource.send(:solr_hash)).to include(
         'thumbnail_field' => 'www.example.com/iiif/full/!400,400/0/default.jpg',
         thumbnail_square_url_ssm: 'www.example.com/iiif/square/100,100/0/default.jpg'
       )
+    end
+
+    context 'no thumbnail manifest' do
+      let(:manifest) do
+        {
+          'sequences' => [
+            {
+              'canvases' => [
+                {
+                  'images' => [
+                    {
+                      'resource' => {
+                        'service' => {
+                          'profile' => 'http://iiif.io/api/image/2/level2.json',
+                          '@id' => 'www.example.com/iiif/1v'
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      end
+
+      it 'uses the first canvas as a thumbnail' do
+        expect(iiif_manifest_resource).to receive_messages(
+          thumbnail_field: 'thumbnail_field',
+          manifest: manifest
+        )
+        iiif_manifest_resource.add_thumbnail_url
+
+        expect(iiif_manifest_resource.send(:solr_hash)).to include(
+          'thumbnail_field' => 'www.example.com/iiif/1v/full/!400,400/0/default.jpg',
+          thumbnail_square_url_ssm: 'www.example.com/iiif/1v/square/100,100/0/default.jpg'
+        )
+      end
     end
   end
 end
