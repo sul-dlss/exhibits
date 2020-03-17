@@ -40,7 +40,6 @@ group :deployment do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
-  gem 'capistrano-sidekiq'
   gem 'capistrano-shared_configs'
   gem 'dlss-capistrano'
 end
@@ -111,10 +110,10 @@ gem 'friendly_id', '~> 5.2.0'
 gem 'sitemap_generator'
 
 source 'https://gems.contribsys.com/' do
-  gem 'sidekiq-pro', '~> 5.0'
+  gem 'sidekiq-pro'
 end
 
-gem 'sidekiq', '~> 5.0'
+gem 'sidekiq'
 gem 'sul_styles'
 gem 'dotenv'
 gem 'sir_trevor_rails'

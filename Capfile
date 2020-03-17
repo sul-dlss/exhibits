@@ -29,7 +29,6 @@ require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'dlss/capistrano'
-require 'capistrano/sidekiq'
 require 'capistrano/sitemap_generator'
 require 'capistrano/shared_configs'
 
