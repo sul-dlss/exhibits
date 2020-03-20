@@ -35,7 +35,7 @@
     </li>
   <% else %>
     <li class="nav-item">
-      <%= link_to t('spotlight.header_links.login'), main_app.new_user_session_path, class: 'nav-link' %>
+      <%= link_to t('spotlight.header_links.login'), main_app.new_user_session_path(referrer: request.original_url), class: 'nav-link' %>
     </li>
   <% end %>
   <% if current_exhibit and show_contact_form? %>
