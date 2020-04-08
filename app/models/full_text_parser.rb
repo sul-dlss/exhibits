@@ -24,6 +24,8 @@ class FullTextParser
       content = full_text_content(url)
       if ['application/xml', 'application/alto+xml'].include?(resource['mimetype'])
         alto_xml_string_content(content)
+      elsif ['text/html'].include?(resource['mimetype'])
+        hocr_string_content(content)
       else # plain text
         content.scrub.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?').gsub(/\s+/, ' ')
       end
@@ -52,12 +54,19 @@ class FullTextParser
     alto.xpath('//alto:String/@CONTENT', namespace).map(&:text).join(' ')
   end
 
+  def hocr_string_content(content)
+    return [] if content.blank?
+
+    hocr = Nokogiri::HTML.parse(content)
+    hocr.css('.ocr_page').map(&:text).join(' ')
+  end
+
   # full text in druid.txt named for druid (feigenbaum) and ALTO OCR xml in page resources
   # rubocop:disable Layout/LineLength
   def xpath
     [
       "//contentMetadata/resource/file[@id=\"#{druid}.txt\"]",
-      "//contentMetadata/resource[@type='page']/file[@role='transcription'][@mimetype='text/plain' or @mimetype='application/xml' or @mimetype='application/alto+xml']"
+      "//contentMetadata/resource[@type='page']/file[@role='transcription'][@mimetype='text/plain' or @mimetype='text/html' or @mimetype='application/xml' or @mimetype='application/alto+xml']"
     ]
   end
   # rubocop:enable Layout/LineLength
