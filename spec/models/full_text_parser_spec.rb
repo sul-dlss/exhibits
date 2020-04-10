@@ -34,6 +34,35 @@ describe FullTextParser do
     end
   end
 
+  context 'with an hOCR transcription' do
+    let(:purl_object) { instance_double('PurlObject', bare_druid: 'hocrexample', public_xml: public_xml) }
+    let(:public_xml) { Nokogiri::XML.parse(File.read(File.join(FIXTURES_PATH, 'hocrexample.xml'))) }
+    let(:text) do
+      <<-FIXTURE
+        <html>
+          <body>
+            <div class='ocr_page'><p class='ocr_par'><span class='ocrx_word'>asdf</span></p></div>
+          </body>
+        </html>
+      FIXTURE
+    end
+
+    before do
+      stub_request(
+        :get,
+        %r{^https://stacks.stanford.edu/file/hocrexample/.*\.html$}
+      ).to_return(status: 200, body: text)
+    end
+
+    describe '#to_text' do
+      it 'is an array of text parsed from the hOCR text' do
+        ocr_text = parser.to_text
+        expect(ocr_text.length).to eq 15
+        expect(ocr_text.first).to eq 'asdf'
+      end
+    end
+  end
+
   context 'with a plain-text transcription' do
     let(:purl_object) { instance_double('PurlObject', bare_druid: 'xt162pg0437', public_xml: public_xml) }
     let(:public_xml) { Nokogiri::XML.parse(File.read(File.join(FIXTURES_PATH, 'xt162pg0437.xml'))) }
