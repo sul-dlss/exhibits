@@ -9,6 +9,11 @@ class ExhibitFinderController < ApplicationController
 
   # /exhibit_finder/:id
   def show
-    render json: ExhibitFinder.new(params[:id])
+    render json: ExhibitFinder.find(params[:id])
+  end
+
+  # /exhibit_finder
+  def index
+    render json: ExhibitFinder.search(params[:q])
   end
 end

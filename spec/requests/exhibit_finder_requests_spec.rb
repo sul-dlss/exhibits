@@ -34,4 +34,30 @@ describe 'Exhibit Finder API', type: :request do
       expect(response.headers['Access-Control-Allow-Origin']).to eq '*'
     end
   end
+
+  describe '#index' do
+    let(:solr_connection) { instance_double('Blacklighgt::Solr::Connection') }
+
+    before do
+      allow(Blacklight.default_index).to receive_messages(connection: solr_connection)
+
+      allow(solr_connection).to receive(:select).and_return(
+        'response' => { 'docs' => [{ 'exhibit_slug_ssi' => exhibit.slug }] }
+      )
+    end
+
+    it 'returns JSON exhibit representations' do
+      get '/exhibit_finder?q=Exhib'
+
+      json_response = JSON.parse(response.body)
+      expect(json_response.length).to eq 1
+      expect(json_response.first['slug']).to eq exhibit.slug
+    end
+
+    it 'has the appropriate CORS headers to be available to JS clients' do
+      get '/exhibit_finder?q=Exhib'
+
+      expect(response.headers['Access-Control-Allow-Origin']).to eq '*'
+    end
+  end
 end

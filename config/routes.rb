@@ -10,7 +10,7 @@ Exhibits::Application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  resources :exhibit_finder, only: :show
+  resources :exhibit_finder, only: %i[show index]
 
   scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: nil } do
     mount Blacklight::Oembed::Engine, at: 'oembed'
