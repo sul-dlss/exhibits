@@ -14,6 +14,10 @@ module SearchAcrossHelper
     search_state.params_for_search.merge(group: true)
   end
 
+  def in_search_across?
+    controller.controller_name == 'search_across'
+  end
+
   # Strip out parameters (particularly facets) that don't make sense to pass
   # along to the exhibit-specific search endpoint
   def exhibit_search_state_params(my_search_state = search_state)

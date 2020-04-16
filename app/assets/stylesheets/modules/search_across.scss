@@ -20,6 +20,7 @@
   .search-group {
     margin-left: 0;
     margin-right: auto;
+    z-index: 0;
   }
 }
 
@@ -127,5 +128,26 @@
 
   .exhibit-card {
     padding-bottom: 0;
+  }
+}
+
+.search-across-form {
+  input {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  // dropdown-men is position: static on small
+  // viewports but we want it to remain absolute
+  .dropdown-menu {
+    position: absolute;
+  }
+
+  .input-group {
+    flex-wrap: nowrap;
+  }
+
+  .site-search-type {
+    flex-grow: 3;
   }
 }

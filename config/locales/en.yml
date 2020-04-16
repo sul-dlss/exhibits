@@ -113,8 +113,13 @@ en:
     results:
       heading: Search all exhibits
   shared:
-    site_search_form:
+    old_site_search_form:
       placeholder: 'Find items in all exhibits'
+    site_search_form:
+      all_items: items in all exhibits
+      exhibits_by_title: exhibits by title
+      find_all_items: Find items in all exhibits
+      find_exhibits_by_title: Find exhibits by title
   viewers:
     menu_link: Viewers
     edit:
