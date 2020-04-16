@@ -59,4 +59,54 @@ describe Spotlight::Exhibit do
       end
     end
   end
+
+  describe 'Indexing Exhibit Content' do
+    before do
+      allow(Settings.feature_flags).to receive_messages(exhibits_index: true)
+    end
+
+    context 'when an exhibit is published' do
+      let(:exhibit) { FactoryBot.create(:exhibit, published: false) }
+
+      it 'enqueues the IndexExhibitMetadataJob for adding a document' do
+        exhibit.published = true
+
+        expect do
+          exhibit.save
+        end.to have_enqueued_job(IndexExhibitMetadataJob).with(exhibit: exhibit, action: 'add')
+      end
+    end
+
+    context 'when a published exhibit is saved' do
+      let(:exhibit) { FactoryBot.create(:exhibit, published: true) }
+
+      it 'enqueues the IndexExhibitMetadataJob for adding a document' do
+        expect do
+          exhibit.save
+        end.to have_enqueued_job(IndexExhibitMetadataJob).with(exhibit: exhibit, action: 'add')
+      end
+    end
+
+    context 'when an exhibit is unpublished' do
+      let(:exhibit) { FactoryBot.create(:exhibit, published: true) }
+
+      it 'enqueues the IndexExhibitMetadataJob for deleting a document' do
+        exhibit.published = false
+
+        expect do
+          exhibit.save
+        end.to have_enqueued_job(IndexExhibitMetadataJob).with(exhibit: exhibit, action: 'delete')
+      end
+    end
+
+    context 'when an unpublished exhibit is saved' do
+      let(:exhibit) { FactoryBot.create(:exhibit, published: false) }
+
+      it 'enqueues the IndexExhibitMetadataJob for adding a document' do
+        expect do
+          exhibit.save
+        end.not_to have_enqueued_job(IndexExhibitMetadataJob)
+      end
+    end
+  end
 end
