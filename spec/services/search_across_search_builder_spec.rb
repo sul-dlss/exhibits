@@ -29,7 +29,7 @@ describe SearchAcrossSearchBuilder do
     end
 
     it 'limits documents to public items in published exhibits' do
-      actual = subject[:fq].first.split(Regexp.union(/ OR /, / AND /)).map { |x| x.tr('()', '') }
+      actual = subject[:fq].last.split(Regexp.union(/ OR /, / AND /)).map { |x| x.tr('()', '') }
       expect(actual).to include 'spotlight_exhibit_slugs_ssim:exhibit-title-public'
       expect(actual).to include 'exhibit_exhibit-title-public_public_bsi:true'
       expect(actual).not_to include 'spotlight_exhibit_slugs_ssim:exhibit-title-private'
@@ -51,7 +51,7 @@ describe SearchAcrossSearchBuilder do
     end
 
     it 'allows them to see items in their unpublished exhibits' do
-      actual = subject[:fq].first.split(Regexp.union(/ OR /, / AND /)).map { |x| x.tr('()', '') }
+      actual = subject[:fq].last.split(Regexp.union(/ OR /, / AND /)).map { |x| x.tr('()', '') }
 
       expect(actual).to include 'spotlight_exhibit_slugs_ssim:exhibit-title-public'
       expect(actual).to include 'exhibit_exhibit-title-public_public_bsi:true'
