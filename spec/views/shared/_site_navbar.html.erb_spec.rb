@@ -8,6 +8,7 @@ describe 'shared/_site_navbar', type: :view do
   before do
     view.extend Spotlight::CrudLinkHelpers
     stub_template 'shared/_site_search_form' => 'search form'
+    stub_template 'shared/_old_site_search_form' => 'old search form'
   end
 
   context 'with a non-admin user' do

@@ -5,6 +5,54 @@ require 'rails_helper'
 RSpec.describe ExhibitFinder do
   let(:finder) { described_class.new(document_id) }
 
+  describe '.find' do
+    it 'is a JsonResponse for the found exhibit(s)' do
+      exhibit = create(:exhibit, slug: 'default-exhibit')
+      found = described_class.find('hj066rn6500')
+
+      expect(found).to be_an ExhibitFinder::JsonResponse
+      expect(found.as_json).to include(
+        hash_including(
+          'id' => exhibit.id,
+          'title' => exhibit.title,
+          'slug' => exhibit.slug
+        )
+      )
+    end
+  end
+
+  describe '.search' do
+    let(:exhibit) { create(:exhibit) }
+    let(:solr_connection) { instance_double('Blacklighgt::Solr::Connection') }
+
+    before do
+      allow(Blacklight.default_index).to receive_messages(connection: solr_connection)
+    end
+
+    it 'is a JSONResponse for the documents queried from the index' do
+      allow(solr_connection).to receive(:select).and_return(
+        'response' => { 'docs' => [{ 'exhibit_slug_ssi' => exhibit.slug }] }
+      )
+      search = described_class.search('Exhib')
+      expect(search).to be_an ExhibitFinder::JsonResponse
+      expect(search.as_json).to include(
+        hash_including(
+          'id' => exhibit.id, 'title' => exhibit.title, 'slug' => exhibit.slug
+        )
+      )
+    end
+
+    it 'sends in a query that ORs itself and a wildcarded version of itself' do
+      allow(solr_connection).to receive(:select).with(
+        params: hash_including(
+          q: 'Exhib OR Exhib*'
+        )
+      ).and_return({})
+
+      described_class.search('Exhib')
+    end
+  end
+
   describe '#exhibits' do
     let(:document_id) { 'abc123' }
     let(:published_exhibit) { create(:exhibit) }
@@ -70,29 +118,18 @@ RSpec.describe ExhibitFinder do
     end
   end
 
-  describe '#as_json' do
-    let(:document_id) { 'abc123' }
+  describe ExhibitFinder::JsonResponse do
+    let(:json_response) { described_class.new([exhibit]) }
     let(:exhibit) { create(:exhibit, :with_thumbnail) }
-    let(:document) do
-      SolrDocument.new(
-        id: 'abc123',
-        spotlight_exhibit_slugs_ssim: [exhibit.slug],
-        "exhibit_#{exhibit.slug}_public_bsi": [true]
-      )
-    end
-
-    before do
-      allow(finder).to receive_messages(documents: [document])
-    end
 
     it 'returns the exhibit json representation' do
-      expect(finder.as_json.length).to eq 1
-      expect(finder.as_json.first).to be_a Hash
-      expect(finder.as_json.first['id']).to eq exhibit.id
+      expect(json_response.as_json.length).to eq 1
+      expect(json_response.as_json.first).to be_a Hash
+      expect(json_response.as_json.first['id']).to eq exhibit.id
     end
 
     it 'injects a thumbnail_url attribute into the json representation' do
-      expect(finder.as_json.first['thumbnail_url']).to match(
+      expect(json_response.as_json.first['thumbnail_url']).to match(
         %r{stanford\.edu/images/\d+/full/400,400/0/default.jpg}
       )
     end

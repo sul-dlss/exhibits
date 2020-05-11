@@ -1,19 +1,48 @@
-<%= form_tag search_action_url, method: :get, class: 'search-query-form', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
+<%= form_tag search_action_url, method: :get, class: 'd-flex flex-grow-1 search-across-form search-query-form', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
   <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
   <% if search_fields.length > 1 %>
     <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
   <% end %>
+
   <div class="input-group">
-    <%= hidden_field_tag :search_field, search_fields.first.last %>
-
-    <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
-    <%= text_field_tag :q, params[:q], placeholder: t('.placeholder'), class: "search-q q form-control rounded-left", id: "q", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: search_action_path(action: :suggest) }  %>
-
-    <span class="input-group-append">
-      <button type="submit" class="btn btn-primary search-btn" id="search">
-        <span class="submit-search-text"><%= t('blacklight.search.form.submit') %></span>
-        <%= blacklight_icon :search, aria_hidden: true %>
+    <div class="dropdown input-group-prepend" data-behavior="site-search-type-toggle" data-enabled="<%= in_search_across? ? '#item-search' : '#exhibit-search' %>" style="display: none">
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="site-search-type" data-toggle="dropdown" aria-expanded="false">
+        <% if in_search_across? %>
+          <%= t('.find_all_items') %>
+        <% else %>
+          <%= t('.find_exhibits_by_title') %>
+        <% end %>
       </button>
-    </span>
+
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#" data-target="#exhibit-search" data-button-text="<%= t('.find_exhibits_by_title') %>">
+          <%= t('.exhibits_by_title') %>
+        </a>
+        <a class="dropdown-item" href="#" data-target="#item-search" data-button-text="<%= t('.find_all_items') %>">
+          <%= t('.all_items') %>
+        </a>
+      </div>
+    </div>
+
+    <div class="exhibit-search-typeahead site-search-type" data-behavior="site-search-type" id="exhibit-search" style="display: none;">
+      <input type="text" class="form-control" role="combobox" aria-labelledby="site-search-type" data-behavior="exhibit-search-typeahead" data-typeahead-remote-url="<%= exhibit_finder_index_path %>" />
+    </div>
+
+    <div id="item-search" class="site-search-type" data-behavior="site-search-type">
+      <div class="input-group">
+        <%= hidden_field_tag :search_field, search_fields.first.last %>
+        <noscript>
+          <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
+        </noscript>
+        <%= text_field_tag :q, params[:q], class: "search-q q form-control", id: "q", 'aria-labelledby': "site-search-type", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: search_action_path(action: :suggest) }  %>
+
+        <span class="input-group-append">
+          <button type="submit" class="btn btn-primary search-btn" id="search">
+            <span class="submit-search-text"><%= t('blacklight.search.form.submit') %></span>
+            <%= blacklight_icon :search, aria_hidden: true %>
+          </button>
+        </span>
+      </div>
+    </div>
   </div>
 <% end %>

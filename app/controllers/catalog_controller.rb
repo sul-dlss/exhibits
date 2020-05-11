@@ -41,6 +41,7 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       qt: 'search',
+      fq: '-document_type_ssi:exhibit',
       # Wipe out the values of the `all_search*` and `full_text*` fields using clever solr tricks to deal with
       # cases (like rarebooks) that have abundant full text data (to the tune of 1MB per object.. times 8) that
       # cause search results to slow to a crawl. We don't actually use these fields for displaying results,

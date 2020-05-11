@@ -13,11 +13,38 @@ class ExhibitFinder
     @exhibits ||= Spotlight::Exhibit.includes(:thumbnail).where(slug: exhibit_slugs).published.discoverable
   end
 
-  def as_json(*)
-    exhibits.map do |exhibit|
-      exhibit.as_json.merge(
-        'thumbnail_url' => exhibit&.thumbnail&.iiif_url
+  class << self
+    def find(document_id)
+      ExhibitFinder::JsonResponse.new(
+        new(document_id).exhibits
       )
+    end
+
+    def search(query)
+      slugs = exhibit_slugs_for_search(query)
+
+      ExhibitFinder::JsonResponse.new(
+        Spotlight::Exhibit.includes(:thumbnail).where(slug: slugs).sort do |a, b|
+          slugs.index(a.slug) <=> slugs.index(b.slug) # sort the exhibits by the order of the slugs/results in solr
+        end
+      )
+    end
+
+    private
+
+    def exhibit_slugs_for_search(query)
+      query = "#{query} OR #{query}*"
+
+      documents = Blacklight.default_index.connection.select(
+        params: {
+          q: query,
+          qt: 'exhibit-titles',
+          rows: 5,
+          fl: 'exhibit_slug_ssi'
+        }
+      ).dig('response', 'docs') || {}
+
+      documents.map { |document| document['exhibit_slug_ssi'] }
     end
   end
 
@@ -36,6 +63,7 @@ class ExhibitFinder
       params: {
         q: "(id:#{document_id} OR collection:#{document_id})",
         fl: ['id', exhibit_slug_field, exhibit_public_field],
+        fq: '-document_type_ssi:exhibit',
         facet: false,
         rows: 10_000
       }
@@ -52,5 +80,21 @@ class ExhibitFinder
 
   def exhibit_slug_field
     'spotlight_exhibit_slugs_ssim'
+  end
+
+  ##
+  # Serialize the exhibits into JSON that includes additional attributes (e.g. thumbnail URL)
+  class JsonResponse
+    def initialize(exhibits)
+      @exhibits = exhibits
+    end
+
+    def as_json(*)
+      @exhibits.map do |exhibit|
+        exhibit.as_json.merge(
+          'thumbnail_url' => exhibit&.thumbnail&.iiif_url
+        )
+      end
+    end
   end
 end

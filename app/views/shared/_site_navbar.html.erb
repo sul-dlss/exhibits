@@ -1,13 +1,23 @@
 <% if Settings.feature_flags.home_page_navbar %>
   <div id="site-navbar" class="site-navbar navbar navbar-light navbar-expand-md" role="navigation" aria-label="<%= t('spotlight.exhibitnavbar.label') %>">
     <div class="container flex-column flex-md-row">
-      <ul class="navbar-nav mr-auto w-100 order-1 order-md-0 mt-3 mt-md-0">
-        <li class="navbar-item">
-          <% if Settings.feature_flags.search_across || controller.controller_name == 'search_across' %>
-            <%= render 'shared/site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
-          <% end  %>
-        </li>
-      </ul>
+      <% if FeatureFlags.new.exhibits_index? %>
+        <ul class="site-search-nav navbar-nav mr-auto mr-md-3 mr-lg-auto w-100 order-1 order-md-0 mt-3 mt-md-0">
+          <li class="navbar-item d-flex flex-grow-1">
+            <% if Settings.feature_flags.search_across || in_search_across? %>
+              <%= render 'shared/site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
+            <% end  %>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="navbar-nav mr-auto w-100 order-1 order-md-0 mt-3 mt-md-0">
+          <li class="navbar-item">
+            <% if Settings.feature_flags.search_across || in_search_across? %>
+              <%= render 'shared/old_site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
+            <% end  %>
+          </li>
+        </ul>
+      <% end %>
 
       <ul class="navbar-nav align-self-start order-0 order-md-1">
         <li class="nav-item dropdown">
@@ -26,7 +36,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            More at Stanford
+            <span class="d-md-none d-lg-inline">More</span> at Stanford
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <%= link_to "Other library collections at Stanford",

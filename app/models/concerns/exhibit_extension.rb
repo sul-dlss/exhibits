@@ -10,6 +10,7 @@ module ExhibitExtension
     has_one :viewer, dependent: :delete
 
     after_update :send_publish_state_change_notification
+    after_save :index_exhibit_metadata
 
     scope :discoverable, -> { where.not(slug: Settings.discoverable_exhibit_slugs_blacklist) }
   end
@@ -29,5 +30,15 @@ module ExhibitExtension
     return unless saved_changes.key?('published')
 
     SendPublishStateChangeNotificationJob.perform_later(exhibit: self, published: published)
+  end
+
+  def index_exhibit_metadata
+    return unless FeatureFlags.new.exhibits_index?
+
+    if published?
+      IndexExhibitMetadataJob.perform_later(exhibit: self, action: 'add')
+    elsif saved_change_to_published?
+      IndexExhibitMetadataJob.perform_later(exhibit: self, action: 'delete')
+    end
   end
 end

@@ -34,6 +34,18 @@
   .search-query-form {
     min-width: 17em;
   }
+
+  @media (min-width: breakpoint-min("lg")) {
+    .site-search-nav {
+      max-width: 30em;
+    }
+  }
+
+  @media (min-width: breakpoint-min("xl")) {
+    .site-search-nav {
+      max-width: 32em;
+    }
+  }
 }
 
 .exhibit-navbar,

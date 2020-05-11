@@ -884,6 +884,48 @@
     </lst>
   </requestHandler>
 
+  <!-- for searching exhibit documents (e.g. by title) -->
+  <requestHandler name="exhibit-titles" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="defType">edismax</str>
+      <str name="echoParams">explicit</str>
+      <str name="sort">score desc, title_sort asc</str>
+      <int name="rows">20</int>
+      <str name="q.alt">*:*</str>
+      <float name="tie">0.01</float>
+      <bool name="lowercaseOperators">false</bool>
+      <!-- in case lucene query parser -->
+      <str name="df">all_search</str>
+      <str name="q.op">AND</str>
+      <bool name="facet">false</bool>
+      <str name="fq">document_type_ssi:exhibit</str>
+
+      <str name="fl">
+        id
+        exhibit_title_tesim
+        exhibit_subtitle_tesim
+        exhibit_slug_ssi
+        document_type_ssi
+      </str>
+
+      <str name="qf">
+        exhibit_title_tesim^100
+        exhibit_subtitle_tesim^10
+      </str>
+      <str name="pf">
+        exhibit_title_tesim^100
+        exhibit_subtitle_tesim^10
+      </str>
+      <str name="pf3">
+        exhibit_title_tesim^100
+        exhibit_subtitle_tesim^10
+      </str>
+      <str name="pf2">
+        exhibit_title_tesim^100
+        exhibit_subtitle_tesim^10
+      </str>
+    </lst>
+  </requestHandler>
 
   <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
     <str name="queryAnalyzerFieldType">textSpell</str>

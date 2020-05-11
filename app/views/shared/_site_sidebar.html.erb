@@ -1,5 +1,5 @@
 <% unless Settings.feature_flags.home_page_navbar %>
-  <% if Settings.feature_flags.search_across || controller.controller_name == 'search_across' %>
+  <% if Settings.feature_flags.search_across || in_search_across? %>
     <div class="mb-4">
       <%= render 'shared/site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
       <% if defined? @response %>

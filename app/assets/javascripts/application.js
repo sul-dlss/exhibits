@@ -33,12 +33,14 @@
 //= require blacklight_oembed
 //= require full_text_collapse
 //= require index_status_typeahead
+//= require exhibit_search_typeahead
 //= require nested_related_items
 //= require openseadragon
 //= require spotlight
 //= require sul-exhibits-template
 //= require table_of_contents
 //= require custom-file-input
+//= require site_search_type_toggle
 
 
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
