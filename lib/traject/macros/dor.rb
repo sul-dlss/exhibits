@@ -21,13 +21,13 @@ module Macros
           '(resource/file[@mimetype="image/jp2"] | resource/externalFile[@mimetype="image/jp2"])'
         )
         # Allow for selection of conventional ids and fileId for virtual objects
-        jp2s = images.select { |node| (node.attr('id') || node.attr('fileId')) =~ /jp2$/ }
+        jp2s = images.select { |node| (node.attr('id') || node.attr('fileId') || '').end_with?('jp2') }
 
         jp2s.each do |v|
           # Select a virtual object druid if available or the bare druid for a conventional image object
-          druid = v.attr('objectId').to_s.gsub('druid:', '')
+          druid = v.attr('objectId').to_s.delete_prefix('druid:')
           druid = resource.bare_druid if druid.empty?
-          accumulator << stacks_iiif_url(druid, (v.attr('id') || v.attr('fileId')).gsub('.jp2', ''))
+          accumulator << stacks_iiif_url(druid, (v.attr('id') || v.attr('fileId') || '').delete_suffix('.jp2'))
         end
       end
     end

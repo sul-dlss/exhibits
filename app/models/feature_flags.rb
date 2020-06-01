@@ -51,7 +51,7 @@ class FeatureFlags
   end
 
   def method_missing(method_name, *args, &block)
-    sanitized_method_name = method_name.to_s.gsub(/\?$/, '')
+    sanitized_method_name = method_name.to_s.delete_suffix('?')
 
     if settings_includes_method_name?(method_name)
       if flags.respond_to?(sanitized_method_name)
@@ -65,7 +65,7 @@ class FeatureFlags
   end
 
   def settings_includes_method_name?(method_name)
-    sanitized_method_name = method_name.to_s.gsub(/\?$/, '')
+    sanitized_method_name = method_name.to_s.delete_suffix('?')
 
     method_name.to_s.ends_with?('?') &&
       (flags.respond_to?(sanitized_method_name) || base_settings.respond_to?(sanitized_method_name))

@@ -171,7 +171,7 @@ each_record do |resource, context|
 
   # Select conventional file images or virtual external ones
   images = content_metadata.xpath('(resource/file[@mimetype="image/jp2"] | resource/externalFile[@mimetype="image/jp2"])')
-  thumbnail_data = images.first { |node| (node.attr('id') || node.attr('fileId')) =~ /jp2$/ }
+  thumbnail_data = images.first { |node| (node.attr('id') || node.attr('fileId') || '').end_with?('jp2') }
   context.clipboard['thumbnail_data'] = thumbnail_data
 end
 
