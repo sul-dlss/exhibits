@@ -34,7 +34,7 @@ action_mailer:
   default_url_options:
     host: "example.com"
 
-discoverable_exhibit_slugs_blacklist:
+nondiscoverable_exhibit_slugs:
   - exhibits-documentation
 
 exhibit_themes:
