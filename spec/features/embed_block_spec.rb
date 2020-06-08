@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-# rubocop:disable Rails/DynamicFindBy
 # Gem::Specificationfind_by_name is not a rails dynamic finder
 require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
-# rubocop:enable Rails/DynamicFindBy
 
 RSpec.feature 'Solr Documents Embed Block', type: :feature, js: true do
   include Spotlight::TestFeaturesHelpers
