@@ -53,7 +53,7 @@ describe Spotlight::Exhibit do
         exhibit2 = create(:exhibit)
 
         expect(described_class.discoverable.pluck(:slug)).to eq([exhibit1.slug, exhibit2.slug])
-        allow(Settings).to receive(:discoverable_exhibit_slugs_blacklist).and_return([exhibit2.slug])
+        allow(Settings).to receive(:nondiscoverable_exhibit_slugs).and_return([exhibit2.slug])
 
         expect(described_class.discoverable.pluck(:slug)).to eq([exhibit1.slug])
       end

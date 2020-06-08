@@ -111,7 +111,7 @@ RSpec.describe ExhibitFinder do
     context 'when an exhibit is blacklisted from discoverability' do
       before do
         allow(finder).to receive_messages(documents: [public_document])
-        allow(Settings).to receive_messages(discoverable_exhibit_slugs_blacklist: [published_exhibit.slug])
+        allow(Settings).to receive_messages(nondiscoverable_exhibit_slugs: [published_exhibit.slug])
       end
 
       it { expect(finder.exhibits.map(&:id)).to be_blank }
