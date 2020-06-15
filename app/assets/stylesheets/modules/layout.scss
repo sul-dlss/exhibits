@@ -31,6 +31,17 @@
 }
 
 .site-navbar {
+  @extend .navbar-dark;
+  background-color: $navbar-transparent-page-bg;
+
+  .navbar-nav {
+    text-transform: uppercase;
+
+    .dropdown-menu {
+      text-transform: none;
+    }
+  }
+
   .search-query-form {
     min-width: 17em;
   }
