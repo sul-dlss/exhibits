@@ -134,7 +134,7 @@ describe 'Viewers', type: :feature do
       it 'hides the PURL link', js: true do
         visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
 
-        expect(page).not_to have_css('.purl-link', visible: true)
+        expect(page).not_to have_css('.purl-link', visible: :visible)
       end
     end
   end

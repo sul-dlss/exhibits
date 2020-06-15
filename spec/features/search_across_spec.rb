@@ -25,7 +25,7 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
   end
 
   context 'as an anonymous user' do
-    it 'they can search across exhibits they have access to' do
+    it 'they can search across exhibits they have access to', js: true do
       visit root_path
       within(first('.search-query-form')) do
         click_button 'Search'
@@ -34,8 +34,8 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
       expect(page).to have_css('#sortAndPerPage .page-entries', text: '1 item found')
 
       within '#facets .facet-limit.blacklight-spotlight_exhibit_slugs_ssim', visible: false do
-        expect(page).to have_css('.facet-label', text: published_exhibit_with_document.title, visible: false)
-        expect(page).not_to have_css('.facet-label', text: unpublished_exhibit_with_documents.title, visible: false)
+        expect(page).to have_css('.facet-label', text: published_exhibit_with_document.title, visible: :hidden)
+        expect(page).not_to have_css('.facet-label', text: unpublished_exhibit_with_documents.title, visible: :hidden)
       end
     end
 
@@ -84,7 +84,7 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
   context 'as a user who is an admin' do
     before { sign_in exhibit_admin }
 
-    it 'they can search across exhibits they have access to' do
+    it 'they can search across exhibits they have access to', js: true do
       visit root_path
       within(first('.search-query-form')) do
         click_button 'Search'
@@ -93,7 +93,7 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
       expect(page).to have_css('#sortAndPerPage .page-entries', text: /1 - 10 of \d{2,} items/)
 
       within '#facets .facet-limit.blacklight-spotlight_exhibit_slugs_ssim', visible: false do
-        expect(page).to have_css('.facet-label', text: unpublished_exhibit_with_documents.title, visible: false)
+        expect(page).to have_css('.facet-label', text: unpublished_exhibit_with_documents.title, visible: :hidden)
       end
     end
 

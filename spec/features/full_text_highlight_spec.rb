@@ -24,15 +24,15 @@ RSpec.feature 'Full text highlighting' do
 
       expect(page).to have_css('dt', text: 'Sample matches in document text')
 
-      expect(page).not_to have_css('dd p', text: 'about need for data structures capable of storing', visible: true)
+      expect(page).not_to have_css('dd p', text: 'about need for data structures capable of storing', visible: :visible)
       page.find('dt', text: 'Sample matches in document text').click
-      expect(page).to have_css('dd p', text: 'about need for data structures capable of storing', visible: true)
+      expect(page).to have_css('dd p', text: 'about need for data structures capable of storing', visible: :visible)
     end
 
     it 'pulls the prepared-search-link link from the full text snippet section to a new dt' do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'structure')
 
-      expect(page).to have_css('dt a', text: 'Search for "structure" in document text', visible: true)
+      expect(page).to have_css('dt a', text: 'Search for "structure" in document text', visible: :visible)
       expect(page).not_to have_css('dd a', text: 'Search for "structure" in document text') # Original link location
       page.find('dt', text: 'Sample matches in document text').click
       expect(page).not_to have_css('dd a', text: 'Search for "structure" in document text') # Original link location
@@ -43,7 +43,7 @@ RSpec.feature 'Full text highlighting' do
     it 'still offers a link to open up the document with a search prepared (and does not have a highlight section)' do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'zy575vf8599')
 
-      expect(page).to have_css('dt a', text: 'Search for "zy575vf8599" in document text', visible: true)
+      expect(page).to have_css('dt a', text: 'Search for "zy575vf8599" in document text', visible: :visible)
       expect(page).not_to have_css('dt', text: 'Sample matches in document text')
     end
   end
@@ -52,9 +52,9 @@ RSpec.feature 'Full text highlighting' do
     it 'stems Portuguese properly', js: true do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'homens')
 
-      expect(page).not_to have_css('dd p', text: 'em conta o homem normal suposto', visible: true)
+      expect(page).not_to have_css('dd p', text: 'em conta o homem normal suposto', visible: :visible)
       page.find('dt', text: 'Sample matches in document text').click
-      expect(page).to have_css('dd p', text: 'em conta o homem normal suposto', visible: true)
+      expect(page).to have_css('dd p', text: 'em conta o homem normal suposto', visible: :visible)
     end
   end
 

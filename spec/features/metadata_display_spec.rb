@@ -54,9 +54,9 @@ RSpec.feature 'Metadata display' do
         click_link 'More details »'
         within '#blacklight-modal' do
           within '.mods_display_nested_related_items' do
-            expect(page).to have_css('dl', visible: false)
+            expect(page).to have_css('dl', visible: :hidden)
             click_link 'Constituent Title'
-            expect(page).to have_css('dl', visible: true)
+            expect(page).to have_css('dl', visible: :visible)
           end
         end
       end
@@ -69,10 +69,10 @@ RSpec.feature 'Metadata display' do
 
       it 'are togglable' do
         within '.mods_display_nested_related_items' do
-          expect(page).to have_css('dl', visible: false)
+          expect(page).to have_css('dl', visible: :hidden)
           expect(page).to have_css('li a', text: 'Constituent Title')
           click_link 'Constituent Title'
-          expect(page).to have_css('dl', visible: true)
+          expect(page).to have_css('dl', visible: :visible)
           expect(page).to have_css('dt', text: /Note:/i)
           expect(page).to have_css('dd', text: 'Constituent note')
         end
@@ -81,12 +81,12 @@ RSpec.feature 'Metadata display' do
       it 'can toggle all' do
         click_link 'Expand all'
         within '.mods_display_nested_related_items' do
-          expect(page).to have_css('dl', visible: true)
+          expect(page).to have_css('dl', visible: :visible)
           expect(page).to have_css('dt', text: /Note:/i)
         end
         click_link 'Collapse all'
         within '.mods_display_nested_related_items' do
-          expect(page).to have_css('dl', visible: false)
+          expect(page).to have_css('dl', visible: :hidden)
           expect(page).to have_css('li a', text: 'Constituent Title')
         end
       end
