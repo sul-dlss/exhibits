@@ -54,7 +54,7 @@ RSpec.feature 'Adding items to an exhibit', type: :feature do
 
         fill_in_typeahead_field with: 'abc1'
 
-        expect(page).to have_css('tr[data-index-status-id="abc1"] td', text: 'abc1', visible: true)
+        expect(page).to have_css('tr[data-index-status-id="abc1"] td', text: 'abc1', visible: :visible)
         expect(page).to have_css('td[data-behavior="index-item-status"]', text: 'Published')
       end
     end
@@ -79,7 +79,7 @@ RSpec.feature 'Adding items to an exhibit', type: :feature do
 
           fill_in_typeahead_field with: 'xyz'
 
-          expect(page).to have_css('tr.danger[data-index-status-id="xyz"] td', text: 'xyz', visible: true)
+          expect(page).to have_css('tr.danger[data-index-status-id="xyz"] td', text: 'xyz', visible: :visible)
           expect(page).to have_css('td[data-behavior="index-item-status"]', text: 'There was a problem indexing')
         end
       end

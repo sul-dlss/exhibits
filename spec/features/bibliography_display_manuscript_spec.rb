@@ -27,10 +27,10 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
   end
 
   scenario 'bibliography element data required by async loader' do
-    expect(page).to have_css('div.record-metadata-section[data-path="/default-exhibit/catalog"]', visible: false)
-    expect(page).to have_css("div.record-metadata-section[data-parentid=\"#{resource_id}\"]", visible: false)
+    expect(page).to have_css('div.record-metadata-section[data-path="/default-exhibit/catalog"]', visible: :hidden)
+    expect(page).to have_css("div.record-metadata-section[data-parentid=\"#{resource_id}\"]", visible: :hidden)
     expect(page).to have_css(
-      'div.record-metadata-section[data-sort="author_sort asc, pub_year_isi asc, title_sort asc"]', visible: false
+      'div.record-metadata-section[data-sort="author_sort asc, pub_year_isi asc, title_sort asc"]', visible: :hidden
     )
   end
 
@@ -57,15 +57,15 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
     scenario 'are togglable', js: true do
       within '.record-metadata-section' do
         within '.bibliography-list' do
-          expect(page).to have_css('p.bibliography-body', count: 3, visible: true)
+          expect(page).to have_css('p.bibliography-body', count: 3, visible: :visible)
 
           click_button 'Expand bibliography'
 
-          expect(page).to have_css('p.bibliography-body', count: 6, visible: true)
+          expect(page).to have_css('p.bibliography-body', count: 6, visible: :visible)
 
           click_button 'Collapse bibliography'
 
-          expect(page).to have_css('p.bibliography-body', count: 3, visible: true)
+          expect(page).to have_css('p.bibliography-body', count: 3, visible: :visible)
         end
       end
     end
@@ -75,8 +75,8 @@ RSpec.feature 'Bibliography display on the manuscript show page', type: :feature
     let(:resource_id) { 'wd297xz1362' }
 
     scenario 'the bibliography section is rendered (but not visible)' do
-      expect(page).to have_css('.record-metadata-section', visible: false)
-      expect(page).not_to have_css('h3', text: 'Bibliography', visible: true)
+      expect(page).to have_css('.record-metadata-section', visible: :hidden)
+      expect(page).not_to have_css('h3', text: 'Bibliography', visible: :visible)
 
       # No documents are added
       expect(page).not_to have_css('.bibliography-list')

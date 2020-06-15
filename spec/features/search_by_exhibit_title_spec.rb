@@ -20,9 +20,9 @@ RSpec.describe 'Searching Exhibits By Title', type: :feature, js: true do
 
   it 'provides a dropdown to choose search types' do
     within '#site-navbar .site-search-nav' do
-      expect(page).to have_css('.dropdown-menu', visible: false)
+      expect(page).to have_css('.dropdown-menu', visible: :hidden)
       click_button 'Find exhibits by title'
-      expect(page).to have_css('.dropdown-menu', visible: true)
+      expect(page).to have_css('.dropdown-menu', visible: :visible)
 
       within '.dropdown-menu' do
         expect(page).to have_link 'exhibits by title'
@@ -35,12 +35,12 @@ RSpec.describe 'Searching Exhibits By Title', type: :feature, js: true do
     it 'provides a default option to autocomplete by exhibit title' do
       within '#site-navbar .site-search-nav' do
         expect(page).to have_css('button', text: 'Find exhibits by title')
-        expect(page).to have_css('[data-behavior="exhibit-search-typeahead"]', visible: true)
+        expect(page).to have_css('[data-behavior="exhibit-search-typeahead"]', visible: :visible)
       end
     end
 
     it 'provides an option to search items in exhibits' do
-      expect(page).not_to have_css('form input#q', visible: true)
+      expect(page).not_to have_css('form input#q', visible: :visible)
 
       within '#site-navbar .site-search-nav' do
         click_button 'Find exhibits by title'
