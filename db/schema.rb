@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_212113) do
+ActiveRecord::Schema.define(version: 2020_06_15_034031) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -338,6 +338,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_212113) do
     t.integer "thumbnail_id"
     t.string "default_index_view_type"
     t.boolean "search_box", default: false
+    t.string "subtitle"
     t.index ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
     t.index ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
   end
