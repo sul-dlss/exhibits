@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.feature 'Cited manuscripts display on the bibliography show page', type: :feature do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:resource_id) { 'QTWBAWKX' }
-  let(:citationsString) { '["gs233db8425", "gk885tn1705", "hj066rn6500"]' }
+  let(:citations_string) { '["gs233db8425", "gk885tn1705", "hj066rn6500"]' }
   let(:bibtex_data) do
     Dir.glob('spec/fixtures/bibliography/{article,incollection}.bib').collect do |fn|
       File.read(fn)
@@ -34,7 +34,7 @@ RSpec.feature 'Cited manuscripts display on the bibliography show page', type: :
     expect(page).to have_css('div.record-metadata-section[data-path="/default-exhibit/catalog"]')
     expect(page).to have_css("div.record-metadata-section[data-parentid=\"#{resource_id}\"]")
     expect(page).to have_css('div.record-metadata-section[data-documentids]')
-    expect(page.find('div.record-metadata-section[data-documentids]')['data-documentids']).to eq(citationsString)
+    expect(page.find('div.record-metadata-section[data-documentids]')['data-documentids']).to eq(citations_string)
   end
 
   scenario 'async loading of the sorted, formatted bibliography', js: true do
