@@ -273,6 +273,22 @@ h5,
 .tags .nav-link {
   margin-bottom: 0.5rem;
   padding: 0.33rem 0.66rem;
+
+  &[href="/?tag=Social+justice"] {
+    color: $cardinal-red;
+    font-weight: 700;
+
+    &::before {
+      // Licensed (required to change color) from:
+      // https://thenounproject.com/search/?q=justice%20scale&i=3316424
+      content: image_url("social-justice.svg");
+      display: inline-flex;
+      height: 1.3rem;
+      margin-right: 0.6rem;
+      vertical-align: top;
+      width: 1rem;
+    }
+  }
 }
 
 // A hackety McHack so that the search fields contain "Everything" in all the browsers
