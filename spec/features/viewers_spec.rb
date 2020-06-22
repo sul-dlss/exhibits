@@ -32,11 +32,11 @@ describe 'Viewers', type: :feature do
       end
 
       within '#item-detail-page' do
-        choose 'Mirador'
+        choose 'Mirador 2'
         click_button 'Save changes'
       end
 
-      expect(find_field('Mirador')[:checked]).to eq 'checked'
+      expect(find_field('Mirador 2')[:checked]).to eq 'checked'
     end
 
     it 'includes breadcrumbs on the edit page' do
