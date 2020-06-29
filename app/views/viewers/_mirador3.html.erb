@@ -1,0 +1,15 @@
+<% exhibit_specific_manifest = document.exhibit_specific_manifest(current_exhibit.required_viewer.custom_manifest_pattern) %>
+
+<% if exhibit_specific_manifest.present? %>
+  <%= content_tag :iframe, '',
+        src: "#{Settings.iiif_embed.url}?#{{ url: exhibit_specific_manifest, image_tools: true, canvas_id: document.canvas.iiif_id }.to_query}",
+        allowfullscreen: true,
+        class: 'mirador-embed-wrapper',
+        frameborder: 0,
+        marginwidth: 0,
+        marginheight: 0,
+        scrolling: 'no',
+        width: '100%'
+        %>
+  <%= iiif_drag_n_drop(exhibit_specific_manifest) %>
+<% end %>
