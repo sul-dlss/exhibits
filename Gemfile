@@ -7,11 +7,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 2.7.2'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -92,8 +92,8 @@ gem 'config'
 gem 'bootstrap'
 gem 'blacklight', '~> 7.0'
 gem 'blacklight-gallery', '~> 2'
-gem 'blacklight_heatmaps'
-gem 'blacklight-spotlight', '~> 3.0.0.alpha.9'
+gem 'blacklight_heatmaps', '~> 0.9'
+gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: :master
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 7.0'
@@ -106,7 +106,7 @@ gem 'nokogiri', '>= 1.7.1'
 gem 'turnout'
 gem 'ruby-oembed'
 gem 'okcomputer'
-gem 'friendly_id', '~> 5.2.0'
+gem 'friendly_id', '~> 5.2'
 gem 'sitemap_generator'
 
 source 'https://gems.contribsys.com/' do
