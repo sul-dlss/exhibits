@@ -119,7 +119,7 @@ class CatalogController < ApplicationController
     config.show.partials << :cited_documents
     config.show.partials << :page_details
 
-    config.view.list.thumbnail_field = :thumbnail_square_url_ssm
+    config.view.list.thumbnail_field = [:thumbnail_square_url_ssm, :thumbnail_url_ssm]
     config.view.list.partials = [:exhibits_document_header, :index]
     config.view.gallery.title_only_by_default = true
     config.view.gallery.partials = [:index_header, :index]
