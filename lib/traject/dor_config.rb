@@ -110,7 +110,7 @@ to_field 'publisher_ssi' do |_resource, accumulator, context|
   accumulator << value if value
 end
 
-to_field 'all_search', (accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') })
+to_field 'modsxml_tsi', (accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') })
 
 to_field 'author_no_collector_ssim', stanford_mods(:non_collector_person_authors)
 to_field 'box_ssi', stanford_mods(:box)
