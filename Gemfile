@@ -82,8 +82,7 @@ group :test do
 end
 
 group :production do
-  # mysql 0.5.3 is not compatible with the version of ruby we are using
-  gem 'mysql2', '< 0.5.3'
+  gem 'mysql2'
   gem 'newrelic_rpm'
 end
 
