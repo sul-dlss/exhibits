@@ -4,8 +4,8 @@ require_relative 'macros/general'
 require_relative 'macros/dor'
 
 require 'active_support/core_ext/object/blank'
-extend Macros::General
-extend Macros::Dor
+extend Traject::Macros::General
+extend Traject::Macros::Dor
 
 settings do
   provide 'reader_class_name', 'DorReader'
