@@ -296,7 +296,6 @@
   <copyField source="summary_search" dest="summary_unstem_search" />
   <!--  other unstemmed search fields -->
   <copyField source="series_search" dest="series_unstem_search" />
-  <copyField source="all_search" dest="all_unstem_search" />
 
   <!-- course reserve fields -->
   <copyField source="crez_instructor_search" dest="instructor" />
@@ -341,9 +340,11 @@
   <copyField source="title_full_display" dest="full_title_ng" maxChars="3000"/>
   <!-- NOTE:  all_search is meant for metadata -->
   <copyField source="*_tesim" dest="all_search" />
+  <copyField source="*_tsi" dest="all_search" />
   <copyField source="*_search" dest="all_search" />
   <copyField source="*_tags_ssim" dest="all_search" />
   <copyField source="*_tesim" dest="all_unstem_search" />
+  <copyField source="*_tsi" dest="all_unstem_search" />
   <copyField source="*_search" dest="all_unstem_search" />
   <copyField source="*_tags_ssim" dest="all_unstem_search" />
   <!-- NOTE:  full_text_search is meant for full text -->

@@ -37,7 +37,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       end
 
       it 'has the gdor data' do
-        expect(document).to include :modsxml, :url_fulltext, :all_search
+        expect(document).to include :modsxml, :url_fulltext, :modsxml_tsi
       end
 
       it 'has the published date for the resource' do
