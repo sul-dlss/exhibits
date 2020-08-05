@@ -39,7 +39,7 @@ class ExhibitFinder
         params: {
           q: query,
           qt: 'exhibit-titles',
-          rows: 5,
+          rows: 10_000,
           fl: 'exhibit_slug_ssi'
         }
       ).dig('response', 'docs') || {}
