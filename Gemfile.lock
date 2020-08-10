@@ -79,9 +79,9 @@ GEM
       blacklight (~> 7.0)
       rails
       ruby-oembed
-    blacklight-spotlight (3.0.0.alpha.10)
+    blacklight-spotlight (3.0.0.rc1)
       acts-as-taggable-on (>= 5.0, < 7)
-      almond-rails (~> 0.1)
+      almond-rails (>= 0.3.0)
       autoprefixer-rails
       blacklight (~> 7.0)
       bootstrap_form (~> 4.1)
@@ -89,8 +89,8 @@ GEM
       cancancan
       carrierwave
       clipboard-rails (~> 1.5)
-      devise (>= 3.0)
-      devise_invitable (~> 1.6)
+      devise (~> 4.1)
+      devise_invitable
       faraday
       faraday_middleware
       friendly_id (~> 5.2)
@@ -106,13 +106,15 @@ GEM
       oauth2
       openseadragon
       paper_trail (~> 10.0)
-      rails (~> 5.1)
+      rails (< 6.1)
       riiif (~> 2.0)
       roar (~> 1.1)
       roar-rails
       signet
-      sir_trevor_rails (~> 0.5)
+      sir_trevor_rails (>= 0.6.1)
+      sprockets (< 4)
       sprockets-es6
+      thor
       tophat
       underscore-rails (~> 1.6)
     blacklight_advanced_search (7.0.0)
@@ -127,7 +129,7 @@ GEM
       blacklight (~> 7.0)
     bootsnap (1.4.7)
       msgpack (~> 1.0)
-    bootstrap (4.5.0)
+    bootstrap (4.5.2)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
@@ -182,7 +184,7 @@ GEM
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 1.5)
     clipboard-rails (1.7.1)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     config (2.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
@@ -212,11 +214,11 @@ GEM
       devise
     devise-remote-user (1.0.0)
       devise
-    devise_invitable (1.7.5)
-      actionmailer (>= 4.1.0)
-      devise (>= 4.0.0)
+    devise_invitable (2.0.2)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     diff-lcs (1.4.4)
-    diffy (3.3.0)
+    diffy (3.4.0)
     dlss-capistrano (3.9.0)
       capistrano (~> 3.0)
       capistrano-bundle_audit (>= 0.3.0)
@@ -538,7 +540,7 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
-    rubocop (0.88.0)
+    rubocop (0.89.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.1)
       rainbow (>= 2.2.2, < 4.0)
