@@ -297,3 +297,10 @@ h5,
 }
 
 // scss-lint:enable ImportantRule
+
+// https://github.com/projectblacklight/spotlight/pull/2555
+.item-text {
+  .items-col {
+    z-index: 1;
+  }
+}
