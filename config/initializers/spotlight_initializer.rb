@@ -42,3 +42,7 @@ Spotlight::Exhibit.themes_selector = ->(exhibit) do
 
   themes[exhibit&.slug] || themes[:default]
 end
+
+Spotlight::Engine.config.default_autocomplete_params = {
+  qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'
+}
