@@ -73,9 +73,7 @@ class CatalogController < ApplicationController
       'hl.mergeContiguous' => true
     }
 
-    config.default_autocomplete_solr_params = {
-      qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'
-    }
+    config.default_autocomplete_solr_params = Spotlight::Engine.config.default_autocomplete_params
 
     config.add_results_collection_tool(:sort_widget)
     config.add_results_collection_tool(:per_page_widget)
