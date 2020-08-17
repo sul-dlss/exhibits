@@ -313,7 +313,7 @@ GEM
       stanford-mods
     hashdiff (1.0.1)
     hashie (3.6.0)
-    honeybadger (4.7.1)
+    honeybadger (4.7.2)
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
