@@ -70,6 +70,9 @@ RSpec/ExampleLength:
   Exclude:
     - 'spec/features/indexing_integration_spec.rb'
 
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
 Metrics/BlockLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
