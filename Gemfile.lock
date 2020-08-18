@@ -351,7 +351,7 @@ GEM
     jsonpath (1.0.5)
       multi_json
       to_regexp (~> 0.2.1)
-    jwt (2.2.1)
+    jwt (2.2.2)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
