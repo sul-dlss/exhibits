@@ -67,7 +67,7 @@ class CatalogController < ApplicationController
       'hl.method' => 'unified',
       # explicitly defining offsetSource because solr thinks we're trying to do Term Vectors (full)
       'hl.offsetSource' => 'postings_with_term_vectors',
-      'hl.fl' => Settings.full_text_highlight.fields.first,
+      'hl.fl' => Settings.full_text_highlight.fields,
       'hl.snippets' => 5,
       'hl.fragsize' => 240,
       'hl.mergeContiguous' => true
