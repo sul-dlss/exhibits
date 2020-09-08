@@ -103,7 +103,7 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
         click_button 'Search'
       end
 
-      click_button 'Item Visibility'
+      click_button 'Item visibility'
       click_link 'Private'
 
       expect(page).to have_content 'Kaart van Zuid-Afrika'
