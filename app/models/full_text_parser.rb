@@ -22,9 +22,9 @@ class FullTextParser
     ocr_files.map do |resource|
       url = full_text_url(resource['id'])
       content = full_text_content(url)
-      if ['application/xml', 'application/alto+xml'].include?(resource['mimetype'])
+      if xml_ocr_types.include?(resource['mimetype'])
         alto_xml_string_content(content)
-      elsif ['text/html'].include?(resource['mimetype'])
+      elsif html_ocr_types.include?(resource['mimetype'])
         hocr_string_content(content)
       else # plain text
         content.scrub.encode('UTF-8', invalid: :replace, undef: :replace, replace: '?').gsub(/\s+/, ' ')
@@ -33,6 +33,14 @@ class FullTextParser
   end
 
   private
+
+  def xml_ocr_types
+    ['application/xml', 'application/alto+xml']
+  end
+
+  def html_ocr_types
+    ['text/html']
+  end
 
   def full_text_content(url)
     Faraday.get(url).body
