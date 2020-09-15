@@ -5,4 +5,5 @@ CarrierWave.configure do |c|
   end if File.exist? File.join(Rails.root, 'public', '.htaccess')
 
   c.base_path = carrierwave_base_path
+  c.enable_processing = true
 end

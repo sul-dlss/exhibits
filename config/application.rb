@@ -18,10 +18,14 @@ module Exhibits
 
     config.time_zone = 'Pacific Time (US & Canada)'
 
+    ##
     # Inject our ExhibitExtension concern to add behavior
     # (like relationships) to the Spotlight::Exhibit class
+    # Also enable CarrierWave::MiniMagick for resizing
     config.to_prepare do
       Spotlight::Exhibit.send(:include, ExhibitExtension)
+      Spotlight::AttachmentUploader.send(:include, CarrierWave::MiniMagick)
+      Spotlight::AttachmentUploader.send(:process, resize_to_fit: [1080, 1080])
     end
 
     config.druid_regex = /([a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4})/
