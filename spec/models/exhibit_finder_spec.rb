@@ -133,6 +133,22 @@ RSpec.describe ExhibitFinder do
         %r{stanford\.edu/images/\d+/full/400,400/0/default.jpg}
       )
     end
+
+    context 'when the thubmnail comes from an uploaded document' do
+      before do
+        thumb = exhibit.thumbnail
+        thumb.iiif_tilesource = exhibit.thumbnail
+                                       .iiif_tilesource
+                                       .sub(%r{^https?://exhibits(-.*)?\.stanford.edu}, '')
+        thumb.save
+      end
+
+      it 'appends the host of the app to the URL in the case it is a relative URL' do
+        expect(json_response.as_json.first['thumbnail_url']).to match(
+          %r{example\.com/images/\d+/full/400,400/0/default.jpg}
+        )
+      end
+    end
   end
 
   describe '#documents (private)' do
