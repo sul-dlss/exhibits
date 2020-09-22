@@ -33,7 +33,7 @@ class ExhibitFinder
     private
 
     def exhibit_slugs_for_search(query)
-      query = "#{query} OR #{query}*"
+      query = "(#{query}) OR (#{query}*)"
 
       documents = Blacklight.default_index.connection.select(
         params: {
