@@ -68,15 +68,20 @@
   letter-spacing: 1.1px;
 }
 
-.browse-landing .text-overlay .browse-category-title {
-  font-size: 26px;
-
-  @media screen and (min-width: 992px) and (max-width: 1199px) {
-    font-size: 22px;
+#content .browse-landing .text-overlay .browse-category-title {
+  @media (min-width: breakpoint-min("md")) and (max-width: breakpoint-min("lg")) {
+    font-size: 1.4rem;
+    line-height: 1.1;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 991px) {
-    font-size: 19px;
+  @media (min-width: breakpoint-min("lg")) and (max-width: breakpoint-min("xl")) {
+    font-size: $h4-font-size;
+  }
+
+  small {
+    @media (min-width: breakpoint-min("md")) and (max-width: breakpoint-min("lg")) {
+      font-size: 1.125rem;
+    }
   }
 }
 
