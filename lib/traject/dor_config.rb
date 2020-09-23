@@ -20,6 +20,9 @@ to_field 'last_updated', (accumulate { |resource, *_| Time.parse(resource.public
 to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(dor_content_type(resource)) })
 
 to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
+to_field 'collection_leading_title', (accumulate do |resource, *_|
+  resource.collections.map { |collection| "#{coll_title(collection)}-|-#{collection.bare_druid}" }
+end)
 to_field 'collection_with_title', (accumulate do |resource, *_|
   resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
 end)

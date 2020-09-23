@@ -810,6 +810,7 @@
       <str name="facet.field">pub_year_tisim</str>
       <str name="facet.field">topic_facet</str>
       <str name="facet.field">collection_with_title</str>
+      <str name="facet.field">collection_leading_title</str>
 
       <!-- Highlighting defaults -->
       <str name="hl.fl">all_search full_text_search full_text_search_en full_text_search_pt full_text_search_id</str>
@@ -823,6 +824,7 @@
         author_person_full_display,   vern_author_person_full_display,
         collection,
         collection_type,
+        collection_leading_title,
         collection_with_title,
         crez_course_info,
         db_az_subject,
