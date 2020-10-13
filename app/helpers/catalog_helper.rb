@@ -79,7 +79,6 @@ module CatalogHelper
     )
   end
 
-  # rubocop:disable Rails/OutputSafety
   def render_fulltext_highlight(document:, **_args)
     highlights = document.full_text_highlights
 
@@ -87,9 +86,8 @@ module CatalogHelper
 
     safe_join(highlights.take(Settings.full_text_highlight.snippet_count).map do |val|
       content_tag('p') do
-        val.html_safe # val is highlighted field from solr which is html safe
+        sanitize(val, tags: %w(em))
       end
     end.prepend(link), '')
   end
-  # rubocop:enable Rails/OutputSafety
 end
