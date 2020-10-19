@@ -27,6 +27,7 @@ describe Spotlight::Resources::IiifManifest do
 
       expect(iiif_manifest_resource.send(:solr_hash)).to include(
         'thumbnail_field' => 'www.example.com/iiif/full/!400,400/0/default.jpg',
+        large_image_url_ssm: 'www.example.com/iiif/full/!1000,1000/0/default.jpg',
         thumbnail_square_url_ssm: 'www.example.com/iiif/full/100,100/0/default.jpg'
       )
     end

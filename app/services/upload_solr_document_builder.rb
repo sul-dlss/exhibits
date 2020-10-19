@@ -6,5 +6,6 @@ class UploadSolrDocumentBuilder < Spotlight::UploadSolrDocumentBuilder
     super(solr_hash)
 
     solr_hash[:thumbnail_square_url_ssm] = riiif.image_path(resource.upload_id, region: 'square', size: '100,100')
+    solr_hash[:large_image_url_ssm] = riiif.image_path(resource.upload_id, region: 'full', size: '!1000,1000')
   end
 end
