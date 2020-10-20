@@ -24,6 +24,10 @@ describe UploadSolrDocumentBuilder do
       expect(builder.to_solr).to include thumbnail_square_url_ssm: "/images/#{upload_id}/square/100,100/0/default.jpg"
     end
 
+    it 'adds a large image field' do
+      expect(builder.to_solr).to include large_image_url_ssm: "/images/#{upload_id}/full/!1000,1000/0/default.jpg"
+    end
+
     it 'copies over the uploaded date field to pub_year fields' do
       resource.sidecar.update data: {
         'configured_fields' => { 'spotlight_upload_date_tesim' => 'this is a year: 2014' }
