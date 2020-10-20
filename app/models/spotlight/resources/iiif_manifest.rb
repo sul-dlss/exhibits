@@ -13,7 +13,7 @@ module Spotlight
         return unless thumbnail_field
 
         image = manifest['thumbnail'] if manifest['thumbnail'].present?
-        image ||= manifest.dig('sequences', 0, 'canvases', 0, 'images', 0, 'resource')
+        image ||= manifest['sequences'].dig(0, 'canvases', 0, 'images', 0, 'resource')
 
         return unless image
 
