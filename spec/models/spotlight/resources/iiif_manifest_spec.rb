@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'iiif/presentation'
 
 describe Spotlight::Resources::IiifManifest do
   let(:manifest) do
@@ -35,11 +34,14 @@ describe Spotlight::Resources::IiifManifest do
 
     context 'no thumbnail manifest' do
       let(:manifest) do
-        IIIF::Presentation::Manifest.new(
+        IIIF::Service.from_ordered_hash(
+          '@type' => 'sc:Manifest',
           'sequences' => [
             {
+              '@type' => 'sc:Sequence',
               'canvases' => [
                 {
+                  '@type' => 'sc:Canvas',
                   'images' => [
                     {
                       'resource' => {

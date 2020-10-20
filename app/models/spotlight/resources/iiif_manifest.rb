@@ -4,6 +4,14 @@
 spotlight_path = Gem::Specification.find_by_name('blacklight-spotlight').full_gem_path
 require_dependency File.join(spotlight_path, 'app/models/spotlight/resources/iiif_manifest.rb')
 
+require 'iiif/hash_behaviours'
+module IIIF
+  # monkey-patch pending https://github.com/iiif-prezi/osullivan/pull/78
+  module HashBehaviours
+    def_delegators :@data, :dig
+  end
+end
+
 module Spotlight
   module Resources
     ##
@@ -13,7 +21,7 @@ module Spotlight
         return unless thumbnail_field
 
         image = manifest['thumbnail'] if manifest['thumbnail'].present?
-        image ||= manifest['sequences'].dig(0, 'canvases', 0, 'images', 0, 'resource')
+        image ||= manifest.dig('sequences', 0, 'canvases', 0, 'images', 0, 'resource')
 
         return unless image
 
