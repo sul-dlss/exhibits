@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'iiif/presentation'
 
 describe Spotlight::Resources::IiifManifest do
   let(:manifest) do
@@ -34,7 +35,7 @@ describe Spotlight::Resources::IiifManifest do
 
     context 'no thumbnail manifest' do
       let(:manifest) do
-        {
+        IIIF::Presentation::Manifest.new(
           'sequences' => [
             {
               'canvases' => [
@@ -53,7 +54,7 @@ describe Spotlight::Resources::IiifManifest do
               ]
             }
           ]
-        }
+        )
       end
 
       it 'uses the first canvas as a thumbnail' do
