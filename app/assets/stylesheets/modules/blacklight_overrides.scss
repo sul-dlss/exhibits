@@ -42,6 +42,12 @@
   padding: 0;
 }
 
+// Hide image border for this widget only because curators use it with images
+// they want to blend into the page background.
+.uploaded-items-block .img-thumbnail {
+  border: 0;
+}
+
 #document {
   h1 {
     font-size: 1.5rem;
