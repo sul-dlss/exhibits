@@ -191,7 +191,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
     config.add_facet_field 'doc_subtype_ssi', label: 'Document Subtype', limit: true
     config.add_facet_field 'collection_with_title', label: 'Collection', limit: true, helper_method: :collection_title
-    config.add_facet_field 'related_document_id_ssim', original: false
+    config.add_facet_field 'related_document_id_ssim', original: false, if: false
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
