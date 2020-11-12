@@ -128,6 +128,6 @@ class DorHarvester < Spotlight::Resource
                            headers: { 'Content-Type' => 'application/json' }
   rescue StandardError => e
     Honeybadger.notify(e, context: { druid: document[:id], resource_id: id })
-    RecordIndexStatusJob.perform_later(self, document[:id], ok: false, message: e.to_s.truncate(300))
+    RecordIndexStatusJob.perform_later(self, document[:id], ok: false, message: e.to_s.truncate(1000))
   end
 end
