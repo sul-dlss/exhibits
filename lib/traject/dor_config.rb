@@ -319,6 +319,8 @@ end
 
 def dor_content_type(resource)
   resource.content_metadata ? resource.content_metadata.root.xpath('@type').text : nil
+rescue Harvestdor::Errors::MissingContentMetadata
+  nil
 end
 
 def coll_title(resource)
