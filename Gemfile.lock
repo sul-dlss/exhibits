@@ -63,15 +63,13 @@ GEM
     bibtex-ruby (6.0.0)
       latex-decode (~> 0.0)
     bindex (0.8.1)
-    blacklight (7.14.0)
+    blacklight (7.13.2)
       deprecation
       globalid
-      i18n (>= 1.7.0)
       jbuilder (~> 2.7)
       kaminari (>= 0.15)
-      ostruct (>= 0.3.2)
       rails (>= 5.1, < 7)
-      view_component (>= 2.23.0)
+      view_component
     blacklight-gallery (2.1.0)
       blacklight (~> 7.7)
       bootstrap (~> 4.0)
@@ -448,7 +446,6 @@ GEM
     openseadragon (0.5.0)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    ostruct (0.3.2)
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
@@ -744,7 +741,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   bibtex-ruby
-  blacklight (~> 7.0)
+  blacklight (~> 7.13.2)
   blacklight-gallery (~> 2)
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 3.0.0.alpha.9)
