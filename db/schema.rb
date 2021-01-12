@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_034031) do
+ActiveRecord::Schema.define(version: 2021_01_12_001713) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
