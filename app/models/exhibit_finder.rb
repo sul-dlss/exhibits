@@ -93,7 +93,10 @@ class ExhibitFinder
       @exhibits.map do |exhibit|
         thumbnail_url = exhibit&.thumbnail&.iiif_url
         if thumbnail_url&.start_with?('/')
-          thumbnail_url = "#{Settings.action_mailer.default_url_options.host}#{thumbnail_url}"
+          host = Settings.action_mailer.default_url_options.host
+          host = "https://#{host}" unless host.start_with?('http')
+
+          thumbnail_url = "#{host}#{thumbnail_url}"
         end
         exhibit.as_json.merge(
           'thumbnail_url' => thumbnail_url
