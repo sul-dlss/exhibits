@@ -145,7 +145,7 @@ RSpec.describe ExhibitFinder do
 
       it 'appends the host of the app to the URL in the case it is a relative URL' do
         expect(json_response.as_json.first['thumbnail_url']).to match(
-          %r{example\.com/images/\d+/full/400,400/0/default.jpg}
+          %r{https://example\.com/images/\d+/full/400,400/0/default.jpg}
         )
       end
     end
