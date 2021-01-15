@@ -53,7 +53,7 @@ RSpec.describe 'Searching Exhibits By Title', type: :feature, js: true do
       fill_in 'q', with: 'Map'
       click_button 'Search'
 
-      expect(page).to have_css('.sort-pagination .page-links .page-entries', text: /1 - 10 of \d+/)
+      expect(page).to have_css('.sort-pagination .page-links .page-entries', text: /1 - 12 of \d+/)
     end
   end
 end

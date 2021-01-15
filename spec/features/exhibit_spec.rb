@@ -26,7 +26,7 @@ describe 'an exhibit', type: :feature do
       visit spotlight.url_for(exhibit)
       fill_in 'q', with: 'Africa'
       click_button 'search'
-      expect(page).to have_content '1 - 10 of 16'
+      expect(page).to have_content '1 - 12 of 16'
       expect(page).to have_content 'Title: Africa'
     end
 

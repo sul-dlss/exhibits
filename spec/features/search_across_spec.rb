@@ -90,7 +90,7 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
         click_button 'Search'
       end
 
-      expect(page).to have_css('#sortAndPerPage .page-entries', text: /1 - 10 of \d{2,} items/)
+      expect(page).to have_css('#sortAndPerPage .page-entries', text: /1 - 12 of \d{2,} items/)
 
       within '#facets .facet-limit.blacklight-spotlight_exhibit_slugs_ssim', visible: false do
         expect(page).to have_css('.facet-label', text: unpublished_exhibit_with_documents.title, visible: :hidden)
@@ -119,7 +119,7 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
       expect(page).to have_content '13 results'
 
       click_link '13 results'
-      expect(page).to have_content '1 - 10 of 13'
+      expect(page).to have_content '1 - 12 of 13'
     end
   end
 end

@@ -73,6 +73,11 @@ class CatalogController < ApplicationController
       'hl.mergeContiguous' => true
     }
 
+    # Maximum number of results to show per page
+    config.max_per_page = 96
+    # Options for the user for number of results to show per page
+    config.per_page = [12, 24, 48, 96]
+
     config.default_autocomplete_solr_params = Spotlight::Engine.config.default_autocomplete_params
 
     config.add_results_collection_tool(:sort_widget)
