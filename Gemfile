@@ -139,3 +139,5 @@ gem 'acts-as-taggable-on'
 gem 'mods_display'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
+
+gem 'cancancan', '< 3.2' # pinned pending https://github.com/CanCanCommunity/cancancan/issues/677
