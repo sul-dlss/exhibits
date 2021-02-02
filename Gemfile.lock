@@ -775,7 +775,7 @@ DEPENDENCIES
   dlss-capistrano
   dotenv
   factory_bot_rails
-  faraday
+  faraday (~> 1.0)
   file_validators
   friendly_id (~> 5.2.0)
   harvestdor-indexer (~> 2.4)
@@ -788,7 +788,6 @@ DEPENDENCIES
   mirador_rails
   mods_display
   mysql2
-  net-http-persistent (< 3)
   newrelic_rpm
   nokogiri (>= 1.7.1)
   oauth2 (~> 1.4)
