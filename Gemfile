@@ -89,10 +89,10 @@ end
 gem 'config'
 
 gem 'bootstrap'
-gem 'blacklight', '~> 7.13.2'
-gem 'blacklight-gallery', '~> 2'
+gem 'blacklight', '~> 7.15'
+gem 'blacklight-gallery', '~> 3'
 gem 'blacklight_heatmaps'
-gem 'blacklight-spotlight', '~> 3.0.0.alpha.9'
+gem 'blacklight-spotlight', '~> 3.0.0.rc3'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 7.0'
@@ -105,7 +105,7 @@ gem 'nokogiri', '>= 1.7.1'
 gem 'turnout'
 gem 'ruby-oembed'
 gem 'okcomputer'
-gem 'friendly_id', '~> 5.2.0'
+gem 'friendly_id', '~> 5.4'
 gem 'sitemap_generator'
 
 source 'https://gems.contribsys.com/' do

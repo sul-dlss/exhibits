@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_12_001713) do
+ActiveRecord::Schema.define(version: 2021_02_02_173217) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -204,6 +204,25 @@ ActiveRecord::Schema.define(version: 2021_01_12_001713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exhibit_id"], name: "index_spotlight_filters_on_exhibit_id"
+  end
+
+  create_table "spotlight_groups", force: :cascade do |t|
+    t.string "slug"
+    t.text "title"
+    t.integer "exhibit_id"
+    t.integer "weight", default: 50
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exhibit_id"], name: "index_spotlight_groups_on_exhibit_id"
+  end
+
+  create_table "spotlight_groups_members", id: false, force: :cascade do |t|
+    t.integer "group_id"
+    t.string "member_type"
+    t.integer "member_id"
+    t.index ["group_id"], name: "index_spotlight_groups_members_on_group_id"
+    t.index ["member_type", "member_id"], name: "index_spotlight_groups_members_on_member_type_and_member_id"
   end
 
   create_table "spotlight_languages", force: :cascade do |t|

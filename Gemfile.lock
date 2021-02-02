@@ -43,17 +43,15 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (6.5.0)
-      activerecord (>= 5.0, < 6.1)
+    acts-as-taggable-on (7.0.0)
+      activerecord (>= 5.0, < 6.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
-    almond-rails (0.3.0)
-      rails (>= 4.2)
     arel (9.0.0)
     ast (2.4.2)
-    autoprefixer-rails (10.2.0.0)
+    autoprefixer-rails (10.2.4.0)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -63,25 +61,25 @@ GEM
     bibtex-ruby (6.0.0)
       latex-decode (~> 0.0)
     bindex (0.8.1)
-    blacklight (7.13.2)
+    blacklight (7.15.0)
       deprecation
       globalid
+      i18n (>= 1.7.0)
       jbuilder (~> 2.7)
       kaminari (>= 0.15)
+      ostruct (>= 0.3.2)
       rails (>= 5.1, < 7)
-      view_component
-    blacklight-gallery (2.1.0)
-      blacklight (~> 7.7)
+      view_component (>= 2.23.0)
+    blacklight-gallery (3.0.1)
+      blacklight (~> 7.12)
       bootstrap (~> 4.0)
-      openseadragon (>= 0.2.0)
       rails (>= 5.1, < 7)
     blacklight-oembed (1.0.1)
       blacklight (~> 7.0)
       rails
       ruby-oembed
-    blacklight-spotlight (3.0.0.rc2)
-      acts-as-taggable-on (>= 5.0, < 7)
-      almond-rails (>= 0.3.0)
+    blacklight-spotlight (3.0.0.rc3)
+      acts-as-taggable-on (>= 5.0, < 8)
       autoprefixer-rails
       blacklight (~> 7.0)
       bootstrap_form (~> 4.1)
@@ -93,8 +91,9 @@ GEM
       devise_invitable
       faraday
       faraday_middleware
-      friendly_id (~> 5.2, < 5.4)
+      friendly_id (~> 5.2, != 5.4.1, != 5.4.0)
       github-markup
+      handlebars_assets
       i18n
       i18n-active_record
       iiif-presentation
@@ -105,14 +104,15 @@ GEM
       nokogiri
       oauth2
       openseadragon
-      paper_trail (~> 10.0)
-      rails (< 6.1)
+      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
+      paper_trail (~> 11.0)
+      rails (< 6.2)
       riiif (~> 2.0)
       roar (~> 1.1)
       roar-rails
       signet
       sir_trevor_rails (>= 0.6.1)
-      sprockets (< 4)
+      sprockets (>= 3)
       sprockets-es6
       thor
       tophat
@@ -127,7 +127,7 @@ GEM
       rails (< 6.1)
     blacklight_range_limit (7.9.1)
       blacklight (~> 7.0)
-    bootsnap (1.6.0)
+    bootsnap (1.7.0)
       msgpack (~> 1.0)
     bootstrap (4.6.0)
       autoprefixer-rails (>= 9.1.0)
@@ -249,7 +249,7 @@ GEM
     dry-logic (1.1.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
-    dry-schema (1.6.0)
+    dry-schema (1.6.1)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.8, >= 0.8.3)
       dry-core (~> 0.5, >= 0.5)
@@ -294,12 +294,16 @@ GEM
       mime-types (>= 1.0)
     font-awesome-rails (4.7.0.6)
       railties (>= 3.2, < 6.2)
-    friendly_id (5.2.5)
+    friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     github-markup (3.0.5)
     gli (2.19.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    handlebars_assets (0.23.8)
+      execjs (~> 2.0)
+      sprockets (>= 2.0.0)
+      tilt (>= 1.2)
     harvestdor (0.3.2)
       confstruct
       faraday (~> 1)
@@ -329,7 +333,7 @@ GEM
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
     httpclient (2.8.3)
-    i18n (1.8.7)
+    i18n (1.8.8)
       concurrent-ruby (~> 1.0)
     i18n-active_record (0.4.0)
       i18n (>= 0.5.0)
@@ -424,7 +428,8 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     namae (1.0.2)
-    net-http-persistent (2.9.4)
+    net-http-persistent (4.0.1)
+      connection_pool (~> 2.2)
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
@@ -451,8 +456,9 @@ GEM
     openseadragon (0.6.0)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    paper_trail (10.3.1)
-      activerecord (>= 4.2)
+    ostruct (0.3.3)
+    paper_trail (11.1.0)
+      activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.20.1)
     parser (3.0.0.0)
@@ -567,7 +573,7 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 0.90.0, < 2.0)
-    rubocop-rspec (2.1.0)
+    rubocop-rspec (2.2.0)
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
     ruby-oembed (0.15.0)
@@ -714,7 +720,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (2.0.0)
-    view_component (2.25.0)
+    view_component (2.25.1)
       activesupport (>= 5.0.0, < 7.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -747,10 +753,10 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   bibtex-ruby
-  blacklight (~> 7.13.2)
-  blacklight-gallery (~> 2)
+  blacklight (~> 7.15)
+  blacklight-gallery (~> 3)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 3.0.0.alpha.9)
+  blacklight-spotlight (~> 3.0.0.rc3)
   blacklight_advanced_search
   blacklight_heatmaps
   blacklight_range_limit (~> 7.0)
@@ -777,7 +783,7 @@ DEPENDENCIES
   factory_bot_rails
   faraday (~> 1.0)
   file_validators
-  friendly_id (~> 5.2.0)
+  friendly_id (~> 5.4)
   harvestdor-indexer (~> 2.4)
   honeybadger
   jbuilder (~> 2.5)
