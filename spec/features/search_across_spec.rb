@@ -79,6 +79,21 @@ RSpec.describe 'Searching Across Exhibits', type: :feature do
         expect(facet_labels).to include('Exhibit category', 'Exhibit title')
       end
     end
+
+    it 'renders the masthead title appropriately' do
+      Spotlight::Site.instance.update(title: 'Custom Site Title')
+
+      visit root_path
+
+      expect(page).to have_css('h1.site-title', text: 'Custom Site Title')
+
+      within(first('.search-query-form')) do
+        fill_in :q, with: 'map'
+        click_button 'Search'
+      end
+
+      expect(page).to have_css('h1.site-title', text: 'Custom Site Title')
+    end
   end
 
   context 'as a user who is an admin' do
