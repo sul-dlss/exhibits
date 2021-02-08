@@ -8,7 +8,7 @@ class SearchAcrossController < ::CatalogController
   include Blacklight::Catalog
   include Spotlight::Catalog
 
-  helper Spotlight::CrudLinkHelpers
+  helper Spotlight::ApplicationHelper
   include BlacklightRangeLimit::ControllerOverride
   include SearchAcrossBlacklightOverrides
 
