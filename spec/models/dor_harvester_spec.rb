@@ -11,7 +11,6 @@ describe DorHarvester do
 
   before do
     allow(harvester).to receive(:exhibit).and_return(exhibit)
-    allow(harvester).to receive(:blacklight_solr).and_return(blacklight_solr)
   end
 
   describe '.instance' do
@@ -131,10 +130,9 @@ describe DorHarvester do
   describe '#indexable_resources' do
     subject { harvester.indexable_resources.to_a }
 
-    let(:exists_bool) { true }
     let(:items) { [] }
     let(:resource) do
-      instance_double(Harvestdor::Indexer::Resource, exists?: exists_bool, bare_druid: druid, items: items)
+      instance_double(Harvestdor::Indexer::Resource, exists?: true, bare_druid: druid, items: items)
     end
 
     before do
@@ -148,14 +146,6 @@ describe DorHarvester do
       end
     end
 
-    context 'with an unpublished druid' do
-      let(:exists_bool) { false }
-
-      it 'excludes missing resources' do
-        expect(subject).to be_empty
-      end
-    end
-
     context 'with a collection' do
       let(:items) { [child].each } # `#each` converts the array to an enumerable
       let(:child) { instance_double(Harvestdor::Indexer::Resource, exists?: true, bare_druid: druid, items: []) }
@@ -165,51 +155,6 @@ describe DorHarvester do
         expect(subject.first.bare_druid).to eq resource.bare_druid
         expect(subject.last.bare_druid).to eq child.bare_druid
       end
-    end
-  end
-
-  describe '#reindex' do
-    let(:resource) do
-      instance_double(Harvestdor::Indexer::Resource, druid: 'abc123',
-                                                     bare_druid: 'abc123',
-                                                     collection?: false,
-                                                     exists?: true,
-                                                     items: [])
-    end
-    let(:druid) { 'abc123' }
-    let(:solr_data) do
-      [{ id: 'abc123',
-         spotlight_resource_id_ssim: subject.to_global_id.to_s,
-         spotlight_resource_type_ssim: 'dor_harvesters',
-         upstream: true }]
-    end
-
-    before do
-      ActiveJob::Base.queue_adapter = :test
-
-      subject.save!
-      allow_any_instance_of(Traject::Indexer).to receive(:map_record).and_return(upstream: true)
-      allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, 'abc123').and_return(resource)
-      allow_any_instance_of(SolrDocument).to receive(:to_solr).and_return(id: 'abc123')
-
-      allow(blacklight_solr).to receive(:update)
-      allow(subject).to receive(:commit)
-    end
-
-    it 'adds a document to solr' do
-      subject.reindex
-
-      expect(blacklight_solr).to have_received(:update).with(params: { commitWithin: 500 },
-                                                             data: solr_data.to_json,
-                                                             headers: { 'Content-Type' => 'application/json' })
-      expect(subject).to have_received(:commit)
-    end
-
-    it 'rescues solr batch update errors' do
-      allow(blacklight_solr).to receive(:update).and_raise('Error!')
-
-      expect { subject.reindex }.to have_enqueued_job(RecordIndexStatusJob)
-        .with(harvester, druid, ok: false, message: 'Error!')
     end
   end
 end

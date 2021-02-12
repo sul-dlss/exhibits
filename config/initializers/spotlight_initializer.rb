@@ -20,9 +20,9 @@ Spotlight::Engine.config.upload_fields = [
     solr_fields: [
       'date_sort',
       'spotlight_upload_date_tesim',
-      pub_year_w_approx_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) },
-      pub_year_tisim: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) },
-      pub_year_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) }
+      pub_year_w_approx_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) if value },
+      pub_year_tisim: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) if value },
+      pub_year_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) if value }
     ],
     field_name: :spotlight_upload_date_tesim,
     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }
@@ -31,7 +31,28 @@ Spotlight::Engine.config.upload_fields = [
 Spotlight::Engine.config.default_contact_email = Settings.default_contact_email
 Spotlight::Engine.config.external_resources_partials += ['dor_harvester/form', 'bibliography_resources/form']
 
-Spotlight::Resources::Upload.document_builder_class = ::UploadSolrDocumentBuilder
+ActiveSupport::Reloader.to_prepare do
+  Spotlight::Resources::Upload.indexing_pipeline.transforms << (lambda do |data, pipeline|
+    resource = pipeline.context.resource
+    riiif = Riiif::Engine.routes.url_helpers
+
+    data.merge({
+      thumbnail_square_url_ssm: riiif.image_path(resource.upload_id, region: 'square', size: '100,100'),
+      large_image_url_ssm: riiif.image_path(resource.upload_id, region: 'full', size: '!1000,1000'),
+    })
+  end)
+
+  Spotlight::Etl::Context.error_reporter = lambda do |pipeline, exception, data|
+    if pipeline.context.resource.is_a? DorHarvester
+      message = exception.inspect.truncate(1.megabyte)
+      RecordIndexStatusJob.perform_later(pipeline.context.resource, pipeline.source&.bare_druid, ok: false, message: message)
+
+      Honeybadger.notify(exception, context: { exhibit: pipeline.context.resource.exhibit_id, druid: pipeline.source&.bare_druid, resource_id: pipeline.context.resource.id })
+    else
+      Honeybadger.notify(exception, context: { exhibit: pipeline.context.resource.exhibit_id, resource_id: pipeline.context.resource.id })
+    end
+  end
+end
 
 Spotlight::Engine.config.exhibit_themes = %w[default parker] if FeatureFlags.new.themes?
 

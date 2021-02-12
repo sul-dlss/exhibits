@@ -19,7 +19,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   let(:author_fields) do
     %w(author_person_full_display author_sort)
   end
-  let(:to_solr_hash) { bibliography_resource.document_builder.to_solr.first }
+  let(:to_solr_hash) { indexed_documents(bibliography_resource).first&.with_indifferent_access }
 
   before :all do
     ActiveJob::Base.queue_adapter = :inline # block until indexing has committed
@@ -245,7 +245,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
 
   context 'with TeX-ified title' do
     subject(:document) do
-      SolrDocument.new(bibliography_resource.document_builder.to_solr.first)
+      SolrDocument.new(to_solr_hash)
     end
 
     let(:file) { 'spec/fixtures/bibliography/texifiedtitle.bib' }

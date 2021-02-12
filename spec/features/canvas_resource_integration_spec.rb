@@ -12,7 +12,7 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
   let(:resource) { CanvasResource.new(exhibit: exhibit, data: enhanced_canvas) }
   let(:file) { 'spec/fixtures/iiif/fh878gz0315-canvas-521.json' }
   let(:exhibit) { create(:exhibit) }
-  let(:to_solr_hash) { resource.document_builder.to_solr.first }
+  let(:to_solr_hash) { indexed_documents(resource).first }
   let(:annolist_file) { 'spec/fixtures/iiif/fh878g0315-text-f254r.json' }
   let(:annolist_url) { 'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f254r.json' }
   let(:title_display_search_fields) do

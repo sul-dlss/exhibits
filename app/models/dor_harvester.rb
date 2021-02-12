@@ -2,8 +2,6 @@
 
 # Base Resource harvester for objects in DOR
 class DorHarvester < Spotlight::Resource
-  self.document_builder_class = DorSolrDocumentBuilder
-
   store :data, accessors: [:druid_list, :collections]
 
   before_index :trigger_update_resource_metadata
@@ -11,6 +9,46 @@ class DorHarvester < Spotlight::Resource
   class << self
     def instance(current_exhibit)
       find_or_initialize_by exhibit: current_exhibit
+    end
+  end
+
+  def self.indexing_pipeline
+    @indexing_pipeline ||= super.dup.tap do |pipeline|
+      pipeline.sources = [
+        Spotlight::Etl::Sources::SourceMethodSource(:indexable_resources)
+      ]
+
+      pipeline.pre_processes += [
+        lambda do |_data, p|
+          next if p.source.exists?
+
+          p.context.resource.on_error(p.source, 'Missing')
+
+          throw(:skip)
+        end
+      ]
+
+      pipeline.transforms = [
+        lambda do |data, p|
+          doc = p.context.resource.traject_indexer.map_record(p.source)
+
+          throw(:skip) unless doc
+
+          data.merge(Traject::AdjustCardinality.call(doc).symbolize_keys)
+        end
+      ] + pipeline.transforms
+
+      pipeline.post_processes += [
+        lambda do |_data, p|
+          p.context.resource.on_success(p.source)
+        end
+      ]
+    end
+  end
+
+  def traject_indexer
+    @traject_indexer ||= Traject::Indexer.new.tap do |i|
+      i.load_config_file('lib/traject/dor_config.rb')
     end
   end
 
@@ -38,12 +76,9 @@ class DorHarvester < Spotlight::Resource
     return to_enum(:indexable_resources) { size } unless block_given?
 
     resources.each do |resource|
-      unless resource.exists?
-        on_error(resource, 'Missing')
-        next
-      end
-
       yield resource
+
+      next unless resource.exists?
 
       resource.items.each do |r|
         yield r
@@ -99,35 +134,5 @@ class DorHarvester < Spotlight::Resource
       purl_fetcher: Settings.purl_fetcher.to_h,
       harvestdor: Settings.harvestdor
     )
-  end
-
-  # Override upstream implementation to add rescuing and logging from failed solr batch updates
-  def write_to_index(batch)
-    documents = documents_that_have_ids(batch)
-    return unless write? && documents.present?
-
-    send_batch(documents)
-  end
-
-  def send_batch(documents)
-    blacklight_solr.update params: { commitWithin: 500 },
-                           data: documents.to_json,
-                           headers: { 'Content-Type' => 'application/json' }
-  rescue StandardError => e
-    Honeybadger.notify(e, context: { resource_id: id })
-    Rails.logger.warn "Error sending a batch of documents to solr: #{e}"
-
-    documents.each do |doc|
-      send_one(doc)
-    end
-  end
-
-  def send_one(document)
-    blacklight_solr.update params: { commitWithin: 500 },
-                           data: [document].to_json,
-                           headers: { 'Content-Type' => 'application/json' }
-  rescue StandardError => e
-    Honeybadger.notify(e, context: { druid: document[:id], resource_id: id })
-    RecordIndexStatusJob.perform_later(self, document[:id], ok: false, message: e.to_s.truncate(1000))
   end
 end
