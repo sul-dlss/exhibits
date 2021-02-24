@@ -111,7 +111,7 @@ class CatalogController < ApplicationController
     config.index.square_image_field = :thumbnail_square_url_ssm
     config.index.slideshow_field = :large_image_url_ssm
 
-    config.show.title_field = 'title_full_display'
+    config.show.title_field = 'title_display'
     config.show.oembed_field = :url_fulltext
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
