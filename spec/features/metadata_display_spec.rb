@@ -15,19 +15,17 @@ RSpec.feature 'Metadata display' do
 
     it 'view metadata link links through to page', js: false do
       click_link 'More details »'
-      expect(page).to have_link 'Afrique Physique.', href: document_url
-      expect(page).to have_css 'h3', text: 'Afrique Physique.'
+      expect(page).to have_link 'Afrique Physique', href: document_url
+      expect(page).to have_css 'h3', text: 'Afrique Physique'
       expect(page).not_to have_css 'dt', text: 'Title:'
-      expect(page).not_to have_css 'dd', text: 'Afrique Physique.'
       expect(page).to have_css 'a[download="gk885tn1705.mods.xml"]', text: 'Download'
     end
 
     it 'opens view metadata in modal', js: true do
       click_link 'More details »'
       within '#blacklight-modal' do
-        expect(page).to have_css 'h3', text: 'Afrique Physique.'
+        expect(page).to have_css 'h3', text: 'Afrique Physique'
         expect(page).not_to have_css 'dt', text: 'Title:'
-        expect(page).not_to have_css 'dd', text: 'Afrique Physique.'
         expect(page).to have_css 'a[download="gk885tn1705.mods.xml"]', text: 'Download'
       end
     end
