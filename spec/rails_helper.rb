@@ -58,6 +58,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include RequestSpecHelper
+  config.include EtlHelper
 
   config.before do
     DatabaseCleaner.strategy = if Capybara.current_driver == :rack_test

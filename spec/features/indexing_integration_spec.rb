@@ -27,9 +27,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
     end
 
     context 'to_solr' do
-      subject(:document) do
-        dor_harvester.document_builder.to_solr.first
-      end
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
       it 'has a doc id' do
         expect(document[:id]).to eq druid
@@ -110,9 +108,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
   end
 
   context 'feigenbaum item' do
-    subject(:document) do
-      dor_harvester.document_builder.to_solr.first
-    end
+    subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
     let(:druid) { 'rk684yq9989' }
 
@@ -145,9 +141,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
   end
 
   context 'an item with ALTO OCR' do
-    subject(:document) do
-      dor_harvester.document_builder.to_solr.first
-    end
+    subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
     let(:druid) { 'cc842mn9348' }
 
@@ -169,9 +163,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
   end
 
   context 'parker item' do
-    subject(:document) do
-      dor_harvester.document_builder.to_solr.first
-    end
+    subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
     let(:druid) { 'cf386wt1778' }
 
@@ -192,12 +184,12 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
     let(:druid) { 'dx969tv9730' }
 
     context 'to_solr' do
-      subject(:document) do
-        dor_harvester.document_builder.to_solr.first
-      end
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
       before do
-        allow(dor_harvester).to receive(:size).and_return(556)
+        stub_request(:get, 'https://purl-fetcher-url.example.com/collections/druid:dx969tv9730/purls?page=1&per_page=100').to_return(
+          body: '{}', status: 200
+        )
       end
 
       it 'has correct doc id' do
@@ -226,9 +218,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
     let(:druid) { 'ws947mh3822' }
 
     context 'to_solr' do
-      subject(:document) do
-        dor_harvester.document_builder.to_solr.first
-      end
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
       it 'has content metadata fields' do
         expect(document).to include content_metadata_type_ssim: ['image'],
@@ -248,9 +238,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
     let(:druid) { 'hm136qv0310' }
 
     context 'to_solr' do
-      subject(:document) do
-        dor_harvester.document_builder.to_solr.first
-      end
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
       it 'has publisher fields' do
         expect(document).to include publisher_ssim: ['D. Margand et C. Fatout'],

@@ -242,7 +242,7 @@ to_field 'full_text_tesimv', (accumulate { |resource, *_| FullTextParser.new(res
 
 # PARKER FIELDS
 
-to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_rec.location.shelfLocator.try(:text) })
+to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_rec.location.shelfLocator&.text })
 
 to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
 

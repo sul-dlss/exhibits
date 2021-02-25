@@ -20,7 +20,7 @@ class FeatureFlags
 
   # Sets exhibit specific flags if configured
   def for(exhibit = nil)
-    contextual_settings = base_settings.try(contextual_exhibit_slug(exhibit))
+    contextual_settings = base_settings&.dig(contextual_exhibit_slug(exhibit))
     self.flags = contextual_settings if contextual_settings.present?
     self
   end

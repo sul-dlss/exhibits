@@ -15,6 +15,10 @@ class BibTeXReader
     bibliography.bibliography.each(&block)
   end
 
+  def count
+    size
+  end
+
   def size
     bibliography.bibliography.size
   end

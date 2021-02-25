@@ -12,4 +12,8 @@ class CanvasReader
 
   attr_reader :data
   delegate :each, :size, to: :data
+
+  def count
+    size
+  end
 end

@@ -89,10 +89,10 @@ end
 gem 'config'
 
 gem 'bootstrap'
-gem 'blacklight', '~> 7.13.2'
-gem 'blacklight-gallery', '~> 2'
+gem 'blacklight', '~> 7.15'
+gem 'blacklight-gallery', '~> 3'
 gem 'blacklight_heatmaps'
-gem 'blacklight-spotlight', '~> 3.0.0.alpha.9'
+gem 'blacklight-spotlight', '~> 3.0.0.rc3'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 7.0'
@@ -105,7 +105,7 @@ gem 'nokogiri', '>= 1.7.1'
 gem 'turnout'
 gem 'ruby-oembed'
 gem 'okcomputer'
-gem 'friendly_id', '~> 5.2.0'
+gem 'friendly_id', '~> 5.4'
 gem 'sitemap_generator'
 
 source 'https://gems.contribsys.com/' do
@@ -118,12 +118,8 @@ gem 'dotenv'
 gem 'sir_trevor_rails'
 gem 'riiif'
 gem 'rsolr'
-gem 'faraday'
-# We have to pin net-http-persistent to before the 3.0.0 release due to an issue w/ faraday.
-# Faraday 0.13.0 resolves this issue, but we're curren't unable to upgrade to that due to
-# oauth2 (1.4.0) requiring Faraday < 0.13.0
+gem 'faraday', '~> 1.0'
 gem 'oauth2', '~> 1.4'
-gem 'net-http-persistent', '< 3'
 gem 'harvestdor-indexer', '~> 2.4'
 gem 'stanford-mods', '~> 2.2', '>= 2.2.1'
 gem 'solrizer'
