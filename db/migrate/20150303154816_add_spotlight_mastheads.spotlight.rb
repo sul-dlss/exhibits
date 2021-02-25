@@ -6,10 +6,10 @@ class AddSpotlightMastheads < ActiveRecord::Migration[5.0]
       t.string :image
       t.string :source
       t.string :document_global_id
-      t.integer :image_crop_x, :integer
-      t.integer :image_crop_y, :integer
-      t.integer :image_crop_w, :integer
-      t.integer :image_crop_h, :integer
+      t.integer :image_crop_x
+      t.integer :image_crop_y
+      t.integer :image_crop_w
+      t.integer :image_crop_h
       t.references :exhibit
       t.timestamps
     end
