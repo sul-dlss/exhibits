@@ -14,7 +14,7 @@ RSpec.describe 'Bibliography resource integration test', type: :feature do
   let(:file) { 'spec/fixtures/bibliography/article.bib' }
   let(:exhibit) { create(:exhibit) }
   let(:title_fields) do
-    %w(title_display title_full_display title_uniform_search title_sort)
+    %w(title_display title_uniform_search title_sort)
   end
   let(:author_fields) do
     %w(author_person_full_display author_sort)

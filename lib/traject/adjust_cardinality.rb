@@ -22,7 +22,7 @@ module Traject
       flatten = %w(
         id modsxml druid last_updated url_fulltext display_type collection_type
         author_1xx_search
-        title_245_search title_245a_display title_245a_search title_display title_full_display title_sort
+        title_245_search title_245a_display title_245a_search title_display title_sort
         modsxml_tsi author_sort imprint_display
         pub_year_isi
         pub_year_no_approx_isi

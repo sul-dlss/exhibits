@@ -60,7 +60,7 @@ module CatalogHelper
 
     druid = options[:value][0]
     document = options[:document]
-    title = document['title_full_display']
+    title = document['title_display']
     link_title = if document.canvas? && title.include?(':')
                    title.partition(':')[2]
                  else

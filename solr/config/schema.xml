@@ -60,8 +60,6 @@
     <field name="vern_title_245a_display" type="string" indexed="false" stored="true" />
     <field name="title_245c_display" type="string" indexed="false" stored="true" />
     <field name="vern_title_245c_display" type="string" indexed="false" stored="true" />
-    <field name="title_full_display" type="string" indexed="false" stored="true" />
-    <field name="vern_title_full_display" type="string" indexed="false" stored="true" />
     <field name="title_uniform_display" type="string" indexed="false" stored="true" />
     <field name="vern_title_uniform_display" type="string" indexed="false" stored="true" />
     <field name="title_variant_display" type="string" indexed="false" stored="true" multiValued="true" />
@@ -337,7 +335,7 @@
 
   <!-- exhibits fields -->
   <copyField source="id" dest="id_ng" maxChars="3000"/>
-  <copyField source="title_full_display" dest="full_title_ng" maxChars="3000"/>
+  <copyField source="title_display" dest="full_title_ng" maxChars="3000"/>
   <!-- NOTE:  all_search is meant for metadata -->
   <copyField source="*_tesim" dest="all_search" />
   <copyField source="*_tsi" dest="all_search" />

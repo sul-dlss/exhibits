@@ -43,7 +43,6 @@ end
 to_field 'title_sort', stanford_mods(:sw_sort_title)
 to_field 'title_245a_display', stanford_mods(:sw_short_title)
 to_field 'title_display', stanford_mods(:sw_title_display)
-to_field 'title_full_display', stanford_mods(:sw_full_title)
 
 # author fields
 to_field 'author_1xx_search', stanford_mods(:sw_main_author)

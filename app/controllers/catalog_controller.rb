@@ -211,7 +211,7 @@ class CatalogController < ApplicationController
                                                   helper_method: :document_leaflet_map,
                                                   immutable: config.view.keys.map { |k| [k, false] }.to_h
 
-    config.add_index_field 'title_full_display', label: 'Title'
+    config.add_index_field 'title_full_display', label: 'Title', field: 'title_display'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
     config.add_index_field 'author_person_full_display', label: 'Author' # includes Collectors
     config.add_index_field 'author_no_collector_ssim', label: 'Author (no Collectors)'

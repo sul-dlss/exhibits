@@ -69,7 +69,6 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
                                     title_245a_display: 'Latin glossary : small manuscript fragment on vellum',
                                     title_245a_search: 'Latin glossary : small manuscript fragment on vellum',
                                     title_display: 'Latin glossary : small manuscript fragment on vellum',
-                                    title_full_display: 'Latin glossary : small manuscript fragment on vellum.',
                                     title_sort: 'Latin glossary small manuscript fragment on vellum'
       end
 

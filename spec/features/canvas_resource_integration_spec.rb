@@ -16,7 +16,7 @@ RSpec.describe 'Canvas resource integration test', type: :feature do
   let(:annolist_file) { 'spec/fixtures/iiif/fh878g0315-text-f254r.json' }
   let(:annolist_url) { 'https://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/list/text-f254r.json' }
   let(:title_display_search_fields) do
-    %w(title_display title_full_display title_uniform_search)
+    %w(title_display title_uniform_search)
   end
 
   before :all do
