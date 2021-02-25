@@ -6,10 +6,16 @@
 # ExhibitIndexer.new(exhibit)
 # There is an #add method that will add/update the document in the index for that exhibit.
 # There is also a #delete method that will delete the document for that exhibit (by id).
+# The indexer will commit by default (since it runs in a background job), but if you're indexing
+# in batches you you may want to commit after, in that case you can initialize the indexer with commit: false
+# ExhibitIndexer.new(exhibit, commit: false).add
 class ExhibitIndexer
   attr_accessor :exhibit
-  def initialize(exhibit)
+  attr_reader :commit
+
+  def initialize(exhibit, commit: true)
     @exhibit = exhibit
+    @commit = commit
   end
 
   def to_solr
@@ -18,10 +24,12 @@ class ExhibitIndexer
 
   def delete
     self.class.solr_connection.delete_by_id(document_id)
+    self.class.solr_connection.commit if commit
   end
 
   def add
     self.class.solr_connection.add(to_solr)
+    self.class.solr_connection.commit if commit
   end
 
   def self.solr_connection

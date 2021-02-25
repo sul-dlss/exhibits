@@ -22,6 +22,7 @@ RSpec.describe ExhibitIndexer do
           exhibit_title_tesim: exhibit.title
         )
       )
+      expect(solr_connection).to have_received(:commit)
     end
   end
 
@@ -30,6 +31,7 @@ RSpec.describe ExhibitIndexer do
       indexer.delete
 
       expect(solr_connection).to have_received(:delete_by_id).with("exhibit-#{exhibit.slug}")
+      expect(solr_connection).to have_received(:commit)
     end
   end
 
