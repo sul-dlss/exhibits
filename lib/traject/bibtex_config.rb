@@ -36,7 +36,7 @@ to_field 'ref_type_ssm', extract_bibtex(:type) do |_record, accumulator, _contex
   accumulator.map! { |v| BIBTEX_ZOTERO_MAPPING[v] }.compact!
 end
 
-to_fields %w(title_display title_full_display title_uniform_search title_sort), extract_bibtex_field(:title)
+to_fields %w(title_display title_uniform_search title_sort), extract_bibtex_field(:title)
 to_fields %w(author_person_full_display author_sort), extract_bibtex_field(:author)
 to_fields %w(pub_year_isi pub_year_w_approx_isi), extract_bibtex(:year)
 to_field 'editor_ssim', extract_bibtex_field(:editor)

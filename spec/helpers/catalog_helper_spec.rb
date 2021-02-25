@@ -109,7 +109,7 @@ describe CatalogHelper, type: :helper do
       let(:title) { 'Baldwin of Ford OCist, De sacramento altaris' }
       let(:document) do
         SolrDocument.new(
-          title_full_display: "p. 3:#{title}",
+          title_display: "p. 3:#{title}",
           manuscript_number_tesim: ['MS 198'],
           format_main_ssim: ['Page details']
         )
@@ -123,7 +123,7 @@ describe CatalogHelper, type: :helper do
     context 'bibilography resource' do
       let(:document) do
         SolrDocument.new(
-          title_full_display: 'A Zotero reference',
+          title_display: 'A Zotero reference',
           format_main_ssim: ['Bibliography']
         )
       end
