@@ -67,3 +67,9 @@ end
 Spotlight::Engine.config.default_autocomplete_params = {
   qf: 'id^1000 title_245_unstem_search^200 title_245_search^100 id_ng^50 full_title_ng^50 all_search'
 }
+
+Spotlight::Engine.config.sir_trevor_widgets = %w[
+  Heading Text List Quote Iframe Video Oembed Rule UploadedItems Browse LinkToSearch
+  FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed
+  SolrDocumentsFeatures SolrDocumentsGrid SearchResults
+]
