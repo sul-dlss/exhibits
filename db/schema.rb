@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_221044) do
   end
 
   create_table "spotlight_events", force: :cascade do |t|
-    t.integer "exhibit_id", null: false
+    t.integer "exhibit_id"
     t.string "resource_type", null: false
     t.integer "resource_id", null: false
     t.string "type"

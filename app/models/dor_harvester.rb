@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'traject/adjust_cardinality'
+
 # Base Resource harvester for objects in DOR
 class DorHarvester < Spotlight::Resource
   store :data, accessors: [:druid_list, :collections]
