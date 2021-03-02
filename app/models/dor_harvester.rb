@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'traject/adjust_cardinality'
 
 # Base Resource harvester for objects in DOR
