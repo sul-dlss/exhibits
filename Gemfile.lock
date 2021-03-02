@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: bc39e0bfe090cc59e3060cb8dea01598a618dddc
+  revision: eb04273aa756e97e4d3125d51fc7e075c87497c7
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -109,7 +109,7 @@ GEM
     bibtex-ruby (6.0.0)
       latex-decode (~> 0.0)
     bindex (0.8.1)
-    blacklight (7.15.1)
+    blacklight (7.15.2)
       deprecation
       globalid
       i18n (>= 1.7.0)
@@ -122,7 +122,7 @@ GEM
       blacklight (~> 7.12)
       bootstrap (~> 4.0)
       rails (>= 5.1, < 7)
-    blacklight-oembed (1.0.1)
+    blacklight-oembed (1.1.0)
       blacklight (~> 7.0)
       rails
       ruby-oembed
@@ -576,7 +576,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.1)
       parser (>= 2.7.1.5)
-    rubocop-performance (1.10.0)
+    rubocop-performance (1.10.1)
       rubocop (>= 0.90.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.9.1)
