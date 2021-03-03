@@ -18,7 +18,6 @@ feature_flags:
   add_resource_type_index_field: false # Should the resource type field be added as an index/show field. For some exhibits this is desirable
   add_parker_search_fields: false # Parker specific search fields
   slack_notifications: false
-  mirador_options: {}
   uat_embed: false
   search_across: false
   home_page_navbar: false
@@ -63,14 +62,6 @@ slack_notifications:
   default_channel: '#spotlight-service-team'
   api_token: 'your-api-token-here'
 index_status_threshold: 10
-mirador_options:
-  sidePanelOptions:
-    tocTabAvailable: true
-    layersTabAvailable: true
-    searchTabAvailable: true
-  windowSettings:
-    sidePanel: true
-    sidePanelVisible: false
 async_javascript: false
 sidekiq_retry_queue_threshold: 100
 revision: <%= File.read("#{Rails.root}/REVISION").chomp if File.exists?("#{Rails.root}/REVISION") %>
