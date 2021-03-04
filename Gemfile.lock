@@ -216,8 +216,6 @@ GEM
     config (3.0.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
-    confstruct (1.0.2)
-      hashie (~> 3.3)
     connection_pool (2.2.3)
     crack (0.4.5)
       rexml
@@ -260,7 +258,8 @@ GEM
     docile (1.3.5)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    dor-fetcher (1.0.5)
+    dor-rights-auth (1.7.0)
+      nokogiri
     dot-properties (0.1.3)
     dotenv (2.7.6)
     dry-configurable (0.12.1)
@@ -330,21 +329,6 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
-    harvestdor (0.3.2)
-      confstruct
-      faraday (~> 1)
-      net-http-persistent
-      nokogiri
-    harvestdor-indexer (2.5.0)
-      activesupport
-      confstruct
-      dor-fetcher (= 1.0.5)
-      faraday
-      harvestdor (>= 0.0.14)
-      parallel
-      retries
-      rsolr
-      stanford-mods
     hashdiff (1.0.1)
     hashie (3.6.0)
     honeybadger (4.7.3)
@@ -429,6 +413,7 @@ GEM
     mimemagic (0.3.5)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     mods (2.4.1)
       edtf
@@ -444,14 +429,13 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     namae (1.0.2)
-    net-http-persistent (4.0.1)
-      connection_pool (~> 2.2)
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
     newrelic_rpm (6.15.0)
     nio4r (2.5.7)
-    nokogiri (1.11.1-x86_64-darwin)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     nom-xml (1.1.0)
       activesupport (>= 3.2.18)
@@ -479,6 +463,12 @@ GEM
     public_suffix (4.0.6)
     puma (5.2.2)
       nio4r (~> 2.0)
+    purl_fetcher-client (0.4.0)
+      dor-rights-auth
+      http
+      mods_display
+      nokogiri
+      stanford-mods
     racc (1.5.2)
     rack (2.2.3)
     rack-accept (0.4.5)
@@ -536,7 +526,6 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     retriable (3.1.2)
-    retries (0.0.5)
     rexml (3.2.4)
     riiif (2.3.0)
       deprecation (>= 1.0.0)
@@ -786,7 +775,6 @@ DEPENDENCIES
   faraday (~> 1.0)
   file_validators
   friendly_id (~> 5.4)
-  harvestdor-indexer (~> 2.4)
   honeybadger
   jbuilder (~> 2.7)
   jquery-rails
@@ -800,6 +788,7 @@ DEPENDENCIES
   oauth2 (~> 1.4)
   okcomputer
   puma (~> 5.0)
+  purl_fetcher-client (~> 0.4)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)
   rails-controller-testing

@@ -7,6 +7,7 @@ stacks:
   file_url: 'https://stacks.stanford.edu/file'
 
 purl:
+  url: 'https://purl.stanford.edu/%{druid}'
   uat_url: 'https://sul-purl-uat.stanford.edu/%{druid}'
   iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest'
 sidekiq:
@@ -42,10 +43,6 @@ exhibit_themes:
     - parker
   default:
     - default
-harvestdor:
-  log_dir: log/gdor_logs
-  log_name: gdor.log
-  purl: https://purl.stanford.edu
 
 purl_fetcher:
   url: 'https://purl-fetcher-url.example.com'
