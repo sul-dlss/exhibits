@@ -22,5 +22,7 @@ class Ability
     cannot :import, Spotlight::Exhibit unless user.superadmin?
 
     cannot :manage, Spotlight::Filter unless user.superadmin?
+
+    cannot :bulk_update, Spotlight::Exhibit unless user.superadmin?
   end
 end
