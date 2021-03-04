@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 02b14d78de1855755ea46a478cc6a8ab5d09fb1d
+  revision: 04a48525b3e94c8660d5d4e26585131aceb2689c
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -429,6 +429,7 @@ GEM
     mimemagic (0.3.5)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     mods (2.4.1)
       edtf
@@ -451,7 +452,8 @@ GEM
     net-ssh (6.1.0)
     newrelic_rpm (6.15.0)
     nio4r (2.5.7)
-    nokogiri (1.11.1-x86_64-darwin)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     nom-xml (1.1.0)
       activesupport (>= 3.2.18)
