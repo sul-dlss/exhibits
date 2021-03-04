@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: eb04273aa756e97e4d3125d51fc7e075c87497c7
+  revision: e442b4a54e534cf377f33feb735f19dada2b503d
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -8,9 +8,9 @@ GIT
       autoprefixer-rails
       blacklight (~> 7.0)
       bootstrap_form (~> 4.1)
-      breadcrumbs_on_rails (~> 3.0)
+      breadcrumbs_on_rails (>= 3.0, < 5)
       cancancan
-      carrierwave
+      carrierwave (~> 2.2)
       clipboard-rails (~> 1.5)
       devise (~> 4.1)
       devise_invitable
@@ -145,7 +145,8 @@ GEM
     bootstrap_form (4.5.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-    breadcrumbs_on_rails (3.0.1)
+    breadcrumbs_on_rails (4.0.0)
+      rails (>= 5.0)
     builder (3.2.4)
     bundler-audit (0.7.0.1)
       bundler (>= 1.2.0, < 3)
@@ -434,13 +435,9 @@ GEM
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
     newrelic_rpm (6.15.0)
-    nio4r (2.5.5)
+    nio4r (2.5.7)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
-    nokogiri (1.11.1-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     nom-xml (1.1.0)
       activesupport (>= 3.2.18)
