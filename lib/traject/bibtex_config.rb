@@ -6,8 +6,8 @@ require_relative 'macros/general'
 
 require 'bibliography'
 require 'active_support/core_ext/object/blank'
-extend Macros::BibTeX
-extend Macros::General
+extend Traject::Macros::Bibtex
+extend Traject::Macros::General
 
 BIBTEX_ZOTERO_MAPPING = {
   phdthesis: 'Thesis',
@@ -18,7 +18,7 @@ BIBTEX_ZOTERO_MAPPING = {
 }.with_indifferent_access.freeze
 
 settings do
-  provide 'reader_class_name', 'BibTeXReader'
+  provide 'reader_class_name', 'Traject::BibtexReader'
   provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
 

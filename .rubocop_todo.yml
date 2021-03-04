@@ -122,6 +122,12 @@ Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/search_across_helper.rb'
 
+# Offense count: 2
+# Cop supports --auto-correct.
+Rails/IndexWith:
+  Exclude:
+    - 'app/controllers/catalog_controller.rb'
+
 # Offense count: 3
 Rails/OutputSafety:
   Exclude:

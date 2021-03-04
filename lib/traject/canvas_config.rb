@@ -5,11 +5,11 @@ require_relative 'macros/general'
 require_relative 'macros/canvas'
 
 require 'active_support/core_ext/object/blank'
-extend Macros::General
-extend Macros::Canvas
+extend Traject::Macros::General
+extend Traject::Macros::Canvas
 
 settings do
-  provide 'reader_class_name', 'CanvasReader'
+  provide 'reader_class_name', 'Traject::CanvasReader'
   provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
 
