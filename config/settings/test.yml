@@ -18,11 +18,3 @@ feature_flags:
     index_related_content: true
     add_resource_type_index_field: true
     uat_embed: true
-    mirador_options:
-      sidePanelOptions:
-        tocTabAvailable: true
-        layersTabAvailable: false
-        searchTabAvailable: true
-      windowSettings:
-        sidePanel: true
-        sidePanelVisible: true

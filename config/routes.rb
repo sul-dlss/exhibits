@@ -16,8 +16,6 @@ Exhibits::Application.routes.draw do
     mount Blacklight::Oembed::Engine, at: 'oembed'
     mount Riiif::Engine => '/images', as: 'riiif'
 
-    resources :mirador, only: [:index]
-
     root to: 'spotlight/exhibits#index'
 
     devise_for :users, skip: [:sessions]
@@ -67,7 +65,6 @@ Exhibits::Application.routes.draw do
       end
     end
   end
-  mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 
   Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight', defaults: { locale: nil } }
   mount Blacklight::Engine => '/'

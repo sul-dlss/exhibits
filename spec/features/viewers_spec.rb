@@ -32,11 +32,11 @@ describe 'Viewers', type: :feature do
       end
 
       within '#item-detail-page' do
-        choose 'Mirador 2'
+        choose 'Mirador 3'
         click_button 'Save changes'
       end
 
-      expect(find_field('Mirador 2')[:checked]).to eq 'checked'
+      expect(find_field('Mirador 3')[:checked]).to eq 'checked'
     end
 
     it 'includes breadcrumbs on the edit page' do
@@ -78,20 +78,15 @@ describe 'Viewers', type: :feature do
     let(:admin) { FactoryBot.create(:exhibit_admin, exhibit: exhibit) }
 
     before do
-      exhibit.required_viewer.viewer_type = 'mirador'
+      exhibit.required_viewer.viewer_type = 'mirador3'
       exhibit.required_viewer.save
       login_as admin
     end
 
     it 'renders configured viewer on show page' do
       visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
-      expect(page).to have_css 'iframe[src*=mirador]'
+      expect(page).to have_css 'iframe[src*=embed]'
       expect(page).not_to have_css '.oembed-widget'
-    end
-
-    it 'instantiates Mirador and expects the object to be loaded', js: true do
-      visit mirador_index_path(locale: 'en', exhibit_slug: exhibit.slug, manifest: 'https://purl.stanford.edu/hj066rn6500/iiif/manifest')
-      expect(page).to have_css 'h3', text: /Posesiones/
     end
     # rubocop:disable RSpec/ExampleLength
 
@@ -111,7 +106,7 @@ describe 'Viewers', type: :feature do
 
       save_page
 
-      expect(page).not_to have_css 'iframe[src*=mirador]'
+      expect(page).not_to have_css 'iframe[src*=embed]'
       expect(page).to have_css '.oembed-widget'
     end
     # rubocop:enable RSpec/ExampleLength
