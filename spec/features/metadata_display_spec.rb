@@ -43,6 +43,30 @@ RSpec.feature 'Metadata display' do
       expect(page).to have_css 'dt', text: 'Copyright:'
       expect(page).to have_css 'dd', text: /Property rights reside with/
     end
+
+    it 'has separate description section' do
+      expect(page).to have_css 'h4', text: 'Description'
+      expect(page).to have_css 'dt', text: 'Translated title'
+      expect(page).to have_css 'dd', text: /Physical map of Africa./
+    end
+
+    it 'has separate creators section' do
+      expect(page).to have_css 'h4', text: 'Creators/Contributors'
+      expect(page).to have_css 'dt', text: 'Creator'
+      expect(page).to have_css 'dd', text: /Migeon, J./
+    end
+
+    it 'has separate subjects section' do
+      expect(page).to have_css 'h4', text: 'Subjects'
+      expect(page).to have_css 'dt', text: 'Genre'
+      expect(page).to have_css 'dd', text: /Africa > Maps/
+    end
+
+    it 'has separate bibliographic section' do
+      expect(page).to have_css 'h4', text: 'Bibliographic information'
+      expect(page).to have_css 'dt', text: 'Note'
+      expect(page).to have_css 'dd', text: /Insets: Engraving of diamond/
+    end
   end
 
   describe 'nested related items', js: true do

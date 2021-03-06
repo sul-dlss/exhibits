@@ -86,8 +86,15 @@ en:
       view_title:
         heatmaps: "Map"
   metadata:
+    abstract: Abstract/Contents
+    access: Access conditions
+    bibliographic: Bibliographic information
+    contact: Contact information
+    contributors: Creators/Contributors
+    description: Description
     more_details: 'More details »'
     download: 'Download'
+    subjects: Subjects
   okcomputer:
     check:
       passed: "OK      : %{registrant_name} - %{message}"

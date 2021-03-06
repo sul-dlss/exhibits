@@ -1,0 +1,10 @@
+<% document ||= @document %>
+<% document.mods.abstract.each do |abstracts| %>
+  <% mods_value_white_space_splitter!(abstracts) %>
+  <%= mods_record_field(abstracts) %>
+<% end %>
+
+<% document.mods.contents.each do |contents| %>
+<% mods_value_white_space_splitter!(contents) %>
+  <%= mods_record_field(contents) %>
+<% end %>
