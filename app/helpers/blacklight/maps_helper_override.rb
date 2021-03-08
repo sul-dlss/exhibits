@@ -13,5 +13,15 @@ module Blacklight
       original_path = spotlight.exhibit_solr_document_path(exhibit_id: current_exhibit, id: token)
       original_path.sub(token, "{#{blacklight_config.document_model.unique_key}}")
     end
+
+    def index_map_data_attributes
+      attributes = super
+      if controller.is_a? Spotlight::BrowseController
+        attributes[:search_url] = spotlight.search_exhibit_catalog_url(
+          controller.send(:search_query).merge(search_field: 'search')
+        )
+      end
+      attributes
+    end
   end
 end
