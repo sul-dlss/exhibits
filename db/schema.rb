@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_221044) do
+ActiveRecord::Schema.define(version: 2021_03_09_175031) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -97,6 +97,14 @@ ActiveRecord::Schema.define(version: 2021_02_11_221044) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exhibit_id"], name: "index_spotlight_blacklight_configurations_on_exhibit_id"
+  end
+
+  create_table "spotlight_bulk_updates", force: :cascade do |t|
+    t.string "file", null: false
+    t.integer "exhibit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exhibit_id"], name: "index_spotlight_bulk_updates_on_exhibit_id"
   end
 
   create_table "spotlight_contact_emails", force: :cascade do |t|
