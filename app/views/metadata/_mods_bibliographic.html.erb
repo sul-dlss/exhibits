@@ -4,7 +4,7 @@
 <% end %>
 
 <% document.mods.note.reject { |x| x.label =~ /Preferred citation/i }.each do |notes| %>
-  <% mods_value_white_space_splitter!(notes) %>
+  <% notes.values = split_on_white_space(notes.values) %>
   <%= mods_record_field(notes) %>
 <% end %>
 

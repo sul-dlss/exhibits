@@ -228,7 +228,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'author_corp_display', label: 'Corporate Author'
     config.add_index_field 'author_meeting_display', label: 'Meeting Author'
     config.add_index_field 'publisher_ssim', label: 'Publisher'
-    config.add_index_field 'summary_display', label: 'Description'
+    config.add_index_field 'summary_display', label: 'Description', helper_method: :paragraph_joined_content
     config.add_index_field 'topic_display', label: 'Topic'
     config.add_index_field 'subject_other_display', label: 'Subject'
     config.add_index_field 'language', label: 'Language'

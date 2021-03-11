@@ -74,4 +74,10 @@ module ApplicationHelper
       document.first(blacklight_config.show.oembed_field)
     end
   end
+
+  ##
+  # Splits an array of strings on internal whitespace breaks
+  def split_on_white_space(values)
+    values.map { |v| v.gsub('&#10;', "\n").split("\n") }.flatten.compact
+  end
 end
