@@ -168,7 +168,8 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
     let(:druid) { 'cf386wt1778' }
 
     it 'has parker-specific fields' do
-      expect(document).to include incipit_tesim: ['In illo tempore maria magdalene et maria iacobi et solomae'],
+      expect(document).to include dimensions_ssim: ['300 mm Height', '215 mm Width', '12 x 8.7 in Dimensions'],
+                                  incipit_tesim: ['In illo tempore maria magdalene et maria iacobi et solomae'],
                                   manuscript_number_tesim: ['MS 69'],
                                   toc_search: ['Homiliae XL in euangelia'],
                                   url_suppl: ['https://purl.stanford.edu/kd310gm7424', 'https://purl.stanford.edu/dx969tv9730']
