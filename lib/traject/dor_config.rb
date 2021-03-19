@@ -246,6 +246,18 @@ to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_
 
 to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
 
+to_field 'dimensions_ssim' do |resource, accumulator, _context|
+  resource.smods_rec.physical_description.note.select { |x| x.attr('type') == 'dimensions' }.each do |dimension|
+    accumulator << [dimension.content, dimension.displayLabel].join(' ')
+  end
+end
+
+to_field 'provenance_ssim' do |resource, accumulator, _context|
+  resource.smods_rec.physical_description.note.select { |x| x.attr('type') == 'provenance' }.each do |provenance|
+    accumulator << provenance.content
+  end
+end
+
 to_field 'identifier_displayLabel_ssim' do |resource, accumulator, _context|
   resource.smods_rec.identifier.each do |identifier|
     accumulator << "#{identifier.displayLabel || identifier.type}-|-#{identifier.content}"

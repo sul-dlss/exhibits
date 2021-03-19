@@ -126,7 +126,6 @@ class CatalogController < ApplicationController
     config.view.list.partials = [:exhibits_document_header, :index]
 
     config.view.gallery.title_only_by_default = true
-    config.view.gallery.partials = [:index_header, :index]
     config.view.gallery.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
     config.view.gallery.default_canvas_thumbnail = 'default-square-thumbnail-annotation-large.png'
     config.view.gallery.document_component = Blacklight::Gallery::DocumentComponent
@@ -135,12 +134,10 @@ class CatalogController < ApplicationController
     config.view.heatmaps.color_ramp = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494']
 
     config.view.masonry.title_only_by_default = true
-    config.view.masonry.partials = [:index]
     config.view.masonry.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
     config.view.masonry.document_component = Blacklight::Gallery::DocumentComponent
 
     config.view.slideshow.title_only_by_default = true
-    config.view.slideshow.partials = [:index]
     config.view.slideshow.document_component = Blacklight::Gallery::SlideshowComponent
 
     config.view.embed.partials = [:viewer]
@@ -267,6 +264,8 @@ class CatalogController < ApplicationController
     config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
     config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
     # Fields specific to Parker Exhibit
+    config.add_index_field 'dimensions_ssim', label: 'Dimensions'
+    config.add_index_field 'provenance_ssim', label: 'Provenance'
     config.add_index_field 'incipit_tesim', label: 'Incipit'
     config.add_index_field 'toc_search', label: 'Table of contents', helper_method: :table_of_contents_separator
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
