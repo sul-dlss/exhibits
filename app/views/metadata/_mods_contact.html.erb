@@ -1,0 +1,6 @@
+<% document ||= @document %>
+<% if document.mods.contact.any? %>
+  <% document.mods.contact.each do |contact| %>
+    <%= mods_record_field(contact) %>
+  <% end %>
+<% end %>

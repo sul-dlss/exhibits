@@ -60,6 +60,22 @@ describe CatalogHelper, type: :helper do
     end
   end
 
+  describe '#paragraph_joined_content' do
+    context 'single description' do
+      it 'returns a description' do
+        expect(helper.paragraph_joined_content(value: %w(<p>stuff</p>))).to eq '<p>stuff</p>'
+      end
+    end
+
+    context 'multiple descriptions' do
+      it 'returns the descriptions joined by paragraphs' do
+        expect(
+          helper.paragraph_joined_content(value: %W[<p>stuff</p> hello\nworld])
+        ).to eq '<p><p>stuff</p></p><p>hello</p><p>world</p>'
+      end
+    end
+  end
+
   describe '#table_of_contents_separator' do
     context 'single value' do
       let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae'] } }

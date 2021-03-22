@@ -43,6 +43,17 @@ module CatalogHelper
     end
   end
 
+  def paragraph_joined_content(options = {})
+    return if options[:value].blank?
+
+    values = split_on_white_space(options[:value])
+    return values.first if values.count == 1
+
+    safe_join(values.collect do |content|
+      content_tag('p', content.html_safe) # rubocop:disable Rails/OutputSafety
+    end)
+  end
+
   def table_of_contents_separator(options = {})
     return if options[:value].blank?
 
