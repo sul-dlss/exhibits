@@ -20,19 +20,26 @@ module Spotlight
       def add_thumbnail_url
         return unless thumbnail_field
 
-        image = manifest['thumbnail'] if manifest['thumbnail'].present?
+        # if a thumbnail service is available
+        image = manifest['thumbnail'] if iiif_thumbnail_service?(manifest['thumbnail'])
+
+        # use the first canvas
         image ||= manifest.dig('sequences', 0, 'canvases', 0, 'images', 0, 'resource')
 
         return unless image
 
-        iiif_image = image['service']
-        if iiif_image['profile']&.match? 'api/image'
+        iiif_image = image['service'] || {}
+        if iiif_thumbnail_service?(image)
           solr_hash[:thumbnail_square_url_ssm] =
             "#{iiif_image['@id']}/full/100,100/0/default.jpg"
           solr_hash[:large_image_url_ssm] =
             "#{iiif_image['@id']}/full/!1000,1000/0/default.jpg"
         end
         solr_hash[thumbnail_field] = image['@id'] || "#{iiif_image['@id']}/full/!400,400/0/default.jpg"
+      end
+
+      def iiif_thumbnail_service?(content_resource)
+        content_resource&.dig('service', 'profile')&.match? 'api/image'
       end
     end
   end
