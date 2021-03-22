@@ -23,9 +23,12 @@ module Spotlight
         # if a thumbnail service is available
         image = manifest['thumbnail'] if iiif_thumbnail_service?(manifest['thumbnail'])
 
-        # use the first canvas
+        # Else, use the first canvas
+        # if IIIF Presentation v2
         image ||= manifest.dig('sequences', 0, 'canvases', 0, 'images', 0, 'resource')
 
+        # IIIF Presentation v3
+        image ||= manifest.dig('items', 0, 'items', 0, 'items', 0, 'body')
         return unless image
 
         iiif_image = image['service'] || {}
