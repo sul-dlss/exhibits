@@ -26,9 +26,7 @@ class IiifManifestHarvester
   end
 
   def manifest
-    @manifest ||= begin
-      IIIF::Service.parse(Faraday.get(url).body)
-    end
+    @manifest ||= IIIF::Service.parse(Faraday.get(url).body)
   end
 
   private

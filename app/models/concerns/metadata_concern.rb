@@ -11,9 +11,7 @@ module MetadataConcern
   # Convenience method for accessing cached / parsed modsxml using
   # ModsDisplay::ControllerExtension#render_mods_display
   def mods
-    @mods ||= begin
-      mods_display_object.render_mods_display(mods_display_object)
-    end
+    @mods ||= mods_display_object.render_mods_display(mods_display_object)
   end
 
   private

@@ -336,7 +336,5 @@ end
 
 def coll_title(resource)
   @collection_titles ||= {}
-  @collection_titles[resource.druid] ||= begin
-    resource.identity_md_obj_label
-  end
+  @collection_titles[resource.druid] ||= resource.identity_md_obj_label
 end
