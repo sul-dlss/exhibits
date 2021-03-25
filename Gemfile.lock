@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 93f52dcb7e3d1766295c37c2d08f44b73af77164
+  revision: 30b0c8b5ba1552fb3b8f939c763901c1a3d298ce
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -135,7 +135,7 @@ GEM
       ostruct (>= 0.3.2)
       rails (>= 5.1, < 7)
       view_component (>= 2.23.0)
-    blacklight-gallery (3.0.1)
+    blacklight-gallery (3.0.2)
       blacklight (~> 7.12)
       bootstrap (~> 4.0)
       rails (>= 5.1, < 7)
@@ -426,10 +426,11 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mimemagic (0.3.7)
-      nokogiri (~> 1.11.2)
+    mimemagic (0.3.9)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.11.0)
-    mini_mime (1.0.2)
+    mini_mime (1.0.3)
     mini_portile2 (2.5.0)
     minitest (5.14.4)
     mods (2.4.1)
