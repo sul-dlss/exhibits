@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 93f52dcb7e3d1766295c37c2d08f44b73af77164
+  revision: 6fa916049a87e291c0afc71d581b88679bada6c9
+  branch: riiifimg
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -426,8 +427,8 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mimemagic (0.3.7)
-      nokogiri (~> 1.11.2)
+    mimemagic (0.3.8)
+      nokogiri (~> 1)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
