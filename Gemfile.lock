@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 5b208aebb3a90e7642216838f23cff9b4769fff7
+  revision: a428350dc5c4921c8327547ddd63f2921425a3fa
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -44,14 +44,8 @@ GIT
       underscore-rails (~> 1.6)
 
 GEM
-  remote: https://gems.contribsys.com/
-  specs:
-    sidekiq-pro (5.2.0)
-      connection_pool (>= 2.2.3)
-      sidekiq (>= 6.1.0)
-
-GEM
   remote: https://rubygems.org/
+  remote: https://gems.contribsys.com/
   specs:
     actioncable (6.1.3.1)
       actionpack (= 6.1.3.1)
@@ -441,10 +435,6 @@ GEM
     nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    nokogiri (1.11.2-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.11.2-x86_64-linux)
-      racc (~> 1.4)
     nom-xml (1.1.0)
       activesupport (>= 3.2.18)
       i18n
@@ -613,6 +603,9 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sidekiq-pro (5.2.0)
+      connection_pool (>= 2.2.3)
+      sidekiq (>= 6.1.0)
     signet (0.15.0)
       addressable (~> 2.3)
       faraday (>= 0.17.3, < 2.0)
