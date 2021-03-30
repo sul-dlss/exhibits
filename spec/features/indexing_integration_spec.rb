@@ -188,8 +188,8 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
       before do
-        stub_request(:get, 'https://purl-fetcher-url.example.com/collections/druid:dx969tv9730/purls?page=1&per_page=100').to_return(
-          body: '{}', status: 200
+        stub_request(:get, 'https://purl-fetcher-url.example.com/collections/druid:dx969tv9730/purls?page=1&per_page=1000').to_return(
+          body: '{ "purls": [], "pages": {} }', status: 200
         )
       end
 

@@ -52,7 +52,7 @@ describe DorHarvester do
   context 'hooks' do
     before { ActiveJob::Base.queue_adapter = :test }
 
-    let(:resource) { instance_double(Harvestdor::Indexer::Resource, bare_druid: druid) }
+    let(:resource) { instance_double(Purl, bare_druid: druid) }
 
     # rubocop:disable Layout/LineLength
     describe '#on_success' do
@@ -99,14 +99,14 @@ describe DorHarvester do
 
   describe '#update_collection_metadata!' do
     let(:resource) do
-      instance_double(Harvestdor::Indexer::Resource, bare_druid: druid,
-                                                     exists?: true,
-                                                     collection?: true,
-                                                     items: [1, 2, 3])
+      instance_double(Purl, bare_druid: druid,
+                            exists?: true,
+                            collection?: true,
+                            items: [1, 2, 3])
     end
 
     before do
-      allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, druid).and_return(resource)
+      allow(Purl).to receive(:new).with(druid).and_return(resource)
     end
 
     it 'retrieves collection metadata' do
@@ -118,8 +118,8 @@ describe DorHarvester do
   describe '#resources' do
     let(:resource) { subject.resources.first }
 
-    it 'is a Harvestdor::Indexer resource' do
-      expect(resource).to be_a_kind_of Harvestdor::Indexer::Resource
+    it 'is a Purl resource' do
+      expect(resource).to be_a_kind_of Purl
     end
 
     it 'has the correct druid' do
@@ -132,11 +132,11 @@ describe DorHarvester do
 
     let(:items) { [] }
     let(:resource) do
-      instance_double(Harvestdor::Indexer::Resource, exists?: true, bare_druid: druid, items: items)
+      instance_double(Purl, exists?: true, bare_druid: druid, items: items)
     end
 
     before do
-      allow(Harvestdor::Indexer::Resource).to receive(:new).with(anything, druid).and_return(resource)
+      allow(Purl).to receive(:new).with(druid).and_return(resource)
     end
 
     context 'with a published druid' do
@@ -148,7 +148,7 @@ describe DorHarvester do
 
     context 'with a collection' do
       let(:items) { [child].each } # `#each` converts the array to an enumerable
-      let(:child) { instance_double(Harvestdor::Indexer::Resource, exists?: true, bare_druid: druid, items: []) }
+      let(:child) { instance_double(Purl, exists?: true, bare_druid: druid, items: []) }
 
       it 'includes child resources' do
         expect(subject.size).to eq 2

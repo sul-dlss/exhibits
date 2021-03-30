@@ -17,7 +17,7 @@ to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
 to_field 'last_updated', (accumulate { |resource, *_| Time.parse(resource.public_xml.at_xpath('/publicObject')['published']).utc.iso8601 })
 
 # ITEM FIELDS
-to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(dor_content_type(resource)) })
+to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(resource) })
 
 to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
 to_field 'collection_with_title', (accumulate do |resource, *_|
@@ -317,8 +317,8 @@ rescue Faraday::Error => e
   nil
 end
 
-def display_type(dor_content_type)
-  case dor_content_type
+def display_type(resource)
+  case resource.dor_content_type
   when 'book'
     'book'
   when 'image', 'manuscript', 'map'
@@ -326,12 +326,6 @@ def display_type(dor_content_type)
   else
     'file'
   end
-end
-
-def dor_content_type(resource)
-  resource.content_metadata ? resource.content_metadata.root.xpath('@type').text : nil
-rescue Harvestdor::Errors::MissingContentMetadata
-  nil
 end
 
 def coll_title(resource)
