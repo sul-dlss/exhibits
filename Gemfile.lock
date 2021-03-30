@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 9c134096200514ba24c91428322a065715d5b695
+  revision: 5b208aebb3a90e7642216838f23cff9b4769fff7
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -203,12 +203,12 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    carrierwave (2.2.0)
+    carrierwave (2.2.1)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
       addressable (~> 2.6)
       image_processing (~> 1.1)
-      mimemagic (>= 0.3.0)
+      marcel (~> 1.0.0)
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
     childprocess (3.0.0)
@@ -431,9 +431,6 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mimemagic (0.4.3)
-      nokogiri (~> 1)
-      rake
     mini_magick (4.11.0)
     mini_mime (1.0.3)
     mini_portile2 (2.5.0)
