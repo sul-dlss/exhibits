@@ -141,7 +141,7 @@ GEM
       ostruct (>= 0.3.2)
       rails (>= 5.1, < 7)
       view_component (>= 2.23.0)
-    blacklight-gallery (3.0.3)
+    blacklight-gallery (3.0.4)
       blacklight (~> 7.12)
       bootstrap (~> 4.0)
       rails (>= 5.1, < 7)
