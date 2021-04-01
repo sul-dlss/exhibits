@@ -148,12 +148,12 @@ describe DorHarvester do
 
     context 'with a collection' do
       let(:items) { [child].each } # `#each` converts the array to an enumerable
-      let(:child) { instance_double(Purl, exists?: true, bare_druid: druid, items: []) }
+      let(:child) { instance_double(PurlFetcher::Client::PublicXmlRecord, druid: druid) }
 
       it 'includes child resources' do
         expect(subject.size).to eq 2
         expect(subject.first.bare_druid).to eq resource.bare_druid
-        expect(subject.last.bare_druid).to eq child.bare_druid
+        expect(subject.last.bare_druid).to eq druid
       end
     end
   end

@@ -83,7 +83,7 @@ class DorHarvester < Spotlight::Resource
       next unless resource.exists?
 
       resource.items.each do |r|
-        yield r
+        yield Purl.new(r.druid)
       end
     end
   end
