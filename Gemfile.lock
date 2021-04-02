@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 92218ca9444d745ac4446b92dc7fd042ffa4ed33
+  revision: 791f5983bc6d154ae5e2b37b9d1f9fda54e92c76
   specs:
     blacklight-spotlight (3.0.0.rc4)
       activejob-status
@@ -141,7 +141,7 @@ GEM
       ostruct (>= 0.3.2)
       rails (>= 5.1, < 7)
       view_component (>= 2.23.0)
-    blacklight-gallery (3.0.4)
+    blacklight-gallery (3.1.0)
       blacklight (~> 7.12)
       bootstrap (~> 4.0)
       rails (>= 5.1, < 7)
@@ -410,7 +410,7 @@ GEM
       unf
     marc-fastxmlwriter (1.0.0)
       marc (~> 1.0)
-    marcel (1.0.0)
+    marcel (1.0.1)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
