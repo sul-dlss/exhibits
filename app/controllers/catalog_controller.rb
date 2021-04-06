@@ -22,6 +22,7 @@ class CatalogController < ApplicationController
       blacklight_config.add_index_field 'formatted_bibliography_ts'
       blacklight_config.index_fields.each_value { |v| v.if = true }
     end
+    response.headers['Access-Control-Allow-Origin'] = '*' if request.format.iiif_json?
   end
 
   configure_blacklight do |config|
