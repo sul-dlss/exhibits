@@ -42,6 +42,8 @@ module Spotlight
       end
 
       def iiif_thumbnail_service?(content_resource)
+        return unless content_resource.respond_to?(:dig)
+
         content_resource&.dig('service', 'profile')&.match? 'api/image'
       end
     end
