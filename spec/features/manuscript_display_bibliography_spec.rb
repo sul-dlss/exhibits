@@ -12,9 +12,6 @@ RSpec.feature 'Cited manuscripts display on the bibliography show page', type: :
     end.join("\n")
   end
 
-  let(:manuscript_data) do
-  end
-
   before do
     ActiveJob::Base.queue_adapter = :inline # block until indexing has committed
 
