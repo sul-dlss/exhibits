@@ -53,7 +53,7 @@ Metrics/ClassLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
 
-Capybara/FeatureMethods:
+RSpec/Capybara:
   Enabled: false
 
 RSpec/NamedSubject:
