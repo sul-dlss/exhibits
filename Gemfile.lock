@@ -1,48 +1,3 @@
-GIT
-  remote: https://github.com/projectblacklight/spotlight.git
-  revision: 69b53298d33d74b7d6080686bcfa2a6a88afec2b
-  specs:
-    blacklight-spotlight (3.0.0.rc4)
-      activejob-status
-      acts-as-taggable-on (>= 5.0, < 8)
-      autoprefixer-rails
-      blacklight (~> 7.0)
-      bootstrap_form (~> 4.1)
-      breadcrumbs_on_rails (>= 3.0, < 5)
-      cancancan
-      carrierwave (~> 2.2)
-      clipboard-rails (~> 1.5)
-      devise (~> 4.1)
-      devise_invitable
-      faraday
-      faraday_middleware
-      friendly_id (~> 5.2, != 5.4.1, != 5.4.0)
-      github-markup
-      handlebars_assets
-      i18n
-      i18n-active_record
-      iiif-presentation
-      iiif_manifest
-      leaflet-rails
-      legato
-      mini_magick
-      nokogiri
-      oauth2
-      openseadragon
-      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
-      paper_trail (~> 11.0)
-      rails (>= 5.2, < 6.2)
-      riiif (~> 2.0)
-      roar (~> 1.1)
-      roar-rails
-      signet
-      sir_trevor_rails (>= 0.6.1)
-      sprockets (>= 3)
-      sprockets-es6
-      thor
-      tophat
-      underscore-rails (~> 1.6)
-
 GEM
   remote: https://gems.contribsys.com/
   specs:
@@ -149,6 +104,46 @@ GEM
       blacklight (~> 7.0)
       rails
       ruby-oembed
+    blacklight-spotlight (3.0.0.rc5)
+      activejob-status
+      acts-as-taggable-on (>= 5.0, < 8)
+      autoprefixer-rails
+      blacklight (~> 7.0)
+      bootstrap_form (~> 4.1)
+      breadcrumbs_on_rails (>= 3.0, < 5)
+      cancancan
+      carrierwave (~> 2.2)
+      clipboard-rails (~> 1.5)
+      devise (~> 4.1)
+      devise_invitable
+      faraday
+      faraday_middleware
+      friendly_id (~> 5.2, != 5.4.1, != 5.4.0)
+      github-markup
+      handlebars_assets
+      i18n
+      i18n-active_record
+      iiif-presentation
+      iiif_manifest
+      leaflet-rails
+      legato
+      mini_magick
+      nokogiri
+      oauth2
+      openseadragon
+      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
+      paper_trail (~> 11.0)
+      rails (>= 5.2, < 6.2)
+      riiif (~> 2.0)
+      roar (~> 1.1)
+      roar-rails
+      signet
+      sir_trevor_rails (>= 0.6.1)
+      sprockets (>= 3)
+      sprockets-es6
+      thor
+      tophat
+      underscore-rails (~> 1.6)
     blacklight_advanced_search (7.0.0)
       blacklight (~> 7.0)
       parslet
@@ -753,7 +748,7 @@ DEPENDENCIES
   blacklight (~> 7.15)
   blacklight-gallery (~> 3, >= 3.0.3)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 3.0.0.rc3)!
+  blacklight-spotlight (~> 3.0.0.rc5)
   blacklight_advanced_search
   blacklight_heatmaps
   blacklight_range_limit (~> 8.0)
