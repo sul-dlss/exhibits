@@ -642,7 +642,7 @@ GEM
       actionpack
       rack-timeout (>= 0.4.0)
       railties (>= 5)
-    solr_wrapper (3.1.1)
+    solr_wrapper (3.1.2)
       http
       retriable
       ruby-progressbar
