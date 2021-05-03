@@ -14,7 +14,13 @@ class CatalogController < ApplicationController
   end
 
   before_action only: :admin do
-    blacklight_config.view.admin_table.thumbnail_field = :thumbnail_square_url_ssm
+    unless blacklight_config.view.key? :admin_table
+      blacklight_config.view.admin_table(
+        thumbnail_field: :thumbnail_square_url_ssm,
+        partials: [:index_compact],
+        document_actions: []
+      )
+    end
   end
 
   before_action only: :index do
