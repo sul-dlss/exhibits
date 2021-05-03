@@ -9,7 +9,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr]
   include BlacklightHeatmaps::SolrFacetHeatmapBehavior
 
-  include Spotlight::AccessControlsEnforcementSearchBuilder
+  include Spotlight::SearchBuilder
 
   ##
   # modify JSON API behavior to limit the `rows` (or `per_page`) parameter
