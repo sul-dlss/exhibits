@@ -25,7 +25,7 @@ module Exhibits
     config.to_prepare do
       Spotlight::Exhibit.send(:include, ExhibitExtension)
       Spotlight::AttachmentUploader.send(:include, CarrierWave::MiniMagick)
-      Spotlight::AttachmentUploader.send(:process, resize_to_fit: [2000, 2000])
+      Spotlight::AttachmentUploader.send(:process, resize_to_limit: [2000, 2000])
     end
 
     config.druid_regex = /([a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4})/
