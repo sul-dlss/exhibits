@@ -10,6 +10,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   include BlacklightHeatmaps::SolrFacetHeatmapBehavior
 
   include Spotlight::SearchBuilder
+  self.default_processor_chain += [:limit_to_exhibit_items]
 
   ##
   # modify JSON API behavior to limit the `rows` (or `per_page`) parameter
@@ -24,5 +25,9 @@ class SearchBuilder < Blacklight::SearchBuilder
             else
               [@rows.to_i, (blacklight_config.max_per_page_for_api || 1_000)].min # ensure under max
             end
+  end
+
+  def limit_to_exhibit_items(solr_params)
+    solr_params.append_filter_query '-document_type_ssi:exhibit'
   end
 end
