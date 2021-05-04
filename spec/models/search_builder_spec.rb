@@ -78,4 +78,8 @@ RSpec.describe SearchBuilder do
       expect(builder.to_hash).to include(rows: 100)
     end
   end
+
+  it 'removes exhibit records' do
+    expect(builder.to_hash[:fq]).to include '-document_type_ssi:exhibit'
+  end
 end
