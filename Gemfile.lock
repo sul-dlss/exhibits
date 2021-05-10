@@ -223,7 +223,7 @@ GEM
     crass (1.0.6)
     csl (1.5.2)
       namae (~> 1.0)
-    csl-styles (1.0.1.10)
+    csl-styles (1.0.1.11)
       csl (~> 1.0)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
