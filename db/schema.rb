@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_175031) do
+ActiveRecord::Schema.define(version: 2021_05_10_134812) do
 
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
@@ -195,8 +195,10 @@ ActiveRecord::Schema.define(version: 2021_03_09_175031) do
     t.integer "weight", default: 50
     t.integer "site_id"
     t.string "theme"
+    t.index ["masthead_id"], name: "index_spotlight_exhibits_on_masthead_id"
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_exhibits_on_thumbnail_id"
   end
 
   create_table "spotlight_featured_images", force: :cascade do |t|
@@ -306,7 +308,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_175031) do
     t.string "source"
     t.string "document_global_id"
     t.integer "image_crop_x"
-    t.integer "integer"
     t.integer "image_crop_y"
     t.integer "image_crop_w"
     t.integer "image_crop_h"
@@ -341,6 +342,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_175031) do
     t.index ["locale"], name: "index_spotlight_pages_on_locale"
     t.index ["parent_page_id"], name: "index_spotlight_pages_on_parent_page_id"
     t.index ["slug", "scope"], name: "index_spotlight_pages_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_pages_on_thumbnail_id"
   end
 
   create_table "spotlight_reindexing_log_entries", force: :cascade do |t|
@@ -401,7 +403,9 @@ ActiveRecord::Schema.define(version: 2021_03_09_175031) do
     t.boolean "search_box", default: false
     t.string "subtitle"
     t.index ["exhibit_id"], name: "index_spotlight_searches_on_exhibit_id"
+    t.index ["masthead_id"], name: "index_spotlight_searches_on_masthead_id"
     t.index ["slug", "scope"], name: "index_spotlight_searches_on_slug_and_scope", unique: true
+    t.index ["thumbnail_id"], name: "index_spotlight_searches_on_thumbnail_id"
   end
 
   create_table "spotlight_sites", force: :cascade do |t|
