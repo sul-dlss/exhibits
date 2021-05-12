@@ -87,7 +87,7 @@ GEM
     bibtex-ruby (6.0.0)
       latex-decode (~> 0.0)
     bindex (0.8.1)
-    blacklight (7.19.0)
+    blacklight (7.19.1)
       deprecation
       globalid
       i18n (>= 1.7.0)
@@ -104,7 +104,7 @@ GEM
       blacklight (~> 7.0)
       rails
       ruby-oembed
-    blacklight-spotlight (3.0.0)
+    blacklight-spotlight (3.0.1)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 8)
       autoprefixer-rails
@@ -468,7 +468,7 @@ GEM
     parslet (2.0.0)
     popper_js (1.16.0)
     public_suffix (4.0.6)
-    puma (5.3.0)
+    puma (5.3.1)
       nio4r (~> 2.0)
     purl_fetcher-client (0.4.1)
       dor-rights-auth
@@ -636,7 +636,7 @@ GEM
       gli
       hashie
       websocket-driver
-    slop (4.8.2)
+    slop (4.9.0)
     slowpoke (0.3.2)
       actionpack
       rack-timeout (>= 0.4.0)
