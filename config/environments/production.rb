@@ -97,7 +97,15 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.slowpoke.timeout = 60
+  # By default, the slowpoke timeout happens before we get a user session;
+  # but in order to check it as part of the timeout, we have to move it later.
+  config.middleware.move_after Warden::Manager, Slowpoke::Timeout
+
+  # Allow authenticated user requests to take 10 minutes, but
+  # restrict anonymous users and bots to 30 second requests
+  config.slowpoke.timeout = lambda do |env|
+    env['warden'].authenticated? ? 60*10 : 30
+  end
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
