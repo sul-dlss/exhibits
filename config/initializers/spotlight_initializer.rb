@@ -36,6 +36,9 @@ ActiveSupport::Reloader.to_prepare do
     resource = pipeline.context.resource
     riiif = Riiif::Engine.routes.url_helpers
 
+    # Skip for uploaded items without thumbnails
+    next data if resource.upload_id.blank?
+
     data.merge({
       thumbnail_square_url_ssm: riiif.image_path(resource.upload_id, region: 'square', size: '100,100'),
       large_image_url_ssm: riiif.image_path(resource.upload_id, region: 'full', size: '!1000,1000'),
