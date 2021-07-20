@@ -35,4 +35,14 @@ describe Spotlight::Resources::Upload do
       expect(solr_doc).to include pub_year_tisim: 2014, pub_year_w_approx_isi: 2014, pub_year_isi: 2014
     end
   end
+
+  context 'upload item with no thumbnail' do
+    let(:upload) { nil }
+
+    describe '#to_solr' do
+      it 'does not have custom thumbnail fields' do
+        expect(solr_doc).not_to include :thumbnail_square_url_ssm, :large_image_url_ssm
+      end
+    end
+  end
 end
