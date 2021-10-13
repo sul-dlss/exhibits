@@ -104,7 +104,7 @@ GEM
       blacklight (~> 7.0)
       rails
       ruby-oembed
-    blacklight-spotlight (3.0.3)
+    blacklight-spotlight (3.2.0)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 8)
       autoprefixer-rails
@@ -479,7 +479,7 @@ GEM
     parslet (2.0.0)
     popper_js (1.16.0)
     public_suffix (4.0.6)
-    puma (5.5.0)
+    puma (5.5.2)
       nio4r (~> 2.0)
     purl_fetcher-client (0.4.1)
       dor-rights-auth
@@ -764,7 +764,7 @@ DEPENDENCIES
   blacklight (~> 7.15)
   blacklight-gallery (~> 3, >= 3.0.3)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 3.0.0.rc5)
+  blacklight-spotlight (~> 3.0)
   blacklight_advanced_search
   blacklight_heatmaps
   blacklight_range_limit (~> 8.0)
