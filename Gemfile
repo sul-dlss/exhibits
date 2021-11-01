@@ -139,3 +139,6 @@ gem 'acts-as-taggable-on'
 gem 'mods_display'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
+
+# Pinned, due to some incompatibility with ostruct 0.5 + rake
+gem 'ostruct', '< 0.5'
