@@ -295,7 +295,7 @@ GEM
       dry-core (~> 0.5, >= 0.5)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.8, >= 1.8.0)
-    edtf (3.0.7)
+    edtf (3.0.8)
       activesupport (>= 3.0, < 8.0)
     erubi (1.10.0)
     execjs (2.8.1)
@@ -329,7 +329,7 @@ GEM
     faraday-retry (1.0.3)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
-    ffi (1.15.4)
+    ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -439,9 +439,10 @@ GEM
       iso-639
       nokogiri (>= 1.6.6)
       nom-xml (~> 1.0)
-    mods_display (0.10.1)
+    mods_display (1.0.0.alpha2)
       i18n
       stanford-mods (~> 2.1)
+      view_component
     msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -453,15 +454,14 @@ GEM
     net-ssh (6.1.0)
     newrelic_rpm (8.2.0)
     nio4r (2.5.8)
-    nokogiri (1.13.0)
+    nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
-    nokogiri (1.13.0-x86_64-darwin)
+    nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.0-x86_64-linux)
+    nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
-    nom-xml (1.1.0)
-      activesupport (>= 3.2.18)
+    nom-xml (1.2.0)
       i18n
       nokogiri
     oauth2 (1.4.7)
@@ -486,10 +486,10 @@ GEM
     public_suffix (4.0.6)
     puma (5.5.2)
       nio4r (~> 2.0)
-    purl_fetcher-client (0.4.1)
+    purl_fetcher-client (0.5.0)
       dor-rights-auth
       http
-      mods_display
+      mods_display (>= 1.0.0.alpha1)
       nokogiri
       stanford-mods
     racc (1.6.0)
@@ -683,7 +683,7 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     ssrf_filter (1.0.7)
-    stanford-mods (2.6.3)
+    stanford-mods (2.6.4)
       activesupport
       mods (~> 2.2)
     sul_styles (0.7.0)
@@ -804,7 +804,7 @@ DEPENDENCIES
   jsonpath
   letter_opener
   listen (~> 3.3)
-  mods_display
+  mods_display (~> 1.0.0.alpha1)
   mysql2
   newrelic_rpm
   nokogiri (>= 1.7.1)

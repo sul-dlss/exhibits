@@ -16,7 +16,6 @@ class SolrDocument
   include ManifestConcern
   include MetadataConcern
   include CanvasConcern
-  include ModsDisplay::ModelExtension
 
   # self.unique_key = 'id'
 
@@ -34,10 +33,6 @@ class SolrDocument
   use_extension(Blacklight::Document::DublinCore)
   use_extension(ModsDocument) do |document|
     document[:modsxml]
-  end
-
-  mods_xml_source do |model|
-    model.fetch(:modsxml)
   end
 
   def full_text_highlights

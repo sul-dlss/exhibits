@@ -1,6 +1,6 @@
 <% document ||= @document %>
 
-<% document.mods.send(:mods_field, document.mods.instance_variable_get(:@xml), :title).fields.reject { |x| x.label =~ /^Title/i }.each do |title| %>
+<% document.mods.mods_field(:title).fields.reject { |x| x.label =~ /^Title/i }.each do |title| %>
   <%= mods_record_field(title) %>
 <% end %>
 
