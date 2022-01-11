@@ -136,7 +136,7 @@ gem 'bibtex-ruby'
 gem 'citeproc-ruby'
 gem 'csl-styles'
 gem 'acts-as-taggable-on'
-gem 'mods_display'
+gem 'mods_display', '~> 1.0.0.alpha1'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
 
