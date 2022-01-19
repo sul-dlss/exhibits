@@ -95,7 +95,7 @@ RSpec.feature 'Metadata display' do
           expect(page).to have_css('li a', text: 'Constituent Title')
           click_link 'Constituent Title'
           expect(page).to have_css('dl', visible: :visible)
-          expect(page).to have_css('dt', text: /Note:/i)
+          expect(page).to have_css('dt', text: /Note/i)
           expect(page).to have_css('dd', text: 'Constituent note')
         end
       end
@@ -104,7 +104,7 @@ RSpec.feature 'Metadata display' do
         click_link 'Expand all'
         within '.mods_display_nested_related_items' do
           expect(page).to have_css('dl', visible: :visible)
-          expect(page).to have_css('dt', text: /Note:/i)
+          expect(page).to have_css('dt', text: /Note/i)
         end
         click_link 'Collapse all'
         within '.mods_display_nested_related_items' do

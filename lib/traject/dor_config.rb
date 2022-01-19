@@ -89,7 +89,7 @@ to_field 'pub_year_tisim' do |resource, accumulator, _context|
 end
 
 to_field 'date_ssim' do |resource, accumulator, _context|
-  imprint = ModsDisplay::Imprint.new(nil, ModsDisplay::Configuration::Imprint.new, nil)
+  imprint = ModsDisplay::Imprint.new([])
 
   Array(resource.smods_rec.origin_info).map do |value|
     dates = imprint.dates(value)
