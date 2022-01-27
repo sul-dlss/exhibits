@@ -111,15 +111,23 @@ end
 
 to_field 'modsxml_tsi', (accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') })
 
-to_field 'author_no_collector_ssim', stanford_mods(:non_collector_person_authors)
+to_field 'author_no_collector_ssim' do |resource, accumulator|
+  non_collector_authors = resource.smods_rec.personal_name.select { |n| n.role.any? }.reject { |n| n.role.all? { |r| includes_marc_relator_role?(r, value: 'Collector', value_uri: 'http://id.loc.gov/vocabulary/relators/col') } }
+
+  accumulator.concat(non_collector_authors.map(&:display_value_w_date))
+end
+
 to_field 'box_ssi', stanford_mods(:box)
 
 # add coordinates solr field containing the cartographic coordinates per
 # MODS subject.cartographics.coordinates (via stanford-mods gem)
 to_field 'coordinates_tesim', stanford_mods(:coordinates)
 
-# add collector_ssim solr field containing the collector per MODS names (via stanford-mods gem)
-to_field 'collector_ssim', stanford_mods(:collectors_w_dates)
+to_field 'collector_ssim' do |resource, accumulator|
+  collectors = resource.smods_rec.personal_name.select { |n| n.role.any? }.reject { |n| n.role.any? { |r| includes_marc_relator_role?(r, value: 'Collector', value_uri: 'http://id.loc.gov/vocabulary/relators/col') } }
+
+  accumulator.concat(collectors.map(&:display_value_w_date))
+end
 to_field 'folder_ssi', stanford_mods(:folder)
 to_field 'genre_ssim', stanford_mods(:term_values, :genre)
 to_field 'genre_ssim', stanford_mods(:term_values, [:subject, :genre])
@@ -331,4 +339,11 @@ end
 def coll_title(resource)
   @collection_titles ||= {}
   @collection_titles[resource.druid] ||= resource.identity_md_obj_label
+end
+
+# @param Nokogiri::XML::Node role_node the role node from a parent name node
+# @return true if there is a MARC relator collector role assigned
+def includes_marc_relator_role?(role_node, value:, value_uri: nil)
+  (role_node.authority.include?('marcrelator') && role_node.value.include?(value)) ||
+    (value_uri && role_node.roleTerm.valueURI.first == value_uri)
 end
