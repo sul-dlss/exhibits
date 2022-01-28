@@ -82,10 +82,39 @@ to_field 'pub_year_isi', stanford_mods(:pub_year_int, false) # for sorting
 # these are for single value facet display (in lieu of date slider (pub_year_tisim) )
 to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, true)
 to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, false)
-to_field 'pub_year_tisim' do |resource, accumulator, _context|
-  imprint = Stanford::Mods::Imprint.new(resource.smods_rec.origin_info)
 
-  accumulator.concat imprint.publication_date_for_slider.to_a
+date_field_keys = [:dateIssued, :dateCreated, :dateCaptured, :copyrightDate]
+to_field 'pub_year_tisim' do |resource, accumulator, _context|
+  resource.smods_rec.origin_info.each do |element|
+    date_elements = if element.as_object.first.key_dates.any?
+                      element.as_object.first.key_dates.map(&:as_object).flatten
+                    else
+                      date_field_keys.map do |date_field|
+                        next unless element.respond_to?(date_field)
+
+                        date_elements = element.send(date_field)
+                        date_elements.map(&:as_object).flatten if date_elements.any?
+                      end.compact.first
+                    end
+    next if date_elements.nil? || date_elements.none?
+
+    dates = if date_elements.find(&:start?)&.as_range && date_elements.find(&:end?)&.as_range
+              start_date = date_elements.find(&:start?)
+              end_date = date_elements.find(&:end?)
+
+              (start_date.as_range.min.year..end_date.as_range.max.year).to_a
+            elsif date_elements.find(&:start?)&.as_range
+              start_date = date_elements.find(&:start?)
+
+              (start_date.as_range.min.year..Time.zone.now.year).to_a
+            elsif date_elements.one?
+              date_elements.first.to_a.map(&:year)
+            else
+              date_elements.map { |v| v.to_a.map(&:year) }
+            end
+
+    accumulator.concat dates.flatten
+  end
 end
 
 to_field 'date_ssim' do |resource, accumulator, _context|
