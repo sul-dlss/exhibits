@@ -93,7 +93,7 @@ end
 
 gem 'config'
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.6'
 gem 'blacklight', '~> 7.15'
 gem 'blacklight-gallery', '~> 3', '>= 3.0.3'
 gem 'blacklight_heatmaps'
