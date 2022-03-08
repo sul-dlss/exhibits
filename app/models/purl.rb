@@ -43,6 +43,8 @@ class Purl
     public_xml_record.stanford_mods
   end
 
+  delegate :mods_display, to: :public_xml_record
+
   def collections
     @collections ||= public_xml_record.collections.map do |record|
       Purl.new(record.druid)

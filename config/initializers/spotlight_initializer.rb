@@ -20,9 +20,9 @@ Spotlight::Engine.config.upload_fields = [
     solr_fields: [
       'date_sort',
       'spotlight_upload_date_tesim',
-      pub_year_w_approx_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) if value },
-      pub_year_tisim: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) if value },
-      pub_year_isi: lambda { |value| Stanford::Mods::DateParsing.year_int_from_date_str(value) if value }
+      pub_year_w_approx_isi: lambda { |value| Mods::Date.from_element((Nokogiri::XML::Builder.new { |xml| xml.root value }).parent)&.as_range&.first&.year if value },
+      pub_year_tisim: lambda { |value| Mods::Date.from_element((Nokogiri::XML::Builder.new { |xml| xml.root value }).parent)&.as_range&.first&.year if value },
+      pub_year_isi: lambda { |value| Mods::Date.from_element((Nokogiri::XML::Builder.new { |xml| xml.root value }).parent)&.as_range&.first&.year if value }
     ],
     field_name: :spotlight_upload_date_tesim,
     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }

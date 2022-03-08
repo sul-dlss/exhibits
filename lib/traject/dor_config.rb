@@ -78,10 +78,10 @@ to_field 'url_suppl', stanford_mods(:term_values, [:related_item, :location, :ur
 
 # publication fields
 to_field 'pub_search', stanford_mods(:place)
-to_field 'pub_year_isi', stanford_mods(:pub_year_int, false) # for sorting
+to_field 'pub_year_isi', stanford_mods(:pub_year_int, ignore_approximate: false) # for sorting
 # these are for single value facet display (in lieu of date slider (pub_year_tisim) )
-to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, true)
-to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, false)
+to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, ignore_approximate: true)
+to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, ignore_approximate: false)
 
 date_field_keys = [:dateIssued, :dateCreated, :dateCaptured, :copyrightDate]
 to_field 'pub_year_tisim' do |resource, accumulator, _context|
@@ -118,13 +118,14 @@ to_field 'pub_year_tisim' do |resource, accumulator, _context|
 end
 
 to_field 'date_ssim' do |resource, accumulator, _context|
-  imprint = ModsDisplay::Imprint.new([])
+  imprint_display = resource.mods_display.mods_field(:imprint)
+  values = resource.smods_rec.origin_info
 
-  Array(resource.smods_rec.origin_info).map do |value|
-    dates = imprint.dates(value)
+  Array(values).each do |value|
+    dates = imprint_display.date_values(value)
     accumulator.concat(dates.map(&:values).flatten)
 
-    part = imprint.send(:parts_element, value)
+    part = imprint_display.send(:parts_element, value)
     accumulator << part if part.present?
   end
 end
