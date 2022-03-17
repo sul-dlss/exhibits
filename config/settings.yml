@@ -6,6 +6,8 @@ stacks:
   iiif_url: 'https://stacks.stanford.edu/image/iiif'
   file_url: 'https://stacks.stanford.edu/file'
 
+GOOGLE_SITE_VERIFICATION: '654321sitever'
+
 purl:
   url: 'https://purl.stanford.edu/%{druid}'
   uat_url: 'https://sul-purl-uat.stanford.edu/%{druid}'
