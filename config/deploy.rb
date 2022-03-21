@@ -31,6 +31,9 @@ set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+# update shared_configs before restarting app
+before 'deploy:restart', 'shared_configs:update'
+
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
