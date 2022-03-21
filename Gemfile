@@ -112,6 +112,7 @@ gem 'ruby-oembed'
 gem 'okcomputer'
 gem 'friendly_id', '~> 5.4'
 gem 'sitemap_generator'
+gem 'view_component', '2.50.0'
 
 source 'https://gems.contribsys.com/' do
   gem 'sidekiq-pro'

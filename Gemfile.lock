@@ -843,6 +843,7 @@ DEPENDENCIES
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
   uglifier (>= 2.7.2)
+  view_component (= 2.50.0)
   web-console (>= 4.1.0)
   webdrivers
   webmock
