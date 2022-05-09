@@ -86,7 +86,7 @@ GEM
     bibtex-ruby (6.0.0)
       latex-decode (~> 0.0)
     bindex (0.8.1)
-    blacklight (7.25.1)
+    blacklight (7.24.0)
       deprecation
       globalid
       i18n (>= 1.7.0)
@@ -767,7 +767,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   bibtex-ruby
-  blacklight (~> 7.15)
+  blacklight (~> 7.15, < 7.25)
   blacklight-gallery (~> 4)
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 3.0)
