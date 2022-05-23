@@ -10,7 +10,7 @@ RSpec.describe RecordIndexStatusJob do
     it 'creates a new sidecar with a status entry' do
       expect do
         subject.perform(harvester, 'xyz', ok: true)
-      end.to(change { Spotlight::SolrDocumentSidecar.count }.by(1))
+      end.to change(Spotlight::SolrDocumentSidecar, :count).by(1)
 
       expect(Spotlight::SolrDocumentSidecar.last.index_status).to include ok: true
     end
@@ -20,7 +20,7 @@ RSpec.describe RecordIndexStatusJob do
 
       expect do
         subject.perform(harvester, 'xyz', ok: true)
-      end.not_to(change { Spotlight::SolrDocumentSidecar.count })
+      end.not_to change(Spotlight::SolrDocumentSidecar, :count)
 
       expect(Spotlight::SolrDocumentSidecar.last.index_status).to include ok: true
     end
