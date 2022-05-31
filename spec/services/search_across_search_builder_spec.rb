@@ -5,7 +5,12 @@ require 'rails_helper'
 describe SearchAcrossSearchBuilder do
   subject(:search_builder) { described_class.new(scope) }
 
-  let(:scope) { instance_double(Blacklight::SearchService, blacklight_config: blacklight_config, context: context) }
+  let(:scope) do
+    instance_double(Blacklight::SearchService,
+                    blacklight_config: blacklight_config,
+                    context: context,
+                    search_state_class: nil)
+  end
   let(:context) { { current_ability: current_ability } }
   let(:blacklight_config) { SearchAcrossController.blacklight_config.deep_copy }
   let(:user_params) { {} }
