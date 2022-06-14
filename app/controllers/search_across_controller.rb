@@ -44,8 +44,7 @@ class SearchAcrossController < ::CatalogController
                            sort: :count
 
     config.add_facet_field 'pub_year_tisim', label: 'Date range',
-                                             range: true,
-                                             partial: 'blacklight_range_limit/range_limit_panel'
+                                             range: true
 
     config.add_facet_fields_to_solr_request!
 
@@ -128,4 +127,10 @@ class SearchAcrossController < ::CatalogController
       }
     }
   end
+
+  def search_facet_path(...)
+    facet_search_across_path(...)
+  end
+
+  helper_method :search_facet_path
 end
