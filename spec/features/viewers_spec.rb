@@ -123,7 +123,7 @@ describe 'Viewers', type: :feature do
       before do
         allow(Settings).to receive(:exhibit_themes).and_return(exhibit.slug => %w(parker default))
         exhibit.theme = 'parker'
-        exhibit.save
+        exhibit.save!
       end
 
       it 'hides the PURL link', js: true do

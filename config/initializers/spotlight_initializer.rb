@@ -59,10 +59,12 @@ end
 
 Spotlight::Engine.config.exhibit_themes = %w[default parker] if FeatureFlags.new.themes?
 
-Spotlight::Exhibit.themes_selector = ->(exhibit) do
-  themes = Settings.exhibit_themes
+Exhibits::Application.config.after_initialize do
+  Spotlight::Exhibit.themes_selector = ->(exhibit) do
+    themes = Settings.exhibit_themes
 
-  themes[exhibit&.slug] || themes[:default]
+    themes[exhibit&.slug] || themes[:default]
+  end
 end
 
 Spotlight::Engine.config.default_autocomplete_params = {

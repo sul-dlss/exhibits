@@ -19,6 +19,6 @@ class Viewer < ApplicationRecord
 
     modified_viewer_type = viewer_type == 'mirador' ? 'mirador3' : viewer_type
 
-    "../viewers/#{modified_viewer_type}"
+    "/viewers/#{modified_viewer_type}"
   end
 end
