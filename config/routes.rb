@@ -26,20 +26,25 @@ Exhibits::Application.routes.draw do
 
     resource :purl_resources
 
+    concern :searchable, Blacklight::Routes::Searchable.new
+    concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
+
     # this has to come before the Blacklight + Spotlight routes to avoid getting routed as
     # a document request.
     resources :exhibits, path: '/', only: [] do
-      get "catalog/range_limit" => "spotlight/catalog#range_limit"
-      get "catalog/range_limit_panel/:id" => "spotlight/catalog#range_limit_panel"
-      get "home/range_limit" => "spotlight/home_pages#range_limit"
-      get "home/range_limit_panel/:id" => "spotlight/home_pages#range_limit_panel"
+      resource :catalog, only: [], as: 'catalog', controller: 'spotlight/catalog' do
+        concerns :range_searchable
+      end
+
+      resource :home, only: [], as: 'home', controller: 'spotlight/home_pages' do
+        concerns :range_searchable
+      end
     end
 
-    concern :searchable, Blacklight::Routes::Searchable.new
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
       concerns :searchable
-      concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
+      concerns :range_searchable
     end
 
     resource :search_across, only: [:index], path: '/search', controller: 'search_across' do
@@ -70,5 +75,4 @@ Exhibits::Application.routes.draw do
   mount Blacklight::Engine => '/'
   Spotlight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'spotlight', defaults: { locale: nil } }
   mount Spotlight::Engine, at: '/'
-
 end
