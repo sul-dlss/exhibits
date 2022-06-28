@@ -35,9 +35,11 @@ module ApplicationHelper
   def render_viewer_in_context(document, block)
     canvas = choose_canvas_id(block)
     if params[:controller] == 'spotlight/catalog'
-      render current_exhibit.required_viewer, document: document, block: block, canvas: canvas
+      render partial: current_exhibit.required_viewer.to_partial_path,
+             locals: { document: document, block: block, canvas: canvas }
     else
-      render current_exhibit.required_viewer.default_viewer_path, document: document, block: block, canvas: canvas
+      render partial: current_exhibit.required_viewer.default_viewer_path,
+             locals: { document: document, block: block, canvas: canvas }
     end
   end
 

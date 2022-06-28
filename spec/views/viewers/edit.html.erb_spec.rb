@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'viewers/edit.html.erb', type: :view do
+describe 'viewers/edit', type: :view do
   let(:exhibit) { create(:exhibit) }
   let(:viewer) { Viewer.create(exhibit_id: exhibit.id) }
 
