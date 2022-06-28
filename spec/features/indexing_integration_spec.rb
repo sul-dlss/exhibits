@@ -86,9 +86,9 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
 
       it 'has other metadata fields' do
         expect(document).to include general_notes_ssim: [
-          'Lower portion of vellum leaf, removed from a binding.',
-          'Script: professional gotica textualis, 2 columns, with a fair amount of abbreviations.'
-        ],
+                                      'Lower portion of vellum leaf, removed from a binding.',
+                                      'Script: professional gotica textualis, 2 columns, with a fair amount of abbreviations.'
+                                    ],
                                     topic_search: ['Manuscripts, Latin (Medieval and modern)'],
                                     geographic_search: ['France'],
                                     subject_all_search: ['Manuscripts, Latin (Medieval and modern)', 'France'],
