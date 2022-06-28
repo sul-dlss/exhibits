@@ -109,7 +109,7 @@ GEM
       blacklight (~> 7.0)
       rails
       ruby-oembed
-    blacklight-spotlight (3.4.2.2)
+    blacklight-spotlight (3.4.3)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 10)
       autoprefixer-rails
@@ -133,27 +133,23 @@ GEM
       iiif_manifest
       leaflet-rails
       legato
-      mimemagic (= 0.3.8)
       mini_magick
       nokogiri
       oauth2
       openseadragon
       ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
       paper_trail (>= 11.0, < 13)
-      pg
       rails (>= 6.1, < 8)
       redcarpet (>= 2.0.1, < 4)
       riiif (~> 2.0)
       roar (~> 1.1)
       roar-rails
-      sidekiq
       signet
       sprockets (>= 3)
       sprockets-es6
       thor
       tophat
       underscore-rails (~> 1.6)
-      webpacker
     blacklight_advanced_search (7.0.0)
       blacklight (~> 7.0)
       parslet
@@ -447,8 +443,6 @@ GEM
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
-    mimemagic (0.3.8)
-      nokogiri (~> 1)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
@@ -516,7 +510,6 @@ GEM
     parser (3.1.2.0)
       ast (~> 2.4.1)
     parslet (2.0.0)
-    pg (1.4.1)
     popper_js (1.16.0)
     public_suffix (4.0.7)
     puma (5.6.4)
@@ -533,8 +526,6 @@ GEM
       rack (>= 0.4)
     rack-mini-profiler (3.0.0)
       rack (>= 1.2.0)
-    rack-proxy (0.7.2)
-      rack
     rack-test (2.0.2)
       rack (>= 1.3)
     rack-timeout (0.6.3)
@@ -662,7 +653,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    semantic_range (3.0.0)
     sidekiq (6.5.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -782,11 +772,6 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    webpacker (5.4.3)
-      activesupport (>= 5.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 5.2)
-      semantic_range (>= 2.3.0)
     websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
