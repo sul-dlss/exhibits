@@ -27,12 +27,6 @@ class User < ApplicationRecord
 
   attr_reader :groups
 
-  def webauth_groups=(groups)
-    run_callbacks :groups_changed do
-      @groups ||= groups.split('|')
-    end
-  end
-
   def shibboleth_groups=(groups)
     run_callbacks :groups_changed do
       @groups ||= groups.split(';')

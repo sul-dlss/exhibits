@@ -14,7 +14,6 @@ DeviseRemoteUser.configure do |config|
   end
   config.auto_create = true
   config.auto_update = true
-  config.attribute_map = { webauth_groups: 'WEBAUTH_LDAPPRIVGROUP', shibboleth_groups: 'eduPersonEntitlement' }
 end
 
 # Use this hook to configure devise mailer, warden hooks and so forth.

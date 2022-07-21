@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ##
-# Authentication controller that is protected externally (by WebAuth)
+# Authentication controller that is protected externally
 # and simply bounces users back to their initial request.
 class LoginController < ApplicationController
   before_action only: :login do
