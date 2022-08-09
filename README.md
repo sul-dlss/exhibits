@@ -38,7 +38,7 @@ You can spin up the Rails server, solr_wrapper, and populate the Solr index usin
 ```console
 $ REMOTE_USER="archivist1@example.com" bundle exec rake server
 ```
-When prompted to create an admin user, the email should match the email provided in  `REMOTE_USER`. This will allow you to bypass the webauth authentication.
+When prompted to create an admin user, the email should match the email provided in  `REMOTE_USER`. This will allow you to bypass authentication.
 
 ## Testing
 Run RuboCop and tests:
