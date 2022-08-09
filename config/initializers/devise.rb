@@ -14,6 +14,7 @@ DeviseRemoteUser.configure do |config|
   end
   config.auto_create = true
   config.auto_update = true
+  config.attribute_map = { shibboleth_groups: 'eduPersonEntitlement' }
 end
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
