@@ -273,3 +273,5 @@ Rails/WhereEquals: # (new in 2.9)
   Enabled: true
 Rails/WhereNot: # (new in 2.8)
   Enabled: true
+Gemspec/DeprecatedAttributeAssignment: # (new in 1.10)
+  Enabled: true
