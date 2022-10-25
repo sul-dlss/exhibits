@@ -44,7 +44,7 @@ class ExhibitFinder
         }
       ).dig('response', 'docs') || {}
 
-      documents.map { |document| document['exhibit_slug_ssi'] }
+      documents.pluck('exhibit_slug_ssi')
     end
   end
 

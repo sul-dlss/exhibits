@@ -49,9 +49,7 @@ class IiifCanvasIndexer
 
   def range_labels_for(canvas_id)
     @range_labels ||= {}
-    @range_labels[canvas_id] ||= manifest_harvester.ranges_for(canvas_id).map do |range|
-      range['label']
-    end
+    @range_labels[canvas_id] ||= manifest_harvester.ranges_for(canvas_id).pluck('label')
   end
 
   def canvases
