@@ -1,4 +1,10 @@
 .exhibit-search-typeahead {
+  .tt-input {
+    // Override the transparent background added inline
+    // by twitter-typeahead
+    background-color: $navbar-default-bg !important;
+  }
+
   .tt-dropdown-menu {
     width: 100%;
   }
