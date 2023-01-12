@@ -2,17 +2,8 @@
 <%= content_tag :html, class: 'no-js', **(try(:html_tag_attributes) || {}) do %>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-    <!-- Mobile viewport optimization h5bp.com/ad -->
-    <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="google-site-verification" content="<%= Settings.GOOGLE_SITE_VERIFICATION %>" />
-
-    <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
-    <!--[if IEMobile]>
-      <meta http-equiv="cleartype" content="on">
-    <![endif]-->
 
     <title><%= h(@page_title || application_name) %></title>
     <% if current_exhibit %>
