@@ -1,8 +1,8 @@
 GEM
   remote: https://gems.contribsys.com/
   specs:
-    sidekiq-pro (5.5.8)
-      sidekiq (~> 6.0, >= 6.5.6)
+    sidekiq-pro (7.0.6)
+      sidekiq (>= 7.0.0, < 8)
 
 GEM
   remote: https://rubygems.org/
@@ -559,7 +559,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.1)
-    redis (4.8.0)
+    redis-client (0.12.1)
+      connection_pool
     regexp_parser (2.6.1)
     reline (0.3.2)
       io-console (~> 0.5)
@@ -650,10 +651,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (6.5.8)
-      connection_pool (>= 2.2.5, < 3)
-      rack (~> 2.0)
-      redis (>= 4.5.0, < 5)
+    sidekiq (7.0.3)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     signet (0.17.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
@@ -785,6 +787,7 @@ PLATFORMS
   x86_64-darwin-19
   x86_64-darwin-20
   x86_64-darwin-21
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
@@ -847,8 +850,8 @@ DEPENDENCIES
   ruby-oembed
   sassc-rails
   selenium-webdriver (!= 3.13.0)
-  sidekiq (< 7)
-  sidekiq-pro (< 7)!
+  sidekiq (~> 7.0)
+  sidekiq-pro (~> 7.0)!
   simplecov
   sitemap_generator
   slack-ruby-client
