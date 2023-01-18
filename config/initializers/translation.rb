@@ -1,7 +1,7 @@
 require 'i18n/backend/active_record'
 
 Rails.application.config.to_prepare do
-  next if Translation.table_exists?
+  next unless Translation.table_exists?
   ##
   # Sets up the new Spotlight Translation backend, backed by ActiveRecord. To
   # turn on the ActiveRecord backend, uncomment the following lines.
