@@ -113,10 +113,10 @@ gem 'friendly_id', '~> 5.4'
 gem 'sitemap_generator'
 
 source 'https://gems.contribsys.com/' do
-  gem 'sidekiq-pro', '< 7' # Remain on v5 until Redis is updated to v7 on VMs
+  gem 'sidekiq-pro', '~> 7.0'
 end
 
-gem 'sidekiq', '< 7' # Remain on v6 until Redis is updated to v7 on VMs
+gem 'sidekiq', '~> 7.0'
 gem 'sul_styles'
 gem 'dotenv'
 gem 'riiif'
