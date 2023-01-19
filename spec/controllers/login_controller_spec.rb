@@ -20,12 +20,12 @@ describe LoginController do
 
   context 'with a referrer header' do
     before do
-      request.env['HTTP_REFERER'] = 'http://example.com'
+      request.env['HTTP_REFERER'] = 'http://test.host/foo'
     end
 
     it 'redirects to the referrer' do
       get :login
-      expect(response).to redirect_to 'http://example.com'
+      expect(response).to redirect_to 'http://test.host/foo'
     end
   end
 
