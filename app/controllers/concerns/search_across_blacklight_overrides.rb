@@ -27,13 +27,13 @@ module SearchAcrossBlacklightOverrides
   def link_to_document(doc, field_or_opts, opts = { counter: nil })
     label = case field_or_opts
             when NilClass
-              view_context.index_presenter(doc).heading
+              view_context.document_presenter(doc).heading
             when Hash
               opts = field_or_opts
-              view_context.index_presenter(doc).heading
+              view_context.document_presenter(doc).heading
             when Proc, Symbol
               Deprecation.silence(Blacklight::IndexPresenter) do
-                view_context.index_presenter(doc).label field_or_opts, opts
+                view_context.document_presenter(doc).label field_or_opts, opts
               end
             else # String
               field_or_opts
