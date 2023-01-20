@@ -175,7 +175,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["exhibit_id"], name: "index_spotlight_events_on_exhibit_id"
-    t.index ["resource_type", "resource_id"], name: "index_spotlight_events_on_resource"
+    t.index ["resource_type", "resource_id"], name: "index_spotlight_events_on_resource_type_and_resource_id"
   end
 
   create_table "spotlight_exhibits", force: :cascade do |t|
@@ -244,7 +244,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
     t.string "member_type"
     t.integer "member_id"
     t.index ["group_id"], name: "index_spotlight_groups_members_on_group_id"
-    t.index ["member_type", "member_id"], name: "index_spotlight_groups_members_on_member"
+    t.index ["member_type", "member_id"], name: "index_spotlight_groups_members_on_member_type_and_member_id"
   end
 
   create_table "spotlight_job_trackers", force: :cascade do |t|
@@ -263,8 +263,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["job_id"], name: "index_spotlight_job_trackers_on_job_id"
-    t.index ["on_type", "on_id"], name: "index_spotlight_job_trackers_on_on"
-    t.index ["resource_type", "resource_id"], name: "index_spotlight_job_trackers_on_resource"
+    t.index ["on_type", "on_id"], name: "index_spotlight_job_trackers_on_on_type_and_on_id"
+    t.index ["resource_type", "resource_id"], name: "index_spotlight_job_trackers_on_resource_type_and_resource_id"
     t.index ["user_id"], name: "index_spotlight_job_trackers_on_user_id"
   end
 
@@ -285,9 +285,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
     t.integer "by_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["by_type", "by_id"], name: "index_spotlight_locks_on_by"
+    t.index ["by_type", "by_id"], name: "index_spotlight_locks_on_by_type_and_by_id"
     t.index ["on_id", "on_type"], name: "index_spotlight_locks_on_on_id_and_on_type", unique: true
-    t.index ["on_type", "on_id"], name: "index_spotlight_locks_on_on"
+    t.index ["on_type", "on_id"], name: "index_spotlight_locks_on_on_type_and_on_id"
   end
 
   create_table "spotlight_main_navigations", force: :cascade do |t|
@@ -449,7 +449,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
     t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
     t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
-    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger"
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -497,7 +497,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
-    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
