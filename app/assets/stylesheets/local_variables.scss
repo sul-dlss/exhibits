@@ -13,4 +13,4 @@ $nav-link-padding: $spacer;
 $modal-header-footer-height-guess: 212px;
 
 // Only set max-width of containers at breakpoints above "sm"
-$container-max-widths: map-remove($container-max-widths, "sm");
+//$container-max-widths: map-remove($container-max-widths, "sm");
