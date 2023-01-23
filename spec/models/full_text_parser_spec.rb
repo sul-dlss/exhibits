@@ -82,4 +82,19 @@ describe FullTextParser do
       end
     end
   end
+
+  context 'when Stacks is down' do
+    before do
+      allow(Faraday).to receive(:get).and_raise(
+        Faraday::ConnectionFailed.new('Connection refused - connect(2) for "stacks.stanford.edu" port 443')
+      )
+    end
+
+    describe '#to_text' do
+      it 'is an empty array' do
+        ocr_text = parser.to_text.flatten
+        expect(ocr_text).to eq []
+      end
+    end
+  end
 end
