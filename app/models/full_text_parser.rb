@@ -44,7 +44,7 @@ class FullTextParser
 
   def full_text_content(url)
     Faraday.get(url).body
-  rescue Faraday::Error::ConnectionFailed
+  rescue Faraday::ConnectionFailed
     logger.error("Error indexing full text - couldn't load file #{url}")
     ''
   end
