@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bootstrap": "^4.6.2",
+    "bootstrap-slider": "^11.0.2"
+  }
+}
