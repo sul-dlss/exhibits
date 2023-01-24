@@ -231,6 +231,8 @@ GEM
       rexml
     csl-styles (2.0.1)
       csl (~> 2.0)
+    cssbundling-rails (1.1.2)
+      railties (>= 6.0.0)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
     database_cleaner-active_record (2.0.1)
@@ -809,6 +811,7 @@ DEPENDENCIES
   citeproc-ruby
   config
   csl-styles
+  cssbundling-rails (~> 1.1)
   database_cleaner
   debug
   devise
@@ -847,7 +850,6 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   ruby-oembed
-  sassc-rails
   selenium-webdriver (!= 3.13.0)
   sidekiq (~> 7.0)
   sidekiq-pro (~> 7.0)!

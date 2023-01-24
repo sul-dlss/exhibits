@@ -11,8 +11,6 @@ gem 'rails', '~> 7.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use SCSS for stylesheets
-gem 'sassc-rails'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
@@ -133,3 +131,5 @@ gem 'blacklight-oembed', '~> 1.0'
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'
+
+gem "cssbundling-rails", "~> 1.1"
