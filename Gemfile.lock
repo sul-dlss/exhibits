@@ -746,8 +746,6 @@ GEM
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     underscore-rails (1.8.3)
     unf (0.1.4)
       unf_ext
@@ -867,7 +865,6 @@ DEPENDENCIES
   turnout
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
-  uglifier (>= 2.7.2)
   web-console (>= 4.1.0)
   webdrivers
   webmock
