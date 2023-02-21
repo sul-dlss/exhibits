@@ -81,7 +81,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
                                     pub_year_w_approx_isi: 1200,
                                     pub_year_tisim: (1200..1299).to_a,
                                     place_created_ssim: ['France?'],
-                                    date_ssim: ['13th century', '[1200-1299?]']
+                                    date_ssim: ['13th century', '[1200 - 1299?]']
       end
 
       it 'has other metadata fields' do
