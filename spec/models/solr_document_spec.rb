@@ -194,7 +194,7 @@ describe SolrDocument do
       end
 
       it 'returns only the unique highlighting phrases' do
-        expect(document.full_text_highlights).to match_array ['The first <em>Value1</em>']
+        expect(document.full_text_highlights).to contain_exactly('The first <em>Value1</em>')
       end
     end
   end
