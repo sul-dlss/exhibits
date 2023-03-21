@@ -24,7 +24,6 @@
 //= require bootstrap
 //= require bs-custom-file-input
 
-//= require analytics
 //= require bibliography
 //= require cited_documents
 //= require 'blacklight_advanced_search'
