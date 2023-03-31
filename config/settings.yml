@@ -7,6 +7,9 @@ stacks:
   file_url: 'https://stacks.stanford.edu/file'
 
 GOOGLE_SITE_VERIFICATION: '654321sitever'
+# Google Analytics will report in debug mode by default.
+# in shared_configs for exhibits-prod, we set this value to false.
+analytics_debug: true
 
 purl:
   url: 'https://purl.stanford.edu/%{druid}'

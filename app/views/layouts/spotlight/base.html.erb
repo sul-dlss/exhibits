@@ -26,6 +26,21 @@
        revision: '<%= Settings.revision %>'
      });
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CDXW2DVPG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      const config = {}
+
+      <% if Settings.analytics_debug %>
+        config.debug_mode = true
+      <% end %>
+
+      gtag('config', 'G-1CDXW2DVPG', config)
+    </script>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
     <%= description %>
