@@ -1,7 +1,7 @@
 GEM
   remote: https://gems.contribsys.com/
   specs:
-    sidekiq-pro (7.0.8)
+    sidekiq-pro (7.0.9)
       sidekiq (>= 7.0.0, < 8)
 
 GEM
@@ -77,7 +77,7 @@ GEM
       tzinfo (~> 2.0)
     acts-as-taggable-on (9.0.1)
       activerecord (>= 6.0, < 7.1)
-    addressable (2.8.1)
+    addressable (2.8.2)
       public_suffix (>= 2.0.2, < 6.0)
     airbrussh (1.4.1)
       sshkit (>= 1.6.1, != 1.7.0)
@@ -196,7 +196,7 @@ GEM
       capistrano (~> 3.1)
       capistrano-bundler (>= 1.1, < 3)
     capistrano-shared_configs (0.2.2)
-    capybara (3.38.0)
+    capybara (3.39.0)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -239,14 +239,14 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     date (3.3.3)
-    debug (1.7.1)
+    debug (1.7.2)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     declarative (0.0.20)
     deep_merge (1.2.2)
     deprecation (1.1.0)
       activesupport
-    devise (4.9.0)
+    devise (4.9.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
@@ -261,7 +261,7 @@ GEM
       devise (>= 4.6)
     diff-lcs (1.5.0)
     diffy (3.4.2)
-    dlss-capistrano (4.3.1)
+    dlss-capistrano (4.4.0)
       capistrano (~> 3.0)
       capistrano-bundle_audit (>= 0.3.0)
       capistrano-one_time_key
@@ -427,7 +427,7 @@ GEM
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
-    loofah (2.19.1)
+    loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.8.1)
@@ -460,7 +460,7 @@ GEM
       i18n
       stanford-mods (~> 3.3)
       view_component
-    msgpack (1.6.1)
+    msgpack (1.7.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.3.0)
@@ -478,8 +478,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     net-ssh (7.1.0)
-    newrelic_rpm (9.0.0)
-    nio4r (2.5.8)
+    newrelic_rpm (9.1.0)
+    nio4r (2.5.9)
     nokogiri (1.14.2-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
@@ -502,7 +502,7 @@ GEM
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.22.1)
-    parser (3.2.1.1)
+    parser (3.2.2.0)
       ast (~> 2.4.1)
     parslet (2.0.0)
     popper_js (1.16.1)
@@ -562,7 +562,7 @@ GEM
     redcarpet (3.6.0)
     redis (5.0.6)
       redis-client (>= 0.9.0)
-    redis-client (0.14.0)
+    redis-client (0.14.1)
       connection_pool
     regexp_parser (2.7.0)
     reline (0.3.3)
@@ -599,7 +599,7 @@ GEM
     rspec-expectations (3.12.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.4)
+    rspec-mocks (3.12.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-rails (6.0.1)
@@ -611,14 +611,14 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
-    rubocop (1.48.1)
+    rubocop (1.49.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.2.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.26.0, < 2.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.28.0)
@@ -650,7 +650,7 @@ GEM
       sprockets-rails
       tilt
     scrub_rb (1.0.1)
-    selenium-webdriver (4.8.3)
+    selenium-webdriver (4.8.6)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
