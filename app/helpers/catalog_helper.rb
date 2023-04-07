@@ -5,6 +5,11 @@
 module CatalogHelper
   include Blacklight::CatalogHelperBehavior
 
+  # Which tags do we accept in the metadata.
+  # From https://github.com/sul-dlss/mods_display/blob/2c7b6faef791e7d0d6ae27711bfc7687e1c0dc3d/app/helpers/mods_display/record_helper.rb#L74
+  # And also the "p" tag.
+  PERMITTED_TAGS = %w(a dl dd dt i b em strong cite br p).freeze
+
   # @note thumbnail handling moves to a presenter in Blacklight 7.
   # Overriding Blacklight so that all references display thumbnails
   #
@@ -47,11 +52,10 @@ module CatalogHelper
     return if options[:value].blank?
 
     values = split_on_white_space(options[:value])
+             .map { |value| sanitize(value, tags: PERMITTED_TAGS) }
     return values.first if values.count == 1
 
-    safe_join(values.collect do |content|
-      content_tag('p', content.html_safe) # rubocop:disable Rails/OutputSafety
-    end)
+    safe_join(values.map { |content| tag.p content })
   end
 
   def table_of_contents_separator(options = {})
