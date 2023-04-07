@@ -61,17 +61,23 @@ describe CatalogHelper, type: :helper do
   end
 
   describe '#paragraph_joined_content' do
+    subject(:content) { helper.paragraph_joined_content(value: value) }
+
     context 'single description' do
+      let(:value) { %w(<p>stuff</p>) }
+
       it 'returns a description' do
-        expect(helper.paragraph_joined_content(value: %w(<p>stuff</p>))).to eq '<p>stuff</p>'
+        expect(content).to eq '<p>stuff</p>'
+        expect(content).to be_html_safe
       end
     end
 
     context 'multiple descriptions' do
+      let(:value) { %W[<p>stuff</p> hello\nworld] }
+
       it 'returns the descriptions joined by paragraphs' do
-        expect(
-          helper.paragraph_joined_content(value: %W[<p>stuff</p> hello\nworld])
-        ).to eq '<p><p>stuff</p></p><p>hello</p><p>world</p>'
+        expect(content).to eq '<p><p>stuff</p></p><p>hello</p><p>world</p>'
+        expect(content).to be_html_safe
       end
     end
   end
