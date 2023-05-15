@@ -66,4 +66,4 @@ slack_notifications:
 index_status_threshold: 10
 async_javascript: false
 sidekiq_retry_queue_threshold: 100
-revision: <%= File.read("#{Rails.root}/REVISION").chomp if File.exists?("#{Rails.root}/REVISION") %>
+revision: <%= File.read("#{Rails.root}/REVISION").chomp if File.exist?("#{Rails.root}/REVISION") %>
