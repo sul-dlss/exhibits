@@ -55,7 +55,7 @@ module ApplicationHelper
         url: url,
         canvas_id: canvas_id,
         search: params[:search],
-        maxheight: block&.maxheight&.presence || '600',
+        maxheight: block&.maxheight.presence || '600',
         suggested_search: (current_search_session&.query_params || {})[:q]
       )
     }
