@@ -220,7 +220,7 @@ GEM
       csl (~> 2.0)
     clipboard-rails (1.7.1)
     concurrent-ruby (1.2.2)
-    config (4.2.0)
+    config (4.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     connection_pool (2.4.1)
@@ -450,7 +450,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitar (0.9)
-    minitest (5.18.0)
+    minitest (5.18.1)
     mods (3.0.3)
       edtf (~> 3.0)
       iso-639
@@ -466,7 +466,7 @@ GEM
     multipart-post (2.3.0)
     mysql2 (0.5.5)
     namae (1.1.1)
-    net-imap (0.3.4)
+    net-imap (0.3.6)
       date
       net-protocol
     net-pop (0.1.2)
@@ -517,7 +517,7 @@ GEM
       mods_display (>= 1.0.0.alpha1)
       nokogiri
       stanford-mods
-    racc (1.7.0)
+    racc (1.7.1)
     rack (2.2.7)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -633,7 +633,7 @@ GEM
     rubocop-performance (1.18.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.19.1)
+    rubocop-rails (2.20.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
@@ -660,7 +660,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (7.1.1)
+    sidekiq (7.1.2)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
