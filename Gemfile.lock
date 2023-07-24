@@ -350,7 +350,7 @@ GEM
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
     github-markup (4.0.1)
-    gli (2.21.0)
+    gli (2.21.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     handlebars_assets (0.23.9)
@@ -461,7 +461,7 @@ GEM
       i18n
       stanford-mods (~> 3.3)
       view_component
-    msgpack (1.7.1)
+    msgpack (1.7.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.3.0)
