@@ -11,4 +11,3 @@ feature_flags:
   themes: true
   bibliography_resource: true
   search_across: true
-  home_page_navbar: true
