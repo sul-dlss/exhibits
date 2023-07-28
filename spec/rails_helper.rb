@@ -9,6 +9,10 @@ require 'factory_bot_rails'
 
 require 'selenium-webdriver'
 
+# I think this line can be removed when selenium 4.11 is released
+# See https://github.com/titusfortner/webdrivers/issues/247#issuecomment-1648154088
+Webdrivers::Chromedriver.required_version = '114.0.5735.90'
+
 Capybara.javascript_driver = :selenium_chrome_headless
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
