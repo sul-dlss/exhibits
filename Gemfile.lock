@@ -451,7 +451,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitar (0.9)
-    minitest (5.18.1)
+    minitest (5.19.0)
     mods (3.0.3)
       edtf (~> 3.0)
       iso-639
@@ -467,7 +467,7 @@ GEM
     multipart-post (2.3.0)
     mysql2 (0.5.5)
     namae (1.1.1)
-    net-imap (0.3.6)
+    net-imap (0.3.7)
       date
       net-protocol
     net-pop (0.1.2)
@@ -478,7 +478,7 @@ GEM
       net-ssh (>= 2.6.5, < 8.0.0)
     net-smtp (0.3.3)
       net-protocol
-    net-ssh (7.1.0)
+    net-ssh (7.2.0)
     newrelic_rpm (9.3.1)
     nio4r (2.5.9)
     nokogiri (1.15.3-x86_64-darwin)
@@ -519,7 +519,7 @@ GEM
       nokogiri
       stanford-mods
     racc (1.7.1)
-    rack (2.2.7)
+    rack (2.2.8)
     rack-accept (0.4.5)
       rack (>= 0.4)
     rack-mini-profiler (3.1.0)
@@ -570,7 +570,7 @@ GEM
     redis-client (0.14.1)
       connection_pool
     regexp_parser (2.8.1)
-    reline (0.3.6)
+    reline (0.3.7)
       io-console (~> 0.5)
     representable (3.2.0)
       declarative (< 0.1.0)
@@ -582,7 +582,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     retriable (3.1.2)
-    rexml (3.2.5)
+    rexml (3.2.6)
     riiif (2.4.0)
       deprecation (>= 1.0.0)
       iiif-image-api (>= 0.1.0)
@@ -616,7 +616,7 @@ GEM
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
     rspec-support (3.12.1)
-    rubocop (1.54.2)
+    rubocop (1.55.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -624,7 +624,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.28.0, < 2.0)
+      rubocop-ast (>= 1.28.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.29.0)
@@ -640,7 +640,7 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
-    rubocop-rspec (2.22.0)
+    rubocop-rspec (2.23.0)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
@@ -789,7 +789,7 @@ GEM
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     websocket (1.2.9)
-    websocket-driver (0.7.5)
+    websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xml-simple (1.1.9)
@@ -797,7 +797,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.2)
-    zeitwerk (2.6.8)
+    zeitwerk (2.6.10)
 
 PLATFORMS
   x86_64-darwin-19
