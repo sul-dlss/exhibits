@@ -26,7 +26,6 @@ feature_flags:
   slack_notifications: false
   uat_embed: false
   search_across: false
-  home_page_navbar: false
   exhibits_index: false
 traject:
   processing_thread_pool: 1
