@@ -114,7 +114,6 @@ source 'https://gems.contribsys.com/' do
 end
 
 gem 'sidekiq', '~> 7.0'
-gem 'sul_styles'
 gem 'dotenv'
 gem 'riiif'
 gem 'rsolr'
