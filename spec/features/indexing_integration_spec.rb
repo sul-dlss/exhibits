@@ -6,8 +6,14 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
   subject(:dor_harvester) { DorHarvester.new(druid_list: druid, exhibit: exhibit) }
 
   let(:exhibit) { FactoryBot.create(:exhibit) }
+  let(:rsolr) { instance_double(RSolr) }
+  let(:rsolr_client) { instance_double(RSolr::Client) }
 
   before do
+    allow(RSolr).to receive(:connect).and_return(rsolr_client)
+    allow(rsolr_client).to receive(:update)
+    allow(rsolr_client).to receive(:commit)
+
     stub_request(:post, /update/)
     %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
