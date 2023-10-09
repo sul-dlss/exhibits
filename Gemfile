@@ -88,7 +88,7 @@ gem 'config'
 
 gem 'bootstrap', '~> 4.6'
 gem 'blacklight', '~> 7.15'
-gem 'blacklight-gallery', '~> 4'
+gem 'blacklight-gallery', '~> 4.4'
 gem 'blacklight_heatmaps'
 gem 'blacklight-spotlight', '~> 3.0'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'

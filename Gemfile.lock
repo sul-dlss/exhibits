@@ -103,7 +103,7 @@ GEM
       ostruct (>= 0.3.2)
       rails (>= 5.1, < 7.1)
       view_component (>= 2.66, < 4)
-    blacklight-gallery (4.3.0)
+    blacklight-gallery (4.4.0)
       blacklight (>= 7.17, < 9)
       rails (>= 6.1, < 8)
     blacklight-oembed (1.1.1)
@@ -815,7 +815,7 @@ DEPENDENCIES
   acts-as-taggable-on
   bibtex-ruby
   blacklight (~> 7.15)
-  blacklight-gallery (~> 4)
+  blacklight-gallery (~> 4.4)
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 3.0)
   blacklight_advanced_search
