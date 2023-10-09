@@ -46,6 +46,11 @@ Run RuboCop and tests:
 $ bin/rake
 ```
 
+If you'd like to run a single test, you must seed the index first:
+```console
+bin/rails spotlight:seed
+```
+
 **Tip:** if you receive the error message `ERROR: Core 'blacklight-core' already exists!` you have an instance of Solr running elsewhere. Clean out your data with `solr_wrapper clean` or search for rogue instances with `ps aux | grep solr`.
 
 ## Deploying
