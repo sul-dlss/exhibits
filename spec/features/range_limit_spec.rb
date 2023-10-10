@@ -11,6 +11,7 @@ RSpec.describe 'Range limit widget', type: :feature, js: true do
   before do
     login_as admin
     visit spotlight.search_exhibit_catalog_path(exhibit)
+    page.driver.browser.manage.window.resize_to(1000, 400)
   end
 
   it 'has the date range facet' do
