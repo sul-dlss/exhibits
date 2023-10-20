@@ -855,6 +855,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (>= 1.7.1)
   okcomputer
+  psych (~> 5.1.0)
   puma (~> 5.0)
   purl_fetcher-client (~> 0.4)
   rack-mini-profiler
