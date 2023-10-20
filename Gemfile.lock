@@ -512,7 +512,7 @@ GEM
       racc
     parslet (2.0.0)
     popper_js (1.16.1)
-    psych (5.1.1)
+    psych (5.1.0)
       stringio
     public_suffix (5.0.3)
     puma (5.6.7)
@@ -855,7 +855,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (>= 1.7.1)
   okcomputer
-  psych (~> 5.1.0)
+  psych (= 5.1.0)
   puma (~> 5.0)
   purl_fetcher-client (~> 0.4)
   rack-mini-profiler
