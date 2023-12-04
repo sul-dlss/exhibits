@@ -23,7 +23,7 @@ class SearchBuilder < Blacklight::SearchBuilder
     @rows = if @rows.blank?
               blacklight_config.default_per_page
             else
-              [@rows.to_i, (blacklight_config.max_per_page_for_api || 1_000)].min # ensure under max
+              [@rows.to_i, blacklight_config.max_per_page_for_api || 1_000].min # ensure under max
             end
   end
 
