@@ -460,10 +460,10 @@ GEM
       iso-639
       nokogiri (>= 1.6.6)
       nom-xml (~> 1.0)
-    mods_display (1.6.1)
+    mods_display (1.4.0)
       i18n
       rails_autolink
-      stanford-mods (~> 3.3, >= 3.3.9)
+      stanford-mods (~> 3.3, >= 3.3.7)
       view_component
     msgpack (1.7.2)
     multi_json (1.15.0)
@@ -856,7 +856,7 @@ DEPENDENCIES
   jsonpath
   letter_opener
   listen (~> 3.3)
-  mods_display (~> 1.0)
+  mods_display (= 1.4.0)
   mysql2
   newrelic_rpm
   nokogiri (>= 1.7.1)
