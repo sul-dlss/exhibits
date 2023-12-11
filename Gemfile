@@ -128,7 +128,7 @@ gem 'bibtex-ruby'
 gem 'citeproc-ruby'
 gem 'csl-styles'
 gem 'acts-as-taggable-on'
-gem 'mods_display', '1.4.0' # mods_display v1.5.0 breaks NestedRelatedItem display
+gem 'mods_display', '~> 1.6'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'view_component', '~> 2.82' # ViewComponent 3.x breaks blacklight_range_limit 8.3.0
