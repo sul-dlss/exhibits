@@ -35,7 +35,7 @@ RSpec.describe SearchBuilder do
     described_class.default_processor_chain << :add_advanced_search_to_solr
   end
 
-  it 'will allow up to max per page' do
+  it 'allows up to max per page' do
     expect(builder.to_hash).to include(rows: 999)
   end
 
@@ -68,7 +68,7 @@ RSpec.describe SearchBuilder do
       }.with_indifferent_access
     end
 
-    it 'will become config.default_per_page' do
+    it 'becomes config.default_per_page' do
       expect(builder.to_hash).to include(rows: 99)
     end
   end
