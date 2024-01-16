@@ -12,8 +12,8 @@ module Traject
     end
 
     # @return [BibTeX::Entry]
-    def each(&block)
-      bibliography.bibliography.each(&block)
+    def each(...)
+      bibliography.bibliography.each(...)
     end
 
     def count
