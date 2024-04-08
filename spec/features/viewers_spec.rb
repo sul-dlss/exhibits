@@ -104,7 +104,7 @@ describe 'Viewers', type: :feature do
         expect(page).to have_link 'Change'
       end
 
-      save_page
+      save_page # rubocop:disable Lint/Debugger
 
       expect(page).not_to have_css 'iframe[src*=embed]'
       expect(page).to have_css '.oembed-widget'
