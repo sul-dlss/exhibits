@@ -209,6 +209,7 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       end
 
       it 'has correct content metadata type' do
+        debugger
         expect(document[:content_metadata_type_ssm]).to include 'file'
       end
 
