@@ -15,20 +15,10 @@ class Purl
     false
   end
 
-  def collection?
-    public_xml_record.is_collection
-  end
-
-  delegate :items, to: :public_xml_record
+  delegate :items, :collection?, to: :public_xml_record
 
   def public_xml_record
-    @public_xml_record ||= begin
-      PurlFetcher::Client::PublicXmlRecord.new(
-        bare_druid,
-        purl_url: format(Settings.purl.url, druid: ''),
-        purl_fetcher_url: Settings.purl_fetcher.url
-      )
-    end
+    @public_xml_record ||= PublicXmlRecord.new(bare_druid)
   end
 
   def bare_druid
