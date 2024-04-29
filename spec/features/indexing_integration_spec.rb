@@ -19,9 +19,6 @@ RSpec.describe 'indexing integration test', type: :feature, vcr: true do
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
-      stub_request(:get, "https://purl.stanford.edu/#{fixture}.mods").to_return(
-        body: File.new(File.join(FIXTURES_PATH, "#{fixture}.mods")), status: 200
-      )
     end
   end
 
