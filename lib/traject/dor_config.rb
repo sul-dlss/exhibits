@@ -202,40 +202,6 @@ end
 
 to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
 
-each_record do |resource, context|
-  content_metadata = resource.public_xml.at_xpath('/publicObject/contentMetadata')
-  next if content_metadata.blank?
-
-  # Select conventional file images or virtual external ones
-  images = content_metadata.xpath('(resource/file[@mimetype="image/jp2"] | resource/externalFile[@mimetype="image/jp2"])')
-  thumbnail_data = images.first { |node| (node.attr('id') || node.attr('fileId') || '').end_with?('jp2') }
-  context.clipboard['thumbnail_data'] = thumbnail_data
-end
-
-to_field 'content_metadata_first_image_file_name_ssm' do |_resource, accumulator, context|
-  next unless context.clipboard['thumbnail_data']
-
-  # Allow for selection of conventional id's or virtual fileIds
-  file_id = (context.clipboard['thumbnail_data'].attr('id') || context.clipboard['thumbnail_data'].attr('fileId')).gsub('.jp2', '')
-  accumulator << file_id
-end
-
-to_field 'content_metadata_first_image_width_ssm' do |_resource, accumulator, context|
-  next unless context.clipboard['thumbnail_data']
-
-  image_data = context.clipboard['thumbnail_data'].at_xpath('./imageData')
-
-  accumulator << image_data['width']
-end
-
-to_field 'content_metadata_first_image_height_ssm' do |_resource, accumulator, context|
-  next unless context.clipboard['thumbnail_data']
-
-  image_data = context.clipboard['thumbnail_data'].at_xpath('./imageData')
-
-  accumulator << image_data['height']
-end
-
 to_field 'content_metadata_image_iiif_info_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
   accumulator.map! { |base_url| "#{base_url}/info.json" }
 end
