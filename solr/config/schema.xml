@@ -256,7 +256,6 @@
     <dynamicField name="*_tesimv" type="text" stored="true" indexed="true" multiValued="true" storeOffsetsWithPositions="true" termVectors="true" />
     <dynamicField name="*_bsi" type="boolean" stored="true" indexed="true" multiValued="true" omitNorms="true" />
     <dynamicField name="*_ng" type="text_en_ng" stored="false" indexed="true" multiValued="true"/>
-    <dynamicField name="*_pt" type="location" stored="true" indexed="true"/>
     <dynamicField name="*_bbox" type="bbox" stored="true" indexed="true" multiValued="true"/>
     <dynamicField name="*_srpt" type="location_rpt" stored="true" indexed="true" multiValued="true"/>
     <dynamicField name="*_geohash" type="geohash" stored="true" indexed="true" multiValued="true"/>
@@ -598,9 +597,6 @@
       See http://wiki.apache.org/solr/SpatialSearch
     -->
     <fieldtype name="geohash" class="solr.GeoHashField"/>
-
-    <!-- A specialized field for geospatial search. If indexed, fields of this type must NOT be multivalued. -->
-    <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_coordinate"/>
 
     <!-- An alternative geospatial field type new to Solr 4.  It supports multiValued and polygon shapes.
       For more information about this and other Spatial fields new to Solr 4, see:
