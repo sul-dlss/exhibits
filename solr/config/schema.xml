@@ -258,7 +258,6 @@
     <dynamicField name="*_ng" type="text_en_ng" stored="false" indexed="true" multiValued="true"/>
     <dynamicField name="*_bbox" type="bbox" stored="true" indexed="true" multiValued="true"/>
     <dynamicField name="*_srpt" type="location_rpt" stored="true" indexed="true" multiValued="true"/>
-    <dynamicField name="*_geohash" type="geohash" stored="true" indexed="true" multiValued="true"/>
     <dynamicField name="*_ts" type="text" indexed="false" stored="true" multiValued="false" />
     <dynamicField name="random*" type="random" />
   </fields>
@@ -592,11 +591,6 @@
       users normally should not need to know about them.
      -->
     <fieldType name="point" class="solr.PointType" dimension="2" subFieldSuffix="_d"/>
-
-    <!-- A Geohash is a compact representation of a latitude longitude pair in a single field.
-      See http://wiki.apache.org/solr/SpatialSearch
-    -->
-    <fieldtype name="geohash" class="solr.GeoHashField"/>
 
     <!-- An alternative geospatial field type new to Solr 4.  It supports multiValued and polygon shapes.
       For more information about this and other Spatial fields new to Solr 4, see:
