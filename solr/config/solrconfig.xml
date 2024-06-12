@@ -99,7 +99,7 @@
         pub_date_search^2
         isbn_search^1.5
         issn_search^1.5
-        id
+        id_search
         druid
         oclc
         barcode_search
@@ -289,7 +289,7 @@
         pub_date_search^2
         isbn_search^1.5
         issn_search^1.5
-        id
+        id_search
         oclc
         barcode_search
         physical                       vern_physical                       cjk_physical_search
@@ -713,7 +713,7 @@
 
       <!-- for advanced search number text box -->
       <str name="qf_number">
-        id
+        id_search
         isbn_search
         issn_search
         oclc

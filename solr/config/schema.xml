@@ -7,7 +7,8 @@
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="timestamp" type="date" indexed="true" stored="true" default="NOW" />
 
-    <field name="id" type="string_punct_stop" indexed="true" stored="true" required="true" />
+    <field name="id" type="string" indexed="true" stored="true" required="true" />
+    <field name="id_search" type="string_punct_stop" indexed="true" stored="false" />
     <field name="created" type="date" indexed="true" stored="true" default="NOW/SECOND" />
     <field name="last_updated" type="date" indexed="true" stored="true" default="NOW/SECOND" />
     <!-- entire marc bib record -->
@@ -333,6 +334,7 @@
 
   <!-- exhibits fields -->
   <copyField source="id" dest="id_ng" maxChars="3000"/>
+  <copyField source="id" dest="id_search" />
   <copyField source="title_display" dest="full_title_ng" maxChars="3000"/>
   <!-- NOTE:  all_search is meant for metadata -->
   <copyField source="*_tesim" dest="all_search" />
