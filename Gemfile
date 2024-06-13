@@ -135,3 +135,4 @@ gem 'view_component', '~> 2.82' # ViewComponent 3.x breaks blacklight_range_limi
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'
+gem 'recaptcha', '~> 5.16'

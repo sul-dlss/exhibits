@@ -44,5 +44,10 @@ module Exhibits
     end
 
     config.druid_regex = /([a-z]{2}[0-9]{3}[a-z]{2}[0-9]{4})/
+
+    Recaptcha.configure do |config|
+      config.site_key = ENV.fetch('RECAPTCHA_SITE_KEY', '6Lc6BAAAAAAAAChqRbQZcn_yyyyyyyyyyyyyyyyy')
+      config.secret_key = ENV.fetch('RECAPTCHA_SECRET_KEY', '6Lc6BAAAAAAAAKN3DRm6VA_xxxxxxxxxxxxxxxxx')
+    end
   end
 end

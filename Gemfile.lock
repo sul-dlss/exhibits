@@ -564,6 +564,7 @@ GEM
       ffi (~> 1.0)
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    recaptcha (5.17.0)
     redcarpet (3.6.0)
     redis (5.2.0)
       redis-client (>= 0.22.0)
@@ -864,6 +865,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.0)
   rails-controller-testing
+  recaptcha (~> 5.16)
   redis (~> 5.0)
   riiif
   rsolr

@@ -85,6 +85,10 @@ en:
           index: 'exhibit title'
       view_title:
         heatmaps: "Map"
+  helpers:
+    submit:
+      contact_form:
+        error: "There was a problem submitting feedback."
   metadata:
     abstract: Abstract/Contents
     access: Access conditions
