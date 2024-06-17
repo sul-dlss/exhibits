@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe DorHarvesterController, type: :controller do
+RSpec.describe DorHarvesterController do
   let(:resource) { double }
   let(:exhibit) { create(:exhibit) }
   let(:user) { create(:exhibit_admin, exhibit: exhibit) }

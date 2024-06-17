@@ -66,9 +66,12 @@ group :development, :test do
   gem 'database_cleaner'
 
   gem 'rubocop', require: false
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
 
   gem 'rspec-rails'
   # Pinned until https://github.com/thoughtbot/factory_bot_rails/issues/433 is resolved

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe ApplicationHelper, type: :helper do
+describe ApplicationHelper do
   describe '#collection_title' do
     it 'unmangles the collection title from the compound field' do
       expect(helper.collection_title('foo-|-bar')).to eq 'bar'

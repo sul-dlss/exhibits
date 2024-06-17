@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Blacklight::MapsHelperOverride, type: :helper do
+RSpec.describe Blacklight::MapsHelperOverride do
   let(:exhibit) { create(:exhibit) }
 
   before do

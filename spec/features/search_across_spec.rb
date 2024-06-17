@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Searching Across Exhibits', type: :feature do
+RSpec.describe 'Searching Across Exhibits' do
   let(:published_exhibit_without_document) do
     FactoryBot.create(:exhibit, published: true)
   end

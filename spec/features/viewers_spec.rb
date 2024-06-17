@@ -3,7 +3,7 @@
 require 'rails_helper'
 include JavascriptFeatureHelpers
 
-describe 'Viewers', type: :feature do
+describe 'Viewers' do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:user) { nil }
 

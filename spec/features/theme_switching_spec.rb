@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Theme switching', type: :feature do
+describe 'Theme switching' do
   let(:exhibit) { create(:exhibit) }
   let(:user) { create(:exhibit_admin, exhibit: exhibit) }
 

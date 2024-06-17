@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe SearchAcrossHelper, type: :helper do
+RSpec.describe SearchAcrossHelper do
   describe '#search_without_group' do
     let(:search_state) do
       instance_double(

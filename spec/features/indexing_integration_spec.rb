@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'indexing integration test', type: :feature do
+RSpec.describe 'indexing integration test' do
   subject(:dor_harvester) { DorHarvester.new(druid_list: druid, exhibit: exhibit) }
 
   let(:exhibit) { FactoryBot.create(:exhibit) }

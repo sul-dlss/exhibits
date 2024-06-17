@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Search histories', type: :feature do
+RSpec.feature 'Search histories' do
   let(:exhibit) { create(:exhibit) }
 
   before do

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe SearchAcrossController, type: :controller do
+RSpec.describe SearchAcrossController do
   describe 'GET index' do
     context 'with a grouped response' do
       before do

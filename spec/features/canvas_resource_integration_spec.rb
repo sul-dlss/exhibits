@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Canvas resource integration test', type: :feature do
+RSpec.describe 'Canvas resource integration test' do
   subject(:document) { SolrDocument.new(to_solr_hash) }
 
   let(:raw_canvas) { JSON.parse(File.read(file)) }

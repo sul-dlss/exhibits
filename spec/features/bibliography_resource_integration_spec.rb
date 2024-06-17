@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Bibliography resource integration test', type: :feature do
+RSpec.describe 'Bibliography resource integration test' do
   subject(:document) { SolrDocument.new(to_solr_hash) }
 
   let(:bibliography_resource) do
