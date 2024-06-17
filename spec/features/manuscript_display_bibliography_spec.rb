@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Cited manuscripts display on the bibliography show page', type: :feature do
+RSpec.feature 'Cited manuscripts display on the bibliography show page' do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:resource_id) { 'QTWBAWKX' }
   let(:citations_string) { '["gs233db8425", "gk885tn1705", "hj066rn6500"]' }

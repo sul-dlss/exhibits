@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'shared/_site_navbar', type: :view do
+describe 'shared/_site_navbar' do
   subject { rendered }
 
   before do

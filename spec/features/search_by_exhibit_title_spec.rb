@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Searching Exhibits By Title', type: :feature, js: true do
+RSpec.describe 'Searching Exhibits By Title', js: true do
   let(:exhibit1) do
     FactoryBot.create(:exhibit, published: true, slug: 'test-exhibit')
   end

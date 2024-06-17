@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'dor_harvester/_status.html.erb', type: :view do
+RSpec.describe 'dor_harvester/_status.html.erb' do
   let(:exhibit) { create(:exhibit) }
   let(:harvester) { DorHarvester.new(druid_list: '', exhibit: exhibit) }
 

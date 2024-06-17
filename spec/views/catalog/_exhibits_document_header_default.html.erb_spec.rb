@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'catalog/_exhibits_document_header_default', type: :view do
+describe 'catalog/_exhibits_document_header_default' do
   let(:document) { SolrDocument.new }
   let(:exhibit) { create(:exhibit) }
 

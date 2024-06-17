@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Bibliography indexing', type: :feature do
+RSpec.feature 'Bibliography indexing' do
   let(:exhibit) { create(:exhibit) }
   let(:curator) { create(:exhibit_admin, exhibit: exhibit) }
 

@@ -4,7 +4,7 @@ require 'rails_helper'
 # Gem::Specificationfind_by_name is not a rails dynamic finder
 require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
 
-RSpec.feature 'Solr Documents Embed Block', type: :feature, js: true do
+RSpec.feature 'Solr Documents Embed Block', js: true do
   include Spotlight::TestFeaturesHelpers
 
   let(:exhibit) { create(:exhibit) }

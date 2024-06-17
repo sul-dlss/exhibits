@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Bibliography display on the manuscript show page', type: :feature do
+RSpec.feature 'Bibliography display on the manuscript show page' do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:resource_id) { 'gk885tn1705' }
   let(:bibtex_file) { 'spec/fixtures/bibliography/{article,incollection}.bib' }

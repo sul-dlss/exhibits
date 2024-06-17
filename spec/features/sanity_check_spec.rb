@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Sanity checking upstream dependencies', type: :feature do
+RSpec.describe 'Sanity checking upstream dependencies' do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
 
   describe 'the catalog record page' do

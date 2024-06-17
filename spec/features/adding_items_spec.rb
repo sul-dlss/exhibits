@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature 'Adding items to an exhibit', type: :feature do
+RSpec.feature 'Adding items to an exhibit' do
   let(:exhibit) { create(:exhibit) }
   let(:user) { create(:exhibit_admin, exhibit: exhibit) }
   let(:number_of_resources) { 5 }
