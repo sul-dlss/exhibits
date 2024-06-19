@@ -2,7 +2,7 @@
 
 # SUL Spotlight Exhibit
 
-The project's `master` branch provides a template Spotlight application with SUL branding and functionality.
+The project's `main` branch provides a template Spotlight application with SUL branding and functionality.
 
 ## Configuration
 
