@@ -40,10 +40,14 @@ class Purl
   end
 
   def smods_rec
-    public_xml_record.stanford_mods
+    @smods_rec ||= Stanford::Mods::Record.new.tap do |smods_rec|
+      smods_rec.from_str(public_xml_record.mods.to_s)
+    end
   end
 
-  delegate :mods_display, to: :public_xml_record
+  def mods_display
+    @mods_display ||= ModsDisplay::HTML.new(smods_rec)
+  end
 
   def collections
     @collections ||= public_xml_record.collections.map do |record|
