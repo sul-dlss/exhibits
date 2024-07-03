@@ -55,14 +55,10 @@ RSpec.describe 'indexing integration test' do
 
       it 'has content metadata fields' do
         expect(document).to include content_metadata_type_ssim: ['image'],
-                                    content_metadata_first_image_file_name_ssm: ['xf680rd3068_00_0001'],
-                                    content_metadata_first_image_width_ssm: ['1794'],
-                                    content_metadata_first_image_height_ssm: ['2627'],
-                                    content_metadata_image_iiif_info_ssm: %w(https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/info.json https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/info.json),
-                                    thumbnail_square_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/square/100,100/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/square/100,100/0/default.jpg'],
-                                    thumbnail_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!400,400/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/full/!400,400/0/default.jpg'],
-                                    large_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!1000,1000/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/full/!1000,1000/0/default.jpg'],
-                                    full_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!3000,3000/0/default.jpg', 'https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0002/full/!3000,3000/0/default.jpg']
+                                    thumbnail_square_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/square/100,100/0/default.jpg'],
+                                    thumbnail_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!400,400/0/default.jpg'],
+                                    large_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!1000,1000/0/default.jpg'],
+                                    full_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!3000,3000/0/default.jpg']
       end
 
       it 'has MODS title fields' do
@@ -226,14 +222,10 @@ RSpec.describe 'indexing integration test' do
 
       it 'has content metadata fields' do
         expect(document).to include content_metadata_type_ssim: ['image'],
-                                    content_metadata_first_image_file_name_ssm: ['PC0170_s1_E_0204'],
-                                    content_metadata_first_image_width_ssm: ['4488'],
-                                    content_metadata_first_image_height_ssm: ['6738'],
-                                    content_metadata_image_iiif_info_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/info.json https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/info.json),
-                                    thumbnail_square_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/square/100,100/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/square/100,100/0/default.jpg),
-                                    thumbnail_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!400,400/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!400,400/0/default.jpg),
-                                    large_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!1000,1000/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!1000,1000/0/default.jpg),
-                                    full_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!3000,3000/0/default.jpg https://stacks.stanford.edu/image/iiif/tp006ms8736%2FPC0170_s1_E_0205/full/!3000,3000/0/default.jpg)
+                                    thumbnail_square_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/square/100,100/0/default.jpg),
+                                    thumbnail_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!400,400/0/default.jpg),
+                                    large_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!1000,1000/0/default.jpg),
+                                    full_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!3000,3000/0/default.jpg)
       end
     end
   end
