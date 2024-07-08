@@ -1,9 +1,8 @@
 GEM
   remote: https://gems.contribsys.com/
   specs:
-    sidekiq-pro (7.2.1)
-      base64
-      sidekiq (>= 7.2.0, < 8)
+    sidekiq-pro (7.3.0)
+      sidekiq (>= 7.3.0, < 8)
 
 GEM
   remote: https://rubygems.org/
@@ -185,7 +184,7 @@ GEM
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
     cancancan (3.6.1)
-    capistrano (3.19.0)
+    capistrano (3.19.1)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -340,7 +339,7 @@ GEM
       tilt (>= 1.2)
     hashdiff (1.1.0)
     hashie (5.0.0)
-    honeybadger (5.13.0)
+    honeybadger (5.13.2)
     http (5.2.0)
       addressable (~> 2.8)
       base64 (~> 0.1)
@@ -367,7 +366,7 @@ GEM
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     io-console (0.7.2)
-    irb (1.13.2)
+    irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     iso-639 (0.3.6)
@@ -434,8 +433,8 @@ GEM
     method_source (1.1.0)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.0604)
-    mini_magick (4.13.1)
+    mime-types-data (3.2024.0702)
+    mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitar (0.9)
     minitest (5.24.1)
@@ -645,7 +644,7 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rspec (3.0.1)
+    rubocop-rspec (3.0.2)
       rubocop (~> 1.61)
     rubocop-rspec_rails (2.30.0)
       rubocop (~> 1.61)
@@ -671,11 +670,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (7.2.4)
+    sidekiq (7.3.0)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
+      logger
       rack (>= 2.2.4)
-      redis-client (>= 0.19.0)
+      redis-client (>= 0.22.2)
     signet (0.19.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
