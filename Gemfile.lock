@@ -708,10 +708,6 @@ GEM
       minitar
       retriable
       ruby-progressbar
-    solrizer (4.1.0)
-      activesupport
-      nokogiri
-      xml-simple
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -801,8 +797,6 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    xml-simple (1.1.9)
-      rexml
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.2)
@@ -887,7 +881,6 @@ DEPENDENCIES
   slack-ruby-client
   slowpoke
   solr_wrapper
-  solrizer
   sprockets-rails
   sqlite3 (~> 1.7)
   stanford-mods (~> 3.0)
