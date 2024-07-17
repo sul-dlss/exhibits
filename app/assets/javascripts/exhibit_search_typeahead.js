@@ -1,6 +1,5 @@
 /* global Blacklight */
 /* global Bloodhound */
-/* global Handlebars */
 /* global ExhibitSearchTypeahead */
 
 (function (global) {
@@ -63,9 +62,9 @@
             'No matches found',
             '</div>'
           ].join('\n'),
-          suggestion: Handlebars.compile(
-            '<div class="exhibit-result">{{title}} <span class="subtitle">{{subtitle}}</span></div>'
-          )
+          suggestion: function(suggestion) {
+            return `<div class="exhibit-result">${suggestion.title} <span class="subtitle">${suggestion.subtitle ?? "" }</span></div>`;
+          }
         }
       };
     },
