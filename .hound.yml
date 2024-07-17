@@ -4,3 +4,11 @@ ruby:
 
 scss:
   config_file: .scss-lint.yml
+
+jshint:
+  enabled: false
+
+eslint:
+  enabled: true
+  version: 8.1.0
+  config_file: .eslintrc
