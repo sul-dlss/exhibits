@@ -330,7 +330,7 @@ GEM
     friendly_id (5.5.1)
       activerecord (>= 4.0.0)
     github-markup (5.0.1)
-    gli (2.21.1)
+    gli (2.21.5)
     globalid (1.2.1)
       activesupport (>= 6.1)
     handlebars_assets (0.23.9)
@@ -339,7 +339,7 @@ GEM
       tilt (>= 1.2)
     hashdiff (1.1.0)
     hashie (5.0.0)
-    honeybadger (5.14.0)
+    honeybadger (5.15.0)
     http (5.2.0)
       addressable (~> 2.8)
       base64 (~> 0.1)
@@ -360,7 +360,7 @@ GEM
       activesupport (>= 3.2.18)
       faraday (>= 0.9)
       json
-    iiif_manifest (1.5.0)
+    iiif_manifest (1.6.0)
       activesupport (>= 4)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
@@ -582,7 +582,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     retriable (3.1.2)
-    rexml (3.3.1)
+    rexml (3.3.2)
       strscan
     riiif (2.5.0)
       deprecation (>= 1.0.0)
@@ -649,8 +649,9 @@ GEM
       rubocop-rspec (~> 3, >= 3.0.1)
     ruby-oembed (0.17.0)
     ruby-progressbar (1.13.0)
-    ruby-vips (2.2.1)
+    ruby-vips (2.2.2)
       ffi (~> 1.12)
+      logger
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -662,7 +663,7 @@ GEM
       sprockets-rails
       tilt
     scrub_rb (1.0.1)
-    selenium-webdriver (4.22.0)
+    selenium-webdriver (4.23.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
