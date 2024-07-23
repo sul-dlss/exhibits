@@ -14,14 +14,13 @@
         </div>
       </div>
       <%= f.hidden_field :current_url %>
-      <%= recaptcha_v3(action: 'feedback') %>
+      <%= recaptcha_v3(action: 'feedback', inline_script: false) %>
       <script type="text/javascript">
         document.forms.new_contact_form.addEventListener('submit', async function(e) {
           e.preventDefault();
-          const response = await window.executeRecaptchaForFeedbackAsync();
-          if (response) {
-            setInputWithRecaptchaResponseTokenForFeedback('g-recaptcha-response-data-feedback', response);
-          }
+          const response = await grecaptcha.execute("<%= Recaptcha.configuration.site_key %>", { action: 'feedback' });
+          const element = document.getElementById('g-recaptcha-response-data-feedback');
+          if (element) element.value = response;
           this.submit();
         });
       </script>
