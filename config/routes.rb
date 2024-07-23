@@ -26,7 +26,8 @@ Exhibits::Application.routes.draw do
     resource :purl_resources
 
     concern :searchable, Blacklight::Routes::Searchable.new
-    concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
+    # This should be switched back to RangeSearchable when blacklight_range_limit removes the deprecated 'range_limit_panel/:id' route.
+    concern :range_searchable, BlacklightRangeLimit::Routes::ExhibitsRangeSearchable.new
 
     # this has to come before the Blacklight + Spotlight routes to avoid getting routed as
     # a document request.
