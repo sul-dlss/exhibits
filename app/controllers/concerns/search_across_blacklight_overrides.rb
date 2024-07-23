@@ -64,8 +64,8 @@ module SearchAcrossBlacklightOverrides
     view_context.render_document_index(exhibits)
   end
 
-  def opensearch_catalog_url(*args)
-    view_context.spotlight.opensearch_search_across_url(*args)
+  def opensearch_catalog_url(*)
+    view_context.spotlight.opensearch_search_across_url(*)
   end
 
   def start_over_path(*_args)
