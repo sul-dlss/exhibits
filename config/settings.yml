@@ -37,6 +37,8 @@ action_mailer:
     from: "example-team@example.com"
   default_url_options:
     host: "example.com"
+throttling:
+  notify_honeybadger: true
 
 nondiscoverable_exhibit_slugs:
   - exhibits-documentation
