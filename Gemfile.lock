@@ -276,7 +276,7 @@ GEM
       capistrano-one_time_key (>= 0.2.0)
       capistrano-shared_configs
       ed25519
-    docile (1.4.0)
+    docile (1.4.1)
     domain_name (0.6.20240107)
     dor-rights-auth (1.8.0)
       nokogiri
@@ -311,7 +311,7 @@ GEM
     faraday-httpclient (1.0.1)
     faraday-multipart (1.0.4)
       multipart-post (~> 2)
-    faraday-net_http (1.0.1)
+    faraday-net_http (1.0.2)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
@@ -339,7 +339,7 @@ GEM
       tilt (>= 1.2)
     hashdiff (1.1.0)
     hashie (5.0.0)
-    honeybadger (5.15.0)
+    honeybadger (5.15.3)
     http (5.2.0)
       addressable (~> 2.8)
       base64 (~> 0.1)
@@ -362,7 +362,7 @@ GEM
       json
     iiif_manifest (1.6.0)
       activesupport (>= 4)
-    image_processing (1.12.2)
+    image_processing (1.13.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     io-console (0.7.2)
@@ -470,13 +470,13 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     net-ssh (7.2.3)
-    newrelic_rpm (9.11.0)
+    newrelic_rpm (9.12.0)
     nio4r (2.7.3)
-    nokogiri (1.16.6-arm64-darwin)
+    nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.6-x86_64-darwin)
+    nokogiri (1.16.7-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.6-x86_64-linux)
+    nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     nom-xml (1.2.0)
       i18n
@@ -504,7 +504,7 @@ GEM
     popper_js (1.16.1)
     psych (5.1.2)
       stringio
-    public_suffix (6.0.0)
+    public_suffix (6.0.1)
     puma (5.6.8)
       nio4r (~> 2.0)
     purl_fetcher-client (0.5.0)
