@@ -82,7 +82,7 @@ GEM
     airbrussh (1.5.2)
       sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.2)
-    autoprefixer-rails (10.4.16.0)
+    autoprefixer-rails (10.4.19.0)
       execjs (~> 2)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -108,7 +108,7 @@ GEM
       ostruct (>= 0.3.2)
       rails (>= 5.1, < 7.2)
       view_component (>= 2.66, < 4)
-    blacklight-gallery (4.4.1)
+    blacklight-gallery (4.5.0)
       blacklight (>= 7.17, < 9)
       rails (>= 6.1, < 8)
     blacklight-oembed (1.1.1)
@@ -337,9 +337,9 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
-    hashdiff (1.1.0)
+    hashdiff (1.1.1)
     hashie (5.0.0)
-    honeybadger (5.15.3)
+    honeybadger (5.15.4)
     http (5.2.0)
       addressable (~> 2.8)
       base64 (~> 0.1)
@@ -513,7 +513,7 @@ GEM
       mods_display (>= 1.0.0.alpha1)
       nokogiri
       stanford-mods
-    racc (1.8.0)
+    racc (1.8.1)
     rack (2.2.9)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
@@ -584,7 +584,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     retriable (3.1.2)
-    rexml (3.3.2)
+    rexml (3.3.4)
       strscan
     riiif (2.5.0)
       deprecation (>= 1.0.0)
@@ -619,7 +619,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
-    rubocop (1.65.0)
+    rubocop (1.65.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -716,7 +716,7 @@ GEM
       babel-source (>= 5.8.11)
       babel-transpiler
       sprockets (>= 3.0.0)
-    sprockets-rails (3.5.1)
+    sprockets-rails (3.5.2)
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
@@ -794,7 +794,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.2)
-    zeitwerk (2.6.16)
+    zeitwerk (2.6.17)
 
 PLATFORMS
   arm64-darwin-23
