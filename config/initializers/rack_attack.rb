@@ -50,7 +50,7 @@ module Rack
 
       if Settings.throttling.notify_honeybadger && (
         ((match_data[:limit] - match_data[:count]) < 5) || (match_data[:count] % 10).zero?
-      )
+      ) && (request.headers['HTTP_USER_AGENT'] || '') !~ /(Google|bot)/i
         Honeybadger.notify('Throttling request', context: { ip: request.ip, path: request.path }.merge(match_data))
       end
 
