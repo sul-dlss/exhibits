@@ -39,7 +39,7 @@ module Rack
         {}
       end
 
-      req.ip if route[:action].in? %w(email sms)
+      req.ip if route[:action].in? %w[email sms]
     end
 
     # Inform throttled clients about limits and when they will get out of jail
@@ -50,8 +50,7 @@ module Rack
 
       if Settings.throttling.notify_honeybadger && (
         ((match_data[:limit] - match_data[:count]) < 5) || (match_data[:count] % 10).zero?
-      ) && (request.env['HTTP_USER_AGENT'] || '') !~ /(Google|bot)/i &&
-         !request.remote_ip&.start_with?(/15\d\./) # ignore abuse from hwclouds (among others)
+      ) && (request.env['HTTP_USER_AGENT'] || '') !~ /(Google|bot)/i
         Honeybadger.notify('Throttling request', context: { ip: request.ip, path: request.path }.merge(match_data))
       end
 
