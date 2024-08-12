@@ -16,6 +16,9 @@
       <%= f.hidden_field :current_url %>
       <%= recaptcha_v3(action: 'feedback', inline_script: false) %>
       <script type="text/javascript">
+        document.addEventListener('turbolinks:before-cache', function() {
+          document.querySelector('.g-recaptcha').innerHTML = '';
+        });
         document.forms.new_contact_form.addEventListener('submit', async function(e) {
           e.preventDefault();
           const response = await grecaptcha.execute("<%= Recaptcha.configuration.site_key %>", { action: 'feedback' });
