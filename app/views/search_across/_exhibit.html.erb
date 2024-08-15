@@ -10,7 +10,7 @@
     <%= unpublished_badge(class: 'unpublished') if !exhibit.published? && document_index_view_type == :gallery %>
     <h2 class="card-title <%= 'mb-0' if exhibit.subtitle.present? %>">
       <%= link_to exhibit.title, [spotlight, exhibit] %>
-      <%= unpublished_badge(class: 'ml-1') if !exhibit.published? && document_index_view_type != :gallery %>
+      <%= unpublished_badge(class: 'ms-1') if !exhibit.published? && document_index_view_type != :gallery %>
     </h2>
     <div class="exhibit-description">
       <% if exhibit.subtitle.present? %>

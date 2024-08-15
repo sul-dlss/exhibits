@@ -88,11 +88,12 @@ end
 
 gem 'config'
 
-gem 'bootstrap', '~> 4.6'
+gem 'bootstrap', '~> 5.3'
+gem 'bootstrap_form', '~> 5.4'
 gem 'blacklight', '~> 7.34'
 gem 'blacklight-gallery', '~> 4.4'
 gem 'blacklight_heatmaps'
-gem 'blacklight-spotlight', '3.6.0.beta10'
+gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 8.0'

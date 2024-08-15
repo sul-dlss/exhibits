@@ -20,8 +20,8 @@ Blacklight.onLoad(function(){
 
     $dt.text($dt.text().replace(/:$/, ''));
     $dt.addClass('show-hide-toggle');
-    $dt.attr('data-toggle', 'collapse');
-    $dt.attr('data-target', '#' + $dd.attr('id'));
+    $dt.attr('data-bs-toggle', 'collapse');
+    $dt.attr('data-bs-target', '#' + $dd.attr('id'));
 
     if ($link.length > 0) {
       $dt.before(

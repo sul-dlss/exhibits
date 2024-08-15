@@ -45,9 +45,10 @@ a:hover {
   border-radius: $border-radius;
 }
 
-.form-group .col-form-label {
-  @extend .text-right;
-  @extend .font-weight-bold;
+// TODO: better selector here than mb-3?
+.mb-3 .col-form-label {
+  @extend .text-end;
+  @extend .fw-bold;
 }
 
 th {
