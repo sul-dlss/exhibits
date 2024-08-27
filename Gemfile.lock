@@ -990,7 +990,6 @@ DEPENDENCIES
   dotenv
   factory_bot_rails (~> 6.4)
   faraday
-  file_validators
   friendly_id (~> 5.4)
   honeybadger
   iiif-presentation
