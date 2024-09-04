@@ -3,3 +3,5 @@
 //= link application.css
 //= link application_parker.css
 //= link openseadragon-assets.js
+//= link spotlight/manifest.js
+//= link blacklight_gallery/manifest.js
