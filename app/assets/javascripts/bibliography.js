@@ -11,6 +11,15 @@
       var _this = this;
       var $el = $(el);
       var data = $el.data();
+
+      if (el.dataset.initialized) {
+        const toggleButton = $el.find('.bibliography-button');
+        if (toggleButton.length > 0) {
+          this.bindToggleButtonHandler(toggleButton);
+        }
+        return;
+      }
+
       $.getJSON(data.path, {
           'f[related_document_id_ssim][]': data.parentid,
           'f[format_main_ssim][]': 'Reference',
@@ -20,6 +29,7 @@
         }, function (response) {
           var docTotal = response.data.length;
           if (docTotal > 0) {
+            el.dataset.initialized = true;
             $el.show();
             var bibliographyList = $el.find('.bibliography-list');
 
@@ -61,14 +71,7 @@
              '</p>';
     },
 
-    toggleButton: function() {
-      var button = $(
-        '<button class="btn btn-secondary bibliography-button">' +
-          '<span data-behavior="text">Expand bibliography</span> ' +
-          '<span class="bibliography-icon">»</span>' +
-        '</button>'
-      );
-
+    bindToggleButtonHandler: function(button) {
       button.on('click', function() {
         var bibliosToToggle = button.parent().find('.hide-bibliography');
         var hidden = bibliosToToggle.first().is(':hidden');
@@ -82,7 +85,17 @@
           button.removeClass('bibliography-expanded');
         }
       });
+    },
 
+    toggleButton: function() {
+      var button = $(
+        '<button class="btn btn-secondary bibliography-button">' +
+          '<span data-behavior="text">Expand bibliography</span> ' +
+          '<span class="bibliography-icon">»</span>' +
+        '</button>'
+      );
+
+      this.bindToggleButtonHandler(button);
       return button;
     }
   };
