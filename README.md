@@ -31,6 +31,7 @@ See [projectblacklight/spotlight](https://github.com/projectblacklight/spotlight
 Install dependencies, set up the databases and run migrations:
 ```console
 $ bundle
+$ yarn install
 $ bin/rake db:setup
 ```
 
