@@ -7,14 +7,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 7.0'
+gem 'rails', '~> 7.2'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -88,10 +88,11 @@ end
 gem 'config'
 
 gem 'bootstrap', '~> 4.6'
+gem 'bootstrap_form', '~> 4.0'
 gem 'blacklight', '~> 7.34'
 gem 'blacklight-gallery', '~> 4.4'
 gem 'blacklight_heatmaps'
-gem 'blacklight-spotlight', '~> 3.5.0' # Stay on spotlight 3.5.* until we do the work to update to 3.6
+gem 'blacklight-spotlight', '~> 4.0'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 8.0'
