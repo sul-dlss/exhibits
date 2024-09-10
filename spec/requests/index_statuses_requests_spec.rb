@@ -33,9 +33,8 @@ describe 'Index Statuses' do
       end
 
       it 'raises a not found error when the document id does not exist' do
-        expect do
-          get "/#{exhibit.slug}/dor_harvester/index_statuses/not-a-real-id"
-        end.to raise_error(ActionController::RoutingError, 'No document with id "not-a-real-id" found')
+        get "/#{exhibit.slug}/dor_harvester/index_statuses/not-a-real-id"
+        expect(response).to have_http_status :not_found
       end
     end
 
