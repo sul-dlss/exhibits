@@ -17,7 +17,8 @@
     init: function (el) {
       var _this = this;
       _this.itemStatusRemoteUrl = el.data().typeaheadRemoteUrl;
-      _this.typeaheadRemoteUrl = el.data().typeaheadRemoteUrl + '?q=%QUERY';
+      const separator = el.data().typeaheadRemoteUrl.includes('?') ? '&' : '?';
+      _this.typeaheadRemoteUrl = el.data().typeaheadRemoteUrl + `${separator}q=%QUERY`;
       el.typeahead(_this.typeaheadOptions, _this.typeaheadSources());
 
       el.bind('typeahead:selected', function(e, suggestion) {
