@@ -16,7 +16,8 @@
       var container = el.parents('.exhibit-search-typeahead');
       _this.typeaheadElement = el;
       _this.form = el.parents('form');
-      _this.typeaheadRemoteUrl = el.data().typeaheadRemoteUrl + '?q=%QUERY';
+      const separator = el.data().typeaheadRemoteUrl.includes('?') ? '&' : '?';
+      _this.typeaheadRemoteUrl = el.data().typeaheadRemoteUrl + `${separator}q=%QUERY`;
       _this.preventFormSubmitOnTypeahead();
 
       // Cleanup typeahead if it alread exists (e.g. back-button cache)
