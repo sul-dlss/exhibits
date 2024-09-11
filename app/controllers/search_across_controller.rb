@@ -132,15 +132,5 @@ class SearchAcrossController < ::CatalogController
     facet_search_across_path(...)
   end
 
-  # CatalogController defines a callback for manifest. Raising for missing callback
-  # actions is a new default in Rails 7.1
-  def manifest
-    raise NotImplementedError
-  end
-
-  def admin
-    raise NotImplementedError
-  end
-
   helper_method :search_facet_path
 end
