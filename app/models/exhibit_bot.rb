@@ -21,7 +21,7 @@ class ExhibitBot
 
   def client
     @client ||= if FeatureFlags.new.slack_notifications?
-                  Slack::Web::Client.new
+                  Slack::Web::Client.new(ca_file: nil, ca_path: nil)
                 else
                   NullClient.new
                 end
