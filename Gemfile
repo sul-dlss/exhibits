@@ -114,6 +114,7 @@ end
 gem 'sidekiq', '~> 7.0'
 gem 'sul_styles'
 gem 'dotenv'
+gem 'iiif-presentation'
 gem 'riiif'
 gem 'rsolr'
 gem 'faraday'

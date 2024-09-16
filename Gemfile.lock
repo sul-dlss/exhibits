@@ -830,6 +830,7 @@ DEPENDENCIES
   file_validators
   friendly_id (~> 5.4)
   honeybadger
+  iiif-presentation
   jbuilder (~> 2.7)
   jquery-rails
   jsonpath
