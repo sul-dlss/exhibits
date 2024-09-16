@@ -55,6 +55,7 @@ Style/HashTransformValues:
 Metrics/ClassLength:
   Exclude:
     - 'app/controllers/catalog_controller.rb'
+    - 'app/controllers/search_across_controller.rb'
 
 Capybara:
   Enabled: false

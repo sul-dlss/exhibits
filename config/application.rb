@@ -28,7 +28,8 @@ module Exhibits
       ActiveSupport::TimeZone,
       Date,
       Symbol,
-      Time
+      Time,
+      IIIF::OrderedHash
     ]
 
     config.time_zone = 'Pacific Time (US & Canada)'

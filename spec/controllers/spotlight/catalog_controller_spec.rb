@@ -24,7 +24,7 @@ describe Spotlight::CatalogController do
 
       get :manifest, params: { id: compound_id, exhibit_id: exhibit.id, locale: 'en' }
 
-      expect(response.headers.to_h).to include 'Access-Control-Allow-Origin' => '*'
+      expect(response.headers.to_h).to include 'access-control-allow-origin' => '*'
     end
   end
 end

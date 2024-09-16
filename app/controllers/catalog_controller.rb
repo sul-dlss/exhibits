@@ -435,6 +435,16 @@ class CatalogController < ApplicationController
     super && params[:format] != 'json'
   end
 
+  # CatalogController defines a callback for manifest. Raising for missing callback
+  # actions is a new default in Rails 7.1
+  def manifest
+    raise NotImplementedError
+  end
+
+  def admin
+    raise NotImplementedError
+  end
+
   class << self
     def document_has_full_text_and_search_is_query?(context, _config, document)
       context.params[:q].present? && document.full_text?
