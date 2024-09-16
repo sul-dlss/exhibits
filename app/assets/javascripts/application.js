@@ -29,6 +29,7 @@
 //= require 'blacklight_advanced_search'
 //= require blacklight_gallery
 //= require blacklight_heatmaps
+//= require blacklight_hierarchy
 //= require blacklight_oembed
 //= require full_text_collapse
 //= require index_status_typeahead

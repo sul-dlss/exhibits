@@ -44,6 +44,24 @@ to_field 'title_sort', stanford_mods(:sw_sort_title)
 to_field 'title_245a_display', stanford_mods(:sw_short_title)
 to_field 'title_display', stanford_mods(:sw_title_display)
 
+to_field 'name_ssim' do |resource, accumulator|
+  resource.display_names_with_roles.each do |name_and_role|
+    accumulator << name_and_role[:name]
+  end
+end
+
+to_field 'name_roles_ssim' do |resource, accumulator|
+  resource.display_names_with_roles.each do |name_and_role|
+    if name_and_role[:roles].any?
+      name_and_role[:roles].each do |role|
+        accumulator << "#{role}|#{name_and_role[:name]}"
+      end
+    else
+      accumulator << "|#{name_and_role[:name]}"
+    end
+  end
+end
+
 # author fields
 to_field 'author_1xx_search', stanford_mods(:sw_main_author)
 to_field 'author_7xx_search', stanford_mods(:sw_addl_authors)

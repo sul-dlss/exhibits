@@ -113,11 +113,15 @@ GEM
     blacklight-gallery (4.5.2)
       blacklight (>= 7.17, < 9)
       rails (>= 6.1, < 8)
+    blacklight-hierarchy (6.4.0)
+      blacklight (>= 7.18, < 9)
+      deprecation
+      rails (>= 6.1, < 7.3)
     blacklight-oembed (1.1.1)
       blacklight (>= 7.0, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.0.2)
+    blacklight-spotlight (4.0.3)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
       autoprefixer-rails
@@ -800,6 +804,7 @@ DEPENDENCIES
   bibtex-ruby
   blacklight (~> 7.34)
   blacklight-gallery (~> 4.4)
+  blacklight-hierarchy
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 4.0)
   blacklight_advanced_search

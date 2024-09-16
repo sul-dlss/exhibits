@@ -15,7 +15,7 @@ RSpec.describe 'indexing integration test' do
     allow(rsolr_client).to receive(:commit)
 
     stub_request(:post, /update/)
-    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310).each do |fixture|
+    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
@@ -240,6 +240,34 @@ RSpec.describe 'indexing integration test' do
         expect(document).to include publisher_ssim: ['D. Margand et C. Fatout'],
                                     publisher_ssi: ['D. Margand et C. Fatout'],
                                     publisher_tesim: ['D. Margand et C. Fatout']
+      end
+    end
+  end
+
+  context 'item with interesting name roles' do
+    let(:druid) { 'kj040zn0537' }
+
+    context 'to_solr' do
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
+
+      it 'has name_ssim' do
+        expect(document).to include name_ssim: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19']
+      end
+
+      it 'has name_roles_ssim' do
+        expect(document).to include name_roles_ssim: ['Engraver|Lasinio, Carlo, 1759-1838', 'Artist|Pellegrini, Domenico, 1759-1840', 'Bibliographic antecedent|Pellegrini, Domenico, 1759-1840', 'Collector|Vinck, Carl de, 1859-19']
+      end
+    end
+  end
+
+  context 'item with names without roles' do
+    let(:druid) { 'ds694bw1519' }
+
+    context 'to_solr' do
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
+
+      it 'has name_roles_ssim' do
+        expect(document).to include name_roles_ssim: ['|Packard, David, 1912-1996', '|Packard, Lucile', '|Hewlett-Packard Company', '|Hewlett, William R.']
       end
     end
   end

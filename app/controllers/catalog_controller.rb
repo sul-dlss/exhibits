@@ -76,7 +76,8 @@ class CatalogController < ApplicationController
       'hl.fl' => Settings.full_text_highlight.fields,
       'hl.snippets' => 5,
       'hl.fragsize' => 240,
-      'hl.mergeContiguous' => true
+      'hl.mergeContiguous' => true,
+      'f.name_roles_ssim.facet.matches' => '^[^|].*'
     }
 
     # Maximum number of results to show per page
@@ -184,6 +185,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'place_created_ssim', label: 'Place created', limit: true
     config.add_facet_field 'pub_year_tisim', label: 'Date Range', range: true
     config.add_facet_field 'language', label: 'Language', limit: true
+    config.add_facet_field 'name_ssim', label: 'Creators/Contributors', limit: true
+    config.add_facet_field 'name_roles_ssim', label: 'Role', limit: -1,
+                                              component: Blacklight::Hierarchy::FacetFieldListComponent,
+                                              item_presenter: RoleFacetItemPresenter
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
     config.add_facet_field 'collector_ssim', label: 'Collector', limit: true
@@ -212,6 +217,12 @@ class CatalogController < ApplicationController
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
 
+    config.facet_display = {
+      hierarchy: {
+        'name_roles' => [['ssim'], '|']
+      }
+    }
+
     # Solr fields to be displayed in the search results and the show (single result) views
     #   The ordering of the field names is the order of the display
 
@@ -222,6 +233,8 @@ class CatalogController < ApplicationController
 
     config.add_index_field 'title_full_display', label: 'Title', field: 'title_display'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
+    config.add_index_field 'name_roles_ssim', label: 'Creators/Contributors',
+                                              presenter: CreatorContributorsFieldPresenter
     config.add_index_field 'author_person_full_display', label: 'Author' # includes Collectors
     config.add_index_field 'author_no_collector_ssim', label: 'Author (no Collectors)'
     config.add_index_field 'editor_ssim', label: 'Editor'

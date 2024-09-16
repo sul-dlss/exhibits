@@ -31,7 +31,7 @@ RSpec.describe 'Searching Across Exhibits' do
         click_button 'Search'
       end
 
-      expect(page).to have_css('#sortAndPerPage .page-entries', text: '1 item found')
+      expect(page).to have_css('#sortAndPerPage .page-entries', text: '1 - 3 of 3 items')
 
       within '#facets .facet-limit.blacklight-spotlight_exhibit_slugs_ssim', visible: false do
         expect(page).to have_css('.facet-label', text: published_exhibit_with_document.title, visible: :hidden)
