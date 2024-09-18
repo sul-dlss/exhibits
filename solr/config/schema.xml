@@ -340,11 +340,11 @@
   <copyField source="*_tesim" dest="all_search" />
   <copyField source="*_tsi" dest="all_search" />
   <copyField source="*_search" dest="all_search" />
-  <copyField source="*_tags_ssim" dest="all_search" />
+  <copyField source="*_ssim" dest="all_search" />
   <copyField source="*_tesim" dest="all_unstem_search" />
   <copyField source="*_tsi" dest="all_unstem_search" />
   <copyField source="*_search" dest="all_unstem_search" />
-  <copyField source="*_tags_ssim" dest="all_unstem_search" />
+  <copyField source="*_ssim" dest="all_unstem_search" />
   <!-- NOTE:  full_text_search is meant for full text -->
   <copyField source="*_tesimv" dest="full_text_search" />
   <copyField source="*_tesimv" dest="full_text_unstem_search" />
