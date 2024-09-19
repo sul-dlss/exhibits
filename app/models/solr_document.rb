@@ -3,7 +3,7 @@
 # :nodoc:
 class SolrDocument
   include Blacklight::Solr::Document
-  include BlacklightHeatmaps::GeometrySolrDocument
+  # include BlacklightHeatmaps::GeometrySolrDocument
 
   include Blacklight::Gallery::OpenseadragonSolrDocument
 

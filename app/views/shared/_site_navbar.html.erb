@@ -4,7 +4,7 @@
       <ul class="site-search-nav navbar-nav mr-auto mr-md-3 mr-lg-auto w-100 order-1 order-md-0 mt-3 mt-md-0">
         <li class="navbar-item d-flex flex-grow-1">
           <% if Settings.feature_flags.search_across || in_search_across? %>
-            <%= render 'shared/site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
+            <%# render 'shared/site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
           <% end  %>
         </li>
       </ul>
@@ -12,7 +12,7 @@
       <ul class="navbar-nav mr-auto w-100 order-1 order-md-0 mt-3 mt-md-0">
         <li class="navbar-item">
           <% if Settings.feature_flags.search_across || in_search_across? %>
-            <%= render 'shared/old_site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
+            <%# render 'shared/old_site_search_form', presenter: Blacklight::SearchBarPresenter.new(controller, SearchAcrossController.blacklight_config) %>
           <% end  %>
         </li>
       </ul>

@@ -4,7 +4,9 @@ OkComputer.mount_at = false
 OkComputer::Registry.register "version", OkComputer::AppVersionCheck.new
 OkComputer::Registry.register "cache", OkComputer::CacheCheck.new
 OkComputer::Registry.register "background_jobs", OkComputer::SidekiqLatencyCheck.new('default', 50)
-OkComputer::Registry.register "solr", OkComputer::HttpCheck.new(Blacklight.default_index.connection.uri.to_s.sub(/\/$/, '') + "/admin/ping")
+Rails.application.reloader.to_prepare do
+  OkComputer::Registry.register "solr", OkComputer::HttpCheck.new(Blacklight.default_index.connection.uri.to_s.sub(/\/$/, '') + "/admin/ping")
+end
 
 class SidekiqRetryQueueCheck < OkComputer::Check
   def check

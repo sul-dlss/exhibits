@@ -35,6 +35,9 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     config.http_method = :post
     config.header_component = Spotlight::HeaderComponent
+
+    config.search_state_fields += [:exhibit_id]
+
     config.index.default_thumbnail = :exhibits_default_thumbnail
 
     config.document_solr_request_handler = 'document'
@@ -42,7 +45,7 @@ class CatalogController < ApplicationController
 
     # default advanced config values
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
-    # config.advanced_search[:qt] ||= 'advanced'
+    config.advanced_search[:qt] ||= 'advanced'
     config.advanced_search[:url_key] ||= 'advanced'
     config.advanced_search[:query_parser] ||= 'edismax'
     config.advanced_search[:form_solr_parameters] ||= {}
@@ -130,6 +133,8 @@ class CatalogController < ApplicationController
     config.show.partials << :bibliography
     config.show.partials << :cited_documents
     config.show.partials << :page_details
+    config.show.metadata_component = Blacklight::DocumentMetadataComponent
+    # config.show.embed_component = Blacklight::EmbedComponent
 
     config.view.list.thumbnail_field = [:thumbnail_square_url_ssm, :thumbnail_url_ssm]
     config.view.list.partials = [:exhibits_document_header, :index]
@@ -150,7 +155,7 @@ class CatalogController < ApplicationController
     config.view.embed(partials: [:viewer], if: false)
 
     # BlacklightHeatmaps configuration values
-    config.geometry_field = :geographic_srpt
+    # config.geometry_field = :geographic_srpt
     # Basemaps configured include: 'positron', 'darkMatter', 'OpenStreetMap.HOT'
     config.basemap_provider = 'positron'
     config.index.respond_to.heatmaps = true
@@ -226,9 +231,9 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
 
     # The inline map should only be displayed on the catalog#show page.
-    config.add_index_field config.geometry_field, label: 'Inline Map',
-                                                  helper_method: :document_leaflet_map,
-                                                  immutable: config.view.keys.map { |k| [k, false] }.to_h
+    # config.add_index_field config.geometry_field, label: 'Inline Map',
+    #                                               helper_method: :document_leaflet_map,
+    #                                               immutable: config.view.keys.map { |k| [k, false] }.to_h
 
     config.add_index_field 'title_full_display', label: 'Title', field: 'title_display'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
