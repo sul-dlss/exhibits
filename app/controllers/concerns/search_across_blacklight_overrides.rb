@@ -10,7 +10,7 @@ module SearchAcrossBlacklightOverrides
     if respond_to?(:helper_method)
       helper_method :link_to_document, :show_pagination?, :document_index_path_templates,
                     :render_grouped_document_index, :opensearch_catalog_url, :page_entries_info,
-                    :render_grouped_response?, :url_for_document, :start_over_path
+                    :render_grouped_response?, :url_for_document
     end
   end
 
@@ -66,10 +66,6 @@ module SearchAcrossBlacklightOverrides
 
   def opensearch_catalog_url(*)
     view_context.spotlight.opensearch_search_across_url(*)
-  end
-
-  def start_over_path(*_args)
-    root_path
   end
 
   ##
