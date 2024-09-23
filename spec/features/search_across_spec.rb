@@ -24,12 +24,18 @@ RSpec.describe 'Searching Across Exhibits' do
     tag1
   end
 
+  def js_search
+    within(first('.search-query-form')) do
+      find('#site-search-type').click
+      find('[data-target="#item-search"]').click
+      click_button 'Search'
+    end
+  end
+
   context 'as an anonymous user' do
     it 'they can search across exhibits they have access to', js: true do
       visit root_path
-      within(first('.search-query-form')) do
-        click_button 'Search'
-      end
+      js_search
 
       expect(page).to have_css('#sortAndPerPage .page-entries', text: '1 - 3 of 3 items')
 
@@ -101,9 +107,7 @@ RSpec.describe 'Searching Across Exhibits' do
 
     it 'they can search across exhibits they have access to', js: true do
       visit root_path
-      within(first('.search-query-form')) do
-        click_button 'Search'
-      end
+      js_search
 
       expect(page).to have_css('#sortAndPerPage .page-entries', text: /1 - 12 of \d{2,} items/)
 
