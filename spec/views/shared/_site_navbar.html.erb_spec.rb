@@ -7,8 +7,10 @@ describe 'shared/_site_navbar' do
 
   before do
     view.extend Spotlight::CrudLinkHelpers
-    stub_template 'shared/_site_search_form' => 'search form'
-    stub_template 'shared/_old_site_search_form' => 'old search form'
+
+    search_component = instance_double(SiteSearchFormComponent)
+    allow(search_component).to receive(:render_in).and_return('search form')
+    allow(SiteSearchFormComponent).to receive(:new).and_return(search_component)
   end
 
   context 'with a non-admin user' do
