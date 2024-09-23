@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_16_120405) do
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
     t.string "api_id"
@@ -519,5 +519,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_180607) do
     t.text "custom_manifest_pattern"
     t.index ["exhibit_id"], name: "index_viewers_on_exhibit_id"
   end
-
 end
