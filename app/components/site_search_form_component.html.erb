@@ -34,7 +34,7 @@
         <noscript>
           <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
         </noscript>
-        <%= text_field_tag :q, params[:q], class: "search-q q form-control", id: "q", 'aria-labelledby': "site-search-type", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: helpers.search_action_path(action: :suggest) }  %>
+        <%= text_field_tag :q, params[:q], class: "search-q q form-control", id: "q", 'aria-labelledby': "site-search-type", autofocus: autofocus, data: { autocomplete_enabled: autocomplete_path.present?, autocomplete_path: autocomplete_path }  %>
 
         <span class="input-group-append">
           <button type="submit" class="btn btn-primary search-btn" id="search">
