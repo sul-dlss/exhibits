@@ -132,23 +132,20 @@ class CatalogController < ApplicationController
     config.view.list.thumbnail_field = [:thumbnail_square_url_ssm, :thumbnail_url_ssm]
     config.view.list.partials = [:exhibits_document_header, :index]
 
-    config.view.gallery.title_only_by_default = true
-    config.view.gallery.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
-    config.view.gallery.default_canvas_thumbnail = 'default-square-thumbnail-annotation-large.png'
-    config.view.gallery.document_component = Blacklight::Gallery::DocumentComponent
+    config.view.gallery(title_only_by_default: true,
+                        default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
+                        default_canvas_thumbnail: 'default-square-thumbnail-annotation-large.png',
+                        document_component: Blacklight::Gallery::DocumentComponent)
 
-    config.view.heatmaps.partials = []
-    config.view.heatmaps.color_ramp = ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494']
+    config.view.heatmaps(partials: [], color_ramp: ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494'])
 
-    config.view.masonry.title_only_by_default = true
-    config.view.masonry.default_bibliography_thumbnail = 'default-square-thumbnail-book-large.png'
-    config.view.masonry.document_component = Blacklight::Gallery::DocumentComponent
+    config.view.masonry(title_only_by_default: true,
+                        default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
+                        document_component: Blacklight::Gallery::DocumentComponent)
 
-    config.view.slideshow.title_only_by_default = true
-    config.view.slideshow.document_component = Blacklight::Gallery::SlideshowComponent
+    config.view.slideshow(title_only_by_default: true, document_component: Blacklight::Gallery::SlideshowComponent)
 
-    config.view.embed.partials = [:viewer]
-    config.view.embed.if = false
+    config.view.embed(partials: [:viewer], if: false)
 
     # BlacklightHeatmaps configuration values
     config.geometry_field = :geographic_srpt
