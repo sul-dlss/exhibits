@@ -8,6 +8,10 @@
   CitedDocuments = {
     init: function (el) {
       var $el = $(el);
+      const citedDocList = $el.find('.cited-documents-list');
+      // Prevent repeat script run on page back
+      if (citedDocList[0].innerHTML != '') return;
+
       var data = $el.data();
       var solrQueryString = data.documentids.join(' OR ');
 
@@ -22,7 +26,7 @@
                 citedDocEntry.attributes.title_full_display.attributes.value +
                 '</a>' +
                 '</li>';
-          $el.find('.cited-documents-list').append(html);
+          citedDocList.append(html);
         });
       });
     }
