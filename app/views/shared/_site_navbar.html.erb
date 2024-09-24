@@ -3,7 +3,7 @@
     <ul class="site-search-nav navbar-nav mr-auto mr-md-3 mr-lg-auto w-100 order-1 order-md-0 mt-3 mt-md-0">
       <li class="navbar-item d-flex flex-grow-1">
         <% if Settings.feature_flags.search_across || in_search_across? %>
-          <%= render SiteSearchFormComponent.new %>
+          <%= render SiteSearchFormComponent.new(url: search_action_url, params: search_state.params_for_search.except(:qt)) %>
         <% end  %>
       </li>
     </ul>

@@ -26,8 +26,8 @@ RSpec.describe 'Searching Across Exhibits' do
 
   def js_search
     within(first('.search-query-form')) do
-      find('#site-search-type').click
-      find('[data-target="#item-search"]').click
+      click_on 'Find exhibits by title'
+      click_on 'items in all exhibits'
       click_button 'Search'
     end
   end
