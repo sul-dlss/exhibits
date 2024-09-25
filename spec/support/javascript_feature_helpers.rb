@@ -33,7 +33,7 @@ module JavascriptFeatureHelpers
     first('.st-block-replacer').click
   end
 
-  def save_page
+  def save_and_verify_page
     sleep 1
     click_button('Save changes')
     # verify that the page was created

@@ -5,6 +5,7 @@ require 'rails_helper'
 require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
 
 RSpec.feature 'Solr Documents Embed Block', js: true do
+  include JavascriptFeatureHelpers
   include Spotlight::TestFeaturesHelpers
 
   let(:exhibit) { create(:exhibit) }
@@ -28,7 +29,8 @@ RSpec.feature 'Solr Documents Embed Block', js: true do
 
       fill_in_solr_document_block_typeahead_field(with: 'zy575vf8599')
 
-      save_page # rubocop:disable Lint/Debugger
+      save_and_verify_page
+
       expect(page.find('.items-block iframe')['height']).to eq '600px'
     end
 
@@ -40,7 +42,7 @@ RSpec.feature 'Solr Documents Embed Block', js: true do
       fill_in_solr_document_block_typeahead_field(with: 'zy575vf8599')
       fill_in 'Maximum height of viewer (in pixels)', with: 300
 
-      save_page # rubocop:disable Lint/Debugger
+      save_and_verify_page
       expect(page.find('.items-block iframe')['height']).to eq '300px'
     end
   end
