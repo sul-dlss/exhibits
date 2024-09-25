@@ -16,6 +16,7 @@ class CatalogController < ApplicationController
   before_action only: :admin do
     unless blacklight_config.view.key? :admin_table
       blacklight_config.view.admin_table(
+        document_component: Spotlight::DocumentAdminTableComponent,
         thumbnail_field: :thumbnail_square_url_ssm,
         partials: [:index_compact],
         document_actions: []
