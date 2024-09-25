@@ -1,3 +1,8 @@
+Rails.application.config.to_prepare do
+  Blacklight::Configuration.default_values[:search_state_fields] ||= []
+  Blacklight::Configuration.default_values[:search_state_fields] += %i[locale group]
+end
+
 Spotlight::Engine.config.upload_title_field = Spotlight::UploadFieldConfig.new(
   solr_fields: %w(title_display title_245_search title_sort spotlight_upload_title_tesim),
   field_name: :spotlight_upload_title_tesim,
