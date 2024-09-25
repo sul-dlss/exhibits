@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-include JavascriptFeatureHelpers
 
 describe 'Viewers' do
+  include JavascriptFeatureHelpers
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:user) { nil }
 
@@ -104,7 +104,7 @@ describe 'Viewers' do
         expect(page).to have_link 'Change'
       end
 
-      save_page # rubocop:disable Lint/Debugger
+      save_and_verify_page
 
       expect(page).not_to have_css 'iframe[src*=embed]'
       expect(page).to have_css '.oembed-widget'
