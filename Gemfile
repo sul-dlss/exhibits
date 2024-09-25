@@ -132,7 +132,6 @@ gem 'acts-as-taggable-on'
 gem 'mods_display', '~> 1.6'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'view_component', '~> 2.82' # ViewComponent 3.x breaks blacklight_range_limit 8.3.0
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'
