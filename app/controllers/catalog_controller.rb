@@ -34,6 +34,7 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.http_method = :post
+    config.header_component = Spotlight::HeaderComponent
     config.index.default_thumbnail = :exhibits_default_thumbnail
 
     config.document_solr_request_handler = 'document'
