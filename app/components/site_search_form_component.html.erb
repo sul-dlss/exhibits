@@ -1,4 +1,4 @@
-<%= form_tag helpers.search_action_url, method: :get, class: 'd-flex flex-grow-1 search-across-form search-query-form', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
+<%= form_tag @url, method: :get, class: 'd-flex flex-grow-1 search-across-form search-query-form', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
   <%= render Blacklight::HiddenSearchStateComponent.new(params: helpers.search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
   <% if search_fields.length > 1 %>
     <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
