@@ -457,6 +457,16 @@ class CatalogController < ApplicationController
     raise NotImplementedError
   end
 
+  # Method to route search tips
+  def search_tips
+    respond_to do |format|
+      format.html do
+        return render layout: false if request.xhr?
+        # Otherwise draw the full page
+      end
+    end
+  end
+
   class << self
     def document_has_full_text_and_search_is_query?(context, _config, document)
       context.params[:q].present? && document.full_text?

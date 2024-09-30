@@ -41,6 +41,8 @@ Exhibits::Application.routes.draw do
       end
     end
 
+    get '/search_tips' => 'catalog#search_tips'
+
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
       concerns :searchable

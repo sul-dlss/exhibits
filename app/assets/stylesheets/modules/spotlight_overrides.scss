@@ -309,3 +309,12 @@ h5,
     z-index: 1;
   }
 }
+
+// Overrides for search tips link and info icon
+.image-masthead .searchtips-link {
+  text-transform: none !important;
+}
+
+.searchtips-link .bi-info-circle{
+  margin-bottom: 0.15rem;
+}

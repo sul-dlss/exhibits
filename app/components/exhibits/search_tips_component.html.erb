@@ -1,0 +1,22 @@
+<%= render Blacklight::System::ModalComponent.new do |component| %>
+  <% component.with_title do %>
+    <div><h2 class="modal-title"> <%= t('search_tips.title') %> </h2></div>
+    <div><h3> <%= t('search_tips.subtitle') %> </h3></div>
+  <% end %>
+  <% component.with_body do %>
+    <ul class="mt-3 pr-4 pb-2">
+      <li> Use quotation marks to search as a <span class="font-weight-bold">phrase</span>. (Word-stemming will still be applied to words within the phrase.) </li>
+      <li> Use "+" (no space) before a word to make it <span class="font-weight-bold">required</span>. </li>
+      <li> Use "-" (no space) before a word or phrase to <span class="font-weight-bold">exclude</span>. </li>
+      <li> Use "OR", "AND", and "NOT" (uppercase) to create <span class="font-weight-bold">Boolean</span> logic within a field. You can use parentheses in your complex expressions. </li>
+      <li> Use "*" to search a <span class="font-weight-bold">truncated</span> term. (Word-stemming is done automatically.) </li>
+      <li> Use "?" as a <span class="font-weight-bold">wildcard</span> to replace a character in a word. </li>
+      <li> <span class="font-weight-bold">Word-stemming</span> automatically includes plural and singular forms, and common suffix and tense variations. </li>
+    </ul>
+  <% end %>
+  <% component.with_footer do %>
+    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal">
+      <span aria-hidden="true" class="visually-hidden"><%= t('search_tips.close') %> </span>
+    </button>
+  <% end %>
+<% end %>
