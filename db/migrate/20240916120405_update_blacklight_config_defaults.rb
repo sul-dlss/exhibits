@@ -11,7 +11,7 @@ class UpdateBlacklightConfigDefaults < ActiveRecord::Migration[7.2]
       ) unless config.facet_fields.blank?
 
       config.update(
-        index_fields: config.facet_fields.reverse_merge({
+        index_fields: config.index_fields.reverse_merge({
           'name_roles_ssim' => { 'enabled' => false, 'show' => false }
         })
       ) unless config.index_fields.blank?
