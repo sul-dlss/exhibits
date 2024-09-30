@@ -858,7 +858,7 @@ GEM
     uri (0.13.1)
     useragent (0.16.10)
     version_gem (1.1.4)
-    view_component (3.15.0)
+    view_component (3.14.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -890,7 +890,7 @@ PLATFORMS
   arm-linux
   arm-linux-gnu
   arm-linux-musl
-  arm64-darwin
+  arm64-darwin-23
   x86-linux
   x86-linux-gnu
   x86-linux-musl
@@ -982,6 +982,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
+  view_component (~> 3.14.0)
   web-console (>= 4.1.0)
   webmock
 

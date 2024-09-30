@@ -138,3 +138,4 @@ gem 'redis', '~> 5.0'
 gem 'recaptcha', '~> 5.16'
 
 gem 'rack-attack'
+gem 'view_component', '~> 3.14.0' # pinned to 3.14 until overrides work with 3.15
