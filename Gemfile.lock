@@ -100,7 +100,7 @@ GEM
       racc (~> 1.7)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    blacklight (7.38.0)
+    blacklight (7.39.0)
       deprecation
       globalid
       hashdiff
@@ -108,8 +108,9 @@ GEM
       jbuilder (~> 2.7)
       kaminari (>= 0.15)
       ostruct (>= 0.3.2)
-      rails (>= 5.1, < 7.3)
+      rails (>= 6.1, < 7.3)
       view_component (>= 2.66, < 4)
+      zeitwerk
     blacklight-gallery (4.6.0)
       blacklight (>= 7.17, < 9)
       rails (>= 6.1, < 8)
@@ -121,7 +122,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.1.0)
+    blacklight-spotlight (4.1.2)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
       autoprefixer-rails
@@ -438,7 +439,7 @@ GEM
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
     io-console (0.7.2)
-    irb (1.14.0)
+    irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     iso-639 (0.3.6)
@@ -671,7 +672,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     retriable (3.1.2)
-    rexml (3.3.7)
+    rexml (3.3.8)
     riiif (2.6.0)
       deprecation (>= 1.0.0)
       iiif-image-api (>= 0.1.0)
@@ -789,9 +790,11 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    solr_wrapper (4.0.2)
-      http
+    solr_wrapper (4.1.0)
+      faraday
+      faraday-follow_redirects
       minitar
+      ostruct
       retriable
       ruby-progressbar
     sprockets (4.2.1)
@@ -855,7 +858,7 @@ GEM
     uri (0.13.1)
     useragent (0.16.10)
     version_gem (1.1.4)
-    view_component (3.14.0)
+    view_component (3.15.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
