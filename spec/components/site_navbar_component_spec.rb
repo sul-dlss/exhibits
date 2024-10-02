@@ -10,7 +10,7 @@ RSpec.describe SiteNavbarComponent, type: :component do
   let(:search_component) { instance_double(SiteSearchFormComponent) }
 
   before do
-    allow(controller).to receive(:current_user).and_return(user)
+    allow(vc_test_controller).to receive(:current_user).and_return(user)
     allow(search_component).to receive(:render_in).and_return('search form')
     allow(SiteSearchFormComponent).to receive(:new).and_return(search_component)
   end
