@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require 'spec_helper'
 
 RSpec.describe Exhibits::SearchTipsLinkComponent, type: :component do
   subject(:rendered) { Capybara::Node::Simple.new(render_inline(described_class.new)) }

@@ -11,9 +11,6 @@ WebMock.disable_net_connect!(allow_localhost: true, allow: allowed_sites)
 
 FIXTURES_PATH = File.expand_path('fixtures', __dir__)
 require 'simplecov'
-require 'view_component/test_helpers'
-require 'view_component/system_test_helpers'
-require 'capybara/rspec'
 
 SimpleCov.start('rails') do
   # Ignore these because simplecov doesn't detect when traject
@@ -33,9 +30,6 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
-
-  config.include ViewComponent::TestHelpers, type: :component
-  config.include ViewComponent::SystemTestHelpers, type: :component
 
   # Limits the available syntax to the non-monkey patched syntax that is recommended.
   # For more details, see:

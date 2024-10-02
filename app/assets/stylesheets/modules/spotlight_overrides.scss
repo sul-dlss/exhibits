@@ -311,10 +311,13 @@ h5,
 }
 
 // Overrides for search tips link and info icon
+// Prevents capitalization of search tips link text when the masthead has an image background
 .image-masthead .searchtips-link {
   text-transform: none !important;
 }
 
-.searchtips-link .bi-info-circle{
-  margin-bottom: 0.15rem;
+// Prevents underline on hover in the span containing the icon which includes white space.
+// This class requires display inline block on the span. 
+.blacklight-icons:hover {
+  text-decoration: none; 
 }
