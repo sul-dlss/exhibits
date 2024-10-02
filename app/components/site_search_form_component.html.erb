@@ -1,25 +1,25 @@
-<%= form_tag search_action_url, method: :get, class: 'd-flex flex-grow-1 search-across-form search-query-form', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
-  <%= render Blacklight::HiddenSearchStateComponent.new(params: search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
+<%= form_tag @url, method: :get, class: 'd-flex flex-grow-1 search-across-form search-query-form', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
+  <%= render Blacklight::HiddenSearchStateComponent.new(params: helpers.search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
   <% if search_fields.length > 1 %>
     <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
   <% end %>
 
   <div class="input-group">
-    <div class="dropdown input-group-prepend" data-behavior="site-search-type-toggle" data-enabled="<%= in_search_across? ? '#item-search' : '#exhibit-search' %>" style="display: none">
+    <div class="dropdown input-group-prepend" data-behavior="site-search-type-toggle" data-enabled="<%= helpers.in_search_across? ? '#item-search' : '#exhibit-search' %>" style="display: none">
       <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="site-search-type" data-toggle="dropdown" aria-expanded="false">
-        <% if in_search_across? %>
-          <%= t('.find_all_items') %>
+        <% if helpers.in_search_across? %>
+          <%= t('site_search_form.find_all_items') %>
         <% else %>
-          <%= t('.find_exhibits_by_title') %>
+          <%= t('site_search_form.find_exhibits_by_title') %>
         <% end %>
       </button>
 
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#" data-target="#exhibit-search" data-button-text="<%= t('.find_exhibits_by_title') %>">
-          <%= t('.exhibits_by_title') %>
+        <a class="dropdown-item" href="#" data-target="#exhibit-search" data-button-text="<%= t('site_search_form.find_exhibits_by_title') %>">
+          <%= t('site_search_form.exhibits_by_title') %>
         </a>
-        <a class="dropdown-item" href="#" data-target="#item-search" data-button-text="<%= t('.find_all_items') %>">
-          <%= t('.all_items') %>
+        <a class="dropdown-item" href="#" data-target="#item-search" data-button-text="<%= t('site_search_form.find_all_items') %>">
+          <%= t('site_search_form.all_items') %>
         </a>
       </div>
     </div>
@@ -34,7 +34,7 @@
         <noscript>
           <label for="q" class="sr-only"><%= t('blacklight.search.form.search.label') %></label>
         </noscript>
-        <%= text_field_tag :q, params[:q], class: "search-q q form-control", id: "q", 'aria-labelledby': "site-search-type", autofocus: presenter.autofocus?, data: { autocomplete_enabled: presenter.autocomplete_enabled?, autocomplete_path: search_action_path(action: :suggest) }  %>
+        <%= text_field_tag :q, params[:q], class: "search-q q form-control", id: "q", 'aria-labelledby': "site-search-type", autofocus: autofocus, data: { autocomplete_enabled: autocomplete_path.present?, autocomplete_path: autocomplete_path }  %>
 
         <span class="input-group-append">
           <button type="submit" class="btn btn-primary search-btn" id="search">

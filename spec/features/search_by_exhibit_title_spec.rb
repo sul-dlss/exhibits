@@ -14,7 +14,6 @@ RSpec.describe 'Searching Exhibits By Title', js: true do
     # "touch" fixtures that need to be created before a user visits the app
     exhibit1
     exhibit2
-    allow(Settings.feature_flags).to receive(:exhibits_index).and_return(true)
     visit root_path
   end
 

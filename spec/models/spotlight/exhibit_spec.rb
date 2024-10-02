@@ -61,10 +61,6 @@ describe Spotlight::Exhibit do
   end
 
   describe 'Indexing Exhibit Content' do
-    before do
-      allow(Settings.feature_flags).to receive_messages(exhibits_index: true)
-    end
-
     context 'when an exhibit is published' do
       let(:exhibit) { FactoryBot.create(:exhibit, published: false) }
 

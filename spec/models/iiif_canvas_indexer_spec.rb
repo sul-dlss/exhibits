@@ -59,7 +59,7 @@ RSpec.describe IiifCanvasIndexer do
     it 'enqueues the same number of jobs as otherContent annotationLists' do
       expect do
         subject.index_canvases
-      end.to change(enqueued_jobs, :count).by(3)
+      end.to change(enqueued_jobs, :count).by(subject.index_canvases.length)
     end
 
     context 'when not a image thing' do

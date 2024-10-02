@@ -33,8 +33,6 @@ module ExhibitExtension
   end
 
   def index_exhibit_metadata
-    return unless FeatureFlags.new.exhibits_index?
-
     if published?
       IndexExhibitMetadataJob.perform_later(exhibit: self, action: 'add')
     elsif saved_change_to_published?
