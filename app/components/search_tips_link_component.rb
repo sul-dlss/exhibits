@@ -2,4 +2,3 @@
 
 class SearchTipsLinkComponent < ViewComponent::Base
 end
-
