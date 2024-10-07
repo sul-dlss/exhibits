@@ -351,6 +351,9 @@
   <copyField source="*_tesimv" dest="full_text_search_en"/>
   <copyField source="*_tesimv" dest="full_text_search_pt"/>
   <copyField source="*_tesimv" dest="full_text_search_id"/>
+  <!--Adding specific fields for search-->
+  <copyField source="pub_display" dest="all_search" />
+  <copyField source="ref_type_ssm" dest="all_search" />
 
   <types>
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
