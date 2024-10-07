@@ -32,7 +32,7 @@ to_field 'id', extract_bibtex(:key) do |_record, accumulator, _context|
   accumulator.map! { |v| v.gsub(%r{http://zotero.org/groups/\d*/items/}, '') }
 end
 to_field 'bibtex_key_ss', extract_bibtex(:key)
-to_field %w(ref_type_ssm ref_type_search), extract_bibtex(:type) do |_record, accumulator, _context|
+to_fields %w(ref_type_ssm ref_type_search), extract_bibtex(:type) do |_record, accumulator, _context|
   accumulator.map! { |v| BIBTEX_ZOTERO_MAPPING[v] }.compact!
 end
 
