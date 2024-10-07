@@ -32,7 +32,7 @@ to_field 'id', extract_bibtex(:key) do |_record, accumulator, _context|
   accumulator.map! { |v| v.gsub(%r{http://zotero.org/groups/\d*/items/}, '') }
 end
 to_field 'bibtex_key_ss', extract_bibtex(:key)
-to_field 'ref_type_ssm', extract_bibtex(:type) do |_record, accumulator, _context|
+to_field %w(ref_type_ssm all_search), extract_bibtex(:type) do |_record, accumulator, _context|
   accumulator.map! { |v| BIBTEX_ZOTERO_MAPPING[v] }.compact!
 end
 
@@ -41,8 +41,8 @@ to_fields %w(author_person_full_display author_sort author_1xx_search), extract_
 to_fields %w(pub_year_isi pub_year_w_approx_isi), extract_bibtex(:year)
 to_field 'editor_ssim', extract_bibtex_field(:editor)
 to_field 'book_title_ssim', extract_bibtex_field(:booktitle)
-to_field 'pub_display', extract_bibtex_field(:journal)
-to_field 'pub_display', extract_bibtex_field(:publisher)
+to_field %w(pub_display pub_search), extract_bibtex_field(:journal)
+to_field %w(pub_display pub_search), extract_bibtex_field(:publisher)
 to_field 'location_ssi', extract_bibtex_field(:address)
 to_field 'university_ssim', extract_bibtex_field(:school)
 to_field 'edition_ssm', extract_bibtex_field(:edition)

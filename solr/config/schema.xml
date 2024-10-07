@@ -303,7 +303,6 @@
   <copyField source="subject_other_search" dest="subject_other_display" />
   <copyField source="title_variant_search" dest="title_variant_display" />
   <copyField source="summary_search" dest="summary_display" />
-  <copyField source="pub_search" dest="pub_display" />
 
   <!-- CJK fields -->
   <!-- both bigrams and unigrams in same field -->
@@ -351,9 +350,6 @@
   <copyField source="*_tesimv" dest="full_text_search_en"/>
   <copyField source="*_tesimv" dest="full_text_search_pt"/>
   <copyField source="*_tesimv" dest="full_text_search_id"/>
-  <!--Adding specific fields for search-->
-  <copyField source="pub_display" dest="all_search"/>
-  <copyField source="ref_type_ssm" dest="all_search"/>
 
   <types>
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
