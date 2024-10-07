@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Exhibits::SearchTipsLinkComponent, type: :component do
+RSpec.describe SearchTipsLinkComponent, type: :component do
   subject(:rendered) { Capybara::Node::Simple.new(render_inline(described_class.new)) }
 
   it 'displays seearch tips links' do

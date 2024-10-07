@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Exhibits::SearchTipsComponent, type: :component do
+RSpec.describe SearchTipsComponent, type: :component do
   subject(:rendered) { Capybara::Node::Simple.new(render_inline(described_class.new)) }
 
   it 'displays a title with a subheading' do
