@@ -35,6 +35,7 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     config.http_method = :post
     config.header_component = Spotlight::HeaderComponent
+    config.exhibit_navbar_component = ExhibitNavbarComponent
     config.index.default_thumbnail = :exhibits_default_thumbnail
 
     config.document_solr_request_handler = 'document'
@@ -455,6 +456,16 @@ class CatalogController < ApplicationController
 
   def admin
     raise NotImplementedError
+  end
+
+  # Method to route search tips
+  def search_tips
+    respond_to do |format|
+      format.html do
+        return render layout: false if request.xhr?
+        # Otherwise draw the full page
+      end
+    end
   end
 
   class << self

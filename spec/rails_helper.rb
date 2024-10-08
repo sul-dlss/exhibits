@@ -6,6 +6,8 @@ require 'spec_helper'
 require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 require 'factory_bot_rails'
+require 'view_component/test_helpers'
+require 'view_component/system_test_helpers'
 
 require 'selenium-webdriver'
 
@@ -92,4 +94,5 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
   config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponent::SystemTestHelpers, type: :component
 end

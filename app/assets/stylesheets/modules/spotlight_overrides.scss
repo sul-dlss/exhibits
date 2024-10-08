@@ -309,3 +309,9 @@ h5,
     z-index: 1;
   }
 }
+
+// Overrides for search tips link and info icon
+// Prevents capitalization of search tips link text when the masthead has an image background
+.image-masthead .searchtips-link {
+  text-transform: none !important;
+}
