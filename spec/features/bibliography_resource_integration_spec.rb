@@ -77,7 +77,7 @@ RSpec.describe 'Bibliography resource integration test' do
 
     context 'article' do
       it 'has publication title' do
-        expect(document['pub_display']).to eq ['Reinardus. Yearbook of the International Reynard Society']
+        expect(document['pub_search']).to eq ['Reinardus. Yearbook of the International Reynard Society']
       end
 
       it 'has a volume' do
@@ -110,7 +110,7 @@ RSpec.describe 'Bibliography resource integration test' do
       let(:file) { 'spec/fixtures/bibliography/book.bib' }
 
       it 'has a publisher' do
-        expect(document['pub_display']).to eq ['Faculdade de Letras da Universidade de Coimbra']
+        expect(document['pub_search']).to eq ['Faculdade de Letras da Universidade de Coimbra']
       end
 
       it 'has an edition' do

@@ -35,15 +35,17 @@ to_field 'bibtex_key_ss', extract_bibtex(:key)
 to_field 'ref_type_ssm', extract_bibtex(:type) do |_record, accumulator, _context|
   accumulator.map! { |v| BIBTEX_ZOTERO_MAPPING[v] }.compact!
 end
-to_field 'all_search', copy('ref_type_ssm')
+# Based on schema.xml, *_ssim fields are copied over to all_search
+to_field 'ref_type_ssim', copy('ref_type_ssm')
 
 to_fields %w(title_display title_uniform_search title_sort), extract_bibtex_field(:title)
 to_fields %w(author_person_full_display author_sort author_1xx_search), extract_bibtex_field(:author)
 to_fields %w(pub_year_isi pub_year_w_approx_isi), extract_bibtex(:year)
 to_field 'editor_ssim', extract_bibtex_field(:editor)
 to_field 'book_title_ssim', extract_bibtex_field(:booktitle)
-to_fields %w(pub_search pub_display), extract_bibtex_field(:journal)
-to_fields %w(pub_search pub_display), extract_bibtex_field(:publisher)
+# Based on schema.xml, pub_search is also copied over to pub_display
+to_field 'pub_search', extract_bibtex_field(:journal)
+to_field 'pub_search', extract_bibtex_field(:publisher)
 to_field 'location_ssi', extract_bibtex_field(:address)
 to_field 'university_ssim', extract_bibtex_field(:school)
 to_field 'edition_ssm', extract_bibtex_field(:edition)
