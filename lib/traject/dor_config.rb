@@ -95,6 +95,7 @@ to_field 'toc_search', stanford_mods(:term_values, :tableOfContents)
 to_field 'url_suppl', stanford_mods(:term_values, [:related_item, :location, :url])
 
 # publication fields
+# Based on schema.xml, pub_search is also copied over to pub_display
 to_field 'pub_search', stanford_mods(:place)
 to_field 'pub_year_isi', stanford_mods(:pub_year_int, ignore_approximate: false) # for sorting
 # these are for single value facet display (in lieu of date slider (pub_year_tisim) )
