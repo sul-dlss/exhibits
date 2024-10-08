@@ -23,6 +23,7 @@ class MetadataController < Spotlight::CatalogController
 
     title = Array(@document[blacklight_config.view_config(:show).title_field]).join(', ')
     add_breadcrumb title, spotlight.polymorphic_path([current_exhibit, @document])
+    add_breadcrumb t('metadata.breadcrumb')
   end
 
   def search_action_url(options = {})
