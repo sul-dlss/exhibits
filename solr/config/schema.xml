@@ -303,6 +303,7 @@
   <copyField source="subject_other_search" dest="subject_other_display" />
   <copyField source="title_variant_search" dest="title_variant_display" />
   <copyField source="summary_search" dest="summary_display" />
+  <copyField source="pub_search" dest="pub_display" />
 
   <!-- CJK fields -->
   <!-- both bigrams and unigrams in same field -->
