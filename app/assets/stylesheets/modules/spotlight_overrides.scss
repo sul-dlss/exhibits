@@ -315,9 +315,3 @@ h5,
 .image-masthead .searchtips-link {
   text-transform: none !important;
 }
-
-// Prevents underline on hover in the span containing the icon which includes white space.
-// This class requires display inline block on the span. 
-.blacklight-icons:hover {
-  text-decoration: none; 
-}
