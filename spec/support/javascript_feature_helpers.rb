@@ -4,12 +4,12 @@
 # Ported integration test helper methods over from Spotlight
 module JavascriptFeatureHelpers
   def fill_in_typeahead_field(opts = {})
-    type = opts[:type] || 'twitter'
+    attribute = opts[:attribute] || 'data-twitter-typeahead'
     # Poltergeist / Capybara doesn't fire the events typeahead.js
     # is listening for, so we help it out a little:
     page.execute_script <<-JS
-      $("[data-#{type}-typeahead]:visible").val("#{opts[:with]}").trigger("input");
-      $("[data-#{type}-typeahead]:visible").typeahead("open");
+      $("[#{attribute}]:visible").val("#{opts[:with]}").trigger("input");
+      $("[#{attribute}]:visible").typeahead("open");
       $(".tt-suggestion").click();
     JS
 
