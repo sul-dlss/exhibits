@@ -32,6 +32,14 @@ en:
         header: Section heading
       dor_harvester:
         druid_list: Object IDs
+      spotlight/search:
+        friendly_id: The title
+    errors:
+      models:
+        spotlight/search:
+          attributes:
+            friendly_id:
+              exclusion: '"%{value}" is reserved and cannot be used. Please choose a different title.'
 
   catalog:
     index:
