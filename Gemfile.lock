@@ -529,7 +529,7 @@ GEM
       racc (~> 1.7)
     net-http (0.4.1)
       uri
-    net-imap (0.4.16)
+    net-imap (0.4.17)
       date
       net-protocol
     net-pop (0.1.2)
@@ -595,7 +595,7 @@ GEM
       nokogiri
       stanford-mods
     racc (1.8.1)
-    rack (3.1.7)
+    rack (3.1.8)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-mini-profiler (3.3.1)
@@ -884,7 +884,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.2)
-    zeitwerk (2.6.18)
+    zeitwerk (2.7.0)
 
 PLATFORMS
   aarch64-linux
