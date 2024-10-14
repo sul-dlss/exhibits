@@ -22,6 +22,8 @@ describe Spotlight::CatalogController do
         uploaded_resource.save_and_index
       end
 
+      sleep 10
+
       get :manifest, params: { id: compound_id, exhibit_id: exhibit.id, locale: 'en' }
 
       expect(response.headers.to_h).to include 'access-control-allow-origin' => '*'
