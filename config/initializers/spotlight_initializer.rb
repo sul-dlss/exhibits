@@ -81,3 +81,13 @@ Spotlight::Engine.config.sir_trevor_widgets = %w[
   FeaturedPages SolrDocuments SolrDocumentsCarousel SolrDocumentsEmbed
   SolrDocumentsFeatures SolrDocumentsGrid SearchResults
 ]
+
+
+Spotlight::Engine.config.site_tags = [
+  "Arts & Humanities",
+  "Government & Society",
+  "Maps & Geography",
+  "Science & Engineering",
+  "Social justice",
+  "Stanfordiana"
+]
