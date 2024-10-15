@@ -11,7 +11,6 @@ describe Spotlight::CatalogController do
   let(:document) { SolrDocument.new(id: '1-1') }
   let(:search_service) { instance_double(Blacklight::SearchService, fetch: [document]) }
 
-
   before do
     sign_in user
     allow(Blacklight::SearchService).to receive(:new).and_return(search_service)
