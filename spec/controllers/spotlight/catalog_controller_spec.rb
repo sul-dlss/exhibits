@@ -8,23 +8,18 @@ describe Spotlight::CatalogController do
 
   let(:exhibit) { create(:exhibit) }
   let(:user) { create(:exhibit_admin, exhibit: exhibit) }
+  let(:document) { SolrDocument.new(id: '1-1') }
+  let(:search_service) { instance_double(Blacklight::SearchService, fetch: [document]) }
+
 
   before do
     sign_in user
+    allow(Blacklight::SearchService).to receive(:new).and_return(search_service)
   end
 
   describe '#manifest' do
     it 'sets appropriate CORS headers' do
-      uploaded_resource = FactoryBot.create(:uploaded_resource)
-      compound_id = uploaded_resource.compound_id
-
-      perform_enqueued_jobs do
-        uploaded_resource.save_and_index
-      end
-
-      sleep 10
-
-      get :manifest, params: { id: compound_id, exhibit_id: exhibit.id, locale: 'en' }
+      get :manifest, params: { id: document.id, exhibit_id: exhibit.id, locale: 'en' }
 
       expect(response.headers.to_h).to include 'access-control-allow-origin' => '*'
     end
