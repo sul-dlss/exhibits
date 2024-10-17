@@ -186,7 +186,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_year_tisim', label: 'Date Range', range: true
     config.add_facet_field 'language', label: 'Language', limit: true
     config.add_facet_field 'name_ssim', label: 'Creators/Contributors', limit: true
-    config.add_facet_field 'name_roles_ssim', label: 'Role', limit: -1,
+    config.add_facet_field 'name_roles_ssim', label: 'Creators/Contributors by role', limit: -1,
                                               component: Blacklight::Hierarchy::FacetFieldListComponent,
                                               item_presenter: RoleFacetItemPresenter
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
