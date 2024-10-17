@@ -14,10 +14,10 @@ RSpec.describe 'Hierarchy widget', :js do
     page.driver.browser.manage.window.resize_to(1000, 400)
   end
 
-  it 'has the Role facet' do
-    expect(page).to have_button('Role')
+  it 'has the Creators/Contributors by role facet' do
+    expect(page).to have_button('Creators/Contributors by role')
 
-    click_button 'Role'
+    click_button 'Creators/Contributors by role'
 
     within '.blacklight-name_roles_ssim' do
       expect(page).to have_content('Artist')
@@ -32,10 +32,10 @@ RSpec.describe 'Hierarchy widget', :js do
     expect(page).to have_css('.filter-value', text: 'Artist: Pellegrini, Domenico, 1759-1840')
   end
 
-  it 'excludes empty roles from the Role facet' do
-    expect(page).to have_button('Role')
+  it 'excludes empty roles from the Creators/Contributors by role facet' do
+    expect(page).to have_button('Creators/Contributors by role')
 
-    click_button 'Role'
+    click_button 'Creators/Contributors by role'
 
     within '.blacklight-name_roles_ssim' do
       roles = find_all('li').map(&:text)
