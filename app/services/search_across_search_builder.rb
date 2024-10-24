@@ -5,6 +5,7 @@ class SearchAcrossSearchBuilder < SearchBuilder
   DENY_ALL = 'id:does-not-exist'
 
   self.default_processor_chain += [:filter_public_documents_in_accessible_exhibits]
+  self.default_processor_chain -= [:facets_for_advanced_search_form]
 
   def filter_public_documents_in_accessible_exhibits(solr_params)
     fq = Array.wrap(solr_params[:fq])
