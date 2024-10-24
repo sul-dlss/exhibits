@@ -89,7 +89,7 @@ gem 'config'
 
 gem 'bootstrap', '~> 4.6'
 gem 'bootstrap_form', '~> 4.0'
-gem 'blacklight', '~> 7.34'
+gem 'blacklight', '~> 8.0'
 gem 'blacklight-gallery', '~> 4.4'
 gem 'blacklight_heatmaps'
 gem 'blacklight-hierarchy'
