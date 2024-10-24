@@ -122,7 +122,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.2.0)
+    blacklight-spotlight (4.3.0)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
       autoprefixer-rails
@@ -272,7 +272,7 @@ GEM
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.5.1)
-    diffy (3.4.2)
+    diffy (3.4.3)
     dlss-capistrano (5.2.0)
       bcrypt_pbkdf
       capistrano (~> 3.0)
@@ -331,7 +331,7 @@ GEM
       mime-types (>= 1.0)
     friendly_id (5.5.1)
       activerecord (>= 4.0.0)
-    gapic-common (0.22.0)
+    gapic-common (0.23.0)
       faraday (>= 1.9, < 3.a)
       faraday-retry (>= 1.0, < 3.a)
       google-protobuf (>= 3.25, < 5.a)
@@ -356,22 +356,22 @@ GEM
     google-cloud-env (2.2.1)
       faraday (>= 1.0, < 3.a)
     google-cloud-errors (1.4.0)
-    google-protobuf (4.28.2)
+    google-protobuf (4.28.3)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-aarch64-linux)
+    google-protobuf (4.28.3-aarch64-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-arm64-darwin)
+    google-protobuf (4.28.3-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-x86-linux)
+    google-protobuf (4.28.3-x86-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-x86_64-darwin)
+    google-protobuf (4.28.3-x86_64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.2-x86_64-linux)
+    google-protobuf (4.28.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
     googleapis-common-protos (1.6.0)
@@ -380,7 +380,7 @@ GEM
       grpc (~> 1.41)
     googleapis-common-protos-types (1.16.0)
       google-protobuf (>= 3.18, < 5.a)
-    googleauth (1.11.1)
+    googleauth (1.11.2)
       faraday (>= 1.0, < 3.a)
       google-cloud-env (~> 2.1)
       jwt (>= 1.4, < 3.0)
@@ -910,7 +910,7 @@ DEPENDENCIES
   blacklight-gallery (~> 4.4)
   blacklight-hierarchy
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 4.0)
+  blacklight-spotlight (~> 4.3)
   blacklight_advanced_search
   blacklight_heatmaps
   blacklight_range_limit (~> 8.0)
