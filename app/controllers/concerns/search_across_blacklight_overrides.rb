@@ -6,18 +6,6 @@
 module SearchAcrossBlacklightOverrides
   extend ActiveSupport::Concern
 
-  included do
-    if respond_to?(:helper_method)
-      helper_method :link_to_document, :show_pagination?, :document_index_path_templates,
-                    :render_grouped_document_index, :opensearch_catalog_url, :page_entries_info,
-                    :render_grouped_response?, :url_for_document
-    end
-  end
-
-  def render_grouped_response?(*_args)
-    params[:group]
-  end
-
   # Disable Blacklight implicit links to documents
   def url_for_document(_doc)
     '#'
@@ -27,13 +15,13 @@ module SearchAcrossBlacklightOverrides
   def link_to_document(doc, field_or_opts, opts = { counter: nil })
     label = case field_or_opts
             when NilClass
-              view_context.document_presenter(doc).heading
+              document_presenter(doc).heading
             when Hash
               opts = field_or_opts
-              view_context.document_presenter(doc).heading
+              document_presenter(doc).heading
             when Proc, Symbol
               Deprecation.silence(Blacklight::IndexPresenter) do
-                view_context.document_presenter(doc).label field_or_opts, opts
+                document_presenter(doc).label field_or_opts, opts
               end
             else # String
               field_or_opts
@@ -43,13 +31,13 @@ module SearchAcrossBlacklightOverrides
   end
 
   def show_pagination?(*_args)
-    return false if view_context.render_grouped_response?
+    return false if params[:group]
 
     @response.limit_value.positive?
   end
 
   def document_index_path_templates
-    return ['exhibit_%<index_view_type>s'] if view_context.render_grouped_response?
+    return ['exhibit_%<index_view_type>s'] if params[:group]
 
     [
       'document_%<index_view_type>s',
@@ -58,14 +46,16 @@ module SearchAcrossBlacklightOverrides
     ].compact
   end
 
-  def render_grouped_document_index(response = @response)
-    slugs = response.aggregations[SolrDocument.exhibit_slug_field].items.map(&:value)
+  def render_document_index(*)
+    return super unless params[:group]
+
+    slugs = @response.aggregations[SolrDocument.exhibit_slug_field].items.map(&:value)
     exhibits = Spotlight::Exhibit.where(slug: slugs).sort_by { |e| slugs.index e.slug }
-    view_context.render_document_index(exhibits)
+    super(exhibits)
   end
 
   def opensearch_catalog_url(*)
-    view_context.spotlight.opensearch_search_across_url(*)
+    spotlight.opensearch_search_across_url(*)
   end
 
   ##
@@ -89,7 +79,7 @@ module SearchAcrossBlacklightOverrides
     entry_name = entry_name.pluralize unless collection.total_count == 1
 
     # grouped response objects need special handling
-    end_num = if collection.respond_to?(:groups) && view_context.render_grouped_response?(collection)
+    end_num = if collection.respond_to?(:groups) && render_grouped_response?(collection)
                 collection.groups.length
               else
                 collection.limit_value
@@ -110,9 +100,9 @@ module SearchAcrossBlacklightOverrides
       t('search_across.pagination_info.pages', entry_name: entry_name,
                                                current_page: collection.current_page,
                                                num_pages: collection.total_pages,
-                                               start_num: view_context.number_with_delimiter(collection.offset_value + 1),
-                                               end_num: view_context.number_with_delimiter(end_num),
-                                               total_num: view_context.number_with_delimiter(collection.total_count),
+                                               start_num: number_with_delimiter(collection.offset_value + 1),
+                                               end_num: number_with_delimiter(end_num),
+                                               total_num: number_with_delimiter(collection.total_count),
                                                count: collection.total_pages).html_safe
     end
   end
