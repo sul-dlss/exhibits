@@ -102,7 +102,7 @@ GEM
       racc (~> 1.7)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    blacklight (8.5.0)
+    blacklight (8.5.1)
       globalid
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
