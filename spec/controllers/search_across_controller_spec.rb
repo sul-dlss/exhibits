@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe SearchAcrossController do
+  let(:view_context) { controller.view_context }
+
   describe 'GET index' do
     context 'with a grouped response' do
       before do
@@ -25,29 +27,13 @@ RSpec.describe SearchAcrossController do
     end
   end
 
-  describe '#render_grouped_response?' do
-    it 'is false' do
-      expect(controller).not_to be_render_grouped_response
-    end
-
-    context 'with the group param set' do
-      before do
-        controller.params[:group] = true
-      end
-
-      it 'is true' do
-        expect(controller.render_grouped_response?).to eq true
-      end
-    end
-  end
-
   describe '#url_for_document' do
     let(:document) do
       SolrDocument.new(id: 1, "#{SolrDocument.exhibit_slug_field}": ['a'])
     end
 
     it 'suppresses links for documents' do
-      expect(controller.url_for_document(document)).to eq '#'
+      expect(view_context.url_for_document(document)).to eq '#'
     end
   end
 
@@ -57,25 +43,35 @@ RSpec.describe SearchAcrossController do
     end
 
     it 'links to exhibit documents' do
-      expect(controller.link_to_document(document, nil)).to eq 'SomeId1'
+      expect(view_context.link_to_document(document, nil)).to eq 'SomeId1'
     end
   end
 
   describe '#show_pagination?' do
+    before do
+      controller.params[:group] = true
+    end
+
     it 'is suppressed for grouped responses' do
-      allow(controller).to receive(:render_grouped_response?).and_return(true)
-      expect(controller.show_pagination?).to eq false
+      expect(view_context.show_pagination?).to eq false
     end
   end
 
   describe '#document_index_path_templates' do
+    before do
+      controller.params[:group] = true
+    end
+
     it 'injects custom exhibits document partials' do
-      allow(controller).to receive(:render_grouped_response?).and_return(true)
-      expect(controller.document_index_path_templates).to eq ['exhibit_%<index_view_type>s']
+      expect(view_context.document_index_path_templates).to eq ['exhibit_%<index_view_type>s']
     end
   end
 
-  describe '#render_grouped_document_index' do
+  describe '#render_document_index' do
+    before do
+      controller.params[:group] = true
+    end
+
     let(:response) do
       Blacklight::Solr::Response.new({
                                        facet_counts: {
@@ -98,12 +94,13 @@ RSpec.describe SearchAcrossController do
       ]
     end
 
-    let(:view_context) { instance_double('ViewContext', render_document_index: ->(*) { 'x' }) }
-
     it 'replaces solr results with exhibits from the database' do
-      allow(controller).to receive(:view_context).and_return(view_context)
-      controller.render_grouped_document_index(response)
-      expect(view_context).to have_received(:render_document_index).with(exhibits)
+      controller.instance_variable_set(:@response, response)
+      allow(view_context).to receive(:render_document_index_with_view).and_return('rendered')
+      rendered = view_context.render_document_index(response.documents)
+
+      expect(rendered).to eq 'rendered'
+      expect(view_context).to have_received(:render_document_index_with_view).with(:list, exhibits, {})
     end
   end
 
