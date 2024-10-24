@@ -100,7 +100,7 @@ GEM
       racc (~> 1.7)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    blacklight (8.5.0)
+    blacklight (8.5.1)
       globalid
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
@@ -120,7 +120,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.3.0)
+    blacklight-spotlight (4.3.1)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
       autoprefixer-rails
