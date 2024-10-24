@@ -3,7 +3,6 @@
 ##
 # Blacklight controller providing search and discovery features
 class CatalogController < ApplicationController
-  include BlacklightAdvancedSearch::Controller
   helper Openseadragon::OpenseadragonHelper
 
   include Blacklight::Catalog
