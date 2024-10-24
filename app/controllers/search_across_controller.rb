@@ -10,7 +10,7 @@ class SearchAcrossController < ::CatalogController
 
   helper Spotlight::ApplicationHelper
   include BlacklightRangeLimit::ControllerOverride
-  include SearchAcrossBlacklightOverrides
+  helper SearchAcrossBlacklightOverrides
 
   layout 'spotlight/home'
 
@@ -78,7 +78,7 @@ class SearchAcrossController < ::CatalogController
                                         query: exhibit_visibility_query_config
     end
 
-    if render_grouped_response?
+    if params[:group]
       # we can't use solr's pagination because it can't sort  by exhibit title
       blacklight_config.index.collection_actions.delete(:per_page_widget)
 
