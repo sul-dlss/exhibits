@@ -124,12 +124,9 @@ class CatalogController < ApplicationController
     config.show.oembed_field = :url_fulltext
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
-    config.show.partials.insert(1, :viewer)
-    config.show.partials << :metadata_button
-    config.show.partials.unshift :bibliography_buttons
-    config.show.partials << :bibliography
-    config.show.partials << :cited_documents
-    config.show.partials << :page_details
+    config.show.document_component = Spotlight::DocumentComponent
+    config.show.embed_component = CustomViewerComponent
+    config.show.partials = %i(bibliography_buttons metadata_button bibliography cited_documents page_details)
 
     config.view.list.thumbnail_field = [:thumbnail_square_url_ssm, :thumbnail_url_ssm]
     config.view.list.partials = [:exhibits_document_header, :index]
@@ -147,7 +144,8 @@ class CatalogController < ApplicationController
 
     config.view.slideshow(title_only_by_default: true, document_component: Blacklight::Gallery::SlideshowComponent)
 
-    config.view.embed(partials: [:viewer], if: false)
+    config.view.embed(document_component: CustomEmbedDocumentComponent,
+                      embed_component: CustomViewerComponent, if: false)
 
     # BlacklightHeatmaps configuration values
     config.geometry_field = :geographic_srpt

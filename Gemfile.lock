@@ -102,7 +102,7 @@ GEM
       racc (~> 1.7)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    blacklight (8.6.0)
+    blacklight (8.6.1)
       globalid
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
@@ -905,7 +905,7 @@ DEPENDENCIES
   blacklight-gallery (~> 4.4)
   blacklight-hierarchy
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 4.3)
+  blacklight-spotlight (~> 4.3, >= 4.3.3)
   blacklight_advanced_search
   blacklight_heatmaps
   blacklight_range_limit (~> 8.0)
