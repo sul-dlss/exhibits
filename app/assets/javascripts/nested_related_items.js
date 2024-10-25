@@ -90,7 +90,7 @@ Blacklight.onLoad(function () {
   'use strict';
 
   // Load JS in Bootstrap modal
-  $('#blacklight-modal').on('shown.bs.modal', function () {
+  document.querySelector('#blacklight-modal').addEventListener('loaded.blacklight.blacklight-modal', function (e) {
     $('.mods_display_nested_related_items').each(function (i, element) {
       NestedRelatedItems.init($(element)); // eslint-disable-line no-undef
     });
