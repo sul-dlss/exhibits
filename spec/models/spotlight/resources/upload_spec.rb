@@ -15,7 +15,7 @@ describe Spotlight::Resources::Upload do
 
   before do
     allow(Riiif::Image).to receive(:new).with(upload_id).and_return(riiif_image)
-    allow(upload).to receive(:file_present?).and_return(true)
+    allow(upload).to receive(:file_present?).and_return(true) if upload
   end
 
   describe '#to_solr' do
