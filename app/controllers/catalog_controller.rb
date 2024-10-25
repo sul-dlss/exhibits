@@ -134,15 +134,18 @@ class CatalogController < ApplicationController
     config.view.gallery(title_only_by_default: true,
                         default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
                         default_canvas_thumbnail: 'default-square-thumbnail-annotation-large.png',
-                        document_component: Blacklight::Gallery::DocumentComponent)
+                        document_component: Blacklight::Gallery::DocumentComponent,
+                        icon: Blacklight::Gallery::Icons::GalleryComponent)
 
     config.view.heatmaps(partials: [], color_ramp: ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494'])
 
     config.view.masonry(title_only_by_default: true,
                         default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
-                        document_component: Blacklight::Gallery::DocumentComponent)
+                        document_component: Blacklight::Gallery::DocumentComponent,
+                        icon: Blacklight::Gallery::Icons::MasonryComponent)
 
-    config.view.slideshow(title_only_by_default: true, document_component: Blacklight::Gallery::SlideshowComponent)
+    config.view.slideshow(title_only_by_default: true, document_component: Blacklight::Gallery::SlideshowComponent,
+                          icon: Blacklight::Gallery::Icons::SlideshowComponent)
 
     config.view.embed(document_component: CustomEmbedDocumentComponent,
                       embed_component: CustomViewerComponent, if: false)
