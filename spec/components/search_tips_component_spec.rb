@@ -6,8 +6,8 @@ RSpec.describe SearchTipsComponent, type: :component do
   subject(:rendered) { Capybara::Node::Simple.new(render_inline(described_class.new)) }
 
   it 'displays a title with a subheading' do
-    expect(rendered).to have_selector('h2.modal-title'), text: 'Search tips'
-    expect(rendered).to have_selector('h3'), text: 'Refine your search'
+    expect(rendered).to have_selector('h2.modal-title', text: 'Search tips')
+    expect(rendered).to have_selector('h3', text: 'Refine your search')
   end
 
   it 'includes search tips text' do
@@ -16,6 +16,6 @@ RSpec.describe SearchTipsComponent, type: :component do
   end
 
   it 'includes a close button' do
-    expect(rendered).to have_selector('button.btn-outline-primary span'), text: 'Close'
+    expect(rendered).to have_selector('button.btn-outline-primary span', text: 'Close')
   end
 end
