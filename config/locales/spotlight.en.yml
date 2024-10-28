@@ -1,5 +1,8 @@
 en:
   spotlight:
+    dashboards:
+      analytics:
+        note: The start date can't be any earlier than 04/03/2023, which was the implementation date for Google Analytics 4. Data for earlier versions of Google Analytics are not compatible with the current GA4 platform and SUL is unable to offer analysis of this older data.
     contacts:
       form:
         source:
