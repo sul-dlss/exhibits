@@ -8,6 +8,6 @@
   <div class='col-2 col-md-1'>
     <% exhibit_specific_manifest = document.exhibit_specific_manifest(current_exhibit&.required_viewer&.custom_manifest_pattern) %>
 
-    <%= iiif_drag_n_drop(exhibit_specific_manifest, width: '30') if exhibit_specific_manifest %>
+    <%= iiif_drag_n_drop(exhibit_specific_manifest, document:, width: '30') if exhibit_specific_manifest %>
   </div>
 </div>
