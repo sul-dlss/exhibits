@@ -226,7 +226,9 @@ h5,
 
     > .card-header {
       background-color: $color-beige-40 !important;
-      color: $color-blackish;
+      .btn {
+        color: $color-blackish;
+      }
     }
   }
 
