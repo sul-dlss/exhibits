@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="google-site-verification" content="<%= Settings.GOOGLE_SITE_VERIFICATION %>" />
 
-    <title><%= h(@page_title || application_name) %></title>
+    <title><%= strip_tags(@page_title || application_name) %></title>
     <% if current_exhibit %>
       <link href="<%= spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search"/>
     <% end %>
