@@ -3,7 +3,7 @@
 # Override the default spotlight viewer to pick between mirador 3, an oembed viewer, or the default OSD viewer
 # depending on the document.
 class CustomViewerComponent < Blacklight::Component
-  attr_reader :document, :presenter, :classes, :block_context
+  attr_reader :document, :presenter, :view_config, :classes, :block_context
 
   def initialize(document:, presenter:, view_config: nil, block_context: nil, **kwargs)
     super
