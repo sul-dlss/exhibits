@@ -116,6 +116,7 @@ class CatalogController < ApplicationController
     config.index.display_type_field = 'display_type'
     config.index.default_bibliography_thumbnail = 'default-square-thumbnail-book.png'
     config.index.default_canvas_thumbnail = 'default-square-thumbnail-annotation.png'
+    config.index.thumbnail_component = ThumbnailWithIiifComponent
     config.index.thumbnail_field = :thumbnail_url_ssm
     config.index.square_image_field = :thumbnail_square_url_ssm
     config.index.slideshow_field = :large_image_url_ssm
@@ -129,7 +130,6 @@ class CatalogController < ApplicationController
     config.show.partials = %i(bibliography_buttons metadata_button bibliography cited_documents page_details)
 
     config.view.list.thumbnail_field = [:thumbnail_square_url_ssm, :thumbnail_url_ssm]
-    config.view.list.partials = [:exhibits_document_header, :index]
 
     config.view.gallery(title_only_by_default: true,
                         default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
