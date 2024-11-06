@@ -1,8 +1,8 @@
 <% value = presenter.thumbnail.render(@image_options) %>
 
 <% if value %>
-  <div>
-    <%= helpers.link_to_document(presenter.document, value, 'aria-hidden': true, class: 'document-thumbnail', tabindex: -1, counter: @counter) %>
+  <div class="document-thumbnail float-right float-end mb-2 pl-2 ps-2">
+    <%= helpers.link_to_document(presenter.document, value, 'aria-hidden': true, class: 'd-block', tabindex: -1, counter: @counter) %>
     <%= helpers.iiif_drag_n_drop(exhibit_specific_manifest, document: @document) if exhibit_specific_manifest %>
   </div>
 <% end %>
