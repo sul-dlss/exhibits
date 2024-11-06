@@ -101,6 +101,13 @@
   }
 }
 
+#documents.documents-masonry,
+#documents.documents-gallery {
+  .iiif-dnd {
+    display: none;
+  }
+}
+
 .btn-primary {
   .blacklight-icons svg {
     fill: $white;
