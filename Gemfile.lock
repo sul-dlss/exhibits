@@ -985,6 +985,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
+  uri (< 1)
   web-console (>= 4.1.0)
   webmock
 
