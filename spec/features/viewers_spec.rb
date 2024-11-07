@@ -9,6 +9,9 @@ describe 'Viewers' do
 
   before do
     sign_in user
+
+    stub_request(:get, 'http://purl.stanford.edu/embed.json?hide_title=true&maxheight=600&url=https://purl.stanford.edu/hj066rn6500')
+      .to_return(status: 200, body: File.read(File.join(FIXTURES_PATH, 'purl_embed/600/hj066rn6500.json')))
   end
 
   context 'an authorized user' do

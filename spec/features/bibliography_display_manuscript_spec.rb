@@ -8,6 +8,12 @@ RSpec.feature 'Bibliography display on the manuscript show page' do
   let(:bibtex_file) { 'spec/fixtures/bibliography/{article,incollection}.bib' }
 
   before do
+    %w(xy658qf4887 gk885tn1705 wd297xz1362).each do |fixture|
+      stub_request(:get, "http://purl.stanford.edu/embed.json?hide_title=true&maxheight=600&url=https://purl.stanford.edu/#{fixture}").to_return(
+        body: File.read(File.join(FIXTURES_PATH, "purl_embed/600/#{fixture}.json")), status: 200
+      )
+    end
+
     ActiveJob::Base.queue_adapter = :inline # block until indexing has committed
 
     bibtex_data = Dir.glob(bibtex_file).collect do |fn|

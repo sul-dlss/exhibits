@@ -8,6 +8,11 @@ RSpec.feature 'Metadata display' do
     spotlight.exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')
   end
 
+  before do
+    stub_request(:get, 'http://purl.stanford.edu/embed.json?hide_title=true&maxheight=600&url=https://purl.stanford.edu/gk885tn1705')
+      .to_return(status: 200, body: File.read(File.join(FIXTURES_PATH, 'purl_embed/600/gk885tn1705.json')))
+  end
+
   describe 'page behavior' do
     before do
       visit document_url

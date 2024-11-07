@@ -1,0 +1,9 @@
+{
+  "type": "rich",
+  "version": "1.0",
+  "provider_name": "SUL Embed Service",
+  "title": "Afrique Physique",
+  "height": 600,
+  "width": null,
+  "html": "<iframe src=\"https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/gk885tn1705&amp;_v=1730735942&amp;hide_title=true\" height=\"600px\" width=\"100%\" title=\"Image viewer\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" allowfullscreen=\"allowfullscreen\" allow=\"clipboard-write\"></iframe>"
+}
