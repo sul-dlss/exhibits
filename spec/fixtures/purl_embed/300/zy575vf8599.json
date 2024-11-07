@@ -1,0 +1,9 @@
+{
+  "type": "rich",
+  "version": "1.0",
+  "provider_name": "SUL Embed Service",
+  "title": "Proposal to ARPA and \"Computer Vision\" by A. Rosenfeld, July 28, 1975",
+  "height": 300,
+  "width": null,
+  "html": "<iframe src=\"https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/zy575vf8599&amp;_v=1730735942&amp;canvas_id=https%3A%2F%2Fpurl.stanford.edu%2Fzy575vf8599%2Fiiif%2Fcanvas%2Fcocina-fileSet-zy575vf8599-zy575vf8599_6&amp;hide_title=true\" height=\"300px\" width=\"100%\" title=\"Image viewer\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" allowfullscreen=\"allowfullscreen\" allow=\"clipboard-write\"></iframe>"
+}

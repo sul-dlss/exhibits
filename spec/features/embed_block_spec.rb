@@ -14,6 +14,14 @@ RSpec.feature 'Solr Documents Embed Block', js: true do
   before do
     allow(Spotlight::Engine.config).to receive(:filter_resources_by_exhibit).and_return(false)
     sign_in curator
+
+    stub_request(:get, 'http://purl.stanford.edu/embed.json')
+      .with(query: hash_including({ 'url' => 'https://purl.stanford.edu/zy575vf8599', 'maxheight' => '600' }))
+      .to_return(status: 200, body: File.read(File.join(FIXTURES_PATH, 'purl_embed/600/zy575vf8599.json')))
+
+    stub_request(:get, 'http://purl.stanford.edu/embed.json')
+      .with(query: hash_including({ 'url' => 'https://purl.stanford.edu/zy575vf8599', 'maxheight' => '300' }))
+      .to_return(status: 200, body: File.read(File.join(FIXTURES_PATH, 'purl_embed/300/zy575vf8599.json')))
   end
 
   describe 'block editing form' do
