@@ -132,6 +132,7 @@ gem 'acts-as-taggable-on'
 gem 'mods_display', '~> 1.6'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
+gem 'uri', '< 1' # pinned until https://github.com/carrierwaveuploader/carrierwave/issues/2759 is fixed
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'
