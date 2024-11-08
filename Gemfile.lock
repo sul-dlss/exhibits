@@ -96,7 +96,7 @@ GEM
     bcrypt_pbkdf (1.1.1)
     bcrypt_pbkdf (1.1.1-arm64-darwin)
     bcrypt_pbkdf (1.1.1-x86_64-darwin)
-    benchmark (0.3.0)
+    benchmark (0.4.0)
     bibtex-ruby (6.1.0)
       latex-decode (~> 0.0)
       racc (~> 1.7)
@@ -124,7 +124,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.3.4)
+    blacklight-spotlight (4.3.5)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
       autoprefixer-rails
@@ -186,7 +186,7 @@ GEM
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
     cancancan (3.6.1)
-    capistrano (3.19.1)
+    capistrano (3.19.2)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -450,7 +450,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    json (2.7.6)
+    json (2.8.1)
     jsonpath (1.1.5)
       multi_json
     jwt (2.9.3)
@@ -529,7 +529,7 @@ GEM
     mysql2 (0.5.6)
     namae (1.2.0)
       racc (~> 1.7)
-    net-http (0.4.1)
+    net-http (0.5.0)
       uri
     net-imap (0.5.0)
       date
@@ -575,7 +575,7 @@ GEM
       rails (> 6.1.0)
     orm_adapter (0.5.0)
     os (1.1.4)
-    ostruct (0.6.0)
+    ostruct (0.6.1)
     paper_trail (15.2.0)
       activerecord (>= 6.1)
       request_store (~> 1.4)
@@ -585,7 +585,7 @@ GEM
       racc
     parslet (2.0.0)
     popper_js (1.16.1)
-    psych (5.1.2)
+    psych (5.2.0)
       stringio
     public_suffix (6.0.1)
     puma (6.4.3)
@@ -660,7 +660,7 @@ GEM
     redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
-    reline (0.5.10)
+    reline (0.5.11)
       io-console (~> 0.5)
     representable (3.2.0)
       declarative (< 0.1.0)
@@ -716,7 +716,7 @@ GEM
       rubocop-ast (>= 1.32.2, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.34.0)
+    rubocop-ast (1.34.1)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
@@ -819,11 +819,11 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    ssrf_filter (1.1.2)
+    ssrf_filter (1.2.0)
     stanford-mods (3.3.9)
       activesupport
       mods (~> 3.0, >= 3.0.4)
-    stringio (3.1.1)
+    stringio (3.1.2)
     sul_styles (0.7.0)
       rails (>= 4.1, < 8)
     test_xml (0.1.8)
@@ -858,7 +858,7 @@ GEM
     uber (0.1.0)
     unf (0.2.0)
     unicode-display_width (2.6.0)
-    uri (0.13.1)
+    uri (1.0.1)
     useragent (0.16.10)
     version_gem (1.1.4)
     view_component (3.20.0)
@@ -985,7 +985,6 @@ DEPENDENCIES
   turbolinks (~> 5)
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
-  uri (< 1)
   web-console (>= 4.1.0)
   webmock
 
