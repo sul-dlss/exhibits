@@ -2,7 +2,7 @@
   <%= render 'search_sidebar' %>
 <% end %>
 
-<% if render_grouped_response? %>
+<% if params[:group] %>
   <div class="page-links">
     <div class="page-entries">
       <% items = @response.aggregations[SolrDocument.exhibit_slug_field].items %>
