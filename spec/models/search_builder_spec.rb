@@ -7,7 +7,8 @@ RSpec.describe SearchBuilder do
 
   let(:exhibit) { create(:exhibit) }
   let(:scope) do
-    instance_double('scope', blacklight_config: blacklight_config, current_exhibit: exhibit, search_state_class: nil)
+    instance_double('scope', blacklight_config: blacklight_config, current_exhibit: exhibit, search_state_class: nil,
+                             action_name: nil)
   end
   let(:rows) { 999 }
   let(:blacklight_params) do

@@ -3,7 +3,6 @@
 ##
 # Blacklight controller providing search and discovery features
 class CatalogController < ApplicationController
-  include BlacklightAdvancedSearch::Controller
   helper Openseadragon::OpenseadragonHelper
 
   include Blacklight::Catalog
@@ -33,6 +32,7 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
+    config.bootstrap_version = '4'
     config.http_method = :post
     config.header_component = Spotlight::HeaderComponent
     config.exhibit_navbar_component = ExhibitNavbarComponent
@@ -117,6 +117,7 @@ class CatalogController < ApplicationController
     config.index.display_type_field = 'display_type'
     config.index.default_bibliography_thumbnail = 'default-square-thumbnail-book.png'
     config.index.default_canvas_thumbnail = 'default-square-thumbnail-annotation.png'
+    config.index.thumbnail_component = ThumbnailWithIiifComponent
     config.index.thumbnail_field = :thumbnail_url_ssm
     config.index.square_image_field = :thumbnail_square_url_ssm
     config.index.slideshow_field = :large_image_url_ssm
@@ -125,30 +126,30 @@ class CatalogController < ApplicationController
     config.show.oembed_field = :url_fulltext
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
-    config.show.partials.insert(1, :viewer)
-    config.show.partials << :metadata_button
-    config.show.partials.unshift :bibliography_buttons
-    config.show.partials << :bibliography
-    config.show.partials << :cited_documents
-    config.show.partials << :page_details
+    config.show.document_component = Spotlight::DocumentComponent
+    config.show.embed_component = CustomViewerComponent
+    config.show.partials = %i(bibliography_buttons metadata_button bibliography cited_documents page_details)
 
     config.view.list.thumbnail_field = [:thumbnail_square_url_ssm, :thumbnail_url_ssm]
-    config.view.list.partials = [:exhibits_document_header, :index]
 
     config.view.gallery(title_only_by_default: true,
                         default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
                         default_canvas_thumbnail: 'default-square-thumbnail-annotation-large.png',
-                        document_component: Blacklight::Gallery::DocumentComponent)
+                        document_component: Blacklight::Gallery::DocumentComponent,
+                        icon: Blacklight::Gallery::Icons::GalleryComponent)
 
     config.view.heatmaps(partials: [], color_ramp: ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494'])
 
     config.view.masonry(title_only_by_default: true,
                         default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
-                        document_component: Blacklight::Gallery::DocumentComponent)
+                        document_component: Blacklight::Gallery::DocumentComponent,
+                        icon: Blacklight::Gallery::Icons::MasonryComponent)
 
-    config.view.slideshow(title_only_by_default: true, document_component: Blacklight::Gallery::SlideshowComponent)
+    config.view.slideshow(title_only_by_default: true, document_component: Blacklight::Gallery::SlideshowComponent,
+                          icon: Blacklight::Gallery::Icons::SlideshowComponent)
 
-    config.view.embed(partials: [:viewer], if: false)
+    config.view.embed(document_component: CustomEmbedDocumentComponent,
+                      embed_component: CustomViewerComponent, if: false)
 
     # BlacklightHeatmaps configuration values
     config.geometry_field = :geographic_srpt

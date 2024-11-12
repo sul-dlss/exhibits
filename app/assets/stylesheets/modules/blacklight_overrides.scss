@@ -79,18 +79,8 @@
       display: none;
     }
 
-    .document-metadata {
-      @extend .col-8;
-      @extend .col-md-9;
-      @extend .offset-3;
-      @extend .offset-md-2;
-    }
-
-    .document-thumbnail {
-      float: none;
-      height: 0;
-      margin: 0;
-      padding: 0;
+    .document-thumbnail img {
+      display: block;
     }
   }
 
@@ -110,3 +100,18 @@
     }
   }
 }
+
+#documents.documents-masonry,
+#documents.documents-gallery,
+.spotlight-admin-thumbnail {
+  .iiif-dnd {
+    display: none;
+  }
+}
+
+.btn-primary {
+  .blacklight-icons svg {
+    fill: $white;
+  }
+}
+

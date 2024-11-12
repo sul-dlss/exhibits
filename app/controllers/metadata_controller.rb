@@ -31,8 +31,8 @@ class MetadataController < Spotlight::CatalogController
   end
 
   def load_response
-    return if @response
+    return if @document
 
-    @response, @document = search_service.fetch(params[:id])
+    @document = search_service.fetch(params[:id])
   end
 end

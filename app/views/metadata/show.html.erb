@@ -1,23 +1,24 @@
 <% content_for(:head) do %>
   <meta name="robots" content="noindex">
 <% end %>
-
-<div class='view-metadata'>
-  <div class='modal-header'>
-    <h3 class='modal-title'><%= document_presenter(@document).heading %></h3>
-    <button type="button" class="blacklight-modal-close close" data-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class='modal-body'>
-    <%= render partial: 'metadata' %>
-  </div>
-  <div class='modal-footer'>
-    <button type='button' class='btn btn-secondary view-in-modal' data-dismiss='modal'>Close</button>
-    <%= link_to t('metadata.download'),
-                solr_document_path(@document, format: 'mods'),
-                class: 'btn btn-primary',
-                download: "#{@document.id}.mods.xml"
-    %>
+<div data-blacklight-modal="container">
+  <div class="view-metadata">
+    <div class="modal-header">
+      <h3 class="modal-title"><%= document_presenter(@document).heading %></h3>
+      <button type="button" class="blacklight-modal-close close btn-close" data-bl-dismiss="modal" aria-label="<%= t('blacklight.modal.close') %>">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <%= render partial: 'metadata' %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary view-in-modal" data-bl-dismiss="modal">Close</button>
+      <%= link_to t('metadata.download'),
+                  solr_document_path(@document, format: 'mods'),
+                  class: 'btn btn-primary',
+                  download: "#{@document.id}.mods.xml"
+      %>
+    </div>
   </div>
 </div>

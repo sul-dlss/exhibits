@@ -26,7 +26,6 @@
 
 //= require bibliography
 //= require cited_documents
-//= require 'blacklight_advanced_search'
 //= require blacklight_gallery
 //= require blacklight_heatmaps
 //= require blacklight_hierarchy
