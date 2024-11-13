@@ -1,14 +1,13 @@
 @mixin heading-with-border() {
   font-weight: 300;
-  border-bottom: 1px solid $heading-border-color;
-  color: $color-dark-red;
+  border-bottom: var(--bs-border-width) solid var(--bs-border-color);
   margin-bottom: 6px;
   padding-bottom: 3px;
   padding-left: 3px;
 }
 
 @mixin sidebar-link-active() {
-  color: $sidebar-link-active-color;
+  font-weight: 600;
   cursor: default;
   text-decoration: none;
 }
