@@ -2,14 +2,16 @@
   height: $brandbar-height;
 
   .navbar-brand {
-    @extend .text-hide !optional;
-
     background: transparent image-url("StanfordLibraries-logo-whitetext.svg") no-repeat center left;
     background-size: contain;
     height: $brandbar-height;
     margin: 0;
     padding: 0.5rem;
     width: 189px;
+    // TODO: We should probably update the ExhibitNavbarComponent so we can customize it
+    //       but we should wait until we update the header to use the new design
+    //       so we know what we need to customize. For now just hide the text.
+    font-size: 0;
   }
 
   @media (max-width: breakpoint-min("md")) {
