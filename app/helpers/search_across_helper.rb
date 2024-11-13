@@ -46,7 +46,7 @@ module SearchAcrossHelper
   def render_exhibit_title(document:, value:, **)
     exhibit_links = exhibit_metadata.slice(*value).values.map do |x|
       link = link_to(x['title'] || x['slug'], spotlight.exhibit_solr_document_path(x['slug'], document.id))
-      badge = unpublished_badge(class: 'ml-1') unless x['published']
+      badge = unpublished_badge(class: 'ms-1') unless x['published']
 
       safe_join([link, badge], ' ')
     end

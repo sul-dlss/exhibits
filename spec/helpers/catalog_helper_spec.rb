@@ -88,7 +88,7 @@ describe CatalogHelper do
 
       it 'presents content inline' do
         expect(helper.table_of_contents_separator(input)).to eq 'Homiliae'
-        expect(helper.table_of_contents_separator(input)).not_to match(/data-toggle='collapse'/)
+        expect(helper.table_of_contents_separator(input)).not_to match(/data-bs-toggle='collapse'/)
       end
     end
 
@@ -100,7 +100,7 @@ describe CatalogHelper do
       end
 
       it 'collapses content' do
-        expect(helper.table_of_contents_separator(input)).to match(/data-toggle='collapse'/)
+        expect(helper.table_of_contents_separator(input)).to match(/data-bs-toggle='collapse'/)
       end
     end
 

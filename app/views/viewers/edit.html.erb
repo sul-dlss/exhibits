@@ -6,10 +6,10 @@
 <div role="tabpanel">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="nav-item">
-      <a href="#item-detail-page" class="nav-link active" aria-controls="site-theme" role="tab" data-toggle="tab"><%= t(:'.item_detail.title') %></a>
+      <a href="#item-detail-page" class="nav-link active" aria-controls="site-theme" role="tab" data-bs-toggle="tab"><%= t(:'.item_detail.title') %></a>
     </li>
     <li role="presentation" class="nav-item">
-      <a href="#iiif-manifest" class="nav-link" aria-controls="site-theme" role="tab" data-toggle="tab"><%= t(:'.iiif_manifest.title') %></a>
+      <a href="#iiif-manifest" class="nav-link" aria-controls="site-theme" role="tab" data-bs-toggle="tab"><%= t(:'.iiif_manifest.title') %></a>
     </li>
   </ul>
   <div class="tab-content">
@@ -17,7 +17,7 @@
       <%= bootstrap_form_for @viewer, url: exhibit_viewers_path(@exhibit, @viewer, locale: nil), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
         <p class="instructions"><%= t :'.item_detail.instructions' %></p>
 
-        <div class="form-row" aria-labelledby='viewer-type-section-label'>
+        <div class="row" aria-labelledby='viewer-type-section-label'>
           <span id="viewer-type-section-label" class="control-label col-md-3 text-as-label">
             <%= t('.item_detail.viewer_section_label') %>
           </span>
@@ -39,7 +39,7 @@
       <%= bootstrap_form_for @viewer, url: exhibit_viewers_path(@exhibit, @viewer, locale: nil), layout: :horizontal, label_col: 'col-md-3', control_col: 'col-md-9' do |f| %>
         <p class="instructions"><%= t :'.iiif_manifest.instructions_html' %></p>
 
-        <div class="form-group" aria-labelledby='iiif-manifest-pattern-section-label'>
+        <div class="mb-3" aria-labelledby='iiif-manifest-pattern-section-label'>
           <div class="col-md-12">
             <%= f.url_field(
               :custom_manifest_pattern,
