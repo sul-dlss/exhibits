@@ -20,7 +20,7 @@ module ApplicationHelper
   # @param [String] manifest
   def iiif_drag_n_drop(manifest, width: '30', document: nil)
     link_url = format Settings.iiif_dnd_base_url, query: { manifest: manifest }.to_query
-    link_to link_url, class: 'iiif-dnd float-right', data: { turbolinks: false },
+    link_to link_url, class: 'iiif-dnd float-end', data: { turbolinks: false },
                       aria: { label: "IIIF Drag-n-drop: #{document['title_display']}" } do
       image_tag 'iiif-drag-n-drop.svg', class: 'border-0', width: width, alt: ''
     end
