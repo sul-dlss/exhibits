@@ -46,8 +46,8 @@ a:hover {
 }
 
 .form-group .col-form-label {
-  @extend .text-right;
-  @extend .font-weight-bold;
+  @extend .text-right !optional;
+  @extend .font-weight-bold !optional;
 }
 
 th {

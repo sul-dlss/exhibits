@@ -6,7 +6,7 @@ class CatalogController < ApplicationController
   helper Openseadragon::OpenseadragonHelper
 
   include Blacklight::Catalog
-  include BlacklightRangeLimit::ControllerOverride
+  # include BlacklightRangeLimit::ControllerOverride
 
   before_action only: :manifest do
     response.headers['Access-Control-Allow-Origin'] = '*'

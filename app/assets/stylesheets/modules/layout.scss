@@ -2,7 +2,7 @@
   height: $brandbar-height;
 
   .navbar-brand {
-    @extend .text-hide;
+    @extend .text-hide !optional;
 
     background: transparent image-url("StanfordLibraries-logo-whitetext.svg") no-repeat center left;
     background-size: contain;

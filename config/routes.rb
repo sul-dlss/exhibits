@@ -28,17 +28,17 @@ Exhibits::Application.routes.draw do
 
     concern :searchable, Blacklight::Routes::Searchable.new
     # This should be switched back to RangeSearchable when blacklight_range_limit removes the deprecated 'range_limit_panel/:id' route.
-    concern :range_searchable, BlacklightRangeLimit::Routes::ExhibitsRangeSearchable.new
+    # concern :range_searchable, BlacklightRangeLimit::Routes::ExhibitsRangeSearchable.new
 
     # this has to come before the Blacklight + Spotlight routes to avoid getting routed as
     # a document request.
     resources :exhibits, path: '/', only: [] do
       resource :catalog, only: [], as: 'catalog', controller: 'spotlight/catalog' do
-        concerns :range_searchable
+        # concerns :range_searchable
       end
 
       resource :home, only: [], as: 'home', controller: 'spotlight/home_pages' do
-        concerns :range_searchable
+        # concerns :range_searchable
       end
     end
 
@@ -47,12 +47,12 @@ Exhibits::Application.routes.draw do
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
       concerns :searchable
-      concerns :range_searchable
+      # concerns :range_searchable
     end
 
     resource :search_across, only: [:index], path: '/search', controller: 'search_across' do
       concerns :searchable
-      concerns :range_searchable
+      # concerns :range_searchable
     end
 
     concern :exportable, Blacklight::Routes::Exportable.new
