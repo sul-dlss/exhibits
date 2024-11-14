@@ -41,6 +41,11 @@ body {
   background-color: $color-beige-30;
 }
 
+.nav-pills .nav-link {
+  background: none;
+  border: none;
+}
+
 a:hover {
   border-radius: $border-radius;
 }
