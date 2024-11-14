@@ -21,7 +21,7 @@
           e.preventDefault();
 
           _this.hideAllMenuOptions();
-          $($(this).data('target')).show();
+          $($(this).data('bs-target')).show();
 
           button.text($(this).data('buttonText'));
         });
