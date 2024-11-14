@@ -9,7 +9,7 @@ class SearchAcrossController < ::CatalogController
   include Spotlight::Catalog
 
   helper Spotlight::ApplicationHelper
-  # include BlacklightRangeLimit::ControllerOverride
+  include BlacklightRangeLimit::ControllerOverride
   helper SearchAcrossBlacklightOverrides
 
   layout 'spotlight/home'
