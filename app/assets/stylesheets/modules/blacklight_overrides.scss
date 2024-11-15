@@ -43,6 +43,12 @@
   --bs-btn-padding-y: .375rem !important;
 }
 
+// TODO: We can remove this after we stop using blacklight-hierarchy
+// and switch to the Blacklight::FacetItemPivotComponent component.
+.sr-only {
+  @include visually-hidden;
+}
+
 .img-thumbnail {
   border-radius: 0;
   padding: 0;
