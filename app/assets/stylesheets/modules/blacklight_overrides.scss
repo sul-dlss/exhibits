@@ -37,6 +37,12 @@
   }
 }
 
+// TODO: override of component library facet contraint padding
+// this may no longer be needed after we remove sul-styles
+.constraint-value {
+  --bs-btn-padding-y: .375rem !important;
+}
+
 .img-thumbnail {
   border-radius: 0;
   padding: 0;
