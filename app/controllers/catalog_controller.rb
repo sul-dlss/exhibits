@@ -267,15 +267,23 @@ class CatalogController < ApplicationController
     config.add_index_field 'format_main_ssim', label: 'Resource type', if: lambda { |context, *_args|
       context.feature_flags.add_resource_type_index_field?
     }
+
+    # Parker specific fields (via Solr)
+    # editor_ssim, university_ssim, range_labels_ssim, and related_document_id_ssim.
+    config.add_index_field 'book_title_ssim', if: lambda { |context, *_args|
+      context.feature_flags.add_parker_index_fields?
+    }
+    config.add_index_field 'university_ssim', label: 'University'
+    config.add_index_field 'edition_ssm', label: 'Edition'
+    config.add_index_field 'range_labels_tesim', label: 'Section'
+    config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link
+
     # Fields added by Zotero API BibTeX import
     config.add_index_field 'volume_ssm', label: 'Volume'
     config.add_index_field 'pages_ssm', label: 'Pages'
     config.add_index_field 'doi_ssim', label: 'DOI'
     config.add_index_field 'issue_ssm', label: 'Issue'
-    config.add_index_field 'edition_ssm', label: 'Edition'
-    config.add_index_field 'university_ssim', label: 'University'
     config.add_index_field 'thesis_type_ssm', label: 'Degree Type'
-    config.add_index_field 'book_title_ssim', label: 'Book Title'
     config.add_index_field 'ref_type_ssm', label: 'Reference Type'
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
@@ -287,8 +295,6 @@ class CatalogController < ApplicationController
     config.add_index_field 'incipit_tesim', label: 'Incipit'
     config.add_index_field 'toc_search', label: 'Table of contents', helper_method: :table_of_contents_separator
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
-    config.add_index_field 'range_labels_tesim', label: 'Section'
-    config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link
     config.add_index_field(
       'full_text_tesimv',
       immutable: (config.view.keys - [:list]).push(:show).map { |k| [k, false] }.to_h,
