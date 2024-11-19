@@ -1,15 +1,18 @@
-<% exhibit_specific_manifest = document.exhibit_specific_manifest(current_exhibit.required_viewer.custom_manifest_pattern) %>
+<%# I don't know who ever renders this viewer -- maybe in editing? %>
+<%# exhibit_specific_manifest is null here ... %>
 
+<% exhibit_specific_manifest = document.exhibit_specific_manifest(current_exhibit.required_viewer.custom_manifest_pattern) %>
 <% if exhibit_specific_manifest.present? %>
   <%= content_tag :iframe, '',
-        src: "#{Settings.iiif_embed.url}?#{{ url: exhibit_specific_manifest, image_tools: true, canvas_id: document.canvas.iiif_id }.to_query}",
+        src: "#{Settings.iiif_embed.url}?#{{ url: exhibit_specific_manifest, image_tools: true, canvas_id: document.canvas.iiif_id, workspace_state: 'test1' }.to_query}",
         allowfullscreen: true,
         class: 'mirador-embed-wrapper',
         frameborder: 0,
         marginwidth: 0,
         marginheight: 0,
         scrolling: 'no',
-        width: '100%'
+        width: '100%',
+        id: 'not-embedded-test'
         %>
   <%= iiif_drag_n_drop(exhibit_specific_manifest) %>
 <% end %>

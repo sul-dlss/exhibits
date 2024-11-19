@@ -1,0 +1,16 @@
+Component?
+
+<%= render Blacklight::System::ModalComponent.new do |component| %>
+  <% component.with_title do %>
+    <div><h2 class="modal-title">Test</h2></div>
+  <% end %>
+  <% component.with_body do %>
+    <button id="request-state" class="btn btn-primary">Request State from Iframe</button>
+    <%= render 'viewer_default', document: @document %>
+  <% end %>
+  <% component.with_footer do %>
+    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal">
+      <span aria-hidden="true" class="visually-hidden"><%= t('search_tips.close') %> </span>
+    </button>
+  <% end %>
+<% end %>

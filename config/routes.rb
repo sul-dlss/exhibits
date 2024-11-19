@@ -42,6 +42,7 @@ Exhibits::Application.routes.draw do
     end
 
     get '/search_tips' => 'catalog#search_tips'
+    get '/:exhibit_id/select_image_area/:id' => 'catalog#select_image_area' 
 
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
@@ -72,6 +73,8 @@ Exhibits::Application.routes.draw do
       end
     end
   end
+
+  post 'image_area', to: 'image_area#create'
 
   Blacklight::Engine.routes.default_scope = { path: "(:locale)", locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), module: 'blacklight', defaults: { locale: nil } }
   mount Blacklight::Engine => '/'

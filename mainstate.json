@@ -1,0 +1,79 @@
+{
+    "companionWindows": {
+        "cw-59bca058-fc87-4316-af72-0c880161fcf7": {
+            "content": "info",
+            "default": true,
+            "id": "cw-59bca058-fc87-4316-af72-0c880161fcf7",
+            "position": "left"
+        },
+        "cw-567292cb-910c-40f2-bb07-6795d285f47e": {
+            "content": "thumbnailNavigation",
+            "default": true,
+            "id": "cw-567292cb-910c-40f2-bb07-6795d285f47e",
+            "position": "left"
+        }
+    },
+    "windows": {
+        "main": {
+            "canvasId": "https://purl.stanford.edu/xy658qf4887/iiif/canvas/cocina-fileSet-xy658qf4887-8f893d9e-8b1c-4a89-9a6b-33a394a8cd3b",
+            "collectionIndex": 0,
+            "companionAreaOpen": true,
+            "companionWindowIds": [
+                "cw-59bca058-fc87-4316-af72-0c880161fcf7",
+                "cw-567292cb-910c-40f2-bb07-6795d285f47e"
+            ],
+            "draggingEnabled": true,
+            "highlightAllAnnotations": false,
+            "id": "main",
+            "manifestId": "https://purl.stanford.edu/xy658qf4887/iiif/manifest",
+            "maximized": false,
+            "rangeId": null,
+            "rotation": null,
+            "selectedAnnotations": {},
+            "sideBarOpen": false,
+            "sideBarPanel": "info",
+            "thumbnailNavigationId": "cw-567292cb-910c-40f2-bb07-6795d285f47e",
+            "suggestedSearches": null,
+            "loadedManifest": "https://purl.stanford.edu/xy658qf4887/iiif/manifest",
+            "canvasIndex": 0,
+            "visibleCanvases": [
+                "https://purl.stanford.edu/xy658qf4887/iiif/canvas/cocina-fileSet-xy658qf4887-8f893d9e-8b1c-4a89-9a6b-33a394a8cd3b"
+            ]
+        }
+    },
+    "viewers": {
+        "main": {
+            "flip": false,
+            "rotation": 0,
+            "x": 2010,
+            "y": 2010,
+            "zoom": 0.00042413048158982145
+        }
+    },
+    "workspace": {
+        "draggingEnabled": true,
+        "allowNewWindows": true,
+        "id": "a0346049-4d21-4486-8b04-f79ad2db3f93",
+        "isWorkspaceAddVisible": false,
+        "exposeModeOn": false,
+        "height": 5000,
+        "showZoomControls": true,
+        "type": "single",
+        "viewportPosition": {
+            "x": 0,
+            "y": 0
+        },
+        "width": 5000,
+        "windowIds": [
+            "main"
+        ],
+        "focusedWindowId": "main"
+    },
+    "osdConfig": {
+        "alwaysBlend": false,
+        "blendTime": 0.1,
+        "preserveImageSizeOnResize": true,
+        "preserveViewport": true,
+        "showNavigationControl": false
+    }
+}

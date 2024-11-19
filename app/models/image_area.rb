@@ -1,0 +1,2 @@
+class ImageArea < ApplicationRecord
+end

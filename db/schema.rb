@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_16_120405) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_25_162820) do
   create_table "bibliography_services", force: :cascade do |t|
     t.string "header"
     t.string "api_id"
@@ -59,6 +59,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_16_120405) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "image_areas", force: :cascade do |t|
+    t.text "workspace_state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "searches", force: :cascade do |t|

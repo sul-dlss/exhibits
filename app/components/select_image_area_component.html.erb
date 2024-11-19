@@ -1,0 +1,13 @@
+<%= render Blacklight::System::ModalComponent.new do |component| %>
+    <% component.with_title do %>
+      <h2 class="modal-title">Testing Image Area</h2>
+    <% end %>
+    <% component.with_body do %>
+      
+    <% end %>
+    <% component.with_footer do %>
+      <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal">
+        <span aria-hidden="true" class="visually-hidden">Close</span>
+      </button>
+    <% end %>
+  <% end %>

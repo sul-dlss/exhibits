@@ -468,6 +468,24 @@ class CatalogController < ApplicationController
     end
   end
 
+    # Method to route select_image_area
+    def select_image_area
+      result = search_service.fetch params[:id]
+
+      @document = if result.is_a?(Array)
+                    result.last
+                  else
+                    result
+                  end
+
+      respond_to do |format|
+        format.html do
+          return render layout: false if request.xhr?
+          # Otherwise draw the full page
+        end
+      end
+    end
+
   class << self
     def document_has_full_text_and_search_is_query?(context, _config, document)
       context.params[:q].present? && document.full_text?
