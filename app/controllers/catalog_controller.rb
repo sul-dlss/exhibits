@@ -268,7 +268,7 @@ class CatalogController < ApplicationController
       context.feature_flags.add_resource_type_index_field?
     }
 
-    # Parker specific fields (via Solr)
+    # Parker specific fields we do not wish to show in other exhibits
     # editor_ssim, university_ssim, range_labels_ssim, and related_document_id_ssim.
     config.add_index_field 'book_title_ssim', if: lambda { |context, *_args|
       context.feature_flags.add_parker_index_fields?
