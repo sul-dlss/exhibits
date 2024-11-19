@@ -39,3 +39,4 @@
 //= require table_of_contents
 //= require custom-file-input
 //= require site_search_type_toggle
+//= require blacklight_heatmaps_overrides

@@ -6,3 +6,8 @@
     height: 250px;
   }
 }
+
+.blacklight-heatmaps-index-map-container #heatmaps-documents-list {
+  height: 400px;
+  overflow-y: auto;
+}
