@@ -122,7 +122,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.3.5)
+    blacklight-spotlight (4.3.6)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
       autoprefixer-rails
@@ -648,7 +648,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rdoc (6.7.0)
+    rdoc (6.8.1)
       psych (>= 4.0.0)
     recaptcha (5.17.0)
     redcarpet (3.6.0)
