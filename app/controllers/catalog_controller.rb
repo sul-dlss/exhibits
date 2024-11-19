@@ -273,10 +273,18 @@ class CatalogController < ApplicationController
     config.add_index_field 'book_title_ssim', if: lambda { |context, *_args|
       context.feature_flags.add_parker_index_fields?
     }
-    config.add_index_field 'university_ssim', label: 'University'
-    config.add_index_field 'edition_ssm', label: 'Edition'
-    config.add_index_field 'range_labels_tesim', label: 'Section'
-    config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link
+    config.add_index_field 'university_ssim', label: 'University', if: lambda { |context, *_args|
+      context.feature_flags.add_parker_index_fields?
+    }
+    config.add_index_field 'edition_ssm', label: 'Edition', if: lambda { |context, *_args|
+      context.feature_flags.add_parker_index_fields?
+    }
+    config.add_index_field 'range_labels_tesim', label: 'Section', if: lambda { |context, *_args|
+      context.feature_flags.add_parker_index_fields?
+    }
+    config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link, if: lambda { |context, *_args|
+      context.feature_flags.add_parker_index_fields?
+    }
 
     # Fields added by Zotero API BibTeX import
     config.add_index_field 'volume_ssm', label: 'Volume'
