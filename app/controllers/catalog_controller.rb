@@ -270,7 +270,7 @@ class CatalogController < ApplicationController
 
     # Parker specific fields we do not wish to show in other exhibits
     # editor_ssim, university_ssim, range_labels_ssim, and related_document_id_ssim.
-    config.add_index_field 'book_title_ssim', if: lambda { |context, *_args|
+    config.add_index_field 'book_title_ssim', label: 'Book Title', if: lambda { |context, *_args|
       context.feature_flags.add_parker_index_fields?
     }
     config.add_index_field 'university_ssim', label: 'University', if: lambda { |context, *_args|
