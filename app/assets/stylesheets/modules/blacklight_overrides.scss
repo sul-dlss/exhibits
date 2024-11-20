@@ -1,3 +1,7 @@
+#main-container {
+  min-height: 70vh;
+}
+
 .facets-heading {
   @include heading-with-border();
 
