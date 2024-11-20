@@ -35,9 +35,9 @@
     .view-in-modal {
       display: inline-block;
     }
-  }
-  .modal-body {
-    max-height: calc(100vh - #{$modal-header-footer-height-guess});
-    overflow-y: auto;
+    .modal-body {
+      max-height: calc(85vh - #{$modal-header-footer-height-guess});
+      overflow-y: auto;
+    }
   }
 }
