@@ -23,6 +23,7 @@ feature_flags:
   index_related_content: false # A feature that will index related SDR content. Initial implemented for Parker's IIIF AnnotationLists
   add_resource_type_index_field: false # Should the resource type field be added as an index/show field. For some exhibits this is desirable
   add_parker_search_fields: false # Parker specific search fields
+  add_parker_index_fields: false # Parker specific index fields
   slack_notifications: false
   uat_embed: false
   search_across: false
