@@ -27,13 +27,14 @@ h3 + .table.analytics {
 }
 
 .table.analytics {
-  background-color: $table-accent-bg;
+  @extend .table-light;
 
   .value {
     color: $color-gray-90;
     font-size: $h2-font-size;
     font-weight: 700;
     padding-bottom: 0;
+    border-bottom: 0;
   }
 
   + h4 {
