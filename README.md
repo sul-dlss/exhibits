@@ -37,7 +37,7 @@ $ bin/rake db:setup
 
 You can spin up the Rails server, solr_wrapper, and populate the Solr index using this command:
 ```console
-$ REMOTE_USER="archivist1@example.com" bin/rails server
+$ REMOTE_USER="archivist1@example.com" bin/dev
 ```
 When prompted to create an admin user, the email should match the email provided in  `REMOTE_USER`. This will allow you to bypass authentication.
 
