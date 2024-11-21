@@ -32,7 +32,7 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
-    config.bootstrap_version = '4'
+    config.bootstrap_version = '5'
     config.http_method = :post
     config.header_component = Spotlight::HeaderComponent
     config.exhibit_navbar_component = ExhibitNavbarComponent
