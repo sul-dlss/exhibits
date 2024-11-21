@@ -131,6 +131,10 @@ table#exhibit-specific-fields .field-label {
 .exhibit-card {
   overflow-y: hidden;
 
+  .card-title a:hover {
+    text-decoration: none;
+  }
+
   .card-img-overlay {
     max-height: 100%;
   }
