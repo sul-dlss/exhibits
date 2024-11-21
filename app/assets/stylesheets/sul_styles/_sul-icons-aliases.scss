@@ -1,0 +1,35 @@
+// Aliases for easier use of sul-icons
+@import 'sul-icons';
+
+.sul-i-download {
+  @extend .sul-i-download-3;
+}
+
+.sul-i-expand {
+  @extend .sul-i-expand-1
+}
+
+.sul-i-fullscreen {
+  @extend .sul-i-expand-1;
+}
+
+.sul-i-singlepage {
+  @extend .sul-i-layout-none;
+}
+
+.sul-i-twopage {
+  @extend .sul-i-layout-4;
+}
+
+.sul-i-info {
+  @extend .sul-i-infomation-circle;
+}
+
+.sul-i-link {
+  @extend .sul-i-link-3;
+}
+
+.sul-i-gallery {
+  @extend .sul-i-view-module-1;
+}
+

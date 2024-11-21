@@ -1,6 +1,13 @@
 {
   "dependencies": {
+    "blacklight-frontend": "^8.6.1",
     "bootstrap": "^5.3.3",
-    "bootstrap-slider": "^11.0.2"
+    "bootstrap-slider": "^11.0.2",
+    "leaflet": "^1.9.4",
+    "sass": "^1.79.3",
+    "spotlight-frontend": "^4.0.0"
+  },
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css ./app/assets/stylesheets/application_parker.scss:./app/assets/builds/application_parker.css --no-source-map --load-path=node_modules"
   }
 }

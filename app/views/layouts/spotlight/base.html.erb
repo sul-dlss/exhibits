@@ -10,18 +10,41 @@
       <link href="<%= spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search"/>
     <% end %>
     <%= favicon_link_tag 'favicon.ico' %>
-    <script src="https://cdn.skypack.dev/@github/auto-complete-element" type="module"></script>
     <% if current_exhibit %>
-      <%= exhibit_stylesheet_link_tag "application" %>
+      <%= exhibit_stylesheet_link_tag "application"%>
     <% else %>
-      <%= stylesheet_link_tag "application" %>
+      <%= stylesheet_link_tag "application"%>
     <% end %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/palette.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/links.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/typography.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/selected-item.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/footer.css" />
-    <%= javascript_include_tag "application", async: Settings.async_javascript %>
+    <%= javascript_tag "window.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.2.1/jquery.serializejson.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <%= javascript_include_tag 'blacklight_oembed/jquery.oembed', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'bootstrap-tagsinput', "data-turbo-track": "reload", defer: false %>
+    <%= javascript_include_tag 'bs-custom-file-input', "data-turbo-track": "reload", defer: false %>
+    <%= javascript_include_tag 'honeybadger', "data-turbo-track": "reload", defer: false %>
+    <%= javascript_include_tag 'typeahead.bundle.min', "data-turbo-track": "reload", defer: false %>
+    <%= javascript_include_tag 'leaflet-iiif', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'Leaflet.Editable', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'Path.Drag', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'openseadragon/openseadragon', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'openseadragon/jquery', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'openseadragon/rails', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/bibliography', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/blacklight_oembed', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/cited_documents', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/custom-file-input', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/full_text_collapse', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/nested_related_items', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/sir_trevor_block_overrides', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/site_search_type_toggle', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/table_of_contents', "data-turbo-track": "reload", defer: true %>
     <script type="text/javascript">
      Honeybadger.configure({
        apiKey: '<%= Honeybadger.config.get(:api_key) %>',
@@ -34,10 +57,13 @@
     <%= render partial: 'shared/analytics' %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
-    <%= description %>
-    <%= twitter_card %>
-    <%= opengraph %>
-    <%= javascript_tag "Spotlight.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
+    <% if @document %>
+      <% add_document_meta_content(@document) %>
+    <% elsif current_exhibit %>
+      <% description(current_exhibit.description) if current_exhibit %>
+      <% add_exhibit_meta_content %>
+    <% end %>
+    <%= yield(:meta) %>
   </head>
   <body class="<%= render_body_class %>">
     <nav id="skip-link" class="visually-hidden-focusable visually-hidden visually-hidden-focusable" aria-label="<%= t('blacklight.skip_links.label') %>">

@@ -1,0 +1,244 @@
+//
+// Icon Font: sul-icons
+//
+
+@font-face {
+  font-family: "sul-icons";
+  src: url("sul-icons.eot");
+  src: url("sul-icons.eot?#iefix") format("embedded-opentype"),
+       url("sul-icons.woff") format("woff"),
+       url("sul-icons.ttf") format("truetype"),
+       url("sul-icons.svg#sul-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "sul-icons";
+    src: url("sul-icons.svg#sul-icons") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.sul-i-arrow-down-8:before,
+.sul-i-arrow-left-3:before,
+.sul-i-arrow-left-8:before,
+.sul-i-arrow-right-3:before,
+.sul-i-arrow-right-8:before,
+.sul-i-arrow-up-8:before,
+.sul-i-book-open-4:before,
+.sul-i-bookmark-all-1:before,
+.sul-i-books-library:before,
+.sul-i-box-1:before,
+.sul-i-bubble-chat-2:before,
+.sul-i-camera-film-1:before,
+.sul-i-check-2:before,
+.sul-i-check-box-1:before,
+.sul-i-close:before,
+.sul-i-cube:before,
+.sul-i-download-3:before,
+.sul-i-email:before,
+.sul-i-expand-1:before,
+.sul-i-file-acrobat:before,
+.sul-i-file-code-1:before,
+.sul-i-file-excel:before,
+.sul-i-file-music-1:before,
+.sul-i-file-new-1:before,
+.sul-i-file-picture:before,
+.sul-i-file-powerpoint:before,
+.sul-i-file-text-document:before,
+.sul-i-file-video-3:before,
+.sul-i-file-words:before,
+.sul-i-file-zipped:before,
+.sul-i-graph-bar-2:before,
+.sul-i-infomation-circle:before,
+.sul-i-key-2:before,
+.sul-i-layout-4:before,
+.sul-i-layout-none:before,
+.sul-i-link-3:before,
+.sul-i-list-bullets-1:before,
+.sul-i-location-pin-2:before,
+.sul-i-map-pin-1:before,
+.sul-i-microphone-3:before,
+.sul-i-mobile-phone-2:before,
+.sul-i-mouse:before,
+.sul-i-navigation-drawer-1:before,
+.sul-i-navigation-drawer-2:before,
+.sul-i-navigation-left-2:before,
+.sul-i-navigation-next-4:before,
+.sul-i-navigation-show-more-1:before,
+.sul-i-network-web:before,
+.sul-i-news-article:before,
+.sul-i-newspaper:before,
+.sul-i-notebook:before,
+.sul-i-person-1:before,
+.sul-i-person-information-1:before,
+.sul-i-picture-2:before,
+.sul-i-plug-1:before,
+.sul-i-print-text:before,
+.sul-i-quote-1:before,
+.sul-i-remove-2:before,
+.sul-i-search:before,
+.sul-i-share:before,
+.sul-i-transfer-3:before,
+.sul-i-truck-1:before,
+.sul-i-turntable:before,
+.sul-i-view-headline:before,
+.sul-i-view-list:before,
+.sul-i-view-module-1:before,
+.sul-i-window-search:before,
+.sul-i-zoom-in:before {
+  display: inline-block;
+  font-family: "sul-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.sul-i-arrow-down-8:before { content: "\f13e"; }
+.sul-i-arrow-left-3:before { content: "\f108"; }
+.sul-i-arrow-left-8:before { content: "\f109"; }
+.sul-i-arrow-right-3:before { content: "\f10a"; }
+.sul-i-arrow-right-8:before { content: "\f10b"; }
+.sul-i-arrow-up-8:before { content: "\f13f"; }
+.sul-i-book-open-4:before { content: "\f10c"; }
+.sul-i-bookmark-all-1:before { content: "\f10d"; }
+.sul-i-books-library:before { content: "\f10e"; }
+.sul-i-box-1:before { content: "\f10f"; }
+.sul-i-bubble-chat-2:before { content: "\f110"; }
+.sul-i-camera-film-1:before { content: "\f111"; }
+.sul-i-check-2:before { content: "\f143"; }
+.sul-i-check-box-1:before { content: "\f112"; }
+.sul-i-close:before { content: "\f141"; }
+.sul-i-cube:before { content: "\f113"; }
+.sul-i-download-3:before { content: "\f106"; }
+.sul-i-email:before { content: "\f114"; }
+.sul-i-expand-1:before { content: "\f115"; }
+.sul-i-file-acrobat:before { content: "\f13a"; }
+.sul-i-file-code-1:before { content: "\f137"; }
+.sul-i-file-excel:before { content: "\f13b"; }
+.sul-i-file-music-1:before { content: "\f116"; }
+.sul-i-file-new-1:before { content: "\f140"; }
+.sul-i-file-picture:before { content: "\f136"; }
+.sul-i-file-powerpoint:before { content: "\f13d"; }
+.sul-i-file-text-document:before { content: "\f139"; }
+.sul-i-file-video-3:before { content: "\f138"; }
+.sul-i-file-words:before { content: "\f13c"; }
+.sul-i-file-zipped:before { content: "\f134"; }
+.sul-i-graph-bar-2:before { content: "\f117"; }
+.sul-i-infomation-circle:before { content: "\f104"; }
+.sul-i-key-2:before { content: "\f118"; }
+.sul-i-layout-4:before { content: "\f119"; }
+.sul-i-layout-none:before { content: "\f11a"; }
+.sul-i-link-3:before { content: "\f107"; }
+.sul-i-list-bullets-1:before { content: "\f11b"; }
+.sul-i-location-pin-2:before { content: "\f147"; }
+.sul-i-map-pin-1:before { content: "\f11c"; }
+.sul-i-microphone-3:before { content: "\f11d"; }
+.sul-i-mobile-phone-2:before { content: "\f11e"; }
+.sul-i-mouse:before { content: "\f11f"; }
+.sul-i-navigation-drawer-1:before { content: "\f120"; }
+.sul-i-navigation-drawer-2:before { content: "\f121"; }
+.sul-i-navigation-left-2:before { content: "\f122"; }
+.sul-i-navigation-next-4:before { content: "\f142"; }
+.sul-i-navigation-show-more-1:before { content: "\f146"; }
+.sul-i-network-web:before { content: "\f123"; }
+.sul-i-news-article:before { content: "\f124"; }
+.sul-i-newspaper:before { content: "\f125"; }
+.sul-i-notebook:before { content: "\f126"; }
+.sul-i-person-1:before { content: "\f127"; }
+.sul-i-person-information-1:before { content: "\f128"; }
+.sul-i-picture-2:before { content: "\f129"; }
+.sul-i-plug-1:before { content: "\f12a"; }
+.sul-i-print-text:before { content: "\f12b"; }
+.sul-i-quote-1:before { content: "\f12c"; }
+.sul-i-remove-2:before { content: "\f144"; }
+.sul-i-search:before { content: "\f12d"; }
+.sul-i-share:before { content: "\f105"; }
+.sul-i-transfer-3:before { content: "\f12e"; }
+.sul-i-truck-1:before { content: "\f145"; }
+.sul-i-turntable:before { content: "\f12f"; }
+.sul-i-view-headline:before { content: "\f130"; }
+.sul-i-view-list:before { content: "\f131"; }
+.sul-i-view-module-1:before { content: "\f102"; }
+.sul-i-window-search:before { content: "\f132"; }
+.sul-i-zoom-in:before { content: "\f133"; }
+
+$font-sul-icons-arrow-down-8: "\f13e";
+$font-sul-icons-arrow-left-3: "\f108";
+$font-sul-icons-arrow-left-8: "\f109";
+$font-sul-icons-arrow-right-3: "\f10a";
+$font-sul-icons-arrow-right-8: "\f10b";
+$font-sul-icons-arrow-up-8: "\f13f";
+$font-sul-icons-book-open-4: "\f10c";
+$font-sul-icons-bookmark-all-1: "\f10d";
+$font-sul-icons-books-library: "\f10e";
+$font-sul-icons-box-1: "\f10f";
+$font-sul-icons-bubble-chat-2: "\f110";
+$font-sul-icons-camera-film-1: "\f111";
+$font-sul-icons-check-2: "\f143";
+$font-sul-icons-check-box-1: "\f112";
+$font-sul-icons-close: "\f141";
+$font-sul-icons-cube: "\f113";
+$font-sul-icons-download-3: "\f106";
+$font-sul-icons-email: "\f114";
+$font-sul-icons-expand-1: "\f115";
+$font-sul-icons-file-acrobat: "\f13a";
+$font-sul-icons-file-code-1: "\f137";
+$font-sul-icons-file-excel: "\f13b";
+$font-sul-icons-file-music-1: "\f116";
+$font-sul-icons-file-new-1: "\f140";
+$font-sul-icons-file-picture: "\f136";
+$font-sul-icons-file-powerpoint: "\f13d";
+$font-sul-icons-file-text-document: "\f139";
+$font-sul-icons-file-video-3: "\f138";
+$font-sul-icons-file-words: "\f13c";
+$font-sul-icons-file-zipped: "\f134";
+$font-sul-icons-graph-bar-2: "\f117";
+$font-sul-icons-infomation-circle: "\f104";
+$font-sul-icons-key-2: "\f118";
+$font-sul-icons-layout-4: "\f119";
+$font-sul-icons-layout-none: "\f11a";
+$font-sul-icons-link-3: "\f107";
+$font-sul-icons-list-bullets-1: "\f11b";
+$font-sul-icons-location-pin-2: "\f147";
+$font-sul-icons-map-pin-1: "\f11c";
+$font-sul-icons-microphone-3: "\f11d";
+$font-sul-icons-mobile-phone-2: "\f11e";
+$font-sul-icons-mouse: "\f11f";
+$font-sul-icons-navigation-drawer-1: "\f120";
+$font-sul-icons-navigation-drawer-2: "\f121";
+$font-sul-icons-navigation-left-2: "\f122";
+$font-sul-icons-navigation-next-4: "\f142";
+$font-sul-icons-navigation-show-more-1: "\f146";
+$font-sul-icons-network-web: "\f123";
+$font-sul-icons-news-article: "\f124";
+$font-sul-icons-newspaper: "\f125";
+$font-sul-icons-notebook: "\f126";
+$font-sul-icons-person-1: "\f127";
+$font-sul-icons-person-information-1: "\f128";
+$font-sul-icons-picture-2: "\f129";
+$font-sul-icons-plug-1: "\f12a";
+$font-sul-icons-print-text: "\f12b";
+$font-sul-icons-quote-1: "\f12c";
+$font-sul-icons-remove-2: "\f144";
+$font-sul-icons-search: "\f12d";
+$font-sul-icons-share: "\f105";
+$font-sul-icons-transfer-3: "\f12e";
+$font-sul-icons-truck-1: "\f145";
+$font-sul-icons-turntable: "\f12f";
+$font-sul-icons-view-headline: "\f130";
+$font-sul-icons-view-list: "\f131";
+$font-sul-icons-view-module-1: "\f102";
+$font-sul-icons-window-search: "\f132";
+$font-sul-icons-zoom-in: "\f133";

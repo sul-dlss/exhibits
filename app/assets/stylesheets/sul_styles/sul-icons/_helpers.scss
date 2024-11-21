@@ -1,0 +1,50 @@
+// Helper classes to be used alongside sul-icons
+
+// Icon Sizes
+// -------------------------
+
+/* makes the font 33% larger relative to the icon container */
+.sul-i-lg {
+  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -15%;
+}
+.sul-i-2x { font-size: 2em; }
+.sul-i-3x { font-size: 3em; }
+.sul-i-4x { font-size: 4em; }
+.sul-i-5x { font-size: 5em; }
+
+@mixin sul-i-rotate($degrees, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+
+@mixin sul-i-flip($horiz, $vert, $rotation) {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+  -webkit-transform: scale($horiz, $vert);
+      -ms-transform: scale($horiz, $vert);
+          transform: scale($horiz, $vert);
+}
+
+// Rotated & Flipped Icons
+// -------------------------
+
+.sul-i-rotate-90  { @include sul-i-rotate(90deg, 1);  }
+.sul-i-rotate-180 { @include sul-i-rotate(180deg, 2); }
+.sul-i-rotate-270 { @include sul-i-rotate(270deg, 3); }
+
+.sul-i-flip-horizontal { @include sul-i-flip(-1, 1, 0); }
+.sul-i-flip-vertical   { @include sul-i-flip(1, -1, 2); }
+
+// Hook for IE8-9
+// -------------------------
+
+:root .sul-i-rotate-90,
+:root .sul-i-rotate-180,
+:root .sul-i-rotate-270,
+:root .sul-i-flip-horizontal,
+:root .sul-i-flip-vertical {
+  filter: none;
+}
