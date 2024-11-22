@@ -1,3 +1,46 @@
+GIT
+  remote: https://github.com/projectblacklight/spotlight.git
+  revision: 71612ecaee770ff69c1e056df55d512ec168fba6
+  branch: release-4.x
+  specs:
+    blacklight-spotlight (4.3.6)
+      activejob-status
+      acts-as-taggable-on (>= 5.0, < 12)
+      autoprefixer-rails
+      blacklight (>= 7.40, < 9)
+      blacklight-gallery (>= 3.0, < 5)
+      bootstrap_form (>= 4.1, < 6)
+      cancancan
+      carrierwave (~> 2.2)
+      clipboard-rails (~> 1.5)
+      csv
+      devise (~> 4.9)
+      devise_invitable
+      faraday
+      faraday-follow_redirects
+      friendly_id (~> 5.5)
+      github-markup
+      google-analytics-data
+      i18n
+      i18n-active_record
+      iiif-presentation
+      iiif_manifest
+      leaflet-rails
+      mini_magick
+      nokogiri
+      oauth2
+      openseadragon
+      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
+      paper_trail (>= 11.0, < 16)
+      rails (>= 7.0, < 8)
+      redcarpet (>= 2.0.1, < 4)
+      riiif (~> 2.0)
+      roar (~> 1.1)
+      roar-rails
+      signet
+      tophat
+      view_component (>= 2.66, < 4)
+
 GEM
   remote: https://gems.contribsys.com/
   specs:
@@ -122,43 +165,6 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.3.6)
-      activejob-status
-      acts-as-taggable-on (>= 5.0, < 12)
-      autoprefixer-rails
-      blacklight (>= 7.40, < 9)
-      blacklight-gallery (>= 3.0, < 5)
-      bootstrap_form (>= 4.1, < 6)
-      cancancan
-      carrierwave (~> 2.2)
-      clipboard-rails (~> 1.5)
-      csv
-      devise (~> 4.9)
-      devise_invitable
-      faraday
-      faraday-follow_redirects
-      friendly_id (~> 5.5)
-      github-markup
-      google-analytics-data
-      i18n
-      i18n-active_record
-      iiif-presentation
-      iiif_manifest
-      leaflet-rails
-      mini_magick
-      nokogiri
-      oauth2
-      openseadragon
-      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
-      paper_trail (>= 11.0, < 16)
-      rails (>= 7.0, < 8)
-      redcarpet (>= 2.0.1, < 4)
-      riiif (~> 2.0)
-      roar (~> 1.1)
-      roar-rails
-      signet
-      tophat
-      view_component (>= 2.66, < 4)
     blacklight_advanced_search (8.0.0.alpha2)
       blacklight (>= 7.15, < 9)
       parslet
@@ -905,7 +911,7 @@ DEPENDENCIES
   blacklight-gallery (~> 4.4)
   blacklight-hierarchy
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 4.3, >= 4.3.3)
+  blacklight-spotlight!
   blacklight_advanced_search
   blacklight_heatmaps (~> 1.3.0)
   blacklight_range_limit (~> 8.5)
