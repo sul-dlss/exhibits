@@ -1,0 +1,9 @@
+<% if @suggestions.empty? %>
+  <li class="suggestion-result no-items" role="option" aria-disabled="true">No matches found</li>
+<% else %>
+  <% @suggestions.each do |suggestion| %>
+    <li class="suggestion-result tt-suggestion" data-autocomplete-value="<%= suggestion %>" role="option">
+      <%= highlight_autocomplete_suggestion(suggestion) %>
+    </li>
+  <% end %>
+<% end %>

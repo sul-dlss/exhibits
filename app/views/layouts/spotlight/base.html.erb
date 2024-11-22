@@ -10,6 +10,7 @@
       <link href="<%= spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search"/>
     <% end %>
     <%= favicon_link_tag 'favicon.ico' %>
+    <script src="https://cdn.skypack.dev/@github/auto-complete-element" type="module"></script>
     <% if current_exhibit %>
       <%= exhibit_stylesheet_link_tag "application" %>
     <% else %>

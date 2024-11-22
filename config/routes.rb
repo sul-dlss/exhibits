@@ -10,6 +10,7 @@ Exhibits::Application.routes.draw do
   end
 
   resources :exhibit_finder, only: %i[show index]
+  resources :exhibit_autocomplete, only: [:index]
 
   scope '(:locale)', locale: Regexp.union(Spotlight::Engine.config.i18n_locales.keys.map(&:to_s)), defaults: { locale: nil } do
     mount Blacklight::Oembed::Engine, at: 'oembed'
@@ -58,7 +59,11 @@ Exhibits::Application.routes.draw do
 
     resources :exhibits, path: '/', only: [] do
       resource :dor_harvester, controller: :"dor_harvester", only: [:create, :update] do
-        resources :index_statuses, only: [:index, :show]
+        resources :index_statuses, only: [:index, :show] do
+          collection do
+            get :autocomplete
+          end
+        end
       end
       resource :bibliography_resources, only: [:create, :update]
       resource :viewers, only: [:create, :edit, :update]
