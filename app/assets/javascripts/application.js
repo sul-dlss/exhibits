@@ -36,7 +36,6 @@
 //= require nested_related_items
 //= require openseadragon
 //= require spotlight
-//= require sul-exhibits-template
 //= require table_of_contents
 //= require custom-file-input
 //= require site_search_type_toggle
