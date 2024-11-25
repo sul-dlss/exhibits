@@ -1,7 +1,7 @@
 GEM
   remote: https://gems.contribsys.com/
   specs:
-    sidekiq-pro (7.3.2)
+    sidekiq-pro (7.3.3)
       sidekiq (>= 7.3.0, < 8)
 
 GEM
@@ -407,7 +407,7 @@ GEM
       googleapis-common-protos-types (~> 1.0)
     hashdiff (1.1.2)
     hashie (5.0.0)
-    honeybadger (5.22.0)
+    honeybadger (5.24.0)
       logger
     http (5.2.0)
       addressable (~> 2.8)
@@ -506,7 +506,7 @@ GEM
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitar (1.0.2)
-    minitest (5.25.1)
+    minitest (5.25.2)
     mods (3.0.5)
       csv (~> 3.3)
       edtf (~> 3.0)
@@ -542,7 +542,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     net-ssh (7.3.0)
-    newrelic_rpm (9.15.0)
+    newrelic_rpm (9.16.0)
     nio4r (2.7.4)
     nokogiri (1.16.7-aarch64-linux)
       racc (~> 1.4)
@@ -585,7 +585,7 @@ GEM
     psych (5.2.0)
       stringio
     public_suffix (6.0.1)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     purl_fetcher-client (0.5.0)
       dor-rights-auth
@@ -754,7 +754,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (7.3.5)
+    sidekiq (7.3.6)
       connection_pool (>= 2.3.0)
       logger
       rack (>= 2.2.4)
@@ -800,16 +800,16 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (2.2.0-aarch64-linux-gnu)
-    sqlite3 (2.2.0-aarch64-linux-musl)
-    sqlite3 (2.2.0-arm-linux-gnu)
-    sqlite3 (2.2.0-arm-linux-musl)
-    sqlite3 (2.2.0-arm64-darwin)
-    sqlite3 (2.2.0-x86-linux-gnu)
-    sqlite3 (2.2.0-x86-linux-musl)
-    sqlite3 (2.2.0-x86_64-darwin)
-    sqlite3 (2.2.0-x86_64-linux-gnu)
-    sqlite3 (2.2.0-x86_64-linux-musl)
+    sqlite3 (2.3.0-aarch64-linux-gnu)
+    sqlite3 (2.3.0-aarch64-linux-musl)
+    sqlite3 (2.3.0-arm-linux-gnu)
+    sqlite3 (2.3.0-arm-linux-musl)
+    sqlite3 (2.3.0-arm64-darwin)
+    sqlite3 (2.3.0-x86-linux-gnu)
+    sqlite3 (2.3.0-x86-linux-musl)
+    sqlite3 (2.3.0-x86_64-darwin)
+    sqlite3 (2.3.0-x86_64-linux-gnu)
+    sqlite3 (2.3.0-x86_64-linux-musl)
     sshkit (1.23.2)
       base64
       net-scp (>= 1.1.2)
