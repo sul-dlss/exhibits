@@ -26,6 +26,11 @@ class IndexStatusesController < ApplicationController
     render json: filtered_solr_document_ids
   end
 
+  def autocomplete
+    @suggestions = filtered_solr_document_ids
+    render layout: false
+  end
+
   private
 
   def build_resource

@@ -3,11 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Searching Exhibits By Title', js: true do
+  include JavascriptFeatureHelpers
+
   let(:exhibit1) do
-    FactoryBot.create(:exhibit, published: true, slug: 'test-exhibit')
+    FactoryBot.create(:exhibit, published: true, slug: 'test-exhibit', title: 'Test Exhibit')
   end
   let(:exhibit2) do
-    FactoryBot.create(:exhibit, published: true, slug: 'default-exhibit')
+    FactoryBot.create(:exhibit, published: true, slug: 'default-exhibit', title: 'Default Exhibit')
   end
 
   before do
@@ -32,10 +34,15 @@ RSpec.describe 'Searching Exhibits By Title', js: true do
 
   describe 'the dropdown' do
     it 'provides a default option to autocomplete by exhibit title' do
+      IndexExhibitMetadataJob.perform_now(exhibit: exhibit1, action: 'add')
+      IndexExhibitMetadataJob.perform_now(exhibit: exhibit2, action: 'add')
+
       within '#site-navbar .site-search-nav' do
         expect(page).to have_css('button', text: 'Find exhibits by title')
         expect(page).to have_css('[data-behavior="exhibit-search-typeahead"]', visible: :visible)
+        fill_in_typeahead_field type: 'exhibit-search', with: 'Default Exhibit'
       end
+      expect(page).to have_css('.site-title', text: 'Default Exhibit')
     end
 
     it 'provides an option to search items in exhibits' do

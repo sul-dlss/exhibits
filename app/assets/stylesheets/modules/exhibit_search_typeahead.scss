@@ -1,4 +1,6 @@
 .exhibit-search-typeahead {
+  z-index: 2;
+
   .tt-input {
     // Override the transparent background added inline
     // by twitter-typeahead
@@ -26,5 +28,9 @@
     margin-bottom: 8px;
     padding: 0 15px 8px;
     text-transform: none;
+  }
+
+  [role="option"][aria-disabled="true"]:hover {
+    background-color: inherit;
   }
 }

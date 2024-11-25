@@ -25,7 +25,11 @@
     </div>
 
     <div class="exhibit-search-typeahead site-search-type" data-behavior="site-search-type" id="exhibit-search" style="display: none;">
-      <input type="text" class="form-control" role="combobox" aria-labelledby="site-search-type" data-behavior="exhibit-search-typeahead" data-typeahead-remote-url="<%= exhibit_finder_index_path %>" />
+      <auto-complete src="<%= exhibit_autocomplete_index_path %>" for="exhibit-search-popup">
+        <input type="text" class="form-control tt-input" role="combobox" aria-labelledby="site-search-type" name="exhibit-search" data-behavior="exhibit-search-typeahead" />
+        <ul id="exhibit-search-popup" class="tt-dropdown-menu"></ul>
+        <div id="exhibit-search-popup-feedback" class="sr-only visually-hidden"></div>
+      </auto-complete>
     </div>
 
     <div id="item-search" class="site-search-type" data-behavior="site-search-type">

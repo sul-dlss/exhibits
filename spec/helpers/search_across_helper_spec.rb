@@ -179,4 +179,11 @@ RSpec.describe SearchAcrossHelper do
       expect(helper.exhibit_metadata.keys).to match_array(%w(abc xyz))
     end
   end
+
+  describe '#highlight_autocomplete_suggestion' do
+    it 'highlights the query term in the suggestion' do
+      allow(helper).to receive(:params).and_return({ q: 'wor' })
+      expect(helper.highlight_autocomplete_suggestion('Hello World')).to eq 'Hello <strong>Wor</strong>ld'
+    end
+  end
 end

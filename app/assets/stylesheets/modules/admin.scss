@@ -4,6 +4,12 @@
   }
 }
 
+#external_resources_form {
+  .accordion > .card {
+    overflow: visible;
+  }
+}
+
 .form-group.sdr-form {
   margin-left: 10px;
 }

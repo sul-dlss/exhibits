@@ -57,6 +57,12 @@ module SearchAcrossHelper
     exhibit_metadata.slice(*value).values.map { |x| x['title'] || x['slug'] }.join(', ')
   end
 
+  def highlight_autocomplete_suggestion(value)
+    return value if params[:q].blank? || value.blank?
+
+    sanitize(value.gsub(/(#{Regexp.escape(params[:q])})/i, '<strong>\1</strong>'))
+  end
+
   private
 
   def exhibit_slugs

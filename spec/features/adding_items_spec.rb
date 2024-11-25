@@ -54,7 +54,7 @@ RSpec.feature 'Adding items to an exhibit' do
 
         expect(page).to have_content("There are #{number_of_resources} object druids indexed in this exhibit")
 
-        fill_in_typeahead_field attribute: "data-behavior='index-status-typeahead'", with: 'abc1'
+        fill_in_typeahead_field type: 'index-status', with: 'abc1'
 
         expect(page).to have_css('tr[data-index-status-id="abc1"] td', text: 'abc1', visible: :visible)
         expect(page).to have_css('td[data-behavior="index-item-status"]', text: 'Published')
@@ -79,7 +79,7 @@ RSpec.feature 'Adding items to an exhibit' do
         within '#status-accordion' do
           click_button 'Object druids'
 
-          fill_in_typeahead_field attribute: "data-behavior='index-status-typeahead'", with: 'xyz'
+          fill_in_typeahead_field type: 'index-status', with: 'xyz'
 
           expect(page).to have_css('tr.danger[data-index-status-id="xyz"] td', text: 'xyz', visible: :visible)
           expect(page).to have_css('td[data-behavior="index-item-status"]', text: 'There was a problem indexing')
