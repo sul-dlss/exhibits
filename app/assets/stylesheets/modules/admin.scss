@@ -35,11 +35,16 @@ h3 + .table.analytics {
     font-weight: 700;
     padding-bottom: 0;
     border-bottom: 0;
+    border-top: 1px solid var(--bs-border-color);
   }
 
   + h4 {
     margin-top: $spacer * 4;
   }
+}
+
+.table.popular-pages thead {
+  border-top: 1px solid var(--bs-border-color);
 }
 
 [data-behavior="translation-progress"] .badge {
