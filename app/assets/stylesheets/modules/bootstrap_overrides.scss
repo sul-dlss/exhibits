@@ -41,6 +41,10 @@ body {
   background-color: $fog-light-90;;
 }
 
+.nav-pills .nav-link.active {
+  font-weight: 600;
+}
+
 .nav-pills .nav-link {
   background: none;
   border: none;
