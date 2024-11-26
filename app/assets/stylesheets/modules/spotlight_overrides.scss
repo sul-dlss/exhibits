@@ -174,22 +174,6 @@ h5,
   margin-top: 0;
 }
 
-#sidebar .facets-heading,
-#sidebar .nav-heading {
-  @include heading-with-border();
-  font-size: 20px;
-
-  margin-left: 0;
-  padding-left: 3px;
-  padding-top: 0;
-}
-
-#sidebar .facets-heading {
-  @media (max-width: breakpoint-max(md)) {
-    border-bottom: 0;
-  }
-}
-
 #sidebar ul.nav > li a {
   padding: 0.25rem;
 

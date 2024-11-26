@@ -2,12 +2,6 @@
   min-height: 70vh;
 }
 
-.facets-heading {
-  @include heading-with-border();
-
-  width: 100%;
-}
-
 .facet-limit {
   margin-bottom: 7px;
 }
