@@ -46,7 +46,8 @@ body {
   border: none;
 }
 
-.form-group .col-form-label {
+.form-group .col-form-label,
+.mb-3 .col-form-label {
   @extend .text-end !optional;
   @extend .fw-bold !optional;
 }
