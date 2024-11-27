@@ -135,6 +135,6 @@ gem 'blacklight-oembed', '~> 1.0'
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'
-gem 'recaptcha', '~> 5.16'
+gem 'recaptcha', '~> 5.17.1'
 
 gem 'rack-attack'
