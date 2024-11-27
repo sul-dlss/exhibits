@@ -1,7 +1,5 @@
-.facets-heading {
-  @include heading-with-border();
-
-  width: 100%;
+#main-container {
+  min-height: 70vh;
 }
 
 .facet-limit {
@@ -35,6 +33,18 @@
   .constraints-container {
     display: none;
   }
+}
+
+// TODO: override of component library facet contraint padding
+// this may no longer be needed after we remove sul-styles
+.constraint-value {
+  --bs-btn-padding-y: .375rem !important;
+}
+
+// TODO: We can remove this after we stop using blacklight-hierarchy
+// and switch to the Blacklight::FacetItemPivotComponent component.
+.sr-only {
+  @include visually-hidden;
 }
 
 .img-thumbnail {

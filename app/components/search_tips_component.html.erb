@@ -4,19 +4,19 @@
     <div><h3> <%= t('search_tips.subtitle') %> </h3></div>
   <% end %>
   <% component.with_body do %>
-    <ul class="mt-3 pr-4 pb-2">
-      <li> Use quotation marks to search as a <span class="font-weight-bold">phrase</span>. (Word-stemming will still be applied to words within the phrase.) </li>
-      <li> Use "+" (no space) before a word to make it <span class="font-weight-bold">required</span>. </li>
-      <li> Use "-" (no space) before a word or phrase to <span class="font-weight-bold">exclude</span>. </li>
-      <li> Use "OR", "AND", and "NOT" (uppercase) to create <span class="font-weight-bold">Boolean</span> logic within a field. You can use parentheses in your complex expressions. </li>
-      <li> Use "*" to search a <span class="font-weight-bold">truncated</span> term. (Word-stemming is done automatically.) </li>
-      <li> Use "?" as a <span class="font-weight-bold">wildcard</span> to replace a character in a word. </li>
-      <li> <span class="font-weight-bold">Word-stemming</span> automatically includes plural and singular forms, and common suffix and tense variations. </li>
+    <ul class="mt-3 pe-4 pb-2">
+      <li> Use quotation marks to search as a <span class="fw-bold">phrase</span>. (Word-stemming will still be applied to words within the phrase.) </li>
+      <li> Use "+" (no space) before a word to make it <span class="fw-bold">required</span>. </li>
+      <li> Use "-" (no space) before a word or phrase to <span class="fw-bold">exclude</span>. </li>
+      <li> Use "OR", "AND", and "NOT" (uppercase) to create <span class="fw-bold">Boolean</span> logic within a field. You can use parentheses in your complex expressions. </li>
+      <li> Use "*" to search a <span class="fw-bold">truncated</span> term. (Word-stemming is done automatically.) </li>
+      <li> Use "?" as a <span class="fw-bold">wildcard</span> to replace a character in a word. </li>
+      <li> <span class="fw-bold">Word-stemming</span> automatically includes plural and singular forms, and common suffix and tense variations. </li>
     </ul>
   <% end %>
   <% component.with_footer do %>
-    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" data-dismiss="modal">
-      <span aria-hidden="true" class="visually-hidden"><%= t('search_tips.close') %> </span>
+    <button type="button" class="btn btn-outline-primary" data-bl-dismiss="modal">
+      <span><%= t('search_tips.close') %></span>
     </button>
   <% end %>
 <% end %>

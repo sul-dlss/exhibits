@@ -151,4 +151,9 @@
     display: flex;
     flex-grow: 3;
   }
+
+  button#site-search-type {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }

@@ -131,6 +131,10 @@ table#exhibit-specific-fields .field-label {
 .exhibit-card {
   overflow-y: hidden;
 
+  .card-title a:hover {
+    text-decoration: none;
+  }
+
   .card-img-overlay {
     max-height: 100%;
   }
@@ -168,22 +172,6 @@ h5,
 // Ajustments to sidebars to use SUL color palette, more compact vertical spacing
 #sidebar li {
   margin-top: 0;
-}
-
-#sidebar .facets-heading,
-#sidebar .nav-heading {
-  @include heading-with-border();
-  font-size: 20px;
-
-  margin-left: 0;
-  padding-left: 3px;
-  padding-top: 0;
-}
-
-#sidebar .facets-heading {
-  @media (max-width: breakpoint-max(md)) {
-    border-bottom: 0;
-  }
 }
 
 #sidebar ul.nav > li a {
@@ -265,18 +253,6 @@ h5,
   }
 }
 
-.search-box-container .browse-search-form .input-group {
-  @extend .input-group-sm;
-
-  .form-control {
-    height: $input-height-sm;
-  }
-
-  .input-group-btn.input-group-append .btn {
-    height: $input-height-sm;
-  }
-}
-
 .tags .nav-link {
   margin-bottom: 0.5rem;
   padding: 0.33rem 0.66rem;
@@ -300,7 +276,7 @@ h5,
 
 // A hackety McHack so that the search fields contain "Everything" in all the browsers
 #exhibit-navbar #search_field {
-  min-width: 114px;
+  min-width: 127px;
 }
 
 // scss-lint:enable ImportantRule

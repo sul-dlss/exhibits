@@ -13,7 +13,7 @@ body {
 
 .breadcrumb {
   border-bottom: 1px solid lighten($heading-border-color, 5%);
-  padding-left: 0;
+  padding: 0 0 10px 0;
 }
 
 .nav a {
@@ -38,16 +38,22 @@ body {
 
 .nav-pills > li > a:hover,
 .nav-pills > li > a:focus {
-  background-color: $color-beige-30;
+  background-color: $fog-light-90;
 }
 
-a:hover {
-  border-radius: $border-radius;
+.nav-pills .nav-link.active {
+  font-weight: 600;
 }
 
-.form-group .col-form-label {
-  @extend .text-right;
-  @extend .font-weight-bold;
+.nav-pills .nav-link {
+  background: none;
+  border: none;
+}
+
+.form-group .col-form-label,
+.mb-3 .col-form-label {
+  @extend .text-end !optional;
+  @extend .fw-bold !optional;
 }
 
 th {
@@ -58,6 +64,10 @@ th {
 .btn-secondary,
 .btn-outline-secondary {
   @include button-variant($sul-btn-secondary-color, $sul-btn-secondary-border);
+}
+
+.btn-outline-secondary.active, .btn-secondary.active {
+  background-color: #dedbcc;
 }
 
 .blockquote {

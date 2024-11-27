@@ -16,6 +16,11 @@
     <% else %>
       <%= stylesheet_link_tag "application" %>
     <% end %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/palette.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/links.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/typography.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/selected-item.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/footer.css" />
     <%= stylesheet_link_tag "https://www-media.stanford.edu/su-identity/css/su-identity.css" %>
     <%= javascript_include_tag "application", async: Settings.async_javascript %>
     <script type="text/javascript">
@@ -36,29 +41,27 @@
     <%= javascript_tag "Spotlight.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
   </head>
   <body class="<%= render_body_class %>">
-    <div id="su-wrap"> <!-- #su-wrap start -->
-      <div id="su-content"> <!-- #su-content start -->
-        <nav id="skip-link" role="navigation" class="visually-hidden-focusable sr-only sr-only-focusable" aria-label="<%= t('blacklight.skip_links.label') %>">
-          <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
-          <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
-          <%= content_for(:skip_links) %>
-        </nav>
+    <div class='mb-5'>
+      <nav id="skip-link" role="navigation" class="visually-hidden-focusable visually-hidden visually-hidden-focusable" aria-label="<%= t('blacklight.skip_links.label') %>">
+        <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
+        <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
+        <%= content_for(:skip_links) %>
+      </nav>
 
-        <%= render partial: 'shared/header_navbar' %>
-        <%= render partial: 'shared/masthead' %>
-        <%= content_for?(:header_content) ? yield(:header_content) : "" %>
+      <%= render partial: 'shared/header_navbar' %>
+      <%= render partial: 'shared/masthead' %>
+      <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
-        <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
-          <%= content_for(:container_header) %>
+      <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
+        <%= content_for(:container_header) %>
 
-          <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
+        <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
-          <div class="row">
-            <%= content_for?(:content) ? yield(:content) : yield %>
-          </div>
-        </main>
-      </div> <!-- #su-content end -->
-    </div> <!-- #su-wrap end -->
+        <div class="row">
+          <%= content_for?(:content) ? yield(:content) : yield %>
+        </div>
+      </main>
+    </div>
 
     <%= render partial: 'shared/footer' %>
     <%= render partial: 'shared/modal' %>
