@@ -1,10 +1,11 @@
 body {
   font-size: 0.9375rem;
   line-height: 1.428571429;
+  margin-bottom: 0;
 }
 
 .bg-cardinal-red {
-  background-color: $color-cardinal-red !important;
+  background-color: $cardinal-red !important;
 }
 
 .topbar {
@@ -12,7 +13,7 @@ body {
 }
 
 .breadcrumb {
-  border-bottom: 1px solid lighten($heading-border-color, 5%);
+  border-bottom: var(--bs-border-width) solid var(--bs-border-color);
   padding: 0 0 10px 0;
 }
 
@@ -25,12 +26,11 @@ body {
 }
 
 .nav-tabs > li.active > a {
-  color: $color-gray-90;
   font-weight: 600;
 }
 
 .nav-pills > li > a {
-  background-color: $color-beige-10;
+  background-color: $fog-light;
   border: 1px solid $color-gray-80;
   margin-left: 3px;
   margin-right: 3px;
@@ -57,7 +57,6 @@ body {
 }
 
 th {
-  color: $color-black-80;
   font-size: 15px;
 }
 

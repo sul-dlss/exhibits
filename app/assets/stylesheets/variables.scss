@@ -2,41 +2,26 @@
 // Bootstrap variables, see local_variables.scss
 
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
-@import "sul-styles";
 @import "sul_variables";
-// override sul-styles
-$footer-height: 13rem;
 
 $gray-base: #000;
-$primary: $color-cardinal-red;
 $success: $mint;
 
-$sul-masthead-bg-color: $color-beige-10;
-$sul-masthead-border-color: $color-beige-20;
-$brand-primary: $color-cardinal-red;
-$black: $color-blackish;
 $gray-41-percent: #696969;
 $color-gray-80: #ccc;
 
-$secondary: $color-beige-10;
-
 $exhibit-card-bg: $fog-light-90;
 $exhibit-card-border: $fog-light-90;
-$exhibit-title-typeahead-border: $color-beige-20;
+$exhibit-title-typeahead-border: $fog-light;
 
 $navbar-dark-color: lighten($gray-base, 86%);
 
-$navbar-default-bg: $color-beige-05;
-$navbar-default-link-hover-bg: $color-beige-20;
-$navbar-default-link-active-bg: $color-beige-10;
+$navbar-default-bg: $fog-light;
 
 $navbar-transparent-page-bg: rgba(0, 0, 0, 0.25);
 
 $font-family-sans-serif: "Source Sans Pro", "Arial Unicode MS", Helvetica, sans-serif;
 $headings-font-family: "Source Sans Pro", "Arial Unicode MS", Helvetica, sans-serif;
-$heading-font-color: $color-gray;
-$heading-border-color: $color-beige-30;
-$sul-link-color-border: $color-pantone-401;
 $nav-link-color: $black;
 
 // Bootstrap focus style overrides
@@ -44,9 +29,3 @@ $input-focus-width: 0.2rem;
 $input-focus-border-color: #80bdff;
 $input-focus-box-shadow: 0 0 0 $input-focus-width $input-focus-border-color;
 $input-btn-focus-color: $input-focus-border-color !important;
-
-$sidebar-link-color: $color-black-80;
-$sidebar-link-active-color: $color-cardinal-red;
-
-// Sir Trevor
-$accent-color: $primary;

@@ -1,9 +1,3 @@
-#sdr-item-status-section {
-  .card > .card-heading {
-    background-color: $color-beige-05;
-  }
-}
-
 #external_resources_form {
   .accordion > .card {
     overflow: visible;
@@ -30,7 +24,7 @@ h3 + .table.analytics {
   @extend .table-light;
 
   .value {
-    color: $color-gray-90;
+    color: var(--bs-heading-color);
     font-size: $h2-font-size;
     font-weight: 700;
     padding-bottom: 0;
@@ -48,7 +42,7 @@ h3 + .table.analytics {
 }
 
 [data-behavior="translation-progress"] .badge {
-  background-color: $color-beige-10;
+  background-color: $fog-light;
   border-radius: 3px;
   color: $black;
   font-weight: normal;
