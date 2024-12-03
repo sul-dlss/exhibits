@@ -1,0 +1,10 @@
+// The browse page does not have a sidebar, so some additional
+// column adjustments are needed to make the metadata look okay.
+.blacklight-browse-show .documents-list .document-metadata {
+  dt {
+    @extend .col-xl-2;
+  }
+  dd {
+    @extend .col-xl-10;
+  }
+}
