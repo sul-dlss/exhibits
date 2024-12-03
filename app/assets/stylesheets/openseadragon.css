@@ -1,5 +1,5 @@
-@import "openseadragon/openseadragon";
-
 .openseadragon-viewer {
   display: flex;
+  display: block;
+  min-height: 500px;
 }
