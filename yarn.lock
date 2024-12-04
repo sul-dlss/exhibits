@@ -91,12 +91,20 @@
     "@parcel/watcher-win32-ia32" "2.5.0"
     "@parcel/watcher-win32-x64" "2.5.0"
 
-blacklight-frontend@^8.6.1:
+"blacklight-frontend@>=7.1 || 8.0", blacklight-frontend@^8.6.1:
   version "8.6.1"
   resolved "https://registry.yarnpkg.com/blacklight-frontend/-/blacklight-frontend-8.6.1.tgz#27c1c0f3c2797a05d6289511c1a6b65dedc27e38"
   integrity sha512-g5+hkN4rUMPrzCLBcHNoo/Wwrty/s5SCLn/+6H5VL6z1Ht/Q+8SqX/oLbSU0L9nr2AnyM3gSF3Fi0u0xqqONgw==
   dependencies:
     bootstrap ">=4.3.1 <6.0.0"
+
+blacklight-hierarchy@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/blacklight-hierarchy/-/blacklight-hierarchy-6.4.0.tgz#bcc847508d80160b1bc38be74ec41a207965f34e"
+  integrity sha512-5JL8U8qhVaBy/FVG4DM9MXxpIc1bsTSqI3cEdMS3Md6emFCIThJFiTkooBiCgiumdg/QLT7oKHJxbR5kntwDZQ==
+  dependencies:
+    blacklight-frontend ">=7.1 || 8.0"
+    jquery ">=3.0"
 
 bootstrap-slider@^11.0.2:
   version "11.0.2"
@@ -155,6 +163,11 @@ is-number@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
   integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
+
+jquery@>=3.0:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.1.tgz#083ef98927c9a6a74d05a6af02806566d16274de"
+  integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
 
 leaflet@^1.9.4:
   version "1.9.4"

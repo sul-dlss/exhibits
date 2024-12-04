@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "blacklight-frontend": "^8.6.1",
+    "blacklight-hierarchy": "^6.4.0",
     "bootstrap": "^5.3.3",
     "bootstrap-slider": "^11.0.2",
     "leaflet": "^1.9.4",
