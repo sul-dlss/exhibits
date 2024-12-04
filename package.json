@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "blacklight-frontend": "^8.6.1",
     "blacklight-hierarchy": "^6.4.0",
     "bootstrap": "^5.3.3",

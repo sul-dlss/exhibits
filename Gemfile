@@ -11,6 +11,7 @@ gem 'rails', '~> 7.2'
 gem 'propshaft'
 gem 'importmap-rails'
 gem 'cssbundling-rails'
+gem 'stimulus-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 6.0'
