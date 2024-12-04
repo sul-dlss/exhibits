@@ -40,7 +40,7 @@
     <%= javascript_tag "Spotlight.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
   </head>
   <body class="<%= render_body_class %>">
-    <nav id="skip-link" role="navigation" class="visually-hidden-focusable visually-hidden visually-hidden-focusable" aria-label="<%= t('blacklight.skip_links.label') %>">
+    <nav id="skip-link" class="visually-hidden-focusable visually-hidden visually-hidden-focusable" aria-label="<%= t('blacklight.skip_links.label') %>">
       <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
       <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
       <%= content_for(:skip_links) %>
