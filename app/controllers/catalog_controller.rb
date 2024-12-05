@@ -34,6 +34,9 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     config.bootstrap_version = '5'
     config.http_method = :post
+    # Blacklight 8 sets a default value to 'advanced'
+    # For browse category search to work it must be nil
+    config.json_solr_path = nil
     config.header_component = Spotlight::HeaderComponent
     config.exhibit_navbar_component = ExhibitNavbarComponent
     config.index.default_thumbnail = :exhibits_default_thumbnail
