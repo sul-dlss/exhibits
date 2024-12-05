@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/projectblacklight/blacklight-gallery.git
+  revision: b11cfa909ee61865029ddf400fb4212370893ca0
+  branch: masonry-keyboard-nav
+  specs:
+    blacklight-gallery (4.6.1)
+      blacklight (>= 7.17, < 9)
+      rails (>= 6.1, < 8)
+
 GEM
   remote: https://gems.contribsys.com/
   specs:
@@ -111,9 +120,6 @@ GEM
       rails (>= 6.1, < 9)
       view_component (>= 2.74, < 4)
       zeitwerk
-    blacklight-gallery (4.6.1)
-      blacklight (>= 7.17, < 9)
-      rails (>= 6.1, < 8)
     blacklight-oembed (1.2.0)
       blacklight (>= 7.25, < 9)
       rails
@@ -903,7 +909,7 @@ DEPENDENCIES
   acts-as-taggable-on
   bibtex-ruby
   blacklight (~> 8.0)
-  blacklight-gallery (~> 4.4)
+  blacklight-gallery!
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 4.4, >= 4.4.0)
   blacklight_advanced_search
