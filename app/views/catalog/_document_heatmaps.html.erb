@@ -1,0 +1,13 @@
+<div class='blacklight-heatmaps-index-map-container' data-turbolinks="false">
+  <%= index_map_div %>
+  <%= content_tag(:div, id: 'index-map-sidebar') do %>
+  <% end %>
+  <div class="mt-3">
+    <p id="map-interaction-hint" class="mb-0" aria-label="Instructions" role="note">
+      Interact with the map to update results.
+    </p>
+  </div>
+  <div id="documents" class="mt-2">
+    <ul id="heatmaps-documents-list" aria-live="polite" aria-label="Search results" aria-atomic="true"></ul>
+  </div>
+</div>

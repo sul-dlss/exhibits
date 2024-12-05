@@ -3,6 +3,16 @@
 module Blacklight
   # Override Blacklight::MapsHelper from blacklight_heatmaps
   module MapsHelperOverride
+    def sidebar_template
+      <<-HTMLTEMPLATE
+      <li>
+        <h3 class='index_title document-title-heading'>
+          <a href="{url}">{title}</a>
+        </h3>
+      </li>
+      HTMLTEMPLATE
+    end
+
     private
 
     ##
