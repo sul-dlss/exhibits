@@ -8,7 +8,7 @@
   margin-left: 10px;
 }
 
-button[aria-expanded=true] + .icon-expand-rotate svg {
+button[aria-expanded="true"] + .icon-expand-rotate svg {
   transform: rotate(90deg);
 }
 
@@ -42,7 +42,7 @@ h3 + .table.analytics {
 }
 
 [data-behavior="translation-progress"] .badge {
-  background-color: $fog-light;
+  background-color: var(--stanford-fog-light);
   border-radius: 3px;
   color: $black;
   font-weight: normal;

@@ -3,6 +3,9 @@ en:
     application_name: Spotlight at Stanford
     search:
       start_over: Start over
+      form:
+        search:
+          placeholder: Search by keyword
   views:
     pagination:
       aria:
