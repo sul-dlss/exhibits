@@ -1,0 +1,50 @@
+<% if show_contact_form? && (current_exhibit.nil? || !current_page?(spotlight.new_exhibit_contact_form_path(current_exhibit))) %>
+  <div id="report-problem-form">
+    <%= render 'spotlight/shared/report_a_problem' %>
+  </div>
+<% end %>
+
+<div class="masthead bg-light">
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col">
+        <% if content_for? :masthead %>
+          <h1 class="site-title h2">
+            <%= content_for :masthead %>
+          </h1>
+        <% else %>
+          <h1 class="site-title h2">
+            <%= masthead_heading_content %>
+          </h1>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row flex-wrap justify-content-between">
+      <% if masthead_subheading_content %>
+        <small class="flex-grow-1"><%= masthead_subheading_content %></small>
+      <% end %>
+
+      <% if current_exhibit %>
+        <%= render ExhibitNavigationComponent.new %>
+      <% else %>
+        <%= render MastheadNavigationComponent.new %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="image-wrapper position-relative d-flex flex-column mb-3"
+  <% if current_masthead %>
+    style="background-image: url('<%= current_masthead.iiif_url %>')"
+  <% end %>
+>
+  <% if current_exhibit %>
+      <%= render ExhibitNavbarComponent.new %>
+    <% else %>
+      <%= render SiteNavbarComponent.new %>
+    <% end %>
+
+</div>
+
+<%= render Spotlight::BreadcrumbsComponent.new(breadcrumbs:) %>

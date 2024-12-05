@@ -1,6 +1,6 @@
 body,
 .img-thumbnail {
-  background-color: $fog-light;
+  background-color: var(--stanford-fog-light);
 }
 
 // Hide PURL link beneath the IIIF viewer
@@ -9,8 +9,8 @@ body,
 }
 
 .view-metadata {
-  dt[title='Contents'],
-  dt[title='Contents'] + dd {
+  dt[title="Contents"],
+  dt[title="Contents"] + dd {
     display: none;
   }
 }

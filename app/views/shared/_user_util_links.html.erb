@@ -11,6 +11,9 @@
 <% end %>
 
 <ul class="navbar-nav">
+  <li class="nav-item">
+    <%= link_to 'Spotlight at Stanford', main_app.root_path, class: 'nav-link' %>
+  </li>
   <%= render '/spotlight/shared/locale_picker' %>
   <% if current_user %>
     <li class="nav-item dropdown">
