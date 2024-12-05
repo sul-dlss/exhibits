@@ -1,29 +1,3 @@
-.blacklight-search_across {
-  .sort-pagination {
-    flex-wrap: wrap;
-  }
-
-  .page-links {
-    @extend .w-100;
-  }
-
-  .search-widgets {
-    @extend .w-100;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .btn-group {
-    margin-left: 0.5rem;
-  }
-
-  .search-group {
-    margin-left: 0;
-    margin-right: auto;
-    z-index: 0;
-  }
-}
-
 .exhibit-list {
   .card {
     flex-direction: row;
@@ -128,32 +102,5 @@
 
   .exhibit-card {
     padding-bottom: 0;
-  }
-}
-
-.search-across-form {
-  input {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-
-  // dropdown-men is position: static on small
-  // viewports but we want it to remain absolute
-  .dropdown-menu {
-    position: absolute;
-  }
-
-  .input-group {
-    flex-wrap: nowrap;
-  }
-
-  .site-search-type {
-    display: flex;
-    flex-grow: 3;
-  }
-
-  button#site-search-type {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
   }
 }

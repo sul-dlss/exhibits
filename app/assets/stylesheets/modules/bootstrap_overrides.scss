@@ -5,15 +5,6 @@
 
 body {
   line-height: 1.428571429;
-  margin-bottom: 0;
-}
-
-.bg-cardinal-red {
-  background-color: $cardinal-red !important;
-}
-
-.topbar {
-  @extend .bg-cardinal-red;
 }
 
 .breadcrumb {
@@ -40,6 +31,7 @@ body {
   .nav-link {
     margin-left: 3px;
     margin-right: 3px;
+
     &:hover,
     &:focus {
       --bs-link-opacity: 0.9;
@@ -49,6 +41,7 @@ body {
       );
     }
   }
+
   .nav-link.active {
     font-weight: 600;
   }

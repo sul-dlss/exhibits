@@ -1,77 +1,67 @@
-.topbar {
-  height: $brandbar-height;
+#user-util-collapse {
+  margin-inline-end: -0.5rem;
+}
 
-  .navbar-brand {
-    background: transparent image-url("StanfordLibraries-logo-whitetext.svg")
-      no-repeat center left;
-    background-size: contain;
-    height: $brandbar-height;
-    margin: 0;
-    padding: 0.5rem;
-    width: 189px;
-    // TODO: We should probably update the ExhibitNavbarComponent so we can customize it
-    //       but we should wait until we update the header to use the new design
-    //       so we know what we need to customize. For now just hide the text.
-    font-size: 0;
+.site-navbar {
+  background-color: rgba(var(--stanford-fog-light-rgb), 0.8);
+
+  .searchtips-link a {
+    color: var(--stanford-black);
   }
+  .search-query-form {
+    border: 1px solid #ababa9;
+    padding: 0.4rem;
+    border-radius: 0.25rem;
+    background-color: white;
 
-  @media (max-width: breakpoint-min("md")) {
-    height: auto;
-
-    .navbar-nav {
-      &.float-end {
-        float: none !important;
-      }
+    .search-q {
+      padding: 0 0 0 2rem;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E")
+        no-repeat left;
+      background-size: auto;
+      background-size: 1rem;
+      outline: none;
     }
 
-    > li {
-      > a {
-        padding-bottom: $spacer;
-        padding-top: $spacer;
+    .dropdown-toggle {
+      --bs-btn-border-color: var(--stanford-black);
+      --bs-btn-color: var(--stanford-black);
+      --bs-btn-hover-color: var(--stanford-black);
+      --bs-btn-hover-border-color: var(--stanford-black);
+      --bs-btn-active-border-color: var(--stanford-black);
+      --bs-btn-active-color: var(--stanford-black);
+    }
+
+    .form-control {
+      min-width: 30vw;
+      border: 0;
+      &:focus {
+        box-shadow: none;
       }
     }
   }
 }
 
-.site-navbar {
-  @extend .navbar-dark;
-  background-color: $navbar-transparent-page-bg;
-
-  .navbar-nav {
-    text-transform: uppercase;
-
-    .dropdown-menu {
-      text-transform: none;
-    }
-  }
-
-  .search-query-form {
-    min-width: 17em;
-  }
-
-  @media (min-width: breakpoint-min("lg")) {
-    .site-search-nav {
-      max-width: 30em;
-    }
-  }
-
-  @media (min-width: breakpoint-min("xl")) {
-    .site-search-nav {
-      max-width: 32em;
-    }
-  }
+.image-wrapper {
+  height: 10.625rem;
 }
 
-.exhibit-navbar,
-.site-navbar {
-  .search-query-form {
-    .btn-primary {
-      @extend .btn-secondary;
-      border-color: $input-border-color;
+.masthead {
+  small {
+    white-space: nowrap;
+  }
 
-      svg {
-        fill: $sul-search-btn-color;
+  .masthead-navigation {
+    li {
+      --sul-link-font-weight: 700;
+      a {
+        padding-block: 0.5rem;
+        color: var(--stanford-black);
+        white-space: nowrap;
       }
+    }
+    li:not(:last-child) {
+      margin-right: 1rem;
     }
   }
 }
