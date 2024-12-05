@@ -56,15 +56,13 @@
       if (index > toggleIndex && total > toggleThreshold) {
         elClass += ' hide-bibliography';
       }
-      var parsedHtml = $.map($.parseHTML($.parseHTML(bibEntry.attributes.formatted_bibliography_ts.attributes.value)[0].textContent), function(value) {
-        // If it is HTML, return that, if not just return the text
-        if (value.outerHTML) {
-          return value.outerHTML;
-        }
-        return value.textContent;
-      }).join('');
+
+      // This string contains the formatted bibliography for this item.
+      // This string can contain HTML elements as well which should be displayed correctly.
+      var formatted_bibliography = bibEntry.attributes.formatted_bibliography_ts.attributes.value;
+     
       return '<p class="' + elClass + '">' +
-                parsedHtml +
+                formatted_bibliography +
               ' <a href="' + bibEntry.links.self + '">' +
                 '[View full reference]' +
               '</a>' +
