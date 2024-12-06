@@ -1,3 +1,7 @@
+:root {
+  --stanford-fog-light-rgb: 244, 244, 244;
+}
+
 body {
   font-size: 0.9375rem;
   line-height: 1.428571429;
@@ -29,25 +33,25 @@ body {
   font-weight: 600;
 }
 
-.nav-pills > li > a {
-  background-color: $fog-light;
-  border: 1px solid $color-gray-80;
-  margin-left: 3px;
-  margin-right: 3px;
-}
+.nav-pills {
+  --bs-nav-pills-link-active-bg: var(--stanford-fog-light);
+  --bs-nav-pills-link-active-color: var(--stanford-black);
 
-.nav-pills > li > a:hover,
-.nav-pills > li > a:focus {
-  background-color: $fog-light-90;
-}
-
-.nav-pills .nav-link.active {
-  font-weight: 600;
-}
-
-.nav-pills .nav-link {
-  background: none;
-  border: none;
+  .nav-link {
+    margin-left: 3px;
+    margin-right: 3px;
+    &:hover,
+    &:focus {
+      --bs-link-opacity: 0.9;
+      background-color: rgba(
+        var(--stanford-fog-light-rgb),
+        var(--bs-link-opacity, 1)
+      );
+    }
+  }
+  .nav-link.active {
+    font-weight: 600;
+  }
 }
 
 .form-group .col-form-label,
@@ -65,7 +69,8 @@ th {
   @include button-variant($sul-btn-secondary-color, $sul-btn-secondary-border);
 }
 
-.btn-outline-secondary.active, .btn-secondary.active {
+.btn-outline-secondary.active,
+.btn-secondary.active {
   background-color: #dedbcc;
 }
 
@@ -100,9 +105,15 @@ th {
 }
 
 .carousel-control-prev {
-  @include gradient-x($start-color: rgba(0 , 0 , 0, .5) , $end-color: rgba(0 ,0 , 0, .0001));
+  @include gradient-x(
+    $start-color: rgba(0, 0, 0, 0.5),
+    $end-color: rgba(0, 0, 0, 0.0001)
+  );
 }
 
 .carousel-control-next {
-  @include gradient-x($start-color: rgba(0 ,0 , 0, .0001), $end-color: rgba(0 , 0 , 0, .5));
+  @include gradient-x(
+    $start-color: rgba(0, 0, 0, 0.0001),
+    $end-color: rgba(0, 0, 0, 0.5)
+  );
 }
