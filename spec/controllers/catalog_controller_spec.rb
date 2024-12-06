@@ -9,7 +9,7 @@ RSpec.describe CatalogController do
       expect(
         described_class.document_has_full_text_and_search_is_query?(
           subject,
-          instance_double('Config'),
+          nil,
           instance_double(SolrDocument, full_text?: true)
         )
       ).to be true
@@ -20,7 +20,7 @@ RSpec.describe CatalogController do
       expect(
         described_class.document_has_full_text_and_search_is_query?(
           subject,
-          instance_double('Config'),
+          nil,
           instance_double(SolrDocument, full_text?: true)
         )
       ).to be false
@@ -32,7 +32,7 @@ RSpec.describe CatalogController do
       expect(
         described_class.document_has_full_text_and_search_is_query?(
           subject,
-          instance_double('Config'),
+          nil,
           instance_double(SolrDocument, full_text?: false)
         )
       ).to be false
