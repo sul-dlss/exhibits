@@ -78,7 +78,7 @@ describe ApplicationHelper do
       let(:canvas_index) { 4 }
       let(:st_block) do
         instance_double(
-          'SirTrevorRails::Blocks::SolrDocumentsEmbedBlock',
+          SirTrevorRails::Blocks::SolrDocumentsEmbedBlock,
           items: [{ 'iiif_canvas_id' => "http://example.com/ab123cd4567_#{canvas_index}" }]
         )
       end
@@ -90,7 +90,7 @@ describe ApplicationHelper do
 
     context 'with SirTrevorBlock that is missing things' do
       let(:st_block) do
-        instance_double('SirTrevorRails::Blocks::SolrDocumentsEmbedBlock')
+        instance_double(SirTrevorRails::Blocks::SolrDocumentsEmbedBlock)
       end
 
       it 'defaults to nil' do
