@@ -6,7 +6,7 @@ RSpec.describe SearchAcrossHelper do
   describe '#search_without_group' do
     let(:search_state) do
       instance_double(
-        'Blacklight::SearchState',
+        Blacklight::SearchState,
         params_for_search: { group: true }
       )
     end
@@ -22,7 +22,7 @@ RSpec.describe SearchAcrossHelper do
   describe '#search_with_group' do
     let(:search_state) do
       instance_double(
-        'Blacklight::SearchState',
+        Blacklight::SearchState,
         params_for_search: {}
       )
     end

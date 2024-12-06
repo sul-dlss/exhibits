@@ -26,7 +26,7 @@ describe ApplicationHelper do
       it 'renders a div with embed attribute and canvas index param' do
         expect(helper).to receive_messages(
           blacklight_config: CatalogController.blacklight_config,
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
+          current_search_session: instance_double(Search, query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
@@ -37,7 +37,7 @@ describe ApplicationHelper do
       it 'uses the q from the current_search_session to populate the suggested_search param' do
         expect(helper).to receive_messages(
           blacklight_config: CatalogController.blacklight_config,
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: { q: 'The Query' }),
+          current_search_session: instance_double(Search, query_params: { q: 'The Query' }),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
@@ -47,11 +47,11 @@ describe ApplicationHelper do
       it 'passes the maxheight from the block parameter' do
         expect(helper).to receive_messages(
           blacklight_config: CatalogController.blacklight_config,
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
+          current_search_session: instance_double(Search, query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(
-          document, 3, instance_double('SirTrevor::Block', maxheight: 300)
+          document, 3, instance_double(SirTrevorRails::Blocks::SolrDocumentsEmbedBlock, maxheight: 300)
         )
 
         expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
@@ -62,7 +62,7 @@ describe ApplicationHelper do
     context 'an exhibit that is configured (via feature flag) to point to UAT' do
       it 'renders a div with the correct embed end-point in the data attribute' do
         expect(helper).to receive_messages(
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
+          current_search_session: instance_double(Search, query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit, slug: 'test-flag-exhibit-slug'))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
@@ -78,7 +78,7 @@ describe ApplicationHelper do
       let(:canvas_index) { 4 }
       let(:st_block) do
         instance_double(
-          'SirTrevorRails::Blocks::SolrDocumentsEmbedBlock',
+          SirTrevorRails::Blocks::SolrDocumentsEmbedBlock,
           items: [{ 'iiif_canvas_id' => "http://example.com/ab123cd4567_#{canvas_index}" }]
         )
       end
@@ -90,7 +90,7 @@ describe ApplicationHelper do
 
     context 'with SirTrevorBlock that is missing things' do
       let(:st_block) do
-        instance_double('SirTrevorRails::Blocks::SolrDocumentsEmbedBlock')
+        instance_double(SirTrevorRails::Blocks::SolrDocumentsEmbedBlock)
       end
 
       it 'defaults to nil' do

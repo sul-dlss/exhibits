@@ -9,7 +9,7 @@ describe Spotlight::Resources::Upload do
   let(:upload_id) { 123 }
   let(:upload) { Spotlight::FeaturedImage.new(id: upload_id) }
   let(:riiif_image) do
-    instance_double(Riiif::Image, info: instance_double('Dimensions', width: 5, height: 5))
+    instance_double(Riiif::Image, info: instance_double(Riiif::ImageInformation, width: 5, height: 5))
   end
   let(:solr_doc) { indexed_documents(resource).first&.with_indifferent_access }
 
