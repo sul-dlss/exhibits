@@ -1,12 +1,12 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 7a51f82aec3426b04b2c8cb248a98a9d8e1c86d2
+  revision: 7232e93d56463a7a654d4e6234b1dffff3985c3d
   branch: main
   specs:
     blacklight-spotlight (5.0.0.alpha)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 12)
-      blacklight (~> 8.0)
+      blacklight (>= 8.7.0, < 9)
       blacklight-gallery (>= 3.0, < 5)
       bootstrap_form (>= 4.1, < 6)
       cancancan
@@ -29,7 +29,7 @@ GIT
       openseadragon (>= 0.8.0)
       ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
       paper_trail (>= 11.0, < 16)
-      rails (>= 7.0, < 8)
+      rails (>= 7.1, < 8)
       redcarpet (>= 2.0.1, < 4)
       riiif (~> 2.0)
       roar (~> 1.1)
@@ -157,43 +157,6 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (4.5.0)
-      activejob-status
-      acts-as-taggable-on (>= 5.0, < 12)
-      autoprefixer-rails
-      blacklight (>= 7.40, < 9)
-      blacklight-gallery (>= 3.0, < 5)
-      bootstrap_form (>= 4.1, < 6)
-      cancancan
-      carrierwave (~> 2.2)
-      clipboard-rails (~> 1.5)
-      csv
-      devise (~> 4.9)
-      devise_invitable
-      faraday
-      faraday-follow_redirects
-      friendly_id (~> 5.5)
-      github-markup
-      google-analytics-data
-      i18n
-      i18n-active_record
-      iiif-presentation
-      iiif_manifest
-      leaflet-rails
-      mini_magick
-      nokogiri
-      oauth2
-      openseadragon
-      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
-      paper_trail (>= 11.0, < 16)
-      rails (>= 7.0, < 8)
-      redcarpet (>= 2.0.1, < 4)
-      riiif (~> 2.0)
-      roar (~> 1.1)
-      roar-rails
-      signet
-      tophat
-      view_component (>= 2.66, < 4)
     blacklight_advanced_search (8.0.0.alpha2)
       blacklight (>= 7.15, < 9)
       parslet
@@ -334,7 +297,7 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
-    faraday (2.12.1)
+    faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -475,6 +438,10 @@ GEM
     image_processing (1.13.0)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
+    importmap-rails (2.0.3)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     io-console (0.8.0)
     irb (1.14.1)
       rdoc (>= 4.0.0)
@@ -584,17 +551,17 @@ GEM
     net-ssh (7.3.0)
     newrelic_rpm (9.16.1)
     nio4r (2.7.4)
-    nokogiri (1.17.0-aarch64-linux)
+    nokogiri (1.17.1-aarch64-linux)
       racc (~> 1.4)
-    nokogiri (1.17.0-arm-linux)
+    nokogiri (1.17.1-arm-linux)
       racc (~> 1.4)
-    nokogiri (1.17.0-arm64-darwin)
+    nokogiri (1.17.1-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.17.0-x86-linux)
+    nokogiri (1.17.1-x86-linux)
       racc (~> 1.4)
-    nokogiri (1.17.0-x86_64-darwin)
+    nokogiri (1.17.1-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.17.0-x86_64-linux)
+    nokogiri (1.17.1-x86_64-linux)
       racc (~> 1.4)
     nom-xml (1.2.0)
       i18n
@@ -608,7 +575,7 @@ GEM
       version_gem (~> 1.1)
     observer (0.1.2)
     okcomputer (1.18.5)
-    openseadragon (0.8.0)
+    openseadragon (0.9.0)
       rails (> 6.1.0)
     orm_adapter (0.5.0)
     os (1.1.4)
@@ -716,10 +683,10 @@ GEM
       railties (>= 5.2)
     retriable (3.1.2)
     rexml (3.3.9)
-    riiif (2.6.0)
+    riiif (2.7.0)
       deprecation (>= 1.0.0)
       iiif-image-api (>= 0.1.0)
-      railties (>= 4.2, < 8)
+      railties (>= 4.2, < 9)
     roar (1.2.0)
       representable (~> 3.1)
     roar-rails (1.2.0)
@@ -831,13 +798,6 @@ GEM
       ostruct
       retriable
       ruby-progressbar
-    sprockets (4.2.1)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
-    sprockets-rails (3.5.2)
-      actionpack (>= 6.1)
-      activesupport (>= 6.1)
-      sprockets (>= 3.0.0)
     sqlite3 (2.4.1-aarch64-linux-gnu)
     sqlite3 (2.4.1-aarch64-linux-musl)
     sqlite3 (2.4.1-arm-linux-gnu)
