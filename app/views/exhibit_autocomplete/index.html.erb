@@ -2,7 +2,7 @@
   <li class="exhibit-result no-items" role="option" aria-disabled="true">No matches found</li>
 <% else %>
   <% @exhibits.each do |exhibit| %>
-    <li class="exhibit-result tt-suggestion" role="option" data-autocomplete-value="<%= exhibit['slug'] %>" data-autocomplete-title="<%= exhibit['title'] %>">
+    <li class="exhibit-result tt-suggestion text-nowrap" role="option" data-autocomplete-value="<%= exhibit['slug'] %>" data-autocomplete-title="<%= exhibit['title'] %>">
       <%= highlight_autocomplete_suggestion(exhibit['title']) %>
       <% if exhibit['subtitle'].present? %>
         <span class="subtitle"><%= highlight_autocomplete_suggestion(exhibit['subtitle']) %></span>
