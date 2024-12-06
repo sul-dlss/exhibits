@@ -114,10 +114,6 @@ GEM
     blacklight-gallery (4.6.1)
       blacklight (>= 7.17, < 9)
       rails (>= 6.1, < 8)
-    blacklight-hierarchy (6.4.0)
-      blacklight (>= 7.18, < 9)
-      deprecation
-      rails (>= 6.1, < 7.3)
     blacklight-oembed (1.2.0)
       blacklight (>= 7.25, < 9)
       rails
@@ -904,7 +900,6 @@ DEPENDENCIES
   bibtex-ruby
   blacklight (~> 8.0)
   blacklight-gallery (~> 4.4)
-  blacklight-hierarchy
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (~> 4.4, >= 4.4.0)
   blacklight_advanced_search
