@@ -13,17 +13,17 @@
       if (citedDocList[0].innerHTML != '') return;
 
       var data = $el.data();
-      var solrQueryString = data.documentids.join(' OR ');
+      var queryIds = data.documentids.join(' ');
+
 
       $.post(data.path, {
-        q: solrQueryString,
+        ids: queryIds,
         format: 'json',
-        rows: 1000
       }, function (response) {
-        response.data.forEach(function(citedDocEntry) {
+        response.forEach(function(citedDocEntry) {
           var html = '<li class="cited-documents-body">' +
-                ' <a href="' + citedDocEntry.links.self + '">' +
-                citedDocEntry.attributes.title_full_display.attributes.value +
+                ' <a href="' + citedDocEntry['id'] + '">' +
+                citedDocEntry['title_display'] +
                 '</a>' +
                 '</li>';
           citedDocList.append(html);

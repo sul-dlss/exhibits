@@ -484,6 +484,15 @@ class CatalogController < ApplicationController
     end
   end
 
+  def documents_list
+    search_service = Blacklight::SearchService.new(config: blacklight_config)
+    ids = params[:ids].present? ? params[:ids].split : []
+    puts "DOCUMENTS LIST IDS"
+    puts ids.inspect
+    @documents = ids.empty? ? [] : search_service.fetch(ids)
+    render json: @documents
+  end
+
   class << self
     def document_has_full_text_and_search_is_query?(context, _config, document)
       context.params[:q].present? && document.full_text?
