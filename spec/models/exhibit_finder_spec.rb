@@ -23,7 +23,7 @@ RSpec.describe ExhibitFinder do
 
   describe '.search' do
     let(:exhibit) { create(:exhibit) }
-    let(:solr_connection) { instance_double('Blacklighgt::Solr::Connection') }
+    let(:solr_connection) { instance_double(Blacklighgt::Solr::Connection) }
 
     before do
       allow(Blacklight.default_index).to receive_messages(connection: solr_connection)
