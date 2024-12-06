@@ -176,12 +176,20 @@ binary-extensions@^2.0.0:
   dependencies:
     bootstrap ">=4.3.1 <6.0.0"
 
-blacklight-frontend@^8.7.0:
+"blacklight-frontend@>=7.1.0 <9", blacklight-frontend@^8.7.0:
   version "8.7.0"
   resolved "https://registry.yarnpkg.com/blacklight-frontend/-/blacklight-frontend-8.7.0.tgz#4ef0d5c984ea41addf42914dd37157f7eee3f3f5"
   integrity sha512-iDPNfD+QQo5+ZoLLl4uRXtgzvPFup4JnzAa1MnxdP+7cxkHm24cidJ+c/9UBZjk9mrOOnFdlMfWZnbX+zG+mkQ==
   dependencies:
     bootstrap ">=4.3.1 <6.0.0"
+
+blacklight-gallery@^4.5.4:
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/blacklight-gallery/-/blacklight-gallery-4.5.4.tgz#011253d73b927b73fdd2dcddc848987488cb01b9"
+  integrity sha512-hf3Hf2mcJC4kBJyh0gL5UqZZA5ZQQ3HdiQERnbs4oi2fwn1PeADIyoEU24PVRo04yPrHjG/VJRrcHTPkl9hafg==
+  dependencies:
+    blacklight-frontend ">=7.1.0 <9"
+    jquery ">=3.0"
 
 blacklight-hierarchy@^6.4.0:
   version "6.4.0"
