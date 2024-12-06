@@ -187,8 +187,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_year_tisim', label: 'Date Range', range: { chart_js: false, slider_js: false }
     config.add_facet_field 'language', label: 'Language', limit: true
     config.add_facet_field 'name_ssim', label: 'Creators/Contributors', limit: true
-    config.add_facet_field 'name_roles_ssim', label: 'Creators/Contributors by role', limit: -1,
-                                              component: Blacklight::Hierarchy::FacetFieldListComponent,
+    config.add_facet_field 'name_roles_ssim', label: 'Creators/Contributors by role', limit: -1, sort: :index,
+                                              collapsing: true, multiple: true,
+                                              component: Blacklight::NameRolesFacetHierarchyComponent,
+                                              item_component: Blacklight::FacetItemPivotComponent,
                                               item_presenter: RoleFacetItemPresenter
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
@@ -217,12 +219,6 @@ class CatalogController < ApplicationController
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
-
-    config.facet_display = {
-      hierarchy: {
-        'name_roles' => [['ssim'], '|']
-      }
-    }
 
     # Solr fields to be displayed in the search results and the show (single result) views
     #   The ordering of the field names is the order of the display
