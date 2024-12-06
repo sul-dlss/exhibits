@@ -487,8 +487,6 @@ class CatalogController < ApplicationController
   def documents_list
     search_service = Blacklight::SearchService.new(config: blacklight_config)
     ids = params[:ids].present? ? params[:ids].split : []
-    puts "DOCUMENTS LIST IDS"
-    puts ids.inspect
     @documents = ids.empty? ? [] : search_service.fetch(ids)
     render json: @documents
   end
