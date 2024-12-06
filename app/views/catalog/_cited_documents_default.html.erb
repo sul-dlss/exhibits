@@ -1,7 +1,7 @@
 <% if @document.reference? && @document.cites_other_documents? %>
   <div class='col-md-12 record-metadata-section'
        data-behavior='cited-documents-contents'
-       data-path="<%= search_exhibit_catalog_path(exhibit_id: @exhibit) %>"
+       data-path="<%= url_for([@spotlight, :documents_list]) %>"
        data-parentid="<%= @document.id %>"
        data-documentids="<%= @document.related_document_ids %>"
   >

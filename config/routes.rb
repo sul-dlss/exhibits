@@ -43,6 +43,7 @@ Exhibits::Application.routes.draw do
     end
 
     get '/search_tips' => 'catalog#search_tips'
+    post '/documents_list' => 'catalog#documents_list', as: :documents_list
 
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
