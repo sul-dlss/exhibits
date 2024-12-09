@@ -20,7 +20,7 @@ RSpec.describe 'Searching Exhibits By Title', js: true do
   end
 
   it 'provides a dropdown to choose search types' do
-    within '#site-navbar .site-search-nav' do
+    within '#site-navbar' do
       expect(page).to have_css('.dropdown-menu', visible: :hidden)
       click_button 'Find exhibits by title'
       expect(page).to have_css('.dropdown-menu', visible: :visible)
@@ -37,7 +37,7 @@ RSpec.describe 'Searching Exhibits By Title', js: true do
       IndexExhibitMetadataJob.perform_now(exhibit: exhibit1, action: 'add')
       IndexExhibitMetadataJob.perform_now(exhibit: exhibit2, action: 'add')
 
-      within '#site-navbar .site-search-nav' do
+      within '#site-navbar' do
         expect(page).to have_css('button', text: 'Find exhibits by title')
         expect(page).to have_css('[data-behavior="exhibit-search-typeahead"]', visible: :visible)
         fill_in_typeahead_field type: 'exhibit-search', with: 'Default Exhibit'
@@ -48,7 +48,7 @@ RSpec.describe 'Searching Exhibits By Title', js: true do
     it 'provides an option to search items in exhibits' do
       expect(page).not_to have_css('form input#q', visible: :visible)
 
-      within '#site-navbar .site-search-nav' do
+      within '#site-navbar' do
         click_button 'Find exhibits by title'
         click_link 'items in all exhibits'
 
