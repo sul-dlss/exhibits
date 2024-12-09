@@ -4,7 +4,6 @@ $gray-light: $gray-600; // SCT: I think gray-light switched to gray-600 in boots
 @import 'bootstrap-slider/dist/css/bootstrap-slider';
 @import "variables"; // bootstrap variable overrides
 @import "local_variables"; // custom local variables that use bootstrap variables
-// @import "blacklight_heatmaps/default";
 @import "openseadragon";
 @import "blacklight-hierarchy/app/assets/stylesheets/blacklight/hierarchy/hierarchy";  // SCT: Remove after the facet replacement has been merged.
 @import "blacklight_gallery";
@@ -18,3 +17,4 @@ $gray-light: $gray-600; // SCT: I think gray-light switched to gray-600 in boots
 @import "modules/search_across";
 @import "modules/exhibit_search_typeahead";
 @import "modules/browse";
+@import "modules/blacklight_heatmaps";

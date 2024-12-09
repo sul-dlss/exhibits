@@ -1,0 +1,11 @@
+.blacklight-heatmaps-show-map {
+  height: 500px;
+}
+
+.blacklight-heatmaps-index-map {
+  height: 500px;
+}
+
+.view-icon-heatmaps::before {
+  content: "\e135";
+}
