@@ -24,6 +24,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.2.1/jquery.serializejson.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <%= javascript_tag 'L.Icon.Default.prototype.options.imagePath = "https://unpkg.com/leaflet@1.9.4/dist/images/"' %>
     <%= javascript_include_tag 'blacklight_oembed/jquery.oembed', "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'bootstrap-tagsinput', "data-turbo-track": "reload", defer: false %>
     <%= javascript_include_tag 'bs-custom-file-input', "data-turbo-track": "reload", defer: false %>
@@ -36,6 +37,14 @@
     <%= javascript_include_tag 'openseadragon/jquery', "data-turbo-track": "reload", defer: true %>
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag 'openseadragon/rails', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'geostats', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'L.Control.Sidebar', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'leaflet_solr_heatmap', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'blacklight_heatmaps/blacklight_heatmaps', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'blacklight_heatmaps/basemaps', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'blacklight_heatmaps/icons', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'blacklight_heatmaps/viewers/index', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'blacklight_heatmaps/viewers/show', "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'exhibits/bibliography', "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'exhibits/blacklight_oembed', "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'exhibits/cited_documents', "data-turbo-track": "reload", defer: true %>
@@ -45,6 +54,7 @@
     <%= javascript_include_tag 'exhibits/sir_trevor_block_overrides', "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'exhibits/site_search_type_toggle', "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'exhibits/table_of_contents', "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'exhibits/blacklight_heatmaps_overrides', "data-turbo-track": "reload", defer: true %>
     <script type="text/javascript">
      Honeybadger.configure({
        apiKey: '<%= Honeybadger.config.get(:api_key) %>',
