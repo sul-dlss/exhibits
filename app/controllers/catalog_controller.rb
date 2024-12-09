@@ -189,7 +189,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'name_ssim', label: 'Creators/Contributors', limit: true
     config.add_facet_field 'name_roles_ssim', label: 'Creators/Contributors by role', limit: -1, sort: :index,
                                               collapsing: true, multiple: true,
-                                              component: Blacklight::NameRolesFacetHierarchyComponent,
+                                              component: NameRolesFacetHierarchyComponent,
                                               item_component: Blacklight::FacetItemPivotComponent,
                                               item_presenter: RoleFacetItemPresenter
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
