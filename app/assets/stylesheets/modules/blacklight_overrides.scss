@@ -38,7 +38,7 @@
 // TODO: override of component library facet contraint padding
 // this may no longer be needed after we remove sul-styles
 .constraint-value {
-  --bs-btn-padding-y: .375rem !important;
+  --bs-btn-padding-y: 0.375rem !important;
 }
 
 // TODO: We can remove this after we stop using blacklight-hierarchy
@@ -73,7 +73,7 @@
   .img-thumbnail,
   .document-thumbnail {
     img {
-      @include thumbnail-image-border;
+      border: var(--thumbnail-image-border);
     }
   }
 
@@ -124,4 +124,3 @@
     fill: $white;
   }
 }
-

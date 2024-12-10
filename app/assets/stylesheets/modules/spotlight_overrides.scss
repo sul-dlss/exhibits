@@ -1,6 +1,6 @@
 // Override Bootstrap 4 nav-dark link states
 #user-util-collapse {
-   :not(.dropdown-menu) > li > a {
+  :not(.dropdown-menu) > li > a {
     color: $white;
 
     &:hover,
@@ -87,7 +87,6 @@
 
 // Adjust size of page titles, headings, etc.
 .page-title,
-
 .page-header {
   font-size: 2rem;
 
@@ -176,7 +175,8 @@ h5,
 #sidebar ul.nav > li a {
   padding: 0.25rem;
 
-  .blacklight-about_pages-show & { // accommodate likely occurrence of multi-line items
+  .blacklight-about_pages-show & {
+    // accommodate likely occurrence of multi-line items
     padding-bottom: 4px;
     padding-top: 4px;
   }
@@ -227,17 +227,16 @@ h5,
   text-align: center;
 
   img {
-    @include thumbnail-image-border;
+    border: var(--thumbnail-image-border);
   }
 }
 
 .img-thumbnail > img,
 .img-thumbnail > a > img {
-  @include thumbnail-image-border;
+  border: var(--thumbnail-image-border);
 }
 
 .search-widgets {
-
   .btn {
     @extend .btn-sm;
   }
