@@ -4,6 +4,7 @@
 @import 'bootstrap-slider/dist/css/bootstrap-slider';
 @import "openseadragon";
 @import "blacklight_gallery";
+@import "modules/blacklight_heatmaps"; // Local copy of the styles from the blacklight_heatmaps gem.
 @import "sul_theme";
 @import "viewers";
 @import "modules/accessibility";
@@ -14,4 +15,3 @@
 @import "modules/search_across";
 @import "modules/exhibit_search_typeahead";
 @import "modules/browse";
-@import "modules/blacklight_heatmaps";
