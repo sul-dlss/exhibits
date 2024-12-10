@@ -28,7 +28,7 @@ RSpec.feature 'Cited manuscripts display on the bibliography show page' do
   end
 
   scenario 'cited documents element data required by async loader comes through to front end' do
-    expect(page).to have_css('div.record-metadata-section[data-path="/documents_list"]')
+    expect(page).to have_css('div.record-metadata-section[data-path="/default-exhibit/catalog/documents_list"]')
     expect(page).to have_css("div.record-metadata-section[data-parentid=\"#{resource_id}\"]")
     expect(page).to have_css('div.record-metadata-section[data-documentids]')
     expect(page.find('div.record-metadata-section[data-documentids]')['data-documentids']).to eq(citations_string)
