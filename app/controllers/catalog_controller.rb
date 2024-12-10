@@ -483,6 +483,7 @@ class CatalogController < ApplicationController
     end
   end
 
+  # Action for parker to fetch bibliography references by ID
   def documents_list
     search_service = Blacklight::SearchService.new(config: blacklight_config)
     ids = params[:ids].present? ? params[:ids].split : []
