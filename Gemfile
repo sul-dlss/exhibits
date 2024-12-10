@@ -88,8 +88,10 @@ gem 'bootstrap', '~> 5.3'
 gem 'bootstrap_form', '~> 5.4'
 gem 'blacklight', '~> 8.0'
 gem 'blacklight-gallery', '~> 4.4'
-gem 'blacklight_heatmaps', github: 'sul-dlss/blacklight_heatmaps', branch: 'master' # SCT: Switch this to > v1.3.0 once we're done with the heatmaps work.
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main' # SCT: Switch this to v5 once it's released
+# SCT: Switch this to > v1.3.0 once we're done with the heatmaps work.
+gem 'blacklight_heatmaps', github: 'sul-dlss/blacklight_heatmaps', branch: 'master'
+# SCT: Switch this to v5 once it's released
+gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 8.5'
