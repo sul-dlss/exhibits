@@ -2,7 +2,8 @@
   height: $brandbar-height;
 
   .navbar-brand {
-    background: transparent image-url("StanfordLibraries-logo-whitetext.svg") no-repeat center left;
+    background: transparent image-url("StanfordLibraries-logo-whitetext.svg")
+      no-repeat center left;
     background-size: contain;
     height: $brandbar-height;
     margin: 0;
@@ -25,8 +26,8 @@
 
     > li {
       > a {
-        padding-bottom: $brandbar-padding-vertical;
-        padding-top: $brandbar-padding-vertical;
+        padding-bottom: $spacer;
+        padding-top: $spacer;
       }
     }
   }

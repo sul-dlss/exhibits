@@ -1,8 +1,7 @@
-@import 'blacklight_range_limit/blacklight_range_limit';
-@import 'bootstrap-slider/dist/css/bootstrap-slider';
+@import "blacklight_range_limit/blacklight_range_limit";
+@import "bootstrap-slider/dist/css/bootstrap-slider";
 @import "bootstrap-tagsinput";
 @import "variables"; // bootstrap variable overrides
-@import "bootstrap-reboot";
 @import "local_variables"; // custom local variables that use bootstrap variables
 @import "blacklight_heatmaps/default";
 @import "bootstrap/scss/bootstrap";
