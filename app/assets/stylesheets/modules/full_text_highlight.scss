@@ -3,10 +3,8 @@ dt.prepared-search-container {
   color: $gray-dark;
   cursor: pointer;
   display: inline-block;
-  float: none;
   text-align: initial;
   width: auto;
-  @extend .col-12;
 
   &::after {
     border-width: 6px;
@@ -17,10 +15,9 @@ dt.prepared-search-container {
 
 dd.blacklight-full_text_tesimv {
   border-left: 1px solid $color-gray-80;
-  float: none;
   margin-left: 15px;
   margin-top: 6px;
-  @extend .col-12;
+  width: 100%;
 
   em {
     font-weight: bold;
