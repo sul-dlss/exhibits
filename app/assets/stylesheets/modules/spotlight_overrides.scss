@@ -186,7 +186,9 @@ h5,
 #sidebar ol.sidenav li.active,
 #sidebar ul.sidenav li.active a,
 #sidebar ol.sidenav li.active h2 {
-  @include sidebar-link-active();
+  font-weight: 600;
+  cursor: default;
+  text-decoration: none;
 }
 
 .blacklight-about_pages-show #sidebar {
