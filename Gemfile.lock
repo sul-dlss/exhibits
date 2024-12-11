@@ -239,6 +239,8 @@ GEM
       rexml
     csl-styles (2.0.1)
       csl (~> 2.0)
+    cssbundling-rails (1.4.1)
+      railties (>= 6.0.0)
     csv (3.3.0)
     database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
@@ -739,14 +741,6 @@ GEM
       ffi (~> 1.12)
       logger
     rubyzip (2.3.2)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     scrub_rb (1.0.1)
     securerandom (0.4.0)
     selenium-webdriver (4.27.0)
@@ -826,7 +820,6 @@ GEM
       diffy (~> 3.0)
       nokogiri (>= 1.3.2)
     thor (1.3.2)
-    tilt (2.4.0)
     timeout (0.4.2)
     tophat (2.3.1)
       actionpack (>= 3.0.0)
@@ -921,6 +914,7 @@ DEPENDENCIES
   citeproc-ruby
   config
   csl-styles
+  cssbundling-rails (~> 1.4)
   database_cleaner
   debug
   devise
@@ -964,7 +958,6 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-rspec_rails
   ruby-oembed
-  sassc-rails
   selenium-webdriver (!= 3.13.0)
   sidekiq (~> 7.0)
   sidekiq-pro (~> 7.0)!
