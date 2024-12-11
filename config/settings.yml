@@ -1,22 +1,22 @@
 superadmin_workgroups:
   - dlss:exhibits-admin
 default_contact_email: exhibits-feedback@lists.stanford.edu
-geonames_username: ''
+geonames_username: ""
 stacks:
-  iiif_url: 'https://stacks.stanford.edu/image/iiif'
-  file_url: 'https://stacks.stanford.edu/file'
+  iiif_url: "https://stacks.stanford.edu/image/iiif"
+  file_url: "https://stacks.stanford.edu/file"
 
-GOOGLE_SITE_VERIFICATION: '654321sitever'
+GOOGLE_SITE_VERIFICATION: "654321sitever"
 # Google Analytics will report in debug mode by default.
 # in shared_configs for exhibits-prod, we set this value to false.
 analytics_debug: true
 
 purl:
-  url: 'https://purl.stanford.edu/%{druid}'
-  uat_url: 'https://sul-purl-uat.stanford.edu/%{druid}'
-  iiif_manifest_url: 'https://purl.stanford.edu/%{druid}/iiif/manifest'
+  url: "https://purl.stanford.edu/%{druid}"
+  uat_url: "https://sul-purl-uat.stanford.edu/%{druid}"
+  iiif_manifest_url: "https://purl.stanford.edu/%{druid}/iiif/manifest"
 sidekiq:
-  logger_level: 'Logger::INFO' # The default from Sidekiq
+  logger_level: "Logger::INFO" # The default from Sidekiq
 feature_flags:
   themes: false
   bibliography_resource: false
@@ -44,14 +44,11 @@ nondiscoverable_exhibit_slugs:
   - exhibits-documentation
 
 exhibit_themes:
-  parker:
-    - default
-    - parker
   default:
     - default
 
 purl_fetcher:
-  url: 'https://purl-fetcher-url.example.com'
+  url: "https://purl-fetcher-url.example.com"
 
 full_text_highlight:
   fields:
@@ -62,8 +59,8 @@ full_text_highlight:
   snippet_count: 5
 
 slack_notifications:
-  default_channel: '#spotlight-service-team'
-  api_token: 'your-api-token-here'
+  default_channel: "#spotlight-service-team"
+  api_token: "your-api-token-here"
 index_status_threshold: 10
 async_javascript: false
 sidekiq_retry_queue_threshold: 100
