@@ -211,13 +211,13 @@ h5,
     > .card-header {
       background-color: $fog !important;
       .btn {
-        color: $blackish;
+        color: var(--stanford-black);
       }
     }
   }
 
   .facet-values li .selected {
-    color: $blackish !important;
+    color: var(--stanford-black) !important;
   }
 }
 
