@@ -141,7 +141,9 @@ class CatalogController < ApplicationController
                         document_component: Blacklight::Gallery::DocumentComponent,
                         icon: Blacklight::Gallery::Icons::GalleryComponent)
 
-    config.view.heatmaps(partials: [], color_ramp: ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494'])
+    config.view.heatmaps(partials: [],
+                         color_ramp: ['#ffffcc', '#a1dab4', '#41b6c4', '#2c7fb8', '#253494'],
+                         icon: BlacklightHeatmaps::Icons::HeatmapsComponent)
 
     config.view.masonry(title_only_by_default: true,
                         default_bibliography_thumbnail: 'default-square-thumbnail-book-large.png',
