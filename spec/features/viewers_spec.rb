@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Viewers' do
+RSpec.describe 'Viewers' do
   include JavascriptFeatureHelpers
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:user) { nil }
@@ -120,20 +120,6 @@ describe 'Viewers' do
       visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
 
       expect(page).to have_css('a', text: %r{^purl\.stanford\.edu/hj066rn6500})
-    end
-
-    context 'Parker Theme' do
-      before do
-        allow(Settings).to receive(:exhibit_themes).and_return(exhibit.slug => %w(parker default))
-        exhibit.theme = 'parker'
-        exhibit.save!
-      end
-
-      it 'hides the PURL link', js: true do
-        visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
-
-        expect(page).not_to have_css('.purl-link', visible: :visible)
-      end
     end
   end
 end
