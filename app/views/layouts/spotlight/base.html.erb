@@ -16,11 +16,8 @@
     <% else %>
       <%= stylesheet_link_tag "application" %>
     <% end %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/palette.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/links.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/typography.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/selected-item.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-09-04/styles/footer.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-11-21/styles/sul.css" />
+    <%= stylesheet_link_tag "component_library_overrides" %>
     <%= javascript_include_tag "application", async: Settings.async_javascript %>
     <script type="text/javascript">
      Honeybadger.configure({
@@ -40,14 +37,11 @@
     <%= javascript_tag "Spotlight.sirTrevorIcon = '#{asset_path('spotlight/blocks/sir-trevor-icons.svg')}'" %>
   </head>
   <body class="<%= render_body_class %>">
-    <nav id="skip-link" class="visually-hidden-focusable visually-hidden visually-hidden-focusable" aria-label="<%= t('blacklight.skip_links.label') %>">
-      <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
-      <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'd-inline-flex p-2 m-1', data: { turbolinks: 'false' } %>
+    <%= render blacklight_config.skip_link_component.new(render_search_link: should_render_spotlight_search_bar?) do %>
       <%= content_for(:skip_links) %>
-    </nav>
+    <% end %>
 
     <%= render partial: 'shared/header_navbar' %>
-    <%= render partial: 'shared/masthead' %>
     <%= content_for?(:header_content) ? yield(:header_content) : "" %>
 
     <main id="main-container" class="<%= container_classes %> mb-5" aria-label="<%= t('blacklight.main.aria.main_container') %>">

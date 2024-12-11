@@ -1,7 +1,6 @@
 @import "bootstrap-slider/dist/css/bootstrap-slider";
 @import "bootstrap-tagsinput";
 @import "variables"; // bootstrap variable overrides
-@import "local_variables"; // custom local variables that use bootstrap variables
 @import "blacklight_heatmaps/default";
 @import "bootstrap/scss/bootstrap";
 @import "sir-trevor/main";
@@ -17,5 +16,4 @@
 @import "modules/full_text_highlight";
 @import "modules/caret";
 @import "modules/search_across";
-@import "modules/exhibit_search_typeahead";
 @import "modules/browse";

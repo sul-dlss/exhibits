@@ -1,64 +1,7 @@
-<div id="site-navbar" class="site-navbar navbar navbar-light navbar-expand-md" role="navigation" aria-label="<%= t('spotlight.exhibitnavbar.label') %>">
-  <div class="container flex-column flex-md-row">
-    <ul class="site-search-nav navbar-nav me-auto me-md-3 me-lg-auto w-100 order-1 order-md-0 mt-3 mt-md-0">
-      <li class="navbar-item d-flex flex-grow-1">
-        <% if Settings.feature_flags.search_across || in_search_across? %>
-          <%= render SiteSearchFormComponent.new(url: helpers.search_action_url, params: helpers.search_state.params_for_search.except(:qt)) %>
-        <% end  %>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav align-self-start order-0 order-md-1">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          About
-        </a>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "How does Stanford use Spotlight?",
-          "https://exhibits.stanford.edu/exhibits-documentation/about/how-does-stanford-use-spotlight", class: 'dropdown-item' %>
-          <%= link_to "Exhibit documentation & marketing",
-          "https://exhibits.stanford.edu/exhibits-documentation", class: 'dropdown-item' %>
-          <%= link_to "https://consul.stanford.edu/x/g4A-CQ", class: 'dropdown-item' do %>
-            Request an exhibit <%= image_tag("stanford_s.png", class: "stanford-only", alt: "Stanford only") %>
-          <% end %>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="d-md-none d-lg-inline">More</span> at Stanford
-        </a>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Explore library collections at Stanford",
-                      "https://library.stanford.edu/explore-collections", class: 'dropdown-item' %>
-          <%= link_to "Special Collections & University Archives",
-                      "https://library.stanford.edu/libraries/special-collections", class: 'dropdown-item' %>
-          <%= link_to "Support the Stanford Libraries",
-                      "https://library.stanford.edu/support-stanford-libraries", class: 'dropdown-item' %>
-        </div>
-      </li>
-      <% if helpers.can?([:create, :manage], Spotlight::Exhibit) || helpers.can?(:manage, Spotlight::Site.instance) %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Admin
-          </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-            <% if helpers.can?(:create, Spotlight::Exhibit) %>
-              <%= link_to "Create a new exhibit", helpers.spotlight.new_exhibit_path, class: 'dropdown-item' %>
-            <% end %>
-
-            <%= link_to t('.documentation'), 'https://github.com/sul-dlss/spotlight/wiki/Configuration-settings', class: 'dropdown-item' %>
-
-            <% if helpers.can? :manage, Spotlight::Site.instance %>
-              <%= link_to t(:'spotlight.sites.edit.page_title'), helpers.spotlight.edit_site_path, class: 'dropdown-item' %>
-            <% end %>
-
-            <% if helpers.can? :manage, Spotlight::Exhibit %>
-              <%= link_to t(:'spotlight.sites.edit_exhibits.page_title'), helpers.spotlight.edit_site_exhibits_path, class: 'dropdown-item' %>
-              <%= link_to t(:'spotlight.admin_users.index.page_title'), helpers.spotlight.admin_users_path, class: 'dropdown-item' %>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+<div id="site-navbar" class="site-navbar mt-auto navbar navbar-light navbar-expand-md">
+  <div class="container">
+    <% if Settings.feature_flags.search_across || in_search_across? %>
+      <%= render SiteSearchFormComponent.new(url: helpers.search_action_url, params: helpers.search_state.params_for_search.except(:qt)) %>
+    <% end  %>
   </div>
 </div>
