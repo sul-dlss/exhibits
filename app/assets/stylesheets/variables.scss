@@ -10,7 +10,7 @@ $exhibit-card-border: $fog-light-90;
 
 $navbar-dark-color: lighten($gray-base, 86%);
 
-$navbar-default-bg: $fog-light;
+$navbar-default-bg: var(--stanford-fog-light);
 
 $navbar-transparent-page-bg: rgba(0, 0, 0, 0.25);
 
