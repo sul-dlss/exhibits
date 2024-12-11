@@ -26,7 +26,7 @@ describe ApplicationHelper do
       it 'renders a div with embed attribute and canvas index param' do
         expect(helper).to receive_messages(
           blacklight_config: CatalogController.blacklight_config,
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
+          current_search_session: instance_double(Search, query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
@@ -37,7 +37,7 @@ describe ApplicationHelper do
       it 'uses the q from the current_search_session to populate the suggested_search param' do
         expect(helper).to receive_messages(
           blacklight_config: CatalogController.blacklight_config,
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: { q: 'The Query' }),
+          current_search_session: instance_double(Search, query_params: { q: 'The Query' }),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
@@ -47,7 +47,7 @@ describe ApplicationHelper do
       it 'passes the maxheight from the block parameter' do
         expect(helper).to receive_messages(
           blacklight_config: CatalogController.blacklight_config,
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
+          current_search_session: instance_double(Search, query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(
@@ -62,7 +62,7 @@ describe ApplicationHelper do
     context 'an exhibit that is configured (via feature flag) to point to UAT' do
       it 'renders a div with the correct embed end-point in the data attribute' do
         expect(helper).to receive_messages(
-          current_search_session: instance_double('Blacklight::SearchSession', query_params: {}),
+          current_search_session: instance_double(Search, query_params: {}),
           feature_flags: FeatureFlags.for(create(:exhibit, slug: 'test-flag-exhibit-slug'))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
