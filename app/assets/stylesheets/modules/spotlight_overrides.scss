@@ -288,3 +288,7 @@ h5,
 .image-masthead .searchtips-link {
   text-transform: none !important;
 }
+
+.card-img-overlay {
+  --exhibit-card-overlay-bg: rgba(var(--stanford-fog-light), 0.9);
+}
