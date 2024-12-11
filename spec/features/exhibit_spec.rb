@@ -9,6 +9,12 @@ describe 'an exhibit' do
     visit '/'
   end
 
+  it 'can open a search tips modal' do
+    visit spotlight.url_for(exhibit)
+    click_on 'Search tips'
+    expect(page).to have_css('.modal-title', text: 'Search tips')
+  end
+
   it 'can enable full text fielded search' do
     exhibit.blacklight_configuration.search_fields['full_text'] = { enabled: true }
     exhibit.blacklight_configuration.save
@@ -30,7 +36,7 @@ describe 'an exhibit' do
       expect(page).to have_content 'Title: Africa'
     end
 
-    it 'can run an advanecd search' do
+    it 'can run an advanced search' do
       visit spotlight.url_for(exhibit)
       fill_in 'q', with: 'Bartholomew OR Bevan'
       click_button 'search'
