@@ -34,6 +34,7 @@ Exhibits::Application.routes.draw do
     # a document request.
     resources :exhibits, path: '/', only: [] do
       resource :catalog, only: [], as: 'catalog', controller: 'spotlight/catalog' do
+        get :search_tips
         concerns :range_searchable
         post :documents_list # Route for parker to fetch bibliography references by ID
       end
@@ -42,8 +43,6 @@ Exhibits::Application.routes.draw do
         concerns :range_searchable
       end
     end
-
-    get '/search_tips' => 'catalog#search_tips'
 
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do

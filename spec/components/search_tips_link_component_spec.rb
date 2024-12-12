@@ -3,9 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe SearchTipsLinkComponent, type: :component do
-  subject(:rendered) { Capybara::Node::Simple.new(render_inline(described_class.new)) }
+  subject(:rendered) do
+    component = described_class.new
+    allow(component).to receive(:search_tips_path).and_return('/search_tips')
+    Capybara::Node::Simple.new(render_inline(component))
+  end
 
-  it 'displays seearch tips links' do
+  it 'displays search tips links' do
     expect(rendered).to have_link('Search tips'), href: '/search_tips'
   end
 
