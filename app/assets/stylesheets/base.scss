@@ -1,13 +1,18 @@
 @import "bootstrap-slider/dist/css/bootstrap-slider";
-@import "bootstrap-tagsinput";
 @import "variables"; // bootstrap variable overrides
-@import "blacklight_heatmaps/default";
+@import "modules/blacklight_heatmaps";
 @import "bootstrap/scss/bootstrap";
-@import "sir-trevor/main";
-@import "openseadragon";
-@import "blacklight";
-@import "blacklight_gallery";
-@import "spotlight";
+@import "modules/openseadragon";
+@import "blacklight-frontend/app/assets/stylesheets/blacklight/blacklight";
+@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/gallery";
+@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/masonry";
+@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/slideshow";
+@import "blacklight-gallery/app/assets/stylesheets/blacklight_gallery/osd_viewer";
+// Note: bootstrap-tagsinput must be before spotlight/spotlight or the width
+// of the input is wrong on the item edit page
+@import "spotlight-frontend/vendor/assets/stylesheets/bootstrap-tagsinput";
+@import "spotlight-frontend/app/assets/stylesheets/spotlight/spotlight";
+@import "spotlight-frontend/vendor/assets/stylesheets/sir-trevor/main";
 @import "sul_theme";
 @import "viewers";
 @import "modules/accessibility";
