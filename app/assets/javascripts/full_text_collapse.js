@@ -36,6 +36,4 @@ Blacklight.onLoad(function(){
       }
     }
   });
-
-  $('dd.blacklight-full_text_tesimv').collapse({ toggle: false });
 });
