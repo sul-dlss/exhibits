@@ -11,8 +11,6 @@ gem 'rails', '~> 7.2'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use SCSS for stylesheets
-gem 'sassc-rails'
 # Use Puma as the app server
 gem 'puma', '~> 6.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -136,3 +134,5 @@ gem 'redis', '~> 5.0'
 gem 'recaptcha', '~> 5.17.1'
 
 gem 'rack-attack'
+
+gem 'cssbundling-rails', '~> 1.4'
