@@ -22,7 +22,6 @@
 //= require popper
 //= require twitter/typeahead
 //= require bootstrap
-//= require bs-custom-file-input
 
 //= require bibliography
 //= require cited_documents
@@ -36,6 +35,5 @@
 //= require openseadragon
 //= require spotlight
 //= require table_of_contents
-//= require custom-file-input
 //= require site_search_type_toggle
 //= require blacklight_heatmaps_overrides
