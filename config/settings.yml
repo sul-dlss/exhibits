@@ -38,7 +38,7 @@ action_mailer:
   default_url_options:
     host: "example.com"
 throttling:
-  notify_honeybadger: true
+  notify_honeybadger: false
 
 nondiscoverable_exhibit_slugs:
   - exhibits-documentation
