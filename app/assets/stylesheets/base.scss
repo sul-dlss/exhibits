@@ -1,5 +1,7 @@
+/* TODO: replace with https://github.com/sul-dlss/exhibits/pull/2707/files */
+$exhibit-card-bg: #f4f4f4e6; // fog-light @ 90%
+
 @import "bootstrap-slider/dist/css/bootstrap-slider";
-@import "variables";
 @import "modules/blacklight_heatmaps";
 @import "modules/openseadragon";
 @import "blacklight-frontend/app/assets/stylesheets/blacklight/blacklight";
