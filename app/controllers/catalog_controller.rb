@@ -219,7 +219,14 @@ class CatalogController < ApplicationController
     config.add_facet_field 'folder_name_ssi', label: 'Folder Name', limit: true
     config.add_facet_field 'donor_tags_ssim', label: 'Donor tags', limit: true
     config.add_facet_field 'doc_subtype_ssi', label: 'Document Subtype', limit: true
-    config.add_facet_field 'collection_with_title', label: 'Collection', limit: true, helper_method: :collection_title
+    config.add_facet_field 'collection_titles_ssim', label: 'Collection', limit: true
+    # Deprecated collection title field. We must keep this field because some exhibits still use it
+    # and it was used to build saved searches for browse categories.
+    # It stores the collection title prefixed with the collection druid, which is not desirable.
+    # The collection_title method strips the druid from the title.
+    # Use collection_titles_ssim instead. See https://github.com/sul-dlss/exhibits/issues/810
+    config.add_facet_field 'collection_with_title', label: 'Collection (deprecated)', limit: true,
+                                                    helper_method: :collection_title
     config.add_facet_field 'related_document_id_ssim', original: false, if: false
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -300,7 +307,15 @@ class CatalogController < ApplicationController
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
     config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
-    config.add_index_field 'collection_with_title', label: 'Collection', helper_method: :document_collection_title
+    config.add_index_field 'collection_titles_ssim', label: 'Collection'
+    # Deprecated collection title field. We must keep this field because some exhibits still use it.
+    # It stores the collection title prefixed with the collection druid, which is not desirable.
+    # The document_collection_title method strips the druid from the title.
+    # Use collection_titles_ssim instead. See https://github.com/sul-dlss/exhibits/issues/810
+    config.add_index_field 'collection_with_title', label: 'Collection (deprecated)',
+                                                    helper_method: :document_collection_title,
+                                                    show: false,
+                                                    enabled: false
     # Fields specific to Parker Exhibit
     config.add_index_field 'dimensions_ssim', label: 'Dimensions'
     config.add_index_field 'provenance_ssim', label: 'Provenance'
