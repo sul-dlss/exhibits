@@ -160,23 +160,6 @@ h5,
   padding-top: 0;
 }
 
-.facet-limit {
-  &.facet-limit-active {
-    border-color: $fog !important;
-
-    > .card-header {
-      background-color: $fog !important;
-      .btn {
-        color: var(--stanford-black);
-      }
-    }
-  }
-
-  .facet-values li .selected {
-    color: var(--stanford-black) !important;
-  }
-}
-
 .callout-danger .btn-secondary {
   @extend .btn-danger;
 }
