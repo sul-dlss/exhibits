@@ -11,6 +11,7 @@
     "bootstrap-slider": "^11.0.2",
     "leaflet": "^1.9.4",
     "leaflet-sidebar": "^0.2.4",
+    "masonry-layout": "v4",
     "nodemon": "^3.1.7",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
