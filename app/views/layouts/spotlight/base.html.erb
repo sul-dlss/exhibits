@@ -18,7 +18,7 @@
     <% end %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2024-12-18/styles/sul.css" />
     <%= stylesheet_link_tag "component_library_overrides" %>
-    <%= javascript_include_tag "application", async: Settings.async_javascript %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <script type="text/javascript">
      Honeybadger.configure({
        apiKey: '<%= Honeybadger.config.get(:api_key) %>',
