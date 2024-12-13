@@ -3,7 +3,7 @@
 # Search tips link for the catalog navbar
 class SearchTipsLinkComponent < ViewComponent::Base
   def search_tips_path
-    helpers.search_tips_exhibit_catalog_path(exhibit:)
+    helpers.search_tips_exhibit_catalog_path(exhibit_id: exhibit)
   end
 
   def exhibit
