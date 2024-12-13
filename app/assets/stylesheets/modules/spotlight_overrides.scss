@@ -209,7 +209,7 @@ h5,
   padding: 0.33rem 0.66rem;
 
   &[href="/?tag=Social+justice"] {
-    color: $cardinal-red;
+    color: var(--stanford-cardinal);
     font-weight: 700;
 
     &::before {
