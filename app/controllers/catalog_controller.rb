@@ -41,6 +41,7 @@ class CatalogController < ApplicationController
     config.skip_link_component = SkipLinkComponent
     config.exhibit_navbar_component = ExhibitNavbarComponent
     config.index.search_bar_component = ExhibitSearchBarComponent
+    config.index.dropdown_component = DropdownComponent
     config.index.default_thumbnail = :exhibits_default_thumbnail
 
     config.document_solr_request_handler = 'document'
