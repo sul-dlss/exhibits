@@ -12,14 +12,6 @@ body {
   padding: 0 0 10px 0;
 }
 
-.nav a {
-  color: $nav-link-color;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
 .nav-tabs > li.active > a {
   font-weight: 600;
 }
