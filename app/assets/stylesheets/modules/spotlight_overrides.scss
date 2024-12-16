@@ -179,6 +179,10 @@ h5,
 
   .view-type-group {
     height: $input-height-sm;
+    .active {
+      --bs-btn-active-bg: var(--stanford-digital-blue);
+      --bs-btn-active-color: white;
+    }
   }
 }
 
