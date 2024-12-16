@@ -1,0 +1,3 @@
+<%= render Spotlight::BulkActionComponent.new(bulk_actions: blacklight_config.bulk_actions, button_classes: 'btn btn-primary dropdown-toggle') %>
+
+<%= render_filtered_partials(blacklight_config.bulk_actions) %>
