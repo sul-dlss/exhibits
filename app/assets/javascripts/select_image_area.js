@@ -2,31 +2,38 @@
 /* global Blacklight */
 
 (function (global) {
-  var SelectImageArea;
-
-  SelectImageArea = {
+  const SelectImageArea = {
     init: function(el) {
-      this.panel = $(el);
+      this.panel = el;
       this.addSelectImageAreaLink();
     },
 
     addSelectImageAreaLink: function() {
-      const target = $('[data-panel-image-pagination]', this.panel);
+      const target = this.panel.querySelector('[data-panel-image-pagination]');
+      const resourceId = this.panel.dataset['resourceId'];
+      const itemId = this.panel.dataset['id'];
+      const exhibitPath = this.panel.closest('form').dataset.exhibitPath;
+      const imageUrl = this.panel.querySelector('img');
 
-      const resourceId = this.panel.data('resource-id');
-      const itemId = this.panel.data('id');
-      const exhibit_path = this.panel.closest('form')[0].dataset.exhibitPath;
-      const iiif_initial_viewer_config = $(`input[name="item[${itemId}][iiif_initial_viewer_config]"]`, this.panel)[0].value;
-      const canvas_id = $(`input[name="item[${itemId}][iiif_canvas_id]"]`, this.panel)[0].value;
-      let href = `${exhibit_path}/select_image_area/${resourceId}?form_id=${this.panel[0].id}&item_id=${itemId}&canvas_id=${canvas_id}`
-      if (iiif_initial_viewer_config && iiif_initial_viewer_config != "undefined") href += `&iiif_initial_viewer_config=${encodeURIComponent(iiif_initial_viewer_config)}`
-      const selectImageAreaHtml = $(`<a id="select-image-area" data-blacklight-modal="trigger" href="${href}">Select image area</a>`);
-      const image_url = this.panel[0].querySelector('img');
-      if (image_url.src.includes('!33')) {
-        image_url.insertAdjacentHTML('afterend', '<span id="page-2-placeholder">This section spans two pages, we can not display the thumbnail for page 2.</span>');
+      // for uploaded images, we don't want to display the select image area link
+      const fullImageUrl = this.panel.querySelector(`input[name="item[${itemId}][full_image_url]"]`);
+      if (!fullImageUrl.value || !fullImageUrl.value.includes('http')) return;
+
+      const iiifInitialViewerConfig = this.panel.querySelector(`input[name="item[${itemId}][iiif_initial_viewer_config]"]`).value;
+      const canvasId = this.panel.querySelector(`input[name="item[${itemId}][iiif_canvas_id]"]`).value;
+      let href = `${exhibitPath}/select_image_area/${resourceId}?form_id=${this.panel.id}&item_id=${itemId}`
+      if (canvasId != "undefined") href += `&canvas_id=${canvasId}`
+      if (iiifInitialViewerConfig && iiifInitialViewerConfig != "undefined") href += `&iiif_initial_viewer_config=${iiifInitialViewerConfig}`
+      const selectImageAreaHtml = document.createElement('a')
+      selectImageAreaHtml.id = "select-image-area"
+      selectImageAreaHtml.setAttribute('data-blacklight-modal', 'trigger')
+      selectImageAreaHtml.href = href
+      selectImageAreaHtml.innerHTML = 'Select image area'
+      if (imageUrl.src.includes('!33')) {
+        imageUrl.insertAdjacentHTML('afterend', '<span id="page-2-placeholder">This section spans two pages, we can not display the thumbnail for page 2.</span>');
       }
 
-      target.before(selectImageAreaHtml);
+      target.parentNode.insertBefore(selectImageAreaHtml, target);
     }
   };
 
@@ -46,16 +53,18 @@ Blacklight.onLoad(function () {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach(node => {
           if (node.nodeType === 1 && node.tagName === 'LI') {
-            SelectImageArea.init(node);
+            const isEmbed = node.closest('[data-type]').dataset.type == 'solr_documents_embed';
+            if (isEmbed) SelectImageArea.init(node);
           }
         });
       }
     }
   };
 
-  document.querySelectorAll('[data-type="solr_documents_embed"]').forEach(function(element, i) {
+  const editPageElement = document.getElementById('page-content');
+  if (editPageElement) {
     const observer = new MutationObserver(callback);
-    observer.observe(element, {childList: true, subtree: true});
-  })
+    observer.observe(editPageElement, {childList: true, subtree: true});
+  }
 });
 
