@@ -75,10 +75,6 @@ module ApplicationHelper
     sir_trevor_block&.item&.dig(0, 'iiif_initial_viewer_config')
   end
 
-  def choose_initial_viewer_config(sir_trevor_block)
-    sir_trevor_block&.items&.dig(0, 'iiif_initial_viewer_config') if sir_trevor_block.respond_to? :items
-  end
-
   def context_specific_oembed_url(document)
     if feature_flags.uat_embed? && document['druid'].present?
       format(Settings.purl.uat_url, druid: document['druid'])
