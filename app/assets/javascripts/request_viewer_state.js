@@ -12,11 +12,11 @@
       },
 
       setupRequestButton: function() {
-        $('#request-state').on('click', (event) => {
-            this.formId = event.target.dataset.formId;
-            this.itemId = event.target.dataset.itemId;
-            this.requestState();
-          });
+        document.querySelector('#request-state').addEventListener('click', (event) => {
+          this.formId = event.target.dataset.formId;
+          this.itemId = event.target.dataset.itemId;
+          this.requestState();
+        });
       },
 
       setupIframeMessageListener: function() {
