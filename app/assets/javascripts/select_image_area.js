@@ -2,9 +2,7 @@
 /* global Blacklight */
 
 (function (global) {
-  var SelectImageArea;
-
-  SelectImageArea = {
+  const SelectImageArea = {
     init: function(el) {
       this.panel = $(el);
       this.addSelectImageAreaLink();
@@ -18,7 +16,8 @@
       const exhibit_path = this.panel.closest('form')[0].dataset.exhibitPath;
       const iiif_initial_viewer_config = $(`input[name="item[${itemId}][iiif_initial_viewer_config]"]`, this.panel)[0].value;
       const canvas_id = $(`input[name="item[${itemId}][iiif_canvas_id]"]`, this.panel)[0].value;
-      let href = `${exhibit_path}/select_image_area/${resourceId}?form_id=${this.panel[0].id}&item_id=${itemId}&canvas_id=${canvas_id}`
+      let href = `${exhibit_path}/select_image_area/${resourceId}?form_id=${this.panel[0].id}&item_id=${itemId}`
+      if (canvas_id != "undefined") href += `&canvas_id=${canvas_id}`
       if (iiif_initial_viewer_config && iiif_initial_viewer_config != "undefined") href += `&iiif_initial_viewer_config=${encodeURIComponent(iiif_initial_viewer_config)}`
       const selectImageAreaHtml = $(`<a id="select-image-area" data-blacklight-modal="trigger" href="${href}">Select image area</a>`);
       const image_url = this.panel[0].querySelector('img');
@@ -46,16 +45,18 @@ Blacklight.onLoad(function () {
       if (mutation.type === 'childList') {
         mutation.addedNodes.forEach(node => {
           if (node.nodeType === 1 && node.tagName === 'LI') {
-            SelectImageArea.init(node);
+            const isEmbed = node.closest('[data-type]').dataset.type == 'solr_documents_embed';
+            if (isEmbed) SelectImageArea.init(node);
           }
         });
       }
     }
   };
 
-  document.querySelectorAll('[data-type="solr_documents_embed"]').forEach(function(element, i) {
+  const editPageElement = document.getElementById('page-content');
+  if (editPageElement) {
     const observer = new MutationObserver(callback);
-    observer.observe(element, {childList: true, subtree: true});
-  })
+    observer.observe(editPageElement, {childList: true, subtree: true});
+  }
 });
 
