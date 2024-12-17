@@ -679,9 +679,9 @@ slash@^5.0.0, slash@^5.1.0:
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
 
 spotlight-frontend@^4.5.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-4.6.0.tgz#b2f28055dcbe76399f12ab437adefd9c42d1d779"
-  integrity sha512-kAgIObrkk3bnNc+6a/d6jv87Ia+gaHFymGkbAy6GCI8m0fcoZGFs4snCMeK89rXKeuURbkH6Hes89lC4kVqKPA==
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-4.6.1.tgz#59532e7b64394b0d4ebfe480cfd703c6c86b23d0"
+  integrity sha512-JD5OsAxIFdbzJW8I9URtX6awQgAuJK1frErSOdZXE6fzSJ/DFE/8v6FzxhWyHwV2YVymhKxyWXv8dULtPQHEjg==
 
 string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"
