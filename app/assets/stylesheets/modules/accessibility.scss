@@ -5,3 +5,8 @@
     outline: $input-focus-border-color auto 5px;
   }
 }
+
+/* Needed for focus ring to wrap around the element */
+.browse-landing a {
+  display: inline-flex;
+}
