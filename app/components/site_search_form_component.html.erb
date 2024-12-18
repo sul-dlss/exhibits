@@ -1,6 +1,6 @@
 <%= form_tag @url, method: :get, class: 'search-across-form search-query-form row gx-0', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
-  <div class="col-auto search-q"></div>
-  <div class="col-auto">
+  <div class="col-auto search-q d-none d-sm-block"></div>
+  <div class="col-auto align-self-center">
     <%= render Blacklight::HiddenSearchStateComponent.new(params: helpers.search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
     <% if search_fields.length > 1 %>
       <label for="search_field" class="visually-hidden"><%= t('blacklight.search.form.search_field.label') %></label>
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <div class="col-auto">
+  <div class="col">
     <span id="exhibit-search" class="exhibit-search-typeahead site-search-type" data-behavior="site-search-type" style="display: none;">
       <auto-complete src="<%= exhibit_autocomplete_index_path %>" for="exhibit-search-popup">
         <input type="text" class="form-control" role="combobox" aria-labelledby="site-search-type" name="exhibit-search" data-behavior="exhibit-search-typeahead" />
@@ -44,9 +44,10 @@
     </span>
   </div>
 
-  <div class="col-auto">
+  <div class="col-auto align-self-center">
     <button type="submit" class="btn btn-primary d-inline" id="search">
-      <%= t('blacklight.search.form.submit') %>
+      <span class="d-none d-sm-block"><%= t('blacklight.search.form.submit') %></span>
+      <span class="d-sm-none d-block"><i class="bi bi-search"></i></span>
     </button>
   </div>
 <% end %>
