@@ -39,6 +39,7 @@ class CatalogController < ApplicationController
     # For browse category search to work it must be nil
     config.json_solr_path = nil
     config.header_component = HeaderComponent
+    config.skip_link_component = SkipLinkComponent
     config.exhibit_navbar_component = ExhibitNavbarComponent
     config.index.search_bar_component = ExhibitSearchBarComponent
     config.index.dropdown_component = DropdownComponent
