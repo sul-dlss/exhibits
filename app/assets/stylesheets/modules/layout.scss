@@ -47,8 +47,10 @@
 }
 
 .masthead {
-  small {
-    white-space: nowrap;
+  @media screen and (max-width: 576px) {
+    small {
+      @include rfs(1.25rem!important, font-size);
+    }
   }
 
   .masthead-navigation {
