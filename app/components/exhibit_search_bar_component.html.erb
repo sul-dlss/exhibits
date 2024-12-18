@@ -1,6 +1,6 @@
 <search>
   <%= form_with url: @url, local: true, method: @method, class: 'search-across-form search-query-form row gx-0', scope: @prefix, role: 'search', **@form_options do |f| %>
-    <div class="col-auto search-q"></div>
+    <div class="col-auto search-q d-none d-sm-block"></div>
     <%= render Blacklight::HiddenSearchStateComponent.new(params: @params) %>
     <% if search_fields.length > 1 %>
       <div class="col-auto pe-1 border-end border-3">
@@ -15,7 +15,7 @@
       <%= f.hidden_field :search_field, value: search_fields.first.last %>
     <% end %>
 
-    <div class="col-auto">
+    <div class="col">
       <%= f.label @query_param, scoped_t('search.label'), class: 'visually-hidden' %>
       <% if autocomplete_path.present? %>
         <auto-complete src="<%= autocomplete_path %>" for="autocomplete-popup" class="search-autocomplete-wrapper form-control <%= rounded_border_class %>">
@@ -29,7 +29,8 @@
 
     <div class="col-auto">
       <button type="submit" class="btn btn-primary d-inline" id="search">
-        <%= t('blacklight.search.form.submit') %>
+        <span class="d-none d-sm-block"><%= t('blacklight.search.form.submit') %></span>
+        <span class="d-sm-none d-block"><i class="bi bi-search"></i></span>
       </button>
     </div>
 
