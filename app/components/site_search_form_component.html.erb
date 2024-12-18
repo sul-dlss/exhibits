@@ -7,7 +7,7 @@
     <% end %>
 
     <div class="dropdown d-inline-block border-end border-3" data-behavior="site-search-type-toggle" data-enabled="<%= helpers.in_search_across? ? '#item-search' : '#exhibit-search' %>" style="display: none">
-      <button type="button" class="btn btn-outline-secondary dropdown-toggle border-0" id="site-search-type" data-bs-toggle="dropdown" aria-expanded="false">
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="site-search-type" data-bs-toggle="dropdown" aria-expanded="false">
         <% if helpers.in_search_across? %>
           <%= t('site_search_form.find_all_items') %>
         <% else %>

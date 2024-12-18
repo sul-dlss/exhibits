@@ -24,11 +24,11 @@
     }
 
     .dropdown-toggle {
-      --bs-btn-border-color: var(--stanford-black);
+      --bs-btn-border-color: transparent;
       --bs-btn-color: var(--stanford-black);
       --bs-btn-hover-color: var(--stanford-black);
-      --bs-btn-hover-border-color: var(--stanford-black);
-      --bs-btn-active-border-color: var(--stanford-black);
+      --bs-btn-hover-border-color: transparent;
+      --bs-btn-active-border-color: transparent;
       --bs-btn-active-color: var(--stanford-black);
     }
 
