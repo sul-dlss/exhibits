@@ -36,7 +36,7 @@ describe 'Exhibit Finder API' do
   end
 
   describe '#index' do
-    let(:solr_connection) { instance_double('Blacklighgt::Solr::Connection') }
+    let(:solr_connection) { double(RSolr::Client) } # rubocop:disable RSpec/VerifiedDoubles
 
     before do
       allow(Blacklight.default_index).to receive_messages(connection: solr_connection)
