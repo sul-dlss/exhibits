@@ -1,5 +1,4 @@
-//= require 'blacklight_oembed/jquery.oembed.js'
-
+import 'blacklight-oembed'
 import Blacklight from "blacklight-frontend";
 
 Blacklight.onLoad(function() {

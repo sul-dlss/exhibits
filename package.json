@@ -6,6 +6,7 @@
     "autoprefixer": "^10.4.20",
     "blacklight-frontend": "^8.7.0",
     "blacklight-gallery": "^4.6.3",
+    "blacklight-oembed": "^1.2.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "bootstrap-slider": "^11.0.2",

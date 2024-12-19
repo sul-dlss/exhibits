@@ -329,6 +329,11 @@ blacklight-gallery@^4.6.3:
     blacklight-frontend ">=7.1.0 <9"
     jquery ">=3.0"
 
+blacklight-oembed@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/blacklight-oembed/-/blacklight-oembed-1.2.0.tgz#526edcfd4e810d8211e034e15754930a464a644c"
+  integrity sha512-kCfPNmeVM+tX52goHkcgHIQ2OQGRw3vWAqe0F4mDlJmigsYLert0lbeF3OdbNar7qUjJH3I+a25qcyUY3sjV2w==
+
 bootstrap-icons@^1.11.3:
   version "1.11.3"
   resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.11.3.tgz#03f9cb754ec005c52f9ee616e2e84a82cab3084b"
