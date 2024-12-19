@@ -3,13 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe SkipLinkComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject(:rendered) { Capybara::Node::Simple.new(render_inline(described_class.new)) }
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  it { expect(rendered).to have_css('#skip-link.visually-hidden-focusable') }
+  it { expect(rendered).to have_css('a.visually-hidden-focusable.rounded-bottom', visible: false, count: 3) }
 end
