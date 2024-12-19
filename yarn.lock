@@ -526,6 +526,18 @@ normalize-range@^0.1.2:
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
+openseadragon-rails@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/openseadragon-rails/-/openseadragon-rails-1.0.4.tgz#47d41cb0e8f1c6012856eaa88c6a46d6ba8feb17"
+  integrity sha512-5ugV+QVRVMYGEk4YpNoP6OGSFiHHpqKs+RvvAhnIqwA6XbaIZKlwweeuYfnQCJeELtZAoY3yX3Cwpu7H/Y3BaQ==
+  dependencies:
+    openseadragon "^5.0.1"
+
+openseadragon@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/openseadragon/-/openseadragon-5.0.1.tgz#ad3aaccc6c0f733c3153131e9af05bc2e17a1952"
+  integrity sha512-a/hjouW9i3UfWxRADVYN2MyRhXMGnE7x9VVL7/4jXCcDLFyO4UM5o4RStYtqa5BfaHw/wMNAaD2WbxQF8f1pJg==
+
 path-type@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-5.0.0.tgz#14b01ed7aea7ddf9c7c3f46181d4d04f9c785bb8"

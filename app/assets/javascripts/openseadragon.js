@@ -1,2 +1,2 @@
-//= require openseadragon/openseadragon
+//= require openseadragon/dom
 //= require openseadragon/rails
