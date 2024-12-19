@@ -6,4 +6,10 @@ class SkipLinkComponent < Blacklight::SkipLinkComponent
   def link_classes
     'visually-hidden-focusable rounded-bottom py-2 px-3'
   end
+
+  # This overrides the <%= content %> line since the styling of that link
+  # uses the Blacklight styles by default
+  def link_to_content
+    link_to t('blacklight.skip_links.first_result'), '#documents', class: link_classes
+  end
 end
