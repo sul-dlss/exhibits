@@ -33,6 +33,7 @@
 //= require exhibit_search_typeahead
 //= require nested_related_items
 //= require openseadragon
+//= require openseadragon-rails/openseadragon-rails
 //= require spotlight
 //= require table_of_contents
 //= require site_search_type_toggle
