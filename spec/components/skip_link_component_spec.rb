@@ -3,13 +3,25 @@
 require 'rails_helper'
 
 RSpec.describe SkipLinkComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'no search results' do
+    before do
+      render_inline(described_class.new)
+    end
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    it { expect(page).to have_css('#skip-link-exhibits.visually-hidden-focusable') }
+    it { expect(page).to have_css('a.d-inline-flex.m-1', visible: false, count: 2) }
+  end
+
+  # If an existing content block is passed to this component,
+  # the component should include the link to the first result
+  describe 'with existing search results' do
+    before do
+      render_inline(described_class.new) do
+        'something'
+      end
+    end
+
+    it { expect(page).to have_css('a.d-inline-flex.m-1', visible: false, count: 3) }
+    it { expect(page).to have_link(href: '#documents') }
+  end
 end
