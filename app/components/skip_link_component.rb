@@ -10,6 +10,6 @@ class SkipLinkComponent < Blacklight::SkipLinkComponent
   # This overrides the <%= content %> line since the styling of that link
   # uses the Blacklight styles by default
   def link_to_content
-    link_to t('blacklight.skip_links.first_result'), '#documents', class: link_classes
+    link_to t('blacklight.skip_links.first_result'), '#documents', class: link_classes if content.present?
   end
 end
