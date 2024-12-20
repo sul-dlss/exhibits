@@ -4,7 +4,7 @@
 class SkipLinkComponent < Blacklight::SkipLinkComponent
   # This is only needed until we are using https://github.com/projectblacklight/blacklight/pull/3461
   def link_classes
-    'visually-hidden-focusable rounded-bottom py-2 px-3'
+    'd-inline-flex m-1 py-2 px-3'
   end
 
   # This overrides the <%= content %> line since the styling of that link
