@@ -741,10 +741,10 @@ normalize-range@^0.1.2:
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
-openseadragon-rails@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/openseadragon-rails/-/openseadragon-rails-1.0.4.tgz#47d41cb0e8f1c6012856eaa88c6a46d6ba8feb17"
-  integrity sha512-5ugV+QVRVMYGEk4YpNoP6OGSFiHHpqKs+RvvAhnIqwA6XbaIZKlwweeuYfnQCJeELtZAoY3yX3Cwpu7H/Y3BaQ==
+openseadragon-rails@1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/openseadragon-rails/-/openseadragon-rails-1.0.10.tgz#9ebf4915688939e15495255cf008ec716798f60f"
+  integrity sha512-8wo6zheGz1vW2DWODLxfW6zwLIE5aJxfz5LOKfcKSAQdUNj9sEucVsvKJHfXl0hKkSigInmZzH85tFX5OhlL+g==
   dependencies:
     openseadragon "^5.0.1"
 

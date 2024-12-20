@@ -14,7 +14,7 @@
     "leaflet-sidebar": "^0.2.4",
     "masonry-layout": "v4",
     "nodemon": "^3.1.7",
-    "openseadragon-rails": "^1.0.4",
+    "openseadragon-rails": "1.0.10",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "sass": "^1.82.0",
