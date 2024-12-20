@@ -5,3 +5,9 @@
     outline: $input-focus-border-color auto 5px;
   }
 }
+
+/* Needed for box-shadow to wrap around the entire element */
+/* Component library uses box-shadow to provide a two color focus ring */
+.browse-landing a, .browse-categories a {
+  display: inline-flex;
+}
