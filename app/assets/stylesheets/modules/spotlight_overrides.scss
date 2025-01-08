@@ -186,7 +186,7 @@ h5,
 
   &[href="/?tag=Social+justice"] {
     color: var(--stanford-cardinal);
-    font-weight: 700;
+    font-weight: 500;
 
     &::before {
       // Licensed (required to change color) from:
@@ -198,6 +198,11 @@ h5,
       vertical-align: top;
       width: 1rem;
     }
+
+    &.active {
+      font-weight: 600;
+    }
+    
   }
 }
 
@@ -219,4 +224,9 @@ h5,
 // instead of overlapping with the header. 
 #skip-link {
   position: relative !important;
+}
+
+// Allows for emphasized link weight for 'Spotlight at Stanford'
+.nav-link.emphasized {
+  font-weight: 500;
 }
