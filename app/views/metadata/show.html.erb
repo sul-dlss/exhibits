@@ -13,7 +13,7 @@
       <%= render partial: 'metadata' %>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary view-in-modal" data-bl-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-outline-primary view-in-modal" data-bl-dismiss="modal">Close</button>
       <%= link_to t('metadata.download'),
                   solr_document_path(@document, format: 'mods'),
                   class: 'btn btn-primary',

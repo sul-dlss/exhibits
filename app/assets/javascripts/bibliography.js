@@ -87,7 +87,7 @@
 
     toggleButton: function() {
       var button = $(
-        '<button class="btn btn-secondary bibliography-button">' +
+        '<button class="btn btn-primary bibliography-button">' +
           '<span data-behavior="text">Expand bibliography</span> ' +
           '<span class="bibliography-icon">»</span>' +
         '</button>'
