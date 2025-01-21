@@ -25,7 +25,7 @@
 
 //= require bibliography
 //= require cited_documents
-//= require blacklight_gallery
+//= require blacklight_gallery/blacklight-gallery
 //= require blacklight_heatmaps
 //= require blacklight_oembed
 //= require full_text_collapse

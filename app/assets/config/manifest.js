@@ -5,3 +5,4 @@
 //= link component_library_overrides.css
 //= link_tree ../builds
 //= link_tree ../../../node_modules/openseadragon/build/openseadragon/images
+//= link blacklight_gallery/manifest.js
