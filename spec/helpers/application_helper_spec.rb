@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe ApplicationHelper do
+RSpec.describe ApplicationHelper do
   let(:sir_trevor_block) { Struct.new(:item, :maxheight) }
 
   describe '#collection_title' do

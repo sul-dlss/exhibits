@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe PurlCollectionMemberDruids do
+RSpec.describe PurlCollectionMemberDruids do
   subject(:purl_collection_member_druids) { described_class.call('druid:abc123') }
 
   let(:purl_fetcher_client) { instance_double(PurlFetcher::Client::Reader) }

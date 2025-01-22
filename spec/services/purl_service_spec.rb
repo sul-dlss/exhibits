@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe PurlService do
+RSpec.describe PurlService do
   subject(:purl_service) { described_class.new('dx969tv9730', format: :mods) }
 
   let(:faraday_response) { instance_double(Faraday::Response, success?: true, body: '<mods>...</mods>') }
