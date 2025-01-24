@@ -89,7 +89,7 @@ gem 'blacklight', '~> 8.0'
 gem 'blacklight-gallery', '~> 4.8'
 gem 'blacklight_heatmaps', '~> 1.4'
 # TODO: Switch to v5 when released
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'main'
+gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', ref: 'b75148415b4b6ba4e3e54d49946fbc4dd01b1284'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 9.0'
