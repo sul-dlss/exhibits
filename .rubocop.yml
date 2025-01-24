@@ -504,7 +504,7 @@ Style/RedundantInterpolationUnfreeze: # new in 1.66
   Enabled: true
 Style/SafeNavigationChainLength: # new in 1.68
   Enabled: true
-RSpec/StringAsInstanceDoubleConstant: # new in 3.1
+RSpec/VerifiedDoubleReference: # new in 2.10
   Enabled: true
 Performance/StringBytesize: # new in 1.23
   Enabled: true
