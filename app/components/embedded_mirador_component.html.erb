@@ -1,0 +1,11 @@
+<%= content_tag :iframe, '',
+      src: iframe_src,
+      allowfullscreen: true,
+      class: 'mirador-embed-wrapper',
+      frameborder: 0,
+      marginwidth: 0,
+      marginheight: 0,
+      scrolling: 'no',
+      width: '100%'
+      %>
+<%= iiif_drag_n_drop(manifest_url, document:) %>
