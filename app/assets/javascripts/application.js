@@ -26,7 +26,6 @@
 //= require bibliography
 //= require cited_documents
 //= require blacklight_gallery/blacklight-gallery
-//= require blacklight_heatmaps
 //= require blacklight_oembed
 //= require full_text_collapse
 //= require index_status_typeahead
@@ -35,6 +34,8 @@
 //= require openseadragon
 //= require openseadragon-rails/openseadragon-rails
 //= require spotlight
+//= require L.Control.Sidebar
+//= require blacklight_heatmaps
 //= require table_of_contents
 //= require site_search_type_toggle
 //= require blacklight_heatmaps_overrides
