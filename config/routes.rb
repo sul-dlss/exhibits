@@ -44,7 +44,7 @@ Exhibits::Application.routes.draw do
       end
     end
 
-    get '/:exhibit_id/select_image_area/:id' => 'catalog#select_image_area'
+    get '/:exhibit_id/select_image_area/:id' => 'select_image_area#show'
 
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
