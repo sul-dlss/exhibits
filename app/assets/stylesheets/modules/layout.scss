@@ -47,12 +47,6 @@
 }
 
 .masthead {
-  @media screen and (max-width: 576px) {
-    small {
-      @include rfs(1.25rem!important, font-size);
-    }
-  }
-
   .masthead-navigation {
     li {
       --sul-link-font-weight: 700;
