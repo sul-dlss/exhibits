@@ -11,7 +11,7 @@ class Viewer < ApplicationRecord
             allow_blank: true
 
   def default_viewer_path
-    'oembed_default'
+    'catalog/oembed_default'
   end
 
   def to_partial_path
