@@ -1,7 +1,7 @@
 GEM
   remote: https://gems.contribsys.com/
   specs:
-    sidekiq-pro (7.3.5)
+    sidekiq-pro (7.3.6)
       sidekiq (>= 7.3.7, < 8)
 
 GEM
@@ -102,7 +102,7 @@ GEM
       racc (~> 1.7)
     bigdecimal (3.1.9)
     bindex (0.8.1)
-    blacklight (8.8.0)
+    blacklight (8.8.1)
       globalid
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
@@ -300,8 +300,8 @@ GEM
       activesupport (>= 3.0, < 9.0)
     erubi (1.13.1)
     execjs (2.10.0)
-    factory_bot (6.5.0)
-      activesupport (>= 5.0.0)
+    factory_bot (6.5.1)
+      activesupport (>= 6.1.0)
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
@@ -351,15 +351,15 @@ GEM
       grpc (~> 1.66)
     geo_coord (0.2.0)
     github-markup (5.0.1)
-    gli (2.22.1)
+    gli (2.22.2)
       ostruct
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-analytics-data (0.6.1)
+    google-analytics-data (0.7.0)
       google-analytics-data-v1beta (>= 0.11, < 2.a)
       google-cloud-core (~> 1.6)
-    google-analytics-data-v1beta (0.15.0)
-      gapic-common (>= 0.24.0, < 2.a)
+    google-analytics-data-v1beta (0.16.0)
+      gapic-common (>= 0.25.0, < 2.a)
       google-cloud-errors (~> 1.0)
     google-cloud-core (1.7.1)
       google-cloud-env (>= 1.0, < 3.a)
@@ -400,22 +400,22 @@ GEM
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (>= 0.16, < 2.a)
-    grpc (1.69.0)
+    grpc (1.70.1)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
-    grpc (1.69.0-aarch64-linux)
+    grpc (1.70.1-aarch64-linux)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
-    grpc (1.69.0-arm64-darwin)
+    grpc (1.70.1-arm64-darwin)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
-    grpc (1.69.0-x86-linux)
+    grpc (1.70.1-x86-linux)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
-    grpc (1.69.0-x86_64-darwin)
+    grpc (1.70.1-x86_64-darwin)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
-    grpc (1.69.0-x86_64-linux)
+    grpc (1.70.1-x86_64-linux)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
     hashdiff (1.1.2)
@@ -480,7 +480,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    language_server-protocol (3.17.0.3)
+    language_server-protocol (3.17.0.4)
     latex-decode (0.4.0)
     launchy (3.1.0)
       addressable (~> 2.8)
@@ -539,6 +539,7 @@ GEM
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
     multipart-post (2.4.1)
+    mutex_m (0.3.0)
     mysql2 (0.5.6)
     namae (1.2.0)
       racc (~> 1.7)
@@ -558,7 +559,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     net-ssh (7.3.0)
-    newrelic_rpm (9.16.1)
+    newrelic_rpm (9.17.0)
     nio4r (2.7.4)
     nokogiri (1.18.2)
       mini_portile2 (~> 2.8.2)
@@ -595,7 +596,7 @@ GEM
       stringio
       time
       uri
-    openseadragon (1.0.16)
+    openseadragon (1.0.17)
       rails (> 6.1.0)
     orm_adapter (0.5.0)
     os (1.1.4)
@@ -616,7 +617,7 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    puma (6.5.0)
+    puma (6.6.0)
       nio4r (~> 2.0)
     purl_fetcher-client (0.5.0)
       dor-rights-auth
@@ -625,7 +626,7 @@ GEM
       nokogiri
       stanford-mods
     racc (1.8.1)
-    rack (3.1.8)
+    rack (3.1.9)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-mini-profiler (3.3.1)
@@ -735,17 +736,17 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.71.0)
+    rubocop (1.71.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.36.2, < 2.0)
+      rubocop-ast (>= 1.38.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.37.0)
+    rubocop-ast (1.38.0)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
@@ -805,10 +806,10 @@ GEM
       gli
       hashie
     slop (4.10.1)
-    slowpoke (0.5.0)
+    slowpoke (0.6.0)
       actionpack
       rack-timeout (>= 0.6)
-      railties (>= 6.1)
+      railties (>= 7)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -857,14 +858,16 @@ GEM
     tophat (2.3.1)
       actionpack (>= 3.0.0)
     trailblazer-option (0.1.2)
-    traject (3.8.2)
+    traject (3.8.3)
       concurrent-ruby (>= 0.8.0)
+      csv
       dot-properties (>= 0.1.1)
       hashie (>= 3.1, < 6)
       http (>= 3.0, < 6)
       httpclient (~> 2.5)
       marc (~> 1.0)
       marc-fastxmlwriter (~> 1.0)
+      mutex_m
       nokogiri (~> 1.9)
       slop (~> 4.0)
       yell
