@@ -1,9 +1,9 @@
-<ul class="masthead-navigation d-flex flex-row justify-content-end list-unstyled mb-0">
+<ul class="masthead-navigation d-md-flex flex-md-row justify-content-md-end list-unstyled mb-0">
   <li class="dropdown">
     <a class="d-block dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       About
     </a>
-    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+    <div class="dropdown-menu dropdown-menu-md-end" aria-labelledby="navbarDropdownMenuLink">
       <%= link_to "How does Stanford use Spotlight?",
       "https://exhibits.stanford.edu/exhibits-documentation/about/how-does-stanford-use-spotlight", class: 'dropdown-item' %>
       <%= link_to "Exhibit documentation & marketing",
@@ -17,7 +17,7 @@
     <a class="d-block dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="d-md-none d-lg-inline">More</span> at Stanford
     </a>
-    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+    <div class="dropdown-menu dropdown-menu-md-end" aria-labelledby="navbarDropdownMenuLink">
       <%= link_to "Explore library collections at Stanford",
                   "https://library.stanford.edu/explore-collections", class: 'dropdown-item' %>
       <%= link_to "Special Collections & University Archives",
@@ -31,7 +31,7 @@
       <a class="d-block dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Admin
       </a>
-      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+      <div class="dropdown-menu dropdown-menu-md-end" aria-labelledby="navbarDropdownMenuLink">
         <% if helpers.can?(:create, Spotlight::Exhibit) %>
           <%= link_to "Create a new exhibit", helpers.spotlight.new_exhibit_path, class: 'dropdown-item' %>
         <% end %>
