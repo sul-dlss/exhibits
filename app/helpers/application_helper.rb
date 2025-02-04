@@ -72,7 +72,8 @@ module ApplicationHelper
   end
 
   def choose_initial_viewer_config(sir_trevor_block)
-    sir_trevor_block&.item&.dig(0, 'iiif_initial_viewer_config')
+    config = sir_trevor_block&.item&.dig(0, 'iiif_initial_viewer_config')
+    config unless config == 'undefined'
   end
 
   def context_specific_oembed_url(document)

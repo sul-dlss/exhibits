@@ -1,4 +1,7 @@
 SirTrevor.Blocks.SolrDocumentsEmbed = (function(){
+  const spotlightSetIiifFields = SirTrevor.Blocks.SolrDocumentsEmbed.prototype.setIiifFields
+  const spotlightItemPanelIiifFields = SirTrevor.Blocks.SolrDocumentsEmbed.prototype._itemPanelIiifFields
+
   return SirTrevor.Blocks.SolrDocumentsEmbed.extend({
     item_options: function() {
       const formId = this.formId("maxheight");
@@ -7,15 +10,22 @@ SirTrevor.Blocks.SolrDocumentsEmbed = (function(){
         `<input id="${formId}" type="number" class="form-control" placeholder="600" name="maxheight" />`
       ].join(' ');
     },
+    setIiifFields: function(panel, manifest_data, initialize) {
+      const panelElement = panel[0]
+      const itemId = panelElement.dataset.id
+      const iiifCanvasId = panelElement.querySelector(`input[name="item[${itemId}][iiif_canvas_id]"]`)
+      const oldValue = iiifCanvasId.value
+
+      spotlightSetIiifFields.call(this, panel, manifest_data, initialize)
+      if (oldValue !== iiifCanvasId.value) {
+        iiifCanvasId.dispatchEvent(new Event('change', { bubbles: false }))
+      }
+    },
     _itemPanelIiifFields: function(index, autocomplete_data) {
+      const spotliightIiifFields = spotlightItemPanelIiifFields.call(this, index, autocomplete_data)
       return [
-        '<input type="hidden" name="item[' + index + '][thumbnail_image_url]" value="' + (autocomplete_data.thumbnail_image_url || autocomplete_data.thumbnail || autocomplete_data.iiif_tilesource.replace('info.json', 'full/full/0/default.jpg')  ||  "") + '"/>',
-        '<input type="hidden" name="item[' + index + '][full_image_url]" value="' + (autocomplete_data.full_image_url || autocomplete_data.thumbnail_image_url || autocomplete_data.thumbnail || autocomplete_data.iiif_tilesource.replace('info.json', 'full/100,/0/default.jpg')  || "") + '"/>',
-        '<input type="hidden" name="item[' + index + '][iiif_tilesource]" value="' + (autocomplete_data.iiif_tilesource) + '"/>',
-        '<input type="hidden" name="item[' + index + '][iiif_manifest_url]" value="' + (autocomplete_data.iiif_manifest_url) + '"/>',
-        '<input type="hidden" name="item[' + index + '][iiif_canvas_id]" value="' + (autocomplete_data.iiif_canvas_id) + '"/>',
+        spotliightIiifFields,
         "<input type='hidden' name='item[" + index + "][iiif_initial_viewer_config]' value='" + (autocomplete_data.iiif_initial_viewer_config) + "'/>",
-        '<input type="hidden" name="item[' + index + '][iiif_image_id]" value="' + (autocomplete_data.iiif_image_id) + '"/>',
       ].join("\n");
     },
   });
