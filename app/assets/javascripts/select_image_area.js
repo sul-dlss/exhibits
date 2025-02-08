@@ -5,6 +5,8 @@ class SelectImageAreaWidget {
       this.addSelectImageAreaLink()
       this.listenForImageViewerStateUpdate()
       this.listenForMultiImageSelectorChanges()
+      this.listenForThumbnailUrl()
+      this.refreshThumbnails()
     }
   }
 
@@ -21,7 +23,8 @@ class SelectImageAreaWidget {
   get fullImageUrlInputElement() { return this.panel.querySelector(`input[name="item[${this.itemId}][full_image_url]"]`) }
   get selectImageAreaLinkElement() { return this.panel.querySelector('.select-image-area') }
   get thumbnailImageUrlInputElement() { return this.panel.querySelector(`input[name="item[${this.itemId}][thumbnail_image_url]"]`) }
-  get thumbnailImageElement() { return this.panel.querySelector('.img-thumbnail') }
+  get thumbnailImageElement() { return this.panel.querySelector('.pic .img-thumbnail') }
+  get thumbnail2ImageElement() { return this.panel.querySelector('.pic .img-thumbnail:nth-of-type(2)') }
 
   applicable() {
     return !this.isLocalImage() && !this.selectImageAreaLinkElement
@@ -61,6 +64,12 @@ class SelectImageAreaWidget {
     })
   }
 
+  listenForThumbnailUrl() {
+    this.thumbnailImageUrlInputElement.addEventListener('change', (event) => {
+      this.refreshThumbnails()
+    })
+  }
+
   listenForMultiImageSelectorChanges() {
     // These are changes to the hidden `iiif_canvas_id` field that Spotlight's
     // multi-image selector makes.
@@ -76,15 +85,37 @@ class SelectImageAreaWidget {
     const canvasId = windows[viewerKey]['canvasId']
     const iiifViewerConfig = JSON.stringify(viewers[viewerKey])
     const iiifImageUrl = iiif_images[0]
-    const thumbnailUrl = iiifImageUrl.replace('full', '!100,100')
 
     this.iiifCanvasIdElement.value = canvasId
     this.iiifViewerConfigElement.value = iiifViewerConfig
     this.fullImageUrlInputElement.value = iiifImageUrl
-    this.thumbnailImageUrlInputElement.value = thumbnailUrl
-    this.thumbnailImageElement.src = `${thumbnailUrl}?${new Date().getTime()}`
+    this.thumbnailImageUrlInputElement.value = this.makeThumbnailUrl(iiif_images)
+    this.refreshThumbnails()
     this.setCurrentPaginationImage(canvas_index)
     this.updateSelectImageAreaLink()
+  }
+
+  makeThumbnailUrl(iiifImageUrls) {
+    const size = iiifImageUrls.length == 1 ? '/!100,100/' : '/!50,50/'
+    const thumbs = iiifImageUrls.map(image => image.replace(/\/full\//, size))
+    return thumbs.join("#")
+  }
+
+  refreshThumbnails() {
+    if (!this.thumbnailImageUrlInputElement.value) return
+
+    const [first, second] = this.thumbnailImageUrlInputElement.value.split("#")
+    const picElement = this.panel.querySelector(".pic")
+
+    picElement.classList.add('d-flex', 'p-2')
+    this.thumbnail2ImageElement?.remove()
+    this.thumbnailImageElement.src = `${first}?${new Date().getTime()}`
+    if (!second) return
+
+    const thumbnail2 = document.createElement('img')
+    thumbnail2.classList.add('img-thumbnail')
+    thumbnail2.src = `${second}?${new Date().getTime()}`
+    this.thumbnailImageElement.after(thumbnail2)
   }
 
   setCurrentPaginationImage(index) {
