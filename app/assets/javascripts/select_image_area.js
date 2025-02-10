@@ -107,7 +107,7 @@ class SelectImageAreaWidget {
     const [first, second] = this.thumbnailImageUrlInputElement.value.split("#")
     const picElement = this.panel.querySelector(".pic")
 
-    picElement.classList.add('d-flex', 'p-2')
+    picElement.classList.add('d-flex')
     this.thumbnail2ImageElement?.remove()
     this.thumbnailImageElement.src = `${first}?${new Date().getTime()}`
     if (!second) return
