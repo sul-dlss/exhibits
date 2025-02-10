@@ -161,8 +161,8 @@ class SelectImageArea {
 
   constructor(editor) {
     this.editor = editor
-    this.blockSelector = '[data-type="solr_documents_embed"] [data-behavior="nestable"]'
-    this.panelSelector = ".field"
+    this.blockSelector = '.st-block[data-type="solr_documents_embed"]'
+    this.panelSelector = ".panels .field[data-resource-id]"
   }
 
   setup() {
@@ -177,12 +177,15 @@ class SelectImageArea {
 
   handleNewBlocks() {
     this.editor.mediator.on('block:created', (e) => {
-      this.addSirTrevorPanelChangeHandler(e.el)
+      if (e.el.matches(this.blockSelector)) {
+        this.addSirTrevorPanelChangeHandler(e.el)
+      }
     })
   }
 
   handleNewPanelsInExistingBlocks() {
-    this.addSirTrevorPanelChangeHandler(document)
+    const existingBlocks = document.querySelectorAll(this.blockSelector)
+    existingBlocks.forEach(block => this.addSirTrevorPanelChangeHandler(block))
   }
 
   createSelectImageAreaWidgets(blockElement) {
@@ -191,7 +194,7 @@ class SelectImageArea {
 
   addSirTrevorPanelChangeHandler(element) {
     // Spotlight's Sir Trevor blocks use jQuery events.
-    $(element).find(this.blockSelector).on('change', (block) => {
+    $(element).on('change', (block) => {
       this.createSelectImageAreaWidgets(block.target)
     })
   }
