@@ -161,7 +161,7 @@ class SelectImageArea {
 
   constructor(editor) {
     this.editor = editor
-    this.blockSelector = '[data-behavior="nestable"]'
+    this.blockSelector = '[data-type="solr_documents_embed"] [data-behavior="nestable"]'
     this.panelSelector = ".field"
   }
 
