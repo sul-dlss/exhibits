@@ -517,8 +517,7 @@ class CatalogController < ApplicationController
     end
     respond_to do |format|
       format.html do
-        return render layout: false if request.xhr?
-        # Otherwise draw the full page
+        return render layout: false
       end
     end
   end
