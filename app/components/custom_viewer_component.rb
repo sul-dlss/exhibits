@@ -13,10 +13,12 @@ class CustomViewerComponent < Blacklight::Component
     @document = document
     @presenter = presenter
     @view_config = view_config
-    @block_context = correct_block(block_context)
+    @block_context = block_for_document(block_context)
   end
 
-  def correct_block(block_context)
+  private
+
+  def block_for_document(block_context)
     item = block_context&.item&.select { |_key, value| value['id'] == @document.id }
     SirTrevorBlock.new(maxheight: block_context&.maxheight, item: item&.values)
   end
