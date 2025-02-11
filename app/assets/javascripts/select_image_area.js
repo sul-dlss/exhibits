@@ -76,6 +76,7 @@ class SelectImageAreaWidget {
     this.iiifCanvasIdElement.addEventListener('change', (event) => {
       this.resetIiifViewerConfig()
       this.updateSelectImageAreaLink()
+      this.refreshThumbnails()
     })
   }
 
@@ -102,13 +103,15 @@ class SelectImageAreaWidget {
   }
 
   refreshThumbnails() {
+    // Spotlight's multi-image selector doesn't know about the second page thumbnail.
+    // Remove it on refresh even if the thumbnail URL isn't available.
+    this.thumbnail2ImageElement?.remove()
     if (!this.thumbnailImageUrlInputElement.value) return
 
     const [first, second] = this.thumbnailImageUrlInputElement.value.split("#")
     const picElement = this.panel.querySelector(".pic")
 
     picElement.classList.add('d-flex')
-    this.thumbnail2ImageElement?.remove()
     this.thumbnailImageElement.src = `${first}?${new Date().getTime()}`
     if (!second) return
 
