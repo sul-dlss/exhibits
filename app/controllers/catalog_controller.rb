@@ -193,7 +193,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_year_w_approx_isi', label: 'Date', limit: true
     config.add_facet_field 'pub_year_no_approx_isi', label: 'Date (no approx)', limit: true
     config.add_facet_field 'place_created_ssim', label: 'Place created', limit: true
-    config.add_facet_field 'pub_year_tisim', label: 'Date Range', range: { chart_js: false, slider_js: false }
+    config.add_facet_field 'pub_year_tisim', label: 'Date Range', range: { chart_js: true }
     config.add_facet_field 'language', label: 'Language', limit: true
     config.add_facet_field 'name_ssim', label: 'Creators/Contributors', limit: true
     config.add_facet_field 'name_roles_ssim', label: 'Creators/Contributors by role', limit: -1, sort: :index,
