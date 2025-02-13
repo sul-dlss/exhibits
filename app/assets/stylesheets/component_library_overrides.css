@@ -21,6 +21,9 @@
 .navbar-nav {
   --bs-nav-link-color: black;
 }
+.fog-light {
+  --bs-light-rgb: var(--stanford-fog-light-rgb);
+}
 
 /* makes the hr span the length of the screen */
 .navbar-collapse hr {
