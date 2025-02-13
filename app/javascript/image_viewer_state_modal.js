@@ -1,3 +1,5 @@
+import oEmbed from "blacklight-oembed"
+
 class ImageViewerStateModal {
   constructor() {
     this.listenForModal()
@@ -12,9 +14,7 @@ class ImageViewerStateModal {
     document.addEventListener('loaded.blacklight.blacklight-modal', (e) => {
       if (this.saveViewerStateElement) {
         this.listenForSaveRequest()
-
-        // TODO: After the jsbundling-rails PR is merged, import blacklight-oembed, avoid jquery/scope selector to the modal.
-        $('[data-embed-url]').oEmbed()
+        oEmbed(document.querySelectorAll('[data-embed-url]'))
       }
     })
   }
@@ -73,7 +73,6 @@ class ImageViewerStateModal {
   }
 }
 
-// TODO: This can be moved and the class exported after the jsbundling-rails PR is merged.
 document.addEventListener('DOMContentLoaded', () => {
   new ImageViewerStateModal()
 })

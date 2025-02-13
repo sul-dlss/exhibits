@@ -25,6 +25,8 @@ import './nested_related_items'
 import 'openseadragon-rails'
 import './table_of_contents'
 import './site_search_type_toggle'
+import './image_viewer_state_modal'
+import './select_image_area'
 
 import BlacklightRangeLimit from "blacklight-range-limit";
 BlacklightRangeLimit.init({onLoadHandler: Blacklight.onLoad });
