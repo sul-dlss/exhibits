@@ -1,42 +1,3 @@
-GIT
-  remote: https://github.com/projectblacklight/spotlight.git
-  revision: b75148415b4b6ba4e3e54d49946fbc4dd01b1284
-  ref: b75148415b4b6ba4e3e54d49946fbc4dd01b1284
-  specs:
-    blacklight-spotlight (5.0.0.alpha)
-      activejob-status
-      acts-as-taggable-on (>= 5.0, < 13)
-      blacklight (>= 8.7.0, < 9)
-      blacklight-gallery (>= 3.0, < 5)
-      bootstrap_form (>= 4.1, < 6)
-      cancancan
-      carrierwave (~> 2.2)
-      csv
-      devise (~> 4.9)
-      devise_invitable
-      faraday
-      faraday-follow_redirects
-      friendly_id (~> 5.5)
-      github-markup
-      google-analytics-data
-      i18n
-      i18n-active_record
-      iiif-presentation
-      iiif_manifest
-      mini_magick
-      nokogiri
-      oauth2
-      openseadragon (>= 0.8.0)
-      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
-      paper_trail (>= 11.0, < 17)
-      rails (>= 7.1, < 9)
-      redcarpet (>= 2.0.1, < 4)
-      riiif (~> 2.0)
-      roar (~> 1.1)
-      roar-rails
-      signet
-      view_component (>= 2.66, < 4)
-
 GEM
   remote: https://gems.contribsys.com/
   specs:
@@ -157,6 +118,39 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
+    blacklight-spotlight (5.0.0.pre.alpha1)
+      activejob-status
+      acts-as-taggable-on (>= 5.0, < 13)
+      blacklight (>= 8.7.0, < 9)
+      blacklight-gallery (>= 3.0, < 5)
+      bootstrap_form (>= 4.1, < 6)
+      cancancan
+      carrierwave (~> 2.2)
+      csv
+      devise (~> 4.9)
+      devise_invitable
+      faraday
+      faraday-follow_redirects
+      friendly_id (~> 5.5)
+      github-markup
+      google-analytics-data
+      i18n
+      i18n-active_record
+      iiif-presentation
+      iiif_manifest
+      mini_magick
+      nokogiri
+      oauth2
+      openseadragon (>= 0.8.0)
+      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
+      paper_trail (>= 11.0, < 17)
+      rails (>= 7.1, < 9)
+      redcarpet (>= 2.0.1, < 4)
+      riiif (~> 2.0)
+      roar (~> 1.1)
+      roar-rails
+      signet
+      view_component (>= 2.66, < 4)
     blacklight_advanced_search (8.0.0.alpha2)
       blacklight (>= 7.15, < 9)
       parslet
@@ -447,8 +441,8 @@ GEM
       json
     iiif_manifest (1.6.0)
       activesupport (>= 4)
-    image_processing (1.13.0)
-      mini_magick (>= 4.9.5, < 5)
+    image_processing (1.14.0)
+      mini_magick (>= 4.9.5, < 6)
       ruby-vips (>= 2.0.17, < 3)
     io-console (0.8.0)
     irb (1.15.1)
@@ -521,7 +515,9 @@ GEM
       logger
       mime-types-data (~> 3.2015)
     mime-types-data (3.2025.0204)
-    mini_magick (4.13.2)
+    mini_magick (5.1.2)
+      benchmark
+      logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
     minitar (1.0.2)
@@ -937,7 +933,7 @@ DEPENDENCIES
   blacklight (~> 8.0)
   blacklight-gallery (~> 4.8)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight!
+  blacklight-spotlight (= 5.0.0.pre.alpha1)
   blacklight_advanced_search
   blacklight_heatmaps (~> 1.4)
   blacklight_range_limit (~> 9.0)

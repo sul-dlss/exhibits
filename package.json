@@ -28,7 +28,7 @@
     "sass": "^1.82.0",
     "sir-trevor": "^0.8.2",
     "sortablejs": "^1.15.6",
-    "spotlight-frontend": "github:projectblacklight/spotlight#b75148415b4b6ba4e3e54d49946fbc4dd01b1284",
+    "spotlight-frontend": "5.0.0-alpha1",
     "typeahead.js": "^0.11.1"
   },
   "scripts": {
