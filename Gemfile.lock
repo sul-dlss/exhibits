@@ -118,7 +118,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (5.0.0.pre.alpha1)
+    blacklight-spotlight (5.0.0.pre.alpha2)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 13)
       blacklight (>= 8.7.0, < 9)
@@ -914,7 +914,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.2)
-    zeitwerk (2.7.1)
+    zeitwerk (2.7.2)
 
 PLATFORMS
   aarch64-linux
