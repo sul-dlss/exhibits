@@ -11,8 +11,6 @@ module Spotlight
       main_app.search_search_across_url(*)
     end
 
-    def blacklight_config
-      SearchAcrossController.blacklight_config
-    end
+    delegate :blacklight_config, to: :SearchAcrossController
   end
 end

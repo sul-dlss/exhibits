@@ -73,9 +73,7 @@ class Purl
 
   delegate :dor_content_type, to: :public_xml_record
 
-  def logger
-    Rails.logger
-  end
+  delegate :logger, to: :Rails
 
   private
 
