@@ -82,6 +82,7 @@ table#exhibit-specific-fields .field-label {
 }
 
 .exhibit-card {
+  --bs-card-bg: var(--stanford-fog-light);
   overflow-y: hidden;
 
   .card-title a:hover {
@@ -89,7 +90,8 @@ table#exhibit-specific-fields .field-label {
   }
 
   .card-img-overlay {
-    max-height: 100%;
+    --exhibit-card-overlay-opacity: 0.9;
+    --exhibit-card-overlay-rgb: var(--stanford-fog-light-rgb);
   }
 
   &:hover,
