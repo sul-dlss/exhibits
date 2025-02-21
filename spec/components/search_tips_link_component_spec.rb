@@ -10,7 +10,7 @@ RSpec.describe SearchTipsLinkComponent, type: :component do
   end
 
   it 'displays search tips links' do
-    expect(rendered).to have_link('Search tips'), href: '/search_tips'
+    expect(rendered).to have_link 'Search tips', href: '/search_tips'
   end
 
   it 'displays info icon' do
