@@ -6,20 +6,8 @@
 
 <div class="masthead bg-light fog-light mb-0 pb-2">
   <div class="container d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-md-center align-items-start">
-    <div class="">
-      <h1 class="site-title h2">
-        <% if content_for? :masthead %>
-            <%= content_for :masthead %>
-        <% else %>
-            <%= masthead_heading_content %>
-        <% end %>
-      </h1>
-
-      <% if masthead_subheading_content %>
-        <small class="py-2 fs-4"><%= masthead_subheading_content %></small>
-      <% end %>
-    </div>
-
+    <%= render MastheadTitleComponent.new(title: content_for(:masthead) || masthead_heading_content, subtitle: masthead_subheading_content) %>
+    
     <div class="align-self-md-end align-self-start">
       <div class="collapse d-md-flex me-md-2"
         aria-label="browse" id="user-util-collapse">
