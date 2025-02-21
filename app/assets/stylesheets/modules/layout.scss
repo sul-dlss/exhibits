@@ -47,6 +47,10 @@
 }
 
 .masthead {
+  .masthead-title a {
+    --bs-link-hover-decoration: none;
+  }
+
   .masthead-navigation {
     li {
       --sul-link-font-weight: 700;
