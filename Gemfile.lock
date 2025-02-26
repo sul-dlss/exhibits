@@ -118,12 +118,12 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (5.0.0.pre.alpha2)
+    blacklight-spotlight (5.0.0.pre.alpha3)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 13)
       blacklight (>= 8.7.0, < 9)
       blacklight-gallery (>= 3.0, < 5)
-      bootstrap_form (>= 4.1, < 6)
+      bootstrap_form (>= 5.4, < 6)
       cancancan
       carrierwave (~> 2.2)
       csv
@@ -243,7 +243,7 @@ GEM
       time (< 1.0)
     csl-styles (2.0.1)
       csl (~> 2.0)
-    cssbundling-rails (1.4.1)
+    cssbundling-rails (1.4.2)
       railties (>= 6.0.0)
     csv (3.3.2)
     database_cleaner (2.1.0)
@@ -690,7 +690,7 @@ GEM
     rdoc (6.12.0)
       psych (>= 4.0.0)
     recaptcha (5.17.1)
-    redcarpet (3.6.0)
+    redcarpet (3.6.1)
     redis (5.4.0)
       redis-client (>= 0.22.0)
     redis-client (0.23.2)
@@ -742,7 +742,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.72.2)
+    rubocop (1.73.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -753,7 +753,7 @@ GEM
       rubocop-ast (>= 1.38.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.38.0)
+    rubocop-ast (1.38.1)
       parser (>= 3.3.1.0)
     rubocop-capybara (2.21.0)
       rubocop (~> 1.41)
@@ -849,7 +849,7 @@ GEM
       net-ssh (>= 2.8.0)
       ostruct
     ssrf_filter (1.2.0)
-    stanford-mods (3.3.9)
+    stanford-mods (3.3.10)
       activesupport
       mods (~> 3.0, >= 3.0.4)
     stimulus-rails (1.3.4)
@@ -889,7 +889,7 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
-    uri (1.0.2)
+    uri (1.0.3)
     useragent (0.16.11)
     version_gem (1.1.6)
     view_component (3.21.0)
