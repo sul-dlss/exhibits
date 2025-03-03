@@ -102,7 +102,7 @@ GEM
       racc (~> 1.7)
     bigdecimal (3.1.9)
     bindex (0.8.1)
-    blacklight (8.8.2)
+    blacklight (8.8.3)
       globalid
       i18n (>= 1.7.0)
       jbuilder (~> 2.7)
@@ -742,7 +742,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.73.0)
+    rubocop (1.73.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -763,7 +763,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-rails (2.30.2)
+    rubocop-rails (2.30.3)
       activesupport (>= 4.2.0)
       lint_roller (~> 1.1)
       rack (>= 1.1)
@@ -876,7 +876,7 @@ GEM
       nokogiri (~> 1.9)
       slop (~> 4.0)
       yell
-    turbo-rails (2.0.11)
+    turbo-rails (2.0.12)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     twitter-typeahead-rails (0.11.1.pre.corejavascript)
@@ -1019,4 +1019,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   2.5.23
+   2.6.5
