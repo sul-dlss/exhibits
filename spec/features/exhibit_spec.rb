@@ -71,4 +71,15 @@ describe 'an exhibit' do
       end
     end
   end
+
+  describe 'feedback form', js: true do
+    it 'can be shown and hidden' do
+      visit spotlight.new_exhibit_resource_path(exhibit)
+
+      click_on 'Feedback'
+      expect(page).to have_css('#report-problem-form')
+      click_on 'Cancel'
+      expect(page).not_to have_css('#report-problem-form')
+    end
+  end
 end
