@@ -72,7 +72,7 @@ describe 'an exhibit' do
     end
   end
 
-  describe 'feedback form', js: true do
+  describe 'feedback form', :js do
     it 'can be shown and hidden' do
       visit spotlight.new_exhibit_resource_path(exhibit)
 
