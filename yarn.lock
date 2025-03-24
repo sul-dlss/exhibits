@@ -1000,10 +1000,10 @@ sortablejs@^1.15.3, sortablejs@^1.15.6:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
 
-spotlight-frontend@^5.0.0-alpha1:
-  version "5.0.0-alpha3"
-  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-5.0.0-alpha3.tgz#958ffd946f048cde7cc1375678f8fecafc002a1e"
-  integrity sha512-nEKXgdYeI4wdKR5fCWX30s+MLGp0ez93YypwbiP5QGJSslJFQysXR5t1PBrJmyU9+/LKZF5jy86ByU91doxUvA==
+spotlight-frontend@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-5.0.0.tgz#1a2ce01829e11060504e7ecee0547096f9f160e7"
+  integrity sha512-r9ZFUjj+SvqkSnY6zjASS26MV3uoCUPun4b7QOxb1KMjh17CZT3yxKhD9MvoRCmtAQU3MCGMnONYIArceo2CoQ==
   dependencies:
     blacklight-frontend "^8.4.0"
     bootstrap ">=4.3.1 <6.0.0"
