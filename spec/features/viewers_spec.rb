@@ -91,8 +91,16 @@ RSpec.describe 'Viewers' do
       expect(page).to have_css 'iframe[src*=embed]'
       expect(page).not_to have_css '.oembed-widget'
     end
-    # rubocop:disable RSpec/ExampleLength
 
+    it 'includes the canvas id if present' do
+      visit spotlight.exhibit_solr_document_path(exhibit, 'canvas-0bee90257618b296e882b1881e86a751')
+      expect(page).to(
+        have_css('iframe[src*=canvas_id\=https\%3A\%2F\%2Fdms-data\.stanford\.edu\%2Fdata\%2F' \
+                 'manifests\%2FParker\%2Fbg021sq9590\%2Fcanvas\%2Fcanvas-9]')
+      )
+    end
+
+    # rubocop:disable RSpec/ExampleLength
     pending 'renders default viewer on configured widget feature page', js: true do
       visit spotlight.edit_exhibit_feature_page_path(exhibit, feature_page)
 
