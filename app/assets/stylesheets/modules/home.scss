@@ -2,3 +2,13 @@
   padding-bottom: 6px;
   padding-left: 3px;
 }
+
+.rosette-icon {
+  background: url('https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2025-01-24/styles/icon.svg') no-repeat center left;
+  background-size: 24px;
+  padding-left: 28px;
+
+  @include media-breakpoint-up(md) {
+    padding-left: 20px;
+  }
+}
