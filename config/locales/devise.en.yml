@@ -20,7 +20,7 @@ en:
       confirmation_instructions:
         subject: "Confirmation instructions"
       invitation_instructions:
-        subject: 'Spotlight at Stanford Exhibits - Confirmation Instructions'
+        subject: 'Spotlight Exhibits - Confirmation Instructions'
       reset_password_instructions:
         subject: "Reset password instructions"
       unlock_instructions:
