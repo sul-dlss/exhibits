@@ -1,6 +1,7 @@
 # Used to send extracted images with metadata to Gemini for alt text generation
 # This is actually run in Vertext AI Google Collab Notebook in Google Cloud
 # see https://github.com/sul-dlss/exhibits/issues/2816
+# and https://docs.google.com/document/d/1Ryni3j19v6wKMwqfDmKYzIElDsY4lFGfJhbeezVPJ4I
 
 import vertexai
 import csv
@@ -15,18 +16,6 @@ from vertexai.generative_models import (
     HarmCategory,
     HarmBlockThreshold,
 )
-model_id = 'gemini-1.5-pro'
-safety_settings = {
-    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-    HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY: HarmBlockThreshold.BLOCK_ONLY_HIGH,
-}
-model = GenerativeModel(
-    model_id,
-    safety_settings=safety_settings,
-)
 
 # Define project information
 PROJECT_ID = "sul-ai-sandbox"  # @param {type:"string"}
@@ -35,6 +24,20 @@ BUCKET_NAME = "cloud-ai-platform-e215f7f7-a526-4a66-902d-eb69384ef0c4"
 DIRECTORY = "exhibits-alt-text/pilot-2"
 INPUTFILE = f'{DIRECTORY}/images.csv'
 OUTPUTFILE = f'{DIRECTORY}/output/generated-text.csv'
+MODEL_ID = "gemini-1.5-pro"
+TEST_LIMIT = 10 # limit the number of images to process for testing, set to None to process all
+
+safety_settings = {
+    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+}
+model = GenerativeModel(
+    MODEL_ID,
+    safety_settings=safety_settings,
+)
 
 # Initialize Vertex AI
 vertexai.init(project=PROJECT_ID, location=LOCATION)
@@ -57,7 +60,7 @@ def process_document(
 
     try:
       # Send to Gemini
-      print("...sending to Gemini")
+      print(f"...sending to #{MODEL_ID}")
       response = model.generate_content(contents)#, generation_config=generation_config)
 
       return response.text.rstrip()
@@ -75,14 +78,13 @@ def get_blob(blob_name):
   return bucket.blob(blob_name)
 
 def description(exhibit_name, exhibit_description, extra_text, file_uri):
-  print(file_uri)
-  prompt = f"""
-  This is an image from the Stanford University exhibit entitled "{exhibit_name}".
-  This exhibit is about: {exhibit_description}.
-  This image has some extra descriptive text which appears next to the image which may be about the image: {extra_text}.
-  Please briefly describe what is pictured in the image. Limit your response to 150 characters or fewer.
-  Please avoid starting the description with "This is a photo of..." or "This is an image of...", just say what it is in the image."""
-  print(prompt)
+  prompt = ""
+  prompt += f"""This is an image from the Stanford University exhibit entitled "{exhibit_name}"."""
+  prompt += f"""This exhibit is about: {exhibit_description}."""
+  if extra_text or not extra_text.isspace():
+    prompt += f"""This image has some extra descriptive text which appears next to the image which may be about the image: {extra_text}."""
+  prompt += "Please briefly describe what is pictured in the image. Limit your response to 150 characters or fewer."
+  prompt += """Please avoid starting the description with "This is a photo of..." or "This is an image of...", just say what it is in the image."""
   return process_document(prompt, file_uri)
 
 csv_buffer = StringIO()
@@ -97,7 +99,6 @@ with get_blob(INPUTFILE).open() as csvfile:
   reader = csv.reader(csvfile)
 
   next(reader) # skip headers
-  print("Processing...")
   count = 0
   for row in reader:
     count += 1
@@ -108,6 +109,9 @@ with get_blob(INPUTFILE).open() as csvfile:
     print(f"{count} : {file_uri}")
     writer.writerow([row[0], description(exhibit_name, exhibit_description, extra_text, file_uri)])
     print()
+    if TEST_LIMIT and count >= TEST_LIMIT:
+      print(f"Test limit reached: {TEST_LIMIT}")
+      break
 
 print(f"Completed {count} rows")
 # Get the CSV content as a string

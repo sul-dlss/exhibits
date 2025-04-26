@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 require 'csv'
+
+# rubocop:disable Metrics/BlockLength
 namespace :alt_text do
   # Used to extract images that do not have alt text from exhibits for use in AI label experiment
   # Put list of exhibit titles in a file called tmp/exhibits.csv, one title per line (no header)
   # The output will be written to a file called tmp/images.csv
   # see https://github.com/sul-dlss/exhibits/issues/2816
+  # and https://docs.google.com/document/d/1Ryni3j19v6wKMwqfDmKYzIElDsY4lFGfJhbeezVPJ4I
   desc 'Export images that do not have alt text from specified exhibits'
   task export_images: :environment do
     base_url = 'https://exhibits.stanford.edu'
@@ -57,7 +60,7 @@ namespace :alt_text do
     end
 
     puts "Downloading images from #{output_filename} to #{output_image_folder}"
-    FileUtils.mkdir_p(output_image_folder) unless Dir.exist?(output_image_folder)
+    FileUtils.mkdir_p(output_image_folder)
 
     CSV.foreach(output_filename, headers: true).with_index(1) do |row, n|
       url = row['image url']
@@ -67,3 +70,4 @@ namespace :alt_text do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
