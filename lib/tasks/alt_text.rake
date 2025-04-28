@@ -25,8 +25,8 @@ namespace :alt_text do
     puts "Exporting images from #{total_exhibits} exhibits listed in #{exhibits_filename} to #{output_filename}"
     exhibits = Spotlight::Exhibit.where(title: exhibit_titles)
     CSV.open(output_filename, 'wb') do |csv|
-      csv << ['Exhibit', 'Exhibit description', 'Page title', 'Extra Text', 'image caption', 'exhibit slug', 'page slug', 'page url',
-              'image url']
+      csv << ['Exhibit', 'Exhibit description', 'Page title', 'Extra Text', 'image caption', 'exhibit slug',
+              'page slug', 'page url', 'image url']
       puts "Found #{exhibits.size} exhibits"
       exhibits.each do |exhibit|
         puts "Exporting images from exhibit: #{exhibit.title}"
@@ -45,12 +45,12 @@ namespace :alt_text do
             images = block.item || {}
             images_without_alt = images.values.select { |img| img['alt_text'].blank? && img['decorative'].blank? }
             images_without_alt.each do |img|
-              url = img['url'] || img['full_image_url'].presence || img['iiif_tilesource'].sub('info.json',
-                                                                                         '/full/!400,400/0/default.jpg')
+              url = img['url'] || img['full_image_url'].presence ||
+                    img['iiif_tilesource'].sub('info.json', '/full/!400,400/0/default.jpg')
               next if url.blank? || url == 'undefined' # Likely a media item. Not an image.
-              csv << [exhibit.title, exhibit.description, page.title, extra_text, img['caption'], exhibit.slug, page.slug, page_url,
-                      url]
 
+              csv << [exhibit.title, exhibit.description, page.title, extra_text, img['caption'], exhibit.slug,
+                      page.slug, page_url, url]
             end
           end
         end
