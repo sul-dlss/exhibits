@@ -31,7 +31,7 @@ class PublicXmlRecord # rubocop:disable Metrics/ClassLength
   end
 
   def get_value(node)
-    node&.first ? node.first.content : nil
+    node.first&.content
   end
 
   def public_xml
