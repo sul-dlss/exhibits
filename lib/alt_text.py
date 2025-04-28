@@ -24,8 +24,10 @@ BUCKET_NAME = "cloud-ai-platform-e215f7f7-a526-4a66-902d-eb69384ef0c4"
 DIRECTORY = "exhibits-alt-text/pilot-2"
 INPUTFILE = f'{DIRECTORY}/images.csv'
 OUTPUTFILE = f'{DIRECTORY}/output/generated-text.csv'
-MODEL_ID = "gemini-1.5-pro"
-TEST_LIMIT = 10 # limit the number of images to process for testing, set to None to process all
+MODEL_ID = "gemini-2.5-pro-preview-03-25" #"gemini-1.5-pro"
+TEST_LIMIT = None # 30 # limit the number of images to process for testing, set to None to process all
+DEBUG = False # set to True to see more debug output (like the full prompt)
+ONLY_USE_EXHIBIT_NAME = None # "Activism @ Stanford" # limit to this exhibit name, set to None to process all
 
 safety_settings = {
     HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_ONLY_HIGH,
@@ -77,14 +79,18 @@ def get_blob(blob_name):
   bucket = client.bucket(BUCKET_NAME)
   return bucket.blob(blob_name)
 
-def description(exhibit_name, exhibit_description, extra_text, file_uri):
+def description(exhibit_name, exhibit_description, extra_text, image_caption, file_uri):
   prompt = ""
-  prompt += f"""This is an image from the Stanford University exhibit entitled "{exhibit_name}"."""
-  prompt += f"""This exhibit is about: {exhibit_description}."""
-  if extra_text or not extra_text.isspace():
-    prompt += f"""This image has some extra descriptive text which appears next to the image which may be about the image: {extra_text}."""
-  prompt += "Please briefly describe what is pictured in the image. Limit your response to 150 characters or fewer."
+  prompt += f"""This is an image from the Stanford University exhibit entitled "{exhibit_name}".\n"""
+  prompt += f"""This exhibit is about: {exhibit_description}.\n"""
+  if image_caption and not image_caption.isspace():
+    prompt += f"""This image has a caption which may be about the image: {image_caption}.\n"""
+  if extra_text and not extra_text.isspace():
+    prompt += f"""This image has some extra descriptive text which appears next to the image which may be about the image: {extra_text}.\n"""
+  prompt += "Please briefly describe what is pictured in the image. Limit your response to 150 characters or fewer. "
   prompt += """Please avoid starting the description with "This is a photo of..." or "This is an image of...", just say what it is in the image."""
+  if DEBUG:
+    print(prompt)
   return process_document(prompt, file_uri)
 
 csv_buffer = StringIO()
@@ -101,13 +107,17 @@ with get_blob(INPUTFILE).open() as csvfile:
   next(reader) # skip headers
   count = 0
   for row in reader:
-    count += 1
     exhibit_name = row[0]
+    if ONLY_USE_EXHIBIT_NAME and exhibit_name != ONLY_USE_EXHIBIT_NAME:
+      print(f"Skipping {exhibit_name} because it does not match {ONLY_USE_EXHIBIT_NAME}")
+      continue
+    count += 1
     exhibit_description = row[1]
     extra_text = row[3]
+    image_caption = row[4]
     file_uri = f'gs://{BUCKET_NAME}/{DIRECTORY}/{count}.jpg'
     print(f"{count} : {file_uri}")
-    writer.writerow([row[0], description(exhibit_name, exhibit_description, extra_text, file_uri)])
+    writer.writerow([row[0], description(exhibit_name, exhibit_description, extra_text, image_caption, file_uri)])
     print()
     if TEST_LIMIT and count >= TEST_LIMIT:
       print(f"Test limit reached: {TEST_LIMIT}")
