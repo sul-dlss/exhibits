@@ -62,7 +62,7 @@ namespace :alt_text do
 
     CSV.foreach(output_filename, headers: true).with_index(1) do |row, n|
       url = row['image url']
-      url = "{#base_url}#{url}" unless url.start_with?('https://')
+      url = "#{base_url}#{url}" unless url.start_with?('https://')
       puts "Exporting image #{n}: #{url}"
       `curl -s #{url} -o #{output_image_folder}/#{n}.jpg`
     end
