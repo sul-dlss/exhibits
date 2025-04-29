@@ -1,7 +1,6 @@
 # Used to send extracted images with metadata to Gemini for alt text generation
 # This is actually run in Vertext AI Google Collab Notebook in Google Cloud
 # see https://github.com/sul-dlss/exhibits/issues/2816
-# and https://docs.google.com/document/d/1Ryni3j19v6wKMwqfDmKYzIElDsY4lFGfJhbeezVPJ4I
 
 import vertexai
 import csv

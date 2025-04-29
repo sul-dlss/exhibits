@@ -8,7 +8,6 @@ namespace :alt_text do
   # Put list of exhibit titles in a file called tmp/exhibits.csv, one title per line (no header)
   # The output will be written to a file called tmp/images.csv
   # see https://github.com/sul-dlss/exhibits/issues/2816
-  # and https://docs.google.com/document/d/1Ryni3j19v6wKMwqfDmKYzIElDsY4lFGfJhbeezVPJ4I
   desc 'Export images that do not have alt text from specified exhibits'
   task export_images: :environment do
     base_url = 'https://exhibits.stanford.edu'
