@@ -23,7 +23,7 @@ BUCKET_NAME = "cloud-ai-platform-e215f7f7-a526-4a66-902d-eb69384ef0c4"
 BASE_IMAGE_URL = "https://exhibits.stanford.edu"
 DIRECTORY = "exhibits-alt-text/pilot-2"
 INPUTFILE = f'{DIRECTORY}/images.csv'
-OUTPUTFILE = f'{DIRECTORY}/output/generated-text.csv'
+OUTPUTFILE = f'{DIRECTORY}/output/generated-text'
 MODEL_ID = 'gemini-2.0-flash'
 # other options (see Google AI Studio for more):
 # "gemini-2.5-pro-preview-03-25"
@@ -85,7 +85,6 @@ def full_image_url(image_url):
 
 
 def get_blob(blob_name):
-  print(f"Reading {blob_name}")
   client = storage.Client()
   bucket = client.bucket(BUCKET_NAME)
   return bucket.blob(blob_name)
@@ -106,24 +105,53 @@ def generate_prompt(exhibit_name, exhibit_subtitle, exhibit_description, extra_t
   prompt += """Provide a single option, do not provide multiple options in a list.  Just pick the first one if you think they are all equally valid."""
   return prompt
 
-csv_buffer = StringIO()
 
-# Create a CSV writer
-writer = csv.writer(csv_buffer)
+def output_csv_header():
+  return ["Exhibit", "Page Title", "Page URL", "Image URL", "Bucket Image Filename", f"AI Generated Description ({MODEL_ID})", "Prompt"]
 
-# Write header row
-writer.writerow(["Exhibit", "Page Title", "Page URL", "Image URL", "Bucket Image Filename", f"AI Generated Description ({MODEL_ID})"], "Prompt")
+
+def output_csv_filename(exhibit_name):
+  return f"{OUTPUTFILE}-{exhibit_name}.csv"
 
 with get_blob(INPUTFILE).open() as csvfile:
+  print(f"Reading {INPUTFILE}")
+  print()
+
   reader = csv.reader(csvfile)
 
   next(reader) # skip headers
+  previous_exhibit_name = None
+
   count = 0
+  csv_buffer = StringIO()
+
   for row in reader:
     exhibit_name = row[0]
+
     if ONLY_USE_EXHIBIT_NAME and exhibit_name != ONLY_USE_EXHIBIT_NAME:
       print(f"Skipping {exhibit_name} because it does not match {ONLY_USE_EXHIBIT_NAME}")
       continue
+
+    # Check if the exhibit name has changed
+    if exhibit_name != previous_exhibit_name:
+      if previous_exhibit_name is not None:
+        # Write out the previous CSV file if this is the first exhibit overall
+        output_filename = output_csv_filename(previous_exhibit_name)
+        print(f"Writing {previous_exhibit_name} to {output_filename}")
+        csv_content = csv_buffer.getvalue()
+        get_blob(output_filename).upload_from_string(csv_content, content_type='text/csv')
+
+      # Create a new CSV file
+      previous_exhibit_name = exhibit_name
+      print()
+      print(f"Processing {exhibit_name}")
+      print()
+
+      # Create a new StringIO buffer for the new exhibit
+      csv_buffer = StringIO()
+      writer = csv.writer(csv_buffer)
+      writer.writerow(output_csv_header())
+
     count += 1
     exhibit_description = row[1]
     exhibit_subtitle = row[2]
@@ -155,6 +183,3 @@ with get_blob(INPUTFILE).open() as csvfile:
       break
 
 print(f"Completed {count} rows")
-# Get the CSV content as a string
-csv_content = csv_buffer.getvalue()
-get_blob(OUTPUTFILE).upload_from_string(csv_content, content_type='text/csv')
