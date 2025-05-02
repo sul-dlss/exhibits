@@ -136,3 +136,5 @@ gem 'rack-attack'
 gem 'cssbundling-rails', '~> 1.4'
 
 gem 'jsbundling-rails', '~> 1.3'
+
+gem 'rack-cors', '~> 2.0'
