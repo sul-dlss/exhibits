@@ -20,6 +20,7 @@ from vertexai.generative_models import (
 PROJECT_ID = "sul-ai-sandbox"  # @param {type:"string"}
 LOCATION = "us-central1"  # @param {type:"string"}
 BUCKET_NAME = "cloud-ai-platform-e215f7f7-a526-4a66-902d-eb69384ef0c4"
+BASE_IMAGE_URL = "https://exhibits.stanford.edu"
 DIRECTORY = "exhibits-alt-text/pilot-2"
 INPUTFILE = f'{DIRECTORY}/images.csv'
 OUTPUTFILE = f'{DIRECTORY}/output/generated-text.csv'
@@ -48,7 +49,7 @@ vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 
 # Send Google Cloud Storage Document to Vertex AI
-def process_document(
+def generate_description(
     prompt: str,
     file_uri: str,
     generation_config: GenerationConfig | None = None,
@@ -75,29 +76,35 @@ def process_document(
         # Handle any other unforeseen errors
         print(f"An unexpected error occurred: {e}")
 
+def full_image_url(image_url):
+  # Convert the image_url to a full URL if it not already a full URL
+  if image_url.startswith("https://"):
+    return image_url
+  else:
+    return f"{BASE_IMAGE_URL}{image_url}"
+
+
 def get_blob(blob_name):
   print(f"Reading {blob_name}")
   client = storage.Client()
   bucket = client.bucket(BUCKET_NAME)
   return bucket.blob(blob_name)
 
-def description(exhibit_name, exhibit_subtitle, exhibit_description, extra_text, image_metadata, file_uri):
+
+def generate_prompt(exhibit_name, exhibit_subtitle, exhibit_description, extra_text, image_metadata):
   prompt = ""
   prompt += f"""This is an image from the Stanford University exhibit entitled "{exhibit_name}".\n"""
   if exhibit_subtitle and not exhibit_subtitle.isspace():
-    prompt += f"""Exhibit subtitle: {exhibit_subtitle}.\n"""
-  prompt += f"""Exhibit description: {exhibit_description}.\n"""
-  if image_metadata and not image_metadata.isspace():
-    prompt += f"""Image metadata: {image_metadata}.\n"""
+    prompt += f"""Exhibit subtitle: {exhibit_subtitle.strip()}.\n"""
+  prompt += f"""Exhibit description: {exhibit_description.strip()}.\n"""
+  if image_metadata and not image_metadata.isspace() and not '.jpg' in image_metadata:
+    prompt += f"""Image metadata: {image_metadata.strip()}.\n"""
   if extra_text and not extra_text.isspace():
-    prompt += f"""Surrounding text:: {extra_text}.\n"""
+    prompt += f"""Surrounding text:: {extra_text.strip()}.\n"""
   prompt += "Please write descriptive alt text (alternative text) for the image. Limit your response to 150 characters or fewer. "
   prompt += """Please avoid starting the description with "This is a photo of..." or "This is an image of...", just say what it is in the image."""
   prompt += """Provide a single option, do not provide multiple options in a list.  Just pick the first one if you think they are all equally valid."""
-
-  if DEBUG:
-    print(prompt)
-  return process_document(prompt, file_uri)
+  return prompt
 
 csv_buffer = StringIO()
 
@@ -105,7 +112,7 @@ csv_buffer = StringIO()
 writer = csv.writer(csv_buffer)
 
 # Write header row
-writer.writerow(["File", "Description"])
+writer.writerow(["Exhibit", "Page Title", "Page URL", "Image URL", "Bucket Image Filename", f"AI Generated Description ({MODEL_ID})"], "Prompt")
 
 with get_blob(INPUTFILE).open() as csvfile:
   reader = csv.reader(csvfile)
@@ -120,13 +127,28 @@ with get_blob(INPUTFILE).open() as csvfile:
     count += 1
     exhibit_description = row[1]
     exhibit_subtitle = row[2]
+    page_title = row[3]
     extra_text = row[4]
     image_title = row[5]
     image_caption = row[6]
+    # exhibit_slug = row[7]
+    # page_slug = row[8]
+    page_url = row[9]
+    image_url = full_image_url(row[10])
     image_metadata = image_title + " " + image_caption
-    file_uri = f'gs://{BUCKET_NAME}/{DIRECTORY}/{count}.jpg'
+    bucket_image_url = f"{count}.jpg"
+    file_uri = f'gs://{BUCKET_NAME}/{DIRECTORY}/{bucket_image_url}'
+
     print(f"{count} : {file_uri}")
-    writer.writerow([row[0], description(exhibit_name, exhibit_subtitle, exhibit_description, extra_text, image_metadata, file_uri)])
+
+    prompt = generate_prompt(exhibit_name, exhibit_subtitle, exhibit_description, extra_text, image_metadata)
+    description = generate_description(prompt, file_uri)
+
+    if DEBUG:
+      print(f"Prompt: {prompt}")
+      print(f"Description: {description}")
+
+    writer.writerow([exhibit_name, page_title, page_url, image_url, bucket_image_url, description, prompt])
     print()
     if TEST_LIMIT and count >= TEST_LIMIT:
       print(f"Test limit reached: {TEST_LIMIT}")
