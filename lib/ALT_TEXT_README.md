@@ -21,4 +21,4 @@ All code is in https://github.com/sul-dlss/exhibits/pull/2901
 9. Go to Vertex AI Collab Notebooks in GCP to run the script from https://github.com/sul-dlss/exhibits/blob/alt-text-ai/lib/alt_text.py   If you don’t already have the script in a notebook, create a new one and paste in the python code.  Make sure you configure the correct GCP project name, bucket name, folders, and input filenames at the top of the script.
 10. For testing purposes, you can limit the number of images sent, specify it to run only a specific exhibit and/or have it log all of the prompts in the output.
 11. Start the script running and watch the output.
-12. When complete, an output CSV file will be generated in the OUTPUTFILE location specified at the top of the script. You can download this file from the GCP bucket.
+12. When complete, multiple output CSV files will be generated in the OUTPUTFILE location specified at the top of the script. You can download these file from the GCP bucket (one per exhibit)

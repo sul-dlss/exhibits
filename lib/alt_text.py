@@ -111,7 +111,8 @@ def output_csv_header():
 
 
 def output_csv_filename(exhibit_name):
-  return f"{OUTPUTFILE}-{exhibit_name}.csv"
+  fileslug = exhibit_name.replace(" ", "_").replace("/", "_").replace(":", "_").replace("'", "_").replace('"', "_").replace("?", "_").replace(",", "_").replace("&", "_")
+  return f"{OUTPUTFILE}-{fileslug}.csv"
 
 with get_blob(INPUTFILE).open() as csvfile:
   print(f"Reading {INPUTFILE}")
@@ -170,11 +171,12 @@ with get_blob(INPUTFILE).open() as csvfile:
     print(f"{count} : {file_uri}")
 
     prompt = generate_prompt(exhibit_name, exhibit_subtitle, exhibit_description, extra_text, image_metadata)
-    description = generate_description(prompt, file_uri)
 
     if DEBUG:
       print(f"Prompt: {prompt}")
-      print(f"Description: {description}")
+      description = "Description from AI would go here"
+    else:
+      description = generate_description(prompt, file_uri)
 
     writer.writerow([exhibit_name, page_title, page_url, image_url, bucket_image_url, description, prompt])
     print()
