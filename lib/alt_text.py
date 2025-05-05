@@ -23,13 +23,13 @@ BUCKET_NAME = "cloud-ai-platform-e215f7f7-a526-4a66-902d-eb69384ef0c4"
 BASE_IMAGE_URL = "https://exhibits.stanford.edu"
 DIRECTORY = "exhibits-alt-text/pilot-2"
 INPUTFILE = f'{DIRECTORY}/images.csv'
-OUTPUTFILE = f'{DIRECTORY}/output/generated-text'
+OUTPUTFOLDER = f'{DIRECTORY}/output'
 MODEL_ID = 'gemini-2.0-flash'
 # other options (see Google AI Studio for more):
 # "gemini-2.5-pro-preview-03-25"
 # "gemini-1.5-pro"
-TEST_LIMIT = None # 30 # limit the number of images to process for testing, set to None to process all
-DEBUG = False # set to True to see more debug output (like the full prompt)
+TEST_LIMIT = None # limit the number of images to process for testing, set to None to process all
+DEBUG = False # set to True to show the prompts in the output and NOT send images to AI (test script only)
 ONLY_USE_EXHIBIT_NAME = None # "Digitization Exemplars" # limit to this exhibit name, set to None to process all
 
 safety_settings = {
@@ -112,7 +112,7 @@ def output_csv_header():
 
 def output_csv_filename(exhibit_name):
   fileslug = exhibit_name.replace(" ", "_").replace("/", "_").replace(":", "_").replace("'", "_").replace('"', "_").replace("?", "_").replace(",", "_").replace("&", "_")
-  return f"{OUTPUTFILE}-{fileslug}.csv"
+  return f"{OUTPUTFOLDER}/{fileslug}.csv"
 
 with get_blob(INPUTFILE).open() as csvfile:
   print(f"Reading {INPUTFILE}")
@@ -146,8 +146,6 @@ with get_blob(INPUTFILE).open() as csvfile:
       previous_exhibit_name = exhibit_name
       print()
       print(f"Processing {exhibit_name}")
-      print()
-
       # Create a new StringIO buffer for the new exhibit
       csv_buffer = StringIO()
       writer = csv.writer(csv_buffer)
