@@ -1,10 +1,13 @@
 .show-hide-toggle {
-  @include caret(right);
+  @include caret();
 
   &::after {
-    vertical-align: inherit;
+    vertical-align: middle;
+    transform: rotate(-90deg);
+    margin-left: 0;
   }
-  &[aria-expanded="true"] {
-    @include caret();
+
+  &[aria-expanded="true"]::after {
+    transform: rotate(0deg);
   }
 }
