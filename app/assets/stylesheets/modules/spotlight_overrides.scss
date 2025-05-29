@@ -233,3 +233,9 @@ h5,
 #skip-link {
   position: relative !important;
 }
+
+// !important is needed to override
+// https://github.com/sul-dlss/exhibits/blob/main/app/assets/stylesheets/modules/bootstrap_overrides.scss#L42-L46
+#new_contact_form .mb-3 .col-form-label {
+  text-align: left!important;
+}
