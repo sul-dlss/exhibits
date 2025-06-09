@@ -15,13 +15,13 @@ module CatalogHelper
   #
   # @param [SolrDocument] document
   # @return [Boolean]
-  # rubocop:disable Naming/PredicateName
+  # rubocop:disable Naming/PredicatePrefix
   def has_thumbnail?(document)
     return super unless document.reference? || document.canvas?
 
     true
   end
-  # rubocop:enable Naming/PredicateName
+  # rubocop:enable Naming/PredicatePrefix
 
   def exhibits_default_thumbnail(document, image_options)
     if document.reference?
