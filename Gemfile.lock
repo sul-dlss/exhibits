@@ -116,7 +116,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (5.0.1)
+    blacklight-spotlight (5.1.0)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 13)
       blacklight (>= 8.7.0, < 9)
