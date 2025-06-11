@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ##
-# Provide the GitHub auto-complete-element response for exhibit autocomplete
+# Provide the GitHub auto-complete-element response for exhibit autocomplete and bento
 class ExhibitAutocompleteController < ApplicationController
   # /exhibit_autocomplete
   def index
