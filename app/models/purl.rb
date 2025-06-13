@@ -42,9 +42,7 @@ class Purl
   end
 
   def collections
-    @collections ||= public_xml_record.collections.map do |record|
-      Purl.new(record.druid)
-    end
+    @collections ||= collection_druids.map { |druid| Purl.new(druid) }
   end
 
   # the value of the type attribute for a DOR object's contentMetadata
@@ -87,5 +85,18 @@ class Purl
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
   def format_role(role_element)
     role_element.text.strip.capitalize.sub(/[.,:;]+$/, '').tr('|', '')
+  end
+
+  # get the druids from predicate relationships in rels-ext from public_xml
+  # @return [Array<String>, nil] the druids (e.g. ww123yy1234) from the rdf:resource of the predicate relationships,
+  #                              or nil if none
+  def collection_druids
+    ns_hash = { 'rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+                'pred_ns' => 'info:fedora/fedora-system:def/relations-external#' }
+    xpath = '/publicObject/rdf:RDF/rdf:Description/pred_ns:isMemberOfCollection/@rdf:resource'
+    pred_nodes = public_xml.xpath(xpath, ns_hash)
+    pred_nodes.reject { |n| n.value.empty? }.map do |n|
+      n.value.split('druid:').last
+    end
   end
 end
