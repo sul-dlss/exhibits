@@ -17,7 +17,7 @@ class Purl
     false
   end
 
-  delegate :items, :collection?, to: :public_xml_record
+  delegate :collection?, :collections, :items, to: :purl_collection
 
   def public_xml_record
     @public_xml_record ||= PublicXmlRecord.new(bare_druid)
@@ -41,14 +41,17 @@ class Purl
     @mods_display ||= ModsDisplay::HTML.new(smods_rec)
   end
 
-  def collections
-    @collections ||= public_xml_record.collections.map do |record|
-      Purl.new(record.druid)
-    end
+  # the value of the type attribute for a DOR object's contentMetadata
+  #  more info about these values is here:
+  #    https://consul.stanford.edu/display/chimera/DOR+content+types%2C+resource+types+and+interpretive+metadata
+  #    https://consul.stanford.edu/display/chimera/Summary+of+Content+Types%2C+Resource+Types+and+their+behaviors
+  # @return [String]
+  def dor_content_type
+    public_xml.xpath('//contentMetadata/@type').text
   end
 
   def identity_md_obj_label
-    public_xml_record.label
+    public_xml.xpath('/publicObject/identityMetadata/objectLabel').first&.content
   end
 
   # Normalize the MODS names to just the display name and roles.
@@ -71,8 +74,6 @@ class Purl
     end
   end
 
-  delegate :dor_content_type, to: :public_xml_record
-
   delegate :logger, to: :Rails
 
   private
@@ -80,5 +81,9 @@ class Purl
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
   def format_role(role_element)
     role_element.text.strip.capitalize.sub(/[.,:;]+$/, '').tr('|', '')
+  end
+
+  def purl_collection
+    @purl_collection ||= PurlCollection.new(public_xml)
   end
 end
