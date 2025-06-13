@@ -2,7 +2,7 @@
 
 # Retrieves and represents the public xml file from PURL
 class PublicXmlRecord
-  attr_reader :druid, :options
+  attr_reader :druid
 
   COLLECTION_TYPES = %w(collection set).freeze
 
@@ -11,9 +11,8 @@ class PublicXmlRecord
     response.body if response.status.ok?
   end
 
-  def initialize(druid, options = {})
+  def initialize(druid)
     @druid = druid
-    @options = options
   end
 
   # @return objectLabel value from the DOR identity_metadata, or nil if there is no barcode
@@ -61,7 +60,7 @@ class PublicXmlRecord
 
   def collections
     @collections ||= predicate_druids('isMemberOfCollection').map do |druid|
-      PublicXmlRecord.new(druid, options)
+      PublicXmlRecord.new(druid)
     end
   end
 
