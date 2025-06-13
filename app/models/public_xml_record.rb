@@ -16,11 +16,6 @@ class PublicXmlRecord
     @options = options
   end
 
-  # @return objectLabel value from the DOR identity_metadata, or nil if there is no barcode
-  def label
-    public_xml_doc.xpath('/publicObject/identityMetadata/objectLabel').first&.content
-  end
-
   def public_xml
     @public_xml ||= self.class.fetch("#{purl_base_url}.xml")
   end
@@ -48,15 +43,6 @@ class PublicXmlRecord
   def collection?
     object_type_nodes = public_xml_doc.xpath('//objectType')
     object_type_nodes.find_index { |n| COLLECTION_TYPES.include? n.text.downcase }
-  end
-
-  # the value of the type attribute for a DOR object's contentMetadata
-  #  more info about these values is here:
-  #    https://consul.stanford.edu/display/chimera/DOR+content+types%2C+resource+types+and+interpretive+metadata
-  #    https://consul.stanford.edu/display/chimera/Summary+of+Content+Types%2C+Resource+Types+and+their+behaviors
-  # @return [String]
-  def dor_content_type
-    public_xml_doc.xpath('//contentMetadata/@type').text
   end
 
   def collections
