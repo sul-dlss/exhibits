@@ -4,8 +4,6 @@
 class PublicXmlRecord
   attr_reader :druid, :options
 
-  COLLECTION_TYPES = %w(collection set).freeze
-
   def self.fetch(url)
     response = HTTP.get(url)
     response.body if response.status.ok?
@@ -39,30 +37,7 @@ class PublicXmlRecord
               end
   end
 
-  # @return true if the identityMetadata has <objectType>collection</objectType>, false otherwise
-  def collection?
-    object_type_nodes = public_xml_doc.xpath('//objectType')
-    object_type_nodes.find_index { |n| COLLECTION_TYPES.include? n.text.downcase }
-  end
-
-  def items
-    return [] unless collection?
-
-    purl_fetcher_client.collection_members(druid)
-  end
-
   def purl_base_url
     format(Settings.purl.url, druid:)
-  end
-
-  def purl_fetcher_api_endpoint
-    Settings.purl_fetcher.url
-  end
-
-  def purl_fetcher_client
-    @purl_fetcher_client ||= PurlFetcher::Client::Reader.new(
-      nil, # TODO: Remove for purl_fetcher-client 1.0
-      'purl_fetcher.api_endpoint' => purl_fetcher_api_endpoint
-    )
   end
 end

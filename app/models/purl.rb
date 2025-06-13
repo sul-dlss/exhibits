@@ -17,7 +17,7 @@ class Purl
     false
   end
 
-  delegate :items, :collection?, to: :public_xml_record
+  delegate :collection?, :collections, :items, to: :purl_collection
 
   def public_xml_record
     @public_xml_record ||= PublicXmlRecord.new(bare_druid)
@@ -39,10 +39,6 @@ class Purl
 
   def mods_display
     @mods_display ||= ModsDisplay::HTML.new(smods_rec)
-  end
-
-  def collections
-    @collections ||= collection_druids.map { |druid| Purl.new(druid) }
   end
 
   # the value of the type attribute for a DOR object's contentMetadata
@@ -87,16 +83,7 @@ class Purl
     role_element.text.strip.capitalize.sub(/[.,:;]+$/, '').tr('|', '')
   end
 
-  # get the druids from predicate relationships in rels-ext from public_xml
-  # @return [Array<String>, nil] the druids (e.g. ww123yy1234) from the rdf:resource of the predicate relationships,
-  #                              or nil if none
-  def collection_druids
-    ns_hash = { 'rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-                'pred_ns' => 'info:fedora/fedora-system:def/relations-external#' }
-    xpath = '/publicObject/rdf:RDF/rdf:Description/pred_ns:isMemberOfCollection/@rdf:resource'
-    pred_nodes = public_xml.xpath(xpath, ns_hash)
-    pred_nodes.reject { |n| n.value.empty? }.map do |n|
-      n.value.split('druid:').last
-    end
+  def purl_collection
+    @purl_collection ||= PurlCollection.new(public_xml)
   end
 end
