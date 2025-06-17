@@ -37,10 +37,6 @@ class Purl
     end
   end
 
-  def mods_display
-    @mods_display ||= ModsDisplay::HTML.new(smods_rec)
-  end
-
   def collections
     @collections ||= public_xml_record.collections.map do |record|
       Purl.new(record.druid)
@@ -78,6 +74,10 @@ class Purl
 
       { name: name, roles: roles || [] }
     end
+  end
+
+  def imprint_display
+    @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
   end
 
   delegate :logger, to: :Rails
