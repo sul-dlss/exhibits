@@ -137,14 +137,13 @@ to_field 'pub_year_tisim' do |resource, accumulator, _context|
 end
 
 to_field 'date_ssim' do |resource, accumulator, _context|
-  imprint_display = resource.mods_display.mods_field(:imprint)
   values = resource.smods_rec.origin_info
 
   Array(values).each do |value|
-    dates = imprint_display.date_values(value)
+    dates = resource.imprint_display.date_values(value)
     accumulator.concat(dates.map(&:values).flatten)
 
-    part = imprint_display.send(:parts_element, value)
+    part = resource.imprint_display.send(:parts_element, value)
     accumulator << part if part.present?
   end
 end
