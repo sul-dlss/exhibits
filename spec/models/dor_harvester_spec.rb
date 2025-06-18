@@ -102,7 +102,7 @@ describe DorHarvester do
       instance_double(Purl, bare_druid: druid,
                             exists?: true,
                             collection?: true,
-                            items: [1, 2, 3])
+                            collection_member_druids: [1, 2, 3])
     end
 
     before do
@@ -130,9 +130,9 @@ describe DorHarvester do
   describe '#indexable_resources' do
     subject { harvester.indexable_resources.to_a }
 
-    let(:items) { [] }
+    let(:collection_member_druids) { [] }
     let(:resource) do
-      instance_double(Purl, exists?: true, bare_druid: druid, items: items)
+      instance_double(Purl, exists?: true, bare_druid: druid, collection_member_druids:)
     end
 
     before do
@@ -147,8 +147,7 @@ describe DorHarvester do
     end
 
     context 'with a collection' do
-      let(:items) { [child].each } # `#each` converts the array to an enumerable
-      let(:child) { instance_double(PurlFetcher::Client::PublicXmlRecord, druid: druid) }
+      let(:collection_member_druids) { [druid].each } # `#each` converts the array to an enumerable
 
       it 'includes child resources' do
         expect(subject.size).to eq 2

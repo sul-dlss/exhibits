@@ -281,8 +281,6 @@ GEM
       ed25519
     docile (1.4.1)
     domain_name (0.6.20240107)
-    dor-rights-auth (1.8.0)
-      nokogiri
     dot-properties (0.1.4)
       bundler (>= 2.2.33)
     dotenv (3.1.8)
@@ -633,12 +631,9 @@ GEM
     public_suffix (6.0.2)
     puma (6.6.0)
       nio4r (~> 2.0)
-    purl_fetcher-client (0.5.0)
-      dor-rights-auth
-      http
-      mods_display (>= 1.0.0.alpha1)
-      nokogiri
-      stanford-mods
+    purl_fetcher-client (3.1.0)
+      activesupport
+      faraday (~> 2.1)
     racc (1.8.1)
     rack (3.1.16)
     rack-attack (6.7.0)
@@ -997,7 +992,7 @@ DEPENDENCIES
   okcomputer
   propshaft
   puma (~> 6.0)
-  purl_fetcher-client (~> 0.4)
+  purl_fetcher-client (~> 3.1)
   rack-attack
   rack-cors (~> 2.0)
   rack-mini-profiler

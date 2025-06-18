@@ -50,10 +50,10 @@ class PublicXmlRecord
     end
   end
 
-  def items
+  def collection_member_druids
     return [] unless collection?
 
-    purl_fetcher_client.collection_members(druid)
+    purl_fetcher_client.collection_members(druid).pluck('druid')
   end
 
   # get the druids from predicate relationships in rels-ext from public_xml
@@ -72,14 +72,7 @@ class PublicXmlRecord
     format(Settings.purl.url, druid:)
   end
 
-  def purl_fetcher_api_endpoint
-    Settings.purl_fetcher.url
-  end
-
   def purl_fetcher_client
-    @purl_fetcher_client ||= PurlFetcher::Client::Reader.new(
-      nil, # TODO: Remove for purl_fetcher-client 1.0
-      'purl_fetcher.api_endpoint' => purl_fetcher_api_endpoint
-    )
+    @purl_fetcher_client ||= PurlFetcher::Client::Reader.new(host: Settings.purl_fetcher.url)
   end
 end

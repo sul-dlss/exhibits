@@ -17,7 +17,7 @@ class Purl
     false
   end
 
-  delegate :items, :collection?, to: :public_xml_record
+  delegate :collection_member_druids, :collection?, to: :public_xml_record
 
   def public_xml_record
     @public_xml_record ||= PublicXmlRecord.new(bare_druid)
