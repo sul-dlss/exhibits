@@ -188,15 +188,15 @@ RSpec.describe 'indexing integration test' do
 
   context 'collection' do
     let(:druid) { 'dx969tv9730' }
+    let(:purl_fetcher_client) { instance_double(PurlFetcher::Client::Reader) }
+
+    before do
+      allow(PurlFetcher::Client::Reader).to receive(:new).and_return(purl_fetcher_client)
+      allow(purl_fetcher_client).to receive(:collection_members).with(druid).and_return([])
+    end
 
     context 'to_solr' do
       subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
-
-      before do
-        stub_request(:get, 'https://purl-fetcher-url.example.com/collections/druid:dx969tv9730/purls?page=1&per_page=1000').to_return(
-          body: '{ "purls": [], "pages": {} }', status: 200
-        )
-      end
 
       it 'has correct doc id' do
         expect(document[:id]).to eq druid

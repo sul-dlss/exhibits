@@ -82,8 +82,8 @@ class DorHarvester < Spotlight::Resource
 
       next unless resource.exists?
 
-      resource.items.each do |r|
-        yield Purl.new(r.druid)
+      resource.collection_member_druids.each do |druid|
+        yield Purl.new(druid)
       end
     end
   end
@@ -118,12 +118,12 @@ class DorHarvester < Spotlight::Resource
   private
 
   def size
-    @size ||= resources.select(&:exists?).sum { |r| r.collection? ? r.items.size : 1 }
+    @size ||= resources.select(&:exists?).sum { |r| r.collection? ? r.collection_member_druids.size : 1 }
   end
 
   def fetch_collection_metadata
     resources.select(&:exists?).select(&:collection?).each_with_object({}) do |obj, memo|
-      memo[obj.bare_druid] = { size: obj.items.size }
+      memo[obj.bare_druid] = { size: obj.collection_member_druids.size }
     end
   end
 end
