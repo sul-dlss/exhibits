@@ -1,0 +1,69 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/collection",
+  "externalIdentifier": "druid:jh957jy1101",
+  "label": "Images de la Révolution française / Images of the French Revolution",
+  "version": 1,
+  "access": {
+    "view": "world"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:ht275vw4351",
+    "releaseTags": []
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Images de la Révolution française / Images of the French Revolution",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [],
+    "event": [],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "collection",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "The Images are composed of high-resolution digital images of approximately 14 000 individual visual items, primarily prints, but also illustrations, medals, coins, and other objects, which display aspects of the Revolution. These materials were selected, mainly from the collections of the Département des Estampes et de la photographie, but also from other BnF departments, and include thousands of images for the important collections entitled Hennin and De Vinck. Detailed metadata exists for the images, so that researchers can search by artist, subject, genre, and place.",
+        "type": "abstract",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [],
+    "subject": [],
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/jh957jy1101"
+  },
+  "identification": {
+    "catalogLinks": []
+  },
+  "created": "2022-04-28T14:24:28.000+00:00",
+  "modified": "2022-04-28T14:24:28.000+00:00",
+  "lock": "druid:jh957jy1101=0"
+}
