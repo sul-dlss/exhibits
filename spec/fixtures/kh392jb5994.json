@@ -1,0 +1,595 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/collection",
+  "externalIdentifier": "druid:kh392jb5994",
+  "label": "Trial Records of the Special Panels for Serious Crimes (SPSC) in East Timor",
+  "version": 6,
+  "access": {
+    "view": "world",
+    "useAndReproductionStatement": "This material is believed to be in the public domain. There are no restrictions on use of public domain materials.",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:bf260sn7930",
+    "releaseTags": [
+      {
+        "who": "krisk11",
+        "what": "collection",
+        "date": "2018-08-08T00:20:52.000+00:00",
+        "to": "Searchworks",
+        "release": true
+      }
+    ]
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Trial Records of the Special Panels for Serious Crimes (SPSC) in East Timor",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Timor-Leste. District Court (Dili). Special Panels for Serious Crimes",
+            "uri": "http://id.loc.gov/authorities/names/no2004000597",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Issuing body",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Author",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "United Nations. Transitional Administration in East Timor",
+            "uri": "http://id.loc.gov/authorities/names/nr00003083",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Convening organization",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "2000",
+                "type": "start",
+                "status": "primary",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "2006",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "publication",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "text",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "279 documents",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "reformatted digital",
+        "type": "digital origin",
+        "identifier": [],
+        "source": {
+          "value": "MODS digital origin terms",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "uri": "http://id.loc.gov/vocabulary/iso639-2",
+          "note": []
+        },
+        "structuredValue": [],
+        "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
+        "value": "English"
+      },
+      {
+        "appliesTo": [],
+        "code": "por",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "uri": "http://id.loc.gov/vocabulary/iso639-2",
+          "note": []
+        },
+        "structuredValue": [],
+        "uri": "http://id.loc.gov/vocabulary/iso639-2/por",
+        "value": "Portuguese"
+      },
+      {
+        "appliesTo": [],
+        "code": "ind",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "uri": "http://id.loc.gov/vocabulary/iso639-2",
+          "note": []
+        },
+        "structuredValue": [],
+        "uri": "http://id.loc.gov/vocabulary/iso639-2/ind",
+        "value": "Indonesian"
+      },
+      {
+        "appliesTo": [],
+        "code": "tet",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "uri": "http://id.loc.gov/vocabulary/iso639-2",
+          "note": []
+        },
+        "structuredValue": [],
+        "uri": "http://id.loc.gov/vocabulary/iso639-2/tet",
+        "value": "Tetun"
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Complete collection of indictments, motions and judgments from the trial and appellate chambers in all 55 of the cases of the Special Panels for Serious Crimes.",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "An agreement was reached May 20, 2005 between SPSC Judge Phillip Rapoza and David Cohen for the Handa Center’s predecessor entity, the “Berkeley War Crimes Studies Center (WCSC)” to provide continuing public access to electronic copies of official SPSC court records, provided by the Tribunal, including indictments, motions, and judgments from the 55 cases completed prior to the Court's closure.  All of the electronic files we received from the SPSC to post on the WCSC website were certified by the court as official copies and stamped.",
+        "type": "ownership",
+        "identifier": [],
+        "displayLabel": "Provenance",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [],
+    "subject": [
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Crimes against humanity",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Timor-Leste",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "International criminal courts",
+        "type": "topic",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Trials (Crimes against humanity)",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Timor-Leste",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Political atrocities",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Timor-Leste",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Criminal procedure (International law)",
+        "type": "topic",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Timor-Leste",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "History",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Autonomy and independence movements",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Timor-Leste",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Politics and government",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "access": {
+      "url": [],
+      "physicalLocation": [],
+      "digitalLocation": [],
+      "accessContact": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Stanford University. WSD Handa Center for Human Rights and International Justice",
+          "type": "repository",
+          "uri": "http://id.loc.gov/authorities/names/no2018048351",
+          "identifier": [],
+          "source": {
+            "code": "naf",
+            "note": []
+          },
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalRepository": [],
+      "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "uri": "http://id.loc.gov/vocabulary/organizations/cst",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "uri": "http://id.loc.gov/vocabulary/organizations",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [],
+      "language": [
+        {
+          "appliesTo": [],
+          "code": "eng",
+          "groupedValue": [],
+          "note": [],
+          "parallelValue": [],
+          "source": {
+            "code": "iso639-2b",
+            "uri": "http://id.loc.gov/vocabulary/iso639-2",
+            "note": []
+          },
+          "structuredValue": [],
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "value": "English"
+        }
+      ],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "human prepared",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [],
+      "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/kh392jb5994"
+  },
+  "identification": {
+    "catalogLinks": []
+  },
+  "created": "2022-02-25T23:45:42.000+00:00",
+  "modified": "2022-02-25T23:45:42.000+00:00",
+  "lock": "druid:kh392jb5994=0"
+}
