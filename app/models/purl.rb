@@ -5,7 +5,8 @@ class Purl
   include ActiveSupport::Benchmarkable
   include ModsDisplay::RelatorCodes
 
-  COLLECTION_TYPES = %w(collection set).freeze
+  COLLECTION_TYPES = %w(https://cocina.sul.stanford.edu/models/collection
+                        https://cocina.sul.stanford.edu/models/set).freeze
 
   attr_reader :druid
 
@@ -16,21 +17,26 @@ class Purl
     @druid = druid
   end
 
-  delegate :exists?, to: :purl_service
+  delegate :exists?, to: :purl_cocina_service
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml
-    @public_xml ||= Nokogiri::XML(purl_service.response_body)
+    @public_xml ||= Nokogiri::XML(PurlService.new(bare_druid, format: :xml).response_body)
+  end
+
+  # @return [Hash] the public cocina hash for this Purl object
+  def public_cocina
+    @public_cocina ||= JSON.parse(purl_cocina_service.response_body.presence || '{}')
   end
 
   # @return [Array<Purl>] array of Purl objects for the collections this Purl belongs to
   def collections
-    @collections ||= PurlCollections.call(public_xml)
+    @collections ||= PurlCollections.call(public_cocina)
   end
 
   # @return [Boolean] true if this Purl object is a collection, false otherwise
   def collection?
-    public_xml.xpath('//objectType').any? { |n| COLLECTION_TYPES.include? n.text.downcase }
+    public_cocina.fetch('type', '').in?(COLLECTION_TYPES)
   end
 
   # @return [Array<String>] array of collection member druids for this Purl object
@@ -56,12 +62,12 @@ class Purl
   #  https://consul.stanford.edu/display/chimera/DOR+content+types%2C+resource+types+and+interpretive+metadata
   #  https://consul.stanford.edu/spaces/chimera/pages/137495027/Summary+of+Content+and+Resource+Types+models+and+their+behaviors
   def dor_content_type
-    public_xml.xpath('//contentMetadata/@type').text
+    public_cocina.fetch('type', '').split('/').last
   end
 
   # @return [String] the value of the objectLabel in the identityMetadata section of the public XML
   def identity_md_obj_label
-    public_xml.xpath('/publicObject/identityMetadata/objectLabel').first&.content
+    public_cocina.fetch('label', nil)
   end
 
   # @return [Array<Hash>] an array of hashes with keys `name` and `roles` with
@@ -93,8 +99,8 @@ class Purl
 
   private
 
-  def purl_service
-    @purl_service ||= PurlService.new(bare_druid)
+  def purl_cocina_service
+    @purl_cocina_service ||= PurlService.new(bare_druid, format: :json)
   end
 
   def mods_xml
