@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe PurlCollections do
-  subject(:purl_collections) { described_class.call(public_xml) }
+  subject(:purl_collections) { described_class.call(public_cocina) }
 
-  let(:public_xml) { Nokogiri::XML(File.read(File.join(FIXTURES_PATH, 'cc842mn9348.xml'))) }
+  let(:public_cocina) { JSON.parse(File.read(File.join(FIXTURES_PATH, 'cc842mn9348.json'))) }
 
   describe '.call' do
     it 'returns an array of Purl objects for the collections this Purl belongs to' do

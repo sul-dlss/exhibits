@@ -11,6 +11,9 @@ describe Purl do
     stub_request(:get, "https://purl.stanford.edu/#{druid}.xml").to_return(
       body: File.new(File.join(FIXTURES_PATH, "#{druid}.xml")), status: 200
     )
+    stub_request(:get, "https://purl.stanford.edu/#{druid}.json").to_return(
+      body: File.new(File.join(FIXTURES_PATH, "#{druid}.json")), status: 200
+    )
   end
 
   describe '#collections' do
