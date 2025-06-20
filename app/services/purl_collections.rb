@@ -2,19 +2,19 @@
 
 # Finds and returns Purl objects for collections that a given Purl belongs to
 class PurlCollections
-  # @param public_xml [Nokogiri::XML::Document] the Purl public XML document
+  # @param public_cocina [Hash] the Purl public cocina hash
   # @return [Array<Purl>] array of Purl objects for the collections this Purl belongs to
   # @example
-  #   PurlCollections.call(public_xml)
-  def self.call(public_xml)
-    new(public_xml).collections
+  #   PurlCollections.call(public_cocina)
+  def self.call(public_cocina)
+    new(public_cocina).collections
   end
 
-  # @param public_xml [Nokogiri::XML::Document] the Purl public XML document
+  # @param public_cocina [Hash] the Purl public cocina hash
   # @example
-  #   PurlCollections.new(public_xml)
-  def initialize(public_xml)
-    @public_xml = public_xml
+  #   PurlCollections.new(public_cocina)
+  def initialize(public_cocina)
+    @public_cocina = public_cocina
   end
 
   # @return [Array<Purl>] array of Purl objects for the collections this Purl belongs to
@@ -25,21 +25,8 @@ class PurlCollections
   private
 
   def collection_druids
-    predicate_nodes.reject { |node| node.value.empty? }.map do |node|
-      node.value.split('druid:').last
+    Array(@public_cocina.dig('structural', 'isMemberOf')).map do |druid|
+      druid.delete_prefix('druid:')
     end
-  end
-
-  def predicate_nodes
-    @public_xml.xpath(member_of_collection_xpath, namespaces)
-  end
-
-  def member_of_collection_xpath
-    '/publicObject/rdf:RDF/rdf:Description/pred_ns:isMemberOfCollection/@rdf:resource'
-  end
-
-  def namespaces
-    { 'rdf' => 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
-      'pred_ns' => 'info:fedora/fedora-system:def/relations-external#' }
   end
 end
