@@ -8,6 +8,12 @@ RSpec.describe 'indexing integration test' do
   let(:exhibit) { FactoryBot.create(:exhibit) }
   let(:rsolr) { instance_double(RSolr) }
   let(:rsolr_client) { instance_double(RSolr::Client) }
+  let(:fixtures) do
+    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280
+       cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822
+       gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101
+       nk125rg9884 ds694bw1519 vp755yy2079)
+  end
 
   before do
     allow(RSolr).to receive(:connect).and_return(rsolr_client)
@@ -15,10 +21,12 @@ RSpec.describe 'indexing integration test' do
     allow(rsolr_client).to receive(:commit)
 
     stub_request(:post, /update/)
-    %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079).each do |fixture|
-      stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
-        body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
-      )
+    %w(xml json).each do |format|
+      fixtures.each do |fixture|
+        stub_request(:get, "https://purl.stanford.edu/#{fixture}.#{format}").to_return(
+          body: File.new(File.join(FIXTURES_PATH, "#{fixture}.#{format}")), status: 200
+        )
+      end
     end
   end
 
@@ -42,7 +50,7 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has the published date for the resource' do
-        expect(document).to include last_updated: '2017-04-26T16:25:02Z'
+        expect(document).to include last_updated: '2022-05-01T20:10:58Z'
       end
 
       it 'has potentially useless fields inherited from gdor indexer' do
@@ -204,6 +212,10 @@ RSpec.describe 'indexing integration test' do
         expect(document[:format_main_ssim]).to include 'Collection'
       end
 
+      it 'has correct content metadata type' do
+        expect(document[:content_metadata_type_ssm]).to include 'collection'
+      end
+
       it 'parses and reformats the timestamp to iso8601' do
         expect(document[:last_updated]).to eq '2024-05-07T22:10:45Z'
       end
@@ -212,6 +224,12 @@ RSpec.describe 'indexing integration test' do
 
   context 'virtual object' do
     let(:druid) { 'ws947mh3822' }
+
+    before do
+      stub_request(:get, 'https://purl.stanford.edu/ts786ny5936.json').to_return(
+        body: File.new(File.join(FIXTURES_PATH, 'ts786ny5936.json')), status: 200
+      )
+    end
 
     context 'to_solr' do
       subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
