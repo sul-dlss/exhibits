@@ -1,0 +1,510 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/image",
+  "externalIdentifier": "druid:xf680rd3068",
+  "label": "Latin glossary : small manuscript fragment on vellum",
+  "version": 4,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "copyright": "Public Domain.",
+    "useAndReproductionStatement": "This material is in the public domain. There are no restrictions on use of public domain materials.",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:yg077np2529",
+    "releaseTags": [
+      {
+        "who": "blalbrit",
+        "what": "self",
+        "date": "2016-08-08T02:05:41.000+00:00",
+        "to": "Searchworks",
+        "release": true
+      }
+    ]
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Latin glossary : small manuscript fragment on vellum",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "13th century",
+            "type": "creation",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1200",
+                "type": "start",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1299",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "publication",
+            "encoding": {
+              "code": "marc",
+              "note": []
+            },
+            "identifier": [],
+            "qualifier": "questionable",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "France?",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "code": "fr",
+            "identifier": [],
+            "source": {
+              "code": "marccountry",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "monographic",
+            "type": "issuance",
+            "identifier": [],
+            "source": {
+              "value": "MODS issuance terms",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "mixed material",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "manuscript",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "1 fragment, 96 x 151 mm.",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "lat",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Unidentified Latin vocabulary, this portion part of the letter M, with a total of 35 lemmata (a word or phrase that is glossed; headword).",
+        "type": "abstract",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Lower portion of vellum leaf, removed from a binding.",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Script: professional gotica textualis, 2 columns, with a fair amount of abbreviations.",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Purchased from Bonhams, 2013. Accession 2013-080.",
+        "type": "acquisition",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Previously in the Bernard M. Rosenthal collection; with Rosenthal's dealer description included with the manuscript, together with a note re previous ownership of Bernard Bischoff.",
+        "type": "ownership",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [],
+    "subject": [
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Manuscripts, Latin (Medieval and modern)",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "France",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "access": {
+      "url": [],
+      "physicalLocation": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Department of Special Collections, Stanford University Libraries, Stanford, CA 94305",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalLocation": [],
+      "accessContact": [],
+      "digitalRepository": [],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Open for research; material must be requested at least 24 hours in advance of intended use.",
+          "type": "access restriction",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ]
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [
+        {
+          "structuredValue": [],
+          "type": "creation",
+          "date": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "130524",
+              "encoding": {
+                "code": "marc",
+                "note": []
+              },
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "contributor": [],
+          "location": [],
+          "identifier": [],
+          "note": [],
+          "parallelEvent": []
+        }
+      ],
+      "language": [],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Converted from MARCXML to MODS version 3.4 using MARC21slim2MODS3-4_SDR.xsl (Version 1.2.5 2013/08/11)",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [
+        {
+          "code": "dacs",
+          "note": []
+        }
+      ],
+      "identifier": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "a10157160",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/xf680rd3068"
+  },
+  "identification": {
+    "catalogLinks": [
+      {
+        "catalog": "folio",
+        "refresh": true,
+        "catalogRecordId": "a10157160"
+      },
+      {
+        "catalog": "symphony",
+        "refresh": true,
+        "catalogRecordId": "10157160"
+      }
+    ],
+    "sourceId": "sul:MISC_1855"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/xf680rd3068-xf680rd3068_1",
+        "label": "Image 1",
+        "version": 4,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/xf680rd3068-xf680rd3068_1/xf680rd3068_00_0001.jp2",
+              "label": "xf680rd3068_00_0001.jp2",
+              "filename": "xf680rd3068_00_0001.jp2",
+              "size": 887079,
+              "version": 4,
+              "hasMimeType": "image/jp2",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "abc96a21ee52d565054240a499c979e90bd0551e"
+                },
+                {
+                  "type": "md5",
+                  "digest": "828cce4fee31e54abfc131da5edd1623"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 2627,
+                "width": 1794
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/xf680rd3068-xf680rd3068_2",
+        "label": "Image 2",
+        "version": 4,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/xf680rd3068-xf680rd3068_2/xf680rd3068_00_0002.jp2",
+              "label": "xf680rd3068_00_0002.jp2",
+              "filename": "xf680rd3068_00_0002.jp2",
+              "size": 887064,
+              "version": 4,
+              "hasMimeType": "image/jp2",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "630fe646516d8bbb081ed2c16f08eb227984bbdc"
+                },
+                {
+                  "type": "md5",
+                  "digest": "02e03189e0e15253dbbc508e2b10bfa2"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 2627,
+                "width": 1794
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasMemberOrders": [],
+    "isMemberOf": []
+  },
+  "created": "2022-05-01T20:10:58.000+00:00",
+  "modified": "2022-05-01T20:10:58.000+00:00",
+  "lock": "druid:xf680rd3068=0"
+}
