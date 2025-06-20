@@ -19,6 +19,9 @@ RSpec.describe 'indexing integration test' do
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
+      stub_request(:get, "https://purl.stanford.edu/#{fixture}.json").to_return(
+        body: File.new(File.join(FIXTURES_PATH, "#{fixture}.json")), status: 200
+      )
     end
 
     %w(rk684yq9989 dx969tv9730).each do |fixture|
@@ -26,6 +29,10 @@ RSpec.describe 'indexing integration test' do
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.mods")), status: 200
       )
     end
+
+    stub_request(:get, 'https://purl.stanford.edu/kn842hg0241.json').to_return(
+      body: File.new(File.join(FIXTURES_PATH, 'kn842hg0241.json')), status: 200
+    )
   end
 
   context 'regular image item' do

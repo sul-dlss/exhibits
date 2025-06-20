@@ -1,0 +1,698 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/book",
+  "externalIdentifier": "druid:rk684yq9989",
+  "label": "SUN graphics related to paper",
+  "version": 3,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "useAndReproductionStatement": "The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu)."
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:yf767bj4831",
+    "releaseTags": [
+      {
+        "who": "dhartwig",
+        "what": "collection",
+        "date": "2018-04-04T23:39:03.000+00:00",
+        "to": "Searchworks",
+        "release": false
+      }
+    ]
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "SUN graphics related to paper",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Baskett, Forest",
+            "uri": "http://id.loc.gov/authorities/names/no93016284",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "uri": "http://id.loc.gov/authorities/names/",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Creator",
+            "uri": "http://id.loc.gov/vocabulary/relators/cre",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Bechtolscheim, Andreus",
+            "identifier": [],
+            "source": {
+              "code": "local",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Contributor",
+            "uri": "http://id.loc.gov/vocabulary/relators/ctb",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "1980-03-30",
+            "type": "creation",
+            "status": "primary",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "monographic",
+            "type": "issuance",
+            "identifier": [],
+            "source": {
+              "value": "MODS issuance terms",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "text",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "application/pdf",
+        "type": "media type",
+        "identifier": [],
+        "source": {
+          "value": "IANA media types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "1 document",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "reformatted digital",
+        "type": "digital origin",
+        "identifier": [],
+        "source": {
+          "value": "MODS digital origin terms",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Call Number: SC0340, Accession: 1986-052, Box: 1, Folder: 6, Title: SUN Write-ups and View Graphs",
+        "type": "preferred citation",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Manuscript (1980/3/30)",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Computer Science Department",
+        "identifier": [],
+        "displayLabel": "Donor tags",
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "SUN",
+        "identifier": [],
+        "displayLabel": "Donor tags",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "SC0340_1986-052_rk684yq9989",
+        "type": "local",
+        "identifier": [],
+        "source": {
+          "code": "local",
+          "note": []
+        },
+        "displayLabel": "Source ID",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "subject": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Artificial intelligence",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85008180",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Expert systems (Computer science)",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85046450",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Computer science",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh89003285",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "access": {
+      "url": [],
+      "physicalLocation": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Call Number: SC0340, Accession: 1986-052, Box: 1, Folder: 6",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalLocation": [],
+      "accessContact": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Stanford University. Libraries. Department of Special Collections and University Archives",
+          "type": "repository",
+          "uri": "http://id.loc.gov/authorities/names/no2014019980",
+          "identifier": [],
+          "source": {
+            "uri": "http://id.loc.gov/authorities/names/",
+            "note": []
+          },
+          "displayLabel": "Repository",
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalRepository": [],
+      "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [],
+      "language": [
+        {
+          "appliesTo": [],
+          "code": "eng",
+          "groupedValue": [],
+          "note": [],
+          "parallelValue": [],
+          "source": {
+            "code": "iso639-2b",
+            "note": []
+          },
+          "structuredValue": []
+        }
+      ],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Description mapped to MODS from SaltWorks, original scanned file name: SC340_1986-052_b01_f06_i0002.",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [],
+      "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/rk684yq9989"
+  },
+  "identification": {
+    "catalogLinks": [],
+    "sourceId": "SALT:SC0340_1986-052_rk684yq9989"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/object",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/rk684yq9989-rk684yq9989_4",
+        "label": "Document",
+        "version": 3,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/rk684yq9989-rk684yq9989_4/rk684yq9989.pdf",
+              "label": "rk684yq9989.pdf",
+              "filename": "rk684yq9989.pdf",
+              "size": 1199381,
+              "version": 3,
+              "hasMimeType": "application/pdf",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "40528587b64af0075293492ed99d89f4ac3628ff"
+                },
+                {
+                  "type": "md5",
+                  "digest": "3be63dda52c163c8dc42e559114ffa77"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              }
+            },
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/rk684yq9989-rk684yq9989_4/rk684yq9989.txt",
+              "label": "rk684yq9989.txt",
+              "filename": "rk684yq9989.txt",
+              "size": 244,
+              "version": 3,
+              "hasMimeType": "text/plain",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "4d74fe7e9ad4b233c8233b8b4d3b7cecb51b41ee"
+                },
+                {
+                  "type": "md5",
+                  "digest": "0290b1b163dd0b9bd2204c2a26acddc5"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/page",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/rk684yq9989-rk684yq9989_5",
+        "label": "Page 1",
+        "version": 3,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/rk684yq9989-rk684yq9989_5/rk684yq9989_00001.jp2",
+              "label": "rk684yq9989_00001.jp2",
+              "filename": "rk684yq9989_00001.jp2",
+              "size": 1863880,
+              "version": 3,
+              "hasMimeType": "image/jp2",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "b7b5886f8cb3314bb2242b8ec6fd15be5cde1492"
+                },
+                {
+                  "type": "md5",
+                  "digest": "f68ba0979c9f51342b31f23965f526df"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 3381,
+                "width": 2625
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/page",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/rk684yq9989-rk684yq9989_6",
+        "label": "Page 2",
+        "version": 3,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/rk684yq9989-rk684yq9989_6/rk684yq9989_00002.jp2",
+              "label": "rk684yq9989_00002.jp2",
+              "filename": "rk684yq9989_00002.jp2",
+              "size": 1862233,
+              "version": 3,
+              "hasMimeType": "image/jp2",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "9de8052a109cab85f3ce8609f34bb01cbed7be84"
+                },
+                {
+                  "type": "md5",
+                  "digest": "296ff91efb5df766d8ea0bcdd7f7b78c"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 3378,
+                "width": 2625
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/page",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/rk684yq9989-rk684yq9989_7",
+        "label": "Page 3",
+        "version": 3,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/rk684yq9989-rk684yq9989_7/rk684yq9989_00003.jp2",
+              "label": "rk684yq9989_00003.jp2",
+              "filename": "rk684yq9989_00003.jp2",
+              "size": 1862701,
+              "version": 3,
+              "hasMimeType": "image/jp2",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "902dd4ca7667daa5a711cbd810d086e1b8bbe149"
+                },
+                {
+                  "type": "md5",
+                  "digest": "4a6b707596e59a6eb9c892f0c0be0e1c"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 3375,
+                "width": 2628
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/page",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/rk684yq9989-rk684yq9989_8",
+        "label": "Page 4",
+        "version": 3,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/rk684yq9989-rk684yq9989_8/rk684yq9989_00004.jp2",
+              "label": "rk684yq9989_00004.jp2",
+              "filename": "rk684yq9989_00004.jp2",
+              "size": 1878321,
+              "version": 3,
+              "hasMimeType": "image/jp2",
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "bd50b0647a5e29a159793c7a87badefce5eecf31"
+                },
+                {
+                  "type": "md5",
+                  "digest": "1e1221b2e0e82b07b407ab7922e3a83d"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 3384,
+                "width": 2643
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasMemberOrders": [
+      {
+        "members": [],
+        "viewingDirection": "left-to-right"
+      }
+    ],
+    "isMemberOf": [
+      "druid:ms016pb9280"
+    ]
+  },
+  "created": "2015-09-18T02:19:04.000+00:00",
+  "modified": "2021-02-22T16:24:59.000+00:00",
+  "lock": "druid:rk684yq9989=0"
+}
