@@ -8,9 +8,11 @@ describe Purl do
   let(:druid) { 'kj040zn0537' }
 
   before do
-    stub_request(:get, "https://purl.stanford.edu/#{druid}.xml").to_return(
-      body: File.new(File.join(FIXTURES_PATH, "#{druid}.xml")), status: 200
-    )
+    %w(xml json).each do |format|
+      stub_request(:get, "https://purl.stanford.edu/#{druid}.#{format}").to_return(
+        body: File.new(File.join(FIXTURES_PATH, "#{druid}.#{format}")), status: 200
+      )
+    end
   end
 
   describe '#collections' do

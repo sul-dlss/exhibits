@@ -1,0 +1,82 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/collection",
+  "externalIdentifier": "druid:dx969tv9730",
+  "label": "Parker Manuscripts",
+  "version": 3,
+  "access": {
+    "view": "world"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:bm077td6448",
+    "releaseTags": []
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Parker Manuscripts",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [],
+    "event": [],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "collection",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "The Parker Library's holdings of Old English texts account for a substantial proportion of all extant manuscripts in Anglo-Saxon, including the earliest copy of the Anglo-Saxon Chronicle (c. 890), unique copies of Old English poems and other texts, and King Alfred's translation of Gregory the Great's Pastoral Care. The Parker Library also contains key Anglo-Norman and Middle English texts ranging from the Ancrene Wisse and the Brut Chronicle to one of the finest copies of Chaucer's Troilus and Criseyde. Other subjects represented in the collection are theology, music, medieval travelogues and maps, apocalypses, bestiaries, royal ceremonies, historical chronicles and Bibles. The Parker Library holds a magnificent collection of English illuminated manuscripts, such as the Bury and Dover Bibles (c. 1135 and c. 1150) and the Chronica maiora by Matthew Paris (c. 1230-50). Scholars in a variety of disciplines - including historians of art, music, science, literature, politics and religion - find invaluable resources in the Library's collection.",
+        "type": "abstract",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [],
+    "subject": [],
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/dx969tv9730"
+  },
+  "identification": {
+    "catalogLinks": []
+  },
+  "created": "2022-04-27T13:46:06.000+00:00",
+  "modified": "2022-04-27T13:46:06.000+00:00",
+  "lock": "druid:dx969tv9730=0"
+}

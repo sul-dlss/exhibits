@@ -1,0 +1,536 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/image",
+  "externalIdentifier": "druid:ds694bw1519",
+  "label": "Packard family",
+  "version": 3,
+  "access": {
+    "view": "location-based",
+    "download": "location-based",
+    "location": "spec",
+    "controlledDigitalLending": false,
+    "useAndReproductionStatement": "Property rights reside with the repository. Literary rights reside with  the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Public Services Librarian of the Dept. of Special Collections (http://library.stanford.edu/spc)."
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:ww057vk7675"
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Packard family",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Packard, David, 1912-1996",
+            "uri": "http://id.loc.gov/authorities/names/n88040520",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "uri": "http://id.loc.gov/authorities/names/",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Packard, Lucile",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Hewlett-Packard Company",
+            "uri": "http://id.loc.gov/authorities/names/n80090459",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "uri": "http://id.loc.gov/authorities/names/",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Hewlett, William R.",
+            "uri": "http://id.loc.gov/authorities/names/n88644982",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "uri": "http://id.loc.gov/authorities/names/",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "photographs",
+        "type": "genre",
+        "uri": "http://vocab.getty.edu/aat/300046300",
+        "identifier": [],
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "still image",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "photographs",
+        "type": "form",
+        "uri": "http://vocab.getty.edu/aat/300046300",
+        "identifier": [],
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "access",
+        "type": "reformatting quality",
+        "identifier": [],
+        "source": {
+          "value": "MODS reformatting quality terms",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "image/jpeg",
+        "type": "media type",
+        "identifier": [],
+        "source": {
+          "value": "IANA media types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "1 photograph",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "reformatted digital",
+        "type": "digital origin",
+        "identifier": [],
+        "source": {
+          "value": "MODS digital origin terms",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "uri": "http://id.loc.gov/vocabulary/iso639-2",
+          "note": []
+        },
+        "structuredValue": [],
+        "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
+        "value": "English"
+      }
+    ],
+    "note": [],
+    "identifier": [],
+    "subject": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "United States. Department of Defense",
+        "type": "organization",
+        "identifier": [],
+        "source": {
+          "code": "naf",
+          "uri": "http://id.loc.gov/authorities/names/",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Computer industry",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85029504",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Electronic industries",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "United States",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "uri": "http://id.loc.gov/authorities/subjects/sh2008119314",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Businessmen",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85018328",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Philanthropists",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85100740",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "access": {
+      "url": [],
+      "physicalLocation": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "SC1046",
+          "type": "shelf locator",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalLocation": [],
+      "accessContact": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Stanford University. Libraries. Department of Special Collections and University Archives",
+          "type": "repository",
+          "uri": "http://id.loc.gov/authorities/names/no2014019980",
+          "identifier": [],
+          "source": {
+            "code": "naf",
+            "note": []
+          },
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalRepository": [],
+      "note": []
+    },
+    "relatedResource": [
+      {
+        "type": "in series",
+        "displayLabel": "Series",
+        "title": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Photographs",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      }
+    ],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "uri": "http://id.loc.gov/vocabulary/organizations/cst",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "uri": "http://id.loc.gov/vocabulary/organizations",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [],
+      "language": [
+        {
+          "appliesTo": [],
+          "code": "eng",
+          "groupedValue": [],
+          "note": [],
+          "parallelValue": [],
+          "source": {
+            "code": "iso639-2b",
+            "uri": "http://id.loc.gov/vocabulary/iso639-2",
+            "note": []
+          },
+          "structuredValue": [],
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        }
+      ],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "human prepared",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [],
+      "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/ds694bw1519"
+  },
+  "identification": {
+    "catalogLinks": [],
+    "sourceId": "sul:SC1046_b104_f65_059"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/ds694bw1519-ds694bw1519_1",
+        "label": "Image 1",
+        "version": 2,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/ds694bw1519-ds694bw1519_1/ds694bw1519.jp2",
+              "label": "ds694bw1519.jp2",
+              "filename": "ds694bw1519.jp2",
+              "size": 1117676,
+              "version": 2,
+              "hasMimeType": "image/jp2",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "a7a6aed4e2898fa1e479d0563fbb6896716465c2"
+                },
+                {
+                  "type": "md5",
+                  "digest": "700201521dcd7afc9278b7859190e069"
+                }
+              ],
+              "access": {
+                "view": "location-based",
+                "download": "location-based",
+                "location": "spec",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 1993,
+                "width": 2944
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasMemberOrders": [],
+    "isMemberOf": [
+      "druid:vp755yy2079"
+    ]
+  },
+  "created": "2024-05-17T22:42:26.000+00:00",
+  "modified": "2024-06-13T05:10:47.000+00:00",
+  "lock": "druid:ds694bw1519=0=1"
+}
