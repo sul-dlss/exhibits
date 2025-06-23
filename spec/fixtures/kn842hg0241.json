@@ -1,0 +1,2059 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/collection",
+  "externalIdentifier": "druid:kn842hg0241",
+  "label": "Annual report of the Council of the Corporation of Foreign\n            Bondholders",
+  "version": 4,
+  "access": {
+    "view": "world"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:sf026vj0890",
+    "releaseTags": [
+      {
+        "who": "cebraj",
+        "what": "self",
+        "date": "2019-07-10T17:28:45.000+00:00",
+        "to": "Searchworks",
+        "release": false
+      }
+    ]
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Annual report of the Council of the Corporation of Foreign\n            Bondholders",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Corporation of Foreign Bondholders (Great Britain)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Corporation of Foreign Bondholders (Great Britain)",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Council",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1873",
+                "type": "start",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "19uu",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "publication",
+            "encoding": {
+              "code": "marc",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "code": "enk",
+            "identifier": [],
+            "source": {
+              "code": "marccountry",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "serial",
+            "type": "issuance",
+            "identifier": [],
+            "source": {
+              "value": "MODS issuance terms",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Annual",
+            "type": "frequency",
+            "identifier": [],
+            "source": {
+              "code": "marcfrequency",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelEvent": []
+      },
+      {
+        "structuredValue": [],
+        "date": [],
+        "contributor": [
+          {
+            "name": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "[s.n.]",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "type": "organization",
+            "role": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "publisher",
+                "code": "pbl",
+                "uri": "http://id.loc.gov/vocabulary/relators/pbl",
+                "identifier": [],
+                "source": {
+                  "code": "marcrelator",
+                  "uri": "http://id.loc.gov/vocabulary/relators/",
+                  "note": []
+                },
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+          }
+        ],
+        "location": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "London",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "encyclopedia",
+        "type": "genre",
+        "identifier": [],
+        "source": {
+          "code": "marcgt",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Periodicals",
+        "type": "genre",
+        "identifier": [],
+        "source": {
+          "code": "fast",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Annual reports",
+        "type": "genre",
+        "identifier": [],
+        "source": {
+          "code": "lcgft",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "text",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "v. : fold. maps, tables (some fold.) ; 27 cm.",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Began publication with first issue in 1873.",
+        "type": "date/sequential designation",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Title varies slightly.",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "16003185",
+        "type": "LCCN",
+        "identifier": [],
+        "source": {
+          "code": "lccn",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "subject": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "type": "place",
+        "code": "e-uk",
+        "identifier": [],
+        "source": {
+          "code": "marcgac",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Corporation of Foreign Bondholders (Great Britain)",
+            "type": "organization",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Periodicals",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Corporation of Foreign Bondholders (Great Britain)",
+        "type": "organization",
+        "identifier": [],
+        "source": {
+          "code": "fast",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Debts, Public",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Periodicals",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Loans",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Periodicals",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Investments, Foreign",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Periodicals",
+            "type": "genre",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Debts, Public",
+        "type": "topic",
+        "identifier": [],
+        "source": {
+          "code": "fast",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Investments, Foreign",
+        "type": "topic",
+        "identifier": [],
+        "source": {
+          "code": "fast",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Loans",
+        "type": "topic",
+        "identifier": [],
+        "source": {
+          "code": "fast",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "HG4705 .C67",
+        "type": "classification",
+        "identifier": [],
+        "source": {
+          "code": "lcc",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "access": {
+      "url": [],
+      "physicalLocation": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "CSt SAL3",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalLocation": [],
+      "accessContact": [],
+      "digitalRepository": [],
+      "note": []
+    },
+    "relatedResource": [
+      {
+        "type": "has other format",
+        "displayLabel": "Online version:",
+        "title": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Annual report of the Council of the Corporation of Foreign\n            Bondholders",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Corporation of Foreign Bondholders (Great Britain)",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "role": [],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+          }
+        ],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(OCoLC)565856626",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gk148tg7624",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/zj991sk5681",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/ct630gc4310",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/mk638rq5815",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sk628mt0227",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gk625zx9557",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/mq779wg0122",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/cy089sb6208",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/vm837zv7420",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/fy909jc1311",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/rz137br4511",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/tc111qm1203",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sc705my1621",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/rz545jd7173",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/tz217qr0197",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/hb718cw2530",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sk448hq7455",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/fb345mn7491",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/np723dw0281",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sq043nv3600",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/zq044pp8387",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/hy338xr0975",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sx058qj1369",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/kb721tn5567",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gq076hs0074",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/zj816sz2303",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/qm836qv4651",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/dx316zs5577",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/hm043gw6052",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sd478ym6874",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/pw259wh2674",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/nh844jp3290",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/nq261rs5424",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/mw027dz5769",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/qx681xd0625",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/rz128fj7901",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/vg673qk4256",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/kd851wb6167",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/qq364px7219",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/dp741ft4475",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/kv340jt4282",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xm355jp7134",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sj070bj3210",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/yw012yx2065",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/tn041fc4622",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/fs263nj9552",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sn743hz2186",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/tn976cc8781",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/tx524yj3520",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/ck985jx4802",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/ds536jr3428",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/pr454bp4042",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/wg089rc7335",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/ky337tf2964",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xk193gf9013",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/bk887yc3228",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/fj040qj5469",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/ny833ng1869",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/hp675gg5024",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gn476wj3822",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/nf592ww2707",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xm536zm1655",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/mb933tm4978",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/pz900xb0480",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gv130xd6496",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sd366vh8357",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/dt451xj0299",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sc892sk3811",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/cv673rq0566",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/mt454vq9168",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/cz043fn2293",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/vq163kv9085",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gn137tq8525",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/by619wx9035",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/nh635qr4818",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/fs618bc1856",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gx529tg2579",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/nx232xb6246",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/kd033yc0391",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/kh568xk3497",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/cn107bw9614",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/tx441bw0554",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/zj534gx0331",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/wp982dt2346",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/pp205rt7689",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/zm371sq5551",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/hf237gf1245",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xw509jm4243",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/vk263xm0151",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xb881sd1827",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xt162pg0437",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/nw716kq4704",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/qm473sx6649",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xj949hy7642",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/rp928kq9693",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/tq642ty9374",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/fb963jw9614",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/kz612fj3376",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/vd324nm9456",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/vs194jg5517",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/pm015jz5592",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/fb686hk5534",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/qd788tg5651",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/st411yk1356",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/wj685pp1704",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sw399sj8746",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/gg206ff9698",
+        "relatedResource": []
+      }
+    ],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "DLC",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [
+        {
+          "structuredValue": [],
+          "type": "creation",
+          "date": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "751101",
+              "encoding": {
+                "code": "marc",
+                "note": []
+              },
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "contributor": [],
+          "location": [],
+          "identifier": [],
+          "note": [],
+          "parallelEvent": []
+        },
+        {
+          "structuredValue": [],
+          "type": "modification",
+          "date": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "20210204003001.0",
+              "encoding": {
+                "code": "iso8601",
+                "note": []
+              },
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "contributor": [],
+          "location": [],
+          "identifier": [],
+          "note": [],
+          "parallelEvent": []
+        }
+      ],
+      "language": [
+        {
+          "appliesTo": [],
+          "code": "eng",
+          "groupedValue": [],
+          "note": [],
+          "parallelValue": [],
+          "source": {
+            "code": "iso639-2b",
+            "note": []
+          },
+          "structuredValue": []
+        }
+      ],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Converted from MARCXML to MODS version 3.7 using MARC21slim2MODS3-7_SDR_v2-1.xsl\n\t\t\t\t(SUL 3.7 version 2.1 20210127; LC Revision 1.140 20200717)",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [
+        {
+          "code": "aacr",
+          "note": []
+        }
+      ],
+      "identifier": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "a357970",
+          "type": "SIRSI",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/kn842hg0241"
+  },
+  "identification": {
+    "catalogLinks": [
+      {
+        "catalog": "previous symphony",
+        "refresh": false,
+        "catalogRecordId": "357970"
+      }
+    ]
+  },
+  "created": "2022-04-29T00:51:24.000+00:00",
+  "modified": "2022-04-29T00:51:24.000+00:00",
+  "lock": "druid:kn842hg0241=0"
+}
