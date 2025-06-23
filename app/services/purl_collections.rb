@@ -25,7 +25,7 @@ class PurlCollections
   private
 
   def collection_druids
-    (@public_cocina.dig('structural', 'isMemberOf') || []).map do |druid|
+    Array(@public_cocina.dig('structural', 'isMemberOf')).map do |druid|
       druid.delete_prefix('druid:')
     end
   end
