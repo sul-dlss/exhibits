@@ -1,0 +1,552 @@
+{
+  "cocinaVersion": "0.103.2",
+  "type": "https://cocina.sul.stanford.edu/models/book",
+  "externalIdentifier": "druid:vg729nb7574",
+  "label": "Publications du Bureau central séismologique internationale. Série A, Travaux scientifiques",
+  "version": 5,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "copyright": "This work has been identified as being free of known restrictions under copyright law, including all related and neighboring rights. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+    "useAndReproductionStatement": "Image from the Map Collections courtesy Stanford University Libraries. This item is in the public domain. There are no restrictions on use. If you have questions, please contact Branner Earth Sciences Library & Map Collections at brannerlibrary@stanford.edu.",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:xs835jp8197"
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Publications du Bureau central séismologique internationale",
+            "type": "main title",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Série A",
+            "type": "part number",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Travaux scientifiques",
+            "type": "part name",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "status": "primary",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "International Association of Seismology and Physics of the Earth's Interior",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "International Council of Scientific Unions",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1924",
+                "type": "start",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "9999",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "publication",
+            "encoding": {
+              "code": "marc",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "code": "fr",
+            "identifier": [],
+            "source": {
+              "code": "marccountry",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "serial",
+            "type": "issuance",
+            "identifier": [],
+            "source": {
+              "value": "MODS issuance terms",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Unknown",
+            "type": "frequency",
+            "identifier": [],
+            "source": {
+              "code": "marcfrequency",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelEvent": []
+      },
+      {
+        "structuredValue": [],
+        "date": [],
+        "contributor": [],
+        "location": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Nogent-le-Rotrou.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "text",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "print",
+        "type": "form",
+        "identifier": [],
+        "source": {
+          "code": "marcform",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "fre",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Began publication in 1924.",
+        "type": "date/sequential designation",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "At head of title, 19   : Conseil internationale des unions scientifiques (19    -33 called Conseil international de recherches) Union géodésique et géophysique internationale. Association (called 19    -33 (no.    -4) Section) de séismologie.",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [],
+    "subject": [
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Earthquakes",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Societies, etc",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "relatedResource": [
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/xj139fd8564",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/mn832zt0750",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/sr292vd1083",
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "purl": "https://purl.stanford.edu/rn735fb7234",
+        "relatedResource": []
+      }
+    ],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [
+        {
+          "structuredValue": [],
+          "type": "creation",
+          "date": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "790219",
+              "encoding": {
+                "code": "marc",
+                "note": []
+              },
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "contributor": [],
+          "location": [],
+          "identifier": [],
+          "note": [],
+          "parallelEvent": []
+        },
+        {
+          "structuredValue": [],
+          "type": "modification",
+          "date": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "19900913000000.0",
+              "encoding": {
+                "code": "iso8601",
+                "note": []
+              },
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "contributor": [],
+          "location": [],
+          "identifier": [],
+          "note": [],
+          "parallelEvent": []
+        }
+      ],
+      "language": [],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Converted from MARCXML to MODS version 3.7 using\n\t\t\t\tMARC21slim2MODS3-7_SDR_v2-7.xsl (SUL 3.7 version 2.7 20220901; LC Revision 1.140\n\t\t\t\t20200717)",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [],
+      "identifier": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "a365010",
+          "type": "FOLIO",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/vg729nb7574"
+  },
+  "identification": {
+    "catalogLinks": [
+      {
+        "catalog": "folio",
+        "refresh": true,
+        "catalogRecordId": "a365010",
+        "partLabel": "Fascicule 15, partie 1",
+        "sortKey": "15.01"
+      },
+      {
+        "catalog": "symphony",
+        "refresh": false,
+        "catalogRecordId": "365010"
+      }
+    ],
+    "sourceId": "sul:551_206 _I59P_SER_A_FASC_15_1re"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/page",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/vg729nb7574-vg729nb7574_1",
+        "label": "Page 1",
+        "version": 4,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/vg729nb7574-vg729nb7574_1/vg729nb7574_00_0001.jp2",
+              "label": "vg729nb7574_00_0001.jp2",
+              "filename": "vg729nb7574_00_0001.jp2",
+              "size": 3097448,
+              "version": 4,
+              "hasMimeType": "image/jp2",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "6a5f4cd41c53cbb878dec54e9896801a1ca67683"
+                },
+                {
+                  "type": "md5",
+                  "digest": "1a7bd6a56cb9c196a1d0e9133b8f9fbe"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 4950,
+                "width": 3314
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasMemberOrders": [
+      {
+        "members": [],
+        "viewingDirection": "left-to-right"
+      }
+    ],
+    "isMemberOf": [
+      "druid:fy015qc6929"
+    ]
+  },
+  "created": "2025-05-21T20:28:23.000+00:00",
+  "modified": "2025-06-09T20:17:23.000+00:00",
+  "lock": "druid:vg729nb7574=2=2"
+}
