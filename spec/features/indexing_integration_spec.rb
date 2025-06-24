@@ -9,16 +9,22 @@ RSpec.describe 'indexing integration test' do
   let(:rsolr) { instance_double(RSolr) }
   let(:rsolr_client) { instance_double(RSolr::Client) }
   let(:fixtures) do
-    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280
-       cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822
-       gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101
-       nk125rg9884 ds694bw1519 vp755yy2079)
+    %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730
+       rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348
+       kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310
+       kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079)
   end
 
   before do
     allow(RSolr).to receive(:connect).and_return(rsolr_client)
     allow(rsolr_client).to receive(:update)
     allow(rsolr_client).to receive(:commit)
+
+    %w(a10157160 a1518292).each do |fixture|
+      allow(ModsFromMarcService).to receive(:mods).with(folio_instance_hrid: fixture).and_return(
+        File.read(File.join(FIXTURES_PATH, "#{fixture}.mods"))
+      )
+    end
 
     stub_request(:post, /update/)
     %w(xml json).each do |format|
@@ -82,13 +88,13 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has MODS origin info fields' do
-        expect(document).to include imprint_display: 'France?, [1200 - 1299?] 13th century',
+        expect(document).to include imprint_display: 'France, [1200 - 1299?]; France?, 13th century',
                                     pub_year_isi: 1200,
                                     pub_year_no_approx_isi: 1200,
                                     pub_year_w_approx_isi: 1200,
                                     pub_year_tisim: (1200..1299).to_a,
                                     place_created_ssim: ['France?'],
-                                    date_ssim: ['13th century', '[1200 - 1299?]']
+                                    date_ssim: ['[1200 - 1299?]', '13th century']
       end
 
       it 'has other metadata fields' do
