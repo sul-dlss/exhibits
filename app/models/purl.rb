@@ -108,7 +108,7 @@ class Purl
   end
 
   def mods_xml
-    @mods_xml ||= PurlModsService.call(public_xml)
+    @mods_xml ||= ModsService.call(purl_object: self)
   end
 
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
