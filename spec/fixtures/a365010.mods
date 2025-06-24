@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.7" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
+  <titleInfo usage="primary">
+    <title>Publications du Bureau central séismologique internationale</title>
+    <partNumber>Série A</partNumber>
+    <partName>Travaux scientifiques</partName>
+  </titleInfo>
+  <name type="corporate">
+    <namePart>International Association of Seismology and Physics of the Earth's Interior</namePart>
+  </name>
+  <name type="corporate">
+    <namePart>International Council of Scientific Unions</namePart>
+  </name>
+  <typeOfResource>text</typeOfResource>
+  <originInfo>
+    <place>
+      <placeTerm type="code" authority="marccountry">fr</placeTerm>
+    </place>
+    <dateIssued encoding="marc" point="start">1924</dateIssued>
+    <dateIssued encoding="marc" point="end">9999</dateIssued>
+    <issuance>serial</issuance>
+    <frequency authority="marcfrequency">Unknown</frequency>
+  </originInfo>
+  <originInfo>
+    <place>
+      <placeTerm type="text">Nogent-le-Rotrou.</placeTerm>
+    </place>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">fre</languageTerm>
+  </language>
+  <physicalDescription>
+    <form authority="marcform">print</form>
+  </physicalDescription>
+  <note type="date/sequential designation">Began publication in 1924.</note>
+  <note>At head of title, 19   : Conseil internationale des unions scientifiques (19    -33 called Conseil international de recherches) Union géodésique et géophysique internationale. Association (called 19    -33 (no.    -4) Section) de séismologie.</note>
+  <subject authority="lcsh">
+    <topic>Earthquakes</topic>
+    <topic>Societies, etc</topic>
+  </subject>
+  <location>
+    <url>http://purl.stanford.edu/vg729nb7574</url>
+  </location>
+  <location>
+    <url>http://purl.stanford.edu/xj139fd8564</url>
+  </location>
+  <location>
+    <url>http://purl.stanford.edu/mn832zt0750</url>
+  </location>
+  <location>
+    <url>http://purl.stanford.edu/sr292vd1083</url>
+  </location>
+  <location>
+    <url>http://purl.stanford.edu/rn735fb7234</url>
+  </location>
+  <recordInfo>
+    <recordContentSource authority="marcorg">CSt</recordContentSource>
+    <recordCreationDate encoding="marc">790219</recordCreationDate>
+    <recordChangeDate encoding="iso8601">19900913000000.0</recordChangeDate>
+    <recordIdentifier source="FOLIO">a365010</recordIdentifier>
+    <recordOrigin>Converted from MARCXML to MODS version 3.7 using
+				MARC21slim2MODS3-7_SDR_v2-7.xsl (SUL 3.7 version 2.7 20220901; LC Revision 1.140
+				20200717)</recordOrigin>
+  </recordInfo>
+</mods>
