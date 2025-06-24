@@ -1,0 +1,79 @@
+<record xmlns='http://www.loc.gov/MARC21/slim'>
+  <leader>01002cam a2200277u  4500</leader>
+  <controlfield tag='005'>19910712000000.0</controlfield>
+  <controlfield tag='008'>831117s1877    fr h     b    000 0 fre d</controlfield>
+  <datafield ind1=' ' ind2=' ' tag='010'>
+    <subfield code='a'>f  01003181</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='035'>
+    <subfield code='a'>(Sirsi) AHA4990</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='035'>
+    <subfield code='a'>(CStRLIN)CSUG83-B58633</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='035'>
+    <subfield code='a'>(OCoLC-M)13972806</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='035'>
+    <subfield code='a'>(OCoLC-I)273489335</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='040'>
+    <subfield code='c'>UPB</subfield>
+    <subfield code='d'>UPB</subfield>
+    <subfield code='d'>OrLoB</subfield>
+  </datafield>
+  <datafield ind1='0' ind2=' ' tag='050'>
+    <subfield code='a'>Z8713</subfield>
+    <subfield code='b'>.H32</subfield>
+  </datafield>
+  <datafield ind1='1' ind2=' ' tag='100'>
+    <subfield code='a'>Harrisse, Henry,</subfield>
+    <subfield code='d'>1829-1910.</subfield>
+    <subfield code='0'>(SIRSI)470058</subfield>
+  </datafield>
+  <datafield ind1='0' ind2='0' tag='245'>
+    <subfield code='a'>Bibliographie de Manon Lescaut</subfield>
+    <subfield code='b'>et notes pour servir a l&apos;histoire du livre,</subfield>
+    <subfield code='c'>par M. Henry Harrisse.</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='250'>
+    <subfield code='a'>2. éd., rev. et augm.</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='260'>
+    <subfield code='a'>Paris,</subfield>
+    <subfield code='b'>D. Margand et C. Fatout,</subfield>
+    <subfield code='c'>1877.</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='300'>
+    <subfield code='a'>2 p. l., 76 p.</subfield>
+    <subfield code='b'>front., facsims.</subfield>
+    <subfield code='c'>23 cm.</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='500'>
+    <subfield code='a'>Half-title:Bibliographie de Manon Lescaut, 1728-1731-1753.</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='596'>
+    <subfield code='a'>31</subfield>
+  </datafield>
+  <datafield ind1='1' ind2='0' tag='600'>
+    <subfield code='a'>Prévost,</subfield>
+    <subfield code='c'>abbé,</subfield>
+    <subfield code='d'>1697-1763.</subfield>
+    <subfield code='t'>Manon Lescaut</subfield>
+    <subfield code='x'>Bibliography.</subfield>
+    <subfield code='0'>(SIRSI)387630</subfield>
+  </datafield>
+  <datafield ind1='4' ind2='1' tag='856'>
+    <subfield code='u'>https://catalog.hathitrust.org/Record/001800015</subfield>
+    <subfield code='y'>Full text via HathiTrust</subfield>
+  </datafield>
+  <datafield ind1=' ' ind2=' ' tag='918'>
+    <subfield code='a'>1518292</subfield>
+  </datafield>
+  <datafield ind1='f' ind2='f' tag='999'>
+    <subfield code='i'>ca7ac9b4-047b-52bb-95fd-43772c28e691</subfield>
+    <subfield code='s'>ceb2ee25-106b-5c4d-891a-c423a006ab00</subfield>
+  </datafield>
+  <controlfield tag='001'>a1518292</controlfield>
+  <controlfield tag='003'>FOLIO</controlfield>
+</record>
