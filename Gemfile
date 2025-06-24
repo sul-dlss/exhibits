@@ -126,6 +126,8 @@ gem 'acts-as-taggable-on'
 gem 'mods_display', '~> 1.6'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
+gem 'folio_client'
+gem 'marc'
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'
