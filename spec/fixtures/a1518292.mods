@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.7" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
+  <titleInfo usage="primary">
+    <title>Bibliographie de Manon Lescaut</title>
+    <subTitle>et notes pour servir a l'histoire du livre</subTitle>
+  </titleInfo>
+  <name type="personal" usage="primary">
+    <namePart>Harrisse, Henry</namePart>
+    <namePart type="date">1829-1910</namePart>
+  </name>
+  <typeOfResource>text</typeOfResource>
+  <genre authority="marcgt">bibliography</genre>
+  <originInfo>
+    <place>
+      <placeTerm type="code" authority="marccountry">fr</placeTerm>
+    </place>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <originInfo>
+    <place>
+      <placeTerm type="text">Paris</placeTerm>
+    </place>
+    <publisher>D. Margand et C. Fatout</publisher>
+    <dateIssued>1877</dateIssued>
+    <edition>2. éd., rev. et augm.</edition>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">fre</languageTerm>
+  </language>
+  <physicalDescription>
+    <form authority="marcform">print</form>
+    <extent>2 p. l., 76 p. front., facsims. 23 cm.</extent>
+  </physicalDescription>
+  <note type="statement of responsibility">par M. Henry Harrisse.</note>
+  <note>Half-title:Bibliographie de Manon Lescaut, 1728-1731-1753.</note>
+  <subject authority="lcsh">
+    <name type="personal">
+      <namePart>Prévost</namePart>
+      <namePart type="termsOfAddress">abbé</namePart>
+      <namePart type="date">1697-1763</namePart>
+    </name>
+    <titleInfo>
+      <title>Manon Lescaut</title>
+    </titleInfo>
+    <topic>Bibliography</topic>
+  </subject>
+  <classification authority="lcc">Z8713 .H32</classification>
+  <location>
+    <url displayLabel="Full text via HathiTrust">https://catalog.hathitrust.org/Record/001800015</url>
+  </location>
+  <identifier type="lccn">f 01003181</identifier>
+  <recordInfo>
+    <recordContentSource authority="marcorg"/>
+    <recordCreationDate encoding="marc">831117</recordCreationDate>
+    <recordChangeDate encoding="iso8601">19910712000000.0</recordChangeDate>
+    <recordIdentifier source="FOLIO">a1518292</recordIdentifier>
+    <recordOrigin>Converted from MARCXML to MODS version 3.7 using
+				MARC21slim2MODS3-7_SDR_v2-7.xsl (SUL 3.7 version 2.7 20220901; LC Revision 1.140
+				20200717)</recordOrigin>
+  </recordInfo>
+</mods>

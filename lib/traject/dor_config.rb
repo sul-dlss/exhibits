@@ -103,38 +103,17 @@ to_field 'pub_year_isi', stanford_mods(:pub_year_int, ignore_approximate: false)
 to_field 'pub_year_no_approx_isi', stanford_mods(:pub_year_int, ignore_approximate: true)
 to_field 'pub_year_w_approx_isi', stanford_mods(:pub_year_int, ignore_approximate: false)
 
-date_field_keys = [:dateIssued, :dateCreated, :dateCaptured, :copyrightDate]
 to_field 'pub_year_tisim' do |resource, accumulator, _context|
   resource.smods_rec.origin_info.each do |element|
-    date_elements = if element.as_object.first.key_dates.any?
-                      element.as_object.first.key_dates.map(&:as_object).flatten
-                    else
-                      date_field_keys.map do |date_field|
-                        next unless element.respond_to?(date_field)
+    date_elements = date_elements_from_origin_info(element)
 
-                        date_elements = element.send(date_field)
-                        date_elements.map(&:as_object).flatten if date_elements.any?
-                      end.compact.first
-                    end
     next if date_elements.nil? || date_elements.none?
 
-    dates = if date_elements.find(&:start?)&.as_range && date_elements.find(&:end?)&.as_range
-              start_date = date_elements.find(&:start?)
-              end_date = date_elements.find(&:end?)
-
-              (start_date.as_range.min.year..end_date.as_range.max.year).to_a
-            elsif date_elements.find(&:start?)&.as_range
-              start_date = date_elements.find(&:start?)
-
-              (start_date.as_range.min.year..Time.zone.now.year).to_a
-            elsif date_elements.one?
-              date_elements.first.to_a.map(&:year)
-            else
-              date_elements.map { |v| v.to_a.map(&:year) }
-            end
-
+    dates = dates_from_date_elements(date_elements)
     accumulator.concat dates.flatten
   end
+
+  accumulator.uniq!
 end
 
 to_field 'date_ssim' do |resource, accumulator, _context|
@@ -360,4 +339,34 @@ end
 def includes_marc_relator_role?(role_node, value:, value_uri: nil)
   (role_node.authority.include?('marcrelator') && role_node.value.include?(value)) ||
     (value_uri && role_node.roleTerm.valueURI.first == value_uri)
+end
+
+def date_elements_from_origin_info(origin_info)
+  if origin_info.as_object.first.key_dates.any?
+    origin_info.as_object.first.key_dates.map(&:as_object).flatten
+  else
+    [:dateIssued, :dateCreated, :dateCaptured, :copyrightDate].map do |date_field|
+      next unless origin_info.respond_to?(date_field)
+
+      date_elements = origin_info.send(date_field)
+      date_elements.map(&:as_object).flatten if date_elements.any?
+    end.compact.first
+  end
+end
+
+def dates_from_date_elements(date_elements) # rubocop:disable Metrics/CyclomaticComplexity,Metrics/PerceivedComplexity
+  if date_elements.find(&:start?)&.as_range && date_elements.find(&:end?)&.as_range
+    start_date = date_elements.find(&:start?)
+    end_date = date_elements.find(&:end?)
+
+    (start_date.as_range.min.year..end_date.as_range.max.year).to_a
+  elsif date_elements.find(&:start?)&.as_range
+    start_date = date_elements.find(&:start?)
+
+    (start_date.as_range.min.year..Time.zone.now.year).to_a
+  elsif date_elements.one?
+    date_elements.first.to_a.map(&:year)
+  else
+    date_elements.map { |v| v.to_a.map(&:year) }
+  end
 end

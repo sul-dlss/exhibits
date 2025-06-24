@@ -127,7 +127,7 @@ class Purl
   end
 
   def mods_xml
-    @mods_xml ||= PurlModsService.call(public_xml)
+    @mods_xml ||= ModsService.call(purl_object: self)
   end
 
   def purl_virtual_object

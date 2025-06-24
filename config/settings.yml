@@ -18,6 +18,12 @@ purl:
   url: "https://purl.stanford.edu/%{druid}"
   uat_url: "https://sul-purl-uat.stanford.edu/%{druid}"
   iiif_manifest_url: "https://purl.stanford.edu/%{druid}/iiif/manifest"
+folio:
+  url: "https://okapi-dev.example.com"
+  username: "app_username"
+  password: "supersecret"
+  legacy_auth: true
+  tenant_id: "example_tenant"
 sidekiq:
   logger_level: "Logger::INFO" # The default from Sidekiq
 feature_flags:
