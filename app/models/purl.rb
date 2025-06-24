@@ -57,7 +57,7 @@ class Purl
     end
   end
 
-  # @return [String] the value of the type attribute for a DOR object's contentMetadata
+  # @return [String] the value of the type attribute from cocina
   #  more info about these values is here:
   #  https://consul.stanford.edu/display/chimera/DOR+content+types%2C+resource+types+and+interpretive+metadata
   #  https://consul.stanford.edu/spaces/chimera/pages/137495027/Summary+of+Content+and+Resource+Types+models+and+their+behaviors
@@ -65,7 +65,7 @@ class Purl
     public_cocina.fetch('type', '').split('/').last
   end
 
-  # @return [String] the value of the objectLabel in the identityMetadata section of the public XML
+  # @return [String] the value of the label attribute from cocina
   def identity_md_obj_label
     public_cocina.fetch('label', nil)
   end
