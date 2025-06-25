@@ -96,9 +96,11 @@ class Purl
   end
 
   def catalog_record_id
-    return if active_refresh_catalog_record.blank?
+    active_refresh_catalog_record&.fetch('catalogRecordId', nil)
+  end
 
-    active_refresh_catalog_record.fetch('catalogRecordId', nil)
+  def part_label_for_serials
+    active_refresh_catalog_record&.fetch('partLabel', nil)
   end
 
   delegate :logger, to: :Rails
@@ -106,7 +108,7 @@ class Purl
   private
 
   def active_refresh_catalog_record
-    public_cocina.dig('identification', 'catalogLinks').find do |record|
+    @active_refresh_catalog_record ||= public_cocina.dig('identification', 'catalogLinks').find do |record|
       record.fetch('catalog', '') == 'folio' &&
         record.fetch('refresh', '') == true
     end
@@ -118,10 +120,24 @@ class Purl
 
   def mods_xml
     @mods_xml ||= if catalog_record_id.present?
-                    Nokogiri::XML(MarcService.mods(folio_instance_hrid: catalog_record_id))
+                    inject_part_label(mods_from_catalog_record)
                   else
                     PurlModsService.call(public_xml)
                   end
+  end
+
+  def inject_part_label(mods_xml)
+    return mods_xml if part_label_for_serials.blank?
+
+    title_info = mods_xml.at_xpath('//mods:mods/mods:titleInfo', 'mods' => 'http://www.loc.gov/mods/v3')
+    title_info.search('//mods:partNumber', 'mods' => 'http://www.loc.gov/mods/v3').remove
+    title_info.search('//mods:partName', 'mods' => 'http://www.loc.gov/mods/v3').remove
+    title_info.add_child("<partNumber>#{part_label_for_serials}</partNumber>")
+    mods_xml
+  end
+
+  def mods_from_catalog_record
+    Nokogiri::XML(MarcService.mods(folio_instance_hrid: catalog_record_id))
   end
 
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
