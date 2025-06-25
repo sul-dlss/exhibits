@@ -95,16 +95,33 @@ class Purl
     @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
   end
 
+  def catalog_record_id
+    return if active_refresh_catalog_record.blank?
+
+    active_refresh_catalog_record.fetch('catalogRecordId', nil)
+  end
+
   delegate :logger, to: :Rails
 
   private
+
+  def active_refresh_catalog_record
+    public_cocina.dig('identification', 'catalogLinks').find do |record|
+      record.fetch('catalog', '') == 'folio' &&
+        record.fetch('refresh', '') == true
+    end
+  end
 
   def purl_cocina_service
     @purl_cocina_service ||= PurlService.new(bare_druid, format: :json)
   end
 
   def mods_xml
-    @mods_xml ||= PurlModsService.call(public_xml)
+    @mods_xml ||= if catalog_record_id.present?
+                    Nokogiri::XML(MarcService.mods(folio_instance_hrid: catalog_record_id))
+                  else
+                    PurlModsService.call(public_xml)
+                  end
   end
 
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
