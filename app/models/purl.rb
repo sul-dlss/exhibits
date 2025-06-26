@@ -99,12 +99,84 @@ class Purl
 
   private
 
+  def active_refresh_catalog_record
+    @active_refresh_catalog_record ||= public_cocina.dig('identification', 'catalogLinks').find do |record|
+      record.fetch('catalog', '') == 'folio' &&
+        record.fetch('refresh', '') == true
+    end
+  end
+
+  def catalog_record_id
+    active_refresh_catalog_record&.fetch('catalogRecordId', nil)
+  end
+
+  def part_label_for_serials
+    active_refresh_catalog_record&.fetch('partLabel', nil)
+  end
+
+  def use_and_reproduction_statement
+    public_cocina.dig('access', 'useAndReproductionStatement')
+  end
+
+  def copyright
+    public_cocina.dig('access', 'copyright')
+  end
+
+  def license_url
+    public_cocina.dig('access', 'license')
+  end
+
   def purl_cocina_service
     @purl_cocina_service ||= PurlService.new(bare_druid, format: :json)
   end
 
   def mods_xml
-    @mods_xml ||= PurlModsService.call(public_xml)
+    @mods_xml ||= if catalog_record_id.present?
+                    mods = inject_part_label(mods_from_catalog_record)
+                    mods = inject_use_and_reproduction_statement(mods)
+                    mods = inject_copyright(mods)
+                    inject_license(mods)
+                  else
+                    PurlModsService.call(public_xml)
+                  end
+  end
+
+  def inject_use_and_reproduction_statement(mods_xml)
+    return mods_xml if use_and_reproduction_statement.blank?
+
+    mods = mods_xml.at_xpath('//mods:mods', 'mods' => 'http://www.loc.gov/mods/v3')
+    mods.add_child("<accessCondition type=\"useAndReproduction\">#{use_and_reproduction_statement}</accessCondition>")
+    mods
+  end
+
+  def inject_copyright(mods_xml)
+    return mods_xml if copyright.blank?
+
+    mods = mods_xml.at_xpath('//mods:mods', 'mods' => 'http://www.loc.gov/mods/v3')
+    mods.add_child("<accessCondition type=\"copyright\">#{copyright}</accessCondition>")
+    mods
+  end
+
+  def inject_license(mods_xml)
+    return mods_xml if license_url.blank?
+
+    mods = mods_xml.at_xpath('//mods:mods', 'mods' => 'http://www.loc.gov/mods/v3')
+    mods.add_child("<accessCondition type=\"license\" xlink:href=\"#{license_url}\">#{LicensesService.call(url: license_url)}</accessCondition>")
+    mods
+  end
+
+  def inject_part_label(mods_xml)
+    return mods_xml if part_label_for_serials.blank?
+
+    title_info = mods_xml.at_xpath('//mods:mods/mods:titleInfo', 'mods' => 'http://www.loc.gov/mods/v3')
+    title_info.search('//mods:partNumber', 'mods' => 'http://www.loc.gov/mods/v3').remove
+    title_info.search('//mods:partName', 'mods' => 'http://www.loc.gov/mods/v3').remove
+    title_info.add_child("<partNumber>#{part_label_for_serials}</partNumber>")
+    mods_xml
+  end
+
+  def mods_from_catalog_record
+    Nokogiri::XML(MarcService.mods(folio_instance_hrid: catalog_record_id))
   end
 
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
