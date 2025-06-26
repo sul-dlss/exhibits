@@ -95,6 +95,14 @@ class Purl
     @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
   end
 
+  def last_updated
+    Time.parse(public_cocina.fetch('modified', nil)).utc.iso8601
+  end
+
+  def thumbnail_identifier
+    PurlThumbnail.call(purl_object: self)
+  end
+
   delegate :logger, to: :Rails
 
   private

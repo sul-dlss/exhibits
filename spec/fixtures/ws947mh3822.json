@@ -1,55 +1,26 @@
 {
   "cocinaVersion": "0.75.0",
-  "type": "https://cocina.sul.stanford.edu/models/book",
-  "externalIdentifier": "druid:xt162pg0437",
-  "label": "Annual report of the Council of the Corporation of Foreign Bondholders. 1988",
-  "version": 4,
+  "type": "https://cocina.sul.stanford.edu/models/image",
+  "externalIdentifier": "druid:ws947mh3822",
+  "label": "Leland Stanford Junior University Marching Band, Stanford vs. Arizona football game, October 19, 2002",
+  "version": 2,
   "access": {
     "view": "world",
     "download": "world",
     "controlledDigitalLending": false,
-    "copyright": "Copyright © Stanford University. All Rights Reserved.",
-    "useAndReproductionStatement": "Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu"
+    "useAndReproductionStatement": "The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu).",
+    "license": "https://creativecommons.org/licenses/by-nc-nd/3.0/legalcode"
   },
   "administrative": {
-    "hasAdminPolicy": "druid:sf026vj0890",
-    "releaseTags": [
-      {
-        "who": "cebraj",
-        "what": "self",
-        "date": "2019-07-11T17:04:46.000+00:00",
-        "to": "Searchworks",
-        "release": true
-      }
-    ]
+    "hasAdminPolicy": "druid:rs517ph2700"
   },
   "description": {
     "title": [
       {
-        "structuredValue": [
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Annual report of the Council of the Corporation of Foreign Bondholders",
-            "type": "main title",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          },
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "1988",
-            "type": "part name",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          }
-        ],
+        "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
+        "value": "Leland Stanford Junior University Marching Band, Stanford vs. Arizona football game, October 19, 2002",
         "identifier": [],
         "note": [],
         "appliesTo": []
@@ -62,20 +33,34 @@
             "structuredValue": [],
             "parallelValue": [],
             "groupedValue": [],
-            "value": "Corporation of Foreign Bondholders (Great Britain)",
+            "value": "Beyers, Robby",
+            "uri": "http://id.loc.gov/authorities/names/no2015139297",
             "identifier": [],
+            "source": {
+              "code": "naf",
+              "uri": "http://id.loc.gov/authorities/names/",
+              "note": []
+            },
             "note": [],
             "appliesTo": []
           }
         ],
-        "type": "organization",
+        "type": "person",
+        "status": "primary",
         "role": [
           {
             "structuredValue": [],
             "parallelValue": [],
             "groupedValue": [],
-            "value": "Publisher",
+            "value": "photographer",
+            "code": "pht",
+            "uri": "http://id.loc.gov/vocabulary/relators/pht",
             "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/",
+              "note": []
+            },
             "note": [],
             "appliesTo": []
           }
@@ -88,17 +73,37 @@
     "event": [
       {
         "structuredValue": [],
-        "date": [],
+        "type": "production",
+        "displayLabel": "Place of Creation",
+        "date": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "2002-10-19",
+            "type": "creation",
+            "status": "primary",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
         "contributor": [],
         "location": [
           {
             "structuredValue": [],
             "parallelValue": [],
             "groupedValue": [],
-            "code": "enk",
+            "value": "Stanford (Calif.)",
+            "uri": "http://id.loc.gov/authorities/names/n50046557",
             "identifier": [],
             "source": {
-              "code": "marccountry",
+              "code": "naf",
+              "uri": "http://id.loc.gov/authorities/names/",
               "note": []
             },
             "note": [],
@@ -115,7 +120,23 @@
         "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
-        "value": "text",
+        "value": "photographs",
+        "type": "genre",
+        "uri": "http://vocab.getty.edu/aat/300046300",
+        "identifier": [],
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "still image",
         "type": "resource type",
         "identifier": [],
         "source": {
@@ -124,180 +145,187 @@
         },
         "note": [],
         "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "slides (photographs)",
+        "type": "form",
+        "uri": "http://vocab.getty.edu/aat/300128371",
+        "identifier": [],
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "image/jpeg",
+        "type": "media type",
+        "identifier": [],
+        "source": {
+          "value": "IANA media types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "204 photographs",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "reformatted digital",
+        "type": "digital origin",
+        "identifier": [],
+        "source": {
+          "value": "MODS digital origin terms",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
       }
     ],
-    "geographic": [],
+    "geographic": [
+      {
+        "form": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "image/jpeg",
+            "type": "media type",
+            "identifier": [],
+            "source": {
+              "value": "IANA media type terms",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Image",
+            "type": "media type",
+            "identifier": [],
+            "source": {
+              "value": "DCMI Type Vocabulary",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "subject": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "-122.191292",
+                "type": "west",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "37.4063388",
+                "type": "south",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "-122.149475",
+                "type": "east",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "37.4435369",
+                "type": "north",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "bounding box coordinates",
+            "encoding": {
+              "value": "decimal",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ]
+      }
+    ],
     "language": [],
     "note": [
       {
         "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
-        "value": "1988",
-        "type": "date/sequential designation",
+        "value": "Photographs of the Leland Stanford Junior University Marching Band and Dollies taken by Robby Beyers.",
+        "type": "abstract",
         "identifier": [],
         "note": [],
         "appliesTo": []
-      }
-    ],
-    "identifier": [
+      },
       {
         "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
-        "value": "16003185",
-        "type": "LCCN",
+        "value": "Photographs in series 1 were selected by the photographer as his best images of the collection.",
         "identifier": [],
-        "source": {
-          "code": "lccn",
-          "note": []
-        },
         "note": [],
         "appliesTo": []
       }
     ],
+    "identifier": [],
     "subject": [
       {
-        "structuredValue": [
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Corporation of Foreign Bondholders (Great Britain)",
-            "type": "organization",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          },
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Periodicals",
-            "type": "genre",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          }
-        ],
-        "parallelValue": [],
-        "groupedValue": [],
-        "identifier": [],
-        "source": {
-          "code": "lcsh",
-          "note": []
-        },
-        "note": [],
-        "appliesTo": []
-      },
-      {
         "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
-        "value": "Corporation of Foreign Bondholders (Great Britain)",
+        "value": "Stanford University. Marching Band",
         "type": "organization",
+        "uri": "http://id.loc.gov/authorities/names/nr92033776",
         "identifier": [],
         "source": {
-          "code": "fast",
-          "note": []
-        },
-        "note": [],
-        "appliesTo": []
-      },
-      {
-        "structuredValue": [
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Debts, Public",
-            "type": "topic",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          },
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Periodicals",
-            "type": "genre",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          }
-        ],
-        "parallelValue": [],
-        "groupedValue": [],
-        "identifier": [],
-        "source": {
-          "code": "lcsh",
-          "note": []
-        },
-        "note": [],
-        "appliesTo": []
-      },
-      {
-        "structuredValue": [
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Loans",
-            "type": "topic",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          },
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Periodicals",
-            "type": "genre",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          }
-        ],
-        "parallelValue": [],
-        "groupedValue": [],
-        "identifier": [],
-        "source": {
-          "code": "lcsh",
-          "note": []
-        },
-        "note": [],
-        "appliesTo": []
-      },
-      {
-        "structuredValue": [
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Investments, Foreign",
-            "type": "topic",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          },
-          {
-            "structuredValue": [],
-            "parallelValue": [],
-            "groupedValue": [],
-            "value": "Periodicals",
-            "type": "genre",
-            "identifier": [],
-            "note": [],
-            "appliesTo": []
-          }
-        ],
-        "parallelValue": [],
-        "groupedValue": [],
-        "identifier": [],
-        "source": {
-          "code": "lcsh",
+          "code": "naf",
+          "uri": "http://id.loc.gov/authorities/names/",
           "note": []
         },
         "note": [],
@@ -307,11 +335,13 @@
         "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
-        "value": "Debts, Public",
-        "type": "topic",
+        "value": "Stanford Dollies",
+        "type": "organization",
+        "uri": "http://id.loc.gov/authorities/names/no2016102254",
         "identifier": [],
         "source": {
-          "code": "fast",
+          "code": "naf",
+          "uri": "http://id.loc.gov/authorities/names/",
           "note": []
         },
         "note": [],
@@ -321,11 +351,13 @@
         "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
-        "value": "Investments, Foreign",
+        "value": "Marching bands",
         "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85081020",
         "identifier": [],
         "source": {
-          "code": "fast",
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
           "note": []
         },
         "note": [],
@@ -335,11 +367,45 @@
         "structuredValue": [],
         "parallelValue": [],
         "groupedValue": [],
-        "value": "Loans",
+        "value": "College students",
         "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85028356",
         "identifier": [],
         "source": {
-          "code": "fast",
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Football",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85050405",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Drum majors",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85039778",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/",
           "note": []
         },
         "note": [],
@@ -347,21 +413,37 @@
       }
     ],
     "access": {
-      "url": [
+      "url": [],
+      "physicalLocation": [
         {
           "structuredValue": [],
           "parallelValue": [],
           "groupedValue": [],
-          "value": "http://searchworks.stanford.edu/view/357970",
+          "value": "PC0170, Series 1, Box 2, Series 2",
+          "type": "shelf locator",
           "identifier": [],
-          "displayLabel": "Title record in SearchWorks",
           "note": [],
           "appliesTo": []
         }
       ],
-      "physicalLocation": [],
       "digitalLocation": [],
-      "accessContact": [],
+      "accessContact": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Stanford University. Libraries. Department of Special Collections and University Archives",
+          "type": "repository",
+          "uri": "http://id.loc.gov/authorities/names/no2014019980",
+          "identifier": [],
+          "source": {
+            "code": "naf",
+            "note": []
+          },
+          "note": [],
+          "appliesTo": []
+        }
+      ],
       "digitalRepository": [],
       "note": []
     },
@@ -418,89 +500,236 @@
             "note": []
           },
           "structuredValue": [],
-          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
-          "value": "English"
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng"
         }
       ],
       "note": [],
       "metadataStandard": [],
       "identifier": []
     },
-    "purl": "https://purl.stanford.edu/xt162pg0437"
+    "purl": "https://purl.stanford.edu/ws947mh3822"
   },
   "identification": {
-    "barcode": "36105116571204",
-    "catalogLinks": [
-      {
-        "catalog": "folio",
-        "refresh": false,
-        "catalogRecordId": "a357970"
-      },
-      {
-        "catalog": "symphony",
-        "refresh": false,
-        "catalogRecordId": "357970"
-      }
-    ],
-    "sourceId": "sul:36105116571204"
+    "catalogLinks": [],
+    "sourceId": "sul:PC0170_20021019_Arizona"
   },
   "structural": {
-    "contains": [
-      {
-        "type": "https://cocina.sul.stanford.edu/models/resources/page",
-        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/xt162pg0437-xt162pg0437_1",
-        "label": "Page 1",
-        "version": 4,
-        "structural": {
-          "contains": [
-            {
-              "type": "https://cocina.sul.stanford.edu/models/file",
-              "externalIdentifier": "https://cocina.sul.stanford.edu/file/xt162pg0437-xt162pg0437_1/00003103_0001.jp2",
-              "label": "00003103_0001.jp2",
-              "filename": "00003103_0001.jp2",
-              "size": 1369591,
-              "version": 4,
-              "hasMimeType": "image/jp2",
-              "hasMessageDigests": [
-                {
-                  "type": "sha1",
-                  "digest": "0c8d812243cd8c845b6acff063e13d917dc272cd"
-                },
-                {
-                  "type": "md5",
-                  "digest": "24f8ab799c69d48543193f56c7bc3d43"
-                }
-              ],
-              "access": {
-                "view": "world",
-                "download": "world",
-                "controlledDigitalLending": false
-              },
-              "administrative": {
-                "publish": true,
-                "sdrPreserve": false,
-                "shelve": true
-              },
-              "presentation": {
-                "height": 3307,
-                "width": 2205
-              }
-            }
-          ]
-        }
-      }
-    ],
+    "contains": [],
     "hasMemberOrders": [
       {
-        "members": [],
-        "viewingDirection": "left-to-right"
+        "members": [
+          "druid:ts786ny5936",
+          "druid:tp006ms8736",
+          "druid:tj297ys4758",
+          "druid:rv426fc1640",
+          "druid:jz334gn0058",
+          "druid:wd126ts3527",
+          "druid:hr680hc2734",
+          "druid:ty205dy6871",
+          "druid:hq436bs3275",
+          "druid:cj779bc1821",
+          "druid:ry600hm6919",
+          "druid:pc069qy8775",
+          "druid:hn558qh5554",
+          "druid:qy324vf7963",
+          "druid:gj162zh5265",
+          "druid:gf863jx5480",
+          "druid:qr784xb8268",
+          "druid:tb815nj9967",
+          "druid:gj077gp5651",
+          "druid:fn687wx8496",
+          "druid:yv830bw7770",
+          "druid:bk152xv1763",
+          "druid:fh538ms9102",
+          "druid:th412pt5805",
+          "druid:nb112hx9122",
+          "druid:zw746wm3054",
+          "druid:pj211mr3953",
+          "druid:qm246tr5915",
+          "druid:xn487rr3200",
+          "druid:hh990pq5149",
+          "druid:cm292ck5027",
+          "druid:jr157zt2655",
+          "druid:jp384yd1303",
+          "druid:nb347fc0547",
+          "druid:pk043bc5303",
+          "druid:cs479sn3791",
+          "druid:bh132gh9968",
+          "druid:zd169cx9241",
+          "druid:tk164df6736",
+          "druid:vj123pm8050",
+          "druid:jj091td9387",
+          "druid:pq680xz3354",
+          "druid:td736kw8293",
+          "druid:tm421qx5973",
+          "druid:fr623sm2180",
+          "druid:qd033pg5789",
+          "druid:gm016jz1598",
+          "druid:mt932vz0867",
+          "druid:cx608mq7114",
+          "druid:fj728qr3057",
+          "druid:jk128bv4123",
+          "druid:dh583kn6141",
+          "druid:zm555gc4871",
+          "druid:nb714jt3406",
+          "druid:ps888fw1988",
+          "druid:kz966dq5734",
+          "druid:hr712vt1880",
+          "druid:jp897fw0227",
+          "druid:sf580rb1222",
+          "druid:qy374xk9975",
+          "druid:mq240yf1451",
+          "druid:gc415jh7331",
+          "druid:kp361jf6841",
+          "druid:ck173qd4988",
+          "druid:td281vm2884",
+          "druid:tz036bc0130",
+          "druid:np242qg6240",
+          "druid:nf904rm9751",
+          "druid:gx992fq1549",
+          "druid:sx947pd2688",
+          "druid:cy791wv1046",
+          "druid:qt942cv4855",
+          "druid:wr872jt0381",
+          "druid:kb438dc2726",
+          "druid:cx908dd1367",
+          "druid:xq698qb1051",
+          "druid:hx141ct5550",
+          "druid:pp333cx3966",
+          "druid:ht470gb0864",
+          "druid:cz684wj3431",
+          "druid:fw122wk9283",
+          "druid:gj278pj5103",
+          "druid:vf230tg9021",
+          "druid:jc687qj1602",
+          "druid:nb095wk6537",
+          "druid:vc070vd8494",
+          "druid:wy798jj9311",
+          "druid:tq785ts9589",
+          "druid:hj246pq2772",
+          "druid:fh296sk9678",
+          "druid:hv146ts3448",
+          "druid:ds417xs2335",
+          "druid:kx032tb7281",
+          "druid:nk083ht0867",
+          "druid:jw361vs9536",
+          "druid:hc569qz9437",
+          "druid:mr843nx1525",
+          "druid:wy919rg8592",
+          "druid:bq214hf3703",
+          "druid:fs843wy7275",
+          "druid:rh849yf5490",
+          "druid:bb321kw6604",
+          "druid:by245by5507",
+          "druid:vc057qg9629",
+          "druid:fj806ht6076",
+          "druid:jw154kb9504",
+          "druid:nn816hy7681",
+          "druid:br868qj7940",
+          "druid:zd199wf4165",
+          "druid:xt375fn2946",
+          "druid:kj064xm3561",
+          "druid:cf952jk8927",
+          "druid:md286sv1832",
+          "druid:mk762tx5705",
+          "druid:ks854mf5626",
+          "druid:xb960xb6025",
+          "druid:wj832qk2365",
+          "druid:pz846vh1222",
+          "druid:nf088vk8345",
+          "druid:nx863tw2582",
+          "druid:bj711bf5942",
+          "druid:mq659rt7937",
+          "druid:xk545dm7772",
+          "druid:tc854zh0243",
+          "druid:gx928sk2115",
+          "druid:xh754yb8265",
+          "druid:kw570hg7935",
+          "druid:nt381js9312",
+          "druid:zw116jq0440",
+          "druid:ts620jp2792",
+          "druid:qf241fy2925",
+          "druid:kw904gt4453",
+          "druid:xf886qr7210",
+          "druid:wr639zs2010",
+          "druid:wv827td7043",
+          "druid:yz922dy3486",
+          "druid:jv782rf0476",
+          "druid:jn715zj2121",
+          "druid:qq438nd4813",
+          "druid:hx125pf4520",
+          "druid:qc872fm5602",
+          "druid:vt403xn8338",
+          "druid:hb878kn1524",
+          "druid:xb948fb8554",
+          "druid:tr236zb7894",
+          "druid:sv706zz1100",
+          "druid:vs301ym8858",
+          "druid:jn033tq1763",
+          "druid:rs883kb6990",
+          "druid:gx885qr5638",
+          "druid:hm137yj3697",
+          "druid:dz891xj7459",
+          "druid:tq439sq8887",
+          "druid:by937qt7560",
+          "druid:vn466gs8021",
+          "druid:mm148tz3203",
+          "druid:dv506tr0544",
+          "druid:zp142kf9932",
+          "druid:gw691pp2320",
+          "druid:th274nk8393",
+          "druid:wq951np4711",
+          "druid:bm925mj9167",
+          "druid:xv896bn1839",
+          "druid:wx128ns6181",
+          "druid:tg795sn3390",
+          "druid:th743tn9963",
+          "druid:kq121hj6629",
+          "druid:ck924gf1117",
+          "druid:ng286gb6464",
+          "druid:hw817th6355",
+          "druid:ht349jb8208",
+          "druid:yj005bh0799",
+          "druid:tz973mz8480",
+          "druid:gq178yh3686",
+          "druid:mg931dv3333",
+          "druid:gw213yt9664",
+          "druid:mj289fp9803",
+          "druid:kj099rg3805",
+          "druid:rg969tp0386",
+          "druid:bd770ss1591",
+          "druid:ry133bg7291",
+          "druid:mz886fy9517",
+          "druid:wk801wh4471",
+          "druid:ht329fx0168",
+          "druid:cs640jv9849",
+          "druid:wj322rt8261",
+          "druid:gf954kn0198",
+          "druid:zb046zg8554",
+          "druid:vq550sr2996",
+          "druid:zy455vv6921",
+          "druid:pw664cd3851",
+          "druid:nv115jz3599",
+          "druid:rz838xh9808",
+          "druid:sw640dn3069",
+          "druid:xm959hh9551",
+          "druid:nk803qz6955",
+          "druid:tg477pq7219",
+          "druid:yf449bz9555",
+          "druid:rc617xh7157",
+          "druid:gp929nz5480",
+          "druid:nv488qn1962",
+          "druid:gy596hk0732",
+          "druid:sb248jt1539",
+          "druid:wt025wd3538"
+        ]
       }
     ],
     "isMemberOf": [
       "druid:gh795jd5965"
     ]
   },
-  "created": "2022-05-01T23:27:29.000+00:00",
-  "modified": "2022-05-01T23:27:29.000+00:00",
-  "lock": "druid:xt162pg0437=0"
+  "created": "2022-05-01T17:14:23.000+00:00",
+  "modified": "2024-06-13T05:48:22.000+00:00",
+  "lock": "druid:ws947mh3822=0=1"
 }
