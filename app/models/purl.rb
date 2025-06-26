@@ -122,7 +122,7 @@ class Purl
     public_cocina.dig('access', 'copyright')
   end
 
-  def license
+  def license_url
     public_cocina.dig('access', 'license')
   end
 
@@ -158,10 +158,10 @@ class Purl
   end
 
   def inject_license(mods_xml)
-    return mods_xml if license.blank?
+    return mods_xml if license_url.blank?
 
     mods = mods_xml.at_xpath('//mods:mods', 'mods' => 'http://www.loc.gov/mods/v3')
-    mods.add_child("<accessCondition type=\"license\" xlink:href=\"#{license}\">#{license}</accessCondition>")
+    mods.add_child("<accessCondition type=\"license\" xlink:href=\"#{license_url}\">#{LicensesService.call(url: license_url)}</accessCondition>")
     mods
   end
 
