@@ -109,4 +109,24 @@ describe Purl do
       expect(purl.last_updated).to eq('2022-04-28T23:42:30Z')
     end
   end
+
+  describe '#thumbnail_identifier' do
+    it 'returns the thumbnail identifier for the PURL object' do
+      expect(purl.thumbnail_identifier).to eq('https://stacks.stanford.edu/image/iiif/kj040zn0537%2FT0000001')
+    end
+
+    context 'when the PURL object is a virtual object' do
+      let(:druid) { 'ws947mh3822' }
+
+      before do
+        stub_request(:get, 'https://purl.stanford.edu/ts786ny5936.json').to_return(
+          body: File.new(File.join(FIXTURES_PATH, 'ts786ny5936.json')), status: 200
+        )
+      end
+
+      it 'returns the thumbnail identifier for the first member of the virtual object' do
+        expect(purl.virtual_object_thumbnail_identifier).to eq('https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204')
+      end
+    end
+  end
 end

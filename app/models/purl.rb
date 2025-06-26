@@ -18,6 +18,7 @@ class Purl
   end
 
   delegate :exists?, to: :purl_cocina_service
+  delegate :virtual_object_thumbnail_identifier, :virtual_object?, to: :purl_virtual_object
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml
@@ -99,6 +100,14 @@ class Purl
     @last_updated ||= Time.zone.parse(public_cocina.fetch('modified', ''))&.utc&.iso8601
   end
 
+  # @return [String] the thumbnail identifier for this PURL object
+  def thumbnail_identifier
+    return PurlThumbnail.call(purl_object: self) unless virtual_object?
+
+    # If this PURL object is a virtual object, return the thumbnail identifier for the first member.
+    virtual_object_thumbnail_identifier
+  end
+
   delegate :logger, to: :Rails
 
   private
@@ -109,6 +118,10 @@ class Purl
 
   def mods_xml
     @mods_xml ||= PurlModsService.call(public_xml)
+  end
+
+  def purl_virtual_object
+    @purl_virtual_object ||= PurlVirtualObject.new(public_cocina:)
   end
 
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
