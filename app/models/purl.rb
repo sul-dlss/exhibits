@@ -95,14 +95,6 @@ class Purl
     @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
   end
 
-  def catalog_record_id
-    active_refresh_catalog_record&.fetch('catalogRecordId', nil)
-  end
-
-  def part_label_for_serials
-    active_refresh_catalog_record&.fetch('partLabel', nil)
-  end
-
   delegate :logger, to: :Rails
 
   private
@@ -114,16 +106,63 @@ class Purl
     end
   end
 
+  def catalog_record_id
+    active_refresh_catalog_record&.fetch('catalogRecordId', nil)
+  end
+
+  def part_label_for_serials
+    active_refresh_catalog_record&.fetch('partLabel', nil)
+  end
+
+  def use_and_reproduction_statement
+    public_cocina.dig('access', 'useAndReproductionStatement')
+  end
+
+  def copyright
+    public_cocina.dig('access', 'copyright')
+  end
+
+  def license
+    public_cocina.dig('access', 'license')
+  end
+
   def purl_cocina_service
     @purl_cocina_service ||= PurlService.new(bare_druid, format: :json)
   end
 
   def mods_xml
     @mods_xml ||= if catalog_record_id.present?
-                    inject_part_label(mods_from_catalog_record)
+                    mods = inject_part_label(mods_from_catalog_record)
+                    mods = inject_use_and_reproduction_statement(mods)
+                    mods = inject_copyright(mods)
+                    inject_license(mods)
                   else
                     PurlModsService.call(public_xml)
                   end
+  end
+
+  def inject_use_and_reproduction_statement(mods_xml)
+    return mods_xml if use_and_reproduction_statement.blank?
+
+    mods = mods_xml.at_xpath('//mods:mods', 'mods' => 'http://www.loc.gov/mods/v3')
+    mods.add_child("<accessCondition type=\"useAndReproduction\">#{use_and_reproduction_statement}</accessCondition>")
+    mods
+  end
+
+  def inject_copyright(mods_xml)
+    return mods_xml if copyright.blank?
+
+    mods = mods_xml.at_xpath('//mods:mods', 'mods' => 'http://www.loc.gov/mods/v3')
+    mods.add_child("<accessCondition type=\"copyright\">#{copyright}</accessCondition>")
+    mods
+  end
+
+  def inject_license(mods_xml)
+    return mods_xml if license.blank?
+
+    mods = mods_xml.at_xpath('//mods:mods', 'mods' => 'http://www.loc.gov/mods/v3')
+    mods.add_child("<accessCondition type=\"license\" xlink:href=\"#{license}\">#{license}</accessCondition>")
+    mods
   end
 
   def inject_part_label(mods_xml)
