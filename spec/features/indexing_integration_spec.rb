@@ -231,6 +231,12 @@ RSpec.describe 'indexing integration test' do
   context 'virtual object' do
     let(:druid) { 'ws947mh3822' }
 
+    before do
+      stub_request(:get, 'https://purl.stanford.edu/ts786ny5936.json').to_return(
+        body: File.new(File.join(FIXTURES_PATH, 'ts786ny5936.json')), status: 200
+      )
+    end
+
     context 'to_solr' do
       subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
