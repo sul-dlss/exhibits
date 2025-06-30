@@ -14,7 +14,7 @@ end
 
 to_fields %w(id druid), (accumulate { |resource, *_| resource.bare_druid })
 to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
-to_field 'last_updated', (accumulate { |resource, *_| Time.parse(resource.public_xml.at_xpath('/publicObject')['published']).utc.iso8601 })
+to_field 'last_updated', (accumulate { |resource, *_| resource.last_updated })
 
 # ITEM FIELDS
 to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(resource) })
