@@ -95,6 +95,10 @@ class Purl
     @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
   end
 
+  def last_updated
+    @last_updated ||= Time.zone.parse(public_cocina.fetch('modified', ''))&.utc&.iso8601
+  end
+
   delegate :logger, to: :Rails
 
   private
