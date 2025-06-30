@@ -103,4 +103,10 @@ describe Purl do
       )
     end
   end
+
+  describe '#last_updated' do
+    it 'returns the last updated time in ISO 8601 format' do
+      expect(purl.last_updated).to eq('2022-04-28T23:42:30Z')
+    end
+  end
 end
