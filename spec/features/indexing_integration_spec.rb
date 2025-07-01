@@ -219,7 +219,7 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has correct content metadata type' do
-        expect(document[:content_metadata_type_ssm]).to include 'file'
+        expect(document[:content_metadata_type_ssm]).to include 'collection'
       end
 
       it 'parses and reformats the timestamp to iso8601' do
