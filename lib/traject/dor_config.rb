@@ -214,9 +214,7 @@ to_field 'iiif_manifest_url_ssi', (accumulate { |resource, *_| iiif_manifest_url
 # CONTENT METADATA
 
 to_field 'content_metadata_type_ssim' do |resource, accumulator, _context|
-  content_metadata = resource.public_xml.at_xpath('/publicObject/contentMetadata')
-
-  accumulator << content_metadata['type'] if content_metadata.present?
+  accumulator << resource.dor_content_type
 end
 
 to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
