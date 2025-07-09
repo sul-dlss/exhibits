@@ -127,6 +127,7 @@ gem 'blacklight-oembed', '~> 1.0'
 gem 'whenever', require: false
 gem 'folio_client'
 gem 'marc'
+gem 'cocina_display', '~> 1.0'
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'

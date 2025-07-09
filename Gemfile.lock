@@ -223,6 +223,12 @@ GEM
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 2.0)
       observer (< 1.0)
+    cocina_display (1.0.0)
+      activesupport (>= 7)
+      edtf (~> 3.2)
+      geo_coord (~> 0.2)
+      iso639 (~> 1.3)
+      janeway-jsonpath (~> 0.6)
     concurrent-ruby (1.3.5)
     config (5.6.1)
       deep_merge (~> 1.2, >= 1.2.1)
@@ -328,8 +334,6 @@ GEM
     ffi (1.17.2-arm-linux-gnu)
     ffi (1.17.2-arm-linux-musl)
     ffi (1.17.2-arm64-darwin)
-    ffi (1.17.2-x86-linux-gnu)
-    ffi (1.17.2-x86-linux-musl)
     ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
@@ -391,12 +395,6 @@ GEM
     google-protobuf (4.31.1-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.1-x86-linux-gnu)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.31.1-x86-linux-musl)
-      bigdecimal
-      rake (>= 13)
     google-protobuf (4.31.1-x86_64-darwin)
       bigdecimal
       rake (>= 13)
@@ -430,12 +428,6 @@ GEM
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
     grpc (1.74.1-arm64-darwin)
-      google-protobuf (>= 3.25, < 5.0)
-      googleapis-common-protos-types (~> 1.0)
-    grpc (1.74.1-x86-linux-gnu)
-      google-protobuf (>= 3.25, < 5.0)
-      googleapis-common-protos-types (~> 1.0)
-    grpc (1.74.1-x86-linux-musl)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
     grpc (1.74.1-x86_64-darwin)
@@ -485,6 +477,8 @@ GEM
       reline (>= 0.4.2)
     iso-639 (0.3.8)
       csv
+    iso639 (1.3.3)
+    janeway-jsonpath (0.6.0)
     jbuilder (2.14.0)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -553,7 +547,6 @@ GEM
     mini_magick (5.3.0)
       logger
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitar (1.0.2)
     minitest (5.25.5)
     mods (3.0.5)
@@ -594,9 +587,6 @@ GEM
     net-ssh (7.3.0)
     newrelic_rpm (9.20.0)
     nio4r (2.7.4)
-    nokogiri (1.18.9)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.18.9-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.9-aarch64-linux-musl)
@@ -873,8 +863,6 @@ GEM
     sqlite3 (2.7.3-arm-linux-gnu)
     sqlite3 (2.7.3-arm-linux-musl)
     sqlite3 (2.7.3-arm64-darwin)
-    sqlite3 (2.7.3-x86-linux-gnu)
-    sqlite3 (2.7.3-x86-linux-musl)
     sqlite3 (2.7.3-x86_64-darwin)
     sqlite3 (2.7.3-x86_64-linux-gnu)
     sqlite3 (2.7.3-x86_64-linux-musl)
@@ -964,9 +952,6 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin
-  x86-linux
-  x86-linux-gnu
-  x86-linux-musl
   x86_64-darwin
   x86_64-linux
   x86_64-linux-gnu
@@ -992,6 +977,7 @@ DEPENDENCIES
   capistrano-shared_configs
   capybara
   citeproc-ruby
+  cocina_display (~> 1.0)
   config
   csl-styles
   cssbundling-rails (~> 1.4)
