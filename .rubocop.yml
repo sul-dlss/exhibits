@@ -27,7 +27,8 @@ Layout/LineLength:
   Exclude:
     - "app/controllers/concerns/search_across_blacklight_overrides.rb"
     - "app/models/spotlight/dor/indexer.rb"
-    - "lib/traject/dor_config.rb"
+    - "lib/traject/dor_cocina_config.rb"
+    - "lib/traject/dor_mods_config.rb"
     - "spec/features/indexing_integration_spec.rb"
     - "spec/models/spotlight/dor/indexer_spec.rb"
     - "spec/features/bibliography_formatting_spec.rb"
@@ -52,6 +53,13 @@ Style/HashTransformKeys:
 
 Style/HashTransformValues:
   Enabled: true
+
+Style/RedundantParentheses:
+  Enabled: true
+  Exclude:
+    - "lib/traject/dor_base_config.rb"
+    - "lib/traject/dor_cocina_config.rb"
+    - "lib/traject/dor_mods_config.rb"
 
 Metrics/ClassLength:
   Exclude:
