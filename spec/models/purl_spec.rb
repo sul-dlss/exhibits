@@ -70,6 +70,28 @@ describe Purl do
     end
   end
 
+  describe '#active_folio_hrid' do
+    context 'when an active refresh catalog record exists' do
+      let(:druid) { 'gh795jd5965' }
+
+      it 'returns the catalog record ID' do
+        expect(purl.active_folio_hrid).to eq('a11403803')
+      end
+    end
+
+    context 'when no active refresh catalog record exists' do
+      it 'returns nil' do
+        expect(purl.active_folio_hrid).to be_nil
+      end
+    end
+  end
+
+  describe '#cocina_record' do
+    it 'returns a CocinaDisplay::CocinaRecord object' do
+      expect(purl.cocina_record).to be_a(CocinaDisplay::CocinaRecord)
+    end
+  end
+
   describe '#smods_rec' do
     it 'returns a Stanford::Mods::Record object' do
       expect(purl.smods_rec).to be_a(Stanford::Mods::Record)
@@ -103,6 +125,12 @@ describe Purl do
   describe '#imprint_display' do
     it 'returns a ModsDisplay::Imprint object' do
       expect(purl.imprint_display).to be_a(ModsDisplay::Imprint)
+    end
+  end
+
+  describe '#cocina_physical_location' do
+    it 'returns a CocinaPhysicalLocation object' do
+      expect(purl.cocina_physical_location).to be_a(CocinaPhysicalLocation)
     end
   end
 
