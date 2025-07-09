@@ -25,7 +25,7 @@ RSpec.describe Metadata::CocinaComponent, type: :component do
     it 'includes a Description section' do
       expect(rendered).to have_css 'h4', text: 'Description'
       expect(rendered).to have_css 'dt', text: 'Alternative title'
-      expect(rendered).to have_css 'dd', text: 'Chronica. Anglo-Saxon fragments, etc.'
+      expect(rendered).to have_css 'dd', text: 'Chronica. Anglo-Saxon fragments, etc'
     end
 
     it 'includes an Abstract/Contents section' do

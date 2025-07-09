@@ -21,13 +21,16 @@ class ModsService
     @purl_object = purl_object
   end
 
-  delegate :public_cocina, :public_xml, to: :purl_object
+  delegate :public_cocina, :public_xml, :active_folio_hrid, to: :purl_object
 
   # @return [Nokogiri::XML::Document] MODS XML
   def mods_xml
-    @mods_xml ||= if catalog_record_id.present?
+    @mods_xml ||= if active_folio_hrid.present?
                     inject_cocina_metadata(mods_from_catalog_record)
                   else
+                    # TODO: Once we're done testing/comparing MODS vs Cocina indexing
+                    # results we can remove the fallback to PURL MODS since we will always
+                    # index from Cocina when there is no active catalog record available.
                     PurlModsService.call(public_xml)
                   end
   end
@@ -35,18 +38,7 @@ class ModsService
   private
 
   def mods_from_catalog_record
-    @mods_from_catalog_record ||= Nokogiri::XML(ModsFromMarcService.mods(folio_instance_hrid: catalog_record_id))
-  end
-
-  def catalog_record_id
-    active_refresh_catalog_record&.fetch('catalogRecordId', nil)
-  end
-
-  def active_refresh_catalog_record
-    @active_refresh_catalog_record ||= public_cocina.dig('identification', 'catalogLinks').find do |record|
-      record.fetch('catalog', '') == 'folio' &&
-        record.fetch('refresh', '') == true
-    end
+    @mods_from_catalog_record ||= Nokogiri::XML(ModsFromMarcService.mods(folio_instance_hrid: active_folio_hrid))
   end
 
   def inject_cocina_metadata(mods)
@@ -93,6 +85,13 @@ class ModsService
 
   def part_label_for_serials
     active_refresh_catalog_record&.fetch('partLabel', nil)
+  end
+
+  def active_refresh_catalog_record
+    @active_refresh_catalog_record ||= public_cocina.dig('identification', 'catalogLinks').find do |record|
+      record.fetch('catalog', '') == 'folio' &&
+        record.fetch('refresh', '') == true
+    end
   end
 
   def use_and_reproduction_statement

@@ -185,7 +185,8 @@ RSpec.describe 'indexing integration test' do
                                   incipit_tesim: ['In illo tempore maria magdalene et maria iacobi et solomae'],
                                   manuscript_number_tesim: ['MS 69'],
                                   toc_search: ['Homiliae XL in euangelia'],
-                                  url_suppl: ['https://purl.stanford.edu/kd310gm7424', 'https://purl.stanford.edu/dx969tv9730']
+                                  url_suppl: ['https://purl.stanford.edu/kd310gm7424',
+                                              'https://purl.stanford.edu/dx969tv9730']
     end
 
     it 'has other fields that are present in parker data' do
@@ -223,7 +224,7 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'parses and reformats the timestamp to iso8601' do
-        expect(document[:last_updated]).to eq '2024-05-07T22:10:45Z'
+        expect(document[:last_updated]).to eq '2022-04-27T13:46:06Z'
       end
     end
   end

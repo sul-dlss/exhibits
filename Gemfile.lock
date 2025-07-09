@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/sul-dlss/cocina_display.git
+  revision: 16fdffc4644f3f4959d062a6fe82104435e16973
+  branch: main
+  specs:
+    cocina_display (1.6.0)
+      activesupport (>= 7)
+      edtf (~> 3.2)
+      geo_coord (~> 0.2)
+      i18n
+      janeway-jsonpath (~> 0.6)
+      zeitwerk (~> 2.7)
+
 GEM
   remote: https://gems.contribsys.com/
   specs:
@@ -219,13 +232,6 @@ GEM
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 2.0)
       observer (< 1.0)
-    cocina_display (1.6.0)
-      activesupport (>= 7)
-      edtf (~> 3.2)
-      geo_coord (~> 0.2)
-      i18n
-      janeway-jsonpath (~> 0.6)
-      zeitwerk (~> 2.7)
     concurrent-ruby (1.3.6)
     config (5.6.1)
       deep_merge (~> 1.2, >= 1.2.1)
@@ -314,17 +320,18 @@ GEM
     faraday-cookie_jar (0.0.8)
       faraday (>= 0.8.0)
       http-cookie (>= 1.0.0)
-    faraday-follow_redirects (0.4.0)
+    faraday-follow_redirects (0.5.0)
       faraday (>= 1, < 3)
-    faraday-mashify (1.0.1)
+    faraday-mashify (1.0.2)
       faraday (~> 2.0)
       hashie
-    faraday-multipart (1.1.1)
+    faraday-multipart (1.2.0)
       multipart-post (~> 2.0)
     faraday-net_http (3.4.2)
       net-http (~> 0.5)
-    faraday-retry (2.3.2)
+    faraday-retry (2.4.0)
       faraday (~> 2.0)
+    ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-aarch64-linux-musl)
     ffi (1.17.2-arm-linux-gnu)
@@ -528,6 +535,7 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitar (1.1.0)
     minitest (6.0.0)
       prism (~> 1.5)
@@ -569,6 +577,9 @@ GEM
     net-ssh (7.3.0)
     newrelic_rpm (9.24.0)
     nio4r (2.7.5)
+    nokogiri (1.18.10)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.18.10-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.10-aarch64-linux-musl)
@@ -840,6 +851,8 @@ GEM
       ostruct
       retriable
       ruby-progressbar
+    sqlite3 (2.8.1)
+      mini_portile2 (~> 2.8.0)
     sqlite3 (2.8.1-aarch64-linux-gnu)
     sqlite3 (2.8.1-aarch64-linux-musl)
     sqlite3 (2.8.1-arm-linux-gnu)
@@ -932,6 +945,7 @@ PLATFORMS
   arm-linux-gnu
   arm-linux-musl
   arm64-darwin-24
+  arm64-darwin-25
   x86_64-linux-gnu
   x86_64-linux-musl
 
@@ -956,7 +970,7 @@ DEPENDENCIES
   capistrano-shared_configs
   capybara
   citeproc-ruby
-  cocina_display (~> 1.6)
+  cocina_display!
   config
   connection_pool (~> 2.5)
   csl-styles (= 2.0.1)
@@ -1074,7 +1088,7 @@ CHECKSUMS
   chronic (0.10.2) sha256=766f2fcce6ac3cc152249ed0f2b827770d3e517e2e87c5fba7ed74f4889d2dc3
   citeproc (1.1.0) sha256=278e6b8948133e82bef1c8204a1f88ca7adaa8744b9a283fe73e8f4cd0b53b95
   citeproc-ruby (2.1.8) sha256=192ce6525235adaa60d1dbc3f1b10b0839e86d98a94278736b807e234b3572e9
-  cocina_display (1.6.0) sha256=a4be8be80aa4417ac663c2dfc1272543ad8c3eab13f6c453ccc5a75c64b54778
+  cocina_display (1.6.0)
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   config (5.6.1) sha256=a9f0f0f9ffa6d12d43147a3fa1ab8486fe484c3098a350c6a2e0f32430e0d1cc
   connection_pool (2.5.5) sha256=e54ff92855753df1fd7c59fa04a398833355f27dd14c074f8c83a05f72a716ad
@@ -1114,11 +1128,12 @@ CHECKSUMS
   factory_bot_rails (6.5.1) sha256=d3cc4851eae4dea8a665ec4a4516895045e710554d2b5ac9e68b94d351bc6d68
   faraday (2.14.0) sha256=8699cfe5d97e55268f2596f9a9d5a43736808a943714e3d9a53e6110593941cd
   faraday-cookie_jar (0.0.8) sha256=0140605823f8cc63c7028fccee486aaed8e54835c360cffc1f7c8c07c4299dbb
-  faraday-follow_redirects (0.4.0) sha256=d3fa1118ab1350e24035a272b4cff64948643bb7182846db89acaf87abadd5d9
-  faraday-mashify (1.0.1) sha256=05b05f13729444cf53e111522baecd6d91e6e1bdede439c0548ba0ea079df2c9
-  faraday-multipart (1.1.1) sha256=77a18ff40149030fd1aef55bb4fc7a67ce46419a8a3fcd010e28c2526e8d8903
+  faraday-follow_redirects (0.5.0) sha256=5cde93c894b30943a5d2b93c2fe9284216a6b756f7af406a1e55f211d97d10ad
+  faraday-mashify (1.0.2) sha256=ebdc93b3f807af9a4b18c3d967fc7bcda01e297aed9cc2015ffe8db6e7add2e9
+  faraday-multipart (1.2.0) sha256=7d89a949693714176f612323ca13746a2ded204031a6ba528adee788694ef757
   faraday-net_http (3.4.2) sha256=f147758260d3526939bf57ecf911682f94926a3666502e24c69992765875906c
-  faraday-retry (2.3.2) sha256=2402d2029032ebd238a2046221e67f6ef0da78c5a8ce8cd4f8b9c62e4d6451d1
+  faraday-retry (2.4.0) sha256=7b79c48fb7e56526faf247b12d94a680071ff40c9fda7cf1ec1549439ad11ebe
+  ffi (1.17.2) sha256=297235842e5947cc3036ebe64077584bff583cd7a4e94e9a02fdec399ef46da6
   ffi (1.17.2-aarch64-linux-gnu) sha256=c910bd3cae70b76690418cce4572b7f6c208d271f323d692a067d59116211a1a
   ffi (1.17.2-aarch64-linux-musl) sha256=69e6556b091d45df83e6c3b19d3c54177c206910965155a6ec98de5e893c7b7c
   ffi (1.17.2-arm-linux-gnu) sha256=d4a438f2b40224ae42ec72f293b3ebe0ba2159f7d1bd47f8417e6af2f68dbaa5
@@ -1201,6 +1216,7 @@ CHECKSUMS
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
   mini_magick (5.3.1) sha256=29395dfd76badcabb6403ee5aff6f681e867074f8f28ce08d78661e9e4a351c4
   mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
+  mini_portile2 (2.8.9) sha256=0cd7c7f824e010c072e33f68bc02d85a00aeb6fce05bb4819c03dfd3c140c289
   minitar (1.1.0) sha256=38db0cfb6f3801017946cdcd8dc53f2cf3fd41ff752892312bf9a1639c9ea23e
   minitest (6.0.0) sha256=4ca597fc1d735ea18d2b4b98c5fb1d5a6da4a6f35ddf32bd5fa3eded33a453be
   mods (3.0.5) sha256=70b06c780025a9880b3cfb9727d99b7401c42a343976bf69abe862894786b88b
@@ -1222,6 +1238,7 @@ CHECKSUMS
   net-ssh (7.3.0) sha256=172076c4b30ce56fb25a03961b0c4da14e1246426401b0f89cba1a3b54bf3ef0
   newrelic_rpm (9.24.0) sha256=70fb09fe684d97f161d27e430ab4baeab6c84dc73d07402130c653fe808eadb6
   nio4r (2.7.5) sha256=6c90168e48fb5f8e768419c93abb94ba2b892a1d0602cb06eef16d8b7df1dca1
+  nokogiri (1.18.10) sha256=d5cc0731008aa3b3a87b361203ea3d19b2069628cb55e46ac7d84a0445e69cc1
   nokogiri (1.18.10-aarch64-linux-gnu) sha256=7fb87235d729c74a2be635376d82b1d459230cc17c50300f8e4fcaabc6195344
   nokogiri (1.18.10-aarch64-linux-musl) sha256=7e74e58314297cc8a8f1b533f7212d1999dbe2639a9ee6d97b483ea2acc18944
   nokogiri (1.18.10-arm-linux-gnu) sha256=51f4f25ab5d5ba1012d6b16aad96b840a10b067b93f35af6a55a2c104a7ee322
@@ -1318,6 +1335,7 @@ CHECKSUMS
   slowpoke (0.7.0) sha256=0a1d63dd2c5f1f13898ce4a1e94b36caea82109f02f2c1a13b3777db76cccc25
   snaky_hash (2.0.3) sha256=25a3d299566e8153fb02fa23fd9a9358845950f7a523ddbbe1fa1e0d79a6d456
   solr_wrapper (4.3.0) sha256=8d1357e270a27be89310dd0949bf6d2478ee3712006cc2e4f31a38b9b3e665f7
+  sqlite3 (2.8.1) sha256=acd0ac7912a4d92b2484b5befb6faa8d496497eb1e38bdbe8d7818fb8d05d726
   sqlite3 (2.8.1-aarch64-linux-gnu) sha256=9bce166d3e3595a42fc92c28d986ea11d499b55be8bd1cd491be04af30029543
   sqlite3 (2.8.1-aarch64-linux-musl) sha256=34912f6acf3e9c43c7998c6f99ba3146708e654cf9716b2983e260315cdeed72
   sqlite3 (2.8.1-arm-linux-gnu) sha256=9118d6abb5ca7ea4f1b50a6c42c763e612670f5eb673bbdf12e8d3bd63339bde

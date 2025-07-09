@@ -5,9 +5,6 @@ class Purl
   include ActiveSupport::Benchmarkable
   include ModsDisplay::RelatorCodes
 
-  COLLECTION_TYPES = %w(https://cocina.sul.stanford.edu/models/collection
-                        https://cocina.sul.stanford.edu/models/set).freeze
-
   attr_reader :druid
 
   # @param druid [String] the PURL identifier (Druid), e.g. 'druid:abc123'
@@ -19,6 +16,7 @@ class Purl
 
   delegate :exists?, to: :purl_cocina_service
   delegate :virtual_object_thumbnail_identifier, :virtual_object?, to: :purl_virtual_object
+  delegate :collection?, to: :cocina_record
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml
@@ -27,17 +25,12 @@ class Purl
 
   # @return [Hash] the public cocina hash for this Purl object
   def public_cocina
-    @public_cocina ||= JSON.parse(purl_cocina_service.response_body.presence || '{}')
+    @public_cocina ||= cocina_record.cocina_doc
   end
 
   # @return [Array<Purl>] array of Purl objects for the collections this Purl belongs to
   def collections
     @collections ||= PurlCollections.call(public_cocina)
-  end
-
-  # @return [Boolean] true if this Purl object is a collection, false otherwise
-  def collection?
-    public_cocina.fetch('type', '').in?(COLLECTION_TYPES)
   end
 
   # @return [Array<String>] array of collection member druids for this Purl object
@@ -48,6 +41,11 @@ class Purl
   # @return [String] the bare druid identifier without the 'druid:' prefix
   def bare_druid
     @bare_druid ||= druid.delete_prefix('druid:')
+  end
+
+  # @return [String] the catalog record ID from the active refresh catalog record, if available
+  def active_folio_hrid
+    cocina_record.folio_hrid(refresh: true)
   end
 
   # @return [Stanford::Mods::Record] this object includes method for accessing MODS fields
@@ -77,6 +75,7 @@ class Purl
     public_cocina.fetch('label', nil)
   end
 
+  # NOTE: this is used only when indexing MODS in dor_mods_config.rb
   # @return [Array<Hash>] an array of hashes with keys `name` and `roles` with
   # MODS names normalized to just the display name and roles.
   def display_names_with_roles
@@ -97,11 +96,13 @@ class Purl
     end
   end
 
-  # @return [ModsDisplay::HTML] the imprint display value, formatted as HTML
-  def imprint_display
-    @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
+  # @return [CocinaPhysicalLocation] an object that provides methods for accessing
+  # physical location information from the Cocina record for indexing and display
+  def cocina_physical_location
+    @cocina_physical_location ||= CocinaPhysicalLocation.new(cocina_record:)
   end
 
+  # @return [String] the last updated timestamp in ISO 8601 format
   def last_updated
     @last_updated ||= Time.zone.parse(public_cocina.fetch('modified', ''))&.utc&.iso8601
   end
@@ -117,10 +118,6 @@ class Purl
   delegate :logger, to: :Rails
 
   private
-
-  def purl_cocina_service
-    @purl_cocina_service ||= PurlService.new(bare_druid, format: :json)
-  end
 
   def purl_cocina_service
     @purl_cocina_service ||= PurlService.new(bare_druid, format: :json)

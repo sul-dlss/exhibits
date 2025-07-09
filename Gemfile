@@ -122,7 +122,7 @@ gem 'acts-as-taggable-on'
 gem 'mods_display', '~> 1.6'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'cocina_display', '~> 1.6'
+gem 'cocina_display', git: 'https://github.com/sul-dlss/cocina_display.git', branch: 'main'
 gem 'whenever', require: false
 gem 'folio_client'
 gem 'marc'

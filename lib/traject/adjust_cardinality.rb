@@ -23,7 +23,7 @@ module Traject
         id modsxml druid last_updated url_fulltext display_type collection_type
         author_1xx_search
         title_245_search title_245a_display title_245a_search title_display title_sort
-        modsxml_tsi author_sort imprint_display
+        modsxml_tsi cocina_description_tsi author_sort imprint_display
         pub_year_isi
         pub_year_no_approx_isi
         pub_year_w_approx_isi
