@@ -70,21 +70,25 @@ describe Purl do
     end
   end
 
+  describe '#active_folio_hrid' do
+    context 'when an active refresh catalog record exists' do
+      let(:druid) { 'gh795jd5965' }
+
+      it 'returns the catalog record ID' do
+        expect(purl.active_folio_hrid).to eq('a11403803')
+      end
+    end
+
+    context 'when no active refresh catalog record exists' do
+      it 'returns nil' do
+        expect(purl.active_folio_hrid).to be_nil
+      end
+    end
+  end
+
   describe '#smods_rec' do
     it 'returns a Stanford::Mods::Record object' do
       expect(purl.smods_rec).to be_a(Stanford::Mods::Record)
-    end
-  end
-
-  describe '#dor_content_type' do
-    it 'returns the content type from contentMetadata' do
-      expect(purl.dor_content_type).to eq('image')
-    end
-  end
-
-  describe '#identity_md_obj_label' do
-    it 'returns the object label from identityMetadata' do
-      expect(purl.identity_md_obj_label).to include('Le Dauphin enlevè à sa mere : après le decret du Comité')
     end
   end
 
