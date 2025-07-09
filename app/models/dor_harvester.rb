@@ -32,7 +32,7 @@ class DorHarvester < Spotlight::Resource
 
       pipeline.transforms = [
         lambda do |data, p|
-          doc = p.context.resource.traject_indexer.map_record(p.source)
+          doc = p.context.resource.send(select_indexer(p.source)).map_record(p.source)
 
           throw(:skip) unless doc
 
@@ -48,9 +48,21 @@ class DorHarvester < Spotlight::Resource
     end
   end
 
-  def traject_indexer
-    @traject_indexer ||= Traject::Indexer.new.tap do |i|
-      i.load_config_file('lib/traject/dor_config.rb')
+  def self.select_indexer(source)
+    return :mods_traject_indexer if source.active_folio_hrid.present?
+
+    :cocina_traject_indexer
+  end
+
+  def mods_traject_indexer
+    @mods_traject_indexer ||= Traject::Indexer.new.tap do |i|
+      i.load_config_file('lib/traject/dor_mods_config.rb')
+    end
+  end
+
+  def cocina_traject_indexer
+    @cocina_traject_indexer ||= Traject::Indexer.new.tap do |i|
+      i.load_config_file('lib/traject/dor_cocina_config.rb')
     end
   end
 

@@ -191,7 +191,8 @@ RSpec.describe 'indexing integration test' do
                                   incipit_tesim: ['In illo tempore maria magdalene et maria iacobi et solomae'],
                                   manuscript_number_tesim: ['MS 69'],
                                   toc_search: ['Homiliae XL in euangelia'],
-                                  url_suppl: ['https://purl.stanford.edu/kd310gm7424', 'https://purl.stanford.edu/dx969tv9730']
+                                  url_suppl: ['https://purl.stanford.edu/kd310gm7424',
+                                              'https://purl.stanford.edu/dx969tv9730']
     end
 
     it 'has other fields that are present in parker data' do

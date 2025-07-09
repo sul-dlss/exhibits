@@ -23,6 +23,24 @@ describe DorHarvester do
     end
   end
 
+  describe '.select_indexer' do
+    context 'when the source has a active_folio_hrid' do
+      let(:source) { instance_double(Purl, active_folio_hrid: '12345') }
+
+      it 'returns :mods_traject_indexer' do
+        expect(described_class.select_indexer(source)).to eq :mods_traject_indexer
+      end
+    end
+
+    context 'when the source does not have a active_folio_hrid' do
+      let(:source) { instance_double(Purl, active_folio_hrid: nil) }
+
+      it 'returns :cocina_traject_indexer' do
+        expect(described_class.select_indexer(source)).to eq :cocina_traject_indexer
+      end
+    end
+  end
+
   describe '#druids' do
     context 'with a single item' do
       subject { described_class.new druid_list: 'xf680rd3068' }
