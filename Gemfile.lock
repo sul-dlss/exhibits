@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/sul-dlss/cocina_display.git
+  revision: e9a02f046a1cab70bb72b90dc409b642da911d4e
+  specs:
+    cocina_display (0.4.0)
+      activesupport (>= 7)
+      edtf (~> 3.2)
+      janeway-jsonpath (~> 0.6)
+
 GEM
   remote: https://gems.contribsys.com/
   specs:
@@ -474,6 +483,7 @@ GEM
       reline (>= 0.4.2)
     iso-639 (0.3.8)
       csv
+    janeway-jsonpath (0.6.0)
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -981,6 +991,7 @@ DEPENDENCIES
   capistrano-shared_configs
   capybara
   citeproc-ruby
+  cocina_display!
   config
   csl-styles
   cssbundling-rails (~> 1.4)
