@@ -20,6 +20,12 @@ RSpec.describe 'indexing integration test' do
     allow(rsolr_client).to receive(:update)
     allow(rsolr_client).to receive(:commit)
 
+    %w(a10157160 a1518292).each do |fixture|
+      allow(ModsFromMarcService).to receive(:mods).with(folio_instance_hrid: fixture).and_return(
+        File.read(File.join(FIXTURES_PATH, "#{fixture}.mods"))
+      )
+    end
+
     stub_request(:post, /update/)
     %w(xml json).each do |format|
       fixtures.each do |fixture|
@@ -88,13 +94,13 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has MODS origin info fields' do
-        expect(document).to include imprint_display: 'France?, [1200 - 1299?] 13th century',
+        expect(document).to include imprint_display: 'France, [1200 - 1299?]; France?, 13th century',
                                     pub_year_isi: 1200,
                                     pub_year_no_approx_isi: 1200,
                                     pub_year_w_approx_isi: 1200,
                                     pub_year_tisim: (1200..1299).to_a,
                                     place_created_ssim: ['France?'],
-                                    date_ssim: ['13th century', '[1200 - 1299?]']
+                                    date_ssim: ['[1200 - 1299?]', '13th century']
       end
 
       it 'has other metadata fields' do
