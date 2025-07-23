@@ -15,7 +15,7 @@ RSpec.describe 'indexing integration test' do
     allow(rsolr_client).to receive(:commit)
 
     stub_request(:post, /update/)
-    %w(xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079).each do |fixture|
+    %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
@@ -274,6 +274,18 @@ RSpec.describe 'indexing integration test' do
 
       it 'has name_roles_ssim' do
         expect(document).to include name_roles_ssim: ['|Packard, David, 1912-1996', '|Packard, Lucile', '|Hewlett-Packard Company', '|Hewlett, William R.']
+      end
+    end
+  end
+
+  context 'item that has a collector' do
+    let(:druid) { 'bb099mt5053' }
+
+    context 'to_solr' do
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
+
+      it 'has collector_ssim' do
+        expect(document).to include collector_ssim: ['Mandelbrot, Benoit B.']
       end
     end
   end

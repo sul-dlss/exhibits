@@ -172,7 +172,7 @@ to_field 'box_ssi', stanford_mods(:box)
 to_field 'coordinates_tesim', stanford_mods(:coordinates)
 
 to_field 'collector_ssim' do |resource, accumulator|
-  collectors = resource.smods_rec.personal_name.select { |n| n.role.any? }.reject { |n| n.role.any? { |r| includes_marc_relator_role?(r, value: 'Collector', value_uri: 'http://id.loc.gov/vocabulary/relators/col') } }
+  collectors = resource.smods_rec.personal_name.select { |n| n.role.any? }.select { |n| n.role.any? { |r| includes_marc_relator_role?(r, value: 'Collector', value_uri: 'http://id.loc.gov/vocabulary/relators/col') } }
 
   accumulator.concat(collectors.map(&:display_value_w_date))
 end
