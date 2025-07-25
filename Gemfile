@@ -128,6 +128,7 @@ gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
 gem 'folio_client'
 gem 'marc'
+gem 'cocina_display', git: 'https://github.com/sul-dlss/cocina_display.git'
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069
 gem 'redis', '~> 5.0'

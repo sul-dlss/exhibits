@@ -1,38 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'macros/general'
-require_relative 'macros/dor'
+load_config_file(File.expand_path(Rails.root.join('lib/traject/dor_base_config.rb').to_s))
 
-require 'active_support/core_ext/object/blank'
-extend Traject::Macros::General
-extend Traject::Macros::Dor
-
-settings do
-  provide 'reader_class_name', 'DorReader'
-  provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
-end
-
-to_fields %w(id druid), (accumulate { |resource, *_| resource.bare_druid })
 to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
-to_field 'last_updated', (accumulate { |resource, *_| resource.last_updated })
-
-# ITEM FIELDS
-to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(resource) })
-
-to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
-to_field 'collection_with_title', (accumulate do |resource, *_|
-  resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
-end)
-to_field 'collection_titles_ssim', (accumulate do |resource, *_|
-  resource.collections.map { |collection| coll_title(collection) }
-end)
-
-# COLLECTION FIELDS
-to_field 'format_main_ssim', conditional(->(resource, *_) { resource.collection? }, literal('Collection'))
-to_field 'collection_type', conditional(->(resource, *_) { resource.collection? }, literal('Digital Collection'))
-
-# OTHER FIELDS
-to_field 'url_fulltext', (accumulate { |resource, *_| "https://purl.stanford.edu/#{resource.bare_druid}" })
 
 # title fields
 to_field 'title_245a_search', stanford_mods(:sw_short_title)
@@ -43,24 +13,6 @@ end
 to_field 'title_sort', stanford_mods(:sw_sort_title)
 to_field 'title_245a_display', stanford_mods(:sw_short_title)
 to_field 'title_display', stanford_mods(:sw_title_display)
-
-to_field 'name_ssim' do |resource, accumulator|
-  resource.display_names_with_roles.each do |name_and_role|
-    accumulator << name_and_role[:name]
-  end
-end
-
-to_field 'name_roles_ssim' do |resource, accumulator|
-  resource.display_names_with_roles.each do |name_and_role|
-    if name_and_role[:roles].any?
-      name_and_role[:roles].each do |role|
-        accumulator << "#{role}|#{name_and_role[:name]}"
-      end
-    else
-      accumulator << "|#{name_and_role[:name]}"
-    end
-  end
-end
 
 # author fields
 to_field 'author_1xx_search', stanford_mods(:sw_main_author)
@@ -73,6 +25,7 @@ end
 
 to_field 'author_corp_display', stanford_mods(:sw_corporate_authors)
 to_field 'author_meeting_display', stanford_mods(:sw_meeting_authors)
+# TODO: Why do we have these two fields with different names with the same values?
 to_field 'author_person_display', stanford_mods(:sw_person_authors)
 to_field 'author_person_full_display', stanford_mods(:sw_person_authors)
 
@@ -151,7 +104,7 @@ to_field 'box_ssi', stanford_mods(:box)
 to_field 'coordinates_tesim', stanford_mods(:coordinates)
 
 to_field 'collector_ssim' do |resource, accumulator|
-  collectors = resource.smods_rec.personal_name.select { |n| n.role.any? }.reject { |n| n.role.any? { |r| includes_marc_relator_role?(r, value: 'Collector', value_uri: 'http://id.loc.gov/vocabulary/relators/col') } }
+  collectors = resource.smods_rec.personal_name.select { |n| n.role.any? }.select { |n| n.role.any? { |r| includes_marc_relator_role?(r, value: 'Collector', value_uri: 'http://id.loc.gov/vocabulary/relators/col') } }
 
   accumulator.concat(collectors.map(&:display_value_w_date))
 end
@@ -187,36 +140,6 @@ each_record do |_resource, context|
   raise "Invalid envelope data: #{bad_coordinates.inspect}" if bad_coordinates.any?
 end
 
-to_field 'iiif_manifest_url_ssi', (accumulate { |resource, *_| iiif_manifest_url(resource.bare_druid) })
-
-# CONTENT METADATA
-
-to_field 'content_metadata_type_ssim' do |resource, accumulator, _context|
-  accumulator << resource.dor_content_type
-end
-
-to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
-
-to_field 'content_metadata_image_iiif_info_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/info.json" }
-end
-
-to_field 'thumbnail_square_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/square/100,100/0/default.jpg" }
-end
-
-to_field 'thumbnail_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/full/!400,400/0/default.jpg" }
-end
-
-to_field 'large_image_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/full/!1000,1000/0/default.jpg" }
-end
-
-to_field 'full_image_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/full/!3000,3000/0/default.jpg" }
-end
-
 # FEIGENBAUM FIELDS
 
 to_field 'doc_subtype_ssi' do |resource, accumulator, _context|
@@ -235,9 +158,6 @@ to_field 'folder_name_ssi' do |resource, accumulator, _context|
 end
 
 to_field 'general_notes_ssim', (accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.type_at.blank? && n.displayLabel.blank? }.map(&:content) })
-
-# FULL TEXT FIELDS
-to_field 'full_text_tesimv', (accumulate { |resource, *_| FullTextParser.new(resource).to_text })
 
 # PARKER FIELDS
 
@@ -282,10 +202,6 @@ def parse_incipit(sdb)
   nil
 end
 
-def iiif_manifest_url(bare_druid)
-  format ::Settings.purl.iiif_manifest_url, druid: bare_druid
-end
-
 # @return [Array{String}] The IDs from geonames //subject/geographic URIs, if any
 def extract_geonames_ids(sdb)
   sdb.smods_rec.subject.map do |z|
@@ -314,22 +230,6 @@ def get_geonames_api_envelope(id)
 rescue Faraday::Error => e
   logger.error("Error fetching/parsing #{url} -- #{e.message}")
   nil
-end
-
-def display_type(resource)
-  case resource.dor_content_type
-  when 'book'
-    'book'
-  when 'image', 'manuscript', 'map'
-    'image'
-  else
-    'file'
-  end
-end
-
-def coll_title(resource)
-  @collection_titles ||= {}
-  @collection_titles[resource.druid] ||= resource.identity_md_obj_label
 end
 
 # @param Nokogiri::XML::Node role_node the role node from a parent name node

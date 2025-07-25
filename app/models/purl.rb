@@ -19,6 +19,7 @@ class Purl
 
   delegate :exists?, to: :purl_cocina_service
   delegate :virtual_object_thumbnail_identifier, :virtual_object?, to: :purl_virtual_object
+  delegate :box, :folder, :physical_location_str, :series, to: :purl_physical_location
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml
@@ -27,7 +28,7 @@ class Purl
 
   # @return [Hash] the public cocina hash for this Purl object
   def public_cocina
-    @public_cocina ||= JSON.parse(purl_cocina_service.response_body.presence || '{}')
+    @public_cocina ||= JSON.parse(cocina_service_response_body)
   end
 
   # @return [Array<Purl>] array of Purl objects for the collections this Purl belongs to
@@ -35,6 +36,7 @@ class Purl
     @collections ||= PurlCollections.call(public_cocina)
   end
 
+  # TODO: cocina_display doesn't include 'set' as a collection type, should it?
   # @return [Boolean] true if this Purl object is a collection, false otherwise
   def collection?
     public_cocina.fetch('type', '').in?(COLLECTION_TYPES)
@@ -50,6 +52,15 @@ class Purl
     @bare_druid ||= druid.delete_prefix('druid:')
   end
 
+  # @return [String] the catalog record ID from the active refresh catalog record, if available
+  def active_folio_hrid
+    cocina_record.folio_hrid(refresh: true)
+  end
+
+  def cocina_record
+    @cocina_record ||= CocinaDisplay::CocinaRecord.new(JSON.parse(cocina_service_response_body))
+  end
+
   # @return [Stanford::Mods::Record] this object includes method for accessing MODS fields
   # in a more convenient way, see: https://github.com/sul-dlss/stanford-mods/
   def smods_rec
@@ -58,19 +69,7 @@ class Purl
     end
   end
 
-  # @return [String] the value of the type attribute from cocina
-  #  more info about these values is here:
-  #  https://consul.stanford.edu/display/chimera/DOR+content+types%2C+resource+types+and+interpretive+metadata
-  #  https://consul.stanford.edu/spaces/chimera/pages/137495027/Summary+of+Content+and+Resource+Types+models+and+their+behaviors
-  def dor_content_type
-    public_cocina.fetch('type', '').split('/').last
-  end
-
-  # @return [String] the value of the label attribute from cocina
-  def identity_md_obj_label
-    public_cocina.fetch('label', nil)
-  end
-
+  # TODO: Can we can this from cocina_display?
   # @return [Array<Hash>] an array of hashes with keys `name` and `roles` with
   # MODS names normalized to just the display name and roles.
   def display_names_with_roles
@@ -91,11 +90,14 @@ class Purl
     end
   end
 
+  # TODO: Can we can this from cocina_display?
   # @return [ModsDisplay::HTML] the imprint display value, formatted as HTML
   def imprint_display
     @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
   end
 
+  # NOTE: Could use cocina_record.modified time, but it parses the date with Time.parse
+  # instead of Time.zone.parse. Maybe these can be aligned in the future.
   def last_updated
     @last_updated ||= Time.zone.parse(public_cocina.fetch('modified', ''))&.utc&.iso8601
   end
@@ -122,6 +124,14 @@ class Purl
 
   def purl_virtual_object
     @purl_virtual_object ||= PurlVirtualObject.new(public_cocina:)
+  end
+
+  def purl_physical_location
+    @purl_physical_location ||= PurlPhysicalLocation.new(cocina_record:)
+  end
+
+  def cocina_service_response_body
+    @cocina_service_response_body ||= purl_cocina_service.response_body.presence || '{}'
   end
 
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
