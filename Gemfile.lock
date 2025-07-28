@@ -1035,7 +1035,6 @@ DEPENDENCIES
   traject
   turbo-rails
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
-  tzinfo-data
   web-console (>= 4.1.0)
   webmock
 
