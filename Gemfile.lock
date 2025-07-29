@@ -211,6 +211,7 @@ GEM
       ssrf_filter (~> 1.0)
     childprocess (5.1.0)
       logger (~> 1.5)
+    chronic (0.10.2)
     citeproc (1.1.0)
       date
       forwardable
@@ -932,6 +933,8 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    whenever (1.0.0)
+      chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.2)
@@ -1037,6 +1040,7 @@ DEPENDENCIES
   twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   web-console (>= 4.1.0)
   webmock
+  whenever
 
 BUNDLED WITH
    2.7.1
