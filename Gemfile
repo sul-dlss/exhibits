@@ -101,10 +101,10 @@ gem 'friendly_id', '~> 5.4'
 gem 'sitemap_generator'
 
 source 'https://gems.contribsys.com/' do
-  gem 'sidekiq-pro', '~> 7.0'
+  gem 'sidekiq-pro', '~> 8.0'
 end
 
-gem 'sidekiq', '~> 7.0'
+gem 'sidekiq', '~> 8.0'
 gem 'dotenv'
 gem 'iiif-presentation'
 gem 'riiif'
