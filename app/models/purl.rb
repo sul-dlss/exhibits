@@ -16,6 +16,8 @@ class Purl
 
   delegate :exists?, to: :purl_cocina_service
   delegate :virtual_object_thumbnail_identifier, :virtual_object?, to: :purl_virtual_object
+
+  # TODO: How to clarify what is suitable for cocina indexing vs MODS indexing?
   delegate :box, :folder, :physical_location_str, :series, to: :purl_physical_location
   delegate :collection?, to: :cocina_record
 
@@ -110,6 +112,7 @@ class Purl
     @purl_virtual_object ||= PurlVirtualObject.new(public_cocina:)
   end
 
+  # TODO: How to clarify what is suitable for cocina indexing vs MODS indexing
   def purl_physical_location
     @purl_physical_location ||= PurlPhysicalLocation.new(cocina_record:)
   end
