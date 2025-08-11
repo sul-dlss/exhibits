@@ -12,27 +12,28 @@ settings do
   provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
 
-to_fields(%w(id druid), accumulate { |resource, *_| resource.bare_druid })
-to_field('modsxml', accumulate { |resource, *_| resource.smods_rec.to_xml })
-to_field('last_updated', accumulate { |resource, *_| Time.parse(resource.public_xml.at_xpath('/publicObject')['published']).utc.iso8601 })
+# rubocop:disable Style/RedundantParentheses
+to_fields %w(id druid), (accumulate { |resource, *_| resource.bare_druid })
+to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
+to_field 'last_updated', (accumulate { |resource, *_| Time.parse(resource.public_xml.at_xpath('/publicObject')['published']).utc.iso8601 })
 
 # ITEM FIELDS
 to_field 'display_type', conditional(->(resource, *_) { !resource.collection? }, accumulate { |resource, *_| display_type(resource) })
 
-to_field('collection', accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
-to_field 'collection_with_title', accumulate do |resource, *_|
+to_field 'collection', (accumulate { |resource, *_| resource.collections.map(&:bare_druid) })
+to_field 'collection_with_title', (accumulate do |resource, *_|
   resource.collections.map { |collection| "#{collection.bare_druid}-|-#{coll_title(collection)}" }
-end
-to_field 'collection_titles_ssim', accumulate do |resource, *_|
+end)
+to_field 'collection_titles_ssim', (accumulate do |resource, *_|
   resource.collections.map { |collection| coll_title(collection) }
-end
+end)
 
 # COLLECTION FIELDS
 to_field 'format_main_ssim', conditional(->(resource, *_) { resource.collection? }, literal('Collection'))
 to_field 'collection_type', conditional(->(resource, *_) { resource.collection? }, literal('Digital Collection'))
 
 # OTHER FIELDS
-to_field('url_fulltext', accumulate { |resource, *_| "https://purl.stanford.edu/#{resource.bare_druid}" })
+to_field 'url_fulltext', (accumulate { |resource, *_| "https://purl.stanford.edu/#{resource.bare_druid}" })
 
 # title fields
 to_field 'title_245a_search', stanford_mods(:sw_short_title)
@@ -157,7 +158,7 @@ to_field 'publisher_ssi' do |_resource, accumulator, context|
   accumulator << value if value
 end
 
-to_field('modsxml_tsi', accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') })
+to_field 'modsxml_tsi', (accumulate { |resource, *_| resource.smods_rec.text.gsub(/\s+/, ' ') })
 
 to_field 'author_no_collector_ssim' do |resource, accumulator|
   non_collector_authors = resource.smods_rec.personal_name.select { |n| n.role.any? }.reject { |n| n.role.all? { |r| includes_marc_relator_role?(r, value: 'Collector', value_uri: 'http://id.loc.gov/vocabulary/relators/col') } }
@@ -181,9 +182,9 @@ to_field 'genre_ssim', stanford_mods(:term_values, :genre)
 to_field 'genre_ssim', stanford_mods(:term_values, [:subject, :genre])
 to_field 'location_ssi', stanford_mods(:physical_location_str)
 to_field 'series_ssi', stanford_mods(:series)
-to_field('identifier_ssim', accumulate { |resource, *_| resource.smods_rec.identifier.content })
+to_field 'identifier_ssim', (accumulate { |resource, *_| resource.smods_rec.identifier.content })
 
-to_field('geographic_srpt', accumulate { |resource, *_| extract_geonames_ids(resource) }) do |_resource, accumulator, _context|
+to_field 'geographic_srpt', (accumulate { |resource, *_| extract_geonames_ids(resource) }) do |_resource, accumulator, _context|
   accumulator.map! do |id|
     get_geonames_api_envelope(id)
   end
@@ -208,7 +209,7 @@ each_record do |_resource, context|
   raise "Invalid envelope data: #{bad_coordinates.inspect}" if bad_coordinates.any?
 end
 
-to_field('iiif_manifest_url_ssi', accumulate { |resource, *_| iiif_manifest_url(resource.bare_druid) })
+to_field 'iiif_manifest_url_ssi', (accumulate { |resource, *_| iiif_manifest_url(resource.bare_druid) })
 
 # CONTENT METADATA
 
@@ -247,7 +248,7 @@ to_field 'doc_subtype_ssi' do |resource, accumulator, _context|
   accumulator << subtype.first unless subtype.empty?
 end
 
-to_field('donor_tags_ssim', accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content) }) do |_resource, accumulator, _context|
+to_field 'donor_tags_ssim', (accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.displayLabel == 'Donor tags' }.map(&:content) }) do |_resource, accumulator, _context|
   accumulator.map! { |v| v.sub(/^./, &:upcase) }
 end
 
@@ -257,16 +258,16 @@ to_field 'folder_name_ssi' do |resource, accumulator, _context|
   accumulator << match_data[1].strip if match_data.present?
 end
 
-to_field('general_notes_ssim', accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.type_at.blank? && n.displayLabel.blank? }.map(&:content) })
+to_field 'general_notes_ssim', (accumulate { |resource, *_| resource.smods_rec.note.select { |n| n.type_at.blank? && n.displayLabel.blank? }.map(&:content) })
 
 # FULL TEXT FIELDS
-to_field('full_text_tesimv', accumulate { |resource, *_| FullTextParser.new(resource).to_text })
+to_field 'full_text_tesimv', (accumulate { |resource, *_| FullTextParser.new(resource).to_text })
 
 # PARKER FIELDS
 
-to_field('manuscript_number_tesim', accumulate { |resource, *_| resource.smods_rec.location.shelfLocator&.text })
+to_field 'manuscript_number_tesim', (accumulate { |resource, *_| resource.smods_rec.location.shelfLocator&.text })
 
-to_field('incipit_tesim', accumulate { |resource, *_| parse_incipit(resource) })
+to_field 'incipit_tesim', (accumulate { |resource, *_| parse_incipit(resource) })
 
 to_field 'dimensions_ssim' do |resource, accumulator, _context|
   resource.smods_rec.physical_description.note.select { |x| x.attr('type') == 'dimensions' }.each do |dimension|
@@ -288,13 +289,14 @@ to_field 'identifier_displayLabel_ssim' do |resource, accumulator, _context|
   accumulator.sort!
 end
 
-to_field 'repository_ssim', accumulate do |resource, _context|
+to_field 'repository_ssim', (accumulate do |resource, _context|
   resource.smods_rec.location.physicalLocation.select { |x| x.attr('type') == 'repository' }.map(&:content)
-end
+end)
 
-to_field 'place_created_ssim', accumulate do |resource, _context|
+to_field 'place_created_ssim', (accumulate do |resource, _context|
   resource.smods_rec.origin_info.place.placeTerm.select { |x| x.attr('type') == 'text' }.map(&:content)
-end
+end)
+# rubocop:enable Style/RedundantParentheses
 
 def parse_incipit(sdb)
   sdb.smods_rec.related_item.each do |item|
