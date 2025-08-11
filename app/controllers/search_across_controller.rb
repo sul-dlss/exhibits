@@ -104,14 +104,14 @@ class SearchAcrossController < ::CatalogController
   def exhibit_tags_facet_query_config
     tags = Spotlight::Exhibit.accessible_by(current_ability).tag_counts_on(:tags).pluck(:name)
 
-    (tags.each_with_object({}) do |v, h|
+    tags.each_with_object({}) do |v, h|
       slugs = Spotlight::Exhibit.accessible_by(current_ability).tagged_with(v).pluck(:slug)
 
       h[v] = {
         label: v,
         fq: "#{SolrDocument.exhibit_slug_field}:(#{slugs.join(' OR ')})"
       }
-    end)
+    end
   end
 
   def exhibit_visibility_query_config
