@@ -12,6 +12,7 @@ settings do
   provide 'processing_thread_pool', ::Settings.traject.processing_thread_pool || 1
 end
 
+# rubocop:disable Style/RedundantParentheses
 to_fields %w(id druid), (accumulate { |resource, *_| resource.bare_druid })
 to_field 'modsxml', (accumulate { |resource, *_| resource.smods_rec.to_xml })
 to_field 'last_updated', (accumulate { |resource, *_| Time.parse(resource.public_xml.at_xpath('/publicObject')['published']).utc.iso8601 })
@@ -295,6 +296,7 @@ end)
 to_field 'place_created_ssim', (accumulate do |resource, _context|
   resource.smods_rec.origin_info.place.placeTerm.select { |x| x.attr('type') == 'text' }.map(&:content)
 end)
+# rubocop:enable Style/RedundantParentheses
 
 def parse_incipit(sdb)
   sdb.smods_rec.related_item.each do |item|
