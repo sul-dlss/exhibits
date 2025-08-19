@@ -91,3 +91,7 @@ Spotlight::Engine.config.site_tags = [
   "Social justice",
   "Stanfordiana"
 ]
+
+# Arabic support is incomplete, but because Blacklight and Spotlight include Arabic translations we must set the
+# list of available locales to prevent Exhibit creators from selecting it.
+Spotlight::Engine.config.i18n.available_locales = [:de, :en, :es, :fr, :hu, :it, :nl, 'pt-BR', :sq, :zh]
