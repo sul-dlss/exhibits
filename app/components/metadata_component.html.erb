@@ -1,0 +1,6 @@
+<% field_labels_with_values.each do |label, values| %>
+  <dt><%= label %></dt>
+  <% Array(values).each do |value| %>
+    <dd><%= value %></dd>
+  <% end %>
+<% end %>

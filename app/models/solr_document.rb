@@ -16,6 +16,7 @@ class SolrDocument
   include ManifestConcern
   include MetadataConcern
   include CanvasConcern
+  include CocinaMetadataConcern
 
   # self.unique_key = 'id'
 
