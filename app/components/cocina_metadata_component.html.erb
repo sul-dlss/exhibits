@@ -1,0 +1,8 @@
+<%= render MetadataSectionComponent.new(document: document, section: :description, component: CocinaMetadata::DescriptionComponent ) %>
+<%= render MetadataSectionComponent.new(document: document, section: :contributors, component: CocinaMetadata::ContributorComponent ) %>
+<%= render MetadataSectionComponent.new(document: document, section: :abstract, component: CocinaMetadata::AbstractComponent ) %>
+<%= render MetadataSectionComponent.new(document: document, section: :subjects, component: CocinaMetadata::SubjectComponent ) %>
+<%= render MetadataSectionComponent.new(document: document, section: :bibliographic, component: CocinaMetadata::BibliographicComponent ) %>
+<%# TODO: do we still need to display contact? %>
+<%# render MetadataSectionComponent.new(document: @document, section: :contact, component: ContactComponent ) %>
+<%= render MetadataSectionComponent.new(document: @document, section: :access, component: CocinaMetadata::AccessComponent ) %>

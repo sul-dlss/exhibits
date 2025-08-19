@@ -1,1 +1,2 @@
-<%= render 'mods_metadata_sections' %>
+<%# render 'mods_metadata_sections' if @document.modsxml %>
+<%= render CocinaMetadataComponent.new(document: @document) %>

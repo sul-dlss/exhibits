@@ -129,14 +129,14 @@ to_field 'series_ssi', (accumulate { |resource, *_| resource.cocina_physical_loc
 to_field 'identifier_ssim', cocina_display_path('$.description.identifier..[?(@.value)].value')
 
 to_field 'coordinates_tesim', cocina_display(:coordinates)
-to_field 'geographic_srpt', cocina_display(:coordinates_as_wkt)
-to_field 'geographic_srpt', (accumulate { |resource, *_| resource.cocina_record.geonames_ids }) do |_resource, accumulator, _context|
-  accumulator.map! do |id|
-    get_geonames_api_envelope(id)
-  end
+# to_field 'geographic_srpt', cocina_display(:coordinates_as_wkt)
+# to_field 'geographic_srpt', (accumulate { |resource, *_| resource.cocina_record.geonames_ids }) do |_resource, accumulator, _context|
+#   accumulator.map! do |id|
+#     get_geonames_api_envelope(id)
+#   end
 
-  accumulator.compact!
-end
+#   accumulator.compact!
+# end
 
 # # FEIGENBAUM FIELDS
 

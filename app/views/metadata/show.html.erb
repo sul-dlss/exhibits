@@ -14,6 +14,9 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-primary view-in-modal" data-bl-dismiss="modal">Close</button>
+
+      <%# TODO: Remove this for Cocina? Or link to Purl instead? %>
+
       <%= link_to t('metadata.download'),
                   solr_document_path(@document, format: 'mods'),
                   class: 'btn btn-primary',

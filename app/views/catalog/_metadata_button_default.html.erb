@@ -1,4 +1,5 @@
-<% if @document.modsxml %>
+<%# TODO: Would be nice if we didn't have to fetch data from Purl to know if we have cocina or not %>
+<% if @document.modsxml || @document.cocina_record.present? %>
   <div class='container'>
     <div class='row'>
       <% # Using the Bootstrap container/row/col structure here to easily get this on its own line %>
