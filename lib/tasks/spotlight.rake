@@ -13,7 +13,7 @@ namespace :spotlight do # rubocop:disable Metrics/BlockLength
 
   desc 'Remove empty anchors'
   task remediate_anchors: :environment do
-    url_regex = %r{<a href="(https?|mailto:)[\S]+">(<br>)?<\/a>}
+    url_regex = %r{<a href="(https?|mailto:)\S+">(<br>)?<\/a>}
     Spotlight::Page.find_each.select do |p|
       p.content.any? { |c| c.text.to_s.match? url_regex }
     end.each do |p|

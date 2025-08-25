@@ -201,7 +201,7 @@ each_record do |_resource, context|
   next unless context.output_hash['geographic_srpt']
 
   bad_coordinates = context.output_hash['geographic_srpt'].select { |x| x.starts_with? 'ENVELOPE' }.reject do |envelope|
-    coords = envelope.scan(/([\-\d\.]+)/).flatten.map(&:to_f)
+    coords = envelope.scan(/([-\d.]+)/).flatten.map(&:to_f)
     minx, maxx, maxy, miny = coords
     (minx <= maxx) || (miny <= maxy) || (-90..90).cover?(maxy) || (-90..90).cover?(miny) || (-180..180).cover?(minx) || (-180..180).cover?(maxx)
   end
