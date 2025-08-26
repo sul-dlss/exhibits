@@ -168,6 +168,9 @@ GEM
     bootstrap_form (5.4.0)
       actionpack (>= 6.1)
       activemodel (>= 6.1)
+    bot_challenge_page (0.10.0)
+      http (~> 5.2)
+      rails (>= 7.1, < 8.1)
     builder (3.3.0)
     bundler-audit (0.9.2)
       bundler (>= 1.2.0, < 3)
@@ -645,8 +648,6 @@ GEM
       faraday (~> 2.1)
     racc (1.8.1)
     rack (3.1.16)
-    rack-attack (6.7.0)
-      rack (>= 1.0, < 4)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-mini-profiler (4.0.1)
@@ -967,6 +968,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 5.3)
   bootstrap_form (~> 5.4)
+  bot_challenge_page (~> 0.10.0)
   capistrano (~> 3.0)
   capistrano-bundler
   capistrano-passenger
@@ -1004,7 +1006,6 @@ DEPENDENCIES
   propshaft
   puma (~> 6.0)
   purl_fetcher-client (~> 3.1)
-  rack-attack
   rack-cors (~> 2.0)
   rack-mini-profiler
   rails (~> 7.2)
