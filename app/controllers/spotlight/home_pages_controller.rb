@@ -9,6 +9,8 @@ module Spotlight
   class HomePagesController
     include BlacklightRangeLimit::ControllerOverride
 
+    bot_challenge only: :show
+
     # rubocop:disable Rails/LexicallyScopedActionFilter
     # Tweak the authorization for the range limit actions
     before_action :authenticate_user!, except: [:show, :range_limit]

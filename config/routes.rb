@@ -1,4 +1,5 @@
 Exhibits::Application.routes.draw do
+  post "/challenge", to: "bot_challenge_page/bot_challenge_page#verify_challenge", as: :bot_detect_challenge
   # API compatible with is_it_working checks
   match "/is_it_working" => "ok_computer/ok_computer#index", via: [:get, :options]
   mount OkComputer::Engine, at: "/status"

@@ -2,6 +2,7 @@
 
 # :nodoc:
 class ApplicationController < ActionController::Base
+  include BotChallengePage::Controller
   helper Openseadragon::OpenseadragonHelper
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
