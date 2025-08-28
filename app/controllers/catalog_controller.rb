@@ -9,6 +9,8 @@ class CatalogController < ApplicationController
   include BlacklightRangeLimit::ControllerOverride
   BlacklightRangeLimit.classes[:submit] = 'submit btn btn-primary'
 
+  bot_challenge only: :index
+
   before_action only: :manifest do
     response.headers['Access-Control-Allow-Origin'] = '*'
   end
