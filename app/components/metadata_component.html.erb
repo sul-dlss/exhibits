@@ -1,6 +1,18 @@
 <% field_labels_with_values.each do |label, values| %>
   <dt><%= label %></dt>
   <% Array(values).each do |value| %>
-    <dd><%= value %></dd>
+    <dd>
+      <% if value.is_a?(Array) %>
+        <%# TODO: could this just call itself, recursive-like? %>
+        <dl>
+          <% values.each do |l, v| %>
+            <dt><%= l %></dt>
+            <dd><%= v %></dd>
+          <% end %>
+        </dl>
+      <% else %>
+        <%= value %>
+      <% end %>
+    </dd>
   <% end %>
 <% end %>

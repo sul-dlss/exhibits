@@ -22,6 +22,10 @@ module CocinaMetadata
     private
 
     # TODO: implement relatedItem and nestedRelatedItem
+    # vg729nb7574 multiple locations with URLs relatedResource purl (label location)
+    # cf386wt1778 complex nested example has_part (label: contains), this is equivalent to complex constinuent types from mods
+    # hp566jq8781 long complex nested example
+    # hm136qv0310 short example
     # TODO: audience is handled as a note in cocina (as far as I can tell)?
     def field_labels_with_values
       note_hash.merge(identifiers_hash).merge(url_hash).merge(location_hash)
