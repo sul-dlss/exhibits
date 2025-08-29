@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+# Add bot challenge to Spotlight controllers
+Rails.application.config.to_prepare do
+  Spotlight::AboutPagesController.bot_challenge only: :show
+  Spotlight::BrowseController.bot_challenge only: %i(index show)
+  Spotlight::FeaturePagesController.bot_challenge only: :show
+end
+
 SAFELIST = [
   '171.64.0.0/14',
   '10.0.0.0/8',
