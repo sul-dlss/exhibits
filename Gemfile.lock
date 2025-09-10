@@ -958,7 +958,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   bibtex-ruby
-  blacklight (= 8.11.0)
+  blacklight (~> 8.0)
   blacklight-gallery (~> 4.8)
   blacklight-oembed (~> 1.0)
   blacklight-spotlight (>= 5.0.0.pre.alpha1)
