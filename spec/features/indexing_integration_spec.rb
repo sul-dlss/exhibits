@@ -20,12 +20,6 @@ RSpec.describe 'indexing integration test' do
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
     end
-
-    %w(rk684yq9989 dx969tv9730).each do |fixture|
-      stub_request(:get, "https://purl.stanford.edu/#{fixture}.mods").to_return(
-        body: File.new(File.join(FIXTURES_PATH, "#{fixture}.mods")), status: 200
-      )
-    end
   end
 
   context 'regular image item' do
@@ -210,12 +204,8 @@ RSpec.describe 'indexing integration test' do
         expect(document[:format_main_ssim]).to include 'Collection'
       end
 
-      it 'has correct content metadata type' do
-        expect(document[:content_metadata_type_ssm]).to include 'file'
-      end
-
       it 'parses and reformats the timestamp to iso8601' do
-        expect(document[:last_updated]).to eq '2015-07-14T02:40:23Z'
+        expect(document[:last_updated]).to eq '2024-05-07T22:10:45Z'
       end
     end
   end

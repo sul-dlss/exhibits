@@ -94,7 +94,7 @@ class Purl
   private
 
   def purl_service
-    @purl_service ||= PurlService.new(bare_druid)
+    @purl_service ||= PurlService.new(bare_druid, format: :xml)
   end
 
   def mods_xml
