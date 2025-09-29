@@ -20,31 +20,13 @@ class PurlModsService
 
   # @return [Nokogiri::XML::Document] the MODS XML document
   def mods_xml
-    @mods_xml ||= if mods_xpath.any?
-                    mods_xpath.first
-                  else
-                    send_fallback_notification!
-                    Nokogiri::XML(mods_response_body)
-                  end
+    @mods_xml ||= (mods_xpath.first if mods_xpath.any?)
   end
 
   private
 
   def mods_xpath
     @mods_xpath ||= @public_xml.xpath('/publicObject/mods:mods', mods: 'http://www.loc.gov/mods/v3')
-  end
-
-  def mods_response_body
-    PurlService.new(druid, format: :mods).response_body
-  end
-
-  def send_fallback_notification!
-    return unless defined?(Honeybadger)
-
-    Honeybadger.notify(
-      'Unable to find MODS in the public xml; falling back to stand-alone mods document',
-      context: { druid: druid }
-    )
   end
 
   def druid
