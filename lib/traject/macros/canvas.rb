@@ -105,7 +105,10 @@ module Traject
       private
 
       def extract_annotations_from_list(accumulator, url)
-        annotation_list = JSON.parse(Faraday.get(url).body)
+        response = Faraday.get(url)
+        raise "Failed to fetch annotation list from #{url}" unless response.success?
+
+        annotation_list = JSON.parse(response.body)
         return unless annotation_list['@type'] == 'sc:AnnotationList' && annotation_list['resources']
 
         annotation_list['resources'].each do |resource|
