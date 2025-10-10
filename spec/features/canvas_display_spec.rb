@@ -16,7 +16,7 @@ describe 'Canvas Display' do
 
   before do
     allow(Faraday).to receive(:get).with(annolist_url).and_return(
-      instance_double(Faraday::Response, body: annolist_file)
+      instance_double(Faraday::Response, body: annolist_file, success?: true)
     )
 
     canvas = CanvasResource.new(data: canvas_data, exhibit: exhibit)
