@@ -44,6 +44,7 @@ BotChallengePage.configure do |config|
      request.format.json? && 
      request.headers['sec-fetch-dest'] == 'empty') ||
      request.user_agent&.match?('HathiTrust-CRMS') || # for HathiTrust access to copyright exhibit
+     request.user_agent&.match?('Siteimprove') || # for Siteimprove crawling
      SAFELIST.map { |cidr| IPAddr.new(cidr) }.any? { |range| request.remote_ip.in?(range) }
   }
 
