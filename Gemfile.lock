@@ -99,7 +99,7 @@ GEM
       latex-decode (~> 0.0)
       logger (~> 1.7)
       racc (~> 1.7)
-    bigdecimal (3.2.3)
+    bigdecimal (3.3.1)
     bindex (0.8.1)
     blacklight (8.12.2)
       globalid
@@ -117,7 +117,7 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (5.2.0)
+    blacklight-spotlight (5.2.1)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 13)
       blacklight (>= 8.7.0, < 9)
@@ -292,7 +292,7 @@ GEM
     ed25519 (1.4.0)
     edtf (3.2.0)
       activesupport (>= 3.0, < 9.0)
-    erb (5.0.2)
+    erb (5.1.1)
     erubi (1.13.1)
     factory_bot (6.5.5)
       activesupport (>= 6.1.0)
@@ -351,7 +351,7 @@ GEM
     google-analytics-data (0.7.2)
       google-analytics-data-v1beta (>= 0.11, < 2.a)
       google-cloud-core (~> 1.6)
-    google-analytics-data-v1beta (0.18.0)
+    google-analytics-data-v1beta (0.19.0)
       gapic-common (~> 1.2)
       google-cloud-errors (~> 1.0)
     google-cloud-core (1.8.0)
@@ -393,7 +393,7 @@ GEM
       google-protobuf (~> 4.26)
       googleapis-common-protos-types (~> 1.21)
       grpc (~> 1.41)
-    googleapis-common-protos-types (1.21.0)
+    googleapis-common-protos-types (1.22.0)
       google-protobuf (~> 4.26)
     googleauth (1.15.0)
       faraday (>= 1.0, < 3.a)
@@ -432,7 +432,7 @@ GEM
       googleapis-common-protos-types (~> 1.0)
     hashdiff (1.2.1)
     hashie (5.0.0)
-    honeybadger (6.1.0)
+    honeybadger (6.1.1)
       logger
       ostruct
     http (5.3.1)
@@ -477,7 +477,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
-    json (2.15.0)
+    json (2.15.1)
     jsonpath (1.1.5)
       multi_json
     jwt (3.1.2)
@@ -538,7 +538,7 @@ GEM
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitar (1.1.0)
-    minitest (5.25.5)
+    minitest (5.26.0)
     mods (3.0.5)
       csv (~> 3.3)
       edtf (~> 3.0)
@@ -562,7 +562,7 @@ GEM
       racc (~> 1.7)
     net-http (0.6.0)
       uri
-    net-imap (0.5.11)
+    net-imap (0.5.12)
       date
       net-protocol
     net-pop (0.1.2)
@@ -576,7 +576,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     net-ssh (7.3.0)
-    newrelic_rpm (9.21.0)
+    newrelic_rpm (9.22.0)
     nio4r (2.7.4)
     nokogiri (1.18.10)
       mini_portile2 (~> 2.8.2)
@@ -628,10 +628,10 @@ GEM
       racc
     parslet (2.0.0)
     popper_js (2.11.8)
-    pp (0.6.2)
+    pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.5.1)
+    prism (1.5.2)
     propshaft (1.3.1)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -646,7 +646,7 @@ GEM
       activesupport
       faraday (~> 2.1)
     racc (1.8.1)
-    rack (3.1.16)
+    rack (3.1.18)
     rack-cors (2.0.2)
       rack (>= 2.0.0)
     rack-mini-profiler (4.0.1)
@@ -720,9 +720,9 @@ GEM
       uber (< 0.2.0)
     request_store (1.7.0)
       rack (>= 1.4)
-    responders (3.1.1)
-      actionpack (>= 5.2)
-      railties (>= 5.2)
+    responders (3.2.0)
+      actionpack (>= 7.0)
+      railties (>= 7.0)
     retriable (3.1.2)
     rexml (3.4.4)
     riiif (2.7.0)
@@ -809,7 +809,7 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     set (1.1.2)
-    sidekiq (8.0.7)
+    sidekiq (8.0.8)
       connection_pool (>= 2.5.0)
       json (>= 2.9.0)
       logger (>= 1.6.2)
@@ -910,7 +910,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-    uri (1.0.3)
+    uri (1.0.4)
     useragent (0.16.11)
     version_gem (1.1.9)
     view_component (3.23.2)
