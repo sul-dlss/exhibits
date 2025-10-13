@@ -25,7 +25,7 @@ RSpec.describe 'Canvas resource integration test' do
 
   before do
     allow(Faraday).to receive(:get).with(annolist_url).and_return(
-      instance_double(Faraday::Response, body: File.read(annolist_file))
+      instance_double(Faraday::Response, body: File.read(annolist_file), success?: true)
     )
   end
 
