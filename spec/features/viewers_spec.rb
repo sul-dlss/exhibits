@@ -115,7 +115,7 @@ RSpec.describe 'Viewers' do
         expect(page).to have_link 'Change'
       end
 
-      save_and_verify_page
+      save_page_changes
 
       expect(page).not_to have_css 'iframe[src*=embed]'
       expect(page).to have_css '.oembed-widget'
