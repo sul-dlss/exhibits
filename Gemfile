@@ -118,7 +118,7 @@ gem 'traject'
 gem 'jsonpath'
 gem 'bibtex-ruby'
 gem 'citeproc-ruby'
-gem 'csl-styles', '2.0.1' # See https://github.com/sul-dlss/exhibits/issues/2995
+gem 'csl-styles', '~> 2.0'
 gem 'acts-as-taggable-on'
 gem 'mods_display', '~> 1.6'
 gem 'slack-ruby-client'
