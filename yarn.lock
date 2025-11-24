@@ -332,9 +332,9 @@ balanced-match@^1.0.0:
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
 baseline-browser-mapping@^2.8.25:
-  version "2.8.29"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.29.tgz#d8800b71399c783cb1bf2068c2bcc3b6cfd7892c"
-  integrity sha512-sXdt2elaVnhpDNRDz+1BDx1JQoJRuNk7oVlAlbGiFkLikHCAQiccexF/9e91zVi6RCgqspl04aP+6Cnl9zRLrA==
+  version "2.8.31"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.8.31.tgz#16c0f1814638257932e0486dbfdbb3348d0a5710"
+  integrity sha512-a28v2eWrrRWPpJSzxc+mKwm0ZtVx/G8SepdQZDArnXYU/XS+IF6mp8aB/4E+hH1tyGCoDo3KlUCdlSxGDsRkAw==
 
 binary-extensions@^2.0.0:
   version "2.3.0"
@@ -422,9 +422,9 @@ browserslist@^4.27.0:
     update-browserslist-db "^1.1.4"
 
 caniuse-lite@^1.0.30001754:
-  version "1.0.30001756"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001756.tgz#fe80104631102f88e58cad8aa203a2c3e5ec9ebd"
-  integrity sha512-4HnCNKbMLkLdhJz3TToeVWHSnfJvPaq6vu/eRP0Ahub/07n484XHhBF5AJoSGHdVrS8tKFauUQz8Bp9P7LVx7A==
+  version "1.0.30001757"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001757.tgz#a46ff91449c69522a462996c6aac4ef95d7ccc5e"
+  integrity sha512-r0nnL/I28Zi/yjk1el6ilj27tKcdjLsNqAOZr0yVjWPrSQyHgKI2INaEWw21bAQSv2LXRt1XuCS/GomNpWOxsQ==
 
 "chart.js@^ 4.4.1":
   version "4.5.1"
@@ -523,9 +523,9 @@ detect-libc@^1.0.3:
   integrity sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==
 
 electron-to-chromium@^1.5.249:
-  version "1.5.256"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.256.tgz#f07f78de0893ab060f60ac897195c029a3b50d1a"
-  integrity sha512-uqYq1IQhpXXLX+HgiXdyOZml7spy4xfy42yPxcCCRjswp0fYM2X+JwCON07lqnpLEGVCj739B7Yr+FngmHBMEQ==
+  version "1.5.259"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.259.tgz#d4393167ec14c5a046cebaec3ddf3377944ce965"
+  integrity sha512-I+oLXgpEJzD6Cwuwt1gYjxsDmu/S/Kd41mmLA3O+/uH2pFRO/DvOjUyGozL8j3KeLV6WyZ7ssPwELMsXCcsJAQ==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -963,9 +963,9 @@ rollup@^4.30.1:
     fsevents "~2.3.2"
 
 sass@^1.82.0:
-  version "1.94.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.94.1.tgz#79f726f2bdc347a387a954d4c967ac73efdb6676"
-  integrity sha512-/YVm5FRQaRlr3oNh2LLFYne1PdPlRZGyKnHh1sLleOqLcohTR4eUUvBjBIqkl1fEXd1MGOHgzJGJh+LgTtV4KQ==
+  version "1.94.2"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.94.2.tgz#198511fc6fdd2fc0a71b8d1261735c12608d4ef3"
+  integrity sha512-N+7WK20/wOr7CzA2snJcUSSNTCzeCGUTFY3OgeQP3mZ1aj9NMQ0mSTXwlrnd89j33zzQJGqIN52GIOmYrfq46A==
   dependencies:
     chokidar "^4.0.0"
     immutable "^5.0.2"
