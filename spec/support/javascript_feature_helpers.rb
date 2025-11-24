@@ -26,11 +26,4 @@ module JavascriptFeatureHelpers
     expect(page).to have_css('.st-block-replacer')
     first('.st-block-replacer').click
   end
-
-  def save_and_verify_page
-    sleep 1
-    click_button('Save changes')
-    # verify that the page was created
-    expect(page).to have_content('page was successfully updated')
-  end
 end

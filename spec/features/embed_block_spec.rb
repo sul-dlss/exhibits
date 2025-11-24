@@ -37,7 +37,7 @@ RSpec.feature 'Solr Documents Embed Block', js: true do
 
       fill_in_solr_document_block_typeahead_field(with: 'zy575vf8599')
 
-      save_and_verify_page
+      save_page_changes
 
       expect(page.find('.items-block iframe')['height']).to eq '600px'
     end
@@ -50,7 +50,7 @@ RSpec.feature 'Solr Documents Embed Block', js: true do
       fill_in_solr_document_block_typeahead_field(with: 'zy575vf8599')
       fill_in 'Maximum height of viewer (in pixels)', with: 300
 
-      save_and_verify_page
+      save_page_changes
       expect(page.find('.items-block iframe')['height']).to eq '300px'
     end
 
