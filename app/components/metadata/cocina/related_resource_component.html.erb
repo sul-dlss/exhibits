@@ -1,0 +1,10 @@
+<dd>
+  <details data-details-container-target="detailItem" data-action="details-container#toggleButtonText">
+    <summary>
+      <%= summary %>
+    </summary>
+    <dl>
+      <%= render Metadata::Cocina::FieldComponent.with_collection(display_data) %>
+    </dl>
+  </details>
+</dd>

@@ -1,0 +1,6 @@
+<%= render Metadata::SectionComponent.new(label: I18n.t('metadata.bibliographic')) do %>
+  <%= render Metadata::Cocina::FieldComponent.with_collection(general_note_display_data) %>
+  <%= render Metadata::Cocina::RelatedResourcesFieldComponent.with_collection(related_resource_display_data) %>
+  <%= render Metadata::Cocina::FieldComponent.with_collection(identifier_display_data) %>
+  <%= render Metadata::Cocina::FieldComponent.with_collection(access_display_data) %>
+<% end %>

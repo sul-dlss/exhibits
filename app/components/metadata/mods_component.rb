@@ -10,8 +10,10 @@ module Metadata
 
     delegate :mods, to: :@document
 
+    # TODO: In future work we will want something indexed to indicate whether
+    #       we should display metadata from MODS or Cocina.
     def render?
-      @document.modsxml.present?
+      @document.modsxml.present? && !Settings.cocina.metadata_display_source
     end
   end
 end

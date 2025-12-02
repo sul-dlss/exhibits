@@ -1,0 +1,738 @@
+{
+  "cocinaVersion": "0.99.0",
+  "type": "https://cocina.sul.stanford.edu/models/media",
+  "externalIdentifier": "druid:gf752kr0559",
+  "label": "Oral history with Anna Maria Osula",
+  "version": 5,
+  "access": {
+    "view": "world",
+    "download": "none",
+    "controlledDigitalLending": false,
+    "copyright": "Materials may be subject to copyright.",
+    "useAndReproductionStatement": "While Special Collections is the owner of the physical and digital items, permission to examine collection materials is not an authorization to publish. These materials are made available for use in research, teaching, and private study. Any transmission or reproduction beyond that allowed by fair use requires permission from the owners of rights, their heir(s) or assigns. When required, it is the researcher's responsibility to obtain such permissions."
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:yd614vy3131"
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Oral history with Anna Maria Osula",
+        "status": "primary",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Velmet, Aro",
+            "uri": "http://id.loc.gov/authorities/names/no2020053050",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "interviewee",
+            "code": "ive",
+            "uri": "/ive",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "affiliation": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Osula, Anna Maria",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "interviewee",
+            "code": "ive",
+            "uri": "/ive",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "affiliation": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "type": "creation",
+        "date": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "2024-05-14",
+            "type": "creation",
+            "status": "primary",
+            "encoding": {
+              "value": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "moving image",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "other computer carrier",
+        "type": "form",
+        "uri": "https://id.loc.gov/vocabulary/carriers/cz",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "2 video files",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Oral histories",
+        "type": "genre",
+        "uri": "http://id.loc.gov/authorities/genreForms/gf2011026431",
+        "identifier": [],
+        "source": {
+          "code": "lcgft",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "access",
+        "type": "reformatting quality",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "born digital",
+        "type": "digital origin",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "video/mp4",
+        "type": "media type",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "image/jpeg",
+        "type": "media type",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sound",
+            "identifier": [],
+            "displayLabel": "Sound content",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Color",
+            "identifier": [],
+            "displayLabel": "Color content",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso632-2b",
+          "note": []
+        },
+        "structuredValue": [],
+        "uri": "/eng",
+        "value": "English"
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Dr. Anna-Maria Osula is a senior policy officer at Guardtime, with a focus on cybersecurity policy and regulation and supporting international research and development projects. She previously worked as a legal researcher at the NATO Cooperative Cyber Defence Centre of Excellence (NATO CCD COE), focusing on national cybersecurity strategies, international organisations and norms, and international criminal cooperation. She is interviewed by Aro Velmet, who is a historian of modern Europe, colonialism, science, technology, and medicine. In the interview, the interviewee talks about her involvement with the field of cybersecurity. She started working at the NATO cybersecurity center in 2008 and moved from there to the private sector. Initially, she had studied law at Tartu University and found information technology law particularly interesting; it made sense to move from there to work on cybersecurity. The interviewer asks about the 2007 cyberattacks against Estonia, which prompted several cybersecurity initiatives. Osula talks about how Estonia faced coordinated cyberattacks on government, banks, news portals, and other institutions, which at the time were substantial, but today do not seem particularly big. These were the first coordinated cyberattacks against a nation-state. Later developments were often reactions to this event. Estonia adopted its first cybersecurity strategy in 2008, notable for the fact that it did not treat cybersecurity as a purely technical issue. It is now revising its fourth strategy. Cybersecurity became a topic discussed on the international stage, at NATO and the European Union. Osula discusses her experience of the 2007 riots, the following cyberattacks, and the resulting confusion and disbelief. At the time, the response was ad hoc; since then, coordination plans, strategies, and gamed-out scenarios have been put in place. Estonia’s role in the UN Security Council (SC) was to bring attention and start a more detailed discussion about cybersecurity, partly by bringing this topic to the SC’s official agenda. One important question is responsible state behavior in cyberspace. Are the rules the same as in real life? How can states cooperate in times of crisis? One complicated issue is attribution: how do you define who is responsible for a certain action? Osula notes there are different kinds of attribution: technical attribution, political attribution, legal attribution. Countries approach this issue in different ways; some countries say that they have enough technical footprints, but the problem is a political willingness. Another complicated issue is consequences for cyberattacks. It is understood that international law applies to cyberspace as well as physical space, but how does this understanding translate to a court case, and how enforceable would a possible decision be? Osula talks about various challenges to cybersecurity, including technological and coordination challenges, and thinks about responsible state behavior, including how to talk openly about threats and share knowledge. Using confidence-building measures may prevent conflict before it even starts, bolstered by treaties between states who want to have more stability in cyberspace. Osula concludes plans can only be fulfilled when we raise capacity.",
+        "type": "abstract",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "This interview was produced as part of a joint project between Vabamu Museum of Occupations and Freedom and Stanford Libraries, in conjuctions with an exhibit on e-Estonia.",
+        "type": "provenance",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Dr Anna-Maria Osula is a senior policy officer at Guardtime, with a focus on cybersecurity policy and regulation and supporting international R&D projects. She previously worked as a legal researcher at the NATO CCD COE, focusing on national cybersecurity strategies, international organisations, and international criminal cooperation and norms.",
+        "type": "biographical/historical",
+        "identifier": [],
+        "displayLabel": "Interviewee biography",
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Aro Velmet is a historian of modern Europe, colonialism, science, technology, and medicine. He is interested in how utopias of technological progress are put in the service of statecraft, how experts, interest groups, and subalterns use political technologies, and in the unintended consequences of technological development.",
+        "type": "biographical/historical",
+        "identifier": [],
+        "displayLabel": "Interviewer biography",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "sul:m3032_2024-218_osula",
+        "type": "local",
+        "identifier": [],
+        "displayLabel": "Source ID",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "subject": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Internet in public administration",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh2001002285",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Estonia",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Politics and government",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Computer security",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh90001862",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "access": {
+      "url": [],
+      "physicalLocation": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "M3032",
+          "type": "shelf locator",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalLocation": [],
+      "accessContact": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Stanford University. Libraries. Department of Special Collections and University Archives",
+          "type": "repository",
+          "uri": "http://id.loc.gov/authorities/names/no2014019980",
+          "identifier": [],
+          "source": {
+            "code": "naf",
+            "note": []
+          },
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalRepository": [],
+      "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "uri": "http://id.loc.gov/vocabulary/organizations/cst",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "affiliation": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [],
+      "language": [
+        {
+          "appliesTo": [],
+          "code": "eng",
+          "groupedValue": [],
+          "note": [],
+          "parallelValue": [],
+          "structuredValue": [],
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "value": "English"
+        }
+      ],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "human prepared",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [],
+      "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/gf752kr0559"
+  },
+  "identification": {
+    "catalogLinks": [],
+    "sourceId": "sul:m3032_2024-218_osula"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/video",
+        "externalIdentifier": "gf752kr0559_1",
+        "label": "Video file (short)",
+        "version": 1,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/a94063d4-042e-4dba-9955-305c679657e3",
+              "label": "gf752kr0559_Anna-Maria_Osula_short_sl.mp4",
+              "filename": "gf752kr0559_Anna-Maria_Osula_short_sl.mp4",
+              "size": 80261444,
+              "version": 1,
+              "hasMimeType": "video/mp4",
+              "languageTag": null,
+              "use": null,
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "md5",
+                  "digest": "4dc9ec8854cf90c4372c0f47823fad2d"
+                },
+                {
+                  "type": "sha1",
+                  "digest": "b3bc332abb5d72cacca2e0bd4511c27ff0269feb"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "none",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              }
+            },
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/759e63a3-dad0-4d68-bcff-b3044adfbb55",
+              "label": "gf752kr0559_Anna-Maria_Osula_short_thumb.jp2",
+              "filename": "gf752kr0559_Anna-Maria_Osula_short_thumb.jp2",
+              "size": 457096,
+              "version": 1,
+              "hasMimeType": "image/jp2",
+              "languageTag": null,
+              "use": null,
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "md5",
+                  "digest": "c6aede444caea36a3ecf02d2b799a02d"
+                },
+                {
+                  "type": "sha1",
+                  "digest": "859f8e82b16ff12c1159ba37356cd06a3679e9db"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "none",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 720,
+                "width": 1280
+              }
+            },
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/9bbb82b2-f3c5-4319-a3d8-e8f7c966acbf",
+              "label": "gf752kr0559_Anna-Maria_Osula_short_cap.vtt",
+              "filename": "gf752kr0559_Anna-Maria_Osula_short_cap.vtt",
+              "size": 4269,
+              "version": 1,
+              "hasMimeType": "text/vtt",
+              "languageTag": "en",
+              "use": "caption",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "md5",
+                  "digest": "e681af2dd480d6ba41b90dd40cff1b1c"
+                },
+                {
+                  "type": "sha1",
+                  "digest": "e460177f7176aaaaf55f2a4249c7e715096a6581"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/video",
+        "externalIdentifier": "gf752kr0559_2",
+        "label": "Video file",
+        "version": 1,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/e84510b7-9809-4207-9634-d39e64e1dcf4",
+              "label": "gf752kr0559_Anna-Maria_Osula_sl.mp4",
+              "filename": "gf752kr0559_Anna-Maria_Osula_sl.mp4",
+              "size": 532005258,
+              "version": 1,
+              "hasMimeType": "video/mp4",
+              "languageTag": null,
+              "use": null,
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "md5",
+                  "digest": "b71eaeabeafed185be35dc33cb9260a3"
+                },
+                {
+                  "type": "sha1",
+                  "digest": "f52468be3ad422c33cca5e4ed8779fd5648d891e"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "none",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              }
+            },
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/f491bd7c-60da-4e4f-a958-a58bba525ba0",
+              "label": "gf752kr0559_Anna-Maria_Osula_thumb.jp2",
+              "filename": "gf752kr0559_Anna-Maria_Osula_thumb.jp2",
+              "size": 463344,
+              "version": 1,
+              "hasMimeType": "image/jp2",
+              "languageTag": null,
+              "use": null,
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "md5",
+                  "digest": "0d81ecbbb7c11693eba11cd702c4a9b4"
+                },
+                {
+                  "type": "sha1",
+                  "digest": "12380c1e64923d7e0ea3a66a8ed9c20cfcad9da5"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "none",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 720,
+                "width": 1280
+              }
+            },
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/29ad3706-a919-4ff6-b14a-b2412c189b01",
+              "label": "gf752kr0559_Anna-Maria_Osula_cap.vtt",
+              "filename": "gf752kr0559_Anna-Maria_Osula_cap.vtt",
+              "size": 26072,
+              "version": 1,
+              "hasMimeType": "text/vtt",
+              "languageTag": "en",
+              "use": "caption",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "md5",
+                  "digest": "e10d83b37a43feb001d5e81037894c81"
+                },
+                {
+                  "type": "sha1",
+                  "digest": "5d957dabdc1fcdd7e2cea7928eca89c2b5ae49c0"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasMemberOrders": [],
+    "isMemberOf": [
+      "druid:gp217cm8336"
+    ]
+  },
+  "created": "2024-11-19T00:18:44.000+00:00",
+  "modified": "2024-11-19T00:19:54.000+00:00",
+  "lock": "druid:gf752kr0559=10=2"
+}

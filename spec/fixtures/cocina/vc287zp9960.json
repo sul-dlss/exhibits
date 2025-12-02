@@ -1,0 +1,378 @@
+{
+  "cocinaVersion": "0.103.2",
+  "type": "https://cocina.sul.stanford.edu/models/book",
+  "externalIdentifier": "druid:vc287zp9960",
+  "label": "Conservation documentation for treatment #7635 of \"Seismic section WG-3, Tamaulipas Shelf to Campeche Scarp, Gulf of Mexico\"",
+  "version": 4,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "copyright": "Copyright © Stanford University. All Rights Reserved.",
+    "useAndReproductionStatement": "User agrees that, where applicable, content will not be used to identify or to otherwise infringe the privacy or confidentiality rights of individuals. Content distributed via the Stanford Digital Repository may be subject to additional license and use restrictions applied by the depositor.",
+    "license": "https://creativecommons.org/licenses/by-nc/3.0/legalcode"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:hr471gd9602"
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [
+          {
+            "value": "Conservation documentation for treatment #7635 of \"Seismic section WG-3, Tamaulipas Shelf to Campeche Scarp, Gulf of Mexico\"",
+            "type": "main title"
+          }
+        ]
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "value": "Wahab, Aisha"
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [
+          {
+            "value": "author",
+            "code": "aut",
+            "uri": "http://id.loc.gov/vocabulary/relators/aut",
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/"
+            }
+          },
+          {
+            "value": "conservator",
+            "code": "con",
+            "uri": "https://id.loc.gov/vocabulary/relators/con",
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "type": "ORCID",
+            "uri": "https://orcid.org/0000-0002-3320-8655",
+            "source": {
+              "code": "orcid"
+            }
+          }
+        ]
+      },
+      {
+        "name": [
+          {
+            "value": "Stanford University. Libraries"
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "value": "repository",
+            "code": "rps",
+            "source": {
+              "code": "marcrelator"
+            }
+          }
+        ]
+      },
+      {
+        "name": [
+          {
+            "value": "Stanford University. Libraries. Conservation Services",
+            "source": {
+              "code": "naf",
+              "uri": "http://id.loc.gov/authorities/names/no2021067473"
+            }
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "value": "issuing body"
+          }
+        ]
+      }
+    ],
+    "event": [
+      {
+        "date": [
+          {
+            "value": "2020",
+            "type": "publication"
+          }
+        ],
+        "location": [
+          {
+            "code": "cau",
+            "source": {
+              "code": "marccountry"
+            }
+          }
+        ],
+        "note": [
+          {
+            "value": "monographic",
+            "type": "issuance",
+            "source": {
+              "value": "MODS issuance terms"
+            }
+          }
+        ]
+      },
+      {
+        "type": "publication",
+        "date": [
+          {
+            "value": "2020",
+            "type": "publication"
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "value": "Stanford University. Libraries. Conservation Services"
+              }
+            ],
+            "type": "organization",
+            "role": [
+              {
+                "value": "publisher",
+                "code": "pbl",
+                "uri": "http://id.loc.gov/vocabulary/relators/pbl",
+                "source": {
+                  "code": "marcrelator",
+                  "uri": "http://id.loc.gov/vocabulary/relators/"
+                }
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "value": "Stanford, California"
+          }
+        ]
+      },
+      {
+        "displayLabel": "Place of creation",
+        "date": [
+          {
+            "value": "2020-11-17",
+            "type": "creation",
+            "status": "primary",
+            "encoding": {
+              "code": "w3cdtf"
+            }
+          }
+        ],
+        "location": [
+          {
+            "value": "Stanford (Calif.)",
+            "uri": "http://id.loc.gov/authorities/names/n50046557",
+            "source": {
+              "uri": "http://id.loc.gov/authorities/names/"
+            }
+          },
+          {
+            "code": "xxu",
+            "source": {
+              "code": "marccountry"
+            }
+          }
+        ]
+      }
+    ],
+    "form": [
+      {
+        "value": "Condition reports",
+        "type": "genre",
+        "uri": "http://vocab.getty.edu/aat/300266009",
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat"
+        },
+        "note": [
+          {
+            "value": "form",
+            "type": "genre type"
+          }
+        ]
+      },
+      {
+        "value": "Photodocumentation",
+        "type": "genre",
+        "uri": "http://vocab.getty.edu/page/aat/300379366",
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat"
+        },
+        "note": [
+          {
+            "value": "form",
+            "type": "genre type"
+          }
+        ]
+      },
+      {
+        "value": "electronic resource",
+        "type": "form",
+        "source": {
+          "code": "marccategory"
+        }
+      },
+      {
+        "value": "remote",
+        "type": "form",
+        "source": {
+          "code": "marcsmd"
+        }
+      },
+      {
+        "value": "still image",
+        "type": "resource type",
+        "source": {
+          "value": "MODS resource types"
+        }
+      },
+      {
+        "value": "born digital",
+        "type": "digital origin",
+        "source": {
+          "value": "MODS digital origin terms"
+        }
+      },
+      {
+        "value": "computer",
+        "type": "media",
+        "source": {
+          "code": "rdamedia"
+        }
+      },
+      {
+        "value": "online resource",
+        "type": "carrier",
+        "source": {
+          "code": "rdacarrier"
+        }
+      },
+      {
+        "value": "1 online resource",
+        "type": "extent"
+      },
+      {
+        "value": "preservation",
+        "type": "reformatting quality",
+        "source": {
+          "value": "MODS reformatting quality terms"
+        }
+      },
+      {
+        "value": "manuscript",
+        "source": {
+          "value": "MODS resource types"
+        }
+      }
+    ],
+    "note": [
+      {
+        "value": "These photographs document the state of a collection item before conservation treatment.",
+        "type": "abstract",
+        "displayLabel": "Description"
+      },
+      {
+        "value": "Description based on information from Conservation Services."
+      }
+    ],
+    "identifier": [
+      {
+        "value": "7635",
+        "type": "local",
+        "source": {
+          "code": "local"
+        },
+        "displayLabel": "Conservation transaction registration number"
+      }
+    ],
+    "subject": [
+      {
+        "value": "Branner Earth Sciences Library and Map Collections",
+        "type": "organization",
+        "uri": "http://id.loc.gov/authorities/names/no98101531",
+        "source": {
+          "code": "naf",
+          "uri": "http://id.loc.gov/authorities/names/"
+        },
+        "displayLabel": "Subject"
+      },
+      {
+        "structuredValue": [
+          {
+            "value": "Paper",
+            "type": "topic",
+            "uri": "http://id.loc.gov/authorities/subjects/sh85097578",
+            "source": {
+              "code": "lcsh",
+              "uri": "http://id.loc.gov/authorities/subjects/"
+            }
+          },
+          {
+            "value": "Conservation and restoration",
+            "type": "topic",
+            "uri": "http://id.loc.gov/authorities/subjects/sh99005331",
+            "source": {
+              "code": "lcsh",
+              "uri": "http://id.loc.gov/authorities/subjects/"
+            }
+          }
+        ],
+        "uri": "http://id.loc.gov/authorities/subjects/sh85097586",
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/"
+        },
+        "displayLabel": "Subject"
+      }
+    ],
+    "relatedResource": [
+      {
+        "title": [
+          {
+            "value": "Link to SearchWorks record for conserved item"
+          }
+        ],
+        "access": {
+          "url": [
+            {
+              "value": "https://searchworks.stanford.edu/view/513014"
+            }
+          ]
+        }
+      }
+    ],
+    "purl": "https://purl.stanford.edu/vc287zp9960"
+  },
+  "identification": {
+    "catalogLinks": [
+      {
+        "catalog": "folio",
+        "refresh": false,
+        "catalogRecordId": "a14663140",
+        "partLabel": "Before treatment photos",
+        "sortKey": "2"
+      }
+    ],
+    "sourceId": "sulcons:7635-BR_2090_SeismicMap_awahab,Before treatment photos"
+  },
+  "structural": {},
+  "created": "2025-05-21T19:54:57.000+00:00",
+  "modified": "2025-06-03T21:20:06.000+00:00",
+  "lock": "druid:vc287zp9960=2=2"
+}

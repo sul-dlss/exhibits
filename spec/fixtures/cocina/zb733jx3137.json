@@ -1,0 +1,349 @@
+{
+  "cocinaVersion": "0.105.0",
+  "type": "https://cocina.sul.stanford.edu/models/object",
+  "externalIdentifier": "druid:zb733jx3137",
+  "label": "Testing versioning issue with the review workflow in the new application again",
+  "version": 18,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "useAndReproductionStatement": "User agrees that, where applicable, content will not be used to identify or to otherwise infringe the privacy or confidentiality rights of individuals. Content distributed via the Stanford Digital Repository may be subject to additional license and use restrictions applied by the depositor.",
+    "license": "https://opendatacommons.org/licenses/pddl/1-0/"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:zw306xn5593"
+  },
+  "description": {
+    "title": [
+      {
+        "value": "Testing versioning issue with the review workflow in the new application again"
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [
+              {
+                "value": "Chester",
+                "type": "forename"
+              },
+              {
+                "value": "Testerton",
+                "type": "surname"
+              }
+            ]
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [
+          {
+            "value": "author",
+            "code": "aut",
+            "uri": "http://id.loc.gov/vocabulary/relators/aut",
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/"
+            }
+          }
+        ],
+        "affiliation": [
+          {
+            "structuredValue": [
+              {
+                "value": "(education, funder)",
+                "identifier": [
+                  {
+                    "type": "ROR",
+                    "uri": "https://ror.org/00f54p054",
+                    "source": {
+                      "code": "ror"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [
+              {
+                "value": "Cited",
+                "type": "forename"
+              },
+              {
+                "value": "NewAdvisor",
+                "type": "surname"
+              }
+            ]
+          }
+        ],
+        "type": "person",
+        "role": [
+          {
+            "value": "advisor"
+          }
+        ]
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [
+              {
+                "value": "Interesting",
+                "type": "forename"
+              },
+              {
+                "value": "Speaker",
+                "type": "surname"
+              }
+            ]
+          }
+        ],
+        "type": "person",
+        "role": [
+          {
+            "value": "speaker",
+            "code": "spk",
+            "uri": "http://id.loc.gov/vocabulary/relators/spk",
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/"
+            }
+          }
+        ]
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [
+              {
+                "value": "Primary",
+                "type": "forename"
+              },
+              {
+                "value": "Advisor",
+                "type": "surname"
+              }
+            ]
+          }
+        ],
+        "type": "person",
+        "role": [
+          {
+            "value": "advisor"
+          }
+        ]
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [
+              {
+                "value": "Amy E.",
+                "type": "forename"
+              },
+              {
+                "value": "Hodge",
+                "type": "surname"
+              }
+            ]
+          }
+        ],
+        "type": "person",
+        "role": [
+          {
+            "value": "author",
+            "code": "aut",
+            "uri": "http://id.loc.gov/vocabulary/relators/aut",
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "value": "0000-0002-5902-3077",
+            "type": "ORCID",
+            "source": {
+              "uri": "https://orcid.org"
+            }
+          }
+        ]
+      }
+    ],
+    "event": [
+      {
+        "type": "deposit",
+        "date": [
+          {
+            "value": "2025-08-05",
+            "type": "publication",
+            "encoding": {
+              "code": "edtf"
+            }
+          }
+        ]
+      },
+      {
+        "type": "publication",
+        "date": [
+          {
+            "value": "2024-06-11",
+            "type": "publication",
+            "status": "primary",
+            "encoding": {
+              "code": "edtf"
+            }
+          }
+        ]
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [
+          {
+            "value": "Text",
+            "type": "type"
+          },
+          {
+            "value": "Preprint",
+            "type": "subtype"
+          },
+          {
+            "value": "Thesis",
+            "type": "subtype"
+          }
+        ],
+        "type": "resource type",
+        "source": {
+          "value": "Stanford self-deposit resource types"
+        }
+      },
+      {
+        "value": "grey literature",
+        "type": "genre",
+        "uri": "http://vocab.getty.edu/page/aat/300256200",
+        "source": {
+          "code": "aat"
+        }
+      },
+      {
+        "value": "text",
+        "type": "resource type",
+        "source": {
+          "value": "MODS resource types"
+        }
+      },
+      {
+        "value": "Text",
+        "type": "resource type",
+        "source": {
+          "value": "DataCite resource types"
+        }
+      }
+    ],
+    "note": [
+      {
+        "value": "This is a test to see where the issue is with versioning with the review workflow on. Something is not quite right here.",
+        "type": "abstract"
+      },
+      {
+        "value": "Testerton, C., NewAdvisor, C., Speaker, I., and Advisor, P. (2025). Testing versioning issue with the review workflow. Version 1. Stanford Digital Repository. Available at https://purl.stanford.edu/zb733jx3137/version/1.",
+        "type": "preferred citation"
+      }
+    ],
+    "subject": [
+      {
+        "value": "Tests",
+        "type": "genre",
+        "uri": "http://id.worldcat.org/fast/1423780/",
+        "source": {
+          "code": "fast",
+          "uri": "http://id.worldcat.org/fast/"
+        }
+      },
+      {
+        "value": "Web-based Distributed Authoring and Versioning (Standard)",
+        "type": "topic",
+        "uri": "http://id.worldcat.org/fast/1173274/",
+        "source": {
+          "code": "fast",
+          "uri": "http://id.worldcat.org/fast/"
+        }
+      }
+    ],
+    "access": {
+      "accessContact": [
+        {
+          "value": "testing@me.com",
+          "type": "email",
+          "displayLabel": "Contact"
+        }
+      ]
+    },
+    "relatedResource": [
+      {
+        "type": "source of",
+        "dataCiteRelationType": "IsSourceOf",
+        "access": {
+          "url": [
+            {
+              "value": "https://app.honeybadger.io/projects/128495/faults/122573092"
+            }
+          ]
+        }
+      },
+      {
+        "type": "references",
+        "dataCiteRelationType": "References",
+        "note": [
+          {
+            "value": "Hodge A, Mendenhall M. The cyclin-dependent kinase inhibitory domain of the yeast Sic1 protein is contained within the C-terminal 70 amino acids. Mol Gen Genet. 1999 Aug;262(1):55-64. doi: 10.1007/s004380051059. PMID: 10503536.",
+            "type": "preferred citation"
+          }
+        ]
+      }
+    ],
+    "adminMetadata": {
+      "event": [
+        {
+          "type": "creation",
+          "date": [
+            {
+              "value": "2024-09-12",
+              "encoding": {
+                "code": "edtf"
+              }
+            }
+          ]
+        }
+      ],
+      "note": [
+        {
+          "value": "Metadata created by user via Stanford self-deposit application",
+          "type": "record origin"
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/zb733jx3137"
+  },
+  "identification": {
+    "doi": "10.25740/zb733jx3137",
+    "sourceId": "h3:object-6671"
+  },
+  "structural": {
+    "isMemberOf": [
+      "druid:bz912dc0085"
+    ]
+  },
+  "created": "2025-08-05T21:31:27.000+00:00",
+  "modified": "2025-08-05T21:31:28.000+00:00",
+  "lock": "druid:zb733jx3137=39=2"
+}
