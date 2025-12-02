@@ -13,20 +13,15 @@ Exhibits need to provide the following configuration files:
 * `config/blacklight.yml` - Blacklight solr configuration
 * config/initializers/secret_token.rb - Rails secret token
 
-## Reindexing content
-
-A Rake task is provided to (re)index content into the Solr index. It uses the configured sets in `config/exhibit.yml`.
-
-```console
-$ bin/rake spotlight:index
-```
-
-## Development
 
 ### Requirements
 - Redis (for running background jobs with Sidekiq)
 
 See [projectblacklight/spotlight](https://github.com/projectblacklight/spotlight) for additional requirements.
+
+
+## Development
+
 
 Install dependencies, set up the databases and run migrations:
 ```console
@@ -35,12 +30,33 @@ $ yarn install
 $ bin/rake db:setup
 ```
 
-You can spin up the Rails server, solr_wrapper, and populate the Solr index using this command:
+Set up an admin user. You will be prompted to enter an email.
+```
+rake spotlight:initialize
+```
+
+You can spin up the Rails server using this command. Use the same email created as an admin above.
 ```console
 $ REMOTE_USER="archivist1@example.com" bin/dev
 ```
 
 When prompted to create an admin user, the email should match the email provided in  `REMOTE_USER`. This will allow you to bypass authentication.
+
+Create an exhibit while logged in as an admin user in order to navigate and search content.
+
+
+## Seeding content
+
+```console
+$ bin/rake spotlight:seed
+```
+
+## Reindexing content
+
+```console
+$ bin/rake spotlight:reindex
+```
+
 
 ## Testing
 Run RuboCop and tests:
