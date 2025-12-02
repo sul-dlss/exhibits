@@ -1,9 +1,0 @@
-<% document ||= @document %>
-
-<% document.mods.subject.each do |subject| %>
-  <%= mods_subject_field(subject)%>
-<% end %>
-
-<% document.mods.genre.each do |genre| %>
-  <%= mods_genre_field(genre)%>
-<% end %>
