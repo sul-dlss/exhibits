@@ -51,6 +51,12 @@ class Purl
     end
   end
 
+  # @return [CocinaDisplay::CocinaRecord] an object from the cocina-display gem that provides
+  # methods for accessing Cocina metadata for indexing and display
+  def cocina_record
+    @cocina_record ||= CocinaDisplay::CocinaRecord.new(JSON.parse(purl_cocina_service.response_body.presence || '{}'))
+  end
+
   # @return [String] the value of the type attribute for a DOR object's contentMetadata
   #  more info about these values is here:
   #  https://consul.stanford.edu/display/chimera/DOR+content+types%2C+resource+types+and+interpretive+metadata
@@ -95,6 +101,10 @@ class Purl
 
   def purl_service
     @purl_service ||= PurlService.new(bare_druid, format: :xml)
+  end
+
+  def purl_cocina_service
+    @purl_cocina_service ||= PurlService.new(bare_druid, format: :json)
   end
 
   def mods_xml

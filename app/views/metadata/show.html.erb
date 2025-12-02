@@ -10,7 +10,8 @@
       </button>
     </div>
     <div class="modal-body">
-      <%= render Metadata::ModsComponent.new(document: @document) %>
+      <%# render Metadata::ModsComponent.new(mods: @document.mods) %>
+      <%= render Metadata::CocinaComponent.new(id: @document.id) %>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-primary view-in-modal" data-bl-dismiss="modal">Close</button>
