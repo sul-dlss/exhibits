@@ -26,7 +26,8 @@ pipeline {
           rvm use 3.4.1@exhibits --create
           gem install bundler
 
-          bundle install --without production
+          bundle config set without 'production'
+          bundle install
 
           # Deploy it
           bundle exec cap $DEPLOY_ENVIRONMENT deploy
@@ -71,7 +72,8 @@ pipeline {
           rvm use 3.4.1@exhibits --create
           gem install bundler
 
-          bundle install --without production
+          bundle config set without 'production'
+          bundle install
 
           # Deploy it
           bundle exec cap $DEPLOY_ENVIRONMENT deploy
