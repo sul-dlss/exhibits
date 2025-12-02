@@ -11,7 +11,7 @@ module Metadata
     delegate :mods, to: :@document
 
     def render?
-      @document.modsxml.present?
+      @document.modsxml.present? && !Settings.cocina.metadata_display_source
     end
   end
 end

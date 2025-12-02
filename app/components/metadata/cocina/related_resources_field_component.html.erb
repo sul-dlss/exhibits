@@ -1,0 +1,9 @@
+<div data-controller="details-container">
+  <dt>
+    <%= label %>
+    <%= toggle_button %>
+  </dt>
+  <% child_components.each do |child_component| %>
+    <%= render child_component %>
+  <% end %>
+</div>

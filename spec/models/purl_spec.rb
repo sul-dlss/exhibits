@@ -74,6 +74,18 @@ describe Purl do
     end
   end
 
+  describe '#cocina_record' do
+    before do
+      stub_request(:get, "https://purl.stanford.edu/#{druid}.json").to_return(
+        body: File.new(File.join(FIXTURES_PATH, "/cocina/#{druid}.json")), status: 200
+      )
+    end
+
+    it 'returns a CocinaDisplay::CocinaRecord object' do
+      expect(purl.cocina_record).to be_a(CocinaDisplay::CocinaRecord)
+    end
+  end
+
   describe '#dor_content_type' do
     it 'returns the content type from contentMetadata' do
       expect(purl.dor_content_type).to eq('image')

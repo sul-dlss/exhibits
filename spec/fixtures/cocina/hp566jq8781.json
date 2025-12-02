@@ -1,0 +1,2816 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/book",
+  "externalIdentifier": "druid:hp566jq8781",
+  "label": "Cambridge, Corpus Christi College, MS 367: Miscellaneous Compilation including Old English Material and Historical and Philosophical Works",
+  "version": 10,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "useAndReproductionStatement": "Images courtesy of The Parker Library, Corpus Christi College, Cambridge. Licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. For higher resolution images suitable for scholarly or commercial publication, either in print or in an electronic format, please contact the Parker Library directly at parker-library@corpus.cam.ac.uk",
+    "license": "https://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:bm077td6448",
+    "releaseTags": []
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Cambridge, Corpus Christi College, MS 367: Miscellaneous Compilation including Old English Material and Historical and Philosophical Works",
+        "identifier": [],
+        "source": {
+          "code": "Corpus Christi College",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Chronica. Anglo-Saxon fragments, etc.",
+        "type": "alternative",
+        "identifier": [],
+        "source": {
+          "code": "James Catalog",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1400",
+                "type": "start",
+                "status": "primary",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1499",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "creation",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "qualifier": "approximate",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      },
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1300",
+                "type": "start",
+                "status": "primary",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1399",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "creation",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "qualifier": "approximate",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      },
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1000",
+                "type": "start",
+                "status": "primary",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1099",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "creation",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "qualifier": "approximate",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      },
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1000",
+                "type": "start",
+                "status": "primary",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1099",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "creation",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "qualifier": "approximate",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "mixed material",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "manuscript",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "ff. 53 + 52",
+        "type": "extent",
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Paper and vellum",
+            "type": "material",
+            "identifier": [],
+            "displayLabel": "Material",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "five volumes",
+            "type": "layout",
+            "identifier": [],
+            "displayLabel": "Layout",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "220",
+            "type": "dimensions",
+            "identifier": [],
+            "displayLabel": "Height (mm)",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "145",
+            "type": "dimensions",
+            "identifier": [],
+            "displayLabel": "Width (mm)",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Paper: 1(10) 2(10) 3(12) (wants 10-12) 4(14) 5(10). Vellum: a(2) b(2) c(2) d(4) e(2) (2 canc.) f(6) (6 canc.) 8(14) (10 canc.)? A(12). B (three). I(8) (wants 1, 7, 8) II(2) (+1).",
+            "type": "collation",
+            "identifier": [],
+            "displayLabel": "Collation",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "in a smallish hand of cent. xi-xii",
+            "type": "handNote",
+            "identifier": [],
+            "displayLabel": "Writing",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ff. i-ii + 1-105 + iii-iv",
+            "type": "foliation",
+            "identifier": [],
+            "displayLabel": "Foliation",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Part of the volume seems to be certainly from Worcester.",
+            "type": "provenance",
+            "identifier": [],
+            "displayLabel": "Provenance",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The Anglo-Saxon portions were not described by Wanley and have escaped the notice of subsequent students.",
+            "type": "research",
+            "identifier": [],
+            "displayLabel": "Research",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "lat",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      },
+      {
+        "appliesTo": [],
+        "code": "ang",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "CCCC MS 367 consists of five small volumes bound together, probably because Parker wished to protect a number of small items by placing them between covers. The first contains two chronicles, copied in the fifteenth century, an epitome of the Polychronicon by Ranulf Higden OSB (d. 1364), and a chronicle attributed to Thomas Harpsfield. The second consists of a number of fragments of Old English material, copied in the second half of the eleventh or the early twelfth century, and probably to be associated with Worcester: they contain the De temporibus anni by Ælfric of Eynsham OSB (d. 1010), and some homiletic fragments, now out of order. The third volume is a thirteenth- or fourteenth-century copy of Robert Kilwardby OP (d. 1279), De natura relationis. The fourth is a thirteenth-century copy of the Apocalypsis Goliae, a satirical Latin poem sometimes associated with Walter Map (c. 1140-1210), but best considered anonymous. The fifth contains an eleventh-century copy of the Vita breuior of St Kenelm, with a short booklist which has been associated with Worcester, and an Old English account of a vision had by Earl Leofric.",
+        "type": "summary",
+        "identifier": [],
+        "displayLabel": "Summary",
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "xv, xi-xii, xiv, xi",
+        "type": "date",
+        "identifier": [],
+        "displayLabel": "M.R. James Date",
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Polychronicon (epitome and continuation to 1429)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Gesta regum ad Henricum VI",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "De temporibus anni (incomplete)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Fragments of Old English homilies",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "De natura relationis",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Apocalypsis Goliae",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Vita breuior Sancti Kenelmi (incomplete)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Old English Visio Leofrici",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "type": "table of contents",
+        "identifier": [],
+        "displayLabel": "Contents",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "342",
+        "identifier": [],
+        "displayLabel": "TJames",
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "19. 9",
+        "identifier": [],
+        "displayLabel": "Stanley",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "subject": [],
+    "access": {
+      "url": [],
+      "physicalLocation": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "MS 367",
+          "type": "shelf locator",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalLocation": [],
+      "accessContact": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "UK, Cambridge, Corpus Christi College, Parker Library",
+          "type": "repository",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalRepository": [],
+      "note": []
+    },
+    "relatedResource": [
+      {
+        "type": "referenced by",
+        "displayLabel": "Downloadable James Catalogue Record",
+        "title": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "https://stacks.stanford.edu/file/druid:vz744tc9861/MS_367.pdf",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "referenced by",
+        "displayLabel": "Superseded Interim Catalogue Record",
+        "title": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "https://stacks.stanford.edu/file/druid:pw577ky6421/367.pdf",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Ranulf Higden OSB, Polychronicon (epitome and continuation to 1429)",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1r-29v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Epitome chronicae Cicestrensis, sed extractum e Polychronico, usque ad annum Christi 1429",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1r-29v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Ranulf Higden OSB",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "type": "person",
+            "role": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "author",
+                "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                "identifier": [],
+                "source": {
+                  "code": "marcrelator",
+                  "note": []
+                },
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+          }
+        ],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(1r) Ieronimus ad eugenium in epistola 43a dicit quod decime leguntur primum date ab abraham",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Dates are marked in the margin",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends with the coronation of Henry VI at St Denis",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(29v) videlicet nono die mensis decembris ano etatis sue 10o",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Thomas Harsfield, Gesta regum ad Henricum VI",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "30r-53r",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Breviarium historiae Angliae ad annum quartum Henrici IV. viz. 1402",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "30r-53r",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Breuiarium",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "30r-53r",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "James",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Thomas Harsfield",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "type": "person",
+            "role": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "author",
+                "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                "identifier": [],
+                "source": {
+                  "code": "marcrelator",
+                  "note": []
+                },
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+          }
+        ],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Another hand",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "begins with 19 lines",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(30r) IAlbion est terra constans in finibus orbisQuam dedit albina grecorum filia regis...",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(30r) IISuccedunt Reges ab eodem pace fruentesUsque dies nostres ut pandunt scripta legentesNomina scriptorum (tu) [iam] suscipe care RoberteEx libris quorum labor hic monstratur aperteGalifridus gesta Britonum scripsit sapienterAnglorum facta conscripsit Beda patenterWillelmus quondam monachus MalmisberiensisTryuet Martinushenricus huntidonensisPetrus pictauis dat cistrensis monachusque",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(30r) Et quia confrater carissime non solum audiendo sacre scripture verbis aurem sedulus auditor accomodatur (!) tenetur",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(See P. de Yckham)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends with verses (14) on the Battle of Shrewsbury",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(52v) de isto bello quidam versificator sic infert versus",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(52v) In magdalene saturni vespere pleneHenrico IIIIto sunt hec anno sibi iiijto... Nomina cunctorum nescio monstrare virorumNescio plus quorum Christus miseretur eorum",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(53r) Tempore huius regis Owynus quidam Wallensis erigens se in principem Wallie toto vite sue tempore cum Wallensibus rebellauit",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(53r) Explicit",
+            "type": "rubric",
+            "identifier": [],
+            "displayLabel": "Rubric",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(53r) Lower part of leaf cut off. f. 53v blank",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Ælfric OSB, De temporibus anni (incomplete)",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "54r-55v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "De die, mense, de XII signis, &c. (Saxonice)",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "54r-55v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Ælfric OSB",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "type": "person",
+            "role": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "author",
+                "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                "identifier": [],
+                "source": {
+                  "code": "marcrelator",
+                  "note": []
+                },
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+          }
+        ],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(54r) Þone forman dæg þyssere ƿorulde ƿe magon afindan þurh þes lenctenlices emnihtes dæg. Forþan ðe se emnihtes dæg is se feorða dæg þyssere ƿorulde gesceapennysse",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Treats de luna, de ebdomada, de anno solis, de xii signis, de anno, de diuersis mensibus, de luna, communis annus, embolismus, IIIIor tempora",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "On f. 2v the writing is crowded towards the end. Ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(55v) Eft on langiendum dagum he ofer geð þone suðran sunsted · 7 forþi he byð norþur geseƿen þonne seo sunne on ƿintra · sƿa þeah ne gæð heora",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "It continues on ff. 7r-10r",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(60r) naðor ænne pricon ofer þam þe him geset is. ne dagas ne synd nu naþor lengran ne scyrtran þonne hi æt fruman ƿæron. en Egyptaland ne cymð næfre nan ƿinter",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends f. 10r (on hail, snow, thunder, etc.)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(63r) se bið hlud for þære lyfte bradnysse. frecen ful for þæs fyres sceotugum. beo þeos gesetnyss þus her ge endod",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 10v blank",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This is Ælfric's extract from Beda de temporibus. Cockayne, Leechdoms III 238",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Fragments of Old English homilies",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "56r-82v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Homeliae quaedam Saxonica, imperfectae",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "56r-82v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Fragments of Homilies",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "56r-82v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "James",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "a.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A good hand of cent. xii, 30 lines to a page",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(56r) Homily on the Assumption",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ff. 6r-6v should precede ff. 3r-3v (Thorpe II 436)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(59r) be þisse heofenlican cƿene upstige",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 6v ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(59v) þæt heo un asecgendlice mid criste up",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(56r) ahafen on ecnysse rixige",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends f. 5r. f. 23r has the beginning",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "b.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(58r) viii kalends Septembris. Passio Sancti Bartholomei apostoli",
+            "type": "rubric",
+            "identifier": [],
+            "displayLabel": "Rubric",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(58v) Ƿyrd ƿryteras secgað þæt þre leod scipas",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(Thorpe II 454)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "One page only",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(58v) oþer deofol ƿæs geƿurðod þæs",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(Thorpe II 454)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Continued after break on f. 24r",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "On the margin of f. 30r is a copy of a document (xiii)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(56r) Omnibus ... Walt. de La Fort (?) ... Noueritis me dedisse ... Philipp. filio meo quatuor croppos ... in camp de Henton ... ao v. v. H. Liiio ... Test. Joh. Jokyn. Le FraunkeJoh. Wace ...Wace ...Le fraunke ...",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "c.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(64r) Sexta Idus Septembris. Nativitas Sancte Marie Virginis",
+            "type": "rubric",
+            "identifier": [],
+            "displayLabel": "Rubric",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(64r) Men þa leofestan ƿeorðiat ƿe nu on andƿeardnysse þa gebyr tide",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(Wanley, p. 17, Bodl. NEF. 4. 12)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends imperfectly",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(69v) He þa ioseph aros of þam slæpe. sƿy þe ge",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Assmann, A.-S. Homilien etc. p. 117",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "d.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "In a less good hand, 27 lines to a page",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(70r) On the Lord's Prayer, continued on f. 29r",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(70r) ure rice gif ƿe hit geearnian ƿyllan",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(Thorpe I 264)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "17v ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(70v) Ðæt fifte gebed is. Et dimitte nobis debita nostra sicut et nos dimittimus (29r) debitoribus nostris",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(82v) Sƿa he oftor on þære fandunge",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "e.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 18r follows f. 27v. Homily on Dedication of St Michael's Church. Thorpe II 502 (fragments)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 19r follows f. 28r. Homily on St Matthew. Thorpe II 468",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "g.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 20r-20v, the end of a Homily and beginning of another",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(73r) Feria Secunda",
+            "type": "rubric",
+            "identifier": [],
+            "displayLabel": "Rubric",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(73r) Hit is sƿyðe ged(a)fenlic",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Thorpe I 282. f. 26r continues this",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "h.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 21r-21v single leaf",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(74r) fram þroƿunge to æriste. fra deðe to life",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(74v) þa þa heo ƿearð a þys troð on cristes þroƿunge fram middæge oð non. stanas on",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(Morris, Legends of the Holy Rood, p. 167)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "i.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(75r) gafol oððe tol. æt heora gesiblingum oððe æt fræmdum. Petrus cƿæð æt fræmdum. Se hælend cƿæð, etc.",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(75v) him for godes lufan big ƿiste fore sceaƿað. Ðon hæfð he sƿa miccle",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(On Matt. xvii 24, the fish and tribute-money)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Apparently not found elsewhere: not known to Professor Napier",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "k.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(76r) see a. Homily on the Assumption",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "l.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(77r) see b. On St Bartholomew",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "m.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(78r) I append a copy of the fragment m.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(78r) fram gode · to þe cumen · ; Ic ƿes þine ƿlite · 7 þineƿynsumnesse · 7 þine spæc 7 þin haƿung · 7 þine gehyrnys · 7 þine glednesse; Ic ƿæs þin geþanc · 7þine fægernes · 7 þine lufu · 7 þin gestæþþignes7 þin ge treoƿnes · gif þu ænige treoƿa hæfdest; 7 icƿæs þin gamon · 7 þin gladung · 7 þin hleahtor · 7 þinemyrhþ. Eall þæt þu ƿære. eall ic ƿæs þis on þe 7siþ þan ic ana ƿæs of þe · eall þe lofode · þæt ic nusæde; 7 naht þu ƿære butan me · 7 þu me mid enigumgode ne ge þohtest. ne þinne drihten. þe me þesealde. Ladlice eardunge hæfde ic on þe · æghƿætþæs þe þu hogedest mid þinum flæsce æghƿæt meƿæs þæs earfodlic · on to ge þroƿianne Eall þæt þulufodest. eall þæt ic hatode nære ƿit næfre gletane tid on anum ƿillan. For þan þe þu hyrƿdestgodes bebodu · 7 his haligra lare; Eala eala hreoƿlice · 7 dreorlice. stent þonne þæt deade flesc asmórodne mæg þonne nan andƿyrde syllan. þam his gaste.7 sƿæst sƿiþe ladlicum sƿate · 7 him feallað of. | unfægere dropan · 7 bret on menige fealdumhiƿe. Hƿilum he bið sƿiðe ladlicum men gelice · þonneƿannaþ he 7 doxað · oþre hƿile he bið blac · 7 æm /heoƿe · 7 hƿilum coll sƿeart · 7 gelic þam seo saƿul. heoƿað on yfelan bleon sƿa same · sƿa se lichama ·7 bið gyt ƿyrsan heoƿes; 7 standað butu · sƿiþeforhte · 7 afærede · 7 bifiende on bidat domes; Ðonne clypað se deofol to þam déman · 7 cƿiþ to himþes ƿes min agen · fram hire geogoðe oð hireylde · heo hyrdon me georne 7 ælce dæg icheo lærde unriht to donne · 7 hi me simblelustlice hyrdon. And þonne þin lareoƿ com to hym 7hym ƿolde hyra saƿla hælo · tetan · þonne ƿæs icf. 25vsimle ær æt heom · 7 æft leng · 7 sƿette heom heora / unriht · la hƿi ne mot ic habban · þæt ic ær me sylfbegeat mid minum lyðrum ƿrencum · oft ic gedyde ·þæt he geƿorhte þussende synna ƿið ðe · 7 nanege betan nolde · Ðonne cƿæð þæs reðan ciningesstef · gang þu saƿel in þæt forlorene hus. þa gitæt somne syngodon. git eac æt somne sƿelton; Donne cƿið æft se dema to þam saƿlum. Disceditea me maledicti in ignem eternum qui preparatusest (a) diabolo. Geƿitaþ ge aƿirgydan on þæt ecefyr · þæt gegearƿode min fæder deofle 7 hisenglum. Ðonne hæfð se deofol geƿorht bogan7 stræla. 7 se boga biþ geƿoht of ofer mettum ·7 þa strela beoð sƿa manigra cynna sƿa sƿa mannes synna beoð. Sum stræl biþ geƿorht ofniþe sum of æfeste. sum of eþ belige · sumof hat heortnæsse · sum of stale · sum ofdrucennesse · sum of dyrnum geligere · sumof æƿ bryce · sum of sib legere sum of dƿolcræfte · sum of lyblacc · sum of gitsunge · sumof gifernesse · sum of reaflac · sum of scincræftesum of mord cƿale · sum of strudunge. Andsƿa manega stræla hæfd se deofol sƿa nis nanman þæt hy ealle atellan magon. And ælce dægþæs deofoles ƿilla bið þæt his strelena nan ·ne sy unafæstnod · gif he findan mæg hƿærhe hy on afæstnian mæge. 7 on hælle þadeofla scotigað mid þam strælum · 7 sƿa sa hehæfð ælce dæg his bogan to us gebendne7 ƿile us scotian mid þam strælum · þe ic ær / nemde; Ðonne is us micel þearf leofan menþæt ƿe habban þa scyldas þær ongean · þe /",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "n.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 26r follows 20v: see g.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "o.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "f. 27r-27v precedes 18r (on St Matthew and St Michael): see e., f.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "p.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(81r) Exaltation of the Cross (fragments). Morris, Legends of the Holy Rood, E. E. T. S., pp. 105, 107. Also on 28v the beginning of the Homily on St Matthew. p. thus precedes f. 18r",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "q.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(82r) On the Lord's Prayer: see d.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Robert Kilwardby OP, De natura relationis",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "83r-94v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Logica quaedam",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "83r-94v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Robert Kilwardby OP",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "type": "person",
+            "role": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "author",
+                "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                "identifier": [],
+                "source": {
+                  "code": "marcrelator",
+                  "note": []
+                },
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "identifier": [],
+            "note": [],
+            "parallelContributor": []
+          }
+        ],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(83r) Que sit res predicamenti relationis per se",
+            "type": "rubric",
+            "identifier": [],
+            "displayLabel": "Rubric",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(83r) De predicamento relationis querunt aliqui que sit res huius generis",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends imperfectly in chapter 31",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Apocalypsis Goliae",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "95r-97v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Versus quidam",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "95r-97v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Apocalypsis Goliae",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "95r-97v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "James",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(Wright, Poems of W. Mapes, p. 1)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(95r) A tauro torrida lampade cinthii",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ending",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(97v) Dux meus manibus me capit insitis",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(l. 410)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Vita breuior Sancti Kenelmi (incomplete)",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "98r-101v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Historia (imperfecta) Kenelmi principis Merciorum",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "98r-101v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Life of St Kenelm",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "98r-101v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "James",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(98r) beginning imperfectly in c. ii",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(98r) forma. perfusus diuina dilectione et gratia deo et hominibus amabilis erat aetatula",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(101r) The original hand ends in c. viii: diuinorum miracula beneficiorum commendant. A hand of cent. xii continues and, writing very close, ends on the same page. It begins: martirem suum quem et ab humana noticia abscidere nitebatur: and ends: occubuerit. ad laudem et gloriam dei patris omnipotentis qui uiuit et regnat per omnia secula seculorum. Amen",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(101r) Under this is a scribble of a maze in pencil",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The same Life (abridged in Acta Sanctorum July IV 380, and in Horstmann, Nova Legenda Angliae II 110) is in MS. Douce 368 and Bodley 285",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(101v) On the verso a line and a half in a small hand giving a list of books. .i. Ðeo englissce passionale · 7 .ii. ·ii· englissce dialogas · 7 .iii. oddan boc · 7 .iiii. þe englisca martirlogium · / 7 .vi. · ii · englisce · salteras 7 · ii · pastorales · englisce · 7 þe englisca regol. / 7 barontus. (Printed in my Sources of Archbishop Parker's Collection and in Floyer and Hamilton's Catalogue of the MSS. at Worcester Cathedral, p. 166, note 3.) Barontus is the Vision of Barontus of Pistoia Acta Sanctorum Mart. 24",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Old English Visio Leofrici",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "101v-105v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Homelia Saxonica sive passionale",
+                "type": "main title",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "101v-105v",
+                "type": "part number",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "alternative",
+            "identifier": [],
+            "displayLabel": "Nasmith",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "In a hand similar to that of the booklist in item 7 but larger",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(101v) Title in faint pencil",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(101v) Uisio Leofrici",
+            "type": "rubric",
+            "identifier": [],
+            "displayLabel": "Rubric",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(101v) Her gesutelað ða gesihðe ðe Leofric eorl gesæh. him þuhte to soðan on healf slapendon lichaman na eallinga sƿylce on sƿefne ac gyt geƿisslicor þæt he sceolde nede ofer ane sƿiðe smale bricge · 7 seo ƿær sƿiþe lang",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(103v) hit þa gesƿac þæra bletsunga þæt ƿæs neh þam þes godspel ƿæs gerædd. Feoƿertyne nihton ær his forð siðe he foresæde þonne dæg þe he sceolde cuman to cofantreo to his langan hame þær he on restet · 7 hit à eode eall sƿa he sæde. Requiescat in pace",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "This document, which had remained unnoticed, has been printed by Professor Napier in the Philological Journal, 1908",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "A note (xiii)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(103v) Vesperus est grandis interpolatio nubium inter nos et solem",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(104r) In a hand like that of no. 8 with neumes. Sequence for Epiphany",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(104r) Letabundus exultet fidelis chorus alleluiaRegem regum intacte profudit thorus res miranda",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(104v) Sanctus namque spiritus ipsa nobis prebuit bene mentis naribus odoranda",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Smaller hand",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(104v) Ad ultimum laus est uincta. Psalat chorus alia. Amen dicant omnia",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Another hand, xii",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(105r) Hubertus (l. Herbertus) Abbas Westmon. 7 Edwius prior eiusdem loci. uenerabili priori Wigornie / Warino et domino Vhtredo cantori ceterisque fratribus ecclesie eiusdem. salutem in christo et perpet(uam) / pacem. Sciatis istum fratrem nostrum et monachum Benedictum ad nos uenisse et causa(s) / recessurus (!) sui de Maluernia sicut nobis uidetur rationabiliter ostendisse",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Asks that he be well treated till the writer's coming",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(105r) dixit nobis quoddam opus scilicet missale apud uos / incepisse et antequam ad Maluerniam rediret sua uoluntate perficeret",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The monk in question has left Malvern and gone to Westminster",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Ends",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(105r) laudando creatorem qui ouem suam reduxit ad gregem. Vale",
+            "type": "explicit",
+            "identifier": [],
+            "displayLabel": "Explicit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Herbertus was Abbot of Westminster from 1121 till shortly before 1140. Warinus prior of Worcester cir. 1130-40",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Charm (xii?)",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(105r) + In nomine p. et f. et s. sci amen + Ire + arex + Christe + rauex + filiax + / arafax + N. Medicina contra febres",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "On f. 52v in a neat small hand, beginning and margin cut: Constitutions affecting monks, etc.",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "The last begins",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(105v) Monachis et canonicis regularibus tam uestimenta quam coopertoria interdicimus colorata",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(105v) Viri religiosi quibus non est cura animarum commissa nullos ad penitentiam recipere audeant",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "(105v) Decimas uel in canonicas sanctiones ecclesiis ad quas pertinent precipimus cum integritate persolui",
+            "type": "incipit",
+            "identifier": [],
+            "displayLabel": "Incipit",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "subject": [],
+        "relatedResource": []
+      }
+    ],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/hp566jq8781"
+  },
+  "identification": {
+    "catalogLinks": [],
+    "sourceId": "CCCC:367"
+  },
+  "structural": {},
+  "created": "2023-03-30T17:11:15.000+00:00",
+  "modified": "2023-03-30T17:11:15.000+00:00",
+  "lock": "druid:hp566jq8781=0"
+}
