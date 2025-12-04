@@ -1,10 +1,8 @@
 .su-brand-bar__logo {
   --bs-link-decoration: none;
-
-  color: white; /* switch after  https://github.com/sul-dlss/component-library/pull/64 */
-  margin-top: 0; /* same as https://github.com/sul-dlss/component-library/pull/62 */
-  padding-top: 0.125rem; /* same as https://github.com/sul-dlss/component-library/pull/62 */
+  --identity-bar-color: white;
 }
+
 .navbar-logo {
   --sul-logo-color: black;
   background-image: none; /* override blacklight logo */
