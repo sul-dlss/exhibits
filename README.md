@@ -21,7 +21,7 @@ See [projectblacklight/spotlight](https://github.com/projectblacklight/spotlight
 
 
 ## Development
-
+Testing CI
 
 Install dependencies, set up the databases and run migrations:
 ```console
