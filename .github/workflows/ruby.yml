@@ -24,6 +24,8 @@ jobs:
           key: ${{ runner.os }}-gems-202103-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-202103
+      - name: Install ImageMagick
+        run: sudo apt-get install -y imagemagick
       - name: Bundle install
         run: bundle config path vendor/bundle
       - name: Use sidekiq pro
