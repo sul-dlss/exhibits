@@ -238,7 +238,7 @@ GEM
       set (~> 1.1)
       singleton (< 1.0)
       time (< 1.0)
-    csl-styles (2.0.1)
+    csl-styles (2.0.2)
       csl (~> 2.0)
     cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
@@ -971,7 +971,7 @@ DEPENDENCIES
   capybara
   citeproc-ruby
   config
-  csl-styles (= 2.0.1)
+  csl-styles (~> 2.0)
   cssbundling-rails (~> 1.4)
   database_cleaner
   debug
