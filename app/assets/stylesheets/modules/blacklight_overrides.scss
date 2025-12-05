@@ -56,6 +56,10 @@
   .index_title {
     font-size: 1rem;
     margin-top: 0;
+
+    a {
+      display: block;
+    }
   }
 
   .img-thumbnail,

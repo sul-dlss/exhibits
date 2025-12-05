@@ -4,11 +4,20 @@
 }
 
 .rosette-icon {
-  background: url('https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2025-01-24/styles/icon.svg') no-repeat center left;
+  background: url("https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2025-01-24/styles/icon.svg")
+    no-repeat center left;
   background-size: 24px;
   padding-left: 28px;
 
   @include media-breakpoint-up(md) {
     padding-left: 20px;
+  }
+}
+
+.blacklight-exhibits-index {
+  .card-title {
+    a {
+      display: block;
+    }
   }
 }
