@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
 
 RSpec.feature 'Adding items to an exhibit' do
-  include JavascriptFeatureHelpers
+  include Spotlight::TestFeaturesHelpers
 
   let(:exhibit) { create(:exhibit) }
   let(:user) { create(:exhibit_admin, exhibit: exhibit) }

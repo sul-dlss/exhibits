@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
 
 describe 'Alt text instructions', :js do
-  include JavascriptFeatureHelpers
+  include Spotlight::TestFeaturesHelpers
 
   let(:exhibit) { create(:exhibit) }
   let(:exhibit_curator) { create(:exhibit_curator, exhibit: exhibit) }

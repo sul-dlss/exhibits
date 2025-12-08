@@ -5,7 +5,6 @@ require 'rails_helper'
 require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
 
 RSpec.feature 'Solr Documents Embed Block', js: true do
-  include JavascriptFeatureHelpers
   include Spotlight::TestFeaturesHelpers
 
   let(:exhibit) { create(:exhibit) }

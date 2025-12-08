@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require "#{Gem::Specification.find_by_name('blacklight-spotlight').gem_dir}/spec/support/features/test_features_helpers"
 
 RSpec.describe 'Searching Exhibits By Title', js: true do
-  include JavascriptFeatureHelpers
+  include Spotlight::TestFeaturesHelpers
 
   let(:exhibit1) do
     FactoryBot.create(:exhibit, published: true, slug: 'test-exhibit', title: 'Test Exhibit')
