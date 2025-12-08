@@ -1,8 +1,8 @@
 GEM
   remote: https://gems.contribsys.com/
   specs:
-    sidekiq-pro (8.0.2)
-      sidekiq (>= 8.0.0, < 9)
+    sidekiq-pro (8.0.3)
+      sidekiq (>= 8.0.8, < 9)
 
 GEM
   remote: https://rubygems.org/
@@ -93,9 +93,7 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt (3.1.20)
-    bcrypt_pbkdf (1.1.1)
-    bcrypt_pbkdf (1.1.1-arm64-darwin)
-    bcrypt_pbkdf (1.1.1-x86_64-darwin)
+    bcrypt_pbkdf (1.1.2)
     benchmark (0.5.0)
     bibtex-ruby (6.2.0)
       latex-decode (~> 0.0)
@@ -159,8 +157,8 @@ GEM
       leaflet-rails (~> 1.3.0)
       leaflet-sidebar-rails (~> 0.2)
       rails (>= 7.1.4, < 8)
-    blacklight_range_limit (9.1.0)
-      blacklight (>= 7.25.2, < 9)
+    blacklight_range_limit (9.2.0)
+      blacklight (>= 7.25.2, < 10)
       view_component (>= 2.54, < 5)
     bootsnap (1.19.0)
       msgpack (~> 1.2)
@@ -217,7 +215,7 @@ GEM
       namae (~> 1.0)
       observer (< 1.0)
       open-uri (< 1.0)
-    citeproc-ruby (2.1.4)
+    citeproc-ruby (2.1.8)
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 2.0)
       observer (< 1.0)
@@ -225,7 +223,7 @@ GEM
     config (5.6.1)
       deep_merge (~> 1.2, >= 1.2.1)
       ostruct
-    connection_pool (2.5.5)
+    connection_pool (3.0.2)
     crack (1.0.1)
       bigdecimal
       rexml
@@ -282,7 +280,7 @@ GEM
     domain_name (0.6.20240107)
     dot-properties (0.1.4)
       bundler (>= 2.2.33)
-    dotenv (3.1.8)
+    dotenv (3.2.0)
     drb (2.2.3)
     ed25519 (1.4.0)
     edtf (3.2.0)
@@ -323,7 +321,7 @@ GEM
       ffi (>= 1.15.5)
       rake
     forwardable (1.3.3)
-    friendly_id (5.5.1)
+    friendly_id (5.6.0)
       activerecord (>= 4.0.0)
     gapic-common (1.2.0)
       faraday (>= 1.9, < 3.a)
@@ -354,31 +352,31 @@ GEM
       faraday (>= 1.0, < 3.a)
     google-cloud-errors (1.5.0)
     google-logging-utils (0.2.0)
-    google-protobuf (4.33.1)
+    google-protobuf (4.33.2)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-aarch64-linux-gnu)
+    google-protobuf (4.33.2-aarch64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-aarch64-linux-musl)
+    google-protobuf (4.33.2-aarch64-linux-musl)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-arm64-darwin)
+    google-protobuf (4.33.2-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-x86-linux-gnu)
+    google-protobuf (4.33.2-x86-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-x86-linux-musl)
+    google-protobuf (4.33.2-x86-linux-musl)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-x86_64-darwin)
+    google-protobuf (4.33.2-x86_64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-x86_64-linux-gnu)
+    google-protobuf (4.33.2-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.1-x86_64-linux-musl)
+    google-protobuf (4.33.2-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     googleapis-common-protos (1.9.0)
@@ -469,7 +467,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
-    json (2.16.0)
+    json (2.17.1)
     jsonpath (1.1.5)
       multi_json
     jwt (3.1.2)
@@ -540,7 +538,7 @@ GEM
       stanford-mods (~> 3.3, >= 3.3.9)
       view_component
     msgpack (1.8.0)
-    multi_json (1.17.0)
+    multi_json (1.18.0)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
     multipart-post (2.4.1)
@@ -565,7 +563,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     net-ssh (7.3.0)
-    newrelic_rpm (9.23.0)
+    newrelic_rpm (9.24.0)
     nio4r (2.7.5)
     nokogiri (1.18.10)
       mini_portile2 (~> 2.8.2)
@@ -647,7 +645,7 @@ GEM
     rack-test (2.2.0)
       rack (>= 1.3)
     rack-timeout (0.7.0)
-    rackup (2.2.1)
+    rackup (2.3.1)
       rack (>= 3)
     rails (7.2.3)
       actioncable (= 7.2.3)
@@ -693,7 +691,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rdoc (6.16.1)
+    rdoc (6.17.0)
       erb
       psych (>= 4.0.0)
       tsort
@@ -701,7 +699,7 @@ GEM
     redcarpet (3.6.1)
     redis (5.4.1)
       redis-client (>= 0.22.0)
-    redis-client (0.26.1)
+    redis-client (0.26.2)
       connection_pool
     regexp_parser (2.11.3)
     reline (0.6.3)
@@ -795,14 +793,14 @@ GEM
       logger
     rubyzip (3.2.2)
     securerandom (0.4.1)
-    selenium-webdriver (4.38.0)
+    selenium-webdriver (4.39.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     set (1.1.2)
-    sidekiq (8.0.9)
+    sidekiq (8.0.10)
       connection_pool (>= 2.5.0)
       json (>= 2.9.0)
       logger (>= 1.6.2)
@@ -867,14 +865,14 @@ GEM
       mods (~> 3.0, >= 3.0.4)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
-    stringio (3.1.8)
+    stringio (3.1.9)
     test_xml (0.1.8)
       diffy (~> 3.0)
       nokogiri (>= 1.3.2)
     thor (1.4.0)
     time (0.4.1)
       date
-    timeout (0.4.4)
+    timeout (0.5.0)
     trailblazer-option (0.1.2)
     traject (3.8.3)
       concurrent-ruby (>= 0.8.0)
@@ -926,7 +924,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    whenever (1.1.0)
+    whenever (1.1.1)
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -1035,4 +1033,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-  4.0.0.beta2
+  4.0.0
