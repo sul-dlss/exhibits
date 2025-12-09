@@ -1,0 +1,20 @@
+<div data-controller="details-container">
+  <% if @field.label %>
+    <%= tag.dt **@label_html_attributes do %>
+      <%= @field.label.sub(/:$/, '') %>
+      <button class="btn btn-link text-uppercase align-baseline p-0 ms-1"
+              data-action="details-container#toggleDetails"
+              data-details-container-target="toggleButton">
+        Expand all
+      </button>
+    <% end %>
+  <% end %>
+
+  <%= tag.dd **@value_html_attributes do %>
+    <% @field.values.select(&:present?).each do |value| %>
+      <details data-details-container-target="detailItem" data-action="details-container#toggleButtonText">
+        <%= format_value(value) %>
+      </details>
+    <% end %>
+  <% end %>
+</div>

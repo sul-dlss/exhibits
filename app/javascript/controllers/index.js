@@ -3,3 +3,7 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
+
+import DetailsContainerController from "./details_container_controller"
+
+application.register("details-container", DetailsContainerController)
