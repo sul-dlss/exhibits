@@ -48,12 +48,12 @@ Exhibits::Application.routes.draw do
     get '/:exhibit_id/select_image_area/:id' => 'catalog#select_image_area'
 
     resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog'
-    resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    resource :catalog, only: [], as: 'catalog', path: '/catalog', controller: 'catalog' do
       concerns :searchable
       concerns :range_searchable
     end
 
-    resource :search_across, only: [:index], path: '/search', controller: 'search_across' do
+    resource :search_across, only: [], path: '/search', controller: 'search_across' do
       concerns :searchable
       concerns :range_searchable
     end
