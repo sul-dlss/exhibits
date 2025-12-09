@@ -2,6 +2,10 @@ import 'leaflet-sidebar/src/L.Control.Sidebar'
 import BlacklightHeatmaps from 'blacklight-heatmaps/app/assets/javascripts/blacklight_heatmaps/default.esm.js'
 window.BlacklightHeatmaps = BlacklightHeatmaps
 
+Blacklight.onLoad(function () {
+  BlacklightHeatmaps.init()
+})
+
 // Override the leaflet sidebar to update our own documents container that appears below the map.
 L.Control.ExhibitsSidebar = L.Control.Sidebar.extend({
   show: function() {
