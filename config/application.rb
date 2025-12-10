@@ -46,6 +46,10 @@ module Exhibits
       IIIF::OrderedHash
     ]
 
+    config.after_initialize do
+      ActionView::Base.sanitized_allowed_tags.add 'summary'
+    end
+
     ##
     # Inject our ExhibitExtension concern to add behavior
     # (like relationships) to the Spotlight::Exhibit class

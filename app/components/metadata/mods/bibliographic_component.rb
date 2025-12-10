@@ -27,6 +27,7 @@ module Metadata
         @bibliographic_info ||= safe_join(audiences +
                                       notes +
                                       related_items +
+                                      nested_related_items +
                                       identifiers +
                                       locations)
       end
@@ -43,11 +44,22 @@ module Metadata
       end
 
       def related_items
-        @mods.relatedItem.map { |field| mods_record_field(field) } << nested_related_items
+        @mods.relatedItem.map { |field| mods_record_field(field) }
       end
 
       def nested_related_items
-        @mods.nestedRelatedItem(raw: true).to_html
+        @mods.nestedRelatedItem(value_renderer: ::RelatedItemValueRenderer).map do |field|
+          render Metadata::Mods::NestedRelatedResourceFieldComponent.new(
+            field: field,
+            value_transformer: nested_related_items_value_transformer
+          )
+        end
+      end
+
+      def nested_related_items_value_transformer
+        lambda do |value|
+          helpers.format_mods_html(value.to_s, tags: %w(h1 a dl dd dt i b em strong cite br summary))
+        end
       end
 
       def identifiers
