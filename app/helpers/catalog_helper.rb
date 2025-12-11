@@ -39,7 +39,7 @@ module CatalogHelper
 
   def notes_wrap(options = {})
     return if options[:value].blank?
-    return options[:value].first if options[:value].count == 1
+    return options[:value].first if options[:value].one?
 
     content_tag('ul', class: 'general-notes') do
       safe_join(options[:value].collect do |note|
@@ -53,7 +53,7 @@ module CatalogHelper
 
     values = split_on_white_space(options[:value])
              .map { |value| sanitize(value, tags: PERMITTED_TAGS) }
-    return values.first if values.count == 1
+    return values.first if values.one?
 
     safe_join(values.map { |content| tag.p content })
   end

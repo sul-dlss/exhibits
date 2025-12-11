@@ -7,6 +7,7 @@ class CatalogController < ApplicationController
 
   include Blacklight::Catalog
   include BlacklightRangeLimit::ControllerOverride
+
   BlacklightRangeLimit.classes[:submit] = 'submit btn btn-primary'
 
   bot_challenge only: :index

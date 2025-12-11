@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe IiifCanvasIndexer do
   include ActiveJob::TestHelper
+
   subject { described_class.new(exhibit, druid) }
 
   let(:viewer) do

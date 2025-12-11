@@ -4,6 +4,7 @@
 # CanCan authorization evaluation model
 class Ability
   include Spotlight::Ability
+
   def initialize(user)
     user ||= Spotlight::Engine.user_class.new
 

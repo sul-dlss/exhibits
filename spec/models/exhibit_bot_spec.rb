@@ -6,7 +6,7 @@ describe ExhibitBot do
   let(:bot) { described_class.new }
 
   context 'when notifications are configured' do
-    let(:stub_client) { instance_spy('Slack::Web::Client') }
+    let(:stub_client) { instance_spy(Slack::Web::Client) }
 
     before do
       allow(bot).to receive_messages(client: stub_client)
