@@ -128,7 +128,7 @@ gem 'whenever', require: false
 gem 'redis', '~> 5.0'
 gem 'recaptcha', '~> 5.17.1'
 
-gem 'bot_challenge_page', '~> 0.10.0'
+gem 'bot_challenge_page', '~> 1.0'
 
 gem 'cssbundling-rails', '~> 1.4'
 

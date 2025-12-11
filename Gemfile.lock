@@ -165,9 +165,9 @@ GEM
     bootstrap_form (5.5.0)
       actionpack (>= 7.2)
       activemodel (>= 7.2)
-    bot_challenge_page (0.10.0)
+    bot_challenge_page (1.0.0)
       http (~> 5.2)
-      rails (>= 7.1, < 8.1)
+      rails (>= 7.1, < 8.2)
     builder (3.3.0)
     cancancan (3.6.1)
     capistrano (3.19.2)
@@ -244,7 +244,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0)
     database_cleaner-core (2.0.1)
-    date (3.5.0)
+    date (3.5.1)
     debug (1.11.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
@@ -621,7 +621,7 @@ GEM
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
-    psych (5.2.6)
+    psych (5.3.0)
       date
       stringio
     public_suffix (7.0.0)
@@ -956,7 +956,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 5.3)
   bootstrap_form (~> 5.4)
-  bot_challenge_page (~> 0.10.0)
+  bot_challenge_page (~> 1.0)
   capistrano (~> 3.0)
   capistrano-bundler
   capistrano-passenger
