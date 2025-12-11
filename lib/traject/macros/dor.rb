@@ -4,9 +4,9 @@ module Traject
   module Macros
     # Macros for working with DOR objects
     module Dor
-      def stanford_mods(method, *args, **kwargs)
+      def stanford_mods(method, *, **)
         lambda do |resource, accumulator, _context|
-          Array(resource.smods_rec.public_send(method, *args, **kwargs)).each do |v|
+          Array(resource.smods_rec.public_send(method, *, **)).each do |v|
             accumulator << v
           end
         end

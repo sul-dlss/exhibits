@@ -6,12 +6,14 @@ class SearchBuilder < Blacklight::SearchBuilder
   include BlacklightRangeLimit::RangeLimitBuilder
 
   include BlacklightAdvancedSearch::AdvancedSearchBuilder
+
   self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr]
   self.default_processor_chain -= [:facets_for_advanced_search_form]
 
   include BlacklightHeatmaps::SolrFacetHeatmapBehavior
 
   include Spotlight::SearchBuilder
+
   self.default_processor_chain += [:limit_to_exhibit_items]
 
   ##

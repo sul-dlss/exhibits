@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe ExhibitIndexer do
   subject(:indexer) { described_class.new(exhibit) }
 
-  let(:solr_connection) { instance_spy('Blacklight::Solr::Connection') }
+  let(:solr_connection) { instance_spy(RSolr::Client) }
   let(:exhibit) { FactoryBot.create(:exhibit) }
 
   before do

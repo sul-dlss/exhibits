@@ -1,6 +1,6 @@
 inherit_from: .rubocop_todo.yml
 
-require:
+plugins:
   - rubocop-rspec
   - rubocop-performance
   - rubocop-rails
@@ -9,7 +9,7 @@ require:
   - rubocop-factory_bot
 
 AllCops:
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.4
   DisplayCopNames: true
   Exclude:
     - "bin/**/*"
@@ -510,4 +510,66 @@ RSpec/VerifiedDoubleReference: # new in 2.10
 Performance/StringBytesize: # new in 1.23
   Enabled: true
 Rails/EnumSyntax: # new in 2.26
+  Enabled: true
+Gemspec/AttributeAssignment: # new in 1.77
+  Enabled: true
+Layout/EmptyLinesAfterModuleInclusion: # new in 1.79
+  Enabled: true
+Lint/ArrayLiteralInRegexp: # new in 1.71
+  Enabled: true
+Lint/ConstantReassignment: # new in 1.70
+  Enabled: true
+Lint/CopDirectiveSyntax: # new in 1.72
+  Enabled: true
+Lint/RedundantTypeConversion: # new in 1.72
+  Enabled: true
+Lint/SharedMutableDefault: # new in 1.70
+  Enabled: true
+Lint/SuppressedExceptionInNumberConversion: # new in 1.72
+  Enabled: true
+Lint/UselessConstantScoping: # new in 1.72
+  Enabled: true
+Lint/UselessDefaultValueArgument: # new in 1.76
+  Enabled: true
+Lint/UselessOr: # new in 1.76
+  Enabled: true
+Naming/PredicateMethod: # new in 1.76
+  Enabled: true
+Style/ArrayIntersectWithSingleElement: # new in 1.81
+  Enabled: true
+Style/CollectionQuerying: # new in 1.77
+  Enabled: true
+Style/ComparableBetween: # new in 1.74
+  Enabled: true
+Style/EmptyStringInsideInterpolation: # new in 1.76
+  Enabled: true
+Style/HashFetchChain: # new in 1.75
+  Enabled: true
+Style/HashSlice: # new in 1.71
+  Enabled: true
+Style/ItAssignment: # new in 1.70
+  Enabled: true
+Style/ItBlockParameter: # new in 1.75
+  Enabled: true
+Style/RedundantArrayFlatten: # new in 1.76
+  Enabled: true
+Style/RedundantFormat: # new in 1.72
+  Enabled: true
+RSpec/IncludeExamples: # new in 3.6
+  Enabled: true
+RSpec/LeakyLocalVariable: # new in 3.8
+  Enabled: true
+Performance/ZipWithoutBlock: # new in 1.24
+  Enabled: true
+Rails/FindByOrAssignmentMemoization: # new in 2.33
+  Enabled: true
+Rails/HttpStatusNameConsistency: # new in 2.34
+  Enabled: true
+Rails/MultipleRoutePaths: # new in 2.29
+  Enabled: true
+Rails/OrderArguments: # new in 2.33
+  Enabled: true
+Rails/RedirectBackOrTo: # new in 2.34
+  Enabled: true
+Rails/StrongParametersExpect: # new in 2.29
   Enabled: true

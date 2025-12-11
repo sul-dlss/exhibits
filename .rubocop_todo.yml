@@ -240,18 +240,6 @@ RSpec/SubjectStub:
   Exclude:
     - 'spec/models/dor_harvester_spec.rb'
 
-# Offense count: 5
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: constant, string
-RSpec/VerifiedDoubleReference:
-  Exclude:
-    - 'spec/helpers/application_helper_spec.rb'
-    - 'spec/jobs/index_exhibit_metadata_job_spec.rb'
-    - 'spec/models/exhibit_bot_spec.rb'
-    - 'spec/models/exhibit_finder_spec.rb'
-    - 'spec/models/exhibit_indexer_spec.rb'
-
 # Offense count: 4
 # Configuration parameters: IgnoreNameless, IgnoreSymbolicNames.
 RSpec/VerifiedDoubles:

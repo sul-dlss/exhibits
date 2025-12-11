@@ -4,6 +4,7 @@ require 'rails_helper'
 
 describe Spotlight::CatalogController do
   include ActiveJob::TestHelper
+
   routes { Spotlight::Engine.routes }
 
   let(:exhibit) { create(:exhibit) }

@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Viewers' do
   include JavascriptFeatureHelpers
+
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:user) { nil }
 

@@ -23,13 +23,13 @@ module Spotlight
 
     def send_feedback
       ContactMailer.report_problem(@contact_form).deliver_now
-      redirect_back fallback_location: spotlight.new_exhibit_contact_form_path(current_exhibit),
-                    notice: t(:'helpers.submit.contact_form.created')
+      redirect_back_or_to(spotlight.new_exhibit_contact_form_path(current_exhibit),
+                          notice: t(:'helpers.submit.contact_form.created'))
     end
 
     def report_failure
-      redirect_back fallback_location: spotlight.new_exhibit_contact_form_path(current_exhibit),
-                    alert: t(:'helpers.submit.contact_form.error')
+      redirect_back_or_to(spotlight.new_exhibit_contact_form_path(current_exhibit),
+                          alert: t(:'helpers.submit.contact_form.error'))
     end
   end
 end

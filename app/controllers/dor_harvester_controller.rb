@@ -27,6 +27,6 @@ class DorHarvesterController < ApplicationController
   end
 
   def resource_params
-    params.require(:dor_harvester).permit(:druid_list)
+    params.expect(dor_harvester: [:druid_list])
   end
 end
