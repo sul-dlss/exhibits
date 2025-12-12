@@ -12,7 +12,7 @@ gem 'propshaft'
 gem 'stimulus-rails'
 
 # Use Puma as the app server
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 7.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
