@@ -115,9 +115,9 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (5.2.1)
+    blacklight-spotlight (5.2.2)
       activejob-status
-      acts-as-taggable-on (>= 5.0, < 13)
+      acts-as-taggable-on (>= 5.0, < 14)
       blacklight (>= 8.7.0, < 9)
       blacklight-gallery (>= 3.0, < 7)
       bootstrap_form (>= 5.4, < 6)
@@ -139,7 +139,7 @@ GEM
       oauth2
       openseadragon (>= 0.8.0)
       ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
-      paper_trail (>= 11.0, < 17)
+      paper_trail (>= 11.0, < 18)
       rails (>= 7.1, < 9)
       redcarpet (>= 2.0.1, < 4)
       riiif (~> 2.0)
