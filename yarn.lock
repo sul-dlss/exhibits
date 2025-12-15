@@ -1008,9 +1008,9 @@ sortablejs@^1.15.3, sortablejs@^1.15.6:
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
 
 spotlight-frontend@^5.0.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-5.2.0.tgz#b49cbcd840b2db5b7a13cd9e07bc7adbfa1838e4"
-  integrity sha512-J2qPuFNXCsWUlWFnQoEzaJv/c0hhCWjvipnb+PZu9Vmu8l+iTQQelsA2qFO4qD/ZuDSkPEBHLfia3aZaLFmNfw==
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/spotlight-frontend/-/spotlight-frontend-5.2.2.tgz#3d28aa1f3efb37766acf431160a8cdaa3e249c09"
+  integrity sha512-pBsz3sdU6JNK+RS2Dt4smHfeEq38nCK6zJMGde16EQJz19zm+ZGnsuezj8sUZcTHKJzWz84FLt03WRVRJc1n4Q==
   dependencies:
     blacklight-frontend "^8.4.0"
     bootstrap ">=4.3.1 <6.0.0"
