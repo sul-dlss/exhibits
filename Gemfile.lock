@@ -1,3 +1,41 @@
+GIT
+  remote: https://github.com/projectblacklight/spotlight.git
+  revision: 87548ba7feb33a3b33050ddf869e6251d2c06e51
+  branch: thumbnail-reject
+  specs:
+    blacklight-spotlight (5.2.2)
+      activejob-status
+      acts-as-taggable-on (>= 5.0, < 14)
+      blacklight (>= 8.7.0, < 9)
+      blacklight-gallery (>= 3.0, < 7)
+      bootstrap_form (>= 5.4, < 6)
+      cancancan
+      carrierwave (> 2.2.1, < 3)
+      csv
+      devise (~> 4.9)
+      devise_invitable
+      faraday
+      faraday-follow_redirects
+      friendly_id (~> 5.5)
+      google-analytics-data
+      i18n
+      i18n-active_record
+      iiif-presentation (>= 1.4.1)
+      iiif_manifest
+      mini_magick
+      nokogiri
+      oauth2
+      openseadragon (>= 0.8.0)
+      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
+      paper_trail (>= 11.0, < 18)
+      rails (>= 7.1, < 9)
+      redcarpet (>= 2.0.1, < 4)
+      riiif (~> 2.0)
+      roar (~> 1.1)
+      roar-rails
+      signet
+      view_component (>= 2.66, < 4)
+
 GEM
   remote: https://gems.contribsys.com/
   specs:
@@ -115,38 +153,6 @@ GEM
       blacklight (>= 7.25, < 9)
       rails
       ruby-oembed
-    blacklight-spotlight (5.2.2)
-      activejob-status
-      acts-as-taggable-on (>= 5.0, < 14)
-      blacklight (>= 8.7.0, < 9)
-      blacklight-gallery (>= 3.0, < 7)
-      bootstrap_form (>= 5.4, < 6)
-      cancancan
-      carrierwave (> 2.2.1, < 3)
-      csv
-      devise (~> 4.9)
-      devise_invitable
-      faraday
-      faraday-follow_redirects
-      friendly_id (~> 5.5)
-      google-analytics-data
-      i18n
-      i18n-active_record
-      iiif-presentation (>= 1.4.1)
-      iiif_manifest
-      mini_magick
-      nokogiri
-      oauth2
-      openseadragon (>= 0.8.0)
-      ostruct (!= 0.3.2, != 0.3.1, != 0.3.0)
-      paper_trail (>= 11.0, < 18)
-      rails (>= 7.1, < 9)
-      redcarpet (>= 2.0.1, < 4)
-      riiif (~> 2.0)
-      roar (~> 1.1)
-      roar-rails
-      signet
-      view_component (>= 2.66, < 4)
     blacklight_advanced_search (8.0.0.alpha2)
       blacklight (>= 7.15, < 9)
       parslet
@@ -949,7 +955,7 @@ DEPENDENCIES
   blacklight (~> 8.0)
   blacklight-gallery (~> 4.8)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 5.2)
+  blacklight-spotlight!
   blacklight_advanced_search
   blacklight_heatmaps (~> 2.0)
   blacklight_range_limit (~> 9.0)
