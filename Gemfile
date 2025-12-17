@@ -122,6 +122,7 @@ gem 'acts-as-taggable-on'
 gem 'mods_display', '~> 1.6'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
+gem 'cocina_display', '~> 1.6'
 gem 'whenever', require: false
 
 # Used for shared reporting https://github.com/sul-dlss/exhibits/issues/2069

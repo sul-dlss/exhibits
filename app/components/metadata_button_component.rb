@@ -8,7 +8,9 @@ class MetadataButtonComponent < ViewComponent::Base
     super()
   end
 
+  # TODO: In future work we will want something indexed to indicate whether
+  #       we should show this button for cocina records.
   def render?
-    @document.modsxml.present?
+    @document.modsxml.present? || Settings.cocina.metadata_display_source
   end
 end
