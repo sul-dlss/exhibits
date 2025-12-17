@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/projectblacklight/spotlight.git
-  revision: 87548ba7feb33a3b33050ddf869e6251d2c06e51
-  branch: thumbnail-reject
+  revision: d51a2321544d00d6953c12c3c531104294415891
+  branch: remove-featured-image-after-save
   specs:
     blacklight-spotlight (5.2.2)
       activejob-status
