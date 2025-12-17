@@ -25,7 +25,7 @@ class EmbeddedMiradorComponent < ViewComponent::Base
       url: manifest_url,
       canvas_id: choose_canvas_id(block) || params[:canvas_id],
       iiif_initial_viewer_config: choose_initial_viewer_config(block) || params[:iiif_initial_viewer_config]
-    }
+    }.compact_blank
   end
 
   def iframe_src
