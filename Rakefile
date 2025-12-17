@@ -15,9 +15,8 @@ begin
     task.fail_on_error = true
   end
 rescue LoadError
-  # this rescue block is here for deployment to production, where
-  # certain dependencies are not expected, and that is OK
-  warn 'WARNING: Rubocop was not found and could not be required.'
+  # No warning because we expect that Rubocop will not be present in production
+  # and we would prefer not to see a warning in cron output every day.
 end
 
 desc 'Run tests in generated test Rails app with generated Solr instance running'
