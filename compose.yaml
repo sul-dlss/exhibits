@@ -1,10 +1,12 @@
 services:
   solr:
-    image: "solr:${SOLR_VERSION:-9.6.1}"
+    image: "solr:${SOLR_VERSION:-9.10.0}"
     volumes:
       - $PWD/solr/config:/opt/solr/conf
     ports:
       - "${SOLR_PORT:-8983}:8983"
+    environment:
+      - SOLR_OPTS=-Dsolr.config.lib.enabled=true
     entrypoint:
       - docker-entrypoint.sh
       - solr-precreate
