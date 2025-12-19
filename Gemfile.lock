@@ -880,7 +880,7 @@ DEPENDENCIES
   capistrano-shared_configs
   capybara
   citeproc-ruby (~> 2.1)
-  cocina_display (~> 1.6)
+  cocina_display (~> 1.7)
   config
   csl-styles (~> 2.0)
   cssbundling-rails (~> 1.4)

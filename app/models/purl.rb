@@ -15,7 +15,8 @@ class Purl
   end
 
   delegate :exists?, to: :purl_service
-  delegate :cocina_doc, :collection?, :containing_collections, to: :cocina_record
+  delegate :cocina_doc, :collection?, :containing_collections,
+           :virtual_object?, :virtual_object_members, to: :cocina_record
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml
@@ -84,6 +85,12 @@ class Purl
     @imprint_display ||= ModsDisplay::HTML.new(smods_rec).mods_field(:imprint)
   end
 
+  # @return [String] the thumbnail identifier for this PURL object or the first
+  #                  virtual object member if this is a virtual object
+  def thumbnail_identifier
+    @thumbnail_identifier ||= PurlThumbnail.new(purl_object: thumbnail_purl).thumbnail_identifier
+  end
+
   delegate :logger, to: :Rails
 
   private
@@ -103,5 +110,9 @@ class Purl
   # Normalize the role text to use consistent capitalization and remove trailing punctuation.
   def format_role(role_element)
     role_element.text.strip.capitalize.sub(/[.,:;]+$/, '').tr('|', '')
+  end
+
+  def thumbnail_purl
+    virtual_object? ? Purl.new(virtual_object_members.first) : self
   end
 end
