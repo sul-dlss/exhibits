@@ -5,8 +5,6 @@ class Purl
   include ActiveSupport::Benchmarkable
   include ModsDisplay::RelatorCodes
 
-  COLLECTION_TYPES = %w(collection set).freeze
-
   attr_reader :druid
 
   # @param druid [String] the PURL identifier (Druid), e.g. 'druid:abc123'
@@ -17,7 +15,7 @@ class Purl
   end
 
   delegate :exists?, to: :purl_service
-  delegate :cocina_doc, to: :cocina_record
+  delegate :cocina_doc, :collection?, :containing_collections, to: :cocina_record
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml
@@ -26,12 +24,7 @@ class Purl
 
   # @return [Array<Purl>] array of Purl objects for the collections this Purl belongs to
   def collections
-    @collections ||= PurlCollections.call(public_xml)
-  end
-
-  # @return [Boolean] true if this Purl object is a collection, false otherwise
-  def collection?
-    public_xml.xpath('//objectType').any? { |n| COLLECTION_TYPES.include? n.text.downcase }
+    @collections ||= containing_collections.map { Purl.new(it) }
   end
 
   # @return [Array<String>] array of collection member druids for this Purl object
@@ -64,11 +57,6 @@ class Purl
   #  https://consul.stanford.edu/spaces/chimera/pages/137495027/Summary+of+Content+and+Resource+Types+models+and+their+behaviors
   def dor_content_type
     public_xml.xpath('//contentMetadata/@type').text
-  end
-
-  # @return [String] the value of the objectLabel in the identityMetadata section of the public XML
-  def identity_md_obj_label
-    public_xml.xpath('/publicObject/identityMetadata/objectLabel').first&.content
   end
 
   # @return [Array<Hash>] an array of hashes with keys `name` and `roles` with

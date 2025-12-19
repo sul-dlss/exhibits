@@ -11,6 +11,9 @@ describe Purl do
     stub_request(:get, "https://purl.stanford.edu/#{druid}.xml").to_return(
       body: File.new(File.join(FIXTURES_PATH, "#{druid}.xml")), status: 200
     )
+    stub_request(:get, "https://purl.stanford.edu/#{druid}.json").to_return(
+      body: File.new(File.join(FIXTURES_PATH, "cocina/#{druid}.json")), status: 200
+    )
   end
 
   describe '#collections' do
@@ -89,12 +92,6 @@ describe Purl do
   describe '#dor_content_type' do
     it 'returns the content type from contentMetadata' do
       expect(purl.dor_content_type).to eq('image')
-    end
-  end
-
-  describe '#identity_md_obj_label' do
-    it 'returns the object label from identityMetadata' do
-      expect(purl.identity_md_obj_label).to include('Le Dauphin enlevè à sa mere : après le decret du Comité')
     end
   end
 
