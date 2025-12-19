@@ -1,0 +1,756 @@
+{
+  "cocinaVersion": "0.105.0",
+  "type": "https://cocina.sul.stanford.edu/models/collection",
+  "externalIdentifier": "druid:gh795jd5965",
+  "label": "Robby Beyers photographs of the Leland Stanford Junior University Marching Band, 1978-2015",
+  "version": 7,
+  "access": {
+    "view": "world",
+    "useAndReproductionStatement": "The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu)."
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:rs517ph2700"
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Robby Beyers photographs of the Leland Stanford Junior University Marching Band, 1978-2015",
+        "status": "primary",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Beyers, Robby",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [],
+        "identifier": [],
+        "affiliation": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1978",
+                "type": "start",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "2014",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "publication",
+            "encoding": {
+              "code": "marc",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "code": "cau",
+            "identifier": [],
+            "source": {
+              "code": "marccountry",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "monographic",
+            "type": "issuance",
+            "identifier": [],
+            "source": {
+              "value": "MODS issuance terms",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Slides",
+        "type": "genre",
+        "identifier": [],
+        "source": {
+          "code": "aat",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Digital photographs",
+        "type": "genre",
+        "identifier": [],
+        "source": {
+          "code": "aat",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "mixed material",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "manuscript",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "collection",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "LSJUMB Pix",
+        "type": "form",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "18",
+        "type": "extent",
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Linear feet",
+            "type": "unit",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "4236247.04",
+        "type": "extent",
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "megabyte(s)",
+            "type": "unit",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "230,000 photographs",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Includes slides and digital photographs of the Leland Stanford Junior University Marching Band and Dollies at Stanford University football games and other events",
+        "identifier": [],
+        "displayLabel": "Scope and content",
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "This collection is open for research. Access to Series 3 digital photographs is restricted to the Special Collections Reading Room. Please contact specialcollections@stanford.edu to request access",
+        "type": "restriction on access",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "These images are made available under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 License (https://creativecommons.org/licenses/by-nc-nd/3.0/us/). You may copy and redistribute the material in any medium or format but must give appropriate credit, provide a link to the license, and indicate if changes were made. You may not use the images for commercial purposes. If you remix, transform, or build upon the material, you may not distribute the modified material.  For commercial permission requests please contact the University Archives at universityarchives@stanford.edu",
+        "type": "use and reproduction",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Special Collections and University Archives materials are stored offsite and must be paged 36-48 hours in advance. For more information on paging collections, see the department's website: http://library.stanford.edu/spc",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "[item identification], Robby Beyers photographs of the Leland Stanford Junior University Marching Band (PC0170). Department of Special Collections and University Archives, Stanford University Libraries, Stanford, Calif.",
+        "type": "preferred citation",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Gift of Robby Beyers, 2015",
+        "type": "acquisition",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "For more than 40 years, Robby Beyers shot nearly every LSJUMB football halftime show, as well as many rallies, road trips and other sporting events, amassing a stunning archive of more than 180,000 photographs that are treasured by the hundreds of musicians, Dollies and Trees who rocked out in range of his lens. Beyers ('80, MS '82, PhD '89) died April 12, 2021, at 62 from ALS",
+        "type": "biographical/historical",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "identifier": [],
+    "subject": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "type": "place",
+        "code": "n-us-ca",
+        "identifier": [],
+        "source": {
+          "code": "marcgac",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford University",
+            "type": "organization",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Sports",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford University",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Marching Band",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "type": "organization",
+        "uri": "http://id.loc.gov/authorities/names/nr92033776",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford University",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Students",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "type": "organization",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Marching bands",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "California",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "College students",
+            "type": "topic",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "California",
+            "type": "place",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Football",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85050405",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "relatedResource": [
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "access": {
+          "url": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "http://www.oac.cdlib.org/findaid/ark:/13030/c8bk1hsc",
+              "identifier": [],
+              "displayLabel": "Finding aid",
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "physicalLocation": [],
+          "digitalLocation": [],
+          "accessContact": [],
+          "digitalRepository": [],
+          "note": []
+        },
+        "relatedResource": []
+      },
+      {
+        "title": [],
+        "contributor": [],
+        "event": [],
+        "form": [],
+        "language": [],
+        "note": [],
+        "identifier": [],
+        "subject": [],
+        "access": {
+          "url": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "https://archives.stanford.edu/findingaid/ark:/22236/s1bceaf04b-c3f7-40e5-8134-3c015153cb49",
+              "identifier": [],
+              "displayLabel": "Finding aid",
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "physicalLocation": [],
+          "digitalLocation": [],
+          "accessContact": [],
+          "digitalRepository": [],
+          "note": []
+        },
+        "relatedResource": []
+      }
+    ],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "affiliation": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [
+        {
+          "structuredValue": [],
+          "type": "creation",
+          "date": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "250206",
+              "encoding": {
+                "code": "marc",
+                "note": []
+              },
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "contributor": [],
+          "location": [],
+          "identifier": [],
+          "note": [],
+          "parallelEvent": []
+        },
+        {
+          "structuredValue": [],
+          "type": "modification",
+          "date": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "20250615034221.1",
+              "encoding": {
+                "code": "iso8601",
+                "note": []
+              },
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "contributor": [],
+          "location": [],
+          "identifier": [],
+          "note": [],
+          "parallelEvent": []
+        }
+      ],
+      "language": [
+        {
+          "appliesTo": [],
+          "code": "eng",
+          "groupedValue": [],
+          "note": [],
+          "parallelValue": [],
+          "source": {
+            "code": "iso639-2b",
+            "note": []
+          },
+          "structuredValue": []
+        }
+      ],
+      "note": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Converted from MARCXML to MODS version 3.7 using\n\t\t\t\tMARC21slim2MODS3-7_SDR_v2-7.xsl (SUL 3.7 version 2.7 20220901; LC Revision 1.140\n\t\t\t\t20200717)",
+          "type": "record origin",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "metadataStandard": [
+        {
+          "code": "appm",
+          "note": []
+        }
+      ],
+      "identifier": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "a11403803",
+          "type": "FOLIO",
+          "identifier": [],
+          "note": [],
+          "appliesTo": []
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/gh795jd5965"
+  },
+  "identification": {
+    "catalogLinks": [
+      {
+        "catalog": "folio",
+        "refresh": true,
+        "catalogRecordId": "a11403803"
+      },
+      {
+        "catalog": "symphony",
+        "refresh": true,
+        "catalogRecordId": "11403803"
+      },
+      {
+        "catalog": "previous symphony",
+        "refresh": false,
+        "catalogRecordId": "11403803"
+      }
+    ]
+  },
+  "created": "2025-08-04T16:39:53.000+00:00",
+  "modified": "2025-08-04T16:40:51.000+00:00",
+  "lock": "druid:gh795jd5965=2=2"
+}

@@ -1,0 +1,45 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/collection",
+  "externalIdentifier": "druid:nk125rg9884",
+  "label": "Rarebooks.info",
+  "version": 5,
+  "access": {
+    "view": "world",
+    "useAndReproductionStatement": "Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to access, publish or reproduce this content, please contact the Stanford Digital Repository (http://sdr.stanford.edu/contact)."
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:zw808bc8730",
+    "releaseTags": []
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Rarebooks.info",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [],
+    "event": [],
+    "form": [],
+    "geographic": [],
+    "language": [],
+    "note": [],
+    "identifier": [],
+    "subject": [],
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/nk125rg9884"
+  },
+  "identification": {
+    "catalogLinks": []
+  },
+  "created": "2022-12-12T19:08:29.000+00:00",
+  "modified": "2022-12-12T19:08:29.000+00:00",
+  "lock": "druid:nk125rg9884=0"
+}
