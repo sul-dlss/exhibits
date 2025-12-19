@@ -354,7 +354,7 @@ end
 
 def coll_title(resource)
   @collection_titles ||= {}
-  @collection_titles[resource.druid] ||= resource.identity_md_obj_label
+  @collection_titles[resource.druid] ||= resource.cocina_record.label
 end
 
 # @param Nokogiri::XML::Node role_node the role node from a parent name node
