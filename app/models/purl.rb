@@ -17,6 +17,7 @@ class Purl
   end
 
   delegate :exists?, to: :purl_service
+  delegate :cocina_doc, to: :cocina_record
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml

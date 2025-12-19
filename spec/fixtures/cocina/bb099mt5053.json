@@ -1,0 +1,633 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/media",
+  "externalIdentifier": "druid:bb099mt5053",
+  "label": "Fractal Music, Gary Jwo - John Bowne HS, Flushing, N.Y. 11367. I. Rubinstein - Research Coordinator",
+  "version": 9,
+  "access": {
+    "view": "location-based",
+    "download": "location-based",
+    "location": "spec",
+    "controlledDigitalLending": false,
+    "copyright": "Materials may be subject to copyright.",
+    "useAndReproductionStatement": "While Special Collections is the owner of the physical and digital items, permission to examine collection materials is not an authorization to publish. These materials are made available for use in research, teaching, and private study. Any transmission or reproduction beyond that allowed by fair use requires permission from the owners of rights, their heir(s) or assigns. When required, it is the researcher's responsibility to obtain such permissions. Access Condition: Content is available for access via the Special Collections Reading Room. For assistance please contact specialcollections@stanford.edu."
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:mq437xz1554"
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Fractal Music, Gary Jwo - John Bowne HS, Flushing, N.Y. 11367. I. Rubinstein - Research Coordinator",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Mandelbrot, Benoit B.",
+            "uri": "http://id.loc.gov/authorities/names/n81107154",
+            "identifier": [],
+            "source": {
+              "code": "naf",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "collector",
+            "code": "col",
+            "uri": "http://id.loc.gov/vocabulary/relators/col",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1932",
+                "type": "start",
+                "status": "primary",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "2012",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "creation",
+            "encoding": {
+              "code": "w3cdtf",
+              "note": []
+            },
+            "identifier": [],
+            "qualifier": "approximate",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [],
+        "location": [],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "sound",
+        "type": "genre",
+        "identifier": [],
+        "source": {
+          "code": "marcgt",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "sound recording-nonmusical",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "audiocassette",
+        "type": "form",
+        "uri": "http://rdvocab.info/termList/RDACarrierType/1007",
+        "identifier": [],
+        "source": {
+          "code": "rdacarrier",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "access",
+        "type": "reformatting quality",
+        "identifier": [],
+        "source": {
+          "value": "MODS reformatting quality terms",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "audio/mpeg",
+        "type": "media type",
+        "identifier": [],
+        "source": {
+          "value": "IANA media types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "1 audio cassette",
+        "type": "extent",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "reformatted digital",
+        "type": "digital origin",
+        "identifier": [],
+        "source": {
+          "value": "MODS digital origin terms",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "identifier": [],
+        "note": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "analog",
+            "identifier": [],
+            "displayLabel": "Recording type",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "magnetic",
+            "identifier": [],
+            "displayLabel": "Recording medium",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "1.875 ips",
+            "identifier": [],
+            "displayLabel": "Playback speed",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "mono",
+            "identifier": [],
+            "displayLabel": "Playback configuration",
+            "note": [],
+            "appliesTo": []
+          },
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "IEC Type I",
+            "identifier": [],
+            "displayLabel": "Special playback characteristics (equalization)",
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": [],
+        "uri": "http://id.loc.gov/vocabulary/iso639-2/eng"
+      }
+    ],
+    "note": [],
+    "identifier": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "M1857_bav15_018",
+        "type": "local",
+        "identifier": [],
+        "source": {
+          "code": "local",
+          "note": []
+        },
+        "displayLabel": "Source ID",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "subject": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Mandelbrot, Benoit B.",
+        "type": "person",
+        "uri": "http://id.loc.gov/authorities/names/n81107154",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Fractals",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85051147",
+        "identifier": [],
+        "source": {
+          "code": "lcsh",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "access": {
+      "url": [],
+      "physicalLocation": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "M1857",
+          "identifier": [],
+          "displayLabel": "Collection call number",
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalLocation": [],
+      "accessContact": [
+        {
+          "structuredValue": [],
+          "parallelValue": [],
+          "groupedValue": [],
+          "value": "Stanford University. Libraries. Department of Special Collections and University Archives",
+          "type": "repository",
+          "uri": "http://id.loc.gov/authorities/names/no2014019980",
+          "identifier": [],
+          "source": {
+            "code": "naf",
+            "note": []
+          },
+          "displayLabel": "Repository",
+          "note": [],
+          "appliesTo": []
+        }
+      ],
+      "digitalRepository": [],
+      "note": []
+    },
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "code": "CSt",
+              "uri": "http://id.loc.gov/vocabulary/organizations/cst",
+              "identifier": [],
+              "source": {
+                "code": "marcorg",
+                "note": []
+              },
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "structuredValue": [],
+              "parallelValue": [],
+              "groupedValue": [],
+              "value": "original cataloging agency",
+              "identifier": [],
+              "note": [],
+              "appliesTo": []
+            }
+          ],
+          "identifier": [],
+          "note": [],
+          "parallelContributor": []
+        }
+      ],
+      "event": [],
+      "language": [
+        {
+          "appliesTo": [],
+          "code": "eng",
+          "groupedValue": [],
+          "note": [],
+          "parallelValue": [],
+          "source": {
+            "code": "iso639-2b",
+            "note": []
+          },
+          "structuredValue": [],
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        }
+      ],
+      "note": [],
+      "metadataStandard": [],
+      "identifier": []
+    },
+    "purl": "https://purl.stanford.edu/bb099mt5053"
+  },
+  "identification": {
+    "catalogLinks": [],
+    "sourceId": "sul:M1857_bav15_018"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/audio",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/bb099mt5053-bb099mt5053_1",
+        "label": "Tape 1, Side A",
+        "version": 9,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/bb099mt5053-bb099mt5053_1/bb099mt5053_sl.m4a",
+              "label": "bb099mt5053_sl.m4a",
+              "filename": "bb099mt5053_sl.m4a",
+              "size": 13832365,
+              "version": 9,
+              "hasMimeType": "audio/mp4",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "4c985c45586eb9e52be95746c085c6bdfb2beafb"
+                },
+                {
+                  "type": "md5",
+                  "digest": "023a4826da1c6293c60c5bcebe3612cf"
+                }
+              ],
+              "access": {
+                "view": "location-based",
+                "download": "location-based",
+                "location": "spec",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": true,
+                "shelve": true
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/bb099mt5053-bb099mt5053_2",
+        "label": "Image of media (1 of 3)",
+        "version": 9,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/bb099mt5053-bb099mt5053_2/bb099mt5053_img_1.jp2",
+              "label": "bb099mt5053_img_1.jp2",
+              "filename": "bb099mt5053_img_1.jp2",
+              "size": 252140,
+              "version": 9,
+              "hasMimeType": "image/jp2",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "711d573353c82a825e5f8703150c49d7a7e8f014"
+                },
+                {
+                  "type": "md5",
+                  "digest": "fddc38156ce2a80ba64cae57b8c2aaa0"
+                }
+              ],
+              "access": {
+                "view": "location-based",
+                "download": "location-based",
+                "location": "spec",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 942,
+                "width": 1422
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/bb099mt5053-bb099mt5053_3",
+        "label": "Image of media (2 of 3)",
+        "version": 9,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/bb099mt5053-bb099mt5053_3/bb099mt5053_img_2.jp2",
+              "label": "bb099mt5053_img_2.jp2",
+              "filename": "bb099mt5053_img_2.jp2",
+              "size": 259809,
+              "version": 9,
+              "hasMimeType": "image/jp2",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "5227657b0499ea94b3492f02709844ba24f817b5"
+                },
+                {
+                  "type": "md5",
+                  "digest": "b55be09c538227cfdf95fff033804ec1"
+                }
+              ],
+              "access": {
+                "view": "location-based",
+                "download": "location-based",
+                "location": "spec",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 939,
+                "width": 1470
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/bb099mt5053-bb099mt5053_4",
+        "label": "Image of media (3 of 3)",
+        "version": 9,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/bb099mt5053-bb099mt5053_4/bb099mt5053_img_3.jp2",
+              "label": "bb099mt5053_img_3.jp2",
+              "filename": "bb099mt5053_img_3.jp2",
+              "size": 399892,
+              "version": 9,
+              "hasMimeType": "image/jp2",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "2ba7092861ddaefa8ca41fb98711a6a03f5c9d13"
+                },
+                {
+                  "type": "md5",
+                  "digest": "8c7f3e0bd5a3388f8e0830fb10079214"
+                }
+              ],
+              "access": {
+                "view": "location-based",
+                "download": "location-based",
+                "location": "spec",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 1482,
+                "width": 1434
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "hasMemberOrders": [],
+    "isMemberOf": [
+      "druid:sj775xm6965"
+    ]
+  },
+  "created": "2022-04-26T18:17:30.000+00:00",
+  "modified": "2024-06-13T05:02:48.000+00:00",
+  "lock": "druid:bb099mt5053=0=1"
+}

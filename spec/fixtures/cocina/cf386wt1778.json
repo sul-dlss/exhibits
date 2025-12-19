@@ -1,0 +1,340 @@
+{
+  "cocinaVersion": "0.108.3",
+  "type": "https://cocina.sul.stanford.edu/models/book",
+  "externalIdentifier": "druid:cf386wt1778",
+  "label": "Cambridge, Corpus Christi College, MS 069: Gregory the Great, Homiliae XL in euangelia",
+  "version": 15,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "useAndReproductionStatement": "Images courtesy of The Parker Library, Corpus Christi College, Cambridge. Licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. For higher resolution images suitable for scholarly or commercial publication, either in print or in an electronic format, please contact the Parker Library directly at parker-library@corpus.cam.ac.uk",
+    "license": "https://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:bm077td6448"
+  },
+  "description": {
+    "title": [
+      {
+        "value": "Cambridge, Corpus Christi College, MS 069: Gregory the Great, Homiliae XL in euangelia",
+        "source": {
+          "code": "Corpus Christi College"
+        }
+      },
+      {
+        "value": "Gregorii Homiliae",
+        "type": "alternative",
+        "displayLabel": "M.R. James Title"
+      }
+    ],
+    "event": [
+      {
+        "date": [
+          {
+            "value": "viii-ix",
+            "type": "creation"
+          },
+          {
+            "structuredValue": [
+              {
+                "value": "0800",
+                "type": "start",
+                "status": "primary"
+              },
+              {
+                "value": "0849",
+                "type": "end"
+              }
+            ],
+            "type": "creation",
+            "encoding": {
+              "code": "w3cdtf"
+            },
+            "qualifier": "approximate"
+          }
+        ]
+      }
+    ],
+    "form": [
+      {
+        "value": "mixed material",
+        "type": "resource type",
+        "source": {
+          "value": "MODS resource types"
+        }
+      },
+      {
+        "value": "manuscript",
+        "source": {
+          "value": "MODS resource types"
+        }
+      },
+      {
+        "value": "ff. 83",
+        "type": "extent",
+        "note": [
+          {
+            "value": "Vellum",
+            "type": "material",
+            "displayLabel": "Material"
+          },
+          {
+            "value": "Double columns of 31 and 36 lines.",
+            "type": "layout",
+            "displayLabel": "Layout"
+          },
+          {
+            "value": "In a fine Hiberno-Saxon hand.",
+            "type": "handNote",
+            "displayLabel": "Hand note"
+          },
+          {
+            "value": "With initials of Celtic type.",
+            "type": "decoNote",
+            "displayLabel": "Decoration note"
+          },
+          {
+            "value": "300 mm",
+            "type": "dimensions",
+            "displayLabel": "Height"
+          },
+          {
+            "value": "215 mm",
+            "type": "dimensions",
+            "displayLabel": "Width"
+          },
+          {
+            "value": "12 x 8.7 in",
+            "type": "dimensions",
+            "displayLabel": "Dimensions"
+          },
+          {
+            "value": "Reuocando",
+            "type": "secondFolio",
+            "displayLabel": "2 fo."
+          },
+          {
+            "value": "The initials are of rather rough execution. A peculiar feature is that every page is bordered on R. and L. and between the columns with lines of red dots, in groups of three.",
+            "type": "decoNote",
+            "displayLabel": "Decoration"
+          },
+          {
+            "value": "The hand varies in closeness but may very probably be the same throughout.",
+            "type": "handNote",
+            "displayLabel": "Writing"
+          },
+          {
+            "value": "ff. i + 1-83 + ii",
+            "type": "foliation",
+            "displayLabel": "Foliation"
+          }
+        ]
+      }
+    ],
+    "language": [
+      {
+        "code": "lat",
+        "source": {
+          "code": "iso639-2b",
+          "uri": "http://id.loc.gov/vocabulary/iso639-2"
+        },
+        "uri": "http://id.loc.gov/vocabulary/iso639-2/lat",
+        "value": "Latin"
+      }
+    ],
+    "note": [
+      {
+        "value": "CCCC MS 69, containing Gregory the Great's Forty Homilies on the Gospels, was written in Insular Hybrid minuscule and decorated in typical Insular fashion with red dots, interlace, and occasional animal heads. It was probably made in England south of the Humber, dating to the early part of the early ninth century, and is as such a relatively late product of the Insular book-producing tradition in England, which was to be greatly disrupted by Viking attacks of the middle of the ninth century. The text was used by Étaix in his edition of the work, although he denigrated it as containing terrible readings and fantastic spellings; but its place of origin and early date seemed to him too significant for the manuscript to be ignored.",
+        "type": "summary",
+        "displayLabel": "Summary"
+      },
+      {
+        "value": "https://stacks.stanford.edu/file/druid:nt812rh7571/MS_69.pdf",
+        "displayLabel": "Original James Record"
+      },
+      {
+        "value": "Homiliae XL in euangelia",
+        "type": "table of contents",
+        "displayLabel": "Contents"
+      }
+    ],
+    "identifier": [
+      {
+        "value": "CCCC:69",
+        "type": "local",
+        "source": {
+          "code": "local"
+        },
+        "displayLabel": "Source ID"
+      },
+      {
+        "value": "L. 14",
+        "displayLabel": "Stanley ID"
+      },
+      {
+        "value": "135",
+        "displayLabel": "T. James ID"
+      }
+    ],
+    "access": {
+      "physicalLocation": [
+        {
+          "value": "MS 69",
+          "type": "shelf locator"
+        }
+      ],
+      "accessContact": [
+        {
+          "value": "UK, Cambridge, Corpus Christi College, Parker Library",
+          "type": "repository"
+        }
+      ]
+    },
+    "relatedResource": [
+      {
+        "type": "referenced by",
+        "displayLabel": "Superseded Interim Catalogue Record",
+        "title": [
+          {
+            "value": "https://stacks.stanford.edu/file/druid:wh908xq0884/69.pdf"
+          }
+        ]
+      },
+      {
+        "type": "has part",
+        "title": [
+          {
+            "structuredValue": [
+              {
+                "value": "Homiliae XL in euangelia",
+                "type": "main title"
+              },
+              {
+                "value": "ff. 1r - 83v",
+                "type": "part number"
+              }
+            ]
+          },
+          {
+            "value": "Homilies on the Gospels",
+            "type": "alternative",
+            "displayLabel": "M.R. James Title"
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "value": "Gregory the Great"
+              }
+            ],
+            "type": "person",
+            "role": [
+              {
+                "value": "author",
+                "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                "source": {
+                  "code": "marcrelator"
+                }
+              }
+            ]
+          }
+        ],
+        "form": [
+          {
+            "value": "ff. 83",
+            "type": "extent"
+          }
+        ],
+        "note": [
+          {
+            "value": "The Gospel Lections are given in full"
+          },
+          {
+            "value": "Omelia euangeliorum gregorii papae urbis romae numero uiginti. secundum marcum",
+            "type": "rubric",
+            "displayLabel": "Rubric 1"
+          },
+          {
+            "value": "P. L. LXX [actually LXXVI]",
+            "type": "bibliographic",
+            "displayLabel": "Bibliographic reference"
+          },
+          {
+            "value": "In illo tempore maria magdalene et maria iacobi et solomae",
+            "type": "incipit",
+            "displayLabel": "Incipit"
+          },
+          {
+            "value": "uidebitis sicut dixit uobis",
+            "type": "explicit",
+            "displayLabel": "Explicit"
+          },
+          {
+            "value": "Initial I, in green, pink and yellow, with panels of interlaced work. The ground round it is thickly dotted with red. The letters \"N ILLO\" are filled in with pink and interlacing.",
+            "type": "decoNote",
+            "displayLabel": "Decoration"
+          },
+          {
+            "value": "Multis uobis lectionibus fratres karissimi",
+            "type": "rubric",
+            "displayLabel": "Rubric 2"
+          },
+          {
+            "value": "The Homilies are irregularly numbered: the last, imperfect, should be the xlth (on Dives and Lazarus)."
+          }
+        ]
+      },
+      {
+        "type": "referenced by",
+        "displayLabel": "Description appears in",
+        "title": [
+          {
+            "value": "A descriptive catalogue of the manuscripts in the library of Corpus Christi College, Cambridge, Vol. 1"
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "value": "James, M. R. (Montague Rhodes)"
+              }
+            ],
+            "type": "person",
+            "role": [
+              {
+                "value": "author",
+                "uri": "http://id.loc.gov/vocabulary/relators/aut",
+                "source": {
+                  "code": "marcrelator"
+                }
+              }
+            ]
+          }
+        ],
+        "purl": "https://purl.stanford.edu/kd310gm7424"
+      }
+    ],
+    "adminMetadata": {
+      "language": [
+        {
+          "code": "eng",
+          "source": {
+            "code": "iso639-2b",
+            "uri": "http://id.loc.gov/vocabulary/iso639-2"
+          },
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/cf386wt1778"
+  },
+  "identification": {
+    "sourceId": "CCCC:069"
+  },
+  "structural": {},
+  "created": "2011-11-01T18:08:15.000+00:00",
+  "modified": "2025-11-24T15:26:03.000+00:00",
+  "lock": "druid:cf386wt1778=2=2"
+}
