@@ -26,12 +26,12 @@ jobs:
             ${{ runner.os }}-gems-202103
       - name: Install ImageMagick
         run: sudo apt-get install -y imagemagick
-      - name: Bundle install
-        run: bundle config path vendor/bundle
+      - name: Bundle config
+        run: bundle config set path vendor/bundle
       - name: Use sidekiq pro
         env:
           BUNDLE_GEMS__CONTRIBSYS__COM: ${{ secrets.BUNDLE_GEMS__CONTRIBSYS__COM }}
-        run: bundle config --local gems.contribsys.com ${BUNDLE_GEMS__CONTRIBSYS__COM}
+        run: bundle config set --local gems.contribsys.com ${BUNDLE_GEMS__CONTRIBSYS__COM}
       - name: Install dependencies
         run: bundle install
       - name: Setup db
