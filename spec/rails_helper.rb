@@ -12,6 +12,19 @@ require 'capybara/rspec'
 
 require 'selenium-webdriver'
 
+Capybara.register_driver :selenium_chrome_headless do |app|
+  browser_options = Selenium::WebDriver::Chrome::Options.new
+  browser_options.add_argument('--window-size=1920,1080')
+  browser_options.add_argument('--headless')
+  browser_options.add_argument('--disable-renderer-backgrounding')
+  browser_options.add_argument('--disable-background-timer-throttling')
+  browser_options.add_argument('--disable-backgrounding-occluded-windows')
+  browser_options.add_argument('--disable-dev-shm-usage') # Helps with resource limits
+  browser_options.binary = ENV['CHROME_BIN'] if ENV['CHROME_BIN']
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+end
+
+Capybara.default_max_wait_time = ENV['CI'] ? 10 : 2
 Capybara.javascript_driver = :selenium_chrome_headless
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

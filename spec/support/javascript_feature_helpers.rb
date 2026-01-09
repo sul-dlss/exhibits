@@ -5,9 +5,13 @@
 module JavascriptFeatureHelpers
   def fill_in_typeahead_field(opts = {})
     type = opts[:type] || 'default'
+    selector = "[data-behavior='#{type}-typeahead'][role='combobox']"
 
-    find("auto-complete [data-behavior='#{type}-typeahead']").fill_in(with: opts[:with])
-    find("auto-complete[open] [role='option']", text: opts[:with], match: :first).click
+    # Role=combobox indicates that the auto-complete is initialized
+    find("auto-complete #{selector}").fill_in(with: opts[:with])
+    # Wait for the autocomplete to show both 'open' and 'aria-expanded="true"' or the results might be stale
+    expect(page).to have_css("auto-complete[open] #{selector}[aria-expanded='true']")
+    first('auto-complete[open] [role="option"]', text: opts[:with]).click
   end
 
   def add_widget(type)
