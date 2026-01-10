@@ -12,6 +12,7 @@ require 'capybara/rspec'
 
 require 'selenium-webdriver'
 
+Capybara.default_max_wait_time = ENV['CI'] ? 10 : 2
 Capybara.javascript_driver = :selenium_chrome_headless
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
