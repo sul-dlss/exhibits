@@ -136,5 +136,3 @@ gem 'cssbundling-rails', '~> 1.4'
 gem 'jsbundling-rails', '~> 1.3'
 
 gem 'rack-cors', '~> 2.0'
-
-gem 'connection_pool', '~> 2.5' # pinned until fix for https://github.com/rails/rails/issues/56291 is released
