@@ -168,7 +168,10 @@ to_field 'author_no_collector_ssim' do |resource, accumulator|
   accumulator.concat(non_collector_authors.map(&:display_value_w_date))
 end
 
-to_field 'box_ssi', stanford_mods(:box)
+to_field 'box_ssi', (accumulate { |resource, *_| resource.box })
+to_field 'folder_ssi', (accumulate { |resource, *_| resource.folder })
+to_field 'location_ssi', (accumulate { |resource, *_| resource.physical_location })
+to_field 'series_ssi', (accumulate { |resource, *_| resource.series })
 
 # add coordinates solr field containing the cartographic coordinates per
 # MODS subject.cartographics.coordinates (via stanford-mods gem)
@@ -179,11 +182,8 @@ to_field 'collector_ssim' do |resource, accumulator|
 
   accumulator.concat(collectors.map(&:display_value_w_date))
 end
-to_field 'folder_ssi', stanford_mods(:folder)
 to_field 'genre_ssim', stanford_mods(:term_values, :genre)
 to_field 'genre_ssim', stanford_mods(:term_values, [:subject, :genre])
-to_field 'location_ssi', stanford_mods(:physical_location_str)
-to_field 'series_ssi', stanford_mods(:series)
 to_field 'identifier_ssim', (accumulate { |resource, *_| resource.smods_rec.identifier.content })
 
 to_field 'geographic_srpt', (accumulate { |resource, *_| extract_geonames_ids(resource) }) do |_resource, accumulator, _context|

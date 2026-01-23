@@ -17,6 +17,7 @@ class Purl
   delegate :exists?, to: :purl_service
   delegate :cocina_doc, :collection?, :containing_collections,
            :virtual_object?, :virtual_object_members, to: :cocina_record
+  delegate :box, :folder, :physical_location, :series, to: :cocina_physical_location
 
   # @return [Nokogiri::XML::Document] the public XML document for this Purl object
   def public_xml
@@ -50,6 +51,12 @@ class Purl
   # methods for accessing Cocina metadata for indexing and display
   def cocina_record
     @cocina_record ||= CocinaDisplay::CocinaRecord.new(JSON.parse(purl_cocina_service.response_body.presence || '{}'))
+  end
+
+  # @return [CocinaPhysicalLocation] an object that provides methods for accessing
+  # physical location information from the Cocina record for indexing and display
+  def cocina_physical_location
+    @cocina_physical_location ||= CocinaPhysicalLocation.new(cocina_record:)
   end
 
   # @return [String] the value of the type attribute for a DOR object
