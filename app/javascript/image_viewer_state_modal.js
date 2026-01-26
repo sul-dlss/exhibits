@@ -68,7 +68,7 @@ class ImageViewerStateModal {
       console.error('Failed to parse the data from the image viewer')
       return null
     }
-    if (parsedData.type !== "stateResponse" || parsedData.source !== "sul-embed-m3") return null
+    if (parsedData.type !== "stateResponse" || parsedData.source !== "sul-embed-mirador") return null
     return parsedData.data
   }
 }
