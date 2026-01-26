@@ -1,8 +1,8 @@
 GEM
   remote: https://gems.contribsys.com/
   specs:
-    sidekiq-pro (8.0.3)
-      sidekiq (>= 8.0.8, < 9)
+    sidekiq-pro (8.1.0)
+      sidekiq (>= 8.1.0, < 9)
 
 GEM
   remote: https://rubygems.org/
@@ -430,7 +430,7 @@ GEM
     hashdiff (1.2.1)
     hashie (5.1.0)
       logger
-    honeybadger (6.2.0)
+    honeybadger (6.2.1)
       logger
       ostruct
     http (5.3.1)
@@ -640,7 +640,7 @@ GEM
       date
       stringio
     public_suffix (7.0.2)
-    puma (7.1.0)
+    puma (7.2.0)
       nio4r (~> 2.0)
     purl_fetcher-client (3.1.0)
       activesupport
@@ -710,7 +710,7 @@ GEM
     redcarpet (3.6.1)
     redis (5.4.1)
       redis-client (>= 0.22.0)
-    redis-client (0.26.3)
+    redis-client (0.26.4)
       connection_pool
     regexp_parser (2.11.3)
     reline (0.6.3)
@@ -811,12 +811,12 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     set (1.1.2)
-    sidekiq (8.0.10)
-      connection_pool (>= 2.5.0)
-      json (>= 2.9.0)
-      logger (>= 1.6.2)
-      rack (>= 3.1.0)
-      redis-client (>= 0.23.2)
+    sidekiq (8.1.0)
+      connection_pool (>= 3.0.0)
+      json (>= 2.16.0)
+      logger (>= 1.7.0)
+      rack (>= 3.2.0)
+      redis-client (>= 0.26.0)
     signet (0.21.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
