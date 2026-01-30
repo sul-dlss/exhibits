@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+env :SKIP_PENDING_MIGRATIONS_CHECK, true
+
 every :day, at: '3:00 am' do
   rake 'spotlight:prune_search_data[6]'
 end
