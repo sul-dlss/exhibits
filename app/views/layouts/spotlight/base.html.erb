@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="google-site-verification" content="<%= Settings.GOOGLE_SITE_VERIFICATION %>" />
+    <meta name="google-site-verification" content="<%= Settings.GOOGLE_SITE_VERIFICATION %>">
     <meta name="turbo-prefetch" content="false">
 
     <title><%= strip_tags(@page_title || application_name) %></title>
     <% if current_exhibit %>
-      <link href="<%= spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search"/>
+      <link href="<%= spotlight.opensearch_exhibit_catalog_url(current_exhibit, format: 'xml') %>" title="<%= application_name %>" type="application/opensearchdescription+xml" rel="search">
     <% end %>
 
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2025-01-24/styles/icon.png" type="image/png">
@@ -21,7 +21,7 @@
     <% else %>
       <%= stylesheet_link_tag "application" %>
     <% end %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2025-09-11/styles/sul.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2025-09-11/styles/sul.css">
     <%= stylesheet_link_tag "component_library_overrides" %>
     <script
 			  src="https://code.jquery.com/jquery-3.7.1.min.js"
