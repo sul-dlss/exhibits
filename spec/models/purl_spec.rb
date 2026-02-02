@@ -90,7 +90,7 @@ describe Purl do
   end
 
   describe '#dor_content_type' do
-    it 'returns the content type from contentMetadata' do
+    it 'returns the content type from cocina' do
       expect(purl.dor_content_type).to eq('image')
     end
   end
