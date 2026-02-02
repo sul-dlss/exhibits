@@ -51,12 +51,12 @@ class Purl
     @cocina_record ||= CocinaDisplay::CocinaRecord.new(JSON.parse(purl_cocina_service.response_body.presence || '{}'))
   end
 
-  # @return [String] the value of the type attribute for a DOR object's contentMetadata
+  # @return [String] the value of the type attribute for a DOR object
   #  more info about these values is here:
   #  https://consul.stanford.edu/display/chimera/DOR+content+types%2C+resource+types+and+interpretive+metadata
   #  https://consul.stanford.edu/spaces/chimera/pages/137495027/Summary+of+Content+and+Resource+Types+models+and+their+behaviors
   def dor_content_type
-    public_xml.xpath('//contentMetadata/@type').text
+    cocina_record.content_type
   end
 
   # @return [Array<Hash>] an array of hashes with keys `name` and `roles` with
