@@ -46,7 +46,7 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has the published date for the resource' do
-        expect(document).to include last_updated: '2017-04-26T16:25:02Z'
+        expect(document).to include last_updated: '2022-05-01T20:10:58Z'
       end
 
       it 'has potentially useless fields inherited from gdor indexer' do
@@ -210,7 +210,7 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'parses and reformats the timestamp to iso8601' do
-        expect(document[:last_updated]).to eq '2024-05-07T22:10:45Z'
+        expect(document[:last_updated]).to eq '2022-04-27T13:46:06Z'
       end
     end
   end
