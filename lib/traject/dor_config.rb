@@ -28,6 +28,8 @@ to_field 'collection_titles_ssim', (accumulate do |resource, *_|
   resource.collections.map { |collection| coll_title(collection) }
 end)
 
+to_field 'folio_hrid_ss', ->(resource, accumulator) { accumulator << resource.cocina_record.folio_hrid }
+
 # COLLECTION FIELDS
 to_field 'format_main_ssim', conditional(->(resource, *_) { resource.collection? }, literal('Collection'))
 to_field 'collection_type', conditional(->(resource, *_) { resource.collection? }, literal('Digital Collection'))

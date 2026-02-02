@@ -92,6 +92,7 @@ RSpec.describe 'indexing integration test' do
                                       'Lower portion of vellum leaf, removed from a binding.',
                                       'Script: professional gotica textualis, 2 columns, with a fair amount of abbreviations.'
                                     ],
+                                    folio_hrid_ss: ['a10157160'],
                                     topic_search: ['Manuscripts, Latin (Medieval and modern)'],
                                     geographic_search: ['France'],
                                     subject_all_search: ['Manuscripts, Latin (Medieval and modern)', 'France'],
