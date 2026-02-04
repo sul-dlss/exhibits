@@ -6,17 +6,17 @@ RSpec.describe Bibliography do
   subject(:bibliography) { described_class.new(bibtex) }
 
   context 'rendering bibliography as HTML' do
-    context 'phdthesis' do
+    context 'phd thesis' do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/phdthesis.bib') }
 
       it '#to_html' do
         expect(bibliography.to_html).to include 'Wilson, E. A. 1968. “A Critic'\
           'al Text, with Commentary of MS Eng. Theol. f. 39 in the Bodleian Li'\
-          'brary.” B.Litt., Oxford: University of Oxford.'
+          'brary.” B.Litt., University of Oxford.'
       end
     end
 
-    context 'incollection' do
+    context 'in collection' do
       let(:bibtex) { Pathname('spec/fixtures/bibliography/incollection.bib') }
 
       it '#to_html' do
@@ -24,8 +24,8 @@ RSpec.describe Bibliography do
         'le Wrecche’ at Work: the Life and Miracles of St. Erkenwald in the Gi'\
         'lte Legende, BL Add. 35298.” In <i>Legenda Aurea. Sept Siècles De Dif'\
         'fusion. Actes Du Colloque International Sur La Legenda Aurea, Univers'\
-        'ité Du Québec, Montréal, 11-12 Mai 1983</i>, edited by B. Dunn-Lardea'\
-        'u, 1st ed., 1:333–43. Textes Et Études Du Moyen Âge. Montréal/Paris: '\
+        'ité Du Québec, Montréal, 11-12 Mai 1983</i>, 1st ed., '\
+        'edited by B. Dunn-Lardeau, vol. 1. Textes Et Études Du Moyen Âge. '\
         'My Publisher.'
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe Bibliography do
       it '#to_html' do
         expect(bibliography.to_html).to include 'Azevedo, R. de. 1962. <i>A Car'\
         'ta Ou Memória Do Cruzado Inglês R. Para Osberto De Bawdsey Sobre a Co'\
-        'nquista De Lisboa Em 1147</i>. 1st ed. Vol. I. Coimbra: Faculdade de '\
+        'nquista De Lisboa Em 1147</i>. 1st ed. I. Faculdade de '\
         'Letras da Universidade de Coimbra.'
       end
     end

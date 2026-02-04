@@ -243,7 +243,7 @@ GEM
       set (~> 1.1)
       singleton (< 1.0)
       time (< 1.0)
-    csl-styles (2.0.1)
+    csl-styles (2.0.2)
       csl (~> 2.0)
     cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
@@ -879,10 +879,10 @@ DEPENDENCIES
   capistrano-rails
   capistrano-shared_configs
   capybara
-  citeproc-ruby
+  citeproc-ruby (~> 2.1)
   cocina_display (~> 1.6)
   config
-  csl-styles (= 2.0.1)
+  csl-styles (~> 2.0)
   cssbundling-rails (~> 1.4)
   database_cleaner
   debug
