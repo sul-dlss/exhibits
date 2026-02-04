@@ -14,26 +14,16 @@ jobs:
         ruby: ["4.0"]
     steps:
       - uses: actions/checkout@v6
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-      - uses: actions/cache@v5
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-202103-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-202103
       - name: Install ImageMagick
         run: sudo apt-get install -y imagemagick
-      - name: Bundle config
-        run: bundle config set path vendor/bundle
-      - name: Use sidekiq pro
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         env:
           BUNDLE_GEMS__CONTRIBSYS__COM: ${{ secrets.BUNDLE_GEMS__CONTRIBSYS__COM }}
-        run: bundle config set --local gems.contribsys.com ${BUNDLE_GEMS__CONTRIBSYS__COM}
-      - name: Install dependencies
-        run: bundle install
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          # Automatically runs 'bundle install' and caches the gems
+          bundler-cache: true
       - name: Setup db
         run: bin/rails db:test:prepare
       - name: Run tests
