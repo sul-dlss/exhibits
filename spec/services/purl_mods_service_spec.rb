@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe PurlModsService do
+RSpec.describe PurlModsService do
   subject(:mods_service) { described_class.call(public_xml) }
 
   let(:public_xml) { Nokogiri::XML(File.read(File.join(FIXTURES_PATH, 'gh795jd5965.xml'))) }
