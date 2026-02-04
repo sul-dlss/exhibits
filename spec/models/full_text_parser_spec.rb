@@ -20,7 +20,7 @@ RSpec.describe FullTextParser do
   describe '#to_text' do
     subject(:ocr_text) { parser.to_text }
 
-    let(:fixture_file) { File.read(File.join(FIXTURES_PATH, 'cc842mn9348_ocr_1.xml')) }
+    let(:fixture_file) { File.read(File.join(FIXTURES_PATH, 'ocr/cc842mn9348_ocr_1.xml')) }
     let(:file_name) { 'EastTimor_CE-SPSC_Final_Decisions_2001_04b-2001_Sabino_Gouveia_Leite_Judgment_0001.xml' }
 
     before do

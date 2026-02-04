@@ -17,9 +17,6 @@ RSpec.describe 'indexing integration test' do
     stub_request(:post, /update/)
     %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 xy581jd9710
        vk620zs1672 ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079 ts786ny5936).each do |fixture|
-      stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
-        body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
-      )
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.json").to_return(
         body: File.new(File.join(FIXTURES_PATH, "cocina/#{fixture}.json")), status: 200
       )
@@ -47,7 +44,7 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has the gdor data' do
-        expect(document).to include :modsxml, :modsxml_tsi
+        expect(document).to include :cocina_description_tsi
       end
 
       it 'has the fulltext url' do
@@ -75,7 +72,7 @@ RSpec.describe 'indexing integration test' do
                                     full_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!3000,3000/0/default.jpg']
       end
 
-      it 'has MODS title fields' do
+      it 'has title fields' do
         expect(document).to include title_245_search: 'Latin glossary : small manuscript fragment on vellum.',
                                     title_245a_display: 'Latin glossary : small manuscript fragment on vellum',
                                     title_245a_search: 'Latin glossary : small manuscript fragment on vellum',
@@ -83,17 +80,17 @@ RSpec.describe 'indexing integration test' do
                                     title_sort: 'Latin glossary small manuscript fragment on vellum'
       end
 
-      it 'has MODS author fields' do
-        expect(document).to include author_sort: "\u{10FFFF} Latin glossary  small manuscript fragment on vellum"
+      it 'has author fields' do
+        expect(document).to include author_sort: "\u{10FFFF} Latin glossary small manuscript fragment on vellum"
       end
 
-      it 'has MODS origin info fields' do
-        expect(document).to include imprint_display: 'France?, [1200 - 1299?] 13th century',
+      it 'has origin info fields' do
+        expect(document).to include imprint_display: 'France?, 13th century',
                                     pub_year_isi: 1200,
                                     pub_year_no_approx_isi: 1200,
                                     pub_year_w_approx_isi: 1200,
                                     pub_year_tisim: (1200..1299).to_a,
-                                    place_created_ssim: ['France?'],
+                                    place_created_ssim: ['France?', 'France'],
                                     date_ssim: ['13th century', '[1200 - 1299?]']
       end
 
@@ -112,7 +109,7 @@ RSpec.describe 'indexing integration test' do
                                     language: ['Latin'],
                                     physical: ['1 fragment, 96 x 151 mm.'],
                                     summary_search: [start_with('Unidentified Latin vocabulary')],
-                                    pub_search: ['fr', 'France?']
+                                    pub_search: ['France?', 'France']
       end
 
       it 'has spotlight data' do
@@ -127,13 +124,13 @@ RSpec.describe 'indexing integration test' do
     let(:druid) { 'xy581jd9710' }
 
     it 'has geographic coordinates' do
-      expect(document).to include geographic_srpt: ['ENVELOPE(-119.66694444444445, 168.46305555555554, -66.64972222222222, -89.88416666666667)',
-                                                    'ENVELOPE(-119.667, 168.463, -66.6497, -89.8842)'],
-                                  coordinates_tesim: ['W 119°40ʹ1ʺ--E 168°27ʹ47ʺ/S 66°38ʹ59ʺ--S 89°53ʹ3ʺ']
+      expect(document).to include geographic_srpt: ['ENVELOPE(-119.666944, 168.463056, -66.649722, -89.884167)',
+                                                    'ENVELOPE(-119.667000, 168.463000, -66.649700, -89.884200)'],
+                                  coordinates_tesim: ['119°40′01″W -- 168°27′47″E / 66°38′59″S -- 89°53′03″S']
     end
 
     it 'has other metadata fields' do
-      expect(document).to include genre_ssim: ['Geospatial data', 'cartographic dataset'],
+      expect(document).to include genre_ssim: ['Geospatial data', 'Cartographic dataset'],
                                   era_facet: ['1978']
     end
   end
@@ -182,7 +179,7 @@ RSpec.describe 'indexing integration test' do
     let(:druid) { 'cc842mn9348' }
 
     before do
-      fixture_file = File.new(File.join(FIXTURES_PATH, 'cc842mn9348_ocr_1.xml'))
+      fixture_file = File.new(File.join(FIXTURES_PATH, 'ocr/cc842mn9348_ocr_1.xml'))
       stub_request(
         :get,
         'https://stacks.stanford.edu/file/cc842mn9348/EastTimor_CE-SPSC_Final_Decisions_2001_04b-2001_Sabino_Gouveia_Leite_Judgment_0001.xml'
@@ -208,7 +205,7 @@ RSpec.describe 'indexing integration test' do
                                   incipit_tesim: ['In illo tempore maria magdalene et maria iacobi et solomae'],
                                   manuscript_number_tesim: ['MS 69'],
                                   toc_search: ['Homiliae XL in euangelia'],
-                                  url_suppl: ['https://purl.stanford.edu/kd310gm7424', 'https://purl.stanford.edu/dx969tv9730']
+                                  url_suppl: ['https://purl.stanford.edu/kd310gm7424']
     end
 
     it 'has other fields that are present in parker data' do
@@ -295,7 +292,8 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'author fields are populated' do
-        expect(document).to include author_7xx_search: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
+        expect(document).to include author_1xx_search: 'Lasinio, Carlo, 1759-1838',
+                                    author_7xx_search: ['Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_facet: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_full_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19']

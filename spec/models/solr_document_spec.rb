@@ -4,10 +4,13 @@ require 'rails_helper'
 
 RSpec.describe SolrDocument do
   describe '#export_as_mods' do
-    subject { described_class.new(modsxml: '123') }
+    subject { described_class.new(druid: '123') }
 
     it 'provides the original MODS metadata' do
-      expect(subject.export_as_mods).to eq '123'
+      stub_request(:get, 'https://purl.stanford.edu/123.mods').to_return(status: 200,
+                                                                         body: '<mods></mods>',
+                                                                         headers: {})
+      expect(subject.export_as_mods).to eq '<mods></mods>'
     end
 
     context 'for a document without mods' do

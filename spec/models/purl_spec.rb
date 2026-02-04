@@ -8,9 +8,6 @@ RSpec.describe Purl do
   let(:druid) { 'kj040zn0537' }
 
   before do
-    stub_request(:get, "https://purl.stanford.edu/#{druid}.xml").to_return(
-      body: File.new(File.join(FIXTURES_PATH, "#{druid}.xml")), status: 200
-    )
     stub_request(:get, "https://purl.stanford.edu/#{druid}.json").to_return(
       body: File.new(File.join(FIXTURES_PATH, "cocina/#{druid}.json")), status: 200
     )
@@ -71,12 +68,6 @@ RSpec.describe Purl do
     end
   end
 
-  describe '#smods_rec' do
-    it 'returns a Stanford::Mods::Record object' do
-      expect(purl.smods_rec).to be_a(Stanford::Mods::Record)
-    end
-  end
-
   describe '#cocina_record' do
     before do
       stub_request(:get, "https://purl.stanford.edu/#{druid}.json").to_return(
@@ -86,28 +77,6 @@ RSpec.describe Purl do
 
     it 'returns a CocinaDisplay::CocinaRecord object' do
       expect(purl.cocina_record).to be_a(CocinaDisplay::CocinaRecord)
-    end
-  end
-
-  describe '#dor_content_type' do
-    it 'returns the content type from cocina' do
-      expect(purl.dor_content_type).to eq('image')
-    end
-  end
-
-  describe '#imprint_display' do
-    it 'returns a ModsDisplay::Imprint object' do
-      expect(purl.imprint_display).to be_a(ModsDisplay::Imprint)
-    end
-  end
-
-  describe '#display_names_with_roles' do
-    it 'returns an array of names with role labels' do
-      expect(purl.display_names_with_roles).to contain_exactly(
-        { name: 'Lasinio, Carlo, 1759-1838', roles: ['Engraver'] },
-        { name: 'Pellegrini, Domenico, 1759-1840', roles: ['Artist', 'Bibliographic antecedent'] },
-        { name: 'Vinck, Carl de, 1859-19', roles: ['Collector'] }
-      )
     end
   end
 end
