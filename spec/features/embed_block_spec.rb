@@ -30,7 +30,7 @@ RSpec.feature 'Solr Documents Embed Block', :js do
 
   describe 'block editing form' do
     it 'has a number field to input the hight (with a default placeholder)' do
-      fill_in_solr_document_block_typeahead_field(with: 'zy575vf8599')
+      fill_in_typeahead_field(with: 'zy575vf8599')
 
       expect(page).to have_css('label', text: 'Maximum height of viewer (in pixels)')
       number_input = page.find('input[type="number"][placeholder]')
@@ -43,7 +43,7 @@ RSpec.feature 'Solr Documents Embed Block', :js do
     end
 
     it 'allows curators to set the maxheight paramter sent to the Embed' do
-      fill_in_solr_document_block_typeahead_field(with: 'zy575vf8599')
+      fill_in_typeahead_field(with: 'zy575vf8599')
       fill_in 'Maximum height of viewer (in pixels)', with: 300
 
       save_page_changes
@@ -51,7 +51,7 @@ RSpec.feature 'Solr Documents Embed Block', :js do
     end
 
     it 'allows curators to select the image area' do
-      fill_in_solr_document_block_typeahead_field(with: 'zy575vf8599')
+      fill_in_typeahead_field(with: 'zy575vf8599')
 
       expect(page).to have_css('.select-image-area')
     end
