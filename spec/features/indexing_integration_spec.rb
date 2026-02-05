@@ -15,8 +15,8 @@ RSpec.describe 'indexing integration test' do
     allow(rsolr_client).to receive(:commit)
 
     stub_request(:post, /update/)
-    %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994
-       ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079 ts786ny5936).each do |fixture|
+    %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 xy581jd9710
+       vk620zs1672 ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079 ts786ny5936).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.xml").to_return(
         body: File.new(File.join(FIXTURES_PATH, "#{fixture}.xml")), status: 200
       )
@@ -24,6 +24,11 @@ RSpec.describe 'indexing integration test' do
         body: File.new(File.join(FIXTURES_PATH, "cocina/#{fixture}.json")), status: 200
       )
     end
+
+    stub_request(:get, 'http://api.geonames.org/get?geonameId=6255152&username=').with(
+      headers: { 'Accept' => '*/*',
+                 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3' }
+    ).to_return(status: 200, body: '', headers: {})
   end
 
   context 'regular image item' do
@@ -42,7 +47,11 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has the gdor data' do
-        expect(document).to include :modsxml, :url_fulltext, :modsxml_tsi
+        expect(document).to include :modsxml, :modsxml_tsi
+      end
+
+      it 'has the fulltext url' do
+        expect(document).to include url_fulltext: 'https://purl.stanford.edu/xf680rd3068'
       end
 
       it 'has the published date for the resource' do
@@ -59,6 +68,7 @@ RSpec.describe 'indexing integration test' do
 
       it 'has content metadata fields' do
         expect(document).to include content_metadata_type_ssim: ['image'],
+                                    content_metadata_image_iiif_info_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/info.json'],
                                     thumbnail_square_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/square/100,100/0/default.jpg'],
                                     thumbnail_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!400,400/0/default.jpg'],
                                     large_image_url_ssm: ['https://stacks.stanford.edu/image/iiif/xf680rd3068%2Fxf680rd3068_00_0001/full/!1000,1000/0/default.jpg'],
@@ -111,6 +121,23 @@ RSpec.describe 'indexing integration test' do
     end
   end
 
+  context 'item with geographic coordinates' do
+    subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
+
+    let(:druid) { 'xy581jd9710' }
+
+    it 'has geographic coordinates' do
+      expect(document).to include geographic_srpt: ['ENVELOPE(-119.66694444444445, 168.46305555555554, -66.64972222222222, -89.88416666666667)',
+                                                    'ENVELOPE(-119.667, 168.463, -66.6497, -89.8842)'],
+                                  coordinates_tesim: ['W 119°40ʹ1ʺ--E 168°27ʹ47ʺ/S 66°38ʹ59ʺ--S 89°53ʹ3ʺ']
+    end
+
+    it 'has other metadata fields' do
+      expect(document).to include genre_ssim: ['Geospatial data', 'cartographic dataset'],
+                                  era_facet: ['1978']
+    end
+  end
+
   context 'feigenbaum item' do
     subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
 
@@ -118,6 +145,11 @@ RSpec.describe 'indexing integration test' do
 
     before do
       stub_request(:get, 'https://stacks.stanford.edu/file/rk684yq9989/rk684yq9989.txt').to_return(body: 'full text', status: 200)
+    end
+
+    it 'has other metadata fields' do
+      expect(document).to include identifier_ssim: ['SC0340_1986-052_rk684yq9989'],
+                                  author_no_collector_ssim: ['Baskett, Forest', 'Bechtolscheim, Andreus']
     end
 
     it 'has collection information' do
@@ -180,7 +212,9 @@ RSpec.describe 'indexing integration test' do
     end
 
     it 'has other fields that are present in parker data' do
-      expect(document).to include repository_ssim: ['UK, Cambridge, Corpus Christi College, Parker Library'],
+      expect(document).to include identifier_ssim: ['CCCC:69', 'L. 14', '135'],
+                                  repository_ssim: ['UK, Cambridge, Corpus Christi College, Parker Library'],
+                                  title_variant_search: ['Gregorii Homiliae'],
                                   identifier_displayLabel_ssim: ['Source ID-|-CCCC:69', 'Stanley ID-|-L. 14', 'T. James ID-|-135']
     end
   end
@@ -223,6 +257,7 @@ RSpec.describe 'indexing integration test' do
 
       it 'has content metadata fields' do
         expect(document).to include content_metadata_type_ssim: ['image'],
+                                    content_metadata_image_iiif_info_ssm: ['https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/info.json'],
                                     thumbnail_square_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/square/100,100/0/default.jpg),
                                     thumbnail_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!400,400/0/default.jpg),
                                     large_image_url_ssm: %w(https://stacks.stanford.edu/image/iiif/ts786ny5936%2FPC0170_s1_E_0204/full/!1000,1000/0/default.jpg),
@@ -258,6 +293,13 @@ RSpec.describe 'indexing integration test' do
       it 'has name_roles_ssim' do
         expect(document).to include name_roles_ssim: ['Engraver|Lasinio, Carlo, 1759-1838', 'Artist|Pellegrini, Domenico, 1759-1840', 'Bibliographic antecedent|Pellegrini, Domenico, 1759-1840', 'Collector|Vinck, Carl de, 1859-19']
       end
+
+      it 'author fields are populated' do
+        expect(document).to include author_7xx_search: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
+                                    author_person_facet: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
+                                    author_person_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
+                                    author_person_full_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19']
+      end
     end
   end
 
@@ -269,6 +311,15 @@ RSpec.describe 'indexing integration test' do
 
       it 'has name_roles_ssim' do
         expect(document).to include name_roles_ssim: ['|Packard, David, 1912-1996', '|Packard, Lucile', '|Hewlett-Packard Company', '|Hewlett, William R.']
+      end
+
+      it 'author fields are populated' do
+        expect(document).to include author_1xx_search: 'Packard, David, 1912-1996',
+                                    author_other_facet: ['Hewlett-Packard Company'],
+                                    author_corp_display: ['Hewlett-Packard Company'],
+                                    author_person_facet: ['Packard, David, 1912-1996', 'Packard, Lucile', 'Hewlett, William R.'],
+                                    author_person_display: ['Packard, David, 1912-1996', 'Packard, Lucile', 'Hewlett, William R.'],
+                                    author_person_full_display: ['Packard, David, 1912-1996', 'Packard, Lucile', 'Hewlett, William R.']
       end
     end
   end

@@ -1,0 +1,366 @@
+{
+  "cocinaVersion": "0.75.0",
+  "type": "https://cocina.sul.stanford.edu/models/collection",
+  "externalIdentifier": "druid:vk620zs1672",
+  "label": "Stanford-Cambridge Radar Film Digitization Project",
+  "version": 4,
+  "access": {
+    "view": "world",
+    "copyright": "Dustin Schroeder and the Scott Polar Research Institute, 2018.",
+    "useAndReproductionStatement": "This work is licensed under a Creative Commons license. As a condition of using these data, you must follow the terms of the license and cite the use of this data set using the preferred citation displayed on this page.",
+    "license": "https://creativecommons.org/licenses/by/3.0/legalcode"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:sf062zy7895"
+  },
+  "description": {
+    "title": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Stanford-Cambridge Radar Film Digitization Project",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Scott Polar Research Institute",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "creator",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "affiliation": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Danmarks tekniske højskole",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "creator",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "affiliation": [],
+        "note": [],
+        "parallelContributor": []
+      },
+      {
+        "name": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford University. Department of Geophysics",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "creator",
+            "identifier": [],
+            "source": {
+              "code": "marcrelator",
+              "note": []
+            },
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "affiliation": [],
+        "note": [],
+        "parallelContributor": []
+      }
+    ],
+    "event": [
+      {
+        "structuredValue": [],
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1965",
+                "type": "start",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              },
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "1979",
+                "type": "end",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "parallelValue": [],
+            "groupedValue": [],
+            "type": "publication",
+            "encoding": {
+              "code": "marc",
+              "note": []
+            },
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "contributor": [
+          {
+            "name": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "Stanford University. Department of Geophysics",
+                "identifier": [],
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "type": "organization",
+            "role": [
+              {
+                "structuredValue": [],
+                "parallelValue": [],
+                "groupedValue": [],
+                "value": "publisher",
+                "code": "pbl",
+                "uri": "http://id.loc.gov/vocabulary/relators/pbl",
+                "identifier": [],
+                "source": {
+                  "code": "marcrelator",
+                  "uri": "http://id.loc.gov/vocabulary/relators/",
+                  "note": []
+                },
+                "note": [],
+                "appliesTo": []
+              }
+            ],
+            "identifier": [],
+            "affiliation": [],
+            "note": [],
+            "parallelContributor": []
+          }
+        ],
+        "location": [
+          {
+            "structuredValue": [],
+            "parallelValue": [],
+            "groupedValue": [],
+            "value": "Stanford, California, US",
+            "identifier": [],
+            "note": [],
+            "appliesTo": []
+          }
+        ],
+        "identifier": [],
+        "note": [],
+        "parallelEvent": []
+      }
+    ],
+    "form": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "aerial photographs",
+        "type": "genre",
+        "uri": "http://vocab.getty.edu/aat/300128222",
+        "identifier": [],
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "still image",
+        "type": "resource type",
+        "identifier": [],
+        "source": {
+          "value": "MODS resource types",
+          "note": []
+        },
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "TIFF",
+        "type": "form",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "geographic": [],
+    "language": [
+      {
+        "appliesTo": [],
+        "code": "eng",
+        "groupedValue": [],
+        "note": [],
+        "parallelValue": [],
+        "source": {
+          "code": "iso639-2b",
+          "note": []
+        },
+        "structuredValue": []
+      }
+    ],
+    "note": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "The Stanford-Cambridge Radar Film Digitization Project is an Antarctic survey conducted by an international consortium of American, British and Danish geoscientists.",
+        "type": "abstract",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Dustin Schroeder and the Scott Polar Research Institute, 2018. Available at: http://purl.stanford.edu/vk620zs1672.",
+        "identifier": [],
+        "displayLabel": "Preferred citation",
+        "note": [],
+        "valueLanguage": {
+          "code": "eng",
+          "note": [],
+          "source": {
+            "code": "iso639-2b",
+            "note": []
+          }
+        },
+        "appliesTo": []
+      }
+    ],
+    "identifier": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "https://doi.org/10.25740/ykq4-9345",
+        "type": "DOI",
+        "identifier": [],
+        "source": {
+          "code": "doi",
+          "note": []
+        },
+        "displayLabel": "DOI",
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "subject": [
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "Antarctica",
+        "type": "place",
+        "identifier": [],
+        "note": [],
+        "valueLanguage": {
+          "code": "eng",
+          "note": [],
+          "source": {
+            "code": "iso639-2b",
+            "note": []
+          }
+        },
+        "appliesTo": []
+      },
+      {
+        "structuredValue": [],
+        "parallelValue": [],
+        "groupedValue": [],
+        "value": "W 180.0--E 180.0/S 060.1--S 085.1",
+        "type": "map coordinates",
+        "identifier": [],
+        "note": [],
+        "appliesTo": []
+      }
+    ],
+    "relatedResource": [],
+    "marcEncodedData": [],
+    "purl": "https://purl.stanford.edu/vk620zs1672"
+  },
+  "identification": {
+    "catalogLinks": []
+  },
+  "created": "2022-05-01T09:25:29.000+00:00",
+  "modified": "2024-06-13T09:40:33.000+00:00",
+  "lock": "druid:vk620zs1672=0=1"
+}
