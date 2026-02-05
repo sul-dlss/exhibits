@@ -11,14 +11,6 @@ module Traject
           end
         end
       end
-
-      def resource_images_iiif_urls
-        lambda do |resource, accumulator, _context|
-          next unless resource.thumbnail_identifier
-
-          accumulator << resource.thumbnail_identifier
-        end
-      end
     end
   end
 end

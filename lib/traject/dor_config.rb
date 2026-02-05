@@ -223,25 +223,16 @@ end
 
 to_field 'content_metadata_type_ssm', copy('content_metadata_type_ssim')
 
-to_field 'content_metadata_image_iiif_info_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/info.json" }
+to_field 'content_metadata_image_iiif_info_ssm' do |resource, accumulator, _context|
+  next if resource.thumbnail_identifier.blank?
+
+  accumulator << "#{::Settings.stacks.iiif_url}/#{resource.thumbnail_identifier}/info.json"
 end
 
-to_field 'thumbnail_square_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/square/100,100/0/default.jpg" }
-end
-
-to_field 'thumbnail_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/full/!400,400/0/default.jpg" }
-end
-
-to_field 'large_image_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/full/!1000,1000/0/default.jpg" }
-end
-
-to_field 'full_image_url_ssm', resource_images_iiif_urls do |_resource, accumulator, _context|
-  accumulator.map! { |base_url| "#{base_url}/full/!3000,3000/0/default.jpg" }
-end
+to_field 'thumbnail_square_url_ssm', (accumulate { |resource, *_| resource.thumbnail_url(region: 'square', width: '100', height: '100') })
+to_field 'thumbnail_url_ssm', (accumulate { |resource, *_| resource.thumbnail_url(width: '!400', height: '400') })
+to_field 'large_image_url_ssm', (accumulate { |resource, *_| resource.thumbnail_url(width: '!1000', height: '1000') })
+to_field 'full_image_url_ssm', (accumulate { |resource, *_| resource.thumbnail_url(width: '!3000', height: '3000') })
 
 # FEIGENBAUM FIELDS
 
