@@ -15,7 +15,7 @@ RSpec.describe Metadata::CocinaComponent, type: :component do
   end
 
   let(:druid) { 'hp566jq8781' }
-  let(:document) { SolrDocument.new(id: druid) }
+  let(:document) { SolrDocument.new(id: druid, spotlight_resource_type_ssim: ['dor_harvesters']) }
 
   context 'when the document has Cocina' do
     it 'renders the component' do

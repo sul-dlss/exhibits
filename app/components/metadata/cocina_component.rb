@@ -10,10 +10,8 @@ module Metadata
 
     delegate :cocina_record, to: :purl
 
-    # TODO: In future work we will want something indexed to indicate whether
-    #       we should display metadata from Cocina.
     def render?
-      Settings.cocina.metadata_display_source
+      Settings.cocina.metadata_display_source && @document.dor_resource_type?
     end
 
     def purl

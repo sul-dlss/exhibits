@@ -29,6 +29,11 @@ class SolrDocument
     document[:modsxml]
   end
 
+  # document was harvested via dor_harvesters from Purl/SDR
+  def dor_resource_type?
+    self['spotlight_resource_type_ssim']&.include?('dor_harvesters')
+  end
+
   def full_text_highlights
     highlighting_response = response.dig('highlighting', id) || {}
 
