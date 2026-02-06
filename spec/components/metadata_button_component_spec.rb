@@ -23,4 +23,26 @@ RSpec.describe MetadataButtonComponent, type: :component do
       expect(rendered).not_to have_css 'a', text: 'More details »'
     end
   end
+
+  context 'when cocina metadata display is enabled' do
+    before do
+      allow(Settings.cocina).to receive(:metadata_display_source).and_return(true)
+    end
+
+    context 'when document is a dor resource' do
+      let(:document) { SolrDocument.new(id: 'abc', spotlight_resource_type_ssim: ['dor_harvesters']) }
+
+      it 'displays the metadata button' do
+        expect(rendered).to have_css 'a', text: 'More details »'
+      end
+    end
+
+    context 'when document is not a dor resource' do
+      let(:document) { SolrDocument.new(id: 'abc') }
+
+      it 'does not display the metadata button' do
+        expect(rendered).not_to have_css 'a', text: 'More details »'
+      end
+    end
+  end
 end
