@@ -351,6 +351,9 @@ GEM
       faraday (>= 1.0, < 3.a)
     google-cloud-errors (1.5.0)
     google-logging-utils (0.2.0)
+    google-protobuf (4.33.5)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.33.5-arm64-darwin)
       bigdecimal
       rake (>= 13)
@@ -371,6 +374,9 @@ GEM
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (>= 0.16, < 2.a)
+    grpc (1.78.0)
+      google-protobuf (>= 3.25, < 5.0)
+      googleapis-common-protos-types (~> 1.0)
     grpc (1.78.0-arm64-darwin)
       google-protobuf (>= 3.25, < 5.0)
       googleapis-common-protos-types (~> 1.0)
