@@ -14,7 +14,7 @@ class Purl
     @druid = druid
   end
 
-  delegate :exists?, to: :purl_service
+  delegate :exists?, to: :purl_cocina_service
   delegate :cocina_doc, :collection?, :containing_collections,
            :virtual_object?, :virtual_object_members, to: :cocina_record
   delegate :box, :folder, :physical_location, :series, to: :cocina_physical_location
