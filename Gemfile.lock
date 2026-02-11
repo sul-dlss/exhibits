@@ -219,7 +219,7 @@ GEM
       citeproc (~> 1.0, >= 1.0.9)
       csl (~> 2.0)
       observer (< 1.0)
-    cocina_display (1.7.0)
+    cocina_display (1.8.0)
       activesupport (>= 7)
       edtf (~> 3.2)
       geo_coord (~> 0.2)
@@ -892,7 +892,7 @@ DEPENDENCIES
   capistrano-shared_configs
   capybara
   citeproc-ruby (~> 2.1)
-  cocina_display (~> 1.7)
+  cocina_display (~> 1.8)
   config
   csl-styles (~> 2.0)
   cssbundling-rails (~> 1.4)

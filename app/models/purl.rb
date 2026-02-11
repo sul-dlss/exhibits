@@ -93,9 +93,15 @@ class Purl
   end
 
   # @return [String] the thumbnail identifier for this PURL object or the first
-  #                  virtual object member if this is a virtual object
+  # virtual object member if this is a virtual object
   def thumbnail_identifier
-    @thumbnail_identifier ||= PurlThumbnail.new(purl_object: thumbnail_purl).thumbnail_identifier
+    @thumbnail_identifier ||= thumbnail_purl.cocina_record.thumbnail_file&.iiif_id
+  end
+
+  # @return [String] the thumbnail URL for this PURL object or the first
+  # virtual object member if this is a virtual object
+  def thumbnail_url(region: 'full', width: '!400', height: '400')
+    thumbnail_purl.cocina_record.thumbnail_url(region:, width:, height:)
   end
 
   delegate :logger, to: :Rails
@@ -120,6 +126,6 @@ class Purl
   end
 
   def thumbnail_purl
-    virtual_object? ? Purl.new(virtual_object_members.first) : self
+    @thumbnail_purl ||= virtual_object? ? Purl.new(virtual_object_members.first) : self
   end
 end
