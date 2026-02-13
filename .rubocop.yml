@@ -37,6 +37,10 @@ Style/PercentLiteralDelimiters:
     "%i": "()"
     "%w": "()"
 
+Style/RedundantParentheses:
+  Exclude:
+    - "lib/traject/dor_config.rb"
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: single_quotes

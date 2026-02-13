@@ -13,6 +13,6 @@ module ModsDocument
   end
 
   def export_as_mods
-    self[:modsxml]
+    self[:modsxml] || PurlService.new(self[:druid], format: :mods).response_body
   end
 end
