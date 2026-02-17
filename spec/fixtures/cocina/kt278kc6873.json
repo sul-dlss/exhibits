@@ -1,0 +1,281 @@
+{
+  "cocinaVersion": "0.110.1",
+  "type": "https://cocina.sul.stanford.edu/models/image",
+  "externalIdentifier": "druid:kt278kc6873",
+  "label": "Prison Bunk Beds",
+  "version": 38,
+  "access": {
+    "view": "world",
+    "download": "none",
+    "controlledDigitalLending": false,
+    "copyright": "Copyright © The Martin Wong Foundation.",
+    "useAndReproductionStatement": "Images of Martin Wong’s work presented here can be reproduced for use in research, teaching, and private study only. Any transmission or reproduction beyond that allowed by fair use requires permission from The Martin Wong Foundation, the owners of the rights to these images. For any inquiries, please contact The Martin Wong Foundation at info@ppowgallery.com.",
+    "license": "https://creativecommons.org/licenses/by-nc-nd/3.0/legalcode"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:yj997zx7371"
+  },
+  "description": {
+    "title": [
+      {
+        "value": "Prison Bunk Beds"
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "value": "Wong, Martin",
+            "uri": "http://vocab.getty.edu/ulan/500043254",
+            "source": {
+              "code": "ulan",
+              "uri": "http://vocab.getty.edu/ulan/"
+            }
+          }
+        ],
+        "type": "person",
+        "status": "primary",
+        "role": [
+          {
+            "value": "creator",
+            "code": "cre",
+            "uri": "http://id.loc.gov/vocabulary/relators/cre",
+            "source": {
+              "code": "marcrelator",
+              "uri": "http://id.loc.gov/vocabulary/relators/"
+            }
+          }
+        ]
+      }
+    ],
+    "event": [
+      {
+        "date": [
+          {
+            "structuredValue": [
+              {
+                "value": "1988",
+                "type": "start",
+                "status": "primary"
+              },
+              {
+                "value": "1991",
+                "type": "end"
+              }
+            ],
+            "type": "creation",
+            "encoding": {
+              "code": "w3cdtf"
+            },
+            "qualifier": "approximate"
+          }
+        ]
+      }
+    ],
+    "form": [
+      {
+        "value": "still image",
+        "type": "resource type",
+        "source": {
+          "value": "MODS resource types"
+        }
+      },
+      {
+        "value": "reformatted digital",
+        "type": "digital origin",
+        "source": {
+          "value": "MODS digital origin terms"
+        }
+      },
+      {
+        "value": "acrylic on canvas",
+        "type": "form"
+      },
+      {
+        "value": "60 x 48 inches",
+        "type": "extent"
+      }
+    ],
+    "note": [
+      {
+        "value": "The artist; Estate of Martin Wong, 1999; The Martin Wong Foundation (P.P.O.W, New York), 2017",
+        "type": "ownership",
+        "displayLabel": "Provenance"
+      },
+      {
+        "value": "141 Ridge Street, New York, NY",
+        "displayLabel": "Place of creation"
+      },
+      {
+        "value": "“Soap: Erotic Jail Paintings,” The Pyramid Club, New York, 1991",
+        "type": "exhibitions",
+        "displayLabel": "Exhibition history"
+      },
+      {
+        "value": "“Martin Wong: Human Instamatic,” University of California, Berkeley Art Museum and Pacific Film Archive, September 20–December 10, 2017",
+        "type": "exhibitions",
+        "displayLabel": "Exhibition history"
+      },
+      {
+        "value": "“Walking Point” (group exhibition), Greene Naftali, New York, February 16–March 10, 2018",
+        "type": "exhibitions",
+        "displayLabel": "Exhibition history"
+      },
+      {
+        "value": "“1981–2021, Martin Wong/Aaron Gilbert,” P.P.O.W, New York, April 2–May 1, 2021",
+        "type": "exhibitions",
+        "displayLabel": "Exhibition history"
+      },
+      {
+        "value": "“Martin Wong: Malicious Mischief,” Museo Centro de Arte Dos de Mayo (CA2M), Madrid, November 8, 2022–January 29, 2023; KW Institute for Contemporary Art, Berlin, February 25–May 14, 2023; Camden Art Centre, London, June 8–September 17, 2023; Stedelijk Museum, Amsterdam, November 3, 2023–April 1, 2024",
+        "type": "exhibitions",
+        "displayLabel": "Exhibition history"
+      },
+      {
+        "value": "Arthur Lubow, “4 Art Gallery Shows to See Right Now,” <i>New York Times</i>, April 21, 2021, https://www.nytimes.com/2021/04/21/arts/design/4-art-gallery-shows-to-see-right-now.html.",
+        "type": "publications",
+        "displayLabel": "Related publications"
+      },
+      {
+        "value": "Krist Gruijthuijsen and Augustín Pérez Rubio, eds., <i>Martin Wong: Malicious Mischief</i>, exh. cat. (Cologne: Verlag der Buchhandlung Walther und Franz König, 2022), 221.",
+        "type": "publications",
+        "displayLabel": "Related publications"
+      },
+      {
+        "value": "Gianandrea Poletta, “Tales from the Gutter: Martin Wong’s ‘Malicious Mischief’ at KW, Berlin,” <i>Nero</i>, May 18, 2023, https://www.neroeditions.com/tales-from-the-gutter/.",
+        "type": "publications",
+        "displayLabel": "Related publications"
+      },
+      {
+        "value": "Matthew Holman, “Introducing Martin Wong,” <i>R A Magazine</i> 159 (Summer 2023): 30.",
+        "type": "publications",
+        "displayLabel": "Related publications"
+      },
+      {
+        "value": "Sam Moore, “Prisoners, cruising and Bruce Lee: how the world caught up with artist Martin Wong,” <i>The Guardian</i>, August 22, 2023, https://www.theguardian.com/artanddesign/2023/aug/22/prisoners-cruising-and-bruce-lee-how-the-world-caught-up-with-artist-martin-wong.",
+        "type": "publications",
+        "displayLabel": "Related publications"
+      }
+    ],
+    "subject": [
+      {
+        "value": "Prisons",
+        "type": "topic",
+        "displayLabel": "Associated topics"
+      }
+    ],
+    "access": {
+      "digitalLocation": [
+        {
+          "type": "discovery"
+        }
+      ],
+      "accessContact": [
+        {
+          "value": "Digital image held by the Stanford Libraries.",
+          "type": "repository"
+        }
+      ]
+    },
+    "relatedResource": [
+      {
+        "type": "part of",
+        "displayLabel": "Work series",
+        "title": [
+          {
+            "value": "Jail Paintings"
+          }
+        ]
+      }
+    ],
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "code": "CSt",
+              "uri": "http://id.loc.gov/vocabulary/organizations/CSt",
+              "source": {
+                "code": "marcorg",
+                "uri": "http://id.loc.gov/vocabulary/organizations"
+              }
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "value": "original cataloging agency"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "code": "eng",
+          "source": {
+            "code": "iso639-2b",
+            "uri": "http://id.loc.gov/vocabulary/iso639-2"
+          },
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "value": "English"
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/kt278kc6873"
+  },
+  "identification": {
+    "sourceId": "sul:1988_PrisonBunkBeds"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/kt278kc6873-kt278kc6873_1",
+        "label": "Image 1",
+        "version": 16,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/kt278kc6873-kt278kc6873_1/kt278kc6873_1988_PrisonBunkBeds.jp2",
+              "label": "kt278kc6873_1988_PrisonBunkBeds.jp2",
+              "filename": "kt278kc6873_1988_PrisonBunkBeds.jp2",
+              "size": 2180182,
+              "version": 16,
+              "hasMimeType": "image/jp2",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "8df546673aea0ef9800472ec7bac984a5f9a51fe"
+                },
+                {
+                  "type": "md5",
+                  "digest": "952d863467999bfd0e757b5d699f0b5f"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "none",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 3784,
+                "width": 3026
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "created": "2021-03-02T21:18:29.000+00:00",
+  "modified": "2026-02-17T17:45:37.000+00:00",
+  "lock": "druid:kt278kc6873=12=2"
+}

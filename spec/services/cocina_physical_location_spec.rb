@@ -32,4 +32,12 @@ RSpec.describe CocinaPhysicalLocation do
       expect(physical_location.series).to eq('1986-052')
     end
   end
+
+  context 'where there is a physical location without a value' do
+    let(:public_cocina) { JSON.parse(File.read(File.join(FIXTURES_PATH, 'cocina/kt278kc6873.json'))) }
+
+    it 'returns nil for box' do
+      expect(physical_location.box).to be_nil
+    end
+  end
 end

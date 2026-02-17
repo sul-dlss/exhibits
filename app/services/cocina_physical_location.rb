@@ -35,7 +35,7 @@ class CocinaPhysicalLocation
   private
 
   def physical_locations
-    @physical_locations ||= accesses + related_accesses
+    @physical_locations ||= (accesses + related_accesses).compact
   end
 
   def accesses
