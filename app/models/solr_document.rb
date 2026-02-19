@@ -26,7 +26,7 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
   use_extension(ModsDocument) do |document|
-    document[:modsxml]
+    document[:druid]
   end
 
   # document was harvested via dor_harvesters from Purl/SDR
