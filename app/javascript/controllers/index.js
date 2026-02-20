@@ -5,5 +5,7 @@
 import { application } from "./application"
 
 import DetailsContainerController from "./details_container_controller"
+import SiteSearchController from "./site_search_controller"
 
 application.register("details-container", DetailsContainerController)
+application.register("site-search", SiteSearchController)
