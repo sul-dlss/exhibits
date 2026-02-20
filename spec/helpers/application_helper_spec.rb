@@ -32,7 +32,7 @@ RSpec.describe ApplicationHelper do
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
-        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+        expect(rendered).to have_css '[data-embed-url="/oembed/e'\
           'mbed?canvas_id=3&maxheight=600&url=http%3A%2F%2Fexample.com%2Fstuff"]'
       end
 
@@ -56,7 +56,7 @@ RSpec.describe ApplicationHelper do
           document, 3, sir_trevor_block.new(maxheight: 300)
         )
 
-        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+        expect(rendered).to have_css '[data-embed-url="/oembed/e'\
           'mbed?canvas_id=3&maxheight=300&url=http%3A%2F%2Fexample.com%2Fstuff"]'
       end
     end
@@ -69,7 +69,7 @@ RSpec.describe ApplicationHelper do
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
 
-        expect(rendered).to have_css '[data-embed-url="http://test.host/oembed/e'\
+        expect(rendered).to have_css '[data-embed-url="/oembed/e'\
           'mbed?canvas_id=3&maxheight=600&url=https%3A%2F%2Fsul-purl-uat.stanford.edu%2Fabc123"]'
       end
     end

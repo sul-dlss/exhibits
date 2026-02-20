@@ -52,7 +52,7 @@ module ApplicationHelper
     url = context_specific_oembed_url(document)
 
     content_tag :div, '', data: {
-      embed_url: blacklight_oembed_engine.embed_url(
+      embed_url: blacklight_oembed_engine.embed_path(
         url: url,
         iiif_initial_viewer_config: choose_initial_viewer_config(block) || params[:iiif_initial_viewer_config],
         canvas_id: canvas_id || params[:canvas_id],
