@@ -11,9 +11,6 @@ GOOGLE_SITE_VERIFICATION: "654321sitever"
 # in shared_configs for exhibits-prod, we set this value to false.
 analytics_debug: true
 
-cocina:
-  metadata_display_source: false
-
 purl:
   url: "https://purl.stanford.edu/%{druid}"
   uat_url: "https://sul-purl-uat.stanford.edu/%{druid}"

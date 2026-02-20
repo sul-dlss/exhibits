@@ -3,7 +3,6 @@
 # Wrapper for working with an object from PURL
 class Purl
   include ActiveSupport::Benchmarkable
-  include ModsDisplay::RelatorCodes
 
   attr_reader :druid
 

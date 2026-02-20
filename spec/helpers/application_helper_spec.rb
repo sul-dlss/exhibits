@@ -100,15 +100,12 @@ RSpec.describe ApplicationHelper do
   end
 
   describe '#split_on_white_space' do
-    let(:mods_values) do
-      ModsDisplay::Values.new(
-        label: 'Abstract:',
-        values: ["Tariffs and Trade.\r\n\r\nThe purpose ofGATT secretariat.\r\n\r\nThe Bibliography"]
-      )
+    let(:values) do
+      ["Tariffs and Trade.\r\n\r\nThe purpose ofGATT secretariat.\r\n\r\nThe Bibliography"]
     end
 
     it 'splits values on embedded whitespace (based off of bc777tp9978)' do
-      expect(helper.split_on_white_space(mods_values.values).length).to eq 5
+      expect(helper.split_on_white_space(values).length).to eq 5
     end
   end
 end

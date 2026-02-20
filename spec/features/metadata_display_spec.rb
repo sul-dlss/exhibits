@@ -11,6 +11,8 @@ RSpec.feature 'Metadata display' do
   before do
     stub_request(:get, 'http://purl.stanford.edu/embed.json?hide_title=true&maxheight=600&url=https://purl.stanford.edu/gk885tn1705')
       .to_return(status: 200, body: File.read(File.join(FIXTURES_PATH, 'purl_embed/600/gk885tn1705.json')))
+    stub_request(:get, 'https://purl.stanford.edu/gk885tn1705.json')
+      .to_return(body: File.new(File.join(FIXTURES_PATH, 'cocina/gk885tn1705.json')), status: 200)
   end
 
   describe 'page behavior' do
@@ -44,22 +46,22 @@ RSpec.feature 'Metadata display' do
 
     it 'has separate access conditions section' do
       expect(page).to have_css 'h4', text: 'Access conditions'
-      expect(page).to have_css 'dt', text: 'Use and reproduction:'
-      expect(page).to have_css 'dd', text: /To obtain permission/
-      expect(page).to have_css 'dt', text: 'Copyright:'
-      expect(page).to have_css 'dd', text: /Property rights reside with/
+      expect(page).to have_css 'dt', text: 'Use and reproduction statement'
+      expect(page).to have_css 'dd', text: /Image from the Dr. Oscar I. Norwich collection/
+      expect(page).to have_css 'dt', text: 'Copyright'
+      expect(page).to have_css 'dd', text: /This work has been identified as/
     end
 
     it 'has separate description section' do
       expect(page).to have_css 'h4', text: 'Description'
       expect(page).to have_css 'dt', text: 'Translated title'
-      expect(page).to have_css 'dd', text: /Physical map of Africa./
+      expect(page).to have_css 'dd', text: /Physical map of Africa/
     end
 
     it 'has separate creators section' do
       expect(page).to have_css 'h4', text: 'Creators/Contributors'
       expect(page).to have_css 'dt', text: 'Creator'
-      expect(page).to have_css 'dd', text: /Migeon, J./
+      expect(page).to have_css 'dd', text: /Migeon, J/
     end
 
     it 'has separate subjects section' do
