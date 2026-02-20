@@ -15,7 +15,7 @@ module Metadata
     end
 
     def purl
-      @purl || Purl.new(@document.id)
+      @purl ||= Purl.new(@document.id)
     end
   end
 end
