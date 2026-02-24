@@ -418,8 +418,6 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    iso-639 (0.3.8)
-      csv
     janeway-jsonpath (0.6.0)
     jbuilder (2.14.1)
       actionview (>= 7.0.0)
@@ -486,17 +484,6 @@ GEM
     minitar (1.1.0)
     minitest (6.0.1)
       prism (~> 1.5)
-    mods (3.0.5)
-      csv (~> 3.3)
-      edtf (~> 3.0)
-      iso-639
-      nokogiri (>= 1.6.6)
-      nom-xml (~> 1.0)
-    mods_display (1.7.0)
-      i18n
-      rails_autolink
-      stanford-mods (~> 3.3, >= 3.3.9)
-      view_component
     msgpack (1.8.0)
     multi_json (1.19.1)
     multi_xml (0.8.1)
@@ -530,9 +517,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.1-x86_64-linux-gnu)
       racc (~> 1.4)
-    nom-xml (1.2.0)
-      i18n
-      nokogiri
     oauth2 (2.0.18)
       faraday (>= 0.17.3, < 4.0)
       jwt (>= 1.0, < 4.0)
@@ -797,9 +781,6 @@ GEM
       net-ssh (>= 2.8.0)
       ostruct
     ssrf_filter (1.3.0)
-    stanford-mods (3.3.11)
-      activesupport
-      mods (~> 3.0, >= 3.0.4)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.2.0)
@@ -912,7 +893,6 @@ DEPENDENCIES
   jsonpath
   letter_opener
   listen (~> 3.3)
-  mods_display (~> 1.6)
   mysql2
   newrelic_rpm
   nokogiri (>= 1.7.1)
@@ -924,6 +904,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 8.1)
   rails-controller-testing
+  rails_autolink
   recaptcha (~> 5.17.1)
   redis (~> 5.0)
   riiif
@@ -946,7 +927,6 @@ DEPENDENCIES
   slowpoke
   solr_wrapper
   sqlite3 (~> 2.0)
-  stanford-mods (~> 3.0)
   stimulus-rails
   traject
   turbo-rails

@@ -8,7 +8,6 @@ RSpec.describe Metadata::CocinaComponent, type: :component do
   end
 
   before do
-    allow(Settings.cocina).to receive(:metadata_display_source).and_return(true)
     stub_request(:get, "https://purl.stanford.edu/#{druid}.json").to_return(
       body: File.new(File.join(FIXTURES_PATH, "/cocina/#{druid}.json")), status: 200
     )

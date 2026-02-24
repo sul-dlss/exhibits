@@ -132,14 +132,6 @@ RSpec.describe SolrDocument do
     pending 'Canvas should support multiple AnnotationList URLs as per IIIF spec'
   end
 
-  describe '#mods' do
-    subject(:document) { described_class.new(modsxml: '<xml></xml>') }
-
-    it 'provides an interface into ModsDisplay' do
-      expect(document.mods).to be_an ModsDisplay::HTML
-    end
-  end
-
   describe '#external_iiif?' do
     context 'when a document is an external IIIF resource' do
       subject(:document) { described_class.new(spotlight_resource_type_ssim: ['spotlight/resources/iiif_harvesters']) }

@@ -11,7 +11,7 @@ module Metadata
     delegate :cocina_record, to: :purl
 
     def render?
-      Settings.cocina.metadata_display_source && @document.dor_resource_type?
+      @document.dor_resource_type?
     end
 
     def purl

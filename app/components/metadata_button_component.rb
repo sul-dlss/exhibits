@@ -9,6 +9,6 @@ class MetadataButtonComponent < ViewComponent::Base
   end
 
   def render?
-    @document.modsxml.present? || (Settings.cocina.metadata_display_source && @document.dor_resource_type?)
+    @document.dor_resource_type?
   end
 end

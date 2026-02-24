@@ -14,7 +14,6 @@ class SolrDocument
   include BibliographyConcern
 
   include ManifestConcern
-  include MetadataConcern
   include CanvasConcern
 
   # self.unique_key = 'id'
