@@ -15,7 +15,7 @@ module Metadata
       delegate :form_display_data, :language_display_data,
                :form_note_display_data, :map_display_data,
                :event_note_display_data, :event_date_display_data,
-               :publication_display_data, to: :cocina_record
+               :publication_display_data, :title_display_data, to: :cocina_record
 
       def call
         render Metadata::SectionComponent.new(label: I18n.t('metadata.description')) do
@@ -30,7 +30,7 @@ module Metadata
       private
 
       def description
-        @description ||= [title_display_data,
+        @description ||= [title_display_data(exclude_primary: true),
                           form_display_data,
                           publication_display_data,
                           event_date_display_data,
@@ -38,10 +38,6 @@ module Metadata
                           language_display_data,
                           form_note_display_data,
                           map_display_data].compact.flatten
-      end
-
-      def title_display_data
-        cocina_record.title_display_data.reject { it.label == 'Title' }
       end
     end
   end
