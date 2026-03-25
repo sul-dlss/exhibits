@@ -119,7 +119,7 @@ gem 'csl-styles', '~> 2.0'
 gem 'acts-as-taggable-on'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'cocina_display', '~> 1.8'
+gem 'cocina_display', '~> 2.0'
 gem 'whenever', require: false
 gem 'rails_autolink'
 

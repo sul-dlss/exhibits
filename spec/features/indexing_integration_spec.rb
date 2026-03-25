@@ -85,8 +85,7 @@ RSpec.describe 'indexing integration test' do
       end
 
       it 'has origin info fields' do
-        expect(document).to include imprint_display: 'France?, 13th century',
-                                    pub_year_isi: 1200,
+        expect(document).to include pub_year_isi: 1200,
                                     pub_year_no_approx_isi: 1200,
                                     pub_year_w_approx_isi: 1200,
                                     pub_year_tisim: (1200..1299).to_a,
@@ -293,7 +292,7 @@ RSpec.describe 'indexing integration test' do
 
       it 'author fields are populated' do
         expect(document).to include author_1xx_search: 'Lasinio, Carlo, 1759-1838',
-                                    author_7xx_search: ['Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
+                                    author_7xx_search: ['Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19', '[s.n.]'],
                                     author_person_facet: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_full_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19']

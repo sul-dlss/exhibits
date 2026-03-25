@@ -46,7 +46,7 @@ RSpec.feature 'Metadata display' do
 
     it 'has separate access conditions section' do
       expect(page).to have_css 'h4', text: 'Access conditions'
-      expect(page).to have_css 'dt', text: 'Use and reproduction statement'
+      expect(page).to have_css 'dt', text: 'Use and reproduction'
       expect(page).to have_css 'dd', text: /Image from the Dr. Oscar I. Norwich collection/
       expect(page).to have_css 'dt', text: 'Copyright'
       expect(page).to have_css 'dd', text: /This work has been identified as/
