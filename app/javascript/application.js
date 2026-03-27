@@ -24,6 +24,13 @@ import "./table_of_contents"
 import "./site_search_type_toggle"
 import "./image_viewer_state_modal"
 import "./select_image_area"
+import { supportsGridLanes, init } from "./grid-lanes-polyfill.js"
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!supportsGridLanes()) {
+    init({ force: true })
+  }
+})
 
 import BlacklightRangeLimit from "blacklight-range-limit"
 BlacklightRangeLimit.init({ onLoadHandler: Blacklight.onLoad })
