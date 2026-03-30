@@ -292,7 +292,7 @@ RSpec.describe 'indexing integration test' do
 
       it 'author fields are populated' do
         expect(document).to include author_1xx_search: 'Lasinio, Carlo, 1759-1838',
-                                    author_7xx_search: ['Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19', '[s.n.]'],
+                                    author_7xx_search: ['Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_facet: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19'],
                                     author_person_full_display: ['Lasinio, Carlo, 1759-1838', 'Pellegrini, Domenico, 1759-1840', 'Vinck, Carl de, 1859-19']
