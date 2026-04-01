@@ -38,7 +38,7 @@ module Metadata
       end
 
       def toggle_button_visible?
-        related_resources.none? { it.url? || it.display_data.one? }
+        related_resources.none? { it.url? || it.display_data.none? } # || it.display_data.one? }
       end
 
       # If the related resource has a URL, render it has a labeled link.
@@ -46,10 +46,12 @@ module Metadata
       # Otherwise, render it using the nested presentation (e.g. Parker citations).
       # @param [CocinaDisplay::RelatedResource] related_resource
       def child_component(related_resource)
-        if related_resource.url?
+        if false
           Metadata::Cocina::LabeledLinkComponent.new(url: related_resource.url, link_text: related_resource.to_s)
-        elsif related_resource.display_data.one?
-          Metadata::Cocina::ValueComponent.new(values: related_resource.display_data.first.values)
+        elsif related_resource.display_data.none?
+          Metadata::Cocina::ValueComponent.new(values: [related_resource.to_s])
+        # elsif related_resource.display_data.one?
+        #   Metadata::Cocina::ValueComponent.new(values: related_resource.display_data.first.values)
         else
           Metadata::Cocina::RelatedResourceComponent.new(related_resource: related_resource)
         end

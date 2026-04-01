@@ -10,12 +10,12 @@ module Metadata
         super()
       end
 
-      def summary
-        @related_resource.display_data.first.values.join('; ')
-      end
+      delegate :display_data, to: :@related_resource
 
-      def display_data
-        @related_resource.display_data.drop(1)
+      def summary
+        return @related_resource.to_s unless @related_resource.url?
+
+        Metadata::Cocina::LabeledLinkComponent.new(url: @related_resource.url, link_text: @related_resource.to_s).call
       end
 
       def render?

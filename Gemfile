@@ -119,7 +119,8 @@ gem 'csl-styles', '~> 2.0'
 gem 'acts-as-taggable-on'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'cocina_display', '~> 2.0'
+# gem 'cocina_display', '~> 2.0'
+gem 'cocina_display', git: 'https://github.com/sul-dlss/cocina_display.git', branch: 'related-resource-labeling'
 gem 'whenever', require: false
 gem 'rails_autolink'
 
