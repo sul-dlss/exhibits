@@ -15,7 +15,7 @@ RSpec.describe 'indexing integration test' do
     allow(rsolr_client).to receive(:commit)
 
     stub_request(:post, /update/)
-    %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 xy581jd9710
+    %w(bb099mt5053 sj775xm6965 xf680rd3068 dx969tv9730 rk684yq9989 ms016pb9280 cf386wt1778 cc842mn9348 kh392jb5994 xy581jd9710 cd150dn5012
        vk620zs1672 ws947mh3822 gh795jd5965 hm136qv0310 kj040zn0537 jh957jy1101 nk125rg9884 ds694bw1519 vp755yy2079 ts786ny5936).each do |fixture|
       stub_request(:get, "https://purl.stanford.edu/#{fixture}.json").to_return(
         body: File.new(File.join(FIXTURES_PATH, "cocina/#{fixture}.json")), status: 200
@@ -317,6 +317,22 @@ RSpec.describe 'indexing integration test' do
                                     author_person_facet: ['Packard, David, 1912-1996', 'Packard, Lucile', 'Hewlett, William R.'],
                                     author_person_display: ['Packard, David, 1912-1996', 'Packard, Lucile', 'Hewlett, William R.'],
                                     author_person_full_display: ['Packard, David, 1912-1996', 'Packard, Lucile', 'Hewlett, William R.']
+      end
+    end
+  end
+
+  context 'item with invalid role values' do
+    let(:druid) { 'cd150dn5012' }
+
+    context 'to_solr' do
+      subject(:document) { indexed_documents(dor_harvester).first&.with_indifferent_access }
+
+      it 'has name_ssim' do
+        expect(document).to include name_ssim: ['Hopkins Marine Station']
+      end
+
+      it 'has name_roles_ssim' do
+        expect(document).to include name_roles_ssim: ['|Hopkins Marine Station']
       end
     end
   end
