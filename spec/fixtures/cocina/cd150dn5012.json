@@ -1,0 +1,263 @@
+{
+  "cocinaVersion": "0.116.0",
+  "type": "https://cocina.sul.stanford.edu/models/image",
+  "externalIdentifier": "druid:cd150dn5012",
+  "label": "R/V Proteus",
+  "version": 13,
+  "access": {
+    "view": "world",
+    "download": "world",
+    "controlledDigitalLending": false,
+    "copyright": "Copyright © Stanford University. All Rights Reserved.",
+    "useAndReproductionStatement": "The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Harold A. Miller Library (HMS-Library@lists.stanford.edu).",
+    "license": "https://creativecommons.org/licenses/by-nc/3.0/legalcode"
+  },
+  "administrative": {
+    "hasAdminPolicy": "druid:pc265qp0452"
+  },
+  "description": {
+    "title": [
+      {
+        "value": "R/V Proteus"
+      }
+    ],
+    "contributor": [
+      {
+        "name": [
+          {
+            "structuredValue": [
+              {
+                "value": "Hopkins Marine Station"
+              }
+            ]
+          }
+        ],
+        "type": "organization",
+        "role": [
+          {
+            "uri": "http://id.loc.gov/authorities/names/n79084832",
+            "source": {
+              "code": "naf"
+            }
+          }
+        ]
+      }
+    ],
+    "event": [
+      {
+        "date": [
+          {
+            "value": "1969-07"
+          }
+        ]
+      }
+    ],
+    "form": [
+      {
+        "value": "black-and-white photographs",
+        "type": "genre",
+        "uri": "http://vocab.getty.edu/aat/300128347",
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat"
+        }
+      },
+      {
+        "value": "still image",
+        "type": "resource type",
+        "source": {
+          "value": "MODS resource types"
+        }
+      },
+      {
+        "value": "image/jpeg",
+        "type": "media type",
+        "source": {
+          "value": "IANA media types"
+        }
+      },
+      {
+        "value": "reformatted digital",
+        "type": "digital origin",
+        "source": {
+          "value": "MODS digital origin terms"
+        }
+      },
+      {
+        "value": "access",
+        "type": "reformatting quality",
+        "source": {
+          "value": "MODS reformatting quality terms"
+        }
+      },
+      {
+        "value": "photographic prints",
+        "type": "form",
+        "uri": "http://vocab.getty.edu/aat/300127104",
+        "source": {
+          "code": "aat",
+          "uri": "http://vocab.getty.edu/aat"
+        }
+      }
+    ],
+    "note": [
+      {
+        "value": "Digitized by staff at the Harold A. Miller Library, Stanford University Libraries."
+      }
+    ],
+    "identifier": [
+      {
+        "value": "HopkinsMarineStation0000512.tiff",
+        "type": "local",
+        "source": {
+          "code": "local"
+        },
+        "displayLabel": "Filename"
+      },
+      {
+        "value": "hopkins_001_Photo_Unknown_Location_0000512",
+        "type": "local",
+        "source": {
+          "code": "local"
+        },
+        "displayLabel": "Source ID"
+      }
+    ],
+    "subject": [
+      {
+        "value": "Hopkins Marine Station",
+        "type": "organization",
+        "uri": "http://id.loc.gov/authorities/names/n79084832",
+        "source": {
+          "code": "naf",
+          "uri": "http://id.loc.gov/authorities/names/"
+        }
+      },
+      {
+        "value": "R/V Proteus (Ship)",
+        "type": "topic",
+        "source": {
+          "code": "local"
+        }
+      },
+      {
+        "value": "Scientific expeditions",
+        "type": "topic",
+        "uri": "http://id.loc.gov/authorities/subjects/sh85118684",
+        "source": {
+          "code": "lcsh",
+          "uri": "http://id.loc.gov/authorities/subjects/"
+        }
+      },
+      {
+        "value": "Stanford Oceanographic Expeditions",
+        "type": "topic",
+        "source": {
+          "code": "local"
+        }
+      }
+    ],
+    "access": {
+      "accessContact": [
+        {
+          "value": "Stanford University. Libraries. Harold A. Miller Library",
+          "type": "repository",
+          "uri": "http://id.loc.gov/authorities/names/nr98028143",
+          "source": {
+            "code": "naf"
+          }
+        }
+      ]
+    },
+    "adminMetadata": {
+      "contributor": [
+        {
+          "name": [
+            {
+              "code": "CSt",
+              "uri": "http://id.loc.gov/vocabulary/organizations/cst",
+              "source": {
+                "code": "marcorg",
+                "uri": "http://id.loc.gov/vocabulary/organizations"
+              }
+            }
+          ],
+          "type": "organization",
+          "role": [
+            {
+              "value": "original cataloging agency"
+            }
+          ]
+        }
+      ],
+      "language": [
+        {
+          "code": "eng",
+          "source": {
+            "code": "iso639-2b",
+            "uri": "http://id.loc.gov/vocabulary/iso639-2"
+          },
+          "status": "primary",
+          "uri": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "value": "English"
+        }
+      ]
+    },
+    "purl": "https://purl.stanford.edu/cd150dn5012"
+  },
+  "identification": {
+    "sourceId": "sul:hopkins_001_Photo_Unknown_Location_0000512"
+  },
+  "structural": {
+    "contains": [
+      {
+        "type": "https://cocina.sul.stanford.edu/models/resources/image",
+        "externalIdentifier": "https://cocina.sul.stanford.edu/fileSet/cd150dn5012-cd150dn5012_1",
+        "label": "Image 1",
+        "version": 5,
+        "structural": {
+          "contains": [
+            {
+              "type": "https://cocina.sul.stanford.edu/models/file",
+              "externalIdentifier": "https://cocina.sul.stanford.edu/file/cd150dn5012-cd150dn5012_1/HopkinsMarineStation0000512.jp2",
+              "label": "HopkinsMarineStation0000512.jp2",
+              "filename": "HopkinsMarineStation0000512.jp2",
+              "size": 5382216,
+              "version": 5,
+              "hasMimeType": "image/jp2",
+              "sdrGeneratedText": false,
+              "correctedForAccessibility": false,
+              "hasMessageDigests": [
+                {
+                  "type": "sha1",
+                  "digest": "538b4896ed5b71f73beae7ffb606ec5b31709897"
+                },
+                {
+                  "type": "md5",
+                  "digest": "d4b06a6e1c1bd9ee673438130fbfe065"
+                }
+              ],
+              "access": {
+                "view": "world",
+                "download": "world",
+                "controlledDigitalLending": false
+              },
+              "administrative": {
+                "publish": true,
+                "sdrPreserve": false,
+                "shelve": true
+              },
+              "presentation": {
+                "height": 4794,
+                "width": 5975
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "created": "2020-09-30T20:53:21.000+00:00",
+  "modified": "2026-03-30T20:58:48.000+00:00",
+  "lock": "druid:cd150dn5012=8=2"
+}

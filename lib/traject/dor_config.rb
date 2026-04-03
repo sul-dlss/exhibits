@@ -51,9 +51,10 @@ end
 
 to_field 'name_roles_ssim' do |resource, accumulator|
   resource.cocina_record.contributors.reject(&:publisher?).each do |contributor|
-    if contributor.roles.present?
-      contributor.roles.each do |role|
-        accumulator << "#{role.to_s.upcase_first}|#{contributor.display_name(with_date: true)}"
+    roles = contributor.roles.map(&:to_s).compact
+    if roles.any?
+      roles.each do |role|
+        accumulator << "#{role.upcase_first}|#{contributor.display_name(with_date: true)}"
       end
     else
       accumulator << "|#{contributor.display_name(with_date: true)}"
