@@ -1,38 +1,31 @@
-<search>
-  <%= form_with url: @url, local: true, method: @method, class: 'search-across-form search-query-form row gx-0', scope: @prefix, role: 'search', **@form_options do |f| %>
-    <div class="col-auto search-q d-none d-sm-block"></div>
+<search class="col-md-7">
+  <%= form_with url: @url, local: true, method: @method, class: 'search-query-form', scope: @prefix, role: 'search', **@form_options do |f| %>
     <%= render Blacklight::HiddenSearchStateComponent.new(params: @params) %>
-    <% if search_fields.length > 1 %>
-      <div class="col-auto pe-1 border-end border-3">
+    <div class="input-group">
+      <% if search_fields.length > 1 %>
         <%= f.label :search_field, scoped_t('search_field.label'), class: 'visually-hidden' %>
         <%= f.select(:search_field,
                     options_for_select(search_fields, h(@search_field)),
                     {},
                     title: scoped_t('search_field.title'),
-                    class: "custom-select form-select search-field d-inline-block border-0 shadow-none") %>
-      </div>
-    <% elsif search_fields.length == 1 %>
-      <%= f.hidden_field :search_field, value: search_fields.first.last %>
-    <% end %>
-
-    <div class="col">
-      <%= f.label @query_param, scoped_t('search.label'), class: 'visually-hidden' %>
-      <% if autocomplete_path.present? %>
-        <auto-complete src="<%= autocomplete_path %>" for="autocomplete-popup" class="search-autocomplete-wrapper form-control <%= rounded_border_class %>">
-          <%= f.search_field @query_param, value: @q, placeholder: scoped_t('search.placeholder'), class: "search-q q form-control #{rounded_border_class}", autofocus: @autofocus, aria: { label: scoped_t('search.label'), autocomplete: 'list', controls: 'autocomplete-popup' }  %>
-          <ul id="autocomplete-popup" class="dropdown-menu" role="listbox" aria-label="<%= scoped_t('search.label') %>" hidden></ul>
-        </auto-complete>
-      <% else %>
-        <%= f.search_field @query_param, value: @q, placeholder: scoped_t('search.placeholder'), class: "q form-control #{rounded_border_class}", autofocus: @autofocus, aria: { label: scoped_t('search.label') }  %>
+                    class: "custom-select form-select search-field") %>
+      <% elsif search_fields.length == 1 %>
+        <%= f.hidden_field :search_field, value: search_fields.first.last %>
       <% end %>
-    </div>
 
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary d-inline" id="search">
-        <span class="d-none d-sm-block"><%= t('blacklight.search.form.submit') %></span>
-        <span class="d-sm-none d-block"><i class="bi bi-search"></i></span>
-      </button>
-    </div>
+        <%= f.label @query_param, scoped_t('search.label'), class: 'visually-hidden' %>
+        <% if autocomplete_path.present? %>
+          <auto-complete src="<%= autocomplete_path %>" for="autocomplete-popup" class="search-autocomplete-wrapper form-control <%= rounded_border_class %>">
+            <%= f.search_field @query_param, value: @q, placeholder: scoped_t('search.placeholder'), class: "search-q q form-control #{rounded_border_class}", autofocus: @autofocus, aria: { label: scoped_t('search.label'), autocomplete: 'list', controls: 'autocomplete-popup' }  %>
+            <ul id="autocomplete-popup" class="dropdown-menu" role="listbox" aria-label="<%= scoped_t('search.label') %>" hidden></ul>
+          </auto-complete>
+        <% else %>
+          <%= f.search_field @query_param, value: @q, placeholder: scoped_t('search.placeholder'), class: "search-q q form-control #{rounded_border_class}", autofocus: @autofocus, aria: { label: scoped_t('search.label') }  %>
+        <% end %>
 
+        <button class="btn btn-primary search-btn" type="submit" id="search">
+          <span class="d-none d-sm-block"><%= t('blacklight.search.form.submit') %></span>
+        </button>
+    </div>
   <% end %>
 </search>

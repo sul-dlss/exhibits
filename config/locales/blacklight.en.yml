@@ -5,7 +5,7 @@ en:
       start_over: Start over
       form:
         search:
-          placeholder: Search by keyword
+          placeholder: Search...
   views:
     pagination:
       aria:
