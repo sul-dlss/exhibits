@@ -4,27 +4,33 @@ import "./controllers"
 
 // Required by Blacklight
 import * as bootstrap from "bootstrap"
-import './blacklight'
+import "./blacklight"
 
+import "./spotlight"
+import githubAutoCompleteElement from "@github/auto-complete-element"
 
-import './spotlight'
-import githubAutoCompleteElement from "@github/auto-complete-element";
+import "./bibliography"
+import "./cited_documents"
 
-import './bibliography'
-import './cited_documents'
+// import 'blacklight-gallery/blacklight-gallery.esm.js'
 
-import 'blacklight-gallery/blacklight-gallery.esm.js'
+import "./blacklight_heatmaps"
+import "./blacklight_oembed"
+import "./full_text_collapse"
+import "./index_status_typeahead"
+import "./exhibit_search_typeahead"
+import "openseadragon-rails"
+import "./table_of_contents"
+import "./site_search_type_toggle"
+import "./image_viewer_state_modal"
+import "./select_image_area"
+import { supportsGridLanes, init } from "./grid-lanes-polyfill.js"
 
-import './blacklight_heatmaps'
-import './blacklight_oembed'
-import './full_text_collapse'
-import './index_status_typeahead'
-import './exhibit_search_typeahead'
-import 'openseadragon-rails'
-import './table_of_contents'
-import './site_search_type_toggle'
-import './image_viewer_state_modal'
-import './select_image_area'
+document.addEventListener("DOMContentLoaded", () => {
+  if (!supportsGridLanes()) {
+    init({ force: true })
+  }
+})
 
-import BlacklightRangeLimit from "blacklight-range-limit";
-BlacklightRangeLimit.init({onLoadHandler: Blacklight.onLoad });
+import BlacklightRangeLimit from "blacklight-range-limit"
+BlacklightRangeLimit.init({ onLoadHandler: Blacklight.onLoad })
