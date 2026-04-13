@@ -1,10 +1,17 @@
 <dd>
-  <details data-details-container-target="detailItem" data-action="details-container#toggleButtonText">
-    <summary>
-      <%= summary %>
-    </summary>
+  <% if labeled_link %>
     <dl>
-      <%= render Metadata::Cocina::FieldComponent.with_collection(display_data) %>
+      <dt><%= labeled_link %></dt>
+      <dd>
+        <dl><%= render Metadata::Cocina::FieldComponent.with_collection(display_data) %></dl>
+      </dd>
     </dl>
-  </details>
+  <% elsif summary %>
+    <details data-details-container-target="detailItem" data-action="details-container#toggleButtonText">
+      <summary><%= summary %></summary>
+      <dl><%= render Metadata::Cocina::FieldComponent.with_collection(display_data) %></dl>
+    </details>
+  <% else %>
+    <dl><%= render Metadata::Cocina::FieldComponent.with_collection(display_data) %></dl>
+  <% end %>
 </dd>
