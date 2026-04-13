@@ -119,7 +119,7 @@ gem 'csl-styles', '~> 2.0'
 gem 'acts-as-taggable-on'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
-gem 'cocina_display', '~> 2.0'
+gem 'cocina_display', '2.1.0' # Pinned until https://github.com/sul-dlss/exhibits/issues/3118 is resolved
 gem 'whenever', require: false
 gem 'rails_autolink'
 
