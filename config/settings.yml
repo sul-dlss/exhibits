@@ -59,7 +59,9 @@ full_text_highlight:
   snippet_count: 5
 
 slack_notifications:
-  default_channel: "#spotlight-service-team"
+  default_channels:
+    - "#spotlight-svc-team"
+    - "#spotlight-exhibit-publication"
   api_token: "your-api-token-here"
 index_status_threshold: 10
 sidekiq_retry_queue_threshold: 100

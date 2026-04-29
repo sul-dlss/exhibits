@@ -9,7 +9,7 @@ RSpec.describe SendPublishStateChangeNotificationJob do
   context 'when publishing' do
     let(:published) { true }
 
-    it 'sends a message indicating the exhbiti has been pusblshed' do
+    it 'sends a message indicating the exhibit has been published' do
       allow(ExhibitBot).to receive(:message)
 
       job
@@ -35,6 +35,28 @@ RSpec.describe SendPublishStateChangeNotificationJob do
           text: a_string_including("Spotlight exhibit un-published: #{exhibit.title}")
         )
       )
+    end
+  end
+
+  context 'when multiple default channels are configured' do
+    let(:published) { true }
+    let(:stub_client) { instance_spy(Slack::Web::Client) }
+    let(:bot) { ExhibitBot.new }
+
+    before do
+      allow(ExhibitBot).to receive(:new).and_return(bot)
+      allow(bot).to receive_messages(client: stub_client, default_channels: ['#channel-one', '#channel-two'])
+    end
+
+    it 'sends the same message text to each channel' do
+      job
+
+      expect(stub_client).to have_received(:chat_postMessage)
+        .with(hash_including(channel: '#channel-one',
+                             text: a_string_including("Spotlight exhibit published: #{exhibit.title}")))
+      expect(stub_client).to have_received(:chat_postMessage)
+        .with(hash_including(channel: '#channel-two',
+                             text: a_string_including("Spotlight exhibit published: #{exhibit.title}")))
     end
   end
 end

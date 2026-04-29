@@ -9,14 +9,16 @@ class ExhibitBot
     delegate :message, to: :new
   end
 
-  def message(channel: default_channel, as_user: true, text:)
-    client.chat_postMessage(channel: channel, as_user: as_user, text: text)
+  def message(channels: default_channels, as_user: true, text:)
+    channels.each do |channel|
+      client.chat_postMessage(channel: channel, as_user: as_user, text: text)
+    end
   end
 
   private
 
-  def default_channel
-    Settings.slack_notifications.default_channel
+  def default_channels
+    Settings.slack_notifications.default_channels
   end
 
   def client
