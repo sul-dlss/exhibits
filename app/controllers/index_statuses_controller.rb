@@ -9,7 +9,7 @@ class IndexStatusesController < ApplicationController
 
   before_action do
     # This is what authorize_resource should be doing for us, but does not work for :index
-    authorize!(params[:action].to_sym, @resource)
+    authorize!(params.expect(:action).to_sym, @resource)
   end
 
   def show
@@ -41,7 +41,7 @@ class IndexStatusesController < ApplicationController
     document_ids = @resource.solr_document_sidecars.pluck(:document_id)
     return document_ids unless params[:q]
 
-    index_query_param = params[:q].downcase
+    index_query_param = params.expect(:q).downcase
 
     document_ids.select { |id| id.include?(index_query_param) }
   end
