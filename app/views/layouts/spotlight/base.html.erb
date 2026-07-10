@@ -24,20 +24,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sul-dlss/component-library@v2025-09-11/styles/sul.css">
     <%= stylesheet_link_tag "component_library_overrides" %>
     <script
-			  src="https://code.jquery.com/jquery-3.7.1.min.js"
-			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-			  crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.2.1/jquery.serializejson.min.js"></script>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <script src="//js.honeybadger.io/v6.10/honeybadger.min.js" type="text/javascript"></script>
+    <script src="//js.honeybadger.io/v6.14/honeybadger.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-     Honeybadger.configure({
-       apiKey: '<%= Honeybadger.config.get(:api_key) %>',
-       environment: '<%= Honeybadger.config.get(:env) %>',
-       debug: false,
-       onerror: true,
-       revision: '<%= Settings.revision %>'
-     });
+      Honeybadger.configure({
+        apiKey: '<%= Honeybadger.config.get(:api_key) %>',
+        environment: '<%= Honeybadger.config.get(:env) %>',
+        revision: '<%= Settings.revision %>'
+      })
     </script>
     <%= render partial: 'shared/analytics' %>
     <%= csrf_meta_tags %>
