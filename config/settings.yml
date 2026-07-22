@@ -43,6 +43,13 @@ throttling:
 nondiscoverable_exhibit_slugs:
   - exhibits-documentation
 
+# Exhibit slugs that have been retired. Each key is the old slug and its value is
+# the replacement exhibit slug it should 301-redirect to. This setting drives
+# both the redirect (config/routes.rb) and slug reservation (ExhibitExtension),
+# so a retired slug can never be reassigned to a new exhibit and shadowed by the redirect.
+retired_exhibit_slugs:
+  supra: piano-roll-program
+
 exhibit_themes:
   default:
     - default

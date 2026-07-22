@@ -31,6 +31,14 @@ Exhibits::Application.routes.draw do
     # This should be switched back to RangeSearchable when blacklight_range_limit removes the deprecated 'range_limit_panel/:id' route.
     concern :range_searchable, BlacklightRangeLimit::Routes::ExhibitsRangeSearchable.new
 
+    # Retired exhibits: each old slug 301s to its replacement (see
+    # Settings.retired_exhibit_slugs). Content may differ, so all sub-paths map to
+    # to the new exhibit root rather than mapping path-for-path.
+    (Settings.retired_exhibit_slugs&.to_h || {}).each do |old_slug, new_slug|
+      get "/#{old_slug}", to: redirect("/#{new_slug}", status: 301)
+      get "/#{old_slug}/*path", to: redirect("/#{new_slug}", status: 301)
+    end
+
     # this has to come before the Blacklight + Spotlight routes to avoid getting routed as
     # a document request.
     resources :exhibits, path: '/', only: [] do
