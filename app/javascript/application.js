@@ -22,7 +22,6 @@ import './index_status_typeahead'
 import './exhibit_search_typeahead'
 import 'openseadragon-rails'
 import './table_of_contents'
-import './site_search_type_toggle'
 import './image_viewer_state_modal'
 import './select_image_area'
 
