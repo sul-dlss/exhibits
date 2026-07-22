@@ -47,6 +47,16 @@ RSpec.describe Spotlight::Exhibit do
       end
     end
 
+    describe 'retired slugs' do
+      it 'rejects a retired slug so it cannot be reassigned to a new exhibit' do
+        exhibit = build(:exhibit)
+        exhibit.slug = 'supra'
+
+        expect(exhibit).not_to be_valid
+        expect(exhibit.errors[:slug]).to include('is reserved')
+      end
+    end
+
     describe 'discoverable scope' do
       it 'blacklists exhibits based on their slug via config' do
         exhibit1 = create(:exhibit)

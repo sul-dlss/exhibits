@@ -6,7 +6,21 @@
 module ExhibitExtension
   extend ActiveSupport::Concern
 
+  class_methods do
+    # Slugs of retired exhibits that now 301-rdirect (see
+    # Settings.retired_exhibit_slugs and config/routes.rb). They must never be
+    # reassigned to a new exhibit, or the redirect would shadow it and
+    # make the new exhibit unreachable.
+    def retired_slugs
+      Settings.retired_exhibit_slugs.to_h.keys.map(&:to_s)
+    end
+  end
+
   included do
+    # Reserve retired slugs so the admin slug form rejects them ("is reserved"),
+    # the same mechanism Spotlight uses to reserve "site".
+    friendly_id_config.reserved_words.concat(retired_slugs - friendly_id_config.reserved_words)
+
     has_one :viewer, dependent: :delete
 
     after_update :send_publish_state_change_notification
