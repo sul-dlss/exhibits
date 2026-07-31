@@ -134,3 +134,6 @@ gem 'cssbundling-rails', '~> 1.4'
 gem 'jsbundling-rails', '~> 1.3'
 
 gem 'rack-cors', '~> 2.0'
+
+# Pin to 3.24 until https://github.com/ViewComponent/view_component/pull/2674 is resolved
+gem 'view_component', '~> 3.24.0'
