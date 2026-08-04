@@ -12,7 +12,7 @@ module Spotlight
     def create
       return render 'new' unless @contact_form.valid?
 
-      if verify_recaptcha(action: 'feedback')
+      if verify_recaptcha(action: 'feedback', minimum_score: 0.5)
         send_feedback
       else
         report_failure
