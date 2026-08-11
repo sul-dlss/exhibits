@@ -25,6 +25,10 @@ module Exhibits
     #
     config.time_zone = 'Pacific Time (US & Canada)'
 
+    # We don't use Active Storage variants.
+    # Disabling avoids a boot warning about the missing libvips library.
+    config.active_storage.variant_processor = :disabled
+
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Settings in config/environments/* take precedence over those specified here.
