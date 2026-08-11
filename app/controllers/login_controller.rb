@@ -10,7 +10,7 @@ class LoginController < ApplicationController
 
   def login
     if params[:referrer]
-      redirect_to params[:referrer]
+      redirect_to url_from(params[:referrer]) || root_url
     else
       redirect_back_or_to(root_url)
     end

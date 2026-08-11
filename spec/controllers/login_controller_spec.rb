@@ -16,6 +16,14 @@ RSpec.describe LoginController do
       expect(response).to redirect_to '/home'
       expect(user).to have_received(:accept_invitation!)
     end
+
+    it 'redirects to the home page when the referrer is on another host' do
+      get :login, params: {
+        referrer: 'https://exhibits-lb.stanford.edu/zh/saytheirnames/catalog?f%5Bpub_year_w_approx_isi%5D%5B%5D=2018'
+      }
+
+      expect(response).to redirect_to '/'
+    end
   end
 
   context 'with a referrer header' do
