@@ -819,7 +819,7 @@ GEM
     uri (1.1.1)
     useragent (0.16.11)
     version_gem (1.1.15)
-    view_component (3.24.0)
+    view_component (3.26.0)
       activesupport (>= 5.2.0, < 8.2)
       concurrent-ruby (~> 1)
       method_source (~> 1.0)
@@ -930,7 +930,6 @@ DEPENDENCIES
   stimulus-rails
   traject
   turbo-rails
-  view_component (~> 3.24.0)
   web-console (>= 4.1.0)
   webmock
   whenever
