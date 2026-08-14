@@ -39,7 +39,8 @@ module ApplicationHelper
       render partial: current_exhibit.required_viewer.to_partial_path,
              locals: { document: document, block: block, canvas: canvas }
     else
-      render partial: current_exhibit.required_viewer.default_viewer_path,
+      # On the global catalog show or a feature page fall back to the default viewer
+      render partial: Viewer.new.default_viewer_path,
              locals: { document: document, block: block, canvas: canvas }
     end
   end

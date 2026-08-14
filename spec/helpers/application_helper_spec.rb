@@ -75,6 +75,26 @@ RSpec.describe ApplicationHelper do
     end
   end
 
+  describe '#render_viewer_in_context' do
+    let(:document) { SolrDocument.new(druid: 'abc123') }
+
+    context 'outside an exhibit (e.g. the global catalog show)' do
+      before do
+        without_partial_double_verification do
+          allow(helper).to receive_messages(params: { controller: 'catalog' }, current_exhibit: nil)
+        end
+      end
+
+      it 'renders the default viewer' do
+        allow(helper).to receive(:render)
+        helper.render_viewer_in_context(document, nil)
+        expect(helper).to have_received(:render).with(
+          partial: 'oembed_default', locals: hash_including(document: document)
+        )
+      end
+    end
+  end
+
   describe '#choose_canvas_id' do
     context 'with a valid SirTrevor Block' do
       let(:canvas_index) { 4 }
