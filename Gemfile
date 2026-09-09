@@ -134,3 +134,8 @@ gem 'cssbundling-rails', '~> 1.4'
 gem 'jsbundling-rails', '~> 1.3'
 
 gem 'rack-cors', '~> 2.0'
+
+# json 3 removed JSON.fast_generate, which blacklight-spotlight's ETL executor still
+# calls, and dropped the positional options hash from JSON.parse, which
+# ActiveSupport::JSON.decode still passes (fixed on rails main, unreleased).
+gem 'json', '< 3'
