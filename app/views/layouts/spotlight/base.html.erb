@@ -28,7 +28,6 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/3.2.1/jquery.serializejson.min.js"></script>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <script src="//js.honeybadger.io/v6.14/honeybadger.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       Honeybadger.configure({
@@ -36,13 +35,13 @@
         environment: '<%= Honeybadger.config.get(:env) %>',
         revision: '<%= Settings.revision %>'
       })
-
-      Honeybadger.beforeNotify(function (notice) {
-        if (notice && notice.name === 'TurnstileError') {
-          return false
-        }
-      })
     </script>
+    <script type="module">
+      import { installHoneybadgerFilter } from '<%= asset_path("honeybadger_filter.js") %>'
+
+      installHoneybadgerFilter(Honeybadger)
+    </script>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= render partial: 'shared/analytics' %>
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
