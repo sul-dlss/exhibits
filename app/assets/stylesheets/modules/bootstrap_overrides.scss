@@ -39,10 +39,12 @@ body {
   }
 }
 
-.form-group .col-form-label,
-.mb-3 .col-form-label {
-  @extend .text-end !optional;
-  @extend .fw-bold !optional;
+@media (min-width: 768px) {
+  .form-group .col-form-label,
+  .mb-3 .col-form-label {
+    text-align: right;
+    font-weight: bold;
+  }
 }
 
 th {
