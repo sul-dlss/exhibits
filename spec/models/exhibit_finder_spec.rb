@@ -130,7 +130,7 @@ RSpec.describe ExhibitFinder do
 
     it 'injects a thumbnail_url attribute into the json representation' do
       expect(json_response.as_json.first['thumbnail_url']).to match(
-        %r{stanford\.edu/images/\d+/full/400,400/0/default.jpg}
+        %r{\Ahttps?://.+/images/\d+/full/400,400/0/default.jpg\z}
       )
     end
 
@@ -139,7 +139,7 @@ RSpec.describe ExhibitFinder do
         thumb = exhibit.thumbnail
         thumb.iiif_tilesource = exhibit.thumbnail
                                        .iiif_tilesource
-                                       .sub(%r{^https?://exhibits(-.*)?\.stanford.edu}, '')
+                                       .sub(%r{\Ahttps?://[^/]+}, '')
         thumb.save
       end
 
