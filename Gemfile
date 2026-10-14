@@ -114,8 +114,13 @@ gem 'slowpoke'
 gem 'traject'
 gem 'jsonpath'
 gem 'bibtex-ruby'
-gem 'citeproc-ruby', '~> 2.1'
-gem 'csl-styles', '~> 2.0'
+# citeproc-ruby, citeproc and csl-styles are pinned together until
+# https://github.com/inukshuk/citeproc-ruby/issues/93 is resolved. citeproc-ruby
+# 2.1.8 crashes with citeproc >= 1.3, and csl-styles >= 2.1 drops "n.d." and
+# moves name particles ("de Azevedo, R.") in Chicago author-date output.
+gem 'citeproc-ruby', '2.1.8'
+gem 'citeproc', '< 1.3'
+gem 'csl-styles', '~> 2.0', '< 2.1'
 gem 'acts-as-taggable-on'
 gem 'slack-ruby-client'
 gem 'blacklight-oembed', '~> 1.0'
