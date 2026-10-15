@@ -5,7 +5,7 @@ class MastheadTitleComponent < ViewComponent::Base
   def initialize(title:, subtitle:)
     @title = title
     @subtitle = subtitle
-    super
+    super()
   end
 
   def title
