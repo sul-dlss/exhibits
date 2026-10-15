@@ -14,7 +14,7 @@
           </ul>
           Select "Save changes" to save the image area.
         </p>
-        <%= render CustomViewerComponent.new(document: @document, presenter: document_presenter(@document), view_config: blacklight_config) %>
+        <%= render CustomViewerComponent.new(presenter: document_presenter(@document), view_config: blacklight_config) %>
       <% else %>
         <p>
         <%= link_to  params[:id], spotlight.exhibit_solr_document_path(current_exhibit, params[:id]) %> does on exist in this exhibit.

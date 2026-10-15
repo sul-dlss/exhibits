@@ -20,10 +20,10 @@ class SearchBuilder < Blacklight::SearchBuilder
   # modify JSON API behavior to limit the `rows` (or `per_page`) parameter
   # to `max_per_page_for_api` (default: 1,000). if `rows` is not provided
   # we use `default_per_page`
-  def rows(value = nil)
-    return super if value || blacklight_params[:format] != 'json'
+  def rows(*args)
+    return super if args.any? || search_state.params[:format] != 'json'
 
-    @rows = [:rows, :per_page].map { |k| blacklight_params[k] }.reject(&:blank?).first
+    @rows = [:rows, :per_page].map { |k| search_state.params[k] }.reject(&:blank?).first
     @rows = if @rows.blank?
               blacklight_config.default_per_page
             else

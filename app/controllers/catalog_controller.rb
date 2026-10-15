@@ -528,7 +528,8 @@ class CatalogController < ApplicationController
 
   # Action for parker to fetch bibliography references by ID
   def documents_list
-    search_service = Blacklight::SearchService.new(config: blacklight_config)
+    search_service = Blacklight::SearchService.new(config: blacklight_config,
+                                                   search_state: Blacklight::SearchState.new({}, blacklight_config))
     ids = params[:ids].present? ? params.expect(:ids).split : []
     @documents = ids.empty? ? [] : search_service.fetch(ids, { rows: 1000 })
     render json: @documents
