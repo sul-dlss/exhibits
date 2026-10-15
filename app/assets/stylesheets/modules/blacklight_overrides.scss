@@ -103,6 +103,19 @@
   }
 }
 
+.documents-masonry {
+  border: 1px solid #c5c5c5;
+  --grid-lanes-polyfill: 1;
+  display: grid-lanes;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, minmax(40px, auto));
+  grid-gap: 10px;
+  .document {
+    max-width: unset;
+  }
+}
+
 #documents.documents-masonry,
 #documents.documents-gallery,
 .spotlight-admin-thumbnail {
