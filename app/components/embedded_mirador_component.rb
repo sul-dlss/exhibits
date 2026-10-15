@@ -35,4 +35,11 @@ class EmbeddedMiradorComponent < ViewComponent::Base
   def doc_manifest
     document.manifest_url
   end
+
+  def iframe_title
+    title = document.first('title_display')
+    return t('viewers.mirador.iframe_title_default') if title.blank?
+
+    t('viewers.mirador.iframe_title', title:)
+  end
 end
