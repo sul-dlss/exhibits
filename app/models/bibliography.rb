@@ -31,8 +31,22 @@ class Bibliography
   # Renders a *sorted* bibliography
   def render(format = 'html')
     cp = CiteProc::Processor.new style: 'chicago-author-date', format: format
-    cp.import bibliography.to_citeproc
+    cp.import citeproc_items
     cp.bibliography.join
+  end
+
+  # BibTeX names are already parsed into family, given and particle parts.
+  # citeproc 2.x would parse them again and split particles such as the "d'"
+  # in "d'Achéry" out of the family name, so Chicago would demote it
+  # ("Achéry, L. d'") instead of keeping the name as written.
+  def citeproc_items
+    bibliography.to_citeproc.each do |item|
+      item.each_value do |value|
+        next unless value.is_a?(Array) && value.all?(Hash)
+
+        value.each { |name| name['parse-names'] = false }
+      end
+    end
   end
 
   # @return [BibTeX::Bibliography]

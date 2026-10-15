@@ -21,8 +21,8 @@ RSpec.describe Bibliography do
 
       it '#to_html' do
         expect(bibliography.to_html).to include 'Whatley, E. G. 1986. “A ‘Symp'\
-        'le Wrecche’ at Work: the Life and Miracles of St. Erkenwald in the Gi'\
-        'lte Legende, BL Add. 35298.” In <i>Legenda Aurea. Sept Siècles De Dif'\
+        'le Wrecche’ at Work: The Life and Miracles of St. Erkenwald in the Gi'\
+        'lte Legende, BL Add. 35298.” In <i>Legenda Aurea. Sept Siècles de Dif'\
         'fusion. Actes Du Colloque International Sur La Legenda Aurea, Univers'\
         'ité Du Québec, Montréal, 11-12 Mai 1983</i>, 1st ed., '\
         'edited by B. Dunn-Lardeau, vol. 1. Textes Et Études Du Moyen Âge. '\
@@ -35,8 +35,8 @@ RSpec.describe Bibliography do
 
       it '#to_html' do
         expect(bibliography.to_html).to include 'Azevedo, R. de. 1962. <i>A Car'\
-        'ta Ou Memória Do Cruzado Inglês R. Para Osberto De Bawdsey Sobre a Co'\
-        'nquista De Lisboa Em 1147</i>. 1st ed. I. Faculdade de '\
+        'ta Ou Memória Do Cruzado Inglês R. Para Osberto de Bawdsey Sobre a Co'\
+        'nquista de Lisboa Em 1147</i>. 1st ed. I. Faculdade de '\
         'Letras da Universidade de Coimbra.'
       end
     end
@@ -47,8 +47,16 @@ RSpec.describe Bibliography do
       it '#to_html' do
         expect(bibliography.to_html).to include 'Wille, Clara. 2004. “Quelques'\
         ' Observations Sur Le Porc-Épic Et Le Hérisson Dans La Littérature Et '\
-        'l’Iconographie Médiévale.” <i>Reinardus. Yearbook of the Internationa'\
+        'l’iconographie Médiévale.” <i>Reinardus. Yearbook of the Internationa'\
         'l Reynard Society</i> 17 (1): 181–201. https://doi.org/10.1075/rein.17.14wil.'
+      end
+    end
+
+    context 'author with an apostrophe particle' do
+      let(:bibtex) { +"@book{achery, author = {d'Achéry, L.}, title = {Spicilegium}, year = {1668}}" }
+
+      it '#to_html keeps the particle with the family name' do
+        expect(bibliography.to_html).to include 'd’Achéry, L. 1668. <i>Spicilegium</i>.'
       end
     end
   end
