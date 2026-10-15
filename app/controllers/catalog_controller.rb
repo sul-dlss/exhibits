@@ -124,6 +124,7 @@ class CatalogController < ApplicationController
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
+    config.index.constraints_component = ConstraintsComponent
     config.index.display_type_field = 'display_type'
     config.index.default_bibliography_thumbnail = 'default-square-thumbnail-book.png'
     config.index.default_canvas_thumbnail = 'default-square-thumbnail-annotation.png'
