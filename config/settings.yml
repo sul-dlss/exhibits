@@ -2,6 +2,9 @@ superadmin_workgroups:
   - dlss:exhibits-admin
 default_contact_email: exhibits-feedback@lists.stanford.edu
 geonames_username: ""
+# CARTO basemaps API key (referer-restricted). Set via SETTINGS__CARTO_BASEMAPS_KEY on
+# deployed VMs, or a localhost-restricted key in settings.local.yml.
+carto_basemaps_key: ""
 stacks:
   iiif_url: "https://stacks.stanford.edu/image/iiif"
   file_url: "https://stacks.stanford.edu/file"
