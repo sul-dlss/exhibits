@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe EmbeddedMiradorComponent, type: :component do
   let(:component) { described_class.new(document:, block:) }
-  let(:document) { SolrDocument.new(id: 'abc', iiif_manifest_url_ssi: manifest_url) }
+  let(:document) { SolrDocument.new(id: 'abc', iiif_manifest_url_ssi: manifest_url, title_display: 'A title') }
   let(:sir_trevor_block) { Struct.new(:maxheight, :item) }
   let(:block) { sir_trevor_block.new(item:) }
   let(:manifest_url) { 'http://example.com/iiif/manifest' }
@@ -18,6 +18,10 @@ RSpec.describe EmbeddedMiradorComponent, type: :component do
 
     it 'renders an iframe' do
       expect(page).to have_css "iframe[src='https://embed.stanford.edu/iiif?#{{ url: manifest_url }.to_query}']"
+    end
+
+    it 'gives the iframe an accessible title' do
+      expect(page).to have_css "iframe[title='Mirador viewer: A title']"
     end
 
     context 'with a local IIIF manifest' do

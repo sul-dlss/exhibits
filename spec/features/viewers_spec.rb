@@ -89,7 +89,7 @@ RSpec.describe 'Viewers' do
 
     it 'renders configured viewer on show page' do
       visit spotlight.exhibit_solr_document_path(exhibit, 'hj066rn6500')
-      expect(page).to have_css 'iframe[src*=embed]'
+      expect(page).to have_css 'iframe[src*=embed][title^="Mirador viewer: "]'
       expect(page).not_to have_css '.oembed-widget'
     end
 

@@ -139,6 +139,9 @@ en:
     find_exhibits_by_title: Find exhibits by title
   viewers:
     menu_link: Viewers
+    mirador:
+      iframe_title: 'Mirador viewer: %{title}'
+      iframe_title_default: Mirador viewer
     edit:
       item_detail:
         title: Item Detail Page
