@@ -20,9 +20,12 @@ L.control.sidebar = function(id, options) {
   return new L.Control.ExhibitsSidebar(id, options);
 };
 
+// CARTO basemaps require an API key; it's set by Settings.carto_basemaps_key in the layout.
+const cartoBasemapsKey = document.querySelector('meta[name="carto-basemaps-key"]')?.content
+
 BlacklightHeatmaps.Basemaps.positron = L.tileLayer(
-  'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+  `https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=${cartoBasemapsKey}`, {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>',
     detectRetina: true,
     noWrap: true,
   }
