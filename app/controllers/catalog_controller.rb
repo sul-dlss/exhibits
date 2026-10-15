@@ -124,6 +124,7 @@ class CatalogController < ApplicationController
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
+    config.index.constraints_component = ConstraintsComponent
     config.index.display_type_field = 'display_type'
     config.index.default_bibliography_thumbnail = 'default-square-thumbnail-book.png'
     config.index.default_canvas_thumbnail = 'default-square-thumbnail-annotation.png'
@@ -527,7 +528,8 @@ class CatalogController < ApplicationController
 
   # Action for parker to fetch bibliography references by ID
   def documents_list
-    search_service = Blacklight::SearchService.new(config: blacklight_config)
+    search_service = Blacklight::SearchService.new(config: blacklight_config,
+                                                   search_state: Blacklight::SearchState.new({}, blacklight_config))
     ids = params[:ids].present? ? params.expect(:ids).split : []
     @documents = ids.empty? ? [] : search_service.fetch(ids, { rows: 1000 })
     render json: @documents

@@ -7,11 +7,11 @@ class CustomViewerComponent < Blacklight::Component
 
   SirTrevorBlock = Struct.new(:maxheight, :item)
 
-  def initialize(document:, presenter:, view_config: nil, block_context: nil, **)
+  def initialize(presenter:, view_config: nil, block_context: nil, **)
     super()
 
-    @document = document
     @presenter = presenter
+    @document = presenter.document
     @view_config = view_config
     @block_context = block_for_document(block_context)
   end

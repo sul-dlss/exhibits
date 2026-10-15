@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe CustomViewerComponent, type: :component do
-  let(:component) { described_class.new(document:, presenter:) }
-  let(:presenter) { double }
+  let(:component) { described_class.new(presenter:) }
+  let(:presenter) { instance_double(Blacklight::ShowPresenter, document:) }
   let(:exhibit) { create(:exhibit) }
   let(:manifest_url) { 'http://example.com/iiif/manifest' }
 
