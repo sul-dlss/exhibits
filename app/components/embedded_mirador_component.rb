@@ -5,7 +5,7 @@ class EmbeddedMiradorComponent < ViewComponent::Base
   def initialize(document:, block:)
     @document = document
     @block = block
-    super
+    super()
   end
 
   attr_reader :document, :block
