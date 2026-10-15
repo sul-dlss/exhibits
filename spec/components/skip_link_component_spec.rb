@@ -11,6 +11,14 @@ RSpec.describe SkipLinkComponent, type: :component do
     end
   end
 
+  describe 'when the exhibit does not render a search bar' do
+    it 'omits the link to search' do
+      rendered = render_inline(described_class.new(render_search_link: false))
+      expect(rendered).to have_link('Skip to main content', href: '#main-container')
+      expect(rendered).to have_no_link('Skip to search')
+    end
+  end
+
   # If an existing content block is passed to this component,
   # the component should include the link to the first result
   describe 'with existing search results' do

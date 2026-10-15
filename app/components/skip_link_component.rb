@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Overriding the skip link component to use the component library classes
-class SkipLinkComponent < Blacklight::SkipLinkComponent
+class SkipLinkComponent < Spotlight::SkipLinkComponent
   # This is only needed until we are using https://github.com/projectblacklight/blacklight/pull/3461
   def link_classes
     'd-inline-flex m-1 py-2 px-3'
