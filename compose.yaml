@@ -1,6 +1,6 @@
 services:
   solr:
-    image: "solr:${SOLR_VERSION:-9.10.0}"
+    image: "solr:${SOLR_VERSION:-9.10.1}"
     volumes:
       - $PWD/solr/config:/opt/solr/conf
     ports:
