@@ -26,7 +26,7 @@ module ExhibitExtension
     after_update :send_publish_state_change_notification
     after_save :index_exhibit_metadata
 
-    scope :discoverable, -> { where.not(slug: Settings.nondiscoverable_exhibit_slugs) }
+    scope :included_in_exhibit_finder, -> { where.not(slug: Settings.exhibit_finder_excluded_slugs) }
   end
 
   ##

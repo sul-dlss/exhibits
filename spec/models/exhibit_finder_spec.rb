@@ -108,10 +108,10 @@ RSpec.describe ExhibitFinder do
       it { expect(finder.exhibits.map(&:id)).not_to include(published_exhibit.id) } # Effectively asserted above too
     end
 
-    context 'when an exhibit is blacklisted from discoverability' do
+    context 'when an exhibit is excluded from the exhibit finder' do
       before do
         allow(finder).to receive_messages(documents: [public_document])
-        allow(Settings).to receive_messages(nondiscoverable_exhibit_slugs: [published_exhibit.slug])
+        allow(Settings).to receive_messages(exhibit_finder_excluded_slugs: [published_exhibit.slug])
       end
 
       it { expect(finder.exhibits.map(&:id)).to be_blank }

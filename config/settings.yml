@@ -43,7 +43,9 @@ action_mailer:
 throttling:
   notify_honeybadger: false
 
-nondiscoverable_exhibit_slugs:
+# Exhibit finder is used by SearchWorks to find exhibits for a given resource. This setting
+# is used to exclude specific exhibits from exhibit finder results.
+exhibit_finder_excluded_slugs:
   - exhibits-documentation
 
 # Exhibit slugs that have been retired. Each key is the old slug and its value is

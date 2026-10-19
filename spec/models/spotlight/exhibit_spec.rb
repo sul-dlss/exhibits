@@ -57,15 +57,15 @@ RSpec.describe Spotlight::Exhibit do
       end
     end
 
-    describe 'discoverable scope' do
-      it 'blacklists exhibits based on their slug via config' do
+    describe 'included_in_exhibit_finder scope' do
+      it 'excludes exhibits whose slugs are configured as excluded from the exhibit finder' do
         exhibit1 = create(:exhibit)
         exhibit2 = create(:exhibit)
 
-        expect(described_class.discoverable.pluck(:slug)).to eq([exhibit1.slug, exhibit2.slug])
-        allow(Settings).to receive(:nondiscoverable_exhibit_slugs).and_return([exhibit2.slug])
+        expect(described_class.included_in_exhibit_finder.pluck(:slug)).to eq([exhibit1.slug, exhibit2.slug])
+        allow(Settings).to receive(:exhibit_finder_excluded_slugs).and_return([exhibit2.slug])
 
-        expect(described_class.discoverable.pluck(:slug)).to eq([exhibit1.slug])
+        expect(described_class.included_in_exhibit_finder.pluck(:slug)).to eq([exhibit1.slug])
       end
     end
   end
