@@ -21,30 +21,23 @@ end
 
 desc 'Run tests in generated test Rails app with generated Solr instance running'
 task ci: [:environment] do
-  require 'solr_wrapper'
   ENV['environment'] = 'test'
-  SolrWrapper.wrap(port: '8983') do |solr|
-    solr.with_collection(name: 'blacklight-core', dir: Rails.root.join('solr/config')) do
-      # run the tests
-      Rake::Task['spotlight:seed'].invoke
-      Rake::Task['spec'].invoke
-    end
+  with_solr do
+    Rake::Task['spotlight:seed'].invoke
+    Rake::Task['spec'].invoke
   end
 end
 
 desc 'Run solr and launch the development Rails server'
 task server: [:environment] do
-  require 'solr_wrapper'
-  SolrWrapper.wrap(port: '8983') do |solr|
-    solr.with_collection(name: 'blacklight-core', dir: Rails.root.join('solr/config')) do
-      system 'bundle exec rake spotlight:seed'
+  with_solr do
+    system 'bundle exec rake spotlight:seed'
 
-      unless File.exist? 'tmp/.initialized'
-        system 'bundle exec rake spotlight:initialize'
-        File.open('tmp/.initialized', 'w') {}
-      end
-      system 'bundle exec rails s'
+    unless File.exist? 'tmp/.initialized'
+      system 'bundle exec rake spotlight:initialize'
+      File.open('tmp/.initialized', 'w') {}
     end
+    system 'bundle exec rails s'
   end
 end
 

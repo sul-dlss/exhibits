@@ -30,6 +30,13 @@ $ yarn install
 $ bin/rake db:setup
 ```
 
+Start Solr. The following command starts a local Solr instance at `localhost:8983` with a pre-loaded core named `blacklight-core`:
+```console
+$ docker compose up
+```
+
+If you can't use Docker, you can run Solr with `solr_wrapper` instead.
+
 Set up an admin user. You will be prompted to enter an email.
 ```
 rake spotlight:initialize
@@ -64,12 +71,14 @@ Run RuboCop and tests:
 $ bin/rake
 ```
 
+`bin/rake` starts Solr with `docker compose` when the Docker daemon is running, and falls back to `solr_wrapper` otherwise.
+
 If you'd like to run a single test, you must seed the index first:
 ```console
 bin/rails spotlight:seed
 ```
 
-**Tip:** if you receive the error message `ERROR: Core 'blacklight-core' already exists!` you have an instance of Solr running elsewhere. Clean out your data with `solr_wrapper clean` or search for rogue instances with `ps aux | grep solr`.
+**Tip:** if you receive the error message `ERROR: Core 'blacklight-core' already exists!` you have an instance of Solr running elsewhere. Stop it with `docker compose stop solr`, clean out solr_wrapper data with `solr_wrapper clean`, or search for rogue instances with `ps aux | grep solr`.
 
 ## Deploying
 
