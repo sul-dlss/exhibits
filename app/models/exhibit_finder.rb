@@ -10,7 +10,8 @@ class ExhibitFinder
   end
 
   def exhibits
-    @exhibits ||= Spotlight::Exhibit.includes(:thumbnail).where(slug: exhibit_slugs).published.discoverable
+    @exhibits ||= Spotlight::Exhibit.includes(:thumbnail).where(slug: exhibit_slugs)
+                                    .published.included_in_exhibit_finder
   end
 
   class << self
