@@ -36,6 +36,23 @@ RSpec.describe FullTextParser do
       expect(ocr_text.first).to end_with 'with the rendering of the decision.'
     end
 
+    context 'when the ALTO namespace is not the first one declared' do
+      let(:fixture_file) do
+        <<~FIXTURE
+          <?xml version="1.0" encoding="UTF-8"?>
+          <alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/standards/alto/ns-v3#">
+            <Layout><Page><PrintSpace><TextBlock><TextLine>
+              <String CONTENT="COMPLETED"/><String CONTENT="95-032823"/>
+            </TextLine></TextBlock></PrintSpace></Page></Layout>
+          </alto>
+        FIXTURE
+      end
+
+      it 'parses the text using the ALTO namespace' do
+        expect(ocr_text).to eq ['COMPLETED 95-032823']
+      end
+    end
+
     context 'with an hOCR transcription' do
       let(:purl_object) { instance_double(Purl, bare_druid: 'hocrexample', cocina_doc:) }
       let(:cocina_doc) { JSON.parse(File.read(File.join(FIXTURES_PATH, 'cocina/hocrexample.json'))) }

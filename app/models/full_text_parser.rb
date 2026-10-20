@@ -60,7 +60,7 @@ class FullTextParser
     return [] if content.blank?
 
     alto = Nokogiri::XML.parse(content)
-    alto_ns = alto.namespaces.values.first { |ns| ns =~ %r{standards/alto/ns} }
+    alto_ns = alto.namespaces.values.find { |ns| ns =~ %r{standards/alto/ns} }
     namespace = { alto: alto_ns || 'http://www.loc.gov/standards/alto/ns-v3#' }
     alto.xpath('//alto:String/@CONTENT', namespace).map(&:text).join(' ')
   end
