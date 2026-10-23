@@ -8,8 +8,4 @@ class RoleFacetItemPresenter < Blacklight::FacetItemPivotPresenter
 
     name
   end
-
-  def constraint_label
-    value.split('|', 2).join(': ')
-  end
 end
