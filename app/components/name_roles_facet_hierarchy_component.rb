@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Display the creators/contributors by role facet in a tree hierarchy
-class NameRolesFacetHierarchyComponent < Blacklight::FacetFieldListComponent
+class NameRolesFacetHierarchyComponent < Blacklight::Facets::PivotListComponent
   def facet_item_presenters
     facet_item_tree_hierarchy.map do |item|
       facet_item_presenter(item)

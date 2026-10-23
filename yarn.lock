@@ -354,30 +354,14 @@ binary-extensions@^2.0.0:
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz#f6e14a97858d327252200242d4ccfe522c445522"
   integrity sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==
 
-"blacklight-frontend@>=7.1.0 <9", blacklight-frontend@^8.8.0:
-  version "8.13.0"
-  resolved "https://registry.yarnpkg.com/blacklight-frontend/-/blacklight-frontend-8.13.0.tgz#0a492d8c48243101579c10801f341bb8a8cd7b88"
-  integrity sha512-0FOFUY9r9rreh7At4/44T6WGhHvqnBJNEsEqcTM8prDurZLG0Pn/wKFjfacHh7AWjQk9uUGzEOeiboGSXviSWg==
-  dependencies:
-    bootstrap ">=4.3.1 <6.0.0"
-
-blacklight-frontend@>=9.0.0-beta1, "blacklight-frontend@^8.4.0 || ^9.0.0":
+blacklight-frontend@>=9.0.0-beta1, "blacklight-frontend@^8.4.0 || ^9.0.0", blacklight-frontend@^9.2.1:
   version "9.2.1"
   resolved "https://registry.yarnpkg.com/blacklight-frontend/-/blacklight-frontend-9.2.1.tgz#f7b6a38855d0fd56f291f9f8141671e0e8f36ec6"
   integrity sha512-ahDgeQJaAQRwLupb1DeF/IW8eIGPYLBtxDB/3qABnmqv5V3yunj0TXVy/7rbOwVh/ITBls0nigUxsmZIR9rn7A==
   dependencies:
     bootstrap ">=5.3.5 <6.0.0"
 
-blacklight-gallery@^4.8.4:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/blacklight-gallery/-/blacklight-gallery-4.9.0.tgz#f85e2071ef7971ee8e455a0a16eeddf652aa8372"
-  integrity sha512-ZmmkaXBUV8YHKwP0e90Z8SQhh/cvjazOgO1q+vJvf0YAfs0NaJpUWCgKxtCN2gUgISFD8JbsqDGeYbRzEN+Rtg==
-  dependencies:
-    blacklight-frontend ">=7.1.0 <9"
-    jquery ">=3.0"
-    openseadragon-rails "^1.0.11"
-
-"blacklight-gallery@^5.0.0 || ^6.0.0":
+"blacklight-gallery@^5.0.0 || ^6.0.0", blacklight-gallery@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/blacklight-gallery/-/blacklight-gallery-6.1.0.tgz#fe06c5c639f08536b318c0e8666e14197c366db7"
   integrity sha512-tPhoJZBJSmAeAQjKX8G3eKD3L672fcwDfOKAAjgDTzHKPewDWrtnB0cdT1GJYsyMkjFWqctjtFucGLdVYkLnow==
@@ -385,10 +369,10 @@ blacklight-gallery@^4.8.4:
     blacklight-frontend ">=9.0.0-beta1"
     openseadragon-rails "^1.0.11"
 
-blacklight-heatmaps@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/blacklight-heatmaps/-/blacklight-heatmaps-2.0.0.tgz#2c2a396d9383039ee9039544883b4fd991be14a2"
-  integrity sha512-WiqgLbpyy78aX9eiImb1ngh/pobPk2p+qqya3xvh7uSE8HsK5MfiLFMf/LDOs3tDQo75QX/jLTq5mAV5wUBDqg==
+blacklight-heatmaps@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/blacklight-heatmaps/-/blacklight-heatmaps-2.1.0.tgz#35cd80084e96398193fe86ca8195db728be13c94"
+  integrity sha512-YMIjwm+SNtf6CG86ngeGuffGITCpp8rPpAxDHZRb0Cw9u0aiu+gcHzKwzeexrP411mJwsULFNE43a+15VG/ZvQ==
   dependencies:
     leaflet "1.9.4"
     leaflet-sidebar "0.2.4"
@@ -418,7 +402,7 @@ bootstrap-slider@^11.0.2:
   resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-11.0.2.tgz#4b167c165f322339cc66f0c7166b5a39e289e251"
   integrity sha512-CdwS+Z6X79OkLes9RfDgPB9UIY/+81wTkm6ktdSB6hdyiRbjJLFQIjZdnEr55tDyXZfgC7U6yeSXkNN9ZdGqjA==
 
-"bootstrap@>=4.3.1 <6.0.0", "bootstrap@>=5.3.5 <6.0.0", bootstrap@^5.3.3:
+"bootstrap@>=5.3.5 <6.0.0", bootstrap@^5.3.3:
   version "5.3.8"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.8.tgz#6401a10057a22752d21f4e19055508980656aeed"
   integrity sha512-HP1SZDqaLDPwsNiqRqi5NcP0SSXciX2s9E+RyqJIIqGo+vJeN5AJVM98CXmW/Wux0nQ5L7jeWUdplCEf0Ee+tg==
@@ -709,7 +693,7 @@ is-reference@1.2.1:
   dependencies:
     "@types/estree" "*"
 
-jquery@>=1.7, jquery@>=3.0:
+jquery@>=1.7:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-4.0.0.tgz#95c33ac29005ff72ec444c5ba1cf457e61404fbb"
   integrity sha512-TXCHVR3Lb6TZdtw1l3RTLf8RBWVGexdxL6AC8/e0xZKEpBflBsjh9/8LXw+dkNFuOyW9B7iB3O1sP7hS0Kiacg==
