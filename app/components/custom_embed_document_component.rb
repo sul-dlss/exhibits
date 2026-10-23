@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Customize the upstream component to pass the block context through the embed
-class CustomEmbedDocumentComponent < Spotlight::SolrDocumentLegacyEmbedComponent
+class CustomEmbedDocumentComponent < Blacklight::DocumentComponent
   attr_reader :block_context
 
   def initialize(*args, block: nil, **kwargs)

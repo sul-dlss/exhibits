@@ -21,7 +21,6 @@ class CatalogController < ApplicationController
       blacklight_config.view.admin_table(
         document_component: Spotlight::DocumentAdminTableComponent,
         thumbnail_field: :thumbnail_square_url_ssm,
-        partials: [:index_compact],
         document_actions: []
       )
     end
