@@ -11,7 +11,7 @@ SirTrevor.Blocks.SolrDocumentsEmbed = (function(){
       ].join(' ');
     },
     setIiifFields: function(panel, manifest_data, initialize) {
-      const panelElement = panel[0]
+      const panelElement = panel
       const itemId = panelElement.dataset.id
       const iiifCanvasId = panelElement.querySelector(`input[name="item[${itemId}][iiif_canvas_id]"]`)
       const oldCanvasId = iiifCanvasId.value

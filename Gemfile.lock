@@ -119,10 +119,10 @@ GEM
       rails
       ruby-oembed
       view_component (>= 3.0)
-    blacklight-spotlight (5.3.2)
+    blacklight-spotlight (6.0.0.rc1)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 14)
-      blacklight (>= 8.7.0, < 9)
+      blacklight (>= 8.7.0, < 10)
       blacklight-gallery (>= 3.0, < 7)
       bootstrap_form (>= 5.4, < 6)
       cancancan
@@ -130,8 +130,6 @@ GEM
       csv
       devise (>= 4.9, < 6)
       devise_invitable
-      faraday
-      faraday-follow_redirects
       friendly_id (~> 5.5)
       google-analytics-data
       i18n
@@ -146,7 +144,8 @@ GEM
       rails (>= 7.1, < 9)
       redcarpet (>= 2.0.1, < 4)
       riiif (~> 2.0)
-      view_component (>= 2.66, < 4)
+      ssrf_filter (~> 1.0)
+      view_component (>= 2.66, < 5)
     blacklight_advanced_search (8.0.0)
       blacklight (>= 7.15, < 10)
       parslet
@@ -807,7 +806,7 @@ DEPENDENCIES
   blacklight (~> 8.0)
   blacklight-gallery (~> 4.8)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 5.2)
+  blacklight-spotlight (~> 6.0.0.rc1)
   blacklight_advanced_search
   blacklight_heatmaps (~> 2.0)
   blacklight_range_limit (~> 9.0)
