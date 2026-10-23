@@ -21,7 +21,6 @@ class CatalogController < ApplicationController
       blacklight_config.view.admin_table(
         document_component: Spotlight::DocumentAdminTableComponent,
         thumbnail_field: :thumbnail_square_url_ssm,
-        partials: [:index_compact],
         document_actions: []
       )
     end
@@ -46,6 +45,8 @@ class CatalogController < ApplicationController
     config.exhibit_navbar_component = ExhibitNavbarComponent
     config.index.search_bar_component = ExhibitSearchBarComponent
     config.index.dropdown_component = DropdownComponent
+    config.index.facet_group_component = FacetGroupComponent
+    config.index.facet_pagination_component = FacetPaginationComponent
     config.index.default_thumbnail = :exhibits_default_thumbnail
 
     config.document_solr_request_handler = 'document'
@@ -138,7 +139,7 @@ class CatalogController < ApplicationController
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
 
     config.show.document_component = Spotlight::DocumentComponent
-    config.show.embed_component = CustomViewerComponent
+    config.show.document_embed_component = CustomViewerComponent
     config.show.partials = %i(bibliography_buttons metadata_button bibliography cited_documents page_details)
 
     config.view.list.thumbnail_field = [:thumbnail_square_url_ssm, :thumbnail_url_ssm]
@@ -162,7 +163,7 @@ class CatalogController < ApplicationController
                           icon: Blacklight::Gallery::Icons::SlideshowComponent)
 
     config.view.embed(document_component: CustomEmbedDocumentComponent,
-                      embed_component: CustomViewerComponent, if: false)
+                      document_embed_component: CustomViewerComponent, if: false)
 
     # BlacklightHeatmaps configuration values
     config.geometry_field = :geographic_srpt
@@ -204,7 +205,8 @@ class CatalogController < ApplicationController
                                               collapsing: true, multiple: true,
                                               component: NameRolesFacetHierarchyComponent,
                                               item_component: Blacklight::FacetItemPivotComponent,
-                                              item_presenter: RoleFacetItemPresenter
+                                              item_presenter: RoleFacetItemPresenter,
+                                              constraint_presenter: RoleConstraintPresenter
     config.add_facet_field 'author_person_facet', label: 'Author', limit: true # includes Collectors
     config.add_facet_field 'author_no_collector_ssim', label: 'Author (no Collectors)', limit: true
     config.add_facet_field 'collector_ssim', label: 'Collector', limit: true
@@ -531,7 +533,7 @@ class CatalogController < ApplicationController
     search_service = Blacklight::SearchService.new(config: blacklight_config,
                                                    search_state: Blacklight::SearchState.new({}, blacklight_config))
     ids = params[:ids].present? ? params.expect(:ids).split : []
-    @documents = ids.empty? ? [] : search_service.fetch(ids, { rows: 1000 })
+    @documents = ids.empty? ? [] : search_service.fetch(ids)
     render json: @documents
   end
 

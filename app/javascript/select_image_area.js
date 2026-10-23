@@ -196,9 +196,8 @@ class SelectImageArea {
   }
 
   addSirTrevorPanelChangeHandler(element) {
-    // Spotlight's Sir Trevor blocks use jQuery events.
-    $(element).on('change', (block) => {
-      this.createSelectImageAreaWidgets(block.target)
+    element.addEventListener('change', (event) => {
+      this.createSelectImageAreaWidgets(event.target)
     })
   }
 }

@@ -35,7 +35,7 @@ RSpec.describe CreatorContributorsFieldPresenter, type: :view do
     end
 
     it 'preserves the order of the (first occurence of the) names' do
-      expect(result).to eq 'Doe, John (Author), Smith, Bob (Editor, Illustrator), and Smith, Jane'
+      expect(result).to eq ['Doe, John (Author)', 'Smith, Bob (Editor, Illustrator)', 'Smith, Jane']
     end
   end
 end
