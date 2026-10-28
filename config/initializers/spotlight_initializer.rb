@@ -33,6 +33,7 @@ Spotlight::Engine.config.upload_fields = [
     label: -> { I18n.t(:'spotlight.search.fields.spotlight_upload_date_tesim') }
   )
 ]
+Spotlight::Engine.config.csv_upload_multivalued_field_delimiter = '||'
 Spotlight::Engine.config.default_contact_email = Settings.default_contact_email
 Spotlight::Engine.config.external_resources_partials += ['dor_harvester/form', 'bibliography_resources/form']
 
