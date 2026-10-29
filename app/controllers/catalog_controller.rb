@@ -362,10 +362,6 @@ class CatalogController < ApplicationController
 
     config.add_search_field('search') do |field|
       field.label = 'Everything'
-      field.solr_parameters = {
-        pf2: '$p2',
-        pf3: '$pf3'
-      }
     end
 
     config.add_search_field('search_title') do |field|
