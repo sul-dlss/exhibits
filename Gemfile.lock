@@ -266,9 +266,9 @@ GEM
       devise
     devise-remote-user (1.1.0)
       devise
-    devise_invitable (3.0.3)
-      actionmailer (>= 7.0)
-      devise (>= 5.0)
+    devise_invitable (2.0.14)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     diff-lcs (1.6.2)
     dlss-capistrano (6.1.1)
       bcrypt_pbkdf
@@ -830,7 +830,7 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.3)
   devise-remote-user
-  devise_invitable
+  devise_invitable (~> 2.0)
   dlss-capistrano
   dotenv
   factory_bot_rails (~> 6.4)

@@ -91,7 +91,9 @@ gem 'blacklight_range_limit', '~> 9.0'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
 gem 'devise-remote-user'
-gem 'devise_invitable'
+# devise_invitable 3.0 moves invitations into a new devise_invitations table and
+# requires a data migration, see: https://github.com/sul-dlss/exhibits/issues/3191
+gem 'devise_invitable', '~> 2.0'
 gem 'nokogiri', '>= 1.7.1'
 gem 'ruby-oembed'
 gem 'okcomputer'
