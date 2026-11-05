@@ -21,6 +21,9 @@
 
 env :SKIP_PENDING_MIGRATIONS_CHECK, true
 
+# Disable Honeybadger Insights for cron jobs
+env :HONEYBADGER_INSIGHTS_ENABLED, false
+
 every :day, at: '3:00 am' do
   rake 'spotlight:prune_search_data[6]'
 end
