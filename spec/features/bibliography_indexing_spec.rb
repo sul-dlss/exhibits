@@ -22,7 +22,7 @@ RSpec.feature 'Bibliography indexing' do
       attach_file 'resource_bibtex_file', 'spec/fixtures/bibliography/article.bib'
       click_button 'Add items'
     end
-    expect(page).to have_css 'h5', text: /Quelques/
+    expect(page).to have_css '.index_title', text: /Quelques/
     expect(page).to have_css '.alert-info', text: 'Your bibliography resource has been successfully created.'
   end
 
