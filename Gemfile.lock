@@ -119,7 +119,7 @@ GEM
       rails
       ruby-oembed
       view_component (>= 3.0)
-    blacklight-spotlight (6.0.0.rc2)
+    blacklight-spotlight (6.0.0.rc3)
       activejob-status
       acts-as-taggable-on (>= 5.0, < 14)
       blacklight (>= 8.12.0, < 10)
@@ -129,7 +129,7 @@ GEM
       carrierwave (> 2.2.1, < 4)
       csv
       devise (>= 4.9, < 6)
-      devise_invitable
+      devise_invitable (~> 2.0)
       friendly_id (~> 5.5)
       google-analytics-data
       i18n
@@ -803,7 +803,7 @@ DEPENDENCIES
   blacklight (~> 9.2)
   blacklight-gallery (~> 6.1)
   blacklight-oembed (~> 1.0)
-  blacklight-spotlight (~> 6.0.0.rc2)
+  blacklight-spotlight (~> 6.0.0.rc3)
   blacklight_advanced_search
   blacklight_heatmaps (~> 2.1)
   blacklight_range_limit (~> 9.0)
