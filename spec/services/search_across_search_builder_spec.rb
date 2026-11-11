@@ -3,14 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe SearchAcrossSearchBuilder do
-  subject(:search_builder) { described_class.new(scope) }
-
-  let(:scope) do
-    instance_double(Blacklight::SearchService,
-                    blacklight_config: blacklight_config,
-                    context: context,
-                    search_state_class: nil)
+  subject(:search_builder) do
+    described_class.new(scope).with(Blacklight::SearchState.new(user_params, blacklight_config, controller))
   end
+
+  let(:scope) { instance_double(Blacklight::SearchService, blacklight_config: blacklight_config, context: context) }
+  let(:controller) { instance_double(SearchAcrossController, action_name: 'index') }
   let(:context) { { current_ability: current_ability } }
   let(:blacklight_config) { SearchAcrossController.blacklight_config.deep_copy }
   let(:user_params) { {} }
@@ -22,7 +20,7 @@ RSpec.describe SearchAcrossSearchBuilder do
   end
 
   context 'with an ordinary user' do
-    subject { search_builder.with(user_params).processed_parameters }
+    subject { search_builder.processed_parameters }
 
     let(:exhibit_public) { create(:exhibit, slug: 'exhibit-title-public', published: true) }
     let(:exhibit_private) { create(:exhibit, slug: 'exhibit-title-private', published: false) }
@@ -42,7 +40,7 @@ RSpec.describe SearchAcrossSearchBuilder do
   end
 
   context 'with a curator' do
-    subject { search_builder.with(user_params).processed_parameters }
+    subject { search_builder.processed_parameters }
 
     let(:exhibit_public) { create(:exhibit, slug: 'exhibit-title-public', published: true) }
     let(:exhibit_private) { create(:exhibit, slug: 'exhibit-title-private', published: false) }
