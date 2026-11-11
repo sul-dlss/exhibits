@@ -4,17 +4,17 @@ require 'rails_helper'
 
 RSpec.describe 'Searching Across Exhibits' do
   let(:published_exhibit_without_document) do
-    FactoryBot.create(:exhibit, published: true)
+    create(:exhibit, published: true)
   end
   let(:published_exhibit_with_document) do
-    FactoryBot.create(:exhibit, published: true, slug: 'test-exhibit')
+    create(:exhibit, published: true, slug: 'test-exhibit')
   end
   let(:unpublished_exhibit_with_documents) do
-    FactoryBot.create(:exhibit, published: false, slug: 'default-exhibit')
+    create(:exhibit, published: false, slug: 'default-exhibit')
   end
-  let(:exhibit_admin) { FactoryBot.create(:exhibit_admin, exhibit: unpublished_exhibit_with_documents) }
+  let(:exhibit_admin) { create(:exhibit_admin, exhibit: unpublished_exhibit_with_documents) }
   let(:tag1) do
-    FactoryBot.create(:tagging, tagger: published_exhibit_with_document, taggable: published_exhibit_with_document)
+    create(:tagging, tagger: published_exhibit_with_document, taggable: published_exhibit_with_document)
   end
 
   before do

@@ -6,10 +6,10 @@ RSpec.describe 'Searching Exhibits By Title', js: true do
   include JavascriptFeatureHelpers
 
   let(:exhibit1) do
-    FactoryBot.create(:exhibit, published: true, slug: 'test-exhibit', title: 'Test Exhibit')
+    create(:exhibit, published: true, slug: 'test-exhibit', title: 'Test Exhibit')
   end
   let(:exhibit2) do
-    FactoryBot.create(:exhibit, published: true, slug: 'default-exhibit', title: 'Default Exhibit')
+    create(:exhibit, published: true, slug: 'default-exhibit', title: 'Default Exhibit')
   end
 
   before do

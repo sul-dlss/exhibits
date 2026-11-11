@@ -78,8 +78,8 @@ RSpec.describe 'Viewers' do
   end
 
   describe 'rendered viewer' do
-    let(:feature_page) { FactoryBot.create(:feature_page, exhibit: exhibit) }
-    let(:admin) { FactoryBot.create(:exhibit_admin, exhibit: exhibit) }
+    let(:feature_page) { create(:feature_page, exhibit: exhibit) }
+    let(:admin) { create(:exhibit_admin, exhibit: exhibit) }
 
     before do
       exhibit.required_viewer.viewer_type = 'mirador3'

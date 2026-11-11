@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Spotlight::Exhibit do
   describe 'exhibit extensions' do
     context 'when an exhibit is published' do
-      let(:exhibit) { FactoryBot.create(:exhibit, published: false) }
+      let(:exhibit) { create(:exhibit, published: false) }
 
       it 'kicks off a SendPublishStateChangeNotificationJob sending published = true' do
         allow(SendPublishStateChangeNotificationJob).to receive(:perform_later)
@@ -20,7 +20,7 @@ RSpec.describe Spotlight::Exhibit do
     end
 
     context 'when an exhibit is un-published' do
-      let(:exhibit) { FactoryBot.create(:exhibit, published: true) }
+      let(:exhibit) { create(:exhibit, published: true) }
 
       it 'kicks off a SendPublishStateChangeNotificationJob sending published = false' do
         allow(SendPublishStateChangeNotificationJob).to receive(:perform_later)
@@ -35,7 +35,7 @@ RSpec.describe Spotlight::Exhibit do
     end
 
     context 'when an the published state of an exhibit has not changed' do
-      let(:exhibit) { FactoryBot.create(:exhibit, published: false) }
+      let(:exhibit) { create(:exhibit, published: false) }
 
       it 'does not kick off a SendPublishStateChangeNotificationJob' do
         allow(SendPublishStateChangeNotificationJob).to receive(:perform_later)
@@ -72,7 +72,7 @@ RSpec.describe Spotlight::Exhibit do
 
   describe 'Indexing Exhibit Content' do
     context 'when an exhibit is published' do
-      let(:exhibit) { FactoryBot.create(:exhibit, published: false) }
+      let(:exhibit) { create(:exhibit, published: false) }
 
       it 'enqueues the IndexExhibitMetadataJob for adding a document' do
         exhibit.published = true
@@ -84,7 +84,7 @@ RSpec.describe Spotlight::Exhibit do
     end
 
     context 'when a published exhibit is saved' do
-      let(:exhibit) { FactoryBot.create(:exhibit, published: true) }
+      let(:exhibit) { create(:exhibit, published: true) }
 
       it 'enqueues the IndexExhibitMetadataJob for adding a document' do
         expect do
@@ -94,7 +94,7 @@ RSpec.describe Spotlight::Exhibit do
     end
 
     context 'when an exhibit is unpublished' do
-      let(:exhibit) { FactoryBot.create(:exhibit, published: true) }
+      let(:exhibit) { create(:exhibit, published: true) }
 
       it 'enqueues the IndexExhibitMetadataJob for deleting a document' do
         exhibit.published = false
@@ -106,7 +106,7 @@ RSpec.describe Spotlight::Exhibit do
     end
 
     context 'when an unpublished exhibit is saved' do
-      let(:exhibit) { FactoryBot.create(:exhibit, published: false) }
+      let(:exhibit) { create(:exhibit, published: false) }
 
       it 'enqueues the IndexExhibitMetadataJob for adding a document' do
         expect do
