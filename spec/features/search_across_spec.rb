@@ -33,7 +33,7 @@ RSpec.describe 'Searching Across Exhibits' do
   end
 
   context 'as an anonymous user' do
-    it 'they can search across exhibits they have access to', js: true do
+    it 'they can search across exhibits they have access to', :js do
       visit root_path
       js_search
 
@@ -105,7 +105,7 @@ RSpec.describe 'Searching Across Exhibits' do
   context 'as a user who is an admin' do
     before { sign_in exhibit_admin }
 
-    it 'they can search across exhibits they have access to', js: true do
+    it 'they can search across exhibits they have access to', :js do
       visit root_path
       js_search
 

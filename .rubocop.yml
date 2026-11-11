@@ -259,6 +259,9 @@ Style/RedundantArrayConstructor: # new in 1.52
   Enabled: true
 Style/RedundantConstantBase: # new in 1.40
   Enabled: true
+  # Traject configs are evaluated inside Traject::Indexer, where bare `Settings` is Traject::Indexer::Settings
+  Exclude:
+    - 'lib/traject/*_config.rb'
 Style/RedundantCurrentDirectoryInPath: # new in 1.53
   Enabled: true
 Style/RedundantDoubleSplatHashBraces: # new in 1.41

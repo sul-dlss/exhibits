@@ -9,7 +9,7 @@ class ExhibitBot
     delegate :message, to: :new
   end
 
-  def message(channels: default_channels, as_user: true, text:)
+  def message(text:, channels: default_channels, as_user: true)
     channels.each do |channel|
       client.chat_postMessage(channel: channel, as_user: as_user, text: text)
     end

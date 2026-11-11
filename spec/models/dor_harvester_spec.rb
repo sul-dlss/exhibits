@@ -119,7 +119,7 @@ RSpec.describe DorHarvester do
     let(:resource) { subject.resources.first }
 
     it 'is a Purl resource' do
-      expect(resource).to be_a_kind_of Purl
+      expect(resource).to be_a Purl
     end
 
     it 'has the correct druid' do

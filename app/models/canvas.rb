@@ -4,6 +4,7 @@
 # Model for a IIIF Canvas that contains only a set of annotations
 class Canvas
   attr_reader :id, :iiif_id, :label, :annotation_lists, :annotations
+
   delegate :size, to: :annotations
 
   # @param [String] `id`, `iiif_id`, `label`

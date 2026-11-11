@@ -50,7 +50,7 @@ class FeatureFlags
     settings_includes_method_name?(method_name)
   end
 
-  def method_missing(method_name, *args, &block)
+  def method_missing(method_name, *args, &)
     sanitized_method_name = method_name.to_s.delete_suffix('?')
 
     if settings_includes_method_name?(method_name)

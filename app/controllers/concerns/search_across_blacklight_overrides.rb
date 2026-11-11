@@ -13,21 +13,19 @@ module SearchAcrossBlacklightOverrides
 
   # Disable implicit links to documents
   def link_to_document(doc, field_or_opts, opts = { counter: nil })
-    label = case field_or_opts
-            when NilClass
-              document_presenter(doc).heading
-            when Hash
-              opts = field_or_opts
-              document_presenter(doc).heading
-            when Proc, Symbol
-              Deprecation.silence(Blacklight::IndexPresenter) do
-                document_presenter(doc).label field_or_opts, opts
-              end
-            else # String
-              field_or_opts
-            end
-
-    label
+    case field_or_opts
+    when NilClass
+      document_presenter(doc).heading
+    when Hash
+      opts = field_or_opts
+      document_presenter(doc).heading
+    when Proc, Symbol
+      Deprecation.silence(Blacklight::IndexPresenter) do
+        document_presenter(doc).label field_or_opts, opts
+      end
+    else # String
+      field_or_opts
+    end
   end
 
   def show_pagination?(*_args)

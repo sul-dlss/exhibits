@@ -29,7 +29,7 @@ RSpec.feature 'Metadata display' do
       expect(page).to have_css '.breadcrumb-item', text: 'More details'
     end
 
-    it 'opens view metadata in modal', js: true do
+    it 'opens view metadata in modal', :js do
       click_link 'More details »'
       within '#blacklight-modal' do
         expect(page).to have_css 'h3', text: 'Afrique Physique'
@@ -77,7 +77,7 @@ RSpec.feature 'Metadata display' do
     end
   end
 
-  describe 'nested related items', js: true do
+  describe 'nested related items', :js do
     context 'in modal' do
       it 'displays with summary/details' do
         visit spotlight.exhibit_solr_document_path(exhibit_id: exhibit.slug, id: 'gk885tn1705')

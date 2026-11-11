@@ -248,7 +248,7 @@ class CatalogController < ApplicationController
     # The inline map should only be displayed on the catalog#show page.
     config.add_index_field config.geometry_field, label: 'Inline Map',
                                                   helper_method: :document_leaflet_map,
-                                                  immutable: config.view.keys.map { |k| [k, false] }.to_h
+                                                  immutable: config.view.keys.index_with { false }
 
     config.add_index_field 'title_full_display', label: 'Title', field: 'title_display'
     config.add_index_field 'title_variant_display', label: 'Alternate Title'
@@ -332,7 +332,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     config.add_index_field(
       'full_text_tesimv',
-      immutable: (config.view.keys - [:list]).push(:show).map { |k| [k, false] }.to_h,
+      immutable: (config.view.keys - [:list]).push(:show).index_with { false },
       if: lambda do |*args|
         # bail out to true (show the field) if we don't have 3 arguments (context being the added argument)
         # This is required for the metadata configuration admin page to return the field properly.

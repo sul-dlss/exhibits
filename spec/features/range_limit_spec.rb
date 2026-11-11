@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Range limit widget', js: true do
+RSpec.describe 'Range limit widget', :js do
   let(:exhibit) do
     create(:exhibit, published: true, slug: 'test-exhibit')
   end

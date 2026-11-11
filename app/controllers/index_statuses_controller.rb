@@ -12,6 +12,10 @@ class IndexStatusesController < ApplicationController
     authorize!(params.expect(:action).to_sym, @resource)
   end
 
+  def index
+    render json: filtered_solr_document_ids
+  end
+
   def show
     document = @resource.solr_document_sidecars.where(document_id: params[:id]).first
     raise ActionController::RoutingError, "No document with id \"#{params[:id]}\" found" unless document
@@ -20,10 +24,6 @@ class IndexStatusesController < ApplicationController
       id: params[:id],
       status: document.index_status
     }
-  end
-
-  def index
-    render json: filtered_solr_document_ids
   end
 
   def autocomplete

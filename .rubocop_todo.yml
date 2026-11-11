@@ -6,44 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 4
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowAliasSyntax, AllowedMethods.
-# AllowedMethods: alias_method, public, protected, private
-Layout/EmptyLinesAroundAttributeAccessor:
-  Exclude:
-    - 'app/models/canvas.rb'
-    - 'app/models/exhibit_finder.rb'
-    - 'app/models/full_text_parser.rb'
-    - 'lib/traject/canvas_reader.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: leading, trailing
-Layout/LineContinuationLeadingSpace:
-  Exclude:
-    - 'spec/models/bibliography_spec.rb'
-
-# Offense count: 18
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: space, no_space
-Layout/LineContinuationSpacing:
-  Exclude:
-    - 'spec/features/bibliography_resource_integration_spec.rb'
-    - 'spec/helpers/application_helper_spec.rb'
-    - 'spec/models/bibliography_spec.rb'
-
-# Offense count: 8
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented
-Layout/LineEndStringConcatenationIndentation:
-  Exclude:
-    - 'spec/features/bibliography_resource_integration_spec.rb'
-    - 'spec/helpers/application_helper_spec.rb'
-    - 'spec/models/bibliography_spec.rb'
 
 # Offense count: 1
 # Configuration parameters: AllowComments, AllowEmptyLambdas.
@@ -83,14 +45,6 @@ Metrics/PerceivedComplexity:
   Max: 10
 
 # Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle, BlockForwardingName.
-# SupportedStyles: anonymous, explicit
-Naming/BlockForwarding:
-  Exclude:
-    - 'lib/feature_flags.rb'
-
-# Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: EnforcedStyleForLeadingUnderscores.
 # SupportedStylesForLeadingUnderscores: disallowed, required, optional
@@ -127,20 +81,6 @@ RSpec/BeforeAfterAll:
     - 'spec/features/manuscript_display_bibliography_spec.rb'
     - 'spec/models/search_builder_spec.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: be_a, be_kind_of
-RSpec/ClassCheck:
-  Exclude:
-    - 'spec/models/dor_harvester_spec.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-RSpec/ExcessiveDocstringSpacing:
-  Exclude:
-    - 'spec/features/bibliography_resource_integration_spec.rb'
-
 # Offense count: 3
 RSpec/ExpectInHook:
   Exclude:
@@ -152,23 +92,6 @@ RSpec/ExpectInHook:
 RSpec/IndexedLet:
   Exclude:
     - 'spec/features/search_by_exhibit_title_spec.rb'
-
-# Offense count: 18
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: hash, symbol
-RSpec/MetadataStyle:
-  Exclude:
-    - 'spec/features/adding_items_spec.rb'
-    - 'spec/features/bibliography_display_manuscript_spec.rb'
-    - 'spec/features/embed_block_spec.rb'
-    - 'spec/features/full_text_highlight_spec.rb'
-    - 'spec/features/manuscript_display_bibliography_spec.rb'
-    - 'spec/features/metadata_display_spec.rb'
-    - 'spec/features/range_limit_spec.rb'
-    - 'spec/features/search_across_spec.rb'
-    - 'spec/features/search_by_exhibit_title_spec.rb'
-    - 'spec/features/viewers_spec.rb'
 
 # Offense count: 132
 RSpec/MultipleExpectations:
@@ -223,15 +146,6 @@ RSpec/SubjectStub:
   Exclude:
     - 'spec/models/dor_harvester_spec.rb'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: ExpectedOrder, Include.
-# ExpectedOrder: index, show, new, edit, create, update, destroy
-# Include: app/controllers/**/*.rb
-Rails/ActionOrder:
-  Exclude:
-    - 'app/controllers/exhibit_finder_controller.rb'
-    - 'app/controllers/index_statuses_controller.rb'
 
 # Offense count: 4
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -249,12 +163,6 @@ Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/search_across_helper.rb'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Rails/IndexWith:
-  Exclude:
-    - 'app/controllers/catalog_controller.rb'
-
 # Offense count: 5
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: Include.
@@ -271,34 +179,10 @@ Rails/RootPathnameMethods:
     - 'Rakefile'
 
 # Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Rails/StripHeredoc:
-  Exclude:
-    - 'app/jobs/send_publish_state_change_notification_job.rb'
-
-# Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/ArrayIntersect:
   Exclude:
     - 'app/models/user.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/FileRead:
-  Exclude:
-    - 'spec/features/bibliography_resource_integration_spec.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/IfUnlessModifier:
-  Exclude:
-    - 'lib/traject/macros/general.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/KeywordParametersOrder:
-  Exclude:
-    - 'app/models/exhibit_bot.rb'
 
 # Offense count: 2
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -330,36 +214,8 @@ Style/OpenStructUse:
     - 'spec/models/feature_flags_spec.rb'
 
 # Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantAssignment:
-  Exclude:
-    - 'app/controllers/concerns/search_across_blacklight_overrides.rb'
-
-# Offense count: 6
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantConstantBase:
-  Exclude:
-    - 'app/controllers/search_across_controller.rb'
-    - 'lib/traject/bibtex_config.rb'
-    - 'lib/traject/canvas_config.rb'
-    - 'lib/traject/dor_config.rb'
-
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantRegexpEscape:
-  Exclude:
-    - 'lib/tasks/spotlight.rake'
-
-# Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: AllowedMethods, AllowedPatterns.
 Style/ReturnNilInPredicateMethodDefinition:
   Exclude:
     - 'app/models/spotlight/resources/iiif_manifest.rb'
-
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/SuperArguments:
-  Exclude:
-    - 'app/models/ability.rb'
-    - 'app/presenters/search_across_thumbnail_presenter.rb'

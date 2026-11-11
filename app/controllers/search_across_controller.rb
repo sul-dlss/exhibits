@@ -4,7 +4,7 @@
 # Spotlight's catalog controller. Note that this subclasses
 # the host application's CatalogController to get its configuration,
 # partial overrides, etc
-class SearchAcrossController < ::CatalogController
+class SearchAcrossController < CatalogController
   include Blacklight::Catalog
   include Spotlight::Catalog
 

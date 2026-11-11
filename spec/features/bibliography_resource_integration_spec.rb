@@ -7,7 +7,7 @@ RSpec.describe 'Bibliography resource integration test' do
 
   let(:bibliography_resource) do
     BibliographyResource.new(
-      bibtex_file: File.open(file).read, exhibit: exhibit
+      bibtex_file: File.read(file), exhibit: exhibit
     )
   end
 
@@ -48,8 +48,8 @@ RSpec.describe 'Bibliography resource integration test' do
 
     it 'has some titles' do
       title_fields.each do |field_name|
-        expect(document[field_name]).to eq ['Quelques observations sur le porc-'\
-          'épic et le hérisson dans la littérature et l’iconographie médiévale']
+        expect(document[field_name]).to eq ['Quelques observations sur le porc-' \
+                                            'épic et le hérisson dans la littérature et l’iconographie médiévale']
       end
     end
 
@@ -142,7 +142,7 @@ RSpec.describe 'Bibliography resource integration test' do
         expect(document['series_ssi']).to eq ['Textes et Études du Moyen Âge']
       end
 
-      it 'has an editor ' do
+      it 'has an editor' do
         expect(document['editor_ssim']).to eq ['Dunn-Lardeau, B.']
       end
 

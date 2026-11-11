@@ -5,6 +5,7 @@
 # Exhibit that contains that document or is a document in the given collection
 class ExhibitFinder
   attr_reader :document_id
+
   def initialize(document_id)
     @document_id = document_id
   end

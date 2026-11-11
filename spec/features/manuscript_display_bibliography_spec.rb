@@ -35,7 +35,7 @@ RSpec.feature 'Cited manuscripts display on the bibliography show page' do
     expect(JSON.parse(section['data-cited-documents-document-ids-value'])).to eq(citations)
   end
 
-  scenario 'async loading of the sorted, formatted bibliography', js: true do
+  scenario 'async loading of the sorted, formatted bibliography', :js do
     within '.record-metadata-section' do
       within '.cited-documents-list' do
         # can appear in any order
