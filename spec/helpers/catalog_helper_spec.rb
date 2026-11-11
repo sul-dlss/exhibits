@@ -170,7 +170,9 @@ RSpec.describe CatalogHelper do
 
       it 'wraps each highlight value in a paragraph tag' do
         ps = helper.render_fulltext_highlight(document: document)
-        expect(ps).to eq '<p>The first <em>Value1</em></p><p>The <em>Value2</em> second</p>'
+        expect(ps).to eq '<div data-controller="full-text-collapse">' \
+                         '<p>The first <em>Value1</em></p><p>The <em>Value2</em> second</p>' \
+                         '</div>'
       end
     end
 

@@ -4,6 +4,18 @@
 
 import { application } from "./application"
 
+import BibliographyController from "./bibliography_controller"
+import CitedDocumentsController from "./cited_documents_controller"
 import DetailsContainerController from "./details_container_controller"
+import FullTextCollapseController from "./full_text_collapse_controller"
+import IndexStatusController from "./index_status_controller"
+import SiteSearchTypeController from "./site_search_type_controller"
+import TableOfContentsController from "./table_of_contents_controller"
 
+application.register("bibliography", BibliographyController)
+application.register("cited-documents", CitedDocumentsController)
 application.register("details-container", DetailsContainerController)
+application.register("full-text-collapse", FullTextCollapseController)
+application.register("index-status", IndexStatusController)
+application.register("site-search-type", SiteSearchTypeController)
+application.register("table-of-contents", TableOfContentsController)

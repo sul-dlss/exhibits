@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.feature 'Cited manuscripts display on the bibliography show page' do
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:resource_id) { 'QTWBAWKX' }
-  let(:citations_string) { '["gs233db8425", "gk885tn1705", "hj066rn6500"]' }
+  let(:citations) { %w(gs233db8425 gk885tn1705 hj066rn6500) }
   let(:bibtex_data) do
     Dir.glob('spec/fixtures/bibliography/{article,incollection}.bib').collect do |fn|
       File.read(fn)
@@ -28,10 +28,11 @@ RSpec.feature 'Cited manuscripts display on the bibliography show page' do
   end
 
   scenario 'cited documents element data required by async loader comes through to front end' do
-    expect(page).to have_css('div.record-metadata-section[data-path="/default-exhibit/catalog/documents_list"]')
-    expect(page).to have_css("div.record-metadata-section[data-parentid=\"#{resource_id}\"]")
-    expect(page).to have_css('div.record-metadata-section[data-documentids]')
-    expect(page.find('div.record-metadata-section[data-documentids]')['data-documentids']).to eq(citations_string)
+    expect(page).to have_css(
+      'div.record-metadata-section[data-cited-documents-path-value="/default-exhibit/catalog/documents_list"]'
+    )
+    section = page.find('div.record-metadata-section[data-cited-documents-document-ids-value]')
+    expect(JSON.parse(section['data-cited-documents-document-ids-value'])).to eq(citations)
   end
 
   scenario 'async loading of the sorted, formatted bibliography', js: true do
