@@ -13,7 +13,7 @@ class SendPublishStateChangeNotificationJob < ApplicationJob
     published_text = published ? 'published' : 'un-published'
     date_text = I18n.l(Time.zone.parse(exhibit.updated_at.to_s), format: :long)
 
-    <<-MSG_TEXT.strip_heredoc
+    <<~MSG_TEXT
       📢 *Spotlight exhibit #{published_text}: #{exhibit.title}* 📢
       > Spotlight exhibit #{exhibit.title} #{published_text} at #{date_text}
       > #{exhibit_url(exhibit)}

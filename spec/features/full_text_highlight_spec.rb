@@ -19,7 +19,7 @@ RSpec.feature 'Full text highlighting' do
     sign_out user
   end
 
-  context 'when a document has a full text highlight hit', js: true do
+  context 'when a document has a full text highlight hit', :js do
     it 'shows the full-text hightlight field and provides a toggle' do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'structure')
 
@@ -40,7 +40,7 @@ RSpec.feature 'Full text highlighting' do
     end
   end
 
-  context 'when a document has full text but there is no highlight', js: true do
+  context 'when a document has full text but there is no highlight', :js do
     it 'still offers a link to open up the document with a search prepared (and does not have a highlight section)' do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'zy575vf8599')
 
@@ -50,7 +50,7 @@ RSpec.feature 'Full text highlighting' do
   end
 
   context 'when a document has non-english full text' do
-    it 'stems Portuguese properly', js: true do
+    it 'stems Portuguese properly', :js do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'homens')
 
       expect(page).not_to have_css('dd p', text: 'em conta o homem normal suposto', visible: :visible)
@@ -60,7 +60,7 @@ RSpec.feature 'Full text highlighting' do
   end
 
   context 'when a document does not have a full text highlight hit' do
-    it 'does not include full-text highlight', js: true do
+    it 'does not include full-text highlight', :js do
       visit spotlight.search_exhibit_catalog_path(exhibit, q: 'Maps')
 
       expect(page).to have_css('.documents-list .document') # there are results

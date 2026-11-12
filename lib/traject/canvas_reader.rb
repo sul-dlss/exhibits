@@ -12,6 +12,7 @@ module Traject
     end
 
     attr_reader :data
+
     delegate :each, :size, to: :data
 
     def count

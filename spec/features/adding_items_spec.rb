@@ -23,7 +23,7 @@ RSpec.feature 'Adding items to an exhibit' do
     end
   end
 
-  context 'when the number of documents is below the threshold', js: true do
+  context 'when the number of documents is below the threshold', :js do
     it 'displays the item statuses as a table' do
       visit spotlight.new_exhibit_resource_path(exhibit)
 
@@ -41,7 +41,7 @@ RSpec.feature 'Adding items to an exhibit' do
     end
   end
 
-  context 'when the number of documents is above the threshold', js: true do
+  context 'when the number of documents is above the threshold', :js do
     let(:number_of_resources) { 11 }
 
     it 'displays a form input that allows users to search for a druid' do

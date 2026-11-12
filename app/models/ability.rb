@@ -8,7 +8,7 @@ class Ability
   def initialize(user)
     user ||= Spotlight::Engine.user_class.new
 
-    super(user)
+    super
 
     can :manage, DorHarvester, exhibit_id: user.exhibit_roles.pluck(:resource_id)
 

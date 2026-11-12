@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Searching Exhibits By Title', js: true do
+RSpec.describe 'Searching Exhibits By Title', :js do
   include JavascriptFeatureHelpers
 
   let(:exhibit1) do

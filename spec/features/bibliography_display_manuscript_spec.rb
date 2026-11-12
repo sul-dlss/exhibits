@@ -39,7 +39,7 @@ RSpec.feature 'Bibliography display on the manuscript show page' do
     expect(section['data-bibliography-sort-value']).to eq 'author_sort asc, pub_year_isi asc, title_sort asc'
   end
 
-  scenario 'async loading of the sorted, formatted bibliography', js: true do # rubocop: disable RSpec/ExampleLength
+  scenario 'async loading of the sorted, formatted bibliography', :js do # rubocop: disable RSpec/ExampleLength
     within '.record-metadata-section' do
       within '.bibliography-list' do
         # must be sorted correctly
@@ -59,7 +59,7 @@ RSpec.feature 'Bibliography display on the manuscript show page' do
     let(:resource_id) { 'xy658qf4887' }
     let(:bibtex_file) { 'spec/fixtures/bibliography/many_bibliographies.bib' }
 
-    scenario 'are togglable', js: true do
+    scenario 'are togglable', :js do
       within '.record-metadata-section' do
         within '.bibliography-list' do
           expect(page).to have_css('p.bibliography-body', count: 3, visible: :visible)
@@ -76,7 +76,7 @@ RSpec.feature 'Bibliography display on the manuscript show page' do
     end
   end
 
-  context 'when there are no associated bibliography documents returned', js: true do
+  context 'when there are no associated bibliography documents returned', :js do
     let(:resource_id) { 'wd297xz1362' }
 
     scenario 'the bibliography section is rendered (but not visible)' do

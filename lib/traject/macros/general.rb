@@ -15,9 +15,7 @@ module Traject
       # only accumulate values if a condition is met
       def conditional(condition, block)
         lambda do |record, accumulator, context|
-          if condition.call(record, context)
-            block.call(record, accumulator, context)
-          end
+          block.call(record, accumulator, context) if condition.call(record, context)
         end
       end
 

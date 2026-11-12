@@ -7,13 +7,13 @@ class ExhibitFinderController < ApplicationController
     headers['Access-Control-Allow-Origin'] = '*'
   end
 
-  # /exhibit_finder/:id
-  def show
-    render json: ExhibitFinder.find(params.expect(:id))
-  end
-
   # /exhibit_finder
   def index
     render json: ExhibitFinder.search(params[:q])
+  end
+
+  # /exhibit_finder/:id
+  def show
+    render json: ExhibitFinder.find(params.expect(:id))
   end
 end

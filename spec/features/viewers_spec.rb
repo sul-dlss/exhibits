@@ -102,7 +102,7 @@ RSpec.describe 'Viewers' do
     end
 
     # rubocop:disable RSpec/ExampleLength
-    pending 'renders default viewer on configured widget feature page', js: true do
+    pending 'renders default viewer on configured widget feature page', :js do
       visit spotlight.edit_exhibit_feature_page_path(exhibit, feature_page)
 
       add_widget 'solr_documents' # the "Item Row" widget
