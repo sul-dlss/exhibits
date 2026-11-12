@@ -120,11 +120,8 @@ RSpec.describe CatalogHelper do
     let(:show_page) { "/test-flag-exhibit-slug/catalog/#{druid}" }
 
     before do
-      helper.extend(Module.new do
-        def current_exhibit
-          FactoryBot.create(:exhibit, slug: 'test-flag-exhibit-slug')
-        end
-      end)
+      exhibit = create(:exhibit, slug: 'test-flag-exhibit-slug')
+      helper.define_singleton_method(:current_exhibit) { exhibit }
     end
 
     context 'page details' do

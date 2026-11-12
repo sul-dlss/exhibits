@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'indexing integration test' do
   subject(:dor_harvester) { DorHarvester.new(druid_list: druid, exhibit: exhibit) }
 
-  let(:exhibit) { FactoryBot.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:rsolr) { instance_double(RSolr) }
   let(:rsolr_client) { instance_double(RSolr::Client) }
 

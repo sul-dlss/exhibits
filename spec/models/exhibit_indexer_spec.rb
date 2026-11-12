@@ -6,7 +6,7 @@ RSpec.describe ExhibitIndexer do
   subject(:indexer) { described_class.new(exhibit) }
 
   let(:solr_connection) { instance_spy(RSolr::Client) }
-  let(:exhibit) { FactoryBot.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
 
   before do
     allow(described_class).to receive_messages(solr_connection: solr_connection)

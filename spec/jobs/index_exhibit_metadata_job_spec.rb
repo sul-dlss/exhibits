@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe IndexExhibitMetadataJob do
-  let(:exhibit) { FactoryBot.create(:exhibit) }
+  let(:exhibit) { create(:exhibit) }
   let(:indexer) { instance_spy(ExhibitIndexer) }
 
   before do
