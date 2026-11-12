@@ -4,26 +4,18 @@
 }
 
 .navbar-logo {
-  --sul-logo-color: black;
-  background-image: none; /* override blacklight logo */
+  background-size: auto;
 }
 
 .bg-cardinal {
   background-color: var(--stanford-cardinal);
 }
 
-:root {
-  --stanford-fog-light-rgb: 244, 244, 244;
-  --bs-light-rgb: var(--stanford-fog-light-rgb);
-}
-.navbar-nav {
-  --bs-nav-link-color: black;
-}
 .fog-light {
   --bs-light-rgb: var(--stanford-fog-light-rgb);
 }
 
 /* makes the hr span the length of the screen */
-.navbar-collapse hr {
-  margin-right: -100vw;
+#user-util-collapse hr {
+  width: 100vw;
 }
