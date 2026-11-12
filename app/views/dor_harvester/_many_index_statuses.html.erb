@@ -6,8 +6,8 @@
       <%= f.label :druid, for: 'object_druid', class: 'col-form-label col-md-2'%>
       <div class="col-md-6">
         <auto-complete src="<%= autocomplete_exhibit_dor_harvester_index_statuses_path(current_exhibit) %>" for="exhibit-status-popup" data-action="auto-complete-change->index-status#add">
-          <%= f.text_field :druid, wrapper: false, class: 'form-control tt-input', role: 'combobox', 'aria-labelledby': 'site-search-type', name: 'exhibit-status', data: { behavior: 'index-status-typeahead' } %>
-          <ul id="exhibit-status-popup" class="tt-dropdown-menu"></ul>
+          <%= f.text_field :druid, wrapper: false, class: 'form-control', role: 'combobox', 'aria-labelledby': 'site-search-type', name: 'exhibit-status', data: { behavior: 'index-status-typeahead' } %>
+          <ul id="exhibit-status-popup" class="dropdown-menu"></ul>
           <div id="exhibit-status-popup-feedback" class="sr-only visually-hidden"></div>
         </auto-complete>
       </div>
