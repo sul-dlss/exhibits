@@ -1,4 +1,4 @@
-<%= form_tag @url, method: :get, class: 'search-across-form search-query-form row gx-0', role: 'search', 'aria-label' => t('blacklight.search.form.submit') do %>
+<%= form_tag @url, method: :get, class: 'search-across-form search-query-form row gx-0', role: 'search', 'aria-label' => t('blacklight.search.form.submit'), data: { controller: 'site-search-type', site_search_type_enabled_value: helpers.in_search_across? ? 'item-search' : 'exhibit-search' } do %>
   <div class="col-auto search-q d-none d-sm-block"></div>
   <div class="col-auto align-self-center">
     <%= render Blacklight::HiddenSearchStateComponent.new(params: helpers.search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
@@ -6,8 +6,8 @@
       <label for="search_field" class="visually-hidden"><%= t('blacklight.search.form.search_field.label') %></label>
     <% end %>
 
-    <div class="dropdown d-inline-block border-end border-3" data-behavior="site-search-type-toggle" data-enabled="<%= helpers.in_search_across? ? '#item-search' : '#exhibit-search' %>" style="display: none">
-      <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="site-search-type" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="dropdown d-inline-block border-end border-3" data-site-search-type-target="menu" style="display: none">
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle" id="site-search-type" data-site-search-type-target="button" data-bs-toggle="dropdown" aria-expanded="false">
         <% if helpers.in_search_across? %>
           <%= t('site_search_form.find_all_items') %>
         <% else %>
@@ -16,10 +16,10 @@
       </button>
 
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#" data-bs-target="#exhibit-search" data-button-text="<%= t('site_search_form.find_exhibits_by_title') %>">
+        <a class="dropdown-item" href="#" data-action="site-search-type#select" data-site-search-type-option-param="exhibit-search" data-site-search-type-button-text-param="<%= t('site_search_form.find_exhibits_by_title') %>">
           <%= t('site_search_form.exhibits_by_title') %>
         </a>
-        <a class="dropdown-item" href="#" data-bs-target="#item-search" data-button-text="<%= t('site_search_form.find_all_items') %>">
+        <a class="dropdown-item" href="#" data-action="site-search-type#select" data-site-search-type-option-param="item-search" data-site-search-type-button-text-param="<%= t('site_search_form.find_all_items') %>">
           <%= t('site_search_form.all_items') %>
         </a>
       </div>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="col">
-    <span id="exhibit-search" class="exhibit-search-typeahead site-search-type" data-behavior="site-search-type" style="display: none;">
+    <span id="exhibit-search" class="exhibit-search-typeahead site-search-type" data-site-search-type-target="option" style="display: none;">
       <auto-complete src="<%= exhibit_autocomplete_index_path %>" for="exhibit-search-popup">
         <input type="text" class="form-control" role="combobox" aria-labelledby="site-search-type" name="exhibit-search" data-behavior="exhibit-search-typeahead" />
         <ul id="exhibit-search-popup" class="tt-dropdown-menu"></ul>
@@ -35,7 +35,7 @@
       </auto-complete>
     </span>
 
-    <span id="item-search" class="site-search-type" data-behavior="site-search-type">
+    <span id="item-search" class="site-search-type" data-site-search-type-target="option">
       <%= hidden_field_tag :search_field, search_fields.first.last %>
       <noscript>
         <label for="q" class="visually-hidden"><%= t('blacklight.search.form.search.label') %></label>

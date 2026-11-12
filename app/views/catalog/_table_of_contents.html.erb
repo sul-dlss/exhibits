@@ -1,10 +1,12 @@
-<a class='show-hide-toggle' role='button' data-bs-toggle='collapse' href='#<%= collapse_id %>' aria-expanded='false' aria-controls='<%= collapse_id %>'>
-  <span>Show</span>
-</a>
-<div class='collapse' id='<%= collapse_id %>'>
-  <div class='well'>
-    <ul>
-      <%= contents %>
-    </ul>
+<div data-controller='table-of-contents'>
+  <a class='show-hide-toggle' role='button' data-bs-toggle='collapse' href='#<%= collapse_id %>' aria-expanded='false' aria-controls='<%= collapse_id %>'>
+    <span data-table-of-contents-target='label'>Show</span>
+  </a>
+  <div class='collapse' id='<%= collapse_id %>' data-action='show.bs.collapse->table-of-contents#show hide.bs.collapse->table-of-contents#hide'>
+    <div class='well'>
+      <ul>
+        <%= contents %>
+      </ul>
+    </div>
   </div>
 </div>

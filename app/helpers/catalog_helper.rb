@@ -99,10 +99,13 @@ module CatalogHelper
 
     link = search_for_doc_text_link(document)
 
-    safe_join(highlights.take(Settings.full_text_highlight.snippet_count).map do |val|
+    contents = safe_join(highlights.take(Settings.full_text_highlight.snippet_count).map do |val|
       content_tag('p') do
         sanitize(val, tags: %w(em))
       end
     end.prepend(link), '')
+    return contents if contents.blank?
+
+    content_tag(:div, contents, data: { controller: 'full-text-collapse' })
   end
 end

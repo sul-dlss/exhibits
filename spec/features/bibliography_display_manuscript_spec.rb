@@ -33,11 +33,10 @@ RSpec.feature 'Bibliography display on the manuscript show page' do
   end
 
   scenario 'bibliography element data required by async loader' do
-    expect(page).to have_css('div.record-metadata-section[data-path="/default-exhibit/catalog"]', visible: :hidden)
-    expect(page).to have_css("div.record-metadata-section[data-parentid=\"#{resource_id}\"]", visible: :hidden)
-    expect(page).to have_css(
-      'div.record-metadata-section[data-sort="author_sort asc, pub_year_isi asc, title_sort asc"]', visible: :hidden
-    )
+    section = page.find('div.record-metadata-section[data-controller="bibliography"]', visible: :hidden)
+    expect(section['data-bibliography-path-value']).to eq '/default-exhibit/catalog'
+    expect(section['data-bibliography-parent-id-value']).to eq resource_id
+    expect(section['data-bibliography-sort-value']).to eq 'author_sort asc, pub_year_isi asc, title_sort asc'
   end
 
   scenario 'async loading of the sorted, formatted bibliography', js: true do # rubocop: disable RSpec/ExampleLength

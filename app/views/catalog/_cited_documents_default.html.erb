@@ -1,11 +1,10 @@
 <% if @document.reference? && @document.cites_other_documents? %>
   <div class='col-md-12 record-metadata-section'
-       data-behavior='cited-documents-contents'
-       data-path="<%= documents_list_exhibit_catalog_path(exhibit_id: @exhibit) %>"
-       data-parentid="<%= @document.id %>"
-       data-documentids="<%= @document.related_document_ids %>"
+       data-controller='cited-documents'
+       data-cited-documents-path-value="<%= documents_list_exhibit_catalog_path(exhibit_id: @exhibit) %>"
+       data-cited-documents-document-ids-value="<%= @document.related_document_ids.to_json %>"
   >
     <h3 class="col-md-9 mt-4"><%= t('bibliography_resources.show.related_documents') %></h3>
-    <ul class="col-md-9 cited-documents-list"></ul>
+    <ul class="col-md-9 cited-documents-list" data-cited-documents-target="list"></ul>
   </div>
 <% end %>
