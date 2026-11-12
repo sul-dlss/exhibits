@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Viewers' do
-  include JavascriptFeatureHelpers
-
   let(:exhibit) { create(:exhibit, slug: 'default-exhibit') }
   let(:user) { nil }
 
@@ -78,7 +76,6 @@ RSpec.describe 'Viewers' do
   end
 
   describe 'rendered viewer' do
-    let(:feature_page) { create(:feature_page, exhibit: exhibit) }
     let(:admin) { create(:exhibit_admin, exhibit: exhibit) }
 
     before do
@@ -100,28 +97,6 @@ RSpec.describe 'Viewers' do
                  'manifests\%2FParker\%2Fbg021sq9590\%2Fcanvas\%2Fcanvas-9]')
       )
     end
-
-    # rubocop:disable RSpec/ExampleLength
-    pending 'renders default viewer on configured widget feature page', js: true do
-      visit spotlight.edit_exhibit_feature_page_path(exhibit, feature_page)
-
-      add_widget 'solr_documents' # the "Item Row" widget
-
-      fill_in_typeahead_field with: 'hj066rn6500'
-
-      expect(page).to have_selector '.panel'
-
-      within('.panel') do
-        expect(page).to have_content(/Image \d of \d/)
-        expect(page).to have_link 'Change'
-      end
-
-      save_page_changes
-
-      expect(page).not_to have_css 'iframe[src*=embed]'
-      expect(page).to have_css '.oembed-widget'
-    end
-    # rubocop:enable RSpec/ExampleLength
   end
 
   describe 'PURL link' do
