@@ -42,6 +42,16 @@
   }
 }
 
+auto-complete {
+  display: block;
+  position: relative;
+
+  .dropdown-menu {
+    display: block;
+    width: 100%;
+  }
+}
+
 .image-wrapper {
   height: 10.625rem;
 }
