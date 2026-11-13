@@ -4,7 +4,6 @@ require_relative 'bibtex_reader'
 require_relative 'macros/bibtex'
 require_relative 'macros/general'
 
-require 'bibliography'
 require 'active_support/core_ext/object/blank'
 extend Traject::Macros::Bibtex
 extend Traject::Macros::General
