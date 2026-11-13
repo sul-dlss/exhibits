@@ -196,13 +196,6 @@ Style/MinMaxComparison:
   Exclude:
     - 'app/controllers/concerns/search_across_blacklight_overrides.rb'
 
-# Offense count: 6
-Style/MixinUsage:
-  Exclude:
-    - 'lib/traject/bibtex_config.rb'
-    - 'lib/traject/canvas_config.rb'
-    - 'lib/traject/dor_config.rb'
-
 # Offense count: 1
 Style/MultilineBlockChain:
   Exclude:
