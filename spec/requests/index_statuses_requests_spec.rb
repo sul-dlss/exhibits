@@ -27,7 +27,7 @@ RSpec.describe 'Index Statuses' do
       it "renders json including details about the item's indexing status" do
         get "/#{exhibit.slug}/dor_harvester/index_statuses/abc1"
 
-        response_json = JSON.parse(response.body)
+        response_json = response.parsed_body
         expect(response_json['id']).to eq 'abc1'
         expect(response_json['status']).to eq('ok' => true)
       end
@@ -42,14 +42,14 @@ RSpec.describe 'Index Statuses' do
       it 'renders a json artray of all the document ids, filtered by a q parameter' do
         get "/#{exhibit.slug}/dor_harvester/index_statuses?q=abc"
 
-        response_json = JSON.parse(response.body)
+        response_json = response.parsed_body
         expect(response_json.length).to eq 5
         expect(response_json.first).to eq 'abc0'
         expect(response_json.last).to eq 'abc4'
 
         get "/#{exhibit.slug}/dor_harvester/index_statuses?q=3"
 
-        response_json = JSON.parse(response.body)
+        response_json = response.parsed_body
         expect(response_json).to eq(['abc3'])
       end
     end
