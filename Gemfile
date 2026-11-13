@@ -80,7 +80,6 @@ end
 
 gem 'config'
 
-gem 'bootstrap', '~> 5.3'
 gem 'bootstrap_form', '~> 5.4'
 gem 'blacklight', '~> 9.2'
 gem 'blacklight-gallery', '~> 6.1'
