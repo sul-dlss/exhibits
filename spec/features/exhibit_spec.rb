@@ -5,9 +5,10 @@ require 'rails_helper'
 RSpec.describe 'an exhibit' do
   let!(:exhibit) { create(:exhibit) }
 
-  it 'loads the home page' do
+  it 'lists the exhibit on the home page' do
     visit '/'
     expect(page.status_code).to eq 200
+    expect(page).to have_content exhibit.title
   end
 
   it 'can open a search tips modal' do
