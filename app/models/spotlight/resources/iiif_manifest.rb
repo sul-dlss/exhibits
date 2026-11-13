@@ -4,14 +4,6 @@
 spotlight_path = Gem::Specification.find_by_name('blacklight-spotlight').full_gem_path
 require_dependency File.join(spotlight_path, 'app/models/spotlight/resources/iiif_manifest.rb')
 
-require 'iiif/hash_behaviours'
-module IIIF
-  # monkey-patch pending https://github.com/iiif-prezi/osullivan/pull/78
-  module HashBehaviours
-    def_delegators :@data, :dig
-  end
-end
-
 module Spotlight
   module Resources
     ##
