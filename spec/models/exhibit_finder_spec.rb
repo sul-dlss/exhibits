@@ -43,13 +43,13 @@ RSpec.describe ExhibitFinder do
     end
 
     it 'sends in a query that ORs itself and a wildcarded version of itself' do
-      allow(solr_connection).to receive(:select).with(
-        params: hash_including(
-          q: '(Exhib) OR (Exhib*)'
-        )
-      ).and_return({})
+      allow(solr_connection).to receive(:select).and_return({})
 
       described_class.search('Exhib')
+
+      expect(solr_connection).to have_received(:select).with(
+        params: hash_including(q: '(Exhib) OR (Exhib*)')
+      )
     end
   end
 
