@@ -8,14 +8,10 @@ RSpec.describe Spotlight::Exhibit do
       let(:exhibit) { create(:exhibit, published: false) }
 
       it 'kicks off a SendPublishStateChangeNotificationJob sending published = true' do
-        allow(SendPublishStateChangeNotificationJob).to receive(:perform_later)
-
         exhibit.published = true
-        exhibit.save!
 
-        expect(SendPublishStateChangeNotificationJob).to have_received(:perform_later).with(
-          a_hash_including(published: true)
-        )
+        expect { exhibit.save! }.to have_enqueued_job(SendPublishStateChangeNotificationJob)
+          .with(exhibit: exhibit, published: true)
       end
     end
 
@@ -23,14 +19,10 @@ RSpec.describe Spotlight::Exhibit do
       let(:exhibit) { create(:exhibit, published: true) }
 
       it 'kicks off a SendPublishStateChangeNotificationJob sending published = false' do
-        allow(SendPublishStateChangeNotificationJob).to receive(:perform_later)
-
         exhibit.published = false
-        exhibit.save!
 
-        expect(SendPublishStateChangeNotificationJob).to have_received(:perform_later).with(
-          a_hash_including(published: false)
-        )
+        expect { exhibit.save! }.to have_enqueued_job(SendPublishStateChangeNotificationJob)
+          .with(exhibit: exhibit, published: false)
       end
     end
 
@@ -38,12 +30,9 @@ RSpec.describe Spotlight::Exhibit do
       let(:exhibit) { create(:exhibit, published: false) }
 
       it 'does not kick off a SendPublishStateChangeNotificationJob' do
-        allow(SendPublishStateChangeNotificationJob).to receive(:perform_later)
-
         exhibit.subtitle = 'The sub-title of the exhibit'
-        exhibit.save!
 
-        expect(SendPublishStateChangeNotificationJob).not_to have_received(:perform_later)
+        expect { exhibit.save! }.not_to have_enqueued_job(SendPublishStateChangeNotificationJob)
       end
     end
 

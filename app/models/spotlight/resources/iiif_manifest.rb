@@ -12,7 +12,7 @@ module IIIF
   end
 end
 
-module Spotlight
+module Spotlight # rubocop:disable Style/OneClassPerFile
   module Resources
     ##
     # A PORO to construct a solr hash for a given IiifManifest

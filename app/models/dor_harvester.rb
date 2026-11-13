@@ -122,8 +122,8 @@ class DorHarvester < Spotlight::Resource
   end
 
   def fetch_collection_metadata
-    resources.select(&:exists?).select(&:collection?).each_with_object({}) do |obj, memo|
-      memo[obj.bare_druid] = { size: obj.collection_member_druids.size }
+    resources.select(&:exists?).select(&:collection?).to_h do |obj|
+      [obj.bare_druid, { size: obj.collection_member_druids.size }]
     end
   end
 end

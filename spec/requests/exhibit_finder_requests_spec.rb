@@ -7,7 +7,7 @@ RSpec.describe 'Exhibit Finder API' do
 
   describe '#show' do
     before do
-      # rubocop:disable RSpec/AnyInstance
+      # rubocop:disable-next RSpec/AnyInstance
       allow_any_instance_of(ExhibitFinder).to receive_messages(
         documents: [
           SolrDocument.new(
@@ -17,7 +17,6 @@ RSpec.describe 'Exhibit Finder API' do
           )
         ]
       )
-      # rubocop:enable RSpec/AnyInstance
     end
 
     it 'returns JSON exhibit representations' do

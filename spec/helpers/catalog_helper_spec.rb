@@ -88,7 +88,7 @@ RSpec.describe CatalogHelper do
 
       it 'presents content inline' do
         expect(helper.table_of_contents_separator(input)).to eq 'Homiliae'
-        expect(helper.table_of_contents_separator(input)).not_to match(/data-bs-toggle='collapse'/)
+        expect(helper.table_of_contents_separator(input)).not_to include("data-bs-toggle='collapse'")
       end
     end
 
@@ -96,11 +96,11 @@ RSpec.describe CatalogHelper do
       let(:input) { { document: SolrDocument.new(id: 'cf386wt1778'), value: ['Homiliae--euangelia'] } }
 
       it 'separates MODS table of contents' do
-        expect(helper.table_of_contents_separator(input)).to match(%r{<li>Homiliae</li><li>euangelia</li>})
+        expect(helper.table_of_contents_separator(input)).to include('<li>Homiliae</li><li>euangelia</li>')
       end
 
       it 'collapses content' do
-        expect(helper.table_of_contents_separator(input)).to match(/data-bs-toggle='collapse'/)
+        expect(helper.table_of_contents_separator(input)).to include("data-bs-toggle='collapse'")
       end
     end
 
@@ -194,7 +194,7 @@ RSpec.describe CatalogHelper do
 
         link = Capybara.string(helper.render_fulltext_highlight(document: document)).find('a')
         expect(link.text).to eq('Search for "The search term" in document text')
-        expect(link['href']).to match(/abc123\?search=The\+search\+term/)
+        expect(link['href']).to include('abc123?search=The+search+term')
       end
     end
 

@@ -101,7 +101,7 @@ RSpec.describe 'Viewers' do
       )
     end
 
-    # rubocop:disable RSpec/ExampleLength
+    # rubocop:disable-next RSpec/ExampleLength
     pending 'renders default viewer on configured widget feature page', :js do
       visit spotlight.edit_exhibit_feature_page_path(exhibit, feature_page)
 
@@ -121,7 +121,6 @@ RSpec.describe 'Viewers' do
       expect(page).not_to have_css 'iframe[src*=embed]'
       expect(page).to have_css '.oembed-widget'
     end
-    # rubocop:enable RSpec/ExampleLength
   end
 
   describe 'PURL link' do
