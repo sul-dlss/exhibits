@@ -33,9 +33,7 @@ module BibliographyConcern
 
     begin
       url = URI.parse(bibliography_url)
-      # rubocop:disable  Performance/RegexpMatch
-      url.to_s if url.host =~ /zotero/i
-      # rubocop:enable  Performance/RegexpMatch
+      url.to_s if url.host&.match?(/zotero/i)
     rescue URI::InvalidURIError
       nil # just a regular BibTeX key
     end
