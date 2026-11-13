@@ -7,6 +7,7 @@ RSpec.describe 'an exhibit' do
 
   it 'loads the home page' do
     visit '/'
+    expect(page.status_code).to eq 200
   end
 
   it 'can open a search tips modal' do

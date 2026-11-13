@@ -102,17 +102,6 @@ RSpec/MultipleExpectations:
 RSpec/NestedGroups:
   Max: 4
 
-# Offense count: 5
-# Configuration parameters: AllowedPatterns.
-# AllowedPatterns: ^expect_, ^assert_
-RSpec/NoExpectationExample:
-  Exclude:
-    - 'spec/features/exhibit_index_spec.rb'
-    - 'spec/features/exhibit_spec.rb'
-    - 'spec/features/indexing_integration_spec.rb'
-    - 'spec/jobs/index_related_content_job_spec.rb'
-    - 'spec/models/exhibit_finder_spec.rb'
-
 # Offense count: 1
 RSpec/PendingWithoutReason:
   Exclude:
