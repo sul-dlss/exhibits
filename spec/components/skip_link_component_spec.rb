@@ -19,11 +19,14 @@ RSpec.describe SkipLinkComponent, type: :component do
     end
   end
 
-  # If an existing content block is passed to this component,
-  # the component should include the link to the first result
+  # Blacklight's search results view passes the link to the first result as content
   describe 'with existing search results' do
     it 'renders skip links with correct links to search and results' do
-      rendered = render_inline(described_class.new) { 'some content' }
+      rendered = render_inline(described_class.new) do
+        vc_test_controller.view_context.render(
+          Blacklight::SkipLinkItemComponent.new(text: 'Skip to first result', href: '#documents')
+        )
+      end
       expect(rendered).to have_link('Skip to main content', href: '#main-container')
       expect(rendered).to have_link('Skip to search', href: '#search_field')
       expect(rendered).to have_link('Skip to first result', href: '#documents')
