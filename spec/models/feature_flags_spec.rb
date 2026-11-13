@@ -7,12 +7,12 @@ RSpec.describe FeatureFlags do
 
   let(:exhibit) { create(:exhibit) }
   let(:settings) do
-    OpenStruct.new.tap do |os|
-      os.true_thing = true
-      os.false_thing = false
-      os.other_thing = false
-      os.exhibit_slug = OpenStruct.new(other_thing: true)
-    end
+    Config::Options.new(
+      true_thing: true,
+      false_thing: false,
+      other_thing: false,
+      exhibit_slug: Config::Options.new(other_thing: true)
+    )
   end
 
   describe 'setting accessors' do

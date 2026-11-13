@@ -208,11 +208,6 @@ Style/MultilineBlockChain:
   Exclude:
     - 'lib/tasks/spotlight.rake'
 
-# Offense count: 2
-Style/OpenStructUse:
-  Exclude:
-    - 'spec/models/feature_flags_spec.rb'
-
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: AllowedMethods, AllowedPatterns.
