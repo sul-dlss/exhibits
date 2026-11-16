@@ -45,6 +45,7 @@ if (navigator.userAgentData && navigator.userAgentData.brands &&
 }
 
 // Override the alt text link url so it goes to Stanford's guidelines
-SirTrevor.Locales.en.blocks.alt_text_guidelines = $.extend(SirTrevor.Locales.en.blocks.alt_text_guidelines, {
-  link_url: 'https://uit.stanford.edu/accessibility/concepts/images' 
-});
+SirTrevor.Locales.en.blocks.alt_text_guidelines = {
+  ...SirTrevor.Locales.en.blocks.alt_text_guidelines,
+  link_url: 'https://uit.stanford.edu/accessibility/concepts/images'
+};
