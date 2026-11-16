@@ -6,6 +6,13 @@ RSpec.describe SearchAcrossController do
   let(:view_context) { controller.view_context }
 
   describe 'GET index' do
+    %w(rss atom).each do |feed_format|
+      it "does not serve #{feed_format} feeds" do
+        expect { get :index, params: { q: 'some-query', format: feed_format } }
+          .to raise_error(ActionController::UnknownFormat)
+      end
+    end
+
     context 'with a grouped response' do
       before do
         get :index, params: { q: 'some-query', group: true, sort: 'count' }
@@ -24,6 +31,13 @@ RSpec.describe SearchAcrossController do
       it 'sorts the exhibits by count' do
         expect(controller.blacklight_config.facet_fields[SolrDocument.exhibit_slug_field].sort).to eq 'count'
       end
+    end
+  end
+
+  describe 'feed link tags' do
+    it 'are not rendered' do
+      expect(view_context.rss_feed_link_tag).to be_nil
+      expect(view_context.atom_feed_link_tag).to be_nil
     end
   end
 

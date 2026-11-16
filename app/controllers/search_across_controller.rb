@@ -25,6 +25,12 @@ class SearchAcrossController < CatalogController
     search_session['id'] = nil
   end
 
+  # Search across results don't link to individual documents, so there's nothing
+  # meaningful to put in a feed (and the rss/atom view configs are cleared below).
+  before_action only: :index do
+    raise ActionController::UnknownFormat if request.format.rss? || request.format.atom?
+  end
+
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params.reject! { |k, _v| k.to_s.starts_with? 'hl' }
@@ -134,4 +140,10 @@ class SearchAcrossController < CatalogController
   end
 
   helper_method :search_facet_path
+
+  # Don't advertise feeds that we don't serve (see the before_action above)
+  def rss_feed_link_tag(*); end
+  def atom_feed_link_tag(*); end
+
+  helper_method :rss_feed_link_tag, :atom_feed_link_tag
 end
