@@ -50,19 +50,19 @@ RSpec.describe SearchAcrossHelper do
 
   describe '#unpublished_badge' do
     it 'returns an badge w/ the Unpublished text' do
-      expect(Capybara.string(helper.unpublished_badge)).to have_css('span.badge.badge-warning', text: 'Unpublished')
+      expect(Capybara.string(helper.unpublished_badge)).to have_css('span.badge.text-bg-warning', text: 'Unpublished')
     end
 
     it 'allows a css class to be passed in (that is appended)' do
       expect(
         Capybara.string(helper.unpublished_badge(class: 'unpublished'))
-      ).to have_css('span.badge.badge-warning.unpublished')
+      ).to have_css('span.badge.text-bg-warning.unpublished')
     end
 
     it 'allows other HTML attributes to be passed in' do
       expect(
         Capybara.string(helper.unpublished_badge(title: 'The Title'))
-      ).to have_css('span.badge.badge-warning[title="The Title"]')
+      ).to have_css('span.badge.text-bg-warning[title="The Title"]')
     end
   end
 
@@ -112,7 +112,7 @@ RSpec.describe SearchAcrossHelper do
 
       it 'includes an Unpublished badge for unpublished exhibits' do
         titles = helper.render_exhibit_title(document: doc, value: %w(abc 123 private))
-        expect(titles).to include('>Secret</a> <span class="badge badge-warning')
+        expect(titles).to include('>Secret</a> <span class="badge text-bg-warning')
       end
     end
   end
