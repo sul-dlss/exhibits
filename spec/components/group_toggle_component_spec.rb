@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe GroupToggleComponent, type: :component do
   subject(:rendered) do
     with_controller_class(SearchAcrossController) do
-      with_request_url('/search') { render_inline(described_class.new(response:, search_state:)) }
+      with_request_url("/search?#{params.to_query}") { render_inline(described_class.new(response:, search_state:)) }
     end
   end
 

@@ -22,7 +22,9 @@ class GroupToggleComponent < ViewComponent::Base
     @search_state.params_for_search.merge(group: true)
   end
 
+  # Read the request params directly: depending on load order, SearchAcrossController's
+  # search_state_fields may not include :group, so search_state.params can drop it.
   def grouped?
-    @search_state.params[:group] ? true : false
+    params[:group].present?
   end
 end
