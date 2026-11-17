@@ -5,8 +5,7 @@ require 'rails_helper'
 RSpec.describe EmbeddedMiradorComponent, type: :component do
   let(:component) { described_class.new(document:, block:) }
   let(:document) { SolrDocument.new(id: 'abc', iiif_manifest_url_ssi: manifest_url, title_display: 'A title') }
-  let(:sir_trevor_block) { Struct.new(:maxheight, :item) }
-  let(:block) { sir_trevor_block.new(item:) }
+  let(:block) { CustomViewerComponent::SirTrevorBlock.new(item:) }
   let(:manifest_url) { 'http://example.com/iiif/manifest' }
 
   before do
