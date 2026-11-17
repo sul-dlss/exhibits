@@ -41,7 +41,7 @@ class SearchAcrossController < CatalogController
     config.default_solr_params["f.#{SolrDocument.exhibit_slug_field}.facet.limit"] = -1
     config.index_fields.clear
     list_view_only = ->(context, *) { context.view_context.document_index_view_type == :list }
-    config.add_index_field SolrDocument.exhibit_slug_field, helper_method: :render_exhibit_title
+    config.add_index_field SolrDocument.exhibit_slug_field, component: ExhibitTitleFieldComponent
     config.add_index_field 'subject_other_display', label: 'Subject', if: list_view_only
     config.add_index_field 'author_person_full_display', label: 'Author', if: list_view_only
 

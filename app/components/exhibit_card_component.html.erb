@@ -1,0 +1,25 @@
+<div class="card exhibit-card bg-light">
+  <%= link_to exhibit_path, aria: { hidden: true }, tabindex: '-1' do %>
+    <% if thumbnail_url %>
+      <%= image_tag(thumbnail_url, class: 'card-img ', alt: '') %>
+    <% else %>
+      <%= image_tag 'spotlight/default_thumbnail.jpg', class: 'card-img default-thumbnail', alt: '' %>
+    <% end %>
+  <% end %>
+  <div class="card-body">
+    <%= render UnpublishedBadgeComponent.new(class: 'unpublished') if unpublished? && gallery? %>
+    <h2 class="card-title <%= 'mb-0' if exhibit.subtitle.present? %>">
+      <%= link_to exhibit.title, exhibit_path %>
+      <%= render UnpublishedBadgeComponent.new(class: 'ms-1') if unpublished? && !gallery? %>
+    </h2>
+    <div class="exhibit-description">
+      <% if exhibit.subtitle.present? %>
+        <p class="card-text subtitle"><%= exhibit.subtitle %></p>
+      <% end %>
+      <% if exhibit.description.present? %>
+        <p class="card-text description"><%= exhibit.description %></p>
+      <% end %>
+    </div>
+    <p class="card-text"><%= results_link %></p>
+  </div>
+</div>
