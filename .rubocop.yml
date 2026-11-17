@@ -57,6 +57,13 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+# Traject configs are instance_eval'd on a Traject::Indexer (see
+# Traject::Indexer#load_config_file), so a top-level `extend` only extends
+# that indexer, not Object.
+Style/MixinUsage:
+  Exclude:
+    - "lib/traject/*_config.rb"
+
 Metrics/ClassLength:
   Exclude:
     - "app/controllers/catalog_controller.rb"
