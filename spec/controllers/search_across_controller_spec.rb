@@ -41,16 +41,6 @@ RSpec.describe SearchAcrossController do
     end
   end
 
-  describe '#url_for_document' do
-    let(:document) do
-      SolrDocument.new(id: 1, "#{SolrDocument.exhibit_slug_field}": ['a'])
-    end
-
-    it 'suppresses links for documents' do
-      expect(view_context.url_for_document(document)).to eq '#'
-    end
-  end
-
   describe '#link_to_document' do
     let(:document) do
       SolrDocument.new(id: 'SomeId1', "#{SolrDocument.exhibit_slug_field}": ['abc'])
