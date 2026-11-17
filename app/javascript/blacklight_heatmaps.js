@@ -2,6 +2,19 @@ import 'leaflet-sidebar/src/L.Control.Sidebar'
 import BlacklightHeatmaps from 'blacklight-heatmaps/app/assets/javascripts/blacklight_heatmaps/default.esm.js'
 window.BlacklightHeatmaps = BlacklightHeatmaps
 
+// Solr returns `counts_ints2D: null` when no documents in the search have geometry
+// within the requested bbox. The upstream layer iterates over it unconditionally,
+// so normalize it to an empty grid to render an empty map instead of throwing.
+// TODO: Remove this override once https://github.com/sul-dlss/blacklight_heatmaps/pull/108
+// is released and the blacklight-heatmaps package is upgraded (keep spec/features/heatmaps_spec.rb).
+const computeHeatmapObject = L.SolrHeatmap.prototype._computeHeatmapObject
+L.SolrHeatmap.prototype._computeHeatmapObject = function (data) {
+  const facetHeatmap = data?.response?.facet_heatmaps?.[this.options.field]
+  if (facetHeatmap && !facetHeatmap.counts_ints2D) facetHeatmap.counts_ints2D = []
+
+  return computeHeatmapObject.call(this, data)
+}
+
 Blacklight.onLoad(function () {
   BlacklightHeatmaps.init()
 })
