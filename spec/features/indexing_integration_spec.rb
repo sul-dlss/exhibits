@@ -33,6 +33,7 @@ RSpec.describe 'indexing integration test' do
 
     it 'can write the document to solr' do
       dor_harvester.reindex
+      expect(rsolr_client).to have_received(:update)
     end
 
     context 'to_solr' do
