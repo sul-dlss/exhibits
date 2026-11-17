@@ -215,13 +215,6 @@ h5,
 
 // scss-lint:enable ImportantRule
 
-// https://github.com/projectblacklight/spotlight/pull/2555
-.item-text {
-  .items-col {
-    z-index: 1;
-  }
-}
-
 // This allows for the skip links to appear above the header
 // instead of overlapping with the header. 
 #skip-link {
