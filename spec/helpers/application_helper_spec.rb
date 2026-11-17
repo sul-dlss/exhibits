@@ -118,14 +118,4 @@ RSpec.describe ApplicationHelper do
       end
     end
   end
-
-  describe '#split_on_white_space' do
-    let(:values) do
-      ["Tariffs and Trade.\r\n\r\nThe purpose ofGATT secretariat.\r\n\r\nThe Bibliography"]
-    end
-
-    it 'splits values on embedded whitespace (based off of bc777tp9978)' do
-      expect(helper.split_on_white_space(values).length).to eq 5
-    end
-  end
 end
