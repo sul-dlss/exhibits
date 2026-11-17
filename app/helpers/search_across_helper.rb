@@ -29,7 +29,7 @@ module SearchAcrossHelper
 
   def unpublished_badge(**html_options)
     css_class = html_options.delete(:class)
-    content_tag('span', class: "badge badge-warning #{css_class}", **html_options) { t('catalog.index.unpublished') }
+    content_tag('span', class: "badge text-bg-warning #{css_class}", **html_options) { t('catalog.index.unpublished') }
   end
 
   def exhibit_metadata
