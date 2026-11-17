@@ -43,7 +43,7 @@ RSpec.describe ApplicationHelper do
           feature_flags: FeatureFlags.for(create(:exhibit))
         )
         rendered = helper.custom_render_oembed_tag_async(document, 3, nil)
-        expect(rendered).to match(/&amp;suggested_search=The\+Query&amp;/)
+        expect(rendered).to include('&amp;suggested_search=The+Query&amp;')
       end
 
       it 'passes the maxheight from the block parameter' do

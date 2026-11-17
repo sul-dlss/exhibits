@@ -112,7 +112,7 @@ RSpec.describe SearchAcrossHelper do
 
       it 'includes an Unpublished badge for unpublished exhibits' do
         titles = helper.render_exhibit_title(document: doc, value: %w(abc 123 private))
-        expect(titles).to match(%r{>Secret</a> <span class="badge badge-warning})
+        expect(titles).to include('>Secret</a> <span class="badge badge-warning')
       end
     end
   end

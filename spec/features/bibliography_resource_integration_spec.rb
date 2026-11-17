@@ -261,7 +261,7 @@ RSpec.describe 'Bibliography resource integration test' do
 
     it 'parses the titles' do
       title_fields.each do |field_name|
-        expect(document[field_name].first).to match(/Language and Mortality/)
+        expect(document[field_name].first).to include('Language and Mortality')
       end
     end
 
