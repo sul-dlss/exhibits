@@ -23,7 +23,7 @@ RSpec.describe 'Exhibit Finder API' do
     it 'returns JSON exhibit representations' do
       get '/exhibit_finder/abc123'
 
-      json_response = JSON.parse(response.body)
+      json_response = response.parsed_body
       expect(json_response.length).to eq 1
       expect(json_response.first['slug']).to eq exhibit.slug
     end
@@ -49,7 +49,7 @@ RSpec.describe 'Exhibit Finder API' do
     it 'returns JSON exhibit representations' do
       get '/exhibit_finder?q=Exhib'
 
-      json_response = JSON.parse(response.body)
+      json_response = response.parsed_body
       expect(json_response.length).to eq 1
       expect(json_response.first['slug']).to eq exhibit.slug
     end
