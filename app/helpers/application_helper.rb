@@ -17,16 +17,6 @@ module ApplicationHelper
   end
 
   ##
-  # @param [String] manifest
-  def iiif_drag_n_drop(manifest, width: '30', document: nil)
-    link_url = format Settings.iiif_dnd_base_url, query: { manifest: manifest }.to_query
-    link_to link_url, class: 'iiif-dnd float-end', data: { turbolinks: false },
-                      aria: { label: "IIIF Drag-n-drop: #{document['title_display']}" }, draggable: true do
-      image_tag 'iiif-drag-n-drop.svg', class: 'border-0', width: width, alt: '', draggable: false
-    end
-  end
-
-  ##
   # Renders a viewer for an object with understanding of the context. In the
   # context of spotlight/catalog render the configured viewer. In other contexts
   # (feature page) render the default viewer. Now passes through a "block" from

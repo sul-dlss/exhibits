@@ -10,7 +10,7 @@ class EmbeddedMiradorComponent < ViewComponent::Base
 
   attr_reader :document, :block
 
-  delegate :iiif_drag_n_drop, :choose_canvas_id, :choose_initial_viewer_config, to: :helpers
+  delegate :choose_canvas_id, :choose_initial_viewer_config, to: :helpers
 
   def render?
     document.manifest_url.present?
