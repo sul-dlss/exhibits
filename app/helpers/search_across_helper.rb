@@ -2,14 +2,6 @@
 
 # Helpers for search across functionality
 module SearchAcrossHelper
-  def search_without_group
-    search_state.params_for_search.except(:group)
-  end
-
-  def search_with_group
-    search_state.params_for_search.merge(group: true)
-  end
-
   def in_search_across?
     controller.controller_name == 'search_across'
   end
