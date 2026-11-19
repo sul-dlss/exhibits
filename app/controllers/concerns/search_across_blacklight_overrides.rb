@@ -6,11 +6,6 @@
 module SearchAcrossBlacklightOverrides
   extend ActiveSupport::Concern
 
-  # Disable Blacklight implicit links to documents
-  def url_for_document(_doc)
-    '#'
-  end
-
   # Disable implicit links to documents
   def link_to_document(doc, field_or_opts, _opts = { counter: nil })
     case field_or_opts
@@ -43,10 +38,6 @@ module SearchAcrossBlacklightOverrides
     slugs = @response.aggregations[SolrDocument.exhibit_slug_field].items.map(&:value)
     exhibits = Spotlight::Exhibit.where(slug: slugs).sort_by { |e| slugs.index e.slug }
     super(exhibits)
-  end
-
-  def opensearch_catalog_url(*)
-    spotlight.opensearch_search_across_url(*)
   end
 
   ##
