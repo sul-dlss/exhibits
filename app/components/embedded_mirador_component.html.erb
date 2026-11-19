@@ -9,4 +9,4 @@
       scrolling: 'no',
       width: '100%'
       %>
-<%= iiif_drag_n_drop(manifest_url, document:) %>
+<%= render IiifDragAndDropComponent.new(manifest: manifest_url, document:) %>
