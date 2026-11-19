@@ -142,7 +142,7 @@ gem 'jsbundling-rails', '~> 1.3'
 
 gem 'rack-cors', '~> 2.0'
 
-# json 3 removed JSON.fast_generate, which blacklight-spotlight's ETL executor still
-# calls, and dropped the positional options hash from JSON.parse, which
-# ActiveSupport::JSON.decode still passes (fixed on rails main, unreleased).
+# json 3 removed JSON.fast_generate, which blacklight-spotlight (<= 6.0.0.rc3) still
+# calls in Spotlight::Etl::Executor#transform_data_for_debugging. Rails supports
+# json 3 as of 8.1.4.
 gem 'json', '< 3'
