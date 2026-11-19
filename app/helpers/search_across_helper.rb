@@ -2,10 +2,6 @@
 
 # Helpers for search across functionality
 module SearchAcrossHelper
-  def render_search_across_form?
-    %w(search_across exhibits).include?(controller_name) && action_name == 'index'
-  end
-
   def search_without_group
     search_state.params_for_search.except(:group)
   end

@@ -3,22 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe CatalogHelper do
-  describe '#has_thumbnail?' do
-    context 'for references' do
-      let(:document) { SolrDocument.new(format_main_ssim: ['Reference']) }
-
-      it 'is true' do
-        expect(has_thumbnail?(document)).to be true
-      end
-    end
-
-    context 'for canvases' do
-      let(:document) { SolrDocument.new(format_main_ssim: ['Page details']) }
-
-      it { expect(has_thumbnail?(document)).to be true }
-    end
-  end
-
   describe '#exhibits_default_thumbnail' do
     before do
       expect(helper).to receive_messages(

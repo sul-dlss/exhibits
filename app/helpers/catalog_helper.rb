@@ -10,18 +10,6 @@ module CatalogHelper
   # And also the "p" tag.
   PERMITTED_TAGS = %w(a dl dd dt i b em strong cite br p).freeze
 
-  # @note thumbnail handling moves to a presenter in Blacklight 7.
-  # Overriding Blacklight so that all references display thumbnails
-  #
-  # @param [SolrDocument] document
-  # @return [Boolean]
-  # rubocop:disable-next Naming/PredicatePrefix
-  def has_thumbnail?(document)
-    return super unless document.reference? || document.canvas?
-
-    true
-  end
-
   def exhibits_default_thumbnail(document, image_options)
     if document.reference?
       image_tag(
