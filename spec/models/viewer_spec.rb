@@ -9,12 +9,15 @@ RSpec.describe Viewer do
     expect(described_class.reflect_on_association(:exhibit).macro).to eq :belongs_to
   end
 
-  it 'has the correct partial path based on viewer_type' do
-    viewer.viewer_type = 'sul-embed'
-    expect(viewer.to_partial_path).to eq 'oembed_default'
-    viewer.viewer_type = 'mirador'
-    expect(viewer.to_partial_path).to eq '/viewers/mirador3'
-    viewer.viewer_type = nil
-    expect(viewer.to_partial_path).to eq 'oembed_default'
+  describe '#mirador?' do
+    it 'is true for the mirador viewer types' do
+      expect(described_class.new(viewer_type: 'mirador3')).to be_mirador
+      expect(described_class.new(viewer_type: 'mirador')).to be_mirador
+    end
+
+    it 'is false for sul-embed or an unset viewer type' do
+      expect(described_class.new(viewer_type: 'sul-embed')).not_to be_mirador
+      expect(described_class.new(viewer_type: nil)).not_to be_mirador
+    end
   end
 end

@@ -10,15 +10,7 @@ class Viewer < ApplicationRecord
             },
             allow_blank: true
 
-  def default_viewer_path
-    'oembed_default'
-  end
-
-  def to_partial_path
-    return default_viewer_path if viewer_type == 'sul-embed' || viewer_type.nil?
-
-    modified_viewer_type = viewer_type == 'mirador' ? 'mirador3' : viewer_type
-
-    "/viewers/#{modified_viewer_type}"
+  def mirador?
+    %w(mirador mirador3).include?(viewer_type)
   end
 end

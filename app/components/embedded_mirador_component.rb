@@ -10,7 +10,7 @@ class EmbeddedMiradorComponent < ViewComponent::Base
 
   attr_reader :document, :block
 
-  delegate :iiif_drag_n_drop, :choose_canvas_id, :choose_initial_viewer_config, to: :helpers
+  delegate :iiif_drag_n_drop, to: :helpers
 
   def render?
     document.manifest_url.present?
@@ -23,8 +23,8 @@ class EmbeddedMiradorComponent < ViewComponent::Base
   def parameters
     {
       url: manifest_url,
-      canvas_id: choose_canvas_id(block) || params[:canvas_id],
-      iiif_initial_viewer_config: choose_initial_viewer_config(block) || params[:iiif_initial_viewer_config]
+      canvas_id: block&.canvas_id || params[:canvas_id],
+      iiif_initial_viewer_config: block&.initial_viewer_config || params[:iiif_initial_viewer_config]
     }.compact_blank
   end
 
