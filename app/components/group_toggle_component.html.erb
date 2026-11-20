@@ -1,0 +1,4 @@
+<div class="btn-group search-group" role="group" aria-label="Group results">
+  <%= link_to 'All results', url_for(search_without_group), class: "btn btn-sm btn-primary #{'active' unless grouped?}" %>
+  <%= link_to 'Grouped by exhibit', url_for(search_with_group), class: "btn btn-sm btn-primary #{'active' if grouped?}" %>
+</div>
