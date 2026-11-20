@@ -12,10 +12,6 @@ module ApplicationHelper
     Array(value).map { |v| collection_title(v) }.to_sentence
   end
 
-  def document_leaflet_map(document:, **)
-    render_document_partial(document, 'show_leaflet_map_wrapper')
-  end
-
   ##
   # @param [String] manifest
   def iiif_drag_n_drop(manifest, width: '30', document: nil)
@@ -83,11 +79,5 @@ module ApplicationHelper
     else
       document.first(blacklight_config.show.oembed_field)
     end
-  end
-
-  ##
-  # Splits an array of strings on internal whitespace breaks
-  def split_on_white_space(values)
-    values.map { |v| v.gsub('&#10;', "\n").split("\n") }.flatten.compact
   end
 end

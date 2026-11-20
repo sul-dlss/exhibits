@@ -247,7 +247,7 @@ class CatalogController < ApplicationController
 
     # The inline map should only be displayed on the catalog#show page.
     config.add_index_field config.geometry_field, label: 'Inline Map',
-                                                  helper_method: :document_leaflet_map,
+                                                  component: LeafletMapFieldComponent,
                                                   immutable: config.view.keys.index_with { false }
 
     config.add_index_field 'title_full_display', label: 'Title', field: 'title_display'
@@ -261,7 +261,8 @@ class CatalogController < ApplicationController
     config.add_index_field 'author_corp_display', label: 'Corporate Author'
     config.add_index_field 'author_meeting_display', label: 'Meeting Author'
     config.add_index_field 'publisher_ssim', label: 'Publisher'
-    config.add_index_field 'summary_display', label: 'Description', helper_method: :paragraph_joined_content
+    config.add_index_field 'summary_display', label: 'Description', component: ParagraphFieldComponent,
+                                              values: ->(*args) { ParagraphFieldComponent.values(*args) }
     config.add_index_field 'topic_display', label: 'Topic'
     config.add_index_field 'subject_other_display', label: 'Subject'
     config.add_index_field 'language', label: 'Language'
@@ -300,7 +301,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'range_labels_tesim', label: 'Section', if: lambda { |context, *_args|
       context.feature_flags.add_parker_index_fields?
     }
-    config.add_index_field 'related_document_id_ssim', label: 'Manuscript', helper_method: :manuscript_link,
+    config.add_index_field 'related_document_id_ssim', label: 'Manuscript', component: ManuscriptLinkFieldComponent,
                                                        if: lambda { |context, *_args|
                                                          context.feature_flags.add_parker_index_fields?
                                                        }
@@ -314,7 +315,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'ref_type_ssm', label: 'Reference Type'
     # This was added for the Feigbenbaum exhibit.  It includes any general <note> from
     #  the MODs that do not have attributes.  It is used for display and is not facetable.
-    config.add_index_field 'general_notes_ssim', label: 'Notes', helper_method: :notes_wrap
+    config.add_index_field 'general_notes_ssim', label: 'Notes', component: NotesFieldComponent
     config.add_index_field 'collection_titles_ssim', label: 'Collection'
     # Deprecated collection title field. We must keep this field because some exhibits still use it.
     # It stores the collection title prefixed with the collection druid, which is not desirable.
@@ -328,7 +329,8 @@ class CatalogController < ApplicationController
     config.add_index_field 'dimensions_ssim', label: 'Dimensions'
     config.add_index_field 'provenance_ssim', label: 'Provenance'
     config.add_index_field 'incipit_tesim', label: 'Incipit'
-    config.add_index_field 'toc_search', label: 'Table of contents', helper_method: :table_of_contents_separator
+    config.add_index_field 'toc_search', label: 'Table of contents', component: TableOfContentsFieldComponent,
+                                         values: ->(*args) { TableOfContentsFieldComponent.values(*args) }
     config.add_index_field 'manuscript_number_tesim', label: 'Manuscript number'
     config.add_index_field(
       'full_text_tesimv',
@@ -341,7 +343,7 @@ class CatalogController < ApplicationController
         document_has_full_text_and_search_is_query?(*args)
       end,
       label: 'Sample matches in document text',
-      helper_method: :render_fulltext_highlight,
+      component: FullTextHighlightFieldComponent,
       list: false
     )
     # "fielded" search configuration. Used by pulldown among other places.
