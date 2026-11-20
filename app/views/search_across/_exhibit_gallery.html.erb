@@ -1,5 +1,9 @@
 <% # container for all documents in index gallery view -%>
 
 <div class="exhibit-<%= document_index_view_type %> row row-cols-1 row-cols-sm-2 row-cols-md-3">
-  <%= render partial: 'exhibit', layout: 'exhibit_gallery_col', collection: documents.sort_by { |x| exhibit_metadata.dig(x.slug, 'title') if params[:sort] != 'count' } %>
+  <% documents.sort_by { |x| exhibit_metadata.dig(x.slug, 'title') if params[:sort] != 'count' }.each do |exhibit| %>
+    <div class="col mb-4">
+      <%= render ExhibitCardComponent.new(exhibit: exhibit, response: @response, search_state: search_state, view_type: document_index_view_type) %>
+    </div>
+  <% end %>
 </div>
