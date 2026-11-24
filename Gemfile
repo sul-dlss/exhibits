@@ -47,7 +47,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'solr_wrapper'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 2.0'
 
