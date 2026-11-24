@@ -14,20 +14,6 @@ module SearchAcrossHelper
     controller.controller_name == 'search_across'
   end
 
-  # Strip out parameters (particularly facets) that don't make sense to pass
-  # along to the exhibit-specific search endpoint
-  def exhibit_search_state_params(my_search_state = search_state)
-    exhibit_search_state_params = my_search_state.to_h.except(:group, :page, :controller, :action, :search_field)
-    exhibit_facet_keys = CatalogController.blacklight_config.facet_fields.keys
-    exhibit_search_state_params[:f] &&= exhibit_search_state_params[:f].slice(*exhibit_facet_keys)
-    exhibit_search_state_params
-  end
-
-  def unpublished_badge(**html_options)
-    css_class = html_options.delete(:class)
-    content_tag('span', class: "badge text-bg-warning #{css_class}", **html_options) { t('catalog.index.unpublished') }
-  end
-
   def exhibit_metadata
     @exhibit_metadata ||= begin
       attrs = %i(slug title description id published)
@@ -37,16 +23,6 @@ module SearchAcrossHelper
       end
       data.index_by { |x| x['slug'] }
     end
-  end
-
-  def render_exhibit_title(document:, value:, **)
-    exhibit_links = exhibit_metadata.slice(*value).values.map do |x|
-      link = link_to(x['title'] || x['slug'], spotlight.exhibit_solr_document_path(x['slug'], document.id))
-      badge = unpublished_badge(class: 'ms-1') unless x['published']
-
-      safe_join([link, badge], ' ')
-    end
-    safe_join exhibit_links, '<br/>'.html_safe
   end
 
   def render_exhibit_title_facet(value)
