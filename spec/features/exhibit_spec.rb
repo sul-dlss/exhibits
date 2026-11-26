@@ -83,5 +83,15 @@ RSpec.describe 'an exhibit' do
       click_on 'Cancel'
       expect(page).not_to have_css('#report-problem-form')
     end
+
+    it 'marks required fields with the html5 required attribute only' do
+      visit spotlight.new_exhibit_resource_path(exhibit)
+
+      click_on 'Feedback'
+      expect(page).to have_css('#contact_form_message[required]')
+      expect(page).to have_css('#contact_form_email[required]')
+      expect(page).not_to have_css('#contact_form_message[aria-required]')
+      expect(page).not_to have_css('#contact_form_email[aria-required]')
+    end
   end
 end
